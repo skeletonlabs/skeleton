@@ -20,8 +20,8 @@
 
 	const attributes = $derived(
 		mergeProps(accordion().getItemContentProps(itemProps()), rest, {
-			class: classesAccordion.content
-		})
+			class: classesAccordion.content,
+		}),
 	);
 </script>
 

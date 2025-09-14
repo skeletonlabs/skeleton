@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(switch_().getHiddenInputProps(), rest, {
-			class: classesSwitch.hiddenInput
-		})
+			class: classesSwitch.hiddenInput,
+		}),
 	);
 </script>
 

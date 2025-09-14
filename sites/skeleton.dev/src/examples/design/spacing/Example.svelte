@@ -33,7 +33,7 @@
 		{ value: '60', width: 'w-60' },
 		{ value: '64', width: 'w-64' },
 		{ value: '72', width: 'w-72' },
-		{ value: '80', width: 'w-80' }
+		{ value: '80', width: 'w-80' },
 	];
 
 	// Reactive

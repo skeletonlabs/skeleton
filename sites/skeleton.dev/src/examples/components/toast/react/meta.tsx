@@ -1,7 +1,7 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 import { Skull } from 'lucide-react';
 
-export default function () {
+export default function Meta() {
 	const toaster = createToaster({});
 
 	return (
@@ -13,8 +13,8 @@ export default function () {
 						title: 'Title',
 						description: 'This is a description.',
 						meta: {
-							icon: <Skull className="size-8" />
-						}
+							icon: <Skull className="size-8" />,
+						},
 					})
 				}
 			>

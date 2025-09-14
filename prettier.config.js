@@ -8,17 +8,17 @@ export default {
 		{
 			files: '*.astro',
 			options: {
-				parser: 'astro'
-			}
+				parser: 'astro',
+			},
 		},
 		{
 			files: '*.svelte',
 			options: {
-				parser: 'svelte'
-			}
-		}
+				parser: 'svelte',
+			},
+		},
 	],
 	printWidth: 140,
 	singleQuote: true,
-	useTabs: true
+	useTabs: true,
 };

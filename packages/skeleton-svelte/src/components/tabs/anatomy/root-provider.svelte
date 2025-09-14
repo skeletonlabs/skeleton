@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getRootProps(), rest, {
-			class: classesTabs.root
-		})
+			class: classesTabs.root,
+		}),
 	);
 
 	TabsRootContext.provide(() => tabs());

@@ -9,7 +9,7 @@
 		onclick={() =>
 			toaster.info({
 				title: 'Info',
-				description: 'This is an info toast.'
+				description: 'This is an info toast.',
 			})}
 	>
 		Info
@@ -19,7 +19,7 @@
 		onclick={() =>
 			toaster.success({
 				title: 'Success',
-				description: 'This is a success toast.'
+				description: 'This is a success toast.',
 			})}
 	>
 		Success
@@ -29,7 +29,7 @@
 		onclick={() =>
 			toaster.warning({
 				title: 'Warning',
-				description: 'This is a warning toast.'
+				description: 'This is a warning toast.',
 			})}
 	>
 		Warning
@@ -39,7 +39,7 @@
 		onclick={() =>
 			toaster.error({
 				title: 'Error',
-				description: 'This is an error toast.'
+				description: 'This is an error toast.',
 			})}
 	>
 		Error

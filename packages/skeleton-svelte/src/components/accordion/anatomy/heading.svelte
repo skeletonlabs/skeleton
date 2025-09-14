@@ -23,8 +23,8 @@
 
 	const attributes = $derived(
 		mergeProps(rest, {
-			class: classesAccordion.heading
-		})
+			class: classesAccordion.heading,
+		}),
 	);
 </script>
 

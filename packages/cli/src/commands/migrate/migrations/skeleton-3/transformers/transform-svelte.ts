@@ -30,15 +30,15 @@ function transformScript(s: MagicString, script: AST.Script | null) {
 	) {
 		return {
 			meta: {
-				skeletonImports: []
-			}
+				skeletonImports: [],
+			},
 		};
 	}
 	const content = s.original.slice(script.content.start, script.content.end);
 	const transformed = transformModule(content);
 	s.overwrite(script.content.start, script.content.end, transformed.code);
 	return {
-		meta: transformed.meta
+		meta: transformed.meta,
 	};
 }
 
@@ -90,27 +90,27 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 					}
 				}
 				ctx.next();
-			}
-		}
+			},
+		},
 	);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 
 function transformSvelte(code: string) {
 	const s = new MagicString(code);
 	const root = parse(code, {
-		modern: true
+		modern: true,
 	});
 	const skeletonImports = [
 		...transformScript(s, root.module).meta.skeletonImports,
-		...transformScript(s, root.instance).meta.skeletonImports
+		...transformScript(s, root.instance).meta.skeletonImports,
 	];
 	transformFragment(s, root.fragment, skeletonImports);
 	transformCss(s, root.css);
 	return {
-		code: s.toString()
+		code: s.toString(),
 	};
 }
 

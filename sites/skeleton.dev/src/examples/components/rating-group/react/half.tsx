@@ -1,6 +1,6 @@
 import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Half() {
 	return (
 		<RatingGroup count={5} allowHalf={true}>
 			<RatingGroup.Control>

@@ -19,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(api().getRootProps(), rest, {
-			class: classesAvatar.root
-		})
+			class: classesAvatar.root,
+		}),
 	);
 
 	AvatarRootContext.provide(() => api());

@@ -14,5 +14,5 @@ export const Toast = Object.assign(Root, {
 	Title: Title,
 	Description: Description,
 	ActionTrigger: ActionTrigger,
-	CloseTrigger: CloseTrigger
+	CloseTrigger: CloseTrigger,
 });

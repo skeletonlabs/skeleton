@@ -5,15 +5,15 @@ import { AvatarRootContext } from '../modules/root-context';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AvatarFallbackProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> { }
+export interface AvatarFallbackProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function (props: AvatarFallbackProps) {
+export default function AvatarFallback(props: AvatarFallbackProps) {
 	const avatar = use(AvatarRootContext);
 
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(avatar.getFallbackProps(), rest, {
-		className: classesAvatar.fallback
+		className: classesAvatar.fallback,
 	});
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;

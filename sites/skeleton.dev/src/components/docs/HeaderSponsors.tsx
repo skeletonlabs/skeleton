@@ -11,7 +11,7 @@ import {
 	useDismiss,
 	useRole,
 	useInteractions,
-	FloatingFocusManager
+	FloatingFocusManager,
 } from '@floating-ui/react';
 // Icons
 import { ArrowUpRight as IconArrow } from 'lucide-react';
@@ -26,7 +26,7 @@ export const HeaderSponsors: React.FC = () => {
 		onOpenChange: setIsOpen,
 		middleware: [offset(8), flip(), shift()],
 		placement: 'top-end',
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context);

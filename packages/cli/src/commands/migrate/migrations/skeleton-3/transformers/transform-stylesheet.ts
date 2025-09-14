@@ -8,7 +8,7 @@ function transformStyleSheet(code: string) {
 	});
 
 	return {
-		code: parsed.toString()
+		code: parsed.toString(),
 	};
 }
 

@@ -21,8 +21,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getTriggerProps(triggerProps), rest, {
-			class: classesTabs.trigger
-		})
+			class: classesTabs.trigger,
+		}),
 	);
 </script>
 

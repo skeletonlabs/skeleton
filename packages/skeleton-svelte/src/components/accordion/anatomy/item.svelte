@@ -22,8 +22,8 @@
 
 	const attributes = $derived(
 		mergeProps(accordion().getItemProps(itemProps), rest, {
-			class: classesAccordion.item
-		})
+			class: classesAccordion.item,
+		}),
 	);
 
 	AccordionItemContext.provide(() => itemProps);

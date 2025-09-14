@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(ratingGroup().getControlProps(), rest, {
-			class: classesRatingGroup.label
-		})
+			class: classesRatingGroup.label,
+		}),
 	);
 </script>
 

@@ -6,5 +6,5 @@ import Fallback from '../anatomy/fallback';
 export const Avatar = Object.assign(Root, {
 	Context: RootContext,
 	Image: Image,
-	Fallback: Fallback
+	Fallback: Fallback,
 });

@@ -12,7 +12,7 @@ function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 		.scale([
 			chroma.valid(colorHigh) ? chroma(colorHigh) : '#FFFFFF',
 			chroma.valid(colorMed) ? chroma(colorMed) : '#CCCCCC',
-			chroma.valid(colorLow) ? chroma(colorLow) : '#000000'
+			chroma.valid(colorLow) ? chroma(colorLow) : '#000000',
 		])
 		.colors(11);
 }
@@ -87,7 +87,7 @@ export function seedColor(colorName: string, seedColor: string) {
 	const colorArray = [
 		chroma(seedColor).brighten(2.5).hex(), // high
 		chroma(seedColor).hex(), // med
-		chroma(seedColor).darken(2.5).hex() // low
+		chroma(seedColor).darken(2.5).hex(), // low
 	];
 	// Generate Color Scale
 	const colorScale = genColorScale(colorArray[0], colorArray[1], colorArray[2]);

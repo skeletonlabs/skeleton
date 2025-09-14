@@ -8,5 +8,5 @@ export const ProgressLinear = Object.assign(Root, {
 	Context: RootContext,
 	Label: Label,
 	Track: Track,
-	Range: Range
+	Range: Range,
 });

@@ -6,5 +6,5 @@ export default defineConfig({
 	logLevel: 'silent',
 	unbundle: true,
 	copy: ['src/index.css'],
-	plugins: [Raw(), Macros()]
+	plugins: [Raw(), Macros()],
 });

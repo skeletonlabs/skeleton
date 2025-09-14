@@ -10,5 +10,5 @@ export const Switch = Object.assign(Root, {
 	Control: Control,
 	Thumb: Thumb,
 	Label: Label,
-	HiddenInput: HiddenInput
+	HiddenInput: HiddenInput,
 });

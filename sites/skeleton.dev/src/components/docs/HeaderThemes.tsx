@@ -10,7 +10,7 @@ import {
 	useDismiss,
 	useRole,
 	useInteractions,
-	FloatingFocusManager
+	FloatingFocusManager,
 } from '@floating-ui/react';
 // Themes
 import { themes } from '@skeletonlabs/skeleton-common';
@@ -33,7 +33,7 @@ export const HeaderThemes: React.FC = () => {
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [offset(8), flip(), shift()],
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context);

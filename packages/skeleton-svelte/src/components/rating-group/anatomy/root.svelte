@@ -21,13 +21,13 @@
 	const id = $props.id();
 	const ratingGroup = useRatingGroup(() => ({
 		id: id,
-		...ratingGroupProps
+		...ratingGroupProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(ratingGroup().getRootProps(), rest, {
-			class: classesRatingGroup.root
-		})
+			class: classesRatingGroup.root,
+		}),
 	);
 
 	RatingGroupRootContext.provide(() => ratingGroup());

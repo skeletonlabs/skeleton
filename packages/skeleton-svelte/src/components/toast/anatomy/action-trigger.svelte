@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(toast().getActionTriggerProps(), rest, {
-			class: classesToast.actionTrigger
-		})
+			class: classesToast.actionTrigger,
+		}),
 	);
 </script>
 

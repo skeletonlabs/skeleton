@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(switch_().getLabelProps(), rest, {
-			class: classesSwitch.label
-		})
+			class: classesSwitch.label,
+		}),
 	);
 </script>
 

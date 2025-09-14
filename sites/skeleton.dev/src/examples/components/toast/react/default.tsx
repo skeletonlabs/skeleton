@@ -1,6 +1,6 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Default() {
 	const toaster = createToaster({});
 
 	return (
@@ -10,7 +10,7 @@ export default function () {
 				onClick={() =>
 					toaster.info({
 						title: 'Title',
-						description: 'This is a description.'
+						description: 'This is a description.',
 					})
 				}
 			>

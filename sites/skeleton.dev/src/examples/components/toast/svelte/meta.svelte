@@ -16,8 +16,8 @@
 			title: 'Title',
 			description: 'This is a description.',
 			meta: {
-				icon: skull
-			}
+				icon: skull,
+			},
 		})}
 >
 	Toast

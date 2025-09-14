@@ -11,14 +11,14 @@ export interface RatingGroupRootProps
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function (props: RatingGroupRootProps) {
+export default function RatingGroupRoot(props: RatingGroupRootProps) {
 	const [ratingGroupProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const ratingGroup = useRatingGroup(ratingGroupProps);
 
 	const attributes = mergeProps(ratingGroup.getRootProps(), rest, {
-		className: classesRatingGroup.root
+		className: classesRatingGroup.root,
 	});
 
 	return (

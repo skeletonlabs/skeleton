@@ -5,15 +5,15 @@ import { classesSwitch } from '@skeletonlabs/skeleton-common';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface SwitchThumbProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> { }
+export interface SwitchThumbProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function (props: SwitchThumbProps) {
+export default function SwitchThumb(props: SwitchThumbProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(switch_.getThumbProps(), rest, {
-		className: classesSwitch.thumb
+		className: classesSwitch.thumb,
 	});
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;

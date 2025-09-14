@@ -8,10 +8,6 @@ import react from 'eslint-plugin-react';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import prettier from 'eslint-plugin-prettier/recommended';
 
-/**
- * @see https://eslint.org/docs/latest/use/configure/
- * @type {import('eslint').Linter.Config}
- */
 export default defineConfig(
 	globalIgnores([
 		'**/node_modules/',
@@ -22,7 +18,7 @@ export default defineConfig(
 		'**/.astro/',
 		'**/.next/',
 		'**/.vercel/',
-		'**/next-env.d.ts'
+		'**/next-env.d.ts',
 	]),
 	prettier,
 	javascript.configs.recommended,
@@ -33,18 +29,32 @@ export default defineConfig(
 		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
 		languageOptions: {
 			parserOptions: {
-				parser: typescript.parser
+				parser: typescript.parser,
 			},
 			globals: {
 				...globals.browser,
-				...globals.node
-			}
-		}
+				...globals.node,
+			},
+		},
 	},
 	{
 		files: ['**/*.jsx', '**/*.tsx'],
 		...react.configs.flat.recommended,
 		...react.configs.flat['jsx-runtime'],
-		...reactRefresh.configs.recommended
-	}
+		...reactRefresh.configs.recommended,
+	},
+	{
+		rules: {
+			'sort-imports': [
+				'warn',
+				{
+					ignoreCase: false,
+					ignoreDeclarationSort: false,
+					ignoreMemberSort: false,
+					memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+					allowSeparatedGroups: true,
+				},
+			],
+		},
+	},
 );

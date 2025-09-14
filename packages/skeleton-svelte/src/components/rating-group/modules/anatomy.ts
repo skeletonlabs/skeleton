@@ -12,5 +12,5 @@ export const RatingGroup = Object.assign(Root, {
 	Label: Label,
 	Control: Control,
 	Item: Item,
-	HiddenInput: HiddenInput
+	HiddenInput: HiddenInput,
 });

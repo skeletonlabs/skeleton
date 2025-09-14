@@ -27,7 +27,7 @@ const { frontmatter, headings } = Astro.props satisfies Props;
 // Layout Props
 const layoutProps = {
 	title: frontmatter.title,
-	classList: 'grid grid-rows-[auto_1fr]'
+	classList: 'grid grid-rows-[auto_1fr]',
 };
 // GitHub Settings
 const branch = 'main';
@@ -37,7 +37,7 @@ const urls = {
 	githubDocsUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${site}/src/content`,
 	githubSkeletonUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`,
 	githubSvelteUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`,
-	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`
+	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`,
 };
 ---
 

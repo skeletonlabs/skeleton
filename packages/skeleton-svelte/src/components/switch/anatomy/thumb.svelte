@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(switch_().getThumbProps(), rest, {
-			class: classesSwitch.thumb
-		})
+			class: classesSwitch.thumb,
+		}),
 	);
 </script>
 

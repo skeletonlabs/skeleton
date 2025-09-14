@@ -7,16 +7,16 @@ import { AccordionRootContext } from '../modules/root-context';
 import { AccordionItemContext } from '../modules/item-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
-export interface AccordionItemProps extends ItemProps, PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> { }
+export interface AccordionItemProps extends ItemProps, PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function (props: AccordionItemProps) {
+export default function AccordionItem(props: AccordionItemProps) {
 	const accordion = use(AccordionRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const attributes = mergeProps(accordion.getItemProps(itemProps), rest, {
-		className: classesAccordion.item
+		className: classesAccordion.item,
 	});
 
 	return (

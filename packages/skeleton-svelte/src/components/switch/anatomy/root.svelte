@@ -21,13 +21,13 @@
 	const id = $props.id();
 	const switch_ = useSwitch(() => ({
 		id: id,
-		...switchProps
+		...switchProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(switch_().getRootProps(), rest, {
-			class: classesSwitch.root
-		})
+			class: classesSwitch.root,
+		}),
 	);
 
 	SwitchRootContext.provide(() => switch_());

@@ -6,7 +6,7 @@ export interface AvatarRootContextProps {
 	children: (avatar: ReturnType<typeof useAvatar>) => ReactNode;
 }
 
-export default function (props: AvatarRootContextProps) {
+export default function AvatarRootContextComponent(props: AvatarRootContextProps) {
 	const avatar = use(AvatarRootContext);
 
 	const { children } = props;

@@ -1,8 +1,8 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Placement() {
 	const toaster = createToaster({
-		placement: 'bottom-end'
+		placement: 'bottom-end',
 	});
 
 	return (
@@ -12,7 +12,7 @@ export default function () {
 				onClick={() =>
 					toaster.info({
 						title: 'Title',
-						description: 'This is a description.'
+						description: 'This is a description.',
 					})
 				}
 			>

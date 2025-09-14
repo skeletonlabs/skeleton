@@ -9,7 +9,7 @@
 	onclick={() =>
 		toaster.info({
 			title: 'Title',
-			description: 'This is a description.'
+			description: 'This is a description.',
 		})}
 >
 	Toast

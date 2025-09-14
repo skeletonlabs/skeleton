@@ -6,7 +6,7 @@ export interface SwitchRootContextProps {
 	children: (switch_: ReturnType<typeof useSwitch>) => ReactNode;
 }
 
-export default function (props: SwitchRootContextProps) {
+export default function SwitchRootContextComponent(props: SwitchRootContextProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { children } = props;

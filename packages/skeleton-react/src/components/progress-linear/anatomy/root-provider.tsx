@@ -9,11 +9,11 @@ export interface ProgressLinearRootProviderProps extends PropsWithElement<'div'>
 	value: ReturnType<typeof useProgressLinear>;
 }
 
-export default function (props: ProgressLinearRootProviderProps) {
+export default function ProgressLinearRootProvider(props: ProgressLinearRootProviderProps) {
 	const { element, children, value: progressLinear, ...rest } = props;
 
 	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
-		className: classesProgressLinear.root
+		className: classesProgressLinear.root,
 	});
 
 	return (

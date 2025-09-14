@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(ratingGroup().getHiddenInputProps(), rest, {
-			class: classesRatingGroup.hiddenInput
-		})
+			class: classesRatingGroup.hiddenInput,
+		}),
 	);
 </script>
 

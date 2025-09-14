@@ -11,14 +11,14 @@ export interface ProgressLinearRootProps
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function (props: ProgressLinearRootProps) {
+export default function ProgressLinearRoot(props: ProgressLinearRootProps) {
 	const [progressLinearProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const progressLinear = useProgressLinear(progressLinearProps);
 
 	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
-		className: classesProgressLinear.root
+		className: classesProgressLinear.root,
 	});
 
 	return (

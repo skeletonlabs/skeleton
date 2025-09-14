@@ -46,8 +46,8 @@
 
 	const attributes = $derived(
 		mergeProps(ratingGroup().getItemProps(itemProps), rest, {
-			class: classesRatingGroup.item
-		})
+			class: classesRatingGroup.item,
+		}),
 	);
 </script>
 

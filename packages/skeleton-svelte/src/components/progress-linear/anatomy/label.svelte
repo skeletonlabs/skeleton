@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(progressLinear().getLabelProps(), rest, {
-			class: classesProgressLinear.label
-		})
+			class: classesProgressLinear.label,
+		}),
 	);
 </script>
 

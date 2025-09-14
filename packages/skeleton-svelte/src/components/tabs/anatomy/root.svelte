@@ -20,13 +20,13 @@
 	const id = $props.id();
 	const tabs = useTabs(() => ({
 		id: id,
-		...tabsProps
+		...tabsProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(tabs().getRootProps(), rest, {
-			class: classesTabs.root
-		})
+			class: classesTabs.root,
+		}),
 	);
 
 	TabsRootContext.provide(() => tabs());

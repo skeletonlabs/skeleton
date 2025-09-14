@@ -15,10 +15,10 @@
 				onClick: () => {
 					toaster.success({
 						title: 'Task undone',
-						description: 'The task has been undone.'
+						description: 'The task has been undone.',
 					});
-				}
-			}
+				},
+			},
 		})}
 >
 	Toast

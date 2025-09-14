@@ -25,14 +25,14 @@
 	const service = useMachine(machine, () => ({
 		id: id,
 		parent: group(),
-		...toastProps
+		...toastProps,
 	}));
 	const toast = $derived(connect(service, normalizeProps));
 
 	const attributes = $derived(
 		mergeProps(toast.getRootProps(), rest, {
-			class: classesToast.root
-		})
+			class: classesToast.root,
+		}),
 	);
 
 	ToastRootContext.provide(() => toast);

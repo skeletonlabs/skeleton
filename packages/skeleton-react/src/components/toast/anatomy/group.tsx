@@ -12,17 +12,17 @@ export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes
 	children?: (toast: Props) => JSX.Element | null;
 }
 
-export default function (props: ToastGroupProps) {
+export default function ToastGroup(props: ToastGroupProps) {
 	const { element, children, toaster, ...rest } = props;
 
 	const service = useMachine(group.machine, {
 		id: useId(),
-		store: toaster
+		store: toaster,
 	});
 	const api = group.connect(service, normalizeProps);
 
 	const attributes = mergeProps(api.getGroupProps(), rest, {
-		className: classesToast.group
+		className: classesToast.group,
 	});
 
 	return (

@@ -7,7 +7,7 @@ import {
 	formatBackgrounds,
 	formatColors,
 	formatSpacing,
-	formatTypography
+	formatTypography,
 } from '$lib/utils/generator/format-output';
 import {
 	settingsCore,
@@ -15,7 +15,7 @@ import {
 	settingsBackgrounds,
 	settingsTypography,
 	settingsSpacing,
-	settingsEdges
+	settingsEdges,
 } from '$lib/state/generator.svelte';
 
 export function generateTheme() {

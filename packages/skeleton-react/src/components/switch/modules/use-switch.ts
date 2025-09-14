@@ -5,7 +5,7 @@ import { useId } from 'react';
 export function useSwitch(props: Omit<Props, 'id'>): Api {
 	const service = useMachine(machine, {
 		id: useId(),
-		...props
+		...props,
 	});
 	return connect(service, normalizeProps);
 }

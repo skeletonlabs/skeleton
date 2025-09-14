@@ -23,14 +23,14 @@
 	const id = $props.id();
 	const service = useMachine(group.machine, () => ({
 		id: id,
-		store: toaster
+		store: toaster,
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
 
 	const attributes = $derived(
 		mergeProps(api.getGroupProps(), rest, {
-			class: classesToast.group
-		})
+			class: classesToast.group,
+		}),
 	);
 
 	ToastGroupContext.provide(() => service);

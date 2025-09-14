@@ -169,7 +169,7 @@ async function processGetStarted(): Promise<string> {
 
 async function processGuidesGeneral(): Promise<string> {
 	const guidesDocs = (await getCollection('docs')).filter(
-		(entry) => entry.id.startsWith('guides/') && !entry.id.startsWith('guides/figma/') && !entry.id.startsWith('guides/cookbook/')
+		(entry) => entry.id.startsWith('guides/') && !entry.id.startsWith('guides/figma/') && !entry.id.startsWith('guides/cookbook/'),
 	);
 	let guidesContent = '';
 	for (const doc of guidesDocs) {

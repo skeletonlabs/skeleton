@@ -5,15 +5,15 @@ import { ProgressLinearRootContext } from '../modules/root-context';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface ProgressLinearRangeProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> { }
+export interface ProgressLinearRangeProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
-export default function (props: ProgressLinearRangeProps) {
+export default function ProgressLinearRange(props: ProgressLinearRangeProps) {
 	const progressLinear = use(ProgressLinearRootContext);
 
 	const { element, ...rest } = props;
 
 	const attributes = mergeProps(progressLinear.getRangeProps(), rest, {
-		className: classesProgressLinear.range
+		className: classesProgressLinear.range,
 	});
 
 	return element ? element(attributes) : <div {...attributes} />;

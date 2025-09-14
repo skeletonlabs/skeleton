@@ -23,16 +23,16 @@
 		toaster.promise(generatePositiveNumber(), {
 			loading: {
 				title: 'Loading...',
-				description: 'Please wait while generating your number'
+				description: 'Please wait while generating your number',
 			},
 			success: (number) => ({
 				title: 'Success',
-				description: `Your number is ${number}`
+				description: `Your number is ${number}`,
 			}),
 			error: (number) => ({
 				title: 'Error',
-				description: `Your number is ${number}`
-			})
+				description: `Your number is ${number}`,
+			}),
 		})}
 >
 	Toast

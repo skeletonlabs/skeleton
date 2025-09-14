@@ -8,14 +8,14 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 
 export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function (props: TabsRootProps) {
+export default function TabsRoot(props: TabsRootProps) {
 	const [tabsProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const tabs = useTabs(tabsProps);
 
 	const attributes = mergeProps(tabs.getRootProps(), rest, {
-		className: classesTabs.root
+		className: classesTabs.root,
 	});
 
 	return (

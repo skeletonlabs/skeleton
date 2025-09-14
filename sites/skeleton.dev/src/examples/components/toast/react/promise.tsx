@@ -24,16 +24,16 @@ export default function Promise_() {
 					toaster.promise(generatePositiveNumber(), {
 						loading: {
 							title: 'Loading...',
-							description: 'Please wait while generating your number'
+							description: 'Please wait while generating your number',
 						},
 						success: (number) => ({
 							title: 'Success',
-							description: `Your number is ${number.toFixed(2)}`
+							description: `Your number is ${number.toFixed(2)}`,
 						}),
 						error: (number) => ({
 							title: 'Error',
-							description: `Your number is ${(number as number).toFixed(2)}`
-						})
+							description: `Your number is ${(number as number).toFixed(2)}`,
+						}),
 					})
 				}
 			>

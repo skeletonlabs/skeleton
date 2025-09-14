@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(switch_().getControlProps(), rest, {
-			class: classesSwitch.control
-		})
+			class: classesSwitch.control,
+		}),
 	);
 </script>
 

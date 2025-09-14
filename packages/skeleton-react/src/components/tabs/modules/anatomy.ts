@@ -12,5 +12,5 @@ export const Tabs = Object.assign(Root, {
 	List: List,
 	Trigger: Trigger,
 	Indicator: Indicator,
-	Content: Content
+	Content: Content,
 });

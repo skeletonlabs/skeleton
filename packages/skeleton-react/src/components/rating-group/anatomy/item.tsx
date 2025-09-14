@@ -30,7 +30,7 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 	full?: ReactNode;
 }
 
-export default function (props: RatingGroupItemProps) {
+export default function RatingGroupItem(props: RatingGroupItemProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
@@ -39,7 +39,7 @@ export default function (props: RatingGroupItemProps) {
 	const itemState = ratingGroup.getItemState(itemProps);
 
 	const attributes = mergeProps(ratingGroup.getItemProps(itemProps), rest, {
-		className: classesAccordion.item
+		className: classesAccordion.item,
 	});
 
 	return element ? (

@@ -8,7 +8,7 @@ import {
 	settingsBackgrounds,
 	settingsTypography,
 	settingsSpacing,
-	settingsEdges
+	settingsEdges,
 } from '$lib/state/generator.svelte';
 
 export async function importThemeV3Rc1(fileText: string, fileName: string) {

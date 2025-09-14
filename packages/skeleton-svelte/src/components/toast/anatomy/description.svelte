@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(toast().getDescriptionProps(), rest, {
-			class: classesToast.description
-		})
+			class: classesToast.description,
+		}),
 	);
 </script>
 

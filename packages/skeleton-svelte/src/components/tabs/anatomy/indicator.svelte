@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getIndicatorProps(), rest, {
-			class: classesTabs.indicator
-		})
+			class: classesTabs.indicator,
+		}),
 	);
 </script>
 

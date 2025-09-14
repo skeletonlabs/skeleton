@@ -8,7 +8,7 @@ import type {
 	SettingsBackgrounds,
 	SettingsTypography,
 	SettingsSpacing,
-	SettingsEdges
+	SettingsEdges,
 } from '$lib/state/types';
 
 /** UTIL: Format from JS Object to CSS properties format. */

@@ -8,5 +8,5 @@ export const Avatar = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
 	Image: Image,
-	Fallback: Fallback
+	Fallback: Fallback,
 });

@@ -85,7 +85,7 @@
 		return {
 			destroy: () => {
 				document.removeEventListener('click', onclick);
-			}
+			},
 		};
 	};
 

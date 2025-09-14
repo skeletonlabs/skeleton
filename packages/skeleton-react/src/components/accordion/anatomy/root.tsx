@@ -11,14 +11,14 @@ export interface AccordionRootProps
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function (props: AccordionRootProps) {
+export default function AccordionRoot(props: AccordionRootProps) {
 	const [accordionProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const accordion = useAccordion(accordionProps);
 
 	const attributes = mergeProps(accordion.getRootProps(), rest, {
-		className: classesAccordion.root
+		className: classesAccordion.root,
 	});
 
 	return (

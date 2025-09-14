@@ -26,7 +26,7 @@ export default function LightSwitch() {
 					__html: `
 		const mode = localStorage.getItem('mode') || 'light';
 		document.documentElement.setAttribute('data-mode', mode);
-          `
+          `,
 				}}
 			/>
 			<Switch checked={checked} onCheckedChange={onCheckedChange}>

@@ -9,11 +9,11 @@ export interface AvatarRootProviderProps extends PropsWithElement<'div'>, HTMLAt
 	value: ReturnType<typeof useAvatar>;
 }
 
-export default function (props: AvatarRootProviderProps) {
+export default function AvatarRootProvider(props: AvatarRootProviderProps) {
 	const { element, children, value: avatar, ...rest } = props;
 
 	const attributes = mergeProps(avatar.getRootProps(), rest, {
-		className: classesAvatar.root
+		className: classesAvatar.root,
 	});
 
 	return (

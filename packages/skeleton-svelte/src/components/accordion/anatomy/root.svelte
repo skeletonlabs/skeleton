@@ -21,13 +21,13 @@
 	const id = $props.id();
 	const accordion = useAccordion(() => ({
 		id: id,
-		...accordionProps
+		...accordionProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(accordion().getRootProps(), rest, {
-			class: classesAccordion.root
-		})
+			class: classesAccordion.root,
+		}),
 	);
 
 	AccordionRootContext.provide(() => accordion());

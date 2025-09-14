@@ -6,15 +6,15 @@ import X from '@/internal/components/x';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 
-export interface ToastCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> { }
+export interface ToastCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
-export default function (props: ToastCloseTriggerProps) {
+export default function ToastCloseTrigger(props: ToastCloseTriggerProps) {
 	const toast = use(ToastRootContext);
 
 	const { element, children = <X />, ...rest } = props;
 
 	const attributes = mergeProps(toast.getCloseTriggerProps(), rest, {
-		className: classesToast.closeTrigger
+		className: classesToast.closeTrigger,
 	});
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;

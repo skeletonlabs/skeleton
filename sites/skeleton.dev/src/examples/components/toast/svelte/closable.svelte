@@ -10,7 +10,7 @@
 		toaster.info({
 			title: 'Title',
 			description: 'This is a description.',
-			closable: false
+			closable: false,
 		})}
 >
 	Toast

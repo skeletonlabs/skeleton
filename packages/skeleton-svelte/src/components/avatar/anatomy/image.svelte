@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(avatar().getImageProps(), rest, {
-			class: classesAvatar.image
-		})
+			class: classesAvatar.image,
+		}),
 	);
 </script>
 

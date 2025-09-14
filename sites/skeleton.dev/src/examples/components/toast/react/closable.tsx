@@ -1,6 +1,6 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Closable() {
 	const toaster = createToaster({});
 
 	return (
@@ -11,7 +11,7 @@ export default function () {
 					toaster.info({
 						title: 'Title',
 						description: 'This is a description.',
-						closable: false
+						closable: false,
 					})
 				}
 			>

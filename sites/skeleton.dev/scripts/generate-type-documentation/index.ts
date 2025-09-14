@@ -13,8 +13,8 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 		`anatomy.js`,
 		await readFile(
 			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
-			'utf-8'
-		)
+			'utf-8',
+		),
 	);
 	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
 	return [
@@ -28,7 +28,7 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 					return `${kebabToPascal(component)}RootContext`;
 				}
 				return `${kebabToPascal(component)}${name}`;
-			})
+			}),
 	];
 }
 
@@ -69,7 +69,7 @@ async function main() {
 
 		const paths = await glob(`**/anatomy/*.d.ts`, {
 			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components'),
-			absolute: true
+			absolute: true,
 		});
 
 		const components = paths.reduce(
@@ -81,7 +81,7 @@ async function main() {
 				acc[component].push(path);
 				return acc;
 			},
-			{} as Record<string, string[]>
+			{} as Record<string, string[]>,
 		);
 
 		const parser = new Parser(framework);
@@ -100,10 +100,10 @@ async function main() {
 							name: _interface.name,
 							props: _interface.props,
 							metadata: {
-								classValue: classValue
-							}
+								classValue: classValue,
+							},
 						};
-					})
+					}),
 				)
 			).toSorted((a, b) => {
 				const aName = a.name.replace(/Props$/, '');
@@ -114,10 +114,10 @@ async function main() {
 			const result = JSON.stringify(
 				{
 					name: component,
-					types: types
+					types: types,
 				},
 				null,
-				4
+				4,
 			);
 
 			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);

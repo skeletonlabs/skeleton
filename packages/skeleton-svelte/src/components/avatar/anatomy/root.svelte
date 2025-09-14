@@ -21,13 +21,13 @@
 	const id = $props.id();
 	const avatar = useAvatar(() => ({
 		id: id,
-		...avatarProps
+		...avatarProps,
 	}));
 
 	const attributes = $derived(
 		mergeProps(avatar().getRootProps(), rest, {
-			class: classesAvatar.root
-		})
+			class: classesAvatar.root,
+		}),
 	);
 
 	AvatarRootContext.provide(() => avatar());

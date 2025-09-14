@@ -18,8 +18,8 @@
 
 	const attributes = $derived(
 		mergeProps(avatar().getFallbackProps(), rest, {
-			class: classesAvatar.fallback
-		})
+			class: classesAvatar.fallback,
+		}),
 	);
 </script>
 

@@ -29,14 +29,14 @@
 		{ name: 'Janet Rosenbell', email: 'jrosenbell@email.com' },
 		{ name: 'Jason Greene', email: 'jgreene@email.com' },
 		{ name: 'Lucas Gamble', email: 'lgamble@email.com' },
-		{ name: 'Murray Henderson', email: 'mhenderson@email.com' }
+		{ name: 'Murray Henderson', email: 'mhenderson@email.com' },
 	];
 	const tableData = [
 		{ position: '0', name: 'Iron', symbol: 'Fe', atomic_no: '26' },
 		{ position: '1', name: 'Rhodium', symbol: 'Rh', atomic_no: '45' },
 		{ position: '2', name: 'Iodine', symbol: 'I', atomic_no: '53' },
 		{ position: '3', name: 'Radon', symbol: 'Rn', atomic_no: '86' },
-		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' }
+		{ position: '4', name: 'Technetium', symbol: 'Tc', atomic_no: '43' },
 	];
 </script>
 

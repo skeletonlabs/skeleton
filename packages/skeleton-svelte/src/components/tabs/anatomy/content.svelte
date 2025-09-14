@@ -21,8 +21,8 @@
 
 	const attributes = $derived(
 		mergeProps(tabs().getContentProps(contentProps), rest, {
-			class: classesTabs.content
-		})
+			class: classesTabs.content,
+		}),
 	);
 </script>
 

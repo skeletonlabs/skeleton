@@ -19,8 +19,8 @@
 
 	const attributes = $derived(
 		mergeProps(toast().getCloseTriggerProps(), rest, {
-			class: classesToast.closeTrigger
-		})
+			class: classesToast.closeTrigger,
+		}),
 	);
 </script>
 

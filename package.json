@@ -42,8 +42,8 @@
 		"typescript-eslint": "catalog:"
 	},
 	"engines": {
-		"node": ">=22.x.x",
-		"pnpm": ">=10.x.x"
+		"node": ">=22",
+		"pnpm": ">=10"
 	},
 	"packageManager": "pnpm@10.16.1"
 }

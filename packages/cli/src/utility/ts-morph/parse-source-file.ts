@@ -5,7 +5,7 @@ const project = new Project({
 	useInMemoryFileSystem: true,
 	skipAddingFilesFromTsConfig: true,
 	skipFileDependencyResolution: true,
-	skipLoadingLibFiles: true
+	skipLoadingLibFiles: true,
 });
 
 function parseSourceFile(code: string) {

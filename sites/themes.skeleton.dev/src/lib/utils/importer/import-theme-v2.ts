@@ -45,7 +45,7 @@ export async function importThemeV2(fileText: string, fileName: string) {
 			.scale([
 				chroma(`rgb(${properties[`--color-${colorName}-50`].split(' ')})`),
 				chroma(`rgb(${properties[`--color-${colorName}-500`].split(' ')})`),
-				chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`)
+				chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ')})`),
 			])
 			.colors(11);
 		// Update Properties

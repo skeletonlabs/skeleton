@@ -15,8 +15,8 @@
 
 	const attributes = $derived(
 		mergeProps(rest, {
-			class: classesToast.message
-		})
+			class: classesToast.message,
+		}),
 	);
 </script>
 

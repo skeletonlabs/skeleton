@@ -6,7 +6,7 @@ export interface ToastRootContextProps {
 	children: (toast: Api) => ReactNode;
 }
 
-export default function (props: ToastRootContextProps) {
+export default function ToastRootContextComponent(props: ToastRootContextProps) {
 	const toast = use(ToastRootContext);
 
 	const { children } = props;

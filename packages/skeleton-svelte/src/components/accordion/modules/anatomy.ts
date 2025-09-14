@@ -14,5 +14,5 @@ export const Accordion = Object.assign(Root, {
 	Heading: Heading,
 	Trigger: Trigger,
 	Indicator: Indicator,
-	Content: Content
+	Content: Content,
 });
