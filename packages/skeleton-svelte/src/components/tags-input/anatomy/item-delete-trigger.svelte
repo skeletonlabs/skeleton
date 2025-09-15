@@ -9,8 +9,6 @@
 	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	import X from '@/internal/components/x.svelte';
-
 	import { TagsInputItemContext } from '../modules/item-context';
 	import { TagsInputRootContext } from '../modules/root-context';
 
@@ -19,7 +17,7 @@
 	const tagsinput = TagsInputRootContext.consume();
 	const itemProps = TagsInputItemContext.consume();
 
-	const { element, children = x, ...rest } = $derived(props);
+	const { element, children = times, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(tagsinput().getItemDeleteTriggerProps(itemProps()), rest, {
@@ -28,8 +26,8 @@
 	);
 </script>
 
-{#snippet x()}
-	<X class="size-4" />
+{#snippet times()}
+	&times;
 {/snippet}
 
 {#if element}
