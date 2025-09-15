@@ -6,7 +6,7 @@ export default function Default() {
 		<FileUpload className="w-full">
 			<FileUpload.Dropzone>
 				<FileIcon className="size-10" />
-				<p>Select file or drag here.</p>
+				<span>Select file or drag here.</span>
 				<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 				<FileUpload.HiddenInput />
 			</FileUpload.Dropzone>

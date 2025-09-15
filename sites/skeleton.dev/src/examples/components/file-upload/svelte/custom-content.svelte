@@ -7,7 +7,7 @@
 <FileUpload class="w-full">
 	<FileUpload.Dropzone>
 		<FileIcon class="size-10" />
-		<p>Select file or drag here.</p>
+		<span>Select file or drag here.</span>
 		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 		<FileUpload.HiddenInput />
 	</FileUpload.Dropzone>
