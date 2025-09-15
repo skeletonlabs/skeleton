@@ -10,6 +10,9 @@ import DefaultRaw from '@examples/components/file-upload/react/default?raw';
 import Disabled from '@examples/components/file-upload/react/disabled';
 import DisabledRaw from '@examples/components/file-upload/react/disabled?raw';
 
+import Button from '@examples/components/file-upload/react/button';
+import ButtonRaw from '@examples/components/file-upload/react/button?raw';
+
 import ClearFiles from '@examples/components/file-upload/react/clear-files';
 import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?raw';
 
@@ -30,6 +33,17 @@ import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?ra
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Button
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Button client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ButtonRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

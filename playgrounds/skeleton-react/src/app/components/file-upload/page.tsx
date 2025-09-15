@@ -1,7 +1,7 @@
 'use client';
 
 import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-react';
-import { X } from 'lucide-react';
+import { X., } from 'lucide-react';
 
 export default function Page() {
 	const fileUpload = useFileUpload();

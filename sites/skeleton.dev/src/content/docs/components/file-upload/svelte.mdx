@@ -10,6 +10,9 @@ import DefaultRaw from '@examples/components/file-upload/svelte/default.svelte?r
 import Disabled from '@examples/components/file-upload/svelte/disabled.svelte';
 import DisabledRaw from '@examples/components/file-upload/svelte/disabled.svelte?raw';
 
+import Button from '@examples/components/file-upload/svelte/button.svelte';
+import ButtonRaw from '@examples/components/file-upload/svelte/button.svelte?raw';
+
 import ClearFiles from '@examples/components/file-upload/svelte/clear-files.svelte';
 import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.svelte?raw';
 
@@ -30,6 +33,17 @@ import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.s
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Button
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Button client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ButtonRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
