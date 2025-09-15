@@ -27,26 +27,4 @@
 	</FileUpload.ItemGroup>
 </FileUpload.Provider>
 
-<!-- <FileUpload.Provider value={fileUpload}>
-	<FileUpload.Dropzone>
-		{#snippet element({ attributes })}
-			<button type="button" {...attributes} class="btn preset-filled">Browse Files</button>
-		{/snippet}
-		<FileUpload.HiddenInput />
-	</FileUpload.Dropzone>
-	<FileUpload.ItemGroup>
-		<FileUpload.Context>
-			{#snippet children(fileUpload)}
-				{#each fileUpload().acceptedFiles as file (file.name)}
-					<FileUpload.Item {file}>
-						<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
-						<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
-						<FileUpload.ItemDeleteTrigger><IconX class="size-4" /></FileUpload.ItemDeleteTrigger>
-					</FileUpload.Item>
-				{/each}
-			{/snippet}
-		</FileUpload.Context>
-	</FileUpload.ItemGroup>
-</FileUpload.Provider> -->
-
 <button class="btn preset-outlined-error-500" onclick={() => fileUpload().clearFiles()}> Clear Files </button>
