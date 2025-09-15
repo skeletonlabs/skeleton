@@ -3,12 +3,12 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 export const classesTagsInput = defineSkeletonClasses({
 	root: '',
 	label: '',
-	control: '',
-	item: '',
+	control: 'input flex gap-2',
+	item: 'chip preset-filled flex gap-2',
 	itemPreview: '',
-	itemInput: '',
+	itemInput: 'input',
 	itemDeleteTrigger: '',
-	input: '',
+	input: 'input-ghost',
 	clearTrigger: '',
 	hiddenInput: '',
 });
