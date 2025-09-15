@@ -23,7 +23,7 @@ export default function Item(props: TagsInputItemProps) {
 
 	return (
 		<TagsInputItemContext.Provider value={itemProps}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+			{element ? element(attributes) : <span {...attributes}>{children}</span>}
 		</TagsInputItemContext.Provider>
 	);
 }
