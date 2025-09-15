@@ -1,0 +1,10 @@
+export type { TagsInputInputProps } from './anatomy/input';
+export type { TagsInputItemProps } from './anatomy/item';
+export type { TagsInputItemDeleteTriggerProps } from './anatomy/item-delete-trigger';
+export type { TagsInputItemInputProps } from './anatomy/item-input';
+export type { TagsInputItemPreviewProps } from './anatomy/item-preview';
+export type { TagsInputRootProps } from './anatomy/root';
+export type { TagsInputRootContextProps } from './anatomy/root-context';
+export type { TagsInputRootProviderProps } from './anatomy/root-provider';
+export { TagsInput } from './modules/anatomy';
+export { useTagsInput } from './modules/use-tags-input';
