@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.5
+### Patch Changes
+
+
+- fix: dependency range ([#3742](https://github.com/skeletonlabs/skeleton/pull/3742))
+
 ## 2.0.0-next.4
 ### Minor Changes
 
