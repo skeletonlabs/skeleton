@@ -9,7 +9,7 @@ export const classesProgressLinear = defineSkeletonClasses({
 		// Vertical Orientation
 		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col',
 	],
-	label: 'whitespace-nowrap',
+	label: 'label-text whitespace-nowrap',
 	track: [
 		// Common
 		'bg-surface-200-800 rounded-base overflow-hidden',
