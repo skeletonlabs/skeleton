@@ -21,10 +21,10 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsdown",
 		"dev": "tsdown --watch",
+		"build": "tsdown",
 		"test": "vitest run",
-		"test:watch": "vitest watch"
+		"sync": "pnpm build"
 	},
 	"devDependencies": {
 		"@types/estree": "catalog:",

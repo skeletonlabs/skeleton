@@ -3,8 +3,9 @@
 	"version": "1.0.0-next.5",
 	"type": "module",
 	"scripts": {
+		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"dev": "tsdown --watch"
+		"sync": "pnpm build"
 	},
 	"exports": {
 		".": {
