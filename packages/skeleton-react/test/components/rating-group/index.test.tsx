@@ -1,7 +1,6 @@
+import RatingGroup from './rating-group.jsx';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import RatingGroup from './rating-group.jsx';
 
 describe('rating-group', () => {
 	describe('root', () => {

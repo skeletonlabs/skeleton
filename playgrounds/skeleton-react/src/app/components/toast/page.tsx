@@ -1,6 +1,6 @@
 'use client';
 
-import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
 	const toaster = createToaster({});

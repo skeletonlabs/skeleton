@@ -1,7 +1,7 @@
-import { type ReactNode, use } from 'react';
-
 import { RatingGroupRootContext } from '../modules/root-context';
 import type { useRatingGroup } from '../modules/use-rating-group';
+import { use } from 'react';
+import type { ReactNode } from 'react';
 
 export interface RatingGroupRootContextProps {
 	children: (ratingGroup: ReturnType<typeof useRatingGroup>) => ReactNode;

@@ -1,19 +1,17 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/accordion';
-
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { Props } from '@zag-js/accordion';
 
 	export interface AccordionRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
+	import { AccordionRootContext } from '../modules/root-context';
+	import { useAccordion } from '../modules/use-accordion.svelte';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { AccordionRootContext } from '../modules/root-context';
-	import { useAccordion } from '../modules/use-accordion.svelte';
 
 	const props: AccordionRootProps = $props();
 

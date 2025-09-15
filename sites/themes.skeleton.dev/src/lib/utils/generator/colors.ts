@@ -1,9 +1,7 @@
 // Color Utilities
-
-import chroma from 'chroma-js';
-
 import * as constants from '$lib/constants/generator';
 import { settingsColors } from '$lib/state/generator.svelte';
+import chroma from 'chroma-js';
 
 // Common ---
 
@@ -28,17 +26,17 @@ export function genColorContrast(colorName: string, shade: string, targetShade: 
 	let contrastDark = settingsColors[getColorKey(colorName, 'contrast-dark')];
 
 	// Strip wrapping `var()`
-	if (contrastLight.includes('var')) contrastLight = contrastLight.replace('var(', '').replace(')', '');
-	if (contrastDark.includes('var')) contrastDark = contrastDark.replace('var(', '').replace(')', '');
+	if (contrastLight.includes('var')) {contrastLight = contrastLight.replace('var(', '').replace(')', '');}
+	if (contrastDark.includes('var')) {contrastDark = contrastDark.replace('var(', '').replace(')', '');}
 
 	// Get Raw Hex
 	if (!contrastLight.includes('inherit')) {
 		// If CSS Custom Property
-		if (contrastLight.includes('255 255 255')) contrastLight = '#FFFFFF';
-		if (contrastDark.includes('0 0 0')) contrastDark = '#000000';
+		if (contrastLight.includes('255 255 255')) {contrastLight = '#FFFFFF';}
+		if (contrastDark.includes('0 0 0')) {contrastDark = '#000000';}
 		// If White or Black
-		if (contrastLight.includes('--')) contrastLight = settingsColors[contrastLight as keyof typeof settingsColors];
-		if (contrastDark.includes('--')) contrastDark = settingsColors[contrastDark as keyof typeof settingsColors];
+		if (contrastLight.includes('--')) {contrastLight = settingsColors[contrastLight as keyof typeof settingsColors];}
+		if (contrastDark.includes('--')) {contrastDark = settingsColors[contrastDark as keyof typeof settingsColors];}
 	}
 
 	// Compare
@@ -68,7 +66,7 @@ function applyColorState(colorName: string, colorScale: string[]) {
 
 /* Blend between 50/500/950 colors automatically */
 export function genColorRamp(disabled: boolean, colorName: string) {
-	if (disabled) return;
+	if (disabled) {return;}
 	const shade50 = settingsColors[getColorKey(colorName, '50')];
 	const shade500 = settingsColors[getColorKey(colorName, '500')];
 	const shade950 = settingsColors[getColorKey(colorName, '950')];

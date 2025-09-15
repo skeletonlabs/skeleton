@@ -7,19 +7,19 @@ order: 20
 
 export const components = componentSet;
 
+import NavGrid from '@components/docs/NavGrid.astro';
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
-import NavGrid from '@components/docs/NavGrid.astro';
 
-import { Image } from 'astro:assets';
-import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
 import ImgImport from '@images/tutorials/figma/chapter-3/02_import.webp';
 import ImgPublishLib from '@images/tutorials/figma/chapter-3/03_publishLibrary.webp';
 import ImgOpenFile from '@images/tutorials/figma/chapter-3/04_openFile.webp';
-import ImgSelectSkeleton from '@images/tutorials/figma/chapter-3/04_selectSkeleton.webp';
 import ImgSelectNewSkeleton from '@images/tutorials/figma/chapter-3/04_selectNewSkeleton.webp';
+import ImgSelectSkeleton from '@images/tutorials/figma/chapter-3/04_selectSkeleton.webp';
 import ImgRemoveOld from '@images/tutorials/figma/chapter-3/removeOld.webp';
+import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
 import { ChevronDown, BookOpen } from '@lucide/svelte';
+import { Image } from 'astro:assets';
 
 <p className="text-2xl">
 	Skeleton is continually evolving, and to ensure that your design remains in harmony with it, it's essential to keep the Skeleton Figma UI

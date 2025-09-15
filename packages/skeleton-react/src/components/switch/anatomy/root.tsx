@@ -1,12 +1,11 @@
-import { classesSwitch } from '@skeletonlabs/skeleton-common';
-import { mergeProps } from '@zag-js/react';
-import { type Props, splitProps } from '@zag-js/switch';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
 import { SwitchRootContext } from '../modules/root-context';
 import { useSwitch } from '../modules/use-switch';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesSwitch } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
+import { splitProps } from '@zag-js/switch';
+import type { Props } from '@zag-js/switch';
 
 export interface SwitchRootProps extends Omit<Props, 'id'>, PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
 

@@ -6,12 +6,10 @@
 </script>
 
 <script lang="ts">
+	import { ToastRootContext } from '../modules/root-context';
+	import X from '@/internal/components/x.svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import X from '@/internal/components/x.svelte';
-
-	import { ToastRootContext } from '../modules/root-context';
 
 	const props: ToastCloseTriggerProps = $props();
 

@@ -1,8 +1,7 @@
 <script lang="ts" module>
-	import type { Options } from '@zag-js/toast';
-
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { Options } from '@zag-js/toast';
 
 	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		toast: Options;
@@ -10,12 +9,11 @@
 </script>
 
 <script lang="ts">
+	import { ToastGroupContext } from '../modules/group-context';
+	import { ToastRootContext } from '../modules/root-context';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { connect, machine } from '@zag-js/toast';
-
-	import { ToastGroupContext } from '../modules/group-context';
-	import { ToastRootContext } from '../modules/root-context';
 
 	const props: ToastRootProps = $props();
 

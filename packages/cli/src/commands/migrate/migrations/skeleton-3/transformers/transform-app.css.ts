@@ -1,7 +1,7 @@
-import { AtRule, atRule, comment, Node, parse, Root } from 'postcss';
-
 import type { Theme } from '../utility/types';
 import { transformStyleSheet } from './transform-stylesheet';
+import type { AtRule, Node, Root } from 'postcss';
+import { atRule, comment, parse } from 'postcss';
 
 function getTailwindImport(root: Root) {
 	let tailwindImport: AtRule | undefined;
@@ -30,7 +30,7 @@ function transformAppCss(code: string, theme: Theme) {
 		}),
 	);
 	switch (theme.type) {
-		case 'preset':
+		case 'preset': {
 			nodes.push(
 				atRule({
 					name: 'import',
@@ -38,9 +38,11 @@ function transformAppCss(code: string, theme: Theme) {
 				}),
 			);
 			break;
-		case 'custom':
+		}
+		case 'custom': {
 			nodes.push(comment({ text: `Add your theme import for your theme: "${theme.value}" here` }));
 			break;
+		}
 	}
 	const tailwindImport = getTailwindImport(root);
 	if (tailwindImport) {

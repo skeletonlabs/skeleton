@@ -1,12 +1,11 @@
+import { Toast, createToaster } from '@/index';
 import { useEffect } from 'react';
-
-import { createToaster, Toast } from '@/index';
 
 export default function ToastTest() {
 	const toaster = createToaster({});
 	useEffect(() => {
 		toaster.create({});
-	}, []);
+	});
 	return (
 		<Toast.Group toaster={toaster} data-testid="group">
 			{(toast) => (

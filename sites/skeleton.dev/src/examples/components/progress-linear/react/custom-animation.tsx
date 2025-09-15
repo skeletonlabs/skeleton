@@ -3,7 +3,7 @@ import { ProgressLinear } from '@skeletonlabs/skeleton-react';
 export default function CustomAnimation() {
 	return (
 		<>
-			<ProgressLinear value={null}>
+			<ProgressLinear value={undefined}>
 				<ProgressLinear.Track>
 					<ProgressLinear.Range className="my-custom-animation" />
 				</ProgressLinear.Track>

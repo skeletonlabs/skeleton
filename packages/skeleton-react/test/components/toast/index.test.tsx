@@ -1,7 +1,6 @@
+import Toast from './toast';
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Toast from './toast';
 
 describe('toast', () => {
 	describe('group', () => {

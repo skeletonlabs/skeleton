@@ -1,5 +1,5 @@
 <script lang="ts">
-	const options = [1.0, 1.067, 1.125, 1.2, 1.25, 1.333, 1.414, 1.5, 1.618];
+	const options = [1, 1.067, 1.125, 1.2, 1.25, 1.333, 1.414, 1.5, 1.618];
 
 	// Reactive
 	let value = $state(0);

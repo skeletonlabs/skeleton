@@ -1,11 +1,10 @@
 <script lang="ts">
 	// Constants
 	// Icons
-	import IconClear from '@lucide/svelte/icons/eraser';
-
 	import * as constants from '$lib/constants/generator';
 	// Utils
 	import { seedColor } from '$lib/utils/generator/colors';
+	import IconClear from '@lucide/svelte/icons/eraser';
 
 	// Types
 	// interface ColorSelection {

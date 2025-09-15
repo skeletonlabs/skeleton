@@ -1,5 +1,4 @@
 import { basename, dirname, join } from 'node:path';
-
 import { glob } from 'tinyglobby';
 import { defineConfig } from 'vite';
 

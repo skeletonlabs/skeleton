@@ -62,7 +62,7 @@ export default function Page() {
 							<ProgressLinear.Range />
 						</ProgressLinear.Track>
 					</ProgressLinear>
-					<ProgressLinear orientation="vertical" value={null}>
+					<ProgressLinear orientation="vertical" value={undefined}>
 						<ProgressLinear.Label>null</ProgressLinear.Label>
 						<ProgressLinear.Track>
 							<ProgressLinear.Range />
@@ -81,7 +81,7 @@ export default function Page() {
 			</section>
 			<section className="space-y-4">
 				<h3 className="h3">Indeterminate</h3>
-				<ProgressLinear value={null}>
+				<ProgressLinear value={undefined}>
 					<ProgressLinear.Track>
 						<ProgressLinear.Range />
 					</ProgressLinear.Track>

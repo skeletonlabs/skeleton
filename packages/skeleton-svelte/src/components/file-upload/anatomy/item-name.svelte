@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
-	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-	import { mergeProps } from '@zag-js/svelte';
-
 	import { FileUploadItemContext } from '../modules/item-context';
 	import { FileUploadRootContext } from '../modules/root-context';
+	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemNameProps = $props();
 

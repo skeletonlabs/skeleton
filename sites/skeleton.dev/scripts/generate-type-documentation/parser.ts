@@ -1,8 +1,6 @@
-import { join } from 'node:path';
-
-import * as tsMorph from 'ts-morph';
-
 import { MONOREPO_ROOT } from './constants';
+import { join } from 'node:path';
+import * as tsMorph from 'ts-morph';
 
 export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
 
@@ -46,9 +44,9 @@ export class SourceFile {
 
 	private getTypeKind(symbol: tsMorph.Symbol): TypeKind {
 		const type = symbol.getTypeAtLocation(this.sourceFile);
-		if (this.isFunctionType(type)) return 'function';
-		if (this.isArrayType(type)) return 'array';
-		if (this.isObjectType(type)) return 'object';
+		if (this.isFunctionType(type)) {return 'function';}
+		if (this.isArrayType(type)) {return 'array';}
+		if (this.isObjectType(type)) {return 'object';}
 		return 'primitive';
 	}
 
@@ -59,11 +57,11 @@ export class SourceFile {
 			.flatMap((decl) => decl.getJsDocs())
 			.at(0);
 
-		if (!jsDoc) return { description: null, tags: [] };
+		if (!jsDoc) {return { description: undefined, tags: [] };}
 
 		return {
 			description: jsDoc.getDescription().trim(),
-			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null })),
+			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? undefined })),
 		};
 	}
 
@@ -113,7 +111,7 @@ export class Parser {
 
 	public getSourceFile(path: string): SourceFile {
 		const sourceFile = this.project.getSourceFile(path);
-		if (!sourceFile) throw new Error(`Source file not found: ${path}`);
+		if (!sourceFile) {throw new Error(`Source file not found: ${path}`);}
 		return new SourceFile(sourceFile);
 	}
 }

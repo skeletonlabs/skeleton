@@ -1,8 +1,7 @@
 <!-- Root Layout -->
 <script lang="ts">
-	import '../app.css';
-
 	import { page } from '$app/stores';
+	import '../app.css';
 
 	let { children } = $props();
 

@@ -1,13 +1,12 @@
-import { classesToast } from '@skeletonlabs/skeleton-common';
-import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
-import { connect, machine, type Options } from '@zag-js/toast';
-import { use, useId } from 'react';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
 import { ToastGroupContext } from '../modules/group-context';
 import { ToastRootContext } from '../modules/root-context';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesToast } from '@skeletonlabs/skeleton-common';
+import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
+import { connect, machine } from '@zag-js/toast';
+import type { Options } from '@zag-js/toast';
+import { use, useId } from 'react';
 
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 	toast: Omit<Options, 'id' | 'parent'>;
@@ -32,9 +31,9 @@ export default function Root(props: ToastRootProps) {
 	return (
 		<>
 			<ToastRootContext.Provider value={toast}>
-				<div {...toast.getGhostBeforeProps()}></div>
+				<div {...toast.getGhostBeforeProps()} />
 				{element ? element(attributes) : <div {...attributes}>{children}</div>}
-				<div {...toast.getGhostAfterProps()}></div>
+				<div {...toast.getGhostAfterProps()} />
 			</ToastRootContext.Provider>
 			<style>{`
                 [data-part='root'] {
