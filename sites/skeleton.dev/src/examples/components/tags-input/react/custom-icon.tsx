@@ -1,4 +1,5 @@
 import { TagsInput } from '@skeletonlabs/skeleton-react';
+import { CircleXIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
@@ -11,7 +12,9 @@ export default function Default() {
 							<TagsInput.Item key={index} value={value} index={index}>
 								<TagsInput.ItemPreview>
 									<TagsInput.ItemText>{value}</TagsInput.ItemText>
-									<TagsInput.ItemDeleteTrigger />
+									<TagsInput.ItemDeleteTrigger>
+										<CircleXIcon className="size-4" />
+									</TagsInput.ItemDeleteTrigger>
 								</TagsInput.ItemPreview>
 								<TagsInput.ItemInput />
 							</TagsInput.Item>

@@ -9,7 +9,7 @@
 			{#snippet children(tagsInput)}
 				{#each tagsInput().value as value, index (index)}
 					<TagsInput.Item {value} {index}>
-						<TagsInput.ItemPreview>
+						<TagsInput.ItemPreview class="preset-filled-secondary-500">
 							<TagsInput.ItemText>{value}</TagsInput.ItemText>
 							<TagsInput.ItemDeleteTrigger />
 						</TagsInput.ItemPreview>

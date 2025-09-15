@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+    import CircleXIcon from '@lucide/svelte/icons/circle-x';
 </script>
 
 <TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']}>
@@ -11,7 +12,9 @@
 					<TagsInput.Item {value} {index}>
 						<TagsInput.ItemPreview>
 							<TagsInput.ItemText>{value}</TagsInput.ItemText>
-							<TagsInput.ItemDeleteTrigger />
+							<TagsInput.ItemDeleteTrigger>
+								<CircleXIcon class="size-4" />
+							</TagsInput.ItemDeleteTrigger>
 						</TagsInput.ItemPreview>
 						<TagsInput.ItemInput />
 					</TagsInput.Item>

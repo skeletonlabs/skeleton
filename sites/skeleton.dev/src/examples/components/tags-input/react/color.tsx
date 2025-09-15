@@ -9,7 +9,7 @@ export default function Default() {
 					{(tagsInput) =>
 						tagsInput.value.map((value, index) => (
 							<TagsInput.Item key={index} value={value} index={index}>
-								<TagsInput.ItemPreview>
+								<TagsInput.ItemPreview className="preset-filled-secondary-500">
 									<TagsInput.ItemText>{value}</TagsInput.ItemText>
 									<TagsInput.ItemDeleteTrigger />
 								</TagsInput.ItemPreview>
