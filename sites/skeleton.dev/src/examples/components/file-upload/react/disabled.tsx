@@ -1,5 +1,5 @@
 import { FileUpload } from '@skeletonlabs/skeleton-react';
-import { X } from 'lucide-react';
+import { XIcon } from 'lucide-react';
 
 export default function Disabled() {
 	return (
@@ -16,7 +16,7 @@ export default function Disabled() {
 								<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 								<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
 								<FileUpload.ItemDeleteTrigger>
-									<X />
+									<XIcon />
 								</FileUpload.ItemDeleteTrigger>
 							</FileUpload.Item>
 						))

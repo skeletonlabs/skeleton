@@ -1,5 +1,5 @@
 import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-react';
-import { X } from 'lucide-react';
+import { XIcon } from 'lucide-react';
 
 export default function ClearFiles() {
 	const fileUpload = useFileUpload({
@@ -20,7 +20,7 @@ export default function ClearFiles() {
 									<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 									<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
 									<FileUpload.ItemDeleteTrigger>
-										<X />
+										<XIcon />
 									</FileUpload.ItemDeleteTrigger>
 								</FileUpload.Item>
 							))
@@ -28,7 +28,7 @@ export default function ClearFiles() {
 					</FileUpload.Context>
 				</FileUpload.ItemGroup>
 			</FileUpload.Provider>
-			<button className="btn preset-outlined-error-500" onClick={() => fileUpload.clearFiles()}>
+			<button className="btn preset-filled hover:preset-filled-error-500 w-fit" onClick={() => fileUpload.clearFiles()}>
 				Clear Files
 			</button>
 		</div>

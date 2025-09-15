@@ -1,8 +1,10 @@
 <script lang="ts">
-	import X from '@lucide/svelte/icons/x';
+	import IconX from '@lucide/svelte/icons/x';
 	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 
+	const id = $props.id();
 	const fileUpload = useFileUpload({
+		id,
 		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })],
 	});
 </script>
@@ -20,7 +22,7 @@
 						<FileUpload.Item {file}>
 							<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 							<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
-							<FileUpload.ItemDeleteTrigger><X /></FileUpload.ItemDeleteTrigger>
+							<FileUpload.ItemDeleteTrigger><IconX /></FileUpload.ItemDeleteTrigger>
 						</FileUpload.Item>
 					{/each}
 				{/snippet}
@@ -28,5 +30,5 @@
 		</FileUpload.ItemGroup>
 	</FileUpload.Provider>
 
-	<button class="btn preset-outlined-error-500" onclick={() => fileUpload().clearFiles()}>Clear Files</button>
+	<button class="btn preset-filled hover:preset-filled-error-500 w-fit" onclick={() => fileUpload().clearFiles()}>Clear Files</button>
 </div>
