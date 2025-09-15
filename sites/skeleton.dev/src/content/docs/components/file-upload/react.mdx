@@ -1,0 +1,81 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/file-upload/react/default';
+import DefaultRaw from '@examples/components/file-upload/react/default?raw';
+
+import CustomContent from '@examples/components/file-upload/react/custom-content';
+import CustomContentRaw from '@examples/components/file-upload/react/custom-content?raw';
+
+import Disabled from '@examples/components/file-upload/react/disabled';
+import DisabledRaw from '@examples/components/file-upload/react/disabled?raw';
+
+import Button from '@examples/components/file-upload/react/button';
+import ButtonRaw from '@examples/components/file-upload/react/button?raw';
+
+import ClearFiles from '@examples/components/file-upload/react/clear-files';
+import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Custom Content
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomContent client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomContentRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Button
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Button client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ButtonRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Clear Files
+
+{/* TODO: Link to Provider pattern explanation */}
+
+Use the `Provider` pattern to access the `clearFiles` method.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ClearFiles client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ClearFilesRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
