@@ -11,9 +11,11 @@ export default function Page() {
 					{(tagsInput) =>
 						tagsInput.value.map((value, index) => (
 							<TagsInput.Item key={index} value={value} index={index}>
-								<TagsInput.ItemPreview>{value}</TagsInput.ItemPreview>
+								<TagsInput.ItemPreview>
+									<TagsInput.ItemText>{value}</TagsInput.ItemText>
+									<TagsInput.ItemDeleteTrigger />
+								</TagsInput.ItemPreview>
 								<TagsInput.ItemInput />
-								<TagsInput.ItemDeleteTrigger>X</TagsInput.ItemDeleteTrigger>
 							</TagsInput.Item>
 						))
 					}
@@ -21,6 +23,7 @@ export default function Page() {
 				<TagsInput.Input />
 			</TagsInput.Control>
 			<TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger>
+			<TagsInput.HiddenInput />
 		</TagsInput>
 	);
 }

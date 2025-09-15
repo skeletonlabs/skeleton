@@ -2,6 +2,7 @@ import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
+import X from '@/internal/components/x';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -14,7 +15,7 @@ export default function ItemDeleteTrigger(props: TagsInputItemDeleteTriggerProps
 	const tagsInput = use(TagsInputRootContext);
 	const itemProps = use(TagsInputItemContext);
 
-	const { element, children, ...rest } = props;
+	const { element, children = <X className="size-4" />, ...rest } = props;
 
 	const attributes = mergeProps(tagsInput.getItemDeleteTriggerProps(itemProps), rest, {
 		className: classesTagsInput.itemDeleteTrigger,

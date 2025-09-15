@@ -6,6 +6,7 @@ import Item from '../anatomy/item';
 import ItemDeleteTrigger from '../anatomy/item-delete-trigger';
 import ItemInput from '../anatomy/item-input';
 import ItemPreview from '../anatomy/item-preview';
+import ItemText from '../anatomy/item-text';
 import Label from '../anatomy/label';
 import Root from '../anatomy/root';
 import RootContext from '../anatomy/root-context';
@@ -18,8 +19,9 @@ export const TagsInput = Object.assign(Root, {
 	Control: Control,
 	Item: Item,
 	ItemPreview: ItemPreview,
-	ItemInput: ItemInput,
+	ItemText: ItemText,
 	ItemDeleteTrigger: ItemDeleteTrigger,
+	ItemInput: ItemInput,
 	Input: Input,
 	ClearTrigger: ClearTrigger,
 	HiddenInput: HiddenInput,

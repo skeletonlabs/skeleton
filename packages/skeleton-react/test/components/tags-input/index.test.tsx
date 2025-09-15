@@ -39,6 +39,13 @@ describe('tags-input', () => {
 		});
 	});
 
+	describe('item text', () => {
+		it('renders', () => {
+			render(<TagsInput />);
+			expect(screen.getByTestId('item-text')).toBeInTheDocument();
+		});
+	});
+
 	describe('item delete trigger', () => {
 		it('renders', () => {
 			render(<TagsInput />);
