@@ -1,8 +1,8 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesTagsInput = defineSkeletonClasses({
-	root: 'flex flex-col gap-2',
-	label: '',
+	root: 'space-y-2 gap-2',
+	label: 'label-text',
 	control: 'input flex flex-wrap gap-1 p-2',
 	item: '',
 	itemPreview: [
@@ -13,6 +13,6 @@ export const classesTagsInput = defineSkeletonClasses({
 	itemDeleteTrigger: 'hover:preset-tonal',
 	itemInput: 'input text-xs',
 	input: 'input-ghost',
-	clearTrigger: 'btn preset-outlined',
+	clearTrigger: 'btn btn-sm preset-tonal hover:preset-filled-error-500',
 	hiddenInput: '',
 });
