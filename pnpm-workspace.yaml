@@ -93,7 +93,6 @@ catalog:
   tsx: ^4.20.5
   type-fest: ^4.41.0
   typescript: ^5.9.2
-  typescript-eslint: ^8.43.0
   unplugin-macros: ^0.18.1
   unplugin-raw: ^0.6.1
   vite: ^7.1.3

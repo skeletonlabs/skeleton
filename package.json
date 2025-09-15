@@ -30,8 +30,7 @@
 		"prettier": "catalog:",
 		"prettier-plugin-astro": "catalog:",
 		"prettier-plugin-svelte": "catalog:",
-		"prettier-plugin-tailwindcss": "catalog:",
-		"typescript-eslint": "catalog:"
+		"prettier-plugin-tailwindcss": "catalog:"
 	},
 	"engines": {
 		"node": ">=22.18.0",
