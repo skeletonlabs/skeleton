@@ -10,7 +10,7 @@
 <div class="w-full grid gap-4">
 	<FileUpload.Provider value={fileUpload}>
 		<FileUpload.Dropzone>
-			<FileUpload.Trigger>Upload</FileUpload.Trigger>
+			<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 			<FileUpload.HiddenInput />
 		</FileUpload.Dropzone>
 		<FileUpload.ItemGroup>

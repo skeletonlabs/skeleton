@@ -5,7 +5,7 @@
 
 <FileUpload class="w-full">
 	<FileUpload.Dropzone>
-		<FileUpload.Trigger>Upload</FileUpload.Trigger>
+		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 		<FileUpload.HiddenInput />
 	</FileUpload.Dropzone>
 	<FileUpload.ItemGroup>
