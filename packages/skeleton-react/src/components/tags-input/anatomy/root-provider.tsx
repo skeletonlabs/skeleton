@@ -7,20 +7,20 @@ import type { PropsWithElement } from '@/internal/props-with-element';
 import { TagsInputRootContext } from '../modules/root-context';
 import type { useTagsInput } from '../modules/use-tags-input';
 
-export interface TagsInputRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {
+export interface TagsInputRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 	value: ReturnType<typeof useTagsInput>;
 }
 
 export default function RootProvider(props: TagsInputRootProviderProps) {
-	const { element, children, value: tagsinput_, ...rest } = props;
+	const { element, children, value: tagsInput, ...rest } = props;
 
-	const attributes = mergeProps(tagsinput_.getRootProps(), rest, {
+	const attributes = mergeProps(tagsInput.getRootProps(), rest, {
 		className: classesTagsInput.root,
 	});
 
 	return (
-		<TagsInputRootContext.Provider value={tagsinput_}>
-			{element ? element(attributes) : <label {...attributes}>{children}</label>}
+		<TagsInputRootContext.Provider value={tagsInput}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
 		</TagsInputRootContext.Provider>
 	);
 }

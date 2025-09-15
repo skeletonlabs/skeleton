@@ -14,17 +14,17 @@ export interface TagsInputRootProps
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: TagsInputRootProps) {
-	const [tagsinputProps, componentProps] = splitProps(props);
+	const [tagsInputProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const tagsinput_ = useTagsInput(tagsinputProps);
+	const tagsInput = useTagsInput(tagsInputProps);
 
-	const attributes = mergeProps(tagsinput_.getRootProps(), rest, {
+	const attributes = mergeProps(tagsInput.getRootProps(), rest, {
 		className: classesTagsInput.root,
 	});
 
 	return (
-		<TagsInputRootContext.Provider value={tagsinput_}>
+		<TagsInputRootContext.Provider value={tagsInput}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
 		</TagsInputRootContext.Provider>
 	);
