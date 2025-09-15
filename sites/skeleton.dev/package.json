@@ -7,6 +7,7 @@
 		"dev": "astro dev",
 		"build": "pnpm run generate-type-documentation && astro build && pnpm run pagefind",
 		"check": "astro check",
+		"sync": "astro sync",
 		"generate-type-documentation": "tsx ./scripts/generate-type-documentation/index.ts",
 		"pagefind": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},

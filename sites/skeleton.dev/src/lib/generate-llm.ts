@@ -23,7 +23,7 @@ async function getSchemaFromSlug(slug: string | undefined) {
 }
 
 // Replacement from ApiTable.astro but instead converts schema to markdown tables
-function generateMarkdownApiTable(schema: TypesRecord | null | undefined): string {
+function generateMarkdownApiTable(schema: TypesRecord): string {
 	if (!schema || typeof schema !== 'object') {
 		return '';
 	}
@@ -133,7 +133,7 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 	for (const apiMatch of apiTableMatches.toReversed()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
-		let schemaData: TypesRecord | null;
+		let schemaData: TypesRecord | null = null;
 		if (schemaVar) {
 			const importPath = schemaImports[schemaVar];
 			if (importPath) {
@@ -143,16 +143,15 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 					schemaData = schemaModule.default || schemaModule;
 				} catch (error) {
 					console.error('Error importing schema file:', resolvedPath, error);
-					schemaData = undefined;
 				}
-			} else {
-				schemaData = undefined;
 			}
 		} else {
 			schemaData = (await getSchemaFromSlug(docSlug)) as unknown as TypesRecord | null;
 		}
-		const markdownTable = generateMarkdownApiTable(schemaData);
-		content = content.replace(fullMatch, markdownTable);
+		if (schemaData) {
+			const markdownTable = generateMarkdownApiTable(schemaData);
+			content = content.replace(fullMatch, markdownTable);
+		}
 	}
 	return content;
 }

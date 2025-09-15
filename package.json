@@ -14,13 +14,14 @@
 		"dev:react": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-react --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-react dev",
 		"test": "pnpm --recursive test",
 		"test:watch": "pnpm --recursive test:watch",
+		"sync": "pnpm --recursive sync",
 		"check": "pnpm --recursive check",
 		"format": "prettier . --write",
 		"format:check": "prettier . --check",
 		"lint": "oxlint . --type-aware --fix",
 		"lint:check": "oxlint . --type-aware",
 		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm build:packages"
+		"postinstall": "pnpm build:packages && pnpm sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
