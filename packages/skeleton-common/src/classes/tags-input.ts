@@ -10,4 +10,5 @@ export const classesTagsInput = defineSkeletonClasses({
 	itemDeleteTrigger: '',
 	input: '',
 	clearTrigger: '',
+	hiddenInput: '',
 });

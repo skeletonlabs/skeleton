@@ -1,5 +1,6 @@
 import ClearTrigger from '../anatomy/clear-trigger';
 import Control from '../anatomy/control';
+import HiddenInput from '../anatomy/hidden-input';
 import Item from '../anatomy/item';
 import ItemDeleteTrigger from '../anatomy/item-delete-trigger';
 import ItemInput from '../anatomy/item-input';
@@ -20,4 +21,5 @@ export const TagsInput = Object.assign(Root, {
 	ItemDeleteTrigger: ItemDeleteTrigger,
 	Input: ItemInput,
 	ClearTrigger: ClearTrigger,
+	HiddenInput: HiddenInput,
 });
