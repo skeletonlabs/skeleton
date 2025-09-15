@@ -12,7 +12,7 @@ export default function Page() {
 						tagsInput.value.map((value, index) => (
 							<TagsInput.Item key={index} value={value} index={index}>
 								<TagsInput.ItemPreview>{value}</TagsInput.ItemPreview>
-								<TagsInput.ItemInput />
+								{/* <TagsInput.ItemInput /> */}
 								<TagsInput.ItemDeleteTrigger>X</TagsInput.ItemDeleteTrigger>
 							</TagsInput.Item>
 						))
