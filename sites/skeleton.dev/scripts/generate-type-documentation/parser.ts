@@ -64,12 +64,12 @@ export class SourceFile {
 			.at(0);
 
 		if (!jsDoc) {
-			return { description: undefined, tags: [] };
+			return { description: null, tags: [] };
 		}
 
 		return {
 			description: jsDoc.getDescription().trim(),
-			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? undefined })),
+			tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null })),
 		};
 	}
 
