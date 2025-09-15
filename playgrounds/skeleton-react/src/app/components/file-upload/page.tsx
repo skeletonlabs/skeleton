@@ -1,7 +1,7 @@
 'use client';
 
 import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-react';
-import { XIcon } from 'lucide-react';
+import { CircleXIcon } from 'lucide-react';
 
 export default function Page() {
 	const fileUpload = useFileUpload();
@@ -21,7 +21,7 @@ export default function Page() {
 									<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 									<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
 									<FileUpload.ItemDeleteTrigger>
-										<XIcon />
+										<CircleXIcon />
 									</FileUpload.ItemDeleteTrigger>
 								</FileUpload.Item>
 							))
