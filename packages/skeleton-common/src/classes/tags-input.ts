@@ -2,9 +2,12 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 
 export const classesTagsInput = defineSkeletonClasses({
 	root: '',
-	input: '',
+	label: '',
+	control: '',
 	item: '',
 	itemPreview: '',
 	itemInput: '',
 	itemDeleteTrigger: '',
+	input: '',
+	clearTrigger: '',
 });
