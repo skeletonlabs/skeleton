@@ -143,10 +143,10 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 					schemaData = schemaModule.default || schemaModule;
 				} catch (error) {
 					console.error('Error importing schema file:', resolvedPath, error);
-					schemaData = undefined;
+					schemaData = null;
 				}
 			} else {
-				schemaData = undefined;
+				schemaData = null;
 			}
 		} else {
 			schemaData = (await getSchemaFromSlug(docSlug)) as unknown as TypesRecord | null;
