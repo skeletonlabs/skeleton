@@ -24,6 +24,7 @@
 				<a class="anchor" href={resolve('/components/rating-group')}> Rating Group </a>
 				<a class="anchor" href={resolve('/components/switch')}> Switch </a>
 				<a class="anchor" href={resolve('/components/tabs')}> Tabs </a>
+				<a class="anchor" href={resolve('/components/tags-input')}> Tags Input </a>
 				<a class="anchor" href={resolve('/components/toast')}> Toast </a>
 			</nav>
 		</div>

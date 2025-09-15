@@ -18,5 +18,5 @@ export default function Label(props: TagsInputLabelProps) {
 		className: classesTagsInput.label,
 	});
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }
