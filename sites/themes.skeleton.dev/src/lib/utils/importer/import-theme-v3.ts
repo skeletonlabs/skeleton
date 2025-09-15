@@ -40,13 +40,19 @@ export async function importThemeV3(fileText: string, fileName: string) {
 	// Colors (oklch -> hex)
 	Object.entries(properties).forEach((property) => {
 		const [key, value] = property;
-		if (!key.includes('--color')) {return;}
-		if (value.includes('var')) {return;}
+		if (!key.includes('--color')) {
+			return;
+		}
+		if (value.includes('var')) {
+			return;
+		}
 		properties[key] = chroma(value).hex();
 	});
 
 	// Set Generator State ---
-	if (fileName) {settingsCore.name = fileName.split('.')[0];} // before .css
+	if (fileName) {
+		settingsCore.name = fileName.split('.')[0];
+	} // before .css
 	// Theme Properties
 	for (const key in properties) {
 		if (key in settingsColors) {

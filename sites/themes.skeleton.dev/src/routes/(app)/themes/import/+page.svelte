@@ -15,7 +15,9 @@
 
 	function onSelectTemplate(fileCss: string, fileName: string) {
 		// Reset to default theme
-		if (fileName !== defaultThemeName) {resetToDefaults();}
+		if (fileName !== defaultThemeName) {
+			resetToDefaults();
+		}
 		// Run template import
 		importThemeV3(fileCss, fileName);
 		// Redirect to Generator page

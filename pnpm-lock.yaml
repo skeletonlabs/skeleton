@@ -75,6 +75,9 @@ catalogs:
     '@testing-library/svelte':
       specifier: ^5.2.8
       version: 5.2.8
+    '@trivago/prettier-plugin-sort-imports':
+      specifier: ^5.2.2
+      version: 5.2.2
     '@types/chroma-js':
       specifier: ^3.1.1
       version: 3.1.1
@@ -302,6 +305,9 @@ importers:
       '@svitejs/changesets-changelog-github-compact':
         specifier: 'catalog:'
         version: 1.2.0
+      '@trivago/prettier-plugin-sort-imports':
+        specifier: 'catalog:'
+        version: 5.2.2(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.38.6))(prettier@3.6.2)(svelte@5.38.6)
       oxlint:
         specifier: 'catalog:'
         version: 1.15.0(oxlint-tsgolint@0.2.0)
@@ -7632,7 +7638,6 @@ snapshots:
       svelte: 5.38.6
     transitivePeerDependencies:
       - supports-color
-    optional: true
 
   '@trysound/sax@0.2.0': {}
 
@@ -9302,8 +9307,7 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  javascript-natural-sort@0.7.1:
-    optional: true
+  javascript-natural-sort@0.7.1: {}
 
   jiti@2.5.1: {}
 

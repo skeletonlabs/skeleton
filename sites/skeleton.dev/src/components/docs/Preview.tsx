@@ -16,7 +16,9 @@ export const Preview: React.FC<PreviewProps> = (props) => {
 	const cTabActive = '!border-surface-950-50';
 
 	function selectedClass(tab: string) {
-		if (tab === selected) {return cTabActive;}
+		if (tab === selected) {
+			return cTabActive;
+		}
 	}
 
 	return (

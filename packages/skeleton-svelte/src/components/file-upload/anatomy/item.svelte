@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import { splitItemProps } from '@zag-js/file-upload';
-import type { ItemProps } from '@zag-js/file-upload';
+	import type { ItemProps } from '@zag-js/file-upload';
 
 	export interface FileUploadItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
 </script>

@@ -1,7 +1,7 @@
 import type { Theme } from '../utility/types';
 import { transformStyleSheet } from './transform-stylesheet';
-import type { AtRule, Node, Root } from 'postcss';
 import { atRule, comment, parse } from 'postcss';
+import type { AtRule, Node, Root } from 'postcss';
 
 function getTailwindImport(root: Root) {
 	let tailwindImport: AtRule | undefined;

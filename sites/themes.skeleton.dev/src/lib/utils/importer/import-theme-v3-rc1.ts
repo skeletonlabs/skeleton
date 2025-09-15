@@ -82,7 +82,9 @@ export async function importThemeV3Rc1(fileText: string, fileName: string) {
 	}
 
 	// Set Generator State ---
-	if (fileName) {settingsCore.name = fileName.split('.')[0];} // before .css
+	if (fileName) {
+		settingsCore.name = fileName.split('.')[0];
+	} // before .css
 	// Theme Properties
 	for (const key in properties) {
 		if (key in settingsColors) {

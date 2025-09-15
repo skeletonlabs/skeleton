@@ -32,10 +32,14 @@
 		void [pagefind, query, docSearchSettings.framework];
 
 		return untrack(async () => {
-			if (pagefind === null || query === '') {return [];}
+			if (pagefind === null || query === '') {
+				return [];
+			}
 
 			const result = await pagefind.debouncedSearch(query, {}, 250);
-			if (result === null) {return [];}
+			if (result === null) {
+				return [];
+			}
 
 			const results = await Promise.all(result.results.map((result) => result.data()));
 			return results.filter((result) => {
@@ -63,8 +67,12 @@
 
 	const onClickOutside = (node: HTMLDialogElement) => {
 		const onclick = (event: MouseEvent) => {
-			if (event.target === null || !(event.target instanceof Element)) {return;}
-			if (event.target.tagName !== 'DIALOG') {return;} // prevents issues with forms
+			if (event.target === null || !(event.target instanceof Element)) {
+				return;
+			}
+			if (event.target.tagName !== 'DIALOG') {
+				return;
+			} // prevents issues with forms
 
 			const rect = event.target.getBoundingClientRect();
 
@@ -99,7 +107,9 @@
 		});
 
 		return () => {
-			if (!pagefind) {return;}
+			if (!pagefind) {
+				return;
+			}
 			pagefind.destroy();
 			pagefind = undefined;
 		};

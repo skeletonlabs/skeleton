@@ -9,18 +9,24 @@ type TypesRecord = CollectionEntry<'types'>['data'];
 
 // Exact copy from ApiTable.astro
 async function getSchemaFromSlug(slug: string | undefined) {
-	if (!slug) {return ;}
+	if (!slug) {
+		return;
+	}
 	const parts = slug.split('/');
 	const component = parts.at(-2);
 	const framework = parts.at(-1);
-	if (!component || !framework) {return ;}
+	if (!component || !framework) {
+		return;
+	}
 	const entry = await getEntry('types', `${framework}/${component}`);
 	return entry?.data;
 }
 
 // Replacement from ApiTable.astro but instead converts schema to markdown tables
 function generateMarkdownApiTable(schema: TypesRecord | null | undefined): string {
-	if (!schema || typeof schema !== 'object') {return '';}
+	if (!schema || typeof schema !== 'object') {
+		return '';
+	}
 	let markdown = '';
 	for (const type of schema.types) {
 		const sectionTitle = type.name.replace('Props', '');
@@ -81,10 +87,14 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 
 		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw
 		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
-		if (!codeIdentifierMatch) {continue;}
+		if (!codeIdentifierMatch) {
+			continue;
+		}
 		const codeIdentifier = codeIdentifierMatch[1].trim();
 		const importPath = rawImports[codeIdentifier];
-		if (!importPath) {continue;}
+		if (!importPath) {
+			continue;
+		}
 		const resolvedPath = importPath.replace('@examples', './src/examples');
 		let fileContent = '';
 		try {
@@ -245,7 +255,9 @@ async function processComponents(framework: Framework): Promise<string> {
 	for (const metaEntry of metaEntries) {
 		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
-		if (!docEntry) {continue;}
+		if (!docEntry) {
+			continue;
+		}
 		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
 		content = await processApiTables(content, docEntry.id);
@@ -266,7 +278,9 @@ async function processIntegrations(framework: Framework): Promise<string> {
 	for (const metaEntry of metaEntries) {
 		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
-		if (!docEntry) {continue;}
+		if (!docEntry) {
+			continue;
+		}
 		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
 		content = await processApiTables(content, docEntry.id);

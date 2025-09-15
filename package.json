@@ -25,6 +25,7 @@
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
+		"@trivago/prettier-plugin-sort-imports": "catalog:",
 		"oxlint": "catalog:",
 		"oxlint-tsgolint": "catalog:",
 		"prettier": "catalog:",
