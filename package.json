@@ -26,7 +26,6 @@
 		"@changesets/cli": "catalog:",
 		"@eslint/js": "catalog:",
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
-		"@types/node": "catalog:",
 		"eslint": "catalog:",
 		"eslint-config-prettier": "catalog:",
 		"eslint-plugin-astro": "catalog:",
