@@ -17,7 +17,7 @@
 	const fileUpload = FileUploadRootContext.consume();
 	const itemProps = FileUploadItemContext.consume();
 
-	const { element, children, ...rest } = $derived(props);
+	const { element, children = times, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(fileUpload().getItemDeleteTriggerProps(itemProps()), rest, {
@@ -25,6 +25,10 @@
 		}),
 	);
 </script>
+
+{#snippet times()}
+	&times;
+{/snippet}
 
 {#if element}
 	{@render element(attributes)}

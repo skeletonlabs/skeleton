@@ -1,5 +1,4 @@
 <script lang="ts">
-	import CircleXIcon from '@lucide/svelte/icons/circle-x';
 	import FileIcon from '@lucide/svelte/icons/file';
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
@@ -18,7 +17,7 @@
 					<FileUpload.Item {file}>
 						<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 						<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
-						<FileUpload.ItemDeleteTrigger><CircleXIcon /></FileUpload.ItemDeleteTrigger>
+						<FileUpload.ItemDeleteTrigger />
 					</FileUpload.Item>
 				{/each}
 			{/snippet}

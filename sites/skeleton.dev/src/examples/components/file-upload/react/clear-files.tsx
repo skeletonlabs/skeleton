@@ -1,5 +1,4 @@
 import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-react';
-import { CircleXIcon } from 'lucide-react';
 
 export default function ClearFiles() {
 	const fileUpload = useFileUpload({
@@ -19,9 +18,7 @@ export default function ClearFiles() {
 								<FileUpload.Item key={file.name} file={file}>
 									<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 									<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
-									<FileUpload.ItemDeleteTrigger>
-										<CircleXIcon />
-									</FileUpload.ItemDeleteTrigger>
+									<FileUpload.ItemDeleteTrigger />
 								</FileUpload.Item>
 							))
 						}

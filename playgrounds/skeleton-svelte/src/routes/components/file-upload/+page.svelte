@@ -1,5 +1,4 @@
 <script lang="ts">
-	import IconX from '@lucide/svelte/icons/circle-x';
 	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
 
 	const id = $props.id();
@@ -19,7 +18,7 @@
 					<FileUpload.Item {file}>
 						<FileUpload.ItemName>{file.name}</FileUpload.ItemName>
 						<FileUpload.ItemSizeText>{file.size} bytes</FileUpload.ItemSizeText>
-						<FileUpload.ItemDeleteTrigger><IconX class="size-4" /></FileUpload.ItemDeleteTrigger>
+						<FileUpload.ItemDeleteTrigger />
 					</FileUpload.Item>
 				{/each}
 			{/snippet}

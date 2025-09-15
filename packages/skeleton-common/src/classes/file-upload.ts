@@ -11,5 +11,5 @@ export const classesFileUpload = defineSkeletonClasses({
 	item: 'grid grid-cols-[auto_1fr_auto] rtl:grid-cols-[1fr_auto_auto] gap-4 items-center preset-tonal px-4 py-2 rounded',
 	itemName: 'text-sm',
 	itemSizeText: 'text-xs opacity-60',
-	itemDeleteTrigger: '',
+	itemDeleteTrigger: 'btn-icon',
 });

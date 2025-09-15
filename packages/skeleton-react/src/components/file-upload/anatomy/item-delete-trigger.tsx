@@ -14,7 +14,7 @@ export default function ItemDeleteTrigger(props: FileUploadItemDeleteTriggerProp
 	const fileUpload = use(FileUploadRootContext);
 	const itemProps = use(FileUploadItemContext);
 
-	const { element, children, ...rest } = props;
+	const { element, children = <>&times;</>, ...rest } = props;
 
 	const attributes = mergeProps(fileUpload.getItemDeleteTriggerProps(itemProps), rest, {
 		className: classesFileUpload.itemDeleteTrigger,
