@@ -48,6 +48,7 @@
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@testing-library/jest-dom": "catalog:",
 		"@testing-library/svelte": "catalog:",
+		"@zag-js/tags-input": "catalog:",
 		"jsdom": "catalog:",
 		"publint": "catalog:",
 		"svelte": "catalog:",
