@@ -1,8 +1,13 @@
+export type { TagsInputClearTriggerProps } from './anatomy/clear-trigger';
+export type { TagsInputControlProps } from './anatomy/control';
+export type { TagsInputHiddenInputProps } from './anatomy/hidden-input';
 export type { TagsInputInputProps } from './anatomy/input';
 export type { TagsInputItemProps } from './anatomy/item';
 export type { TagsInputItemDeleteTriggerProps } from './anatomy/item-delete-trigger';
 export type { TagsInputItemInputProps } from './anatomy/item-input';
 export type { TagsInputItemPreviewProps } from './anatomy/item-preview';
+export type { TagsInputItemTextProps } from './anatomy/item-text';
+export type { TagsInputLabelProps } from './anatomy/label';
 export type { TagsInputRootProps } from './anatomy/root';
 export type { TagsInputRootContextProps } from './anatomy/root-context';
 export type { TagsInputRootProviderProps } from './anatomy/root-provider';
