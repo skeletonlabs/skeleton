@@ -51,7 +51,7 @@ export default function Page() {
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.label.toLowerCase().includes(event.inputValue.toLowerCase()));
+		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
 		setItems(filtered.length > 0 ? filtered : data);
 	};
 
