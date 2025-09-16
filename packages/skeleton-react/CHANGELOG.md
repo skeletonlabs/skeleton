@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.5
+### Minor Changes
+
+
+- feat: file-upload ([#3693](https://github.com/skeletonlabs/skeleton/pull/3693))
+
+
+### Patch Changes
+
+- Updated dependencies [[`1d8a151`](https://github.com/skeletonlabs/skeleton/commit/1d8a15137c79c293674fd70794f69a2fe6cd18a4)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.5
+
 ## 2.0.0-next.4
 ### Minor Changes
 

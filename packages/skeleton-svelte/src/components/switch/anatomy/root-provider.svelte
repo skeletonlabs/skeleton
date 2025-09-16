@@ -1,8 +1,7 @@
 <script lang="ts" module>
+	import type { useSwitch } from '../modules/use-switch.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-
-	import type { useSwitch } from '../modules/use-switch.svelte';
 
 	export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {
 		value: ReturnType<typeof useSwitch>;
@@ -10,10 +9,9 @@
 </script>
 
 <script lang="ts">
+	import { SwitchRootContext } from '../modules/root-context';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { SwitchRootContext } from '../modules/root-context';
 
 	const props: SwitchRootProviderProps = $props();
 

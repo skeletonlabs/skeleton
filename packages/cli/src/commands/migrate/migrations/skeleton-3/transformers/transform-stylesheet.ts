@@ -1,6 +1,5 @@
-import { parse } from 'postcss';
-
 import { transformClasses } from './transform-classes';
+import { parse } from 'postcss';
 
 function transformStyleSheet(code: string) {
 	const parsed = parse(code);

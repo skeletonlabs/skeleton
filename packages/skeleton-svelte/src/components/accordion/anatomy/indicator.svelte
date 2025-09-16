@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
-	import { classesAccordion } from '@skeletonlabs/skeleton-common';
-	import { mergeProps } from '@zag-js/svelte';
-
 	import { AccordionItemContext } from '../modules/item-context';
 	import { AccordionRootContext } from '../modules/root-context';
+	import { classesAccordion } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionIndicatorProps = $props();
 

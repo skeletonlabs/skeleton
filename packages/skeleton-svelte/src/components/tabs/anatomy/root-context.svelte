@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useTabs } from '../modules/use-tabs.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface TabsRootContextProps {
 		children: Snippet<[ReturnType<typeof useTabs>]>;

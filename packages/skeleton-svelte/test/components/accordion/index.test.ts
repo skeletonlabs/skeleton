@@ -1,7 +1,6 @@
+import Accordion from './accordion.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Accordion from './accordion.svelte';
 
 describe('accordion', () => {
 	describe('root', () => {

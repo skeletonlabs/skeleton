@@ -1,7 +1,6 @@
+import RatingGroup from './rating-group.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import RatingGroup from './rating-group.svelte';
 
 describe('rating-group', () => {
 	describe('root', () => {
