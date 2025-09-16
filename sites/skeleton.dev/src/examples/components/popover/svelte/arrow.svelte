@@ -6,12 +6,12 @@
 	<Popover.Trigger class="btn preset-filled">Trigger</Popover.Trigger>
 	<Popover.Positioner>
 		<Popover.Content class="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
-			<Popover.Title class="font-bold">Example</Popover.Title>
 			<Popover.Description>
-				<p>This is a basic example of a popover.</p>
+				<p>This example will have a small arrow.</p>
 			</Popover.Description>
-			<Popover.CloseTrigger class="btn preset-tonal">Close</Popover.CloseTrigger>
-			<Popover.Arrow>
+			<Popover.Arrow
+				style="--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);"
+			>
 				<Popover.ArrowTip />
 			</Popover.Arrow>
 		</Popover.Content>
