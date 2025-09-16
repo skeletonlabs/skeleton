@@ -1,7 +1,6 @@
+import Combobox from './combobox';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Combobox from './combobox';
 
 describe('combobox', () => {
 	describe('root', () => {

@@ -1,13 +1,11 @@
+import { ComboboxItemGroupContext } from '../modules/item-group-context';
+import { ComboboxRootContext } from '../modules/root-context';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { type ItemGroupProps, splitItemGroupProps } from '@zag-js/combobox';
 import { mergeProps } from '@zag-js/react';
 import { use, useId } from 'react';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
-import { ComboboxItemGroupContext } from '../modules/item-group-context';
-import { ComboboxRootContext } from '../modules/root-context';
 
 export interface ComboboxItemGroupProps extends Omit<ItemGroupProps, 'id'>, PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id'> {}
 

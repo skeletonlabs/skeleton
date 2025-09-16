@@ -1,7 +1,6 @@
+import Combobox from './combobox.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Combobox from './combobox.svelte';
 
 describe('combobox', () => {
 	describe('root', () => {

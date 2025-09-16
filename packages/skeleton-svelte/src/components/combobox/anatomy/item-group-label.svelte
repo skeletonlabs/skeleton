@@ -9,12 +9,11 @@
 </script>
 
 <script lang="ts">
+	import { ComboboxItemGroupContext } from '../modules/item-group-context';
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { ComboboxItemGroupContext } from '../modules/item-group-context';
-	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxItemGroupLabelProps = $props();
 

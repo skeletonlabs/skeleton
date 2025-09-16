@@ -1,12 +1,10 @@
+import { ComboboxRootContext } from '../modules/root-context';
+import { useCombobox } from '../modules/use-combobox';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { type Props, splitProps } from '@zag-js/combobox';
 import { mergeProps } from '@zag-js/react';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
-import { ComboboxRootContext } from '../modules/root-context';
-import { useCombobox } from '../modules/use-combobox';
 
 export interface ComboboxRootProps
 	extends Omit<Props, 'id'>,

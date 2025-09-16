@@ -1,8 +1,7 @@
 <script lang="ts" module>
+	import type { useCombobox } from '../modules/use-combobox.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-
-	import type { useCombobox } from '../modules/use-combobox.svelte';
 
 	export interface ComboboxRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {
 		value: ReturnType<typeof useCombobox>;
@@ -10,10 +9,9 @@
 </script>
 
 <script lang="ts">
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxRootProviderProps = $props();
 	const { element, children, value: combobox, ...rest } = $derived(props);

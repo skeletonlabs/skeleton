@@ -1,5 +1,4 @@
-import { createContext } from '@/internal/create-context';
-
 import type { useCombobox } from './use-combobox.svelte';
+import { createContext } from '@/internal/create-context';
 
 export const ComboboxRootContext = createContext<ReturnType<typeof useCombobox>>();

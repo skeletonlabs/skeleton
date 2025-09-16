@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxTriggerProps = $props();
 

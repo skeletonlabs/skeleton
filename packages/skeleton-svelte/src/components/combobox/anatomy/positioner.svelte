@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
+	import { ComboboxRootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
-
-	import { ComboboxRootContext } from '../modules/root-context';
 
 	const props: ComboboxPositionerProps = $props();
 
