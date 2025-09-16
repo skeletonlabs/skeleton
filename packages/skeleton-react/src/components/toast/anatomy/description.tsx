@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ToastDescriptionProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function ToastDescription(props: ToastDescriptionProps) {
+export default function Description(props: ToastDescriptionProps) {
 	const toast = use(ToastRootContext);
 
 	const { element, children, ...rest } = props;

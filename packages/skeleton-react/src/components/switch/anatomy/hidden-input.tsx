@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface SwitchHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
-export default function SwitchHiddenInput(props: SwitchHiddenInputProps) {
+export default function HiddenInput(props: SwitchHiddenInputProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { element, ...rest } = props;

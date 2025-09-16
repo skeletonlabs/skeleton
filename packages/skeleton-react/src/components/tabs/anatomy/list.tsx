@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface TabsListProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
-export default function TabsList(props: TabsListProps) {
+export default function List(props: TabsListProps) {
 	const tabs = use(TabsRootContext);
 
 	const { element, children, ...rest } = props;

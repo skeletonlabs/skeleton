@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface TabsIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
-export default function TabsIndicator(props: TabsIndicatorProps) {
+export default function Indicator(props: TabsIndicatorProps) {
 	const tabs = use(TabsRootContext);
 
 	const { element, ...rest } = props;

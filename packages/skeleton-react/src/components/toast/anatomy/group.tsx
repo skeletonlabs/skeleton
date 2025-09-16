@@ -13,7 +13,7 @@ export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes
 	children?: (toast: Props) => JSX.Element | null;
 }
 
-export default function ToastGroup(props: ToastGroupProps) {
+export default function Group(props: ToastGroupProps) {
 	const { element, children, toaster, ...rest } = props;
 
 	const service = useMachine(group.machine, {

@@ -1,16 +1,18 @@
-import Content from '../anatomy/content';
-import Heading from '../anatomy/heading';
-import Indicator from '../anatomy/indicator';
 import Item from '../anatomy/item';
+import ItemContent from '../anatomy/item-content';
+import ItemHeading from '../anatomy/item-heading';
+import ItemIndicator from '../anatomy/item-indicator';
+import ItemTrigger from '../anatomy/item-trigger';
 import Root from '../anatomy/root';
 import RootContext from '../anatomy/root-context';
-import Trigger from '../anatomy/trigger';
+import RootProvider from '../anatomy/root-provider';
 
 export const Accordion = Object.assign(Root, {
+	Provider: RootProvider,
 	Context: RootContext,
 	Item: Item,
-	Heading: Heading,
-	Trigger: Trigger,
-	Indicator: Indicator,
-	Content: Content,
+	ItemHeading: ItemHeading,
+	ItemTrigger: ItemTrigger,
+	ItemIndicator: ItemIndicator,
+	ItemContent: ItemContent,
 });

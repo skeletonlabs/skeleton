@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface AccordionItemTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -11,7 +11,7 @@
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: AccordionTriggerProps = $props();
+	const props: AccordionItemTriggerProps = $props();
 
 	const accordion = AccordionRootContext.consume();
 	const itemProps = AccordionItemContext.consume();

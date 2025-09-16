@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ToastActionTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
-export default function ToastActionTrigger(props: ToastActionTriggerProps) {
+export default function ActionTrigger(props: ToastActionTriggerProps) {
 	const toast = use(ToastRootContext);
 
 	const { element, children, ...rest } = props;

@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionHeadingProps extends PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
+	export interface AccordionItemHeadingProps extends PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
 		/**
 		 * The level of the heading.
 		 *
@@ -16,7 +16,7 @@
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: AccordionHeadingProps = $props();
+	const props: AccordionItemHeadingProps = $props();
 	const { level = 3, element, children, ...rest } = $derived(props);
 
 	const tag = $derived(`h${level}`);

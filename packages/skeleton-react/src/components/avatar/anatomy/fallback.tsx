@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface AvatarFallbackProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function AvatarFallback(props: AvatarFallbackProps) {
+export default function Fallback(props: AvatarFallbackProps) {
 	const avatar = use(AvatarRootContext);
 
 	const { element, children, ...rest } = props;
