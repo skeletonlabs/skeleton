@@ -1,8 +1,3 @@
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath, resolve } from 'node:url';
-
-import { describe, expect, test } from 'vitest';
-
 import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
 import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
 import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
@@ -10,6 +5,9 @@ import { transformPackageJson } from '../../../src/commands/migrate/migrations/s
 import { transformStyleSheet } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-stylesheet.js';
 import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
 import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath, resolve } from 'node:url';
+import { describe, expect, test } from 'vitest';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
@@ -25,12 +23,15 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 		case 'svelte':
 		case 'module':
 		case 'stylesheet':
-		case 'app.html':
+		case 'app.html': {
 			return TRANSFORMER_MAP[transformer](code).code;
-		case 'app.css':
+		}
+		case 'app.css': {
 			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME, true).code;
-		case 'package.json':
+		}
+		case 'package.json': {
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
+		}
 	}
 }
 
@@ -67,9 +68,9 @@ describe('samples', () => {
 					continue;
 				}
 				test(testName, async () => {
-					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
+					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf8');
 					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
-					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf-8');
+					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf8');
 					expect(clean(actual)).toBe(clean(expected));
 				});
 			}

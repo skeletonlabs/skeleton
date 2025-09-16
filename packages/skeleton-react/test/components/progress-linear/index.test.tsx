@@ -1,7 +1,6 @@
+import ProgressLinear from './progress-linear';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import ProgressLinear from './progress-linear';
 
 describe('progress-linear', () => {
 	describe('root', () => {

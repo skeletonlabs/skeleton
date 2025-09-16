@@ -1,8 +1,8 @@
 import {
+	FloatingArrow,
 	arrow,
 	autoUpdate,
 	flip,
-	FloatingArrow,
 	offset,
 	shift,
 	useClick,

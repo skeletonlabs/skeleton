@@ -16,7 +16,7 @@ export default function Filter() {
             0 0 0 50 0"
 						result="final"
 						in="SourceGraphic"
-					></feColorMatrix>
+					/>
 				</filter>
 			</svg>
 		</>

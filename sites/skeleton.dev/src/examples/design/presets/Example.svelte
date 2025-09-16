@@ -1,5 +1,6 @@
 <script lang="ts">
 	import IconBookmark from '@lucide/svelte/icons/bookmark';
+
 	const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-center rounded-full';
 </script>
 

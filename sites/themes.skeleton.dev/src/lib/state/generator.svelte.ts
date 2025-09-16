@@ -1,5 +1,4 @@
 import * as constants from '$lib/constants/generator';
-
 import type {
 	Globals,
 	SettingsBackgrounds,

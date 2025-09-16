@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useProgressLinear } from '../modules/use-progress-linear.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface ProgressLinearRootContextProps {
 		children: Snippet<[ReturnType<typeof useProgressLinear>]>;

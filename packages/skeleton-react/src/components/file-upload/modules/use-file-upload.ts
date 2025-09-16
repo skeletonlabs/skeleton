@@ -1,4 +1,5 @@
-import { type Api, connect, machine, type Props } from '@zag-js/file-upload';
+import { connect, machine } from '@zag-js/file-upload';
+import type { Api, Props } from '@zag-js/file-upload';
 import { normalizeProps, useMachine } from '@zag-js/react';
 import { useId } from 'react';
 

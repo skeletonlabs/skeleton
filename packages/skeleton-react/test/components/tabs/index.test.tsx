@@ -1,7 +1,6 @@
+import Tabs from './tabs.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Tabs from './tabs.js';
 
 describe('tabs', () => {
 	describe('root', () => {

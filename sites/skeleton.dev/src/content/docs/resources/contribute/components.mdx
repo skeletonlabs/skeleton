@@ -154,9 +154,9 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
 ```ts title="avatar-anatomy.ts"
-import Root from '../anatomy/root';
-import Image from '../anatomy/image';
 import Fallback from '../anatomy/fallback';
+import Image from '../anatomy/image';
+import Root from '../anatomy/root';
 
 export const Avatar = Object.assign(
 	Root, // <Avatar>
@@ -174,8 +174,8 @@ The `{part}-context.ts` file contains the exported context for each part's [cont
 For most components this will only be necessary for the root component, some components however may require context for other parts as well, reference other components for examples.
 
 ```ts title="avatar-root-context.ts"
-import { createContext } from '@/internal/create-context';
 import type { useAvatar } from './use-avatar';
+import { createContext } from '@/internal/create-context';
 
 export const AvatarContext = createContext<ReturnType<typeof useAvatar>>();
 ```
@@ -330,8 +330,8 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
 ```tsx title="avatar-root.tsx" {1,2,9}
-import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
 
 export default function (props: AvatarRootProps) {
 	const { children, ...rest } = props;
@@ -347,8 +347,8 @@ export default function (props: AvatarRootProps) {
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility.
 
 ```tsx title="navigation-root.tsx"
-import { mergeProps } from '@zag-js/react';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
 
 export default function (props: NavigationRootProps) {
 	const { children, ...rest } = props;

@@ -1,7 +1,7 @@
-import { type ReactNode, use } from 'react';
-
 import { ProgressLinearRootContext } from '../modules/root-context';
 import type { useProgressLinear } from '../modules/use-progress-linear';
+import { use } from 'react';
+import type { ReactNode } from 'react';
 
 export interface ProgressLinearRootContextProps {
 	children: (progressLinear: ReturnType<typeof useProgressLinear>) => ReactNode;

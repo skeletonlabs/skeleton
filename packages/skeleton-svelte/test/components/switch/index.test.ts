@@ -1,7 +1,6 @@
+import Switch from './switch.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Switch from './switch.svelte';
 
 describe('switch', () => {
 	describe('root', () => {

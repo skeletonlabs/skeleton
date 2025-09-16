@@ -1,8 +1,7 @@
+import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically.js';
 import detectIndent from 'detect-indent';
 import { coerce, lt } from 'semver';
 import type { PackageJson } from 'type-fest';
-
-import { sortPropertiesAlphabetically } from '../../../../../utility/sort-properties-alphabetically.js';
 
 function transformPackageJson(code: string, skeletonVersion: string, skeletonSvelteVersion: string) {
 	let isUsingComponents = false;
@@ -24,7 +23,7 @@ function transformPackageJson(code: string, skeletonVersion: string, skeletonSve
 		pkg[field] = sortPropertiesAlphabetically(pkg[field] as Record<string, string>);
 	}
 	return {
-		code: JSON.stringify(pkg, null, detectIndent(code).indent || '\t'),
+		code: JSON.stringify(pkg, undefined, detectIndent(code).indent || '\t'),
 		meta: {
 			isUsingComponents: isUsingComponents,
 		},

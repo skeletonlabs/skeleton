@@ -1,5 +1,6 @@
 import { normalizeProps, useMachine } from '@zag-js/react';
-import { type Api, connect, machine, type Props } from '@zag-js/switch';
+import { connect, machine } from '@zag-js/switch';
+import type { Api, Props } from '@zag-js/switch';
 import { useId } from 'react';
 
 export function useSwitch(props: Omit<Props, 'id'>): Api {

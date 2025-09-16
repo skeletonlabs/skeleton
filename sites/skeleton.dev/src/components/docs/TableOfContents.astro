@@ -12,10 +12,18 @@ interface Props {
 const { headings } = Astro.props;
 
 function setDepthClass(depth: number) {
-	if (depth === 3) return 'ml-4';
-	if (depth === 4) return 'ml-6';
-	if (depth === 5) return 'ml-8';
-	if (depth === 6) return 'ml-10';
+	if (depth === 3) {
+		return 'ml-4';
+	}
+	if (depth === 4) {
+		return 'ml-6';
+	}
+	if (depth === 5) {
+		return 'ml-8';
+	}
+	if (depth === 6) {
+		return 'ml-10';
+	}
 	return;
 }
 ---
