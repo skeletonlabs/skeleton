@@ -18,7 +18,7 @@
 		"lint": "oxlint . --type-aware --fix",
 		"lint:check": "oxlint . --type-aware",
 		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm --recursive sync"
+		"postinstall": "pnpm --recursive --parallel sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
