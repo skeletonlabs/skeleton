@@ -12,7 +12,7 @@ export interface AccordionRootProps
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function AccordionRoot(props: AccordionRootProps) {
+export default function Root(props: AccordionRootProps) {
 	const [accordionProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 

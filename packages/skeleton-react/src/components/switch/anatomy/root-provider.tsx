@@ -9,7 +9,7 @@ export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTML
 	value: ReturnType<typeof useSwitch>;
 }
 
-export default function SwitchRootProvider(props: SwitchRootProviderProps) {
+export default function RootProvider(props: SwitchRootProviderProps) {
 	const { element, children, value: switch_, ...rest } = props;
 
 	const attributes = mergeProps(switch_.getRootProps(), rest, {

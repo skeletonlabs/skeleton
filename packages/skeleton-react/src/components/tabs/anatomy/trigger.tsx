@@ -9,7 +9,7 @@ import { use } from 'react';
 
 export interface TabsTriggerProps extends TriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value'> {}
 
-export default function TabsTrigger(props: TabsTriggerProps) {
+export default function Trigger(props: TabsTriggerProps) {
 	const tabs = use(TabsRootContext);
 
 	const [triggerProps, componentProps] = splitTriggerProps(props);

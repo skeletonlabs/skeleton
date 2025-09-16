@@ -7,7 +7,7 @@ export interface RatingGroupRootContextProps {
 	children: (ratingGroup: ReturnType<typeof useRatingGroup>) => ReactNode;
 }
 
-export default function RatingGroupRootContextComponent(props: RatingGroupRootContextProps) {
+export default function RootContext(props: RatingGroupRootContextProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const { children } = props;
