@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface SwitchLabelProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function SwitchLabel(props: SwitchLabelProps) {
+export default function Label(props: SwitchLabelProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { element, children, ...rest } = props;

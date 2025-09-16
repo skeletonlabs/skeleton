@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface AvatarImageProps extends PropsWithElement<'img'>, HTMLAttributes<'img', 'children'> {}
 
-export default function AvatarImage(props: AvatarImageProps) {
+export default function Image(props: AvatarImageProps) {
 	const avatar = use(AvatarRootContext);
 
 	const { element, ...rest } = props;

@@ -9,7 +9,7 @@ import type { Props } from '@zag-js/tabs';
 
 export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function TabsRoot(props: TabsRootProps) {
+export default function Root(props: TabsRootProps) {
 	const [tabsProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 

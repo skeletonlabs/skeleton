@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface SwitchThumbProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function SwitchThumb(props: SwitchThumbProps) {
+export default function Thumb(props: SwitchThumbProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { element, children, ...rest } = props;

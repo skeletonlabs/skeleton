@@ -9,7 +9,7 @@ export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTM
 	value: ReturnType<typeof useAccordion>;
 }
 
-export default function AccordionRootProvider(props: AccordionRootProviderProps) {
+export default function RootProvider(props: AccordionRootProviderProps) {
 	const { element, children, value: accordion, ...rest } = props;
 
 	const attributes = mergeProps(accordion.getRootProps(), rest, {

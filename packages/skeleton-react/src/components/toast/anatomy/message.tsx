@@ -5,7 +5,7 @@ import { mergeProps } from '@zag-js/react';
 
 export interface ToastMessageProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function ToastMessage(props: ToastMessageProps) {
+export default function Message(props: ToastMessageProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(rest, {

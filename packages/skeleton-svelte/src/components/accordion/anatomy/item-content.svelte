@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AccordionContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface AccordionItemContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -11,7 +11,7 @@
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: AccordionContentProps = $props();
+	const props: AccordionItemContentProps = $props();
 
 	const accordion = AccordionRootContext.consume();
 	const itemProps = AccordionItemContext.consume();

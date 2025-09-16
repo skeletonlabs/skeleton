@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ToastTitleProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function ToastTitle(props: ToastTitleProps) {
+export default function Title(props: ToastTitleProps) {
 	const toast = use(ToastRootContext);
 
 	const { element, children, ...rest } = props;
