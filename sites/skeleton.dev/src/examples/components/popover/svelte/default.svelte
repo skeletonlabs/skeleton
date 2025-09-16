@@ -4,7 +4,7 @@
 
 <Popover>
 	<Popover.Trigger class="btn preset-filled">Trigger</Popover.Trigger>
-	<Popover.Positioner style="--z-index: 20 !important">
+	<Popover.Positioner>
 		<Popover.Content class="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
 			<Popover.Title class="font-bold">Title</Popover.Title>
 			<Popover.Description>
