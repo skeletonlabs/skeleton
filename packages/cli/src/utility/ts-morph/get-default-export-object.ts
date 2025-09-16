@@ -1,9 +1,10 @@
-import { SourceFile, SyntaxKind } from 'ts-morph';
+import type { SourceFile } from 'ts-morph';
+import { SyntaxKind } from 'ts-morph';
 
 function getDefaultExportObject(sourceFile: SourceFile) {
 	const exportAssignment = sourceFile.getFirstDescendantByKind(SyntaxKind.ExportAssignment);
 	if (!exportAssignment) {
-		return null;
+		return;
 	}
 	const exportExpression = exportAssignment.getExpression();
 	const objectLiteralExpression = exportAssignment.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
@@ -19,7 +20,7 @@ function getDefaultExportObject(sourceFile: SourceFile) {
 			}
 		}
 	}
-	return null;
+	return;
 }
 
 export { getDefaultExportObject };

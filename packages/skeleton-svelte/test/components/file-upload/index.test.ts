@@ -1,7 +1,6 @@
+import FileUpload from './file-upload.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import FileUpload from './file-upload.svelte';
 
 describe('file-upload', () => {
 	describe('root', () => {

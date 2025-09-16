@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { TabsRootContext } from '../modules/root-context';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { TabsRootContext } from '../modules/root-context';
 
 	const props: TabsListProps = $props();
 

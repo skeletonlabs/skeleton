@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({});
 </script>

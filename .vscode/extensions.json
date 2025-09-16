@@ -5,6 +5,7 @@
 		"bradlc.vscode-tailwindcss",
 		"svelte.svelte-vscode",
 		"esbenp.prettier-vscode",
-		"dbaeumer.vscode-eslint"
+		"oxc.oxc-vscode",
+		"antfu.pnpm-catalog-lens"
 	]
 }

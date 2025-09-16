@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useAccordion } from '../modules/use-accordion.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface AccordionRootContextProps {
 		children: Snippet<[ReturnType<typeof useAccordion>]>;

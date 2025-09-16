@@ -1,7 +1,6 @@
+import Accordion from './accordion.jsx';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Accordion from './accordion.jsx';
 
 describe('accordion', () => {
 	describe('root', () => {

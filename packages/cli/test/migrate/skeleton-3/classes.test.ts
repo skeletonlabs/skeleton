@@ -1,6 +1,5 @@
-import { describe, expect, it } from 'vitest';
-
 import { transformClasses } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-classes.js';
+import { describe, expect, it } from 'vitest';
 
 describe('transformClasses', () => {
 	const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];

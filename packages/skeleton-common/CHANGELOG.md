@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.5
+### Minor Changes
+
+
+- feat: file-upload ([#3693](https://github.com/skeletonlabs/skeleton/pull/3693))
+
 ## 1.0.0-next.4
 ### Minor Changes
 

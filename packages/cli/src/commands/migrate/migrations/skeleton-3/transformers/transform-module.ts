@@ -1,9 +1,8 @@
-import { Node } from 'ts-morph';
-
 import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
 import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
 import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 import { transformClasses } from './transform-classes';
+import { Node } from 'ts-morph';
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);

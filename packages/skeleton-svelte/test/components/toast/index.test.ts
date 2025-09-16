@@ -1,7 +1,6 @@
+import Toast from './toast.svelte';
 import { render, screen, waitFor } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Toast from './toast.svelte';
 
 describe('toast', () => {
 	describe('group', () => {

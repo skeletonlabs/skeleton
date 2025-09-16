@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useSwitch } from '../modules/use-switch.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface SwitchRootContextProps {
 		children: Snippet<[ReturnType<typeof useSwitch>]>;

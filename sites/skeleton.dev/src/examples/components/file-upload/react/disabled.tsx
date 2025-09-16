@@ -2,7 +2,7 @@ import { FileUpload } from '@skeletonlabs/skeleton-react';
 
 export default function Disabled() {
 	return (
-		<FileUpload disabled={true} className="w-full">
+		<FileUpload disabled className="w-full">
 			<FileUpload.Dropzone>
 				<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 				<FileUpload.HiddenInput />

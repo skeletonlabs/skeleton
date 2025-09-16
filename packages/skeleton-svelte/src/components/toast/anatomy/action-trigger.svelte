@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { ToastRootContext } from '../modules/root-context';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { ToastRootContext } from '../modules/root-context';
 
 	const props: ToastActionTriggerProps = $props();
 
