@@ -86,7 +86,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 			Component(node, ctx) {
 				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
 					const exportMapping = EXPORT_MAPPINGS[node.name];
-					if (exportMapping.identifier.type === 'renamed' && hasRange(node)) {
+					if (exportMapping?.identifier.type === 'renamed' && hasRange(node)) {
 						renameComponent(s, node, exportMapping.identifier.value);
 					}
 				}
