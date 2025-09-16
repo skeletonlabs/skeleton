@@ -1,6 +1,6 @@
 import { Tooltip } from '@skeletonlabs/skeleton-react';
 
-export default function Default() {
+export default function Arrow() {
 	return (
 		<Tooltip>
 			<Tooltip.Trigger className="btn preset-filled">Trigger</Tooltip.Trigger>
@@ -9,6 +9,14 @@ export default function Default() {
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
 					nesciunt enim.
 				</Tooltip.Content>
+				<Tooltip.Arrow
+					style={{
+						['--arrow-size' as string]: 'calc(var(--spacing) * 2)',
+						['--arrow-background' as string]: 'var(--color-surface-100-900)',
+					}}
+				>
+					<Tooltip.ArrowTip />
+				</Tooltip.Arrow>
 			</Tooltip.Positioner>
 		</Tooltip>
 	);
