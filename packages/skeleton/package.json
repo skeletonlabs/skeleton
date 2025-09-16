@@ -2,8 +2,9 @@
 	"name": "@skeletonlabs/skeleton",
 	"version": "4.0.0-next.2",
 	"scripts": {
+		"dev": "vite build --watch",
 		"build": "vite build",
-		"dev": "vite build --watch"
+		"sync": "pnpm build"
 	},
 	"repository": {
 		"type": "git",

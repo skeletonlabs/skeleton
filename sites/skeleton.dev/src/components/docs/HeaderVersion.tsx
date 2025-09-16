@@ -1,8 +1,8 @@
 // Floating UI React
 import {
+	FloatingFocusManager,
 	autoUpdate,
 	flip,
-	FloatingFocusManager,
 	offset,
 	shift,
 	useClick,

@@ -1,7 +1,6 @@
 // MDX Replacement Components
 // https://docs.astro.build/en/guides/markdown-content/#assigning-custom-components-to-html-elements
 // https://mdxjs.com/table-of-components/
-
 import Anchor from '@components/mdx/Anchor.astro';
 import Blockquote from '@components/mdx/Blockquote.astro';
 import Code from '@components/mdx/Code.astro';

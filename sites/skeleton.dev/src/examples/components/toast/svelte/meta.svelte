@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Skull from '@lucide/svelte/icons/skull';
-	import { createToaster, Toast } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster({});
 </script>

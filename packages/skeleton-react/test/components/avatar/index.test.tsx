@@ -1,7 +1,6 @@
+import Avatar from './avatar.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Avatar from './avatar.js';
 
 describe('avatar', () => {
 	describe('root', () => {

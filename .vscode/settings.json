@@ -1,9 +1,8 @@
 {
 	"editor.formatOnSave": true,
-	"eslint.enable": true,
 	"svelte.enable-ts-plugin": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit"
+		"source.fixAll.oxc": "always"
 	},
 	"editor.quickSuggestions": {
 		"strings": "on"

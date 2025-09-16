@@ -1,6 +1,5 @@
-import { Argument, Command, Option } from 'commander';
-
 import skeleton3 from './migrations/skeleton-3';
+import { Argument, Command, Option } from 'commander';
 
 interface MigrateOptions {
 	cwd?: string;

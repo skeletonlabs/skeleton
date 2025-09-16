@@ -1,7 +1,6 @@
+import FileUpload from './file-upload.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import FileUpload from './file-upload.js';
 
 describe('file-upload', () => {
 	describe('root', () => {

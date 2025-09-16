@@ -1,10 +1,9 @@
 #!/usr/bin/env node
+import { migrate } from './commands/migrate';
+import { getOurPackageJson } from './utility/get-our-package-json';
 import { intro, log, outro } from '@clack/prompts';
 import { bgBlueBright, bgGreenBright, black, dim, red } from 'colorette';
 import { Command } from 'commander';
-
-import { migrate } from './commands/migrate';
-import { getOurPackageJson } from './utility/get-our-package-json';
 
 const pkg = await getOurPackageJson();
 
