@@ -1,5 +1,6 @@
 {
 	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"svelte.enable-ts-plugin": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.oxc": "always"
