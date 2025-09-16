@@ -1,5 +1,4 @@
 import { Popover } from '@skeletonlabs/skeleton-react';
-import type { CSSProperties } from 'react';
 
 export default function Arrow() {
 	return (
@@ -14,7 +13,10 @@ export default function Arrow() {
 					</Popover.Description>
 					<Popover.CloseTrigger className="btn preset-tonal">Close</Popover.CloseTrigger>
 					<Popover.Arrow
-						style={{ '--arrow-size': 'calc(var(--spacing) * 2)', '--arrow-background': 'var(--color-surface-100-900)' } as CSSProperties}
+						style={{
+							['--arrow-size' as string]: 'calc(var(--spacing) * 2)',
+							['--arrow-background' as string]: 'var(--color-surface-100-900)',
+						}}
 					>
 						<Popover.ArrowTip />
 					</Popover.Arrow>
