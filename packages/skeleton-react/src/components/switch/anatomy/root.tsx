@@ -9,7 +9,7 @@ import type { Props } from '@zag-js/switch';
 
 export interface SwitchRootProps extends Omit<Props, 'id'>, PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
 
-export default function SwitchRoot(props: SwitchRootProps) {
+export default function Root(props: SwitchRootProps) {
 	const [switchProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 

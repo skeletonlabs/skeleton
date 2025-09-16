@@ -9,7 +9,7 @@ export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, H
 	value: ReturnType<typeof useRatingGroup>;
 }
 
-export default function RatingGroupRootProvider(props: RatingGroupRootProviderProps) {
+export default function RootProvider(props: RatingGroupRootProviderProps) {
 	const { element, children, value: ratingGroup, ...rest } = props;
 
 	const attributes = mergeProps(ratingGroup.getRootProps(), rest, {

@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ProgressLinearTrackProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function ProgressLinearTrack(props: ProgressLinearTrackProps) {
+export default function Track(props: ProgressLinearTrackProps) {
 	const progressLinear = use(ProgressLinearRootContext);
 
 	const { element, children, ...rest } = props;

@@ -4,7 +4,7 @@ import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import type { JSX, PropsWithChildren } from 'react';
 
-export interface AccordionHeadingProps extends PropsWithChildren, PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
+export interface AccordionItemHeadingProps extends PropsWithChildren, PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
 	/**
 	 * The level of the heading.
 	 *
@@ -13,7 +13,7 @@ export interface AccordionHeadingProps extends PropsWithChildren, PropsWithEleme
 	level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-export default function AccordionHeading(props: AccordionHeadingProps) {
+export default function ItemHeading(props: AccordionItemHeadingProps) {
 	const { level = 3, element, children, ...rest } = props;
 
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;

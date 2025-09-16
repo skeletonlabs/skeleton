@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface RatingGroupControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
-export default function RatingGroupControl(props: RatingGroupControlProps) {
+export default function Control(props: RatingGroupControlProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const { element, children, ...rest } = props;

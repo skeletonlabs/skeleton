@@ -9,7 +9,7 @@ export interface TabsRootProviderProps extends PropsWithElement<'div'>, HTMLAttr
 	value: ReturnType<typeof useTabs>;
 }
 
-export default function TabsRootProvider(props: TabsRootProviderProps) {
+export default function RootProvider(props: TabsRootProviderProps) {
 	const { element, children, value: tabs, ...rest } = props;
 
 	const attributes = mergeProps(tabs.getRootProps(), rest, {

@@ -32,7 +32,7 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 	full?: ReactNode;
 }
 
-export default function RatingGroupItem(props: RatingGroupItemProps) {
+export default function Item(props: RatingGroupItemProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
