@@ -13,10 +13,6 @@ export default function Arrow(props: PopoverArrowProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(popover.getArrowProps(), rest, {
-		style: {
-			'--arrow-size': 'calc(var(--spacing) * 2)',
-			'--arrow-background': 'var(--color-surface-100-900)',
-		} as React.CSSProperties,
 		className: classesPopover.arrow,
 	});
 

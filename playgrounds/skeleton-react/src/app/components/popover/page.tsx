@@ -11,7 +11,7 @@ export default function Page() {
 					<Popover.Title>Title</Popover.Title>
 					<Popover.Description>Description</Popover.Description>
 					<Popover.CloseTrigger>Close</Popover.CloseTrigger>
-					<Popover.Arrow>
+					<Popover.Arrow style={{ '--arrow-size': 'calc(var(--spacing) * 2)', '--arrow-background': 'var(--color-surface-100-900)' }}>
 						<Popover.ArrowTip />
 					</Popover.Arrow>
 				</Popover.Content>
