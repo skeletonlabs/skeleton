@@ -1,16 +1,14 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/tooltip';
-
 	import type { PropsWithChildren } from '@/internal/props-with-children';
+	import type { Props } from '@zag-js/tooltip';
 
 	export interface TooltipRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { splitProps } from '@zag-js/tooltip';
-
 	import { TooltipRootContext } from '../modules/root-context';
 	import { useTooltip } from '../modules/use-tooltip.svelte';
+	import { splitProps } from '@zag-js/tooltip';
 
 	const props: TooltipRootProps = $props();
 

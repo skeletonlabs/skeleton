@@ -1,7 +1,6 @@
+import Tooltip from './tooltip.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Tooltip from './tooltip.svelte';
 
 describe('tooltip', () => {
 	describe('trigger', () => {

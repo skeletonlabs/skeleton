@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useTooltip } from '../modules/use-tooltip.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface TooltipRootContextProps {
 		children: Snippet<[ReturnType<typeof useTooltip>]>;

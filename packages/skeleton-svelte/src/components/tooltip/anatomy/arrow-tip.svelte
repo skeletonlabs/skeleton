@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { TooltipRootContext } from '../modules/root-context';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { TooltipRootContext } from '../modules/root-context';
 
 	const props: TooltipArrowTipProps = $props();
 

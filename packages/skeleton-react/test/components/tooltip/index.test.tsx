@@ -1,7 +1,6 @@
+import Tooltip from './tooltip.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Tooltip from './tooltip.js';
 
 describe('tooltip', () => {
 	describe('trigger', () => {
