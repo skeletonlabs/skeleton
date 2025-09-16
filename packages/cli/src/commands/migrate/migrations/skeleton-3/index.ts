@@ -70,11 +70,11 @@ export default async function (options: MigrateOptions) {
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${packageJson.name}...`);
 	try {
-		const packageJsonCode = await readFile(packageJson.paths[0], 'utf8');
+		const packageJsonCode = await readFile(packageJson.paths.at(0)!, 'utf8');
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPackageJson = transformPackageJson(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
-		migrations.push({ path: packageJson.paths[0], content: transformedPackageJson.code });
+		migrations.push({ path: packageJson.paths.at(0)!, content: transformedPackageJson.code });
 		packageSpinner.stop(`Successfully migrated ${packageJson.name}!`);
 	} catch (error) {
 		packageSpinner.stop(`Failed to migrate ${packageJson.name}: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
@@ -86,7 +86,7 @@ export default async function (options: MigrateOptions) {
 	const appHtmlSpinner = spinner();
 	appHtmlSpinner.start(`Migrating ${appHtml.name}...`);
 	try {
-		const appHtmlCode = await readFile(appHtml.paths[0], 'utf8');
+		const appHtmlCode = await readFile(appHtml.paths.at(0)!, 'utf8');
 		const transformedAppHtml = transformAppHtml(appHtmlCode);
 		if (transformedAppHtml.meta.theme && Object.hasOwn(THEME_MAPPINGS, transformedAppHtml.meta.theme.value)) {
 			theme = THEME_MAPPINGS[transformedAppHtml.meta.theme.value];
@@ -95,7 +95,7 @@ export default async function (options: MigrateOptions) {
 		} else {
 			theme = FALLBACK_THEME;
 		}
-		migrations.push({ path: appHtml.paths[0], content: transformedAppHtml.code });
+		migrations.push({ path: appHtml.paths.at(0)!, content: transformedAppHtml.code });
 		appHtmlSpinner.stop(`Successfully migrated ${appHtml.name}!`);
 	} catch (error) {
 		appHtmlSpinner.stop(`Failed to migrate ${appHtml.name}: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
@@ -106,9 +106,9 @@ export default async function (options: MigrateOptions) {
 	const appCssSpinner = spinner();
 	appCssSpinner.start(`Migrating ${appCss.name}...`);
 	try {
-		const appCssCode = await readFile(appCss.paths[0], 'utf8');
+		const appCssCode = await readFile(appCss.paths.at(0)!, 'utf8');
 		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
-		migrations.push({ path: appCss.paths[0], content: transformedAppCss.code });
+		migrations.push({ path: appCss.paths.at(0)!, content: transformedAppCss.code });
 		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
 	} catch (error) {
 		appCssSpinner.stop(`Failed to migrate ${appCss.name}: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);

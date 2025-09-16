@@ -27,7 +27,7 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 			return TRANSFORMER_MAP[transformer](code).code;
 		}
 		case 'app.css': {
-			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME, true).code;
+			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME).code;
 		}
 		case 'package.json': {
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
@@ -49,7 +49,7 @@ const testCases = Object.keys(samples).reduce(
 		const transformer = pathParts[2];
 		const testName = pathParts[3];
 		const fileType = pathParts[4];
-		if (!transformer || !testName || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
+		if (!transformer || !testName || !fileType || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
 			return acc;
 		}
 		acc[transformer] = acc[transformer] || {};

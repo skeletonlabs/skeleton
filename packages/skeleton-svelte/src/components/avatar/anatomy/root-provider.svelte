@@ -15,15 +15,15 @@
 
 	const props: AvatarRootProviderProps = $props();
 
-	const { element, children, value: api, ...rest } = $derived(props);
+	const { element, children, value: avatar, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(api().getRootProps(), rest, {
+		mergeProps(avatar().getRootProps(), rest, {
 			class: classesAvatar.root,
 		}),
 	);
 
-	AvatarRootContext.provide(() => api());
+	AvatarRootContext.provide(() => avatar());
 </script>
 
 {#if element}
