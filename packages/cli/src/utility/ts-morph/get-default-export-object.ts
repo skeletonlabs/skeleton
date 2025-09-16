@@ -13,7 +13,7 @@ function getDefaultExportObject(sourceFile: SourceFile) {
 	}
 	if (exportExpression.isKind(SyntaxKind.Identifier)) {
 		const definition = exportExpression.getDefinitionNodes()[0];
-		if (definition.isKind(SyntaxKind.VariableDeclaration)) {
+		if (definition?.isKind(SyntaxKind.VariableDeclaration)) {
 			const objectLiteralExpression = definition.getFirstDescendantByKind(SyntaxKind.ObjectLiteralExpression);
 			if (objectLiteralExpression) {
 				return objectLiteralExpression;

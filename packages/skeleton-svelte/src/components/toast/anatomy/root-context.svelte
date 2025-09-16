@@ -1,9 +1,10 @@
 <script lang="ts" module>
+	import type { PropTypes } from '@zag-js/svelte';
 	import type { Api } from '@zag-js/toast';
 	import type { Snippet } from 'svelte';
 
 	export interface ToastRootContextProps {
-		children: Snippet<[() => Api]>;
+		children: Snippet<[() => Api<PropTypes>]>;
 	}
 </script>
 
