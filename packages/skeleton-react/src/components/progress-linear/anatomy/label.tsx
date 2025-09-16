@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ProgressLinearLabelProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function ProgressLinearLabel(props: ProgressLinearLabelProps) {
+export default function Label(props: ProgressLinearLabelProps) {
 	const progressLinear = use(ProgressLinearRootContext);
 
 	const { element, children, ...rest } = props;

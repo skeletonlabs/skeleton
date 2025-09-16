@@ -12,7 +12,7 @@ export interface ProgressLinearRootProps
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
-export default function ProgressLinearRoot(props: ProgressLinearRootProps) {
+export default function Root(props: ProgressLinearRootProps) {
 	const [progressLinearProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 

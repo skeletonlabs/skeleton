@@ -11,7 +11,7 @@ import type { PropsWithChildren } from 'react';
 
 export interface AccordionItemProps extends ItemProps, PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function AccordionItem(props: AccordionItemProps) {
+export default function Item(props: AccordionItemProps) {
 	const accordion = use(AccordionRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);

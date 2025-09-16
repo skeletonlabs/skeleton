@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface ProgressLinearRangeProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
-export default function ProgressLinearRange(props: ProgressLinearRangeProps) {
+export default function Range(props: ProgressLinearRangeProps) {
 	const progressLinear = use(ProgressLinearRootContext);
 
 	const { element, ...rest } = props;

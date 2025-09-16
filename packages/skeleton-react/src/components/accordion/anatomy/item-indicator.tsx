@@ -7,9 +7,9 @@ import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 import type { PropsWithChildren } from 'react';
 
-export interface AccordionIndicatorProps extends PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface AccordionItemIndicatorProps extends PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function AccordionIndicator(props: AccordionIndicatorProps) {
+export default function ItemIndicator(props: AccordionItemIndicatorProps) {
 	const accordion = use(AccordionRootContext);
 	const itemProps = use(AccordionItemContext);
 
