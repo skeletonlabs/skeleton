@@ -136,7 +136,7 @@ catalogs:
       specifier: ^1.24.0
       version: 1.24.0
     '@zag-js/tags-input':
-      specifier: 1.24.1
+      specifier: ^1.24.0
       version: 1.24.1
     '@zag-js/toast':
       specifier: ^1.24.0
