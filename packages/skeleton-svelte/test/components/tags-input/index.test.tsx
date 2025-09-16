@@ -1,7 +1,6 @@
+import TagsInput from './tags-input.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import TagsInput from './tags-input.svelte';
 
 describe('tags-input', () => {
 	describe('root', () => {

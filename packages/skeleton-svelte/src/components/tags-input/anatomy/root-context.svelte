@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { useTagsInput } from '../modules/use-tags-input.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface TagsInputRootContextProps {
 		children: Snippet<[ReturnType<typeof useTagsInput>]>;

@@ -1,7 +1,6 @@
+import TagsInput from './tags-input';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import TagsInput from './tags-input';
 
 describe('tags-input', () => {
 	describe('root', () => {

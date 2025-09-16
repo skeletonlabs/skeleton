@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import { mergeProps } from '@zag-js/svelte';
-
 	import type { HTMLAttributes } from '../html-attributes';
+	import { mergeProps } from '@zag-js/svelte';
 
 	export type XProps = HTMLAttributes<'svg', 'children'>;
 </script>

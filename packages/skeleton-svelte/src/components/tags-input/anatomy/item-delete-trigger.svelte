@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
-	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
-	import { mergeProps } from '@zag-js/svelte';
-
 	import { TagsInputItemContext } from '../modules/item-context';
 	import { TagsInputRootContext } from '../modules/root-context';
+	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputItemDeleteTriggerProps = $props();
 

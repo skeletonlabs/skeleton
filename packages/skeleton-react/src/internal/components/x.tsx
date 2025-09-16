@@ -1,6 +1,5 @@
-import { mergeProps } from '@zag-js/react';
-
 import type { HTMLAttributes } from '../html-attributes';
+import { mergeProps } from '@zag-js/react';
 
 export type XProps = HTMLAttributes<'svg', 'children'>;
 
