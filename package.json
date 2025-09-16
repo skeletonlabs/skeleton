@@ -1,8 +1,6 @@
 {
 	"name": "@skeletonlabs/monorepo",
-	"version": "1.0.0",
 	"private": true,
-	"license": "MIT",
 	"type": "module",
 	"scripts": {
 		"dev": "pnpm --parallel dev",

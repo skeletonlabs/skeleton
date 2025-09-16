@@ -8,7 +8,7 @@ import { use } from 'react';
 
 export interface ToastCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
-export default function ToastCloseTrigger(props: ToastCloseTriggerProps) {
+export default function CloseTrigger(props: ToastCloseTriggerProps) {
 	const toast = use(ToastRootContext);
 
 	const { element, children = <X />, ...rest } = props;

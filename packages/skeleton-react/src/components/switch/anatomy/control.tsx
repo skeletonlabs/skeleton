@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface SwitchControlProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
-export default function SwitchControl(props: SwitchControlProps) {
+export default function Control(props: SwitchControlProps) {
 	const switch_ = use(SwitchRootContext);
 
 	const { element, children, ...rest } = props;

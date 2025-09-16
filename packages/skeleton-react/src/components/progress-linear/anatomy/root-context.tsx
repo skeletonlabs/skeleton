@@ -7,7 +7,7 @@ export interface ProgressLinearRootContextProps {
 	children: (progressLinear: ReturnType<typeof useProgressLinear>) => ReactNode;
 }
 
-export default function ProgressLinearRootContextComponent(props: ProgressLinearRootContextProps) {
+export default function RootContext(props: ProgressLinearRootContextProps) {
 	const progressLinear = use(ProgressLinearRootContext);
 
 	const { children } = props;

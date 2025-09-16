@@ -1,10 +1,10 @@
-export type { AccordionContentProps } from './anatomy/content';
-export type { AccordionHeadingProps } from './anatomy/heading';
-export type { AccordionIndicatorProps } from './anatomy/indicator';
+export type { AccordionItemContentProps } from './anatomy/item-content';
+export type { AccordionItemHeadingProps } from './anatomy/item-heading';
+export type { AccordionItemIndicatorProps } from './anatomy/item-indicator';
 export type { AccordionItemProps } from './anatomy/item';
 export type { AccordionRootProps } from './anatomy/root';
 export type { AccordionRootContextProps } from './anatomy/root-context';
 export type { AccordionRootProviderProps } from './anatomy/root-provider';
-export type { AccordionTriggerProps } from './anatomy/trigger';
+export type { AccordionItemTriggerProps } from './anatomy/item-trigger';
 export { Accordion } from './modules/anatomy';
 export { useAccordion } from './modules/use-accordion';
