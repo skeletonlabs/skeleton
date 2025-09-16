@@ -11,12 +11,12 @@
 		"build": "pnpm --recursive build",
 		"test": "pnpm --recursive --parallel test",
 		"check": "pnpm --recursive --parallel check",
-		"format": "prettier . --write",
+		"format": "prettier . --write --list-different",
 		"format:check": "prettier . --check",
 		"lint": "oxlint . --type-aware --fix",
 		"lint:check": "oxlint . --type-aware",
 		"changeset:publish": "changeset publish",
-		"postinstall": "pnpm --recursive --parallel sync"
+		"postinstall": "pnpm --silent --recursive --parallel sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
