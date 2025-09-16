@@ -1,8 +1,6 @@
 <script lang="ts">
-	import '../app.css';
-
 	import { resolve } from '$app/paths';
-
+	import '../app.css';
 	import LightSwitch from './light-switch.svelte';
 
 	let { children } = $props();

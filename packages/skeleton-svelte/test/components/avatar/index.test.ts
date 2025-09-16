@@ -1,7 +1,6 @@
+import Avatar from './avatar.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Avatar from './avatar.svelte';
 
 describe('avatar', () => {
 	describe('root', () => {

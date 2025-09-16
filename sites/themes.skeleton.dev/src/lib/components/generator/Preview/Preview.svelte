@@ -5,7 +5,6 @@
 	import { globals } from '$lib/state/generator.svelte';
 	// Utils
 	import { generateTheme } from '$lib/utils/generator/generate-theme';
-
 	// Components (generator)
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';

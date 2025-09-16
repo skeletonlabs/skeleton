@@ -1,6 +1,5 @@
-import { parse } from 'node-html-parser';
-
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
+import { parse } from 'node-html-parser';
 
 function transformAppHtml(code: string) {
 	const parsed = parse(code);

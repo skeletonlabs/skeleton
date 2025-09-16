@@ -1,6 +1,5 @@
 // Utility: Generate Theme
 // Generates the {theme}.ts file output for users to copy into their projects.
-
 import {
 	settingsBackgrounds,
 	settingsColors,

@@ -6,9 +6,9 @@ description: An open-source Svelte library for building high-quality, accessible
 
 export const components = componentSet;
 
-import { Image } from 'astro:assets';
 import ImgBanner from '@images/headless/melt-ui/melt-banner.png';
 import ImgComponent from '@images/headless/melt-ui/melt-component.gif';
+import { Image } from 'astro:assets';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -171,8 +171,8 @@ Below is a complete example showing the entire component with styles, transition
 
 ```svelte
 <script lang="ts">
-	import { slide } from 'svelte/transition';
 	import { Accordion, type AccordionItem } from 'melt/builders';
+	import { slide } from 'svelte/transition';
 
 	type Item = AccordionItem<{
 		title: string;

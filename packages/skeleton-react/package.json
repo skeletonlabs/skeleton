@@ -1,12 +1,12 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "2.0.0-next.4",
+	"version": "2.0.0-next.5",
 	"type": "module",
 	"scripts": {
-		"build": "tsdown",
 		"dev": "tsdown --watch",
+		"build": "tsdown",
 		"test": "vitest run",
-		"test:watch": "vitest run --watch"
+		"sync": "pnpm build"
 	},
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",

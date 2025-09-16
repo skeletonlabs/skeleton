@@ -1,12 +1,11 @@
-import { classesTabs } from '@skeletonlabs/skeleton-common';
-import { mergeProps } from '@zag-js/react';
-import { type Props, splitProps } from '@zag-js/tabs';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
 import { TabsRootContext } from '../modules/root-context';
 import { useTabs } from '../modules/use-tabs';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesTabs } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
+import { splitProps } from '@zag-js/tabs';
+import type { Props } from '@zag-js/tabs';
 
 export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 

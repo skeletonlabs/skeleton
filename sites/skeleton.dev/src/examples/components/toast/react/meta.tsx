@@ -1,4 +1,4 @@
-import { createToaster, Toast } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 import { Skull } from 'lucide-react';
 
 export default function Meta() {

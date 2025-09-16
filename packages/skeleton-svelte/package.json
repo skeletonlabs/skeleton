@@ -1,14 +1,14 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "2.0.0-next.5",
+	"version": "2.0.0-next.6",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
-		"build": "svelte-kit sync && svelte-package --input src --output dist",
-		"dev": "pnpm build --watch",
+		"dev": "svelte-package --input src --output dist --watch",
+		"build": "svelte-package --input src --output dist",
 		"test": "vitest run",
-		"test:watch": "vitest run --watch",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+		"check": "svelte-check",
+		"sync": "svelte-kit sync && pnpm build"
 	},
 	"types": "./dist/index.d.ts",
 	"exports": {

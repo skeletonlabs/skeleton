@@ -1,5 +1,4 @@
 // Filter Barrel File
-
 import Apollo from './Apollo.astro';
 import BlueNight from './BlueNight.astro';
 import Emerald from './Emerald.astro';

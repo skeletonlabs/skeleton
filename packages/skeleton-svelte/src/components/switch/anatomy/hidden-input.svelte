@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { SwitchRootContext } from '../modules/root-context';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { SwitchRootContext } from '../modules/root-context';
 
 	const props: SwitchHiddenInputProps = $props();
 

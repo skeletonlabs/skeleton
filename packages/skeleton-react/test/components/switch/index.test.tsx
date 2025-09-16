@@ -1,7 +1,6 @@
+import Switch from './switch';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Switch from './switch';
 
 describe('switch', () => {
 	describe('root', () => {
