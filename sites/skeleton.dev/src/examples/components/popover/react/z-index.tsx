@@ -7,7 +7,7 @@ export default function ZIndex() {
 				<Popover.Trigger className="btn preset-filled">Default (auto)</Popover.Trigger>
 				<Popover.Positioner>
 					<Popover.Content className="card max-w-md p-4 bg-surface-100-900 space-y-2">
-						<Popover.Description>This example will be below the sibling</Popover.Description>
+						<Popover.Description>This example will be below the sibling.</Popover.Description>
 					</Popover.Content>
 				</Popover.Positioner>
 			</Popover>
