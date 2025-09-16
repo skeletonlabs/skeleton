@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { DialogRootContext } from '../modules/root-context';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { DialogRootContext } from '../modules/root-context';
 
 	const props: DialogDescriptionProps = $props();
 

@@ -1,16 +1,14 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/dialog';
-
 	import type { PropsWithChildren } from '@/internal/props-with-children';
+	import type { Props } from '@zag-js/dialog';
 
 	export interface DialogRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { splitProps } from '@zag-js/dialog';
-
 	import { DialogRootContext } from '../modules/root-context';
 	import { useDialog } from '../modules/use-dialog.svelte';
+	import { splitProps } from '@zag-js/dialog';
 
 	const props: DialogRootProps = $props();
 

@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
+	import { DialogRootContext } from '../modules/root-context';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
-
-	import { DialogRootContext } from '../modules/root-context';
 
 	const props: DialogBackdropProps = $props();
 

@@ -3,8 +3,8 @@ import CloseTrigger from '../anatomy/close-trigger.svelte';
 import Content from '../anatomy/content.svelte';
 import Description from '../anatomy/description.svelte';
 import Positioner from '../anatomy/positioner.svelte';
-import Root from '../anatomy/root.svelte';
 import RootContext from '../anatomy/root-context.svelte';
+import Root from '../anatomy/root.svelte';
 import Title from '../anatomy/title.svelte';
 import Trigger from '../anatomy/trigger.svelte';
 

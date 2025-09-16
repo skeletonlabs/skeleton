@@ -1,7 +1,6 @@
+import Dialog from './dialog.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
-
-import Dialog from './dialog.svelte';
 
 describe('dialog', () => {
 	describe('trigger', () => {

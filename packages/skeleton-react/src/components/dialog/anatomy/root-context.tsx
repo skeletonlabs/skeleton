@@ -1,7 +1,6 @@
-import { type ReactNode, use } from 'react';
-
 import { DialogRootContext } from '../modules/root-context';
 import type { useDialog } from '../modules/use-dialog';
+import { type ReactNode, use } from 'react';
 
 export interface DialogRootContextProps {
 	children: (dialog: ReturnType<typeof useDialog>) => ReactNode;

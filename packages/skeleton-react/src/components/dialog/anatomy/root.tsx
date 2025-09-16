@@ -1,8 +1,7 @@
-import { type Props, splitProps } from '@zag-js/dialog';
-import { type PropsWithChildren } from 'react';
-
 import { DialogRootContext } from '../modules/root-context';
 import { useDialog } from '../modules/use-dialog';
+import { type Props, splitProps } from '@zag-js/dialog';
+import { type PropsWithChildren } from 'react';
 
 export interface DialogRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
 
