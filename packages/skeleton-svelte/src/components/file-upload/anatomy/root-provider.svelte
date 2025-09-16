@@ -15,15 +15,15 @@
 
 	const props: FileUploadRootProviderProps = $props();
 
-	const { element, children, value: api, ...rest } = $derived(props);
+	const { element, children, value: fileUpload, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(api().getRootProps(), rest, {
+		mergeProps(fileUpload().getRootProps(), rest, {
 			class: classesFileUpload.root,
 		}),
 	);
 
-	FileUploadRootContext.provide(() => api());
+	FileUploadRootContext.provide(() => fileUpload());
 </script>
 
 {#if element}
