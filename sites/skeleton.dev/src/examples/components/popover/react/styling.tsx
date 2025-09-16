@@ -1,6 +1,6 @@
 import { Popover } from '@skeletonlabs/skeleton-react';
 
-export default function Default() {
+export default function Styling() {
 	return (
 		<Popover>
 			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>

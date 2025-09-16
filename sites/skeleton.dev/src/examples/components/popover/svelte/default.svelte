@@ -7,13 +7,8 @@
 	<Popover.Positioner>
 		<Popover.Content class="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
 			<Popover.Title class="font-bold">Example</Popover.Title>
-			<Popover.Description>
-				<p>This is a basic example of a popover.</p>
-			</Popover.Description>
+			<Popover.Description>This is a basic example of a popover.</Popover.Description>
 			<Popover.CloseTrigger class="btn preset-tonal">Close</Popover.CloseTrigger>
-			<Popover.Arrow>
-				<Popover.ArrowTip />
-			</Popover.Arrow>
 		</Popover.Content>
 	</Popover.Positioner>
 </Popover>

@@ -1,6 +1,6 @@
 import { Popover } from '@skeletonlabs/skeleton-react';
 
-export default function Default() {
+export default function Arrow() {
 	return (
 		<Popover>
 			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>
@@ -12,6 +12,9 @@ export default function Default() {
 						nesciunt enim.
 					</Popover.Description>
 					<Popover.CloseTrigger className="btn preset-tonal">Close</Popover.CloseTrigger>
+					<Popover.Arrow style={{ '--arrow-size': 'calc(var(--spacing) * 2)', '--arrow-background': 'var(--color-surface-100-900)' }}>
+						<Popover.ArrowTip />
+					</Popover.Arrow>
 				</Popover.Content>
 			</Popover.Positioner>
 		</Popover>

@@ -13,8 +13,8 @@ import ProgrammaticRaw from '@examples/components/popover/svelte/programmatic.sv
 import Arrow from '@examples/components/popover/svelte/arrow.svelte';
 import ArrowRaw from '@examples/components/popover/svelte/arrow.svelte?raw';
 
-import Zindex from '@examples/components/popover/svelte/zindex.svelte';
-import ZindexRaw from '@examples/components/popover/svelte/zindex.svelte?raw';
+import ZIndex from '@examples/components/popover/svelte/z-index.svelte';
+import ZIndexRaw from '@examples/components/popover/svelte/z-index.svelte?raw';
 
 import Styling from '@examples/components/popover/svelte/styling.svelte';
 import StylingRaw from '@examples/components/popover/svelte/styling.svelte?raw';
@@ -47,10 +47,10 @@ By default we do not take an opinionated stance regarding z-index stacking. The 
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Zindex client:visible />
+		<ZIndex client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ZindexRaw} lang="svelte" />
+		<Code code={ZIndexRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
