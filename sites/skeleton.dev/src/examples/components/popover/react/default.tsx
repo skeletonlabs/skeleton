@@ -8,8 +8,8 @@ export default function Default() {
 				<Popover.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
 					<Popover.Title className="font-bold">Title</Popover.Title>
 					<Popover.Description>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
-						nesciunt enim.
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
+						nesciunt enim.</p>
 					</Popover.Description>
 					<Popover.CloseTrigger className="btn preset-tonal">Close</Popover.CloseTrigger>
 					<Popover.Arrow>
