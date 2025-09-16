@@ -12,12 +12,12 @@
 
 	const props: TagsInputClearTriggerProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getClearTriggerProps(), rest, {
+		mergeProps(tagsInput().getClearTriggerProps(), rest, {
 			class: classesTagsInput.clearTrigger,
 		}),
 	);

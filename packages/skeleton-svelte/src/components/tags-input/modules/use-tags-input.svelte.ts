@@ -1,8 +1,8 @@
-import { normalizeProps, useMachine } from '@zag-js/svelte';
+import { normalizeProps, useMachine, type PropTypes } from '@zag-js/svelte';
 import { type Api, connect, machine, type Props } from '@zag-js/tags-input';
 
-export function useTagsInput(props: Props | (() => Props)): () => Api {
+export function useTagsInput(props: Props | (() => Props)): () => Api<PropTypes> {
 	const service = useMachine(machine, props);
-	const tagsinput = $derived(connect(service, normalizeProps));
-	return () => tagsinput;
+	const tagsInput = $derived(connect(service, normalizeProps));
+	return () => tagsInput;
 }

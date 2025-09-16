@@ -13,13 +13,13 @@
 
 	const props: TagsInputItemDeleteTriggerProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 	const itemProps = TagsInputItemContext.consume();
 
 	const { element, children = times, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getItemDeleteTriggerProps(itemProps()), rest, {
+		mergeProps(tagsInput().getItemDeleteTriggerProps(itemProps()), rest, {
 			class: classesTagsInput.itemDeleteTrigger,
 		}),
 	);

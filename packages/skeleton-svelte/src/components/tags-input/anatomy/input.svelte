@@ -12,12 +12,12 @@
 
 	const props: TagsInputInputProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getInputProps(), rest, {
+		mergeProps(tagsInput().getInputProps(), rest, {
 			class: classesTagsInput.input,
 		}),
 	);

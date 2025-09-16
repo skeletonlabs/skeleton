@@ -15,13 +15,13 @@
 
 	const props: TagsInputItemProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getItemProps(itemProps), rest, {
+		mergeProps(tagsInput().getItemProps(itemProps), rest, {
 			class: classesTagsInput.item,
 		}),
 	);

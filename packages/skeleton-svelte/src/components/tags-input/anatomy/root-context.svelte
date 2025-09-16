@@ -12,9 +12,9 @@
 
 	const props: TagsInputRootContextProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 
 	const { children } = $derived(props);
 </script>
 
-{@render children(tagsinput)}
+{@render children(tagsInput)}

@@ -13,13 +13,13 @@
 
 	const props: TagsInputItemTextProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 	const itemProps = TagsInputItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getItemTextProps(itemProps()), rest, {
+		mergeProps(tagsInput().getItemTextProps(itemProps()), rest, {
 			class: classesTagsInput.itemText,
 		}),
 	);

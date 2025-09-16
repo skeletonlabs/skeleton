@@ -14,22 +14,22 @@
 	import { splitProps } from '@zag-js/tags-input';
 
 	const props: TagsInputRootProps = $props();
-	const [tagsinputProps, componentProps] = $derived(splitProps(props));
+	const [tagsInputProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const tagsinput = useTagsInput(() => ({
+	const tagsInput = useTagsInput(() => ({
 		id: id,
-		...tagsinputProps,
+		...tagsInputProps,
 	}));
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getRootProps(), rest, {
+		mergeProps(tagsInput().getRootProps(), rest, {
 			class: classesTagsInput.root,
 		}),
 	);
 
-	TagsInputRootContext.provide(() => tagsinput());
+	TagsInputRootContext.provide(() => tagsInput());
 </script>
 
 {#if element}

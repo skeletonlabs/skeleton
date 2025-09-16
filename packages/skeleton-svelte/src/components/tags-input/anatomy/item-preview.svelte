@@ -13,13 +13,13 @@
 
 	const props: TagsInputItemPreviewProps = $props();
 
-	const tagsinput = TagsInputRootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 	const itemProps = TagsInputItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getItemPreviewProps(itemProps()), rest, {
+		mergeProps(tagsInput().getItemPreviewProps(itemProps()), rest, {
 			class: classesTagsInput.itemPreview,
 		}),
 	);

@@ -14,15 +14,15 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputRootProviderProps = $props();
-	const { element, children, value: tagsinput, ...rest } = $derived(props);
+	const { element, children, value: tagsInput, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsinput().getRootProps(), rest, {
+		mergeProps(tagsInput().getRootProps(), rest, {
 			class: classesTagsInput.root,
 		}),
 	);
 
-	TagsInputRootContext.provide(() => tagsinput());
+	TagsInputRootContext.provide(() => tagsInput());
 </script>
 
 {#if element}
