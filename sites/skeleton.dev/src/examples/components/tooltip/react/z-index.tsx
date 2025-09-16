@@ -14,7 +14,7 @@ export default function ZIndex() {
 
 			<Tooltip>
 				<Tooltip.Trigger className="btn preset-filled">Above (20)</Tooltip.Trigger>
-				<Tooltip.Positioner>
+				<Tooltip.Positioner class="z-20!">
 					<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
 						This example will be above the sibling.
 					</Tooltip.Content>
