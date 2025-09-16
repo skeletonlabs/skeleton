@@ -7,6 +7,9 @@ export const components = componentSet;
 import Default from '@examples/components/popover/svelte/default.svelte';
 import DefaultRaw from '@examples/components/popover/svelte/default.svelte?raw';
 
+import Programmatic from '@examples/components/popover/svelte/programmatic.svelte';
+import ProgrammaticRaw from '@examples/components/popover/svelte/programmatic.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -15,6 +18,51 @@ import DefaultRaw from '@examples/components/popover/svelte/default.svelte?raw';
 		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## Programmatic Control
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Programmatic client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ProgrammaticRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Headless
+
+Unlike most components in Skeleton, this is provided "headless" by default. This means no default styles are applied out of the box. This ensures you have full control of styling from the ground up. The benefits are as follows:
+
+- You can make the `Trigger` can surround any element, including an icon, button, image, etc.
+- You can opt to replace the entire structure within `Context` with custom markup and styling.
+- You may place the `CloseTrigger` anywhere, and use it as an X icon or descriptive button.
+- And arrows can be styled to match the popover content itself.
+
+## Portals
+
+This component uses portals for the floating element to avoid being affected by the flow of the DOM.
+
+## Arrow
+
+This feature supports an optional arrow element that points at the trigger element. This can be enabled by adding the `Arrow` and `ArrowTip` component parts. Note that Zag.js opts to style this with CSS custom properties, which can be adjusted using native CSS style values.
+
+```svelte
+<Popover.Arrow>
+	<Popover.ArrowTip
+		style:--arrow-size="10px"
+		style:--arrow-background="var(--color-surface-50-950)"
+	/>
+</Popover.Arrow>
+```
+
+## Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking for this component. Which means this may be occluded beneath other elements with a higher index. This is controlled using the `Positioner` component part. Note that Zag.js opts to style this with a CSS custom property, which can be adjusted using native CSS style values.
+
+```svelte
+<Popover.Positioner style:--z-index="20">...</Popover.Positioner>
+```
 
 ## API Reference
 
