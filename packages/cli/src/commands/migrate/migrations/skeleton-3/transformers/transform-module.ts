@@ -21,7 +21,7 @@ function transformModule(code: string) {
 			const name = node.getName();
 			if (Object.hasOwn(EXPORT_MAPPINGS, name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
-				switch (exportMapping.namedImport.type) {
+				switch (exportMapping?.namedImport.type) {
 					case 'renamed': {
 						if (exportMapping.namedImport.value.match(/^[A-Za-z]+\.[A-Za-z]+$/)) {
 							break;
@@ -49,7 +49,7 @@ function transformModule(code: string) {
 			const name = node.getText();
 			if (Object.hasOwn(EXPORT_MAPPINGS, name) && skeletonImports.includes(name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
-				if (exportMapping.identifier.type === 'renamed') {
+				if (exportMapping?.identifier.type === 'renamed') {
 					node.replaceWithText(exportMapping.identifier.value);
 				}
 			}

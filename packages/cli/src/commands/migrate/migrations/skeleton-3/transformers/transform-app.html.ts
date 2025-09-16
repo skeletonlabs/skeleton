@@ -25,7 +25,7 @@ function transformAppHtml(code: string) {
 	let type: 'preset' | 'custom';
 	body.removeAttribute('data-theme');
 	if (Object.hasOwn(THEME_MAPPINGS, theme)) {
-		html.setAttribute('data-theme', THEME_MAPPINGS[theme].value);
+		html.setAttribute('data-theme', THEME_MAPPINGS[theme]!.value);
 		type = 'preset';
 	} else {
 		html.setAttribute('data-theme', theme);
