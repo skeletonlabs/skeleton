@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface RatingGroupLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
 
-export default function RatingGroupLabel(props: RatingGroupLabelProps) {
+export default function Label(props: RatingGroupLabelProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const { element, children, ...rest } = props;

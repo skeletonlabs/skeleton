@@ -7,7 +7,7 @@ import { use } from 'react';
 
 export interface RatingGroupHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'id' | 'dir' | 'children'> {}
 
-export default function RatingGroupHiddenInput(props: RatingGroupHiddenInputProps) {
+export default function HiddenInput(props: RatingGroupHiddenInputProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const { element, ...rest } = props;

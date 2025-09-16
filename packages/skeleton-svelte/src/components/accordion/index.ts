@@ -1,10 +1,10 @@
-export type { AccordionContentProps } from './anatomy/content.svelte';
-export type { AccordionHeadingProps } from './anatomy/heading.svelte';
-export type { AccordionIndicatorProps } from './anatomy/indicator.svelte';
+export type { AccordionItemContentProps } from './anatomy/item-content.svelte';
+export type { AccordionItemHeadingProps } from './anatomy/item-heading.svelte';
+export type { AccordionItemIndicatorProps } from './anatomy/item-indicator.svelte';
 export type { AccordionItemProps } from './anatomy/item.svelte';
 export type { AccordionRootProps } from './anatomy/root.svelte';
 export type { AccordionRootContextProps } from './anatomy/root-context.svelte';
 export type { AccordionRootProviderProps } from './anatomy/root-provider.svelte';
-export type { AccordionTriggerProps } from './anatomy/trigger.svelte';
+export type { AccordionItemTriggerProps } from './anatomy/item-trigger.svelte';
 export { Accordion } from './modules/anatomy';
 export { useAccordion } from './modules/use-accordion.svelte';

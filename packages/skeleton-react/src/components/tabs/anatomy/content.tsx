@@ -9,7 +9,7 @@ import { use } from 'react';
 
 export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function TabsContent(props: TabsContentProps) {
+export default function Content(props: TabsContentProps) {
 	const tabs = use(TabsRootContext);
 
 	const [contentProps, componentProps] = splitContentProps(props);
