@@ -6,8 +6,7 @@
 		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"test": "vitest run",
-		"check": "tsc",
-		"sync": "pnpm build"
+		"check": "tsc"
 	},
 	"main": "./dist/index.js",
 	"types": "./dist/index.d.ts",

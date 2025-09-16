@@ -3,8 +3,7 @@
 	"version": "4.0.0-next.2",
 	"scripts": {
 		"dev": "vite build --watch",
-		"build": "vite build",
-		"sync": "pnpm build"
+		"build": "vite build"
 	},
 	"repository": {
 		"type": "git",

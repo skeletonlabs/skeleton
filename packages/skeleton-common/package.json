@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"check": "tsc",
-		"sync": "pnpm build"
+		"check": "tsc"
 	},
 	"exports": {
 		".": {
