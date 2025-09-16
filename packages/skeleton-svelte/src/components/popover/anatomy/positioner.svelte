@@ -6,11 +6,10 @@
 </script>
 
 <script lang="ts">
+	import { PopoverRootContext } from '../modules/root-context';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
-
-	import { PopoverRootContext } from '../modules/root-context';
 
 	const props: PopoverPositionerProps = $props();
 

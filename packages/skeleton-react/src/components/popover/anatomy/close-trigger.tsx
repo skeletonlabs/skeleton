@@ -1,11 +1,9 @@
+import { PopoverRootContext } from '../modules/root-context';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesPopover } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
-import { PopoverRootContext } from '../modules/root-context';
 
 export interface PopoverCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 

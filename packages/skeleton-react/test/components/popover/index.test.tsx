@@ -1,7 +1,6 @@
+import Popover from './popover.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-
-import Popover from './popover.js';
 
 describe('popover', () => {
 	describe('trigger', () => {

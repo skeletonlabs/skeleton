@@ -1,7 +1,6 @@
-import type { PropsWithChildren } from 'react';
-
 import { PopoverRootContext } from '../modules/root-context';
 import type { usePopover } from '../modules/use-popover';
+import type { PropsWithChildren } from 'react';
 
 export interface PopoverRootProviderProps extends PropsWithChildren {
 	value: ReturnType<typeof usePopover>;

@@ -1,7 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
-
 	import type { usePopover } from '../modules/use-popover.svelte';
+	import type { Snippet } from 'svelte';
 
 	export interface PopoverRootContextProps {
 		children: Snippet<[ReturnType<typeof usePopover>]>;

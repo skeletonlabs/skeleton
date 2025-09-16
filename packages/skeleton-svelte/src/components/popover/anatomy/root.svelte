@@ -1,16 +1,14 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/popover';
-
 	import type { PropsWithChildren } from '@/internal/props-with-children';
+	import type { Props } from '@zag-js/popover';
 
 	export interface PopoverRootProps extends Omit<Props, 'id'>, PropsWithChildren {}
 </script>
 
 <script lang="ts">
-	import { splitProps } from '@zag-js/popover';
-
 	import { PopoverRootContext } from '../modules/root-context';
 	import { usePopover } from '../modules/use-popover.svelte';
+	import { splitProps } from '@zag-js/popover';
 
 	const props: PopoverRootProps = $props();
 

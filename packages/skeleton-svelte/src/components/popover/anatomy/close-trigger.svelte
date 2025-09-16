@@ -6,10 +6,10 @@
 </script>
 
 <script lang="ts">
+	import { PopoverRootContext } from '../modules/root-context';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	import { PopoverRootContext } from '../modules/root-context';
 	const props: PopoverCloseTriggerProps = $props();
 
 	const popover = PopoverRootContext.consume();
