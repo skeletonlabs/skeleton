@@ -1,7 +1,7 @@
-import { type ReactNode, use } from 'react';
-
 import { TabsRootContext } from '../modules/root-context';
 import type { useTabs } from '../modules/use-tabs';
+import { use } from 'react';
+import type { ReactNode } from 'react';
 
 export interface TabsRootContextProps {
 	children: (tabs: ReturnType<typeof useTabs>) => ReactNode;

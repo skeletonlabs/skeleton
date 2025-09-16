@@ -6,10 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { AvatarRootContext } from '../modules/root-context';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-
-	import { AvatarRootContext } from '../modules/root-context';
 
 	const props: AvatarImageProps = $props();
 

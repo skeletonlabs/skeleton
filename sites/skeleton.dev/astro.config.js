@@ -5,10 +5,10 @@ import react from '@astrojs/react';
 import svelte from '@astrojs/svelte';
 // Vite Plugins
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
 import AutoImport from 'astro-auto-import';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
+import { defineConfig } from 'astro/config';
 import { pagefind } from 'vite-plugin-pagefind';
 
 // https://astro.build/config

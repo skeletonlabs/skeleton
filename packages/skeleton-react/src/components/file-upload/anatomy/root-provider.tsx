@@ -1,11 +1,9 @@
-import { classesFileUpload } from '@skeletonlabs/skeleton-common';
-import { mergeProps } from '@zag-js/react';
-
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
-
 import { FileUploadRootContext } from '../modules/root-context';
 import type { useFileUpload } from '../modules/use-file-upload';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
 
 export interface FileUploadRootProviderProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
 	value: ReturnType<typeof useFileUpload>;

@@ -1,19 +1,17 @@
 <script lang="ts" module>
-	import type { Props } from '@zag-js/switch';
-
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { Props } from '@zag-js/switch';
 
 	export interface SwitchRootProps extends Omit<Props, 'id'>, PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {}
 </script>
 
 <script lang="ts">
+	import { SwitchRootContext } from '../modules/root-context';
+	import { useSwitch } from '../modules/use-switch.svelte';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/switch';
-
-	import { SwitchRootContext } from '../modules/root-context';
-	import { useSwitch } from '../modules/use-switch.svelte';
 
 	const props: SwitchRootProps = $props();
 

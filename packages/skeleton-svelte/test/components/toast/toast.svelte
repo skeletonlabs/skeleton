@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createToaster, Toast } from '@/index';
+	import { Toast, createToaster } from '@/index';
 
 	const toaster = createToaster({});
 

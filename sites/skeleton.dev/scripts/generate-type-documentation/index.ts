@@ -1,13 +1,11 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
-
-import { glob } from 'tinyglobby';
-import * as tsMorph from 'ts-morph';
-
 import { CLASSES_DIRECTORY, MONOREPO_ROOT, OUTPUT_DIRECTORY } from './constants';
 import { Parser } from './parser';
 import { kebabToCamel, kebabToPascal } from './string-utils';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { glob } from 'tinyglobby';
+import * as tsMorph from 'ts-morph';
 
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
@@ -15,7 +13,7 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 		`anatomy.js`,
 		await readFile(
 			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
-			'utf-8',
+			'utf8',
 		),
 	);
 	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
@@ -118,13 +116,13 @@ async function main() {
 					name: component,
 					types: types,
 				},
-				null,
+				undefined,
 				4,
 			);
 
 			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);
 
-			await writeFile(outputPath, result, 'utf-8');
+			await writeFile(outputPath, result, 'utf8');
 		}
 	}
 }

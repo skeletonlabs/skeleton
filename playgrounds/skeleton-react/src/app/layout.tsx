@@ -1,5 +1,4 @@
 import './globals.css';
-
 import LightSwitch from './light-switch';
 
 export default function RootLayout({
@@ -8,7 +7,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" data-theme="cerberus" suppressHydrationWarning={true}>
+		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">

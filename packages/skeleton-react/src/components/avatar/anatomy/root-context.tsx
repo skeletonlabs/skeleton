@@ -1,7 +1,7 @@
-import { type ReactNode, use } from 'react';
-
 import { AvatarRootContext } from '../modules/root-context';
 import type { useAvatar } from '../modules/use-avatar';
+import { use } from 'react';
+import type { ReactNode } from 'react';
 
 export interface AvatarRootContextProps {
 	children: (avatar: ReturnType<typeof useAvatar>) => ReactNode;
