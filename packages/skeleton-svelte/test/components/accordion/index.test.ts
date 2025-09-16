@@ -17,24 +17,24 @@ describe('accordion', () => {
 		});
 	});
 
-	describe('heading', () => {
+	describe('item-heading', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('heading')).toBeInTheDocument();
+			expect(screen.getByTestId('item-heading')).toBeInTheDocument();
 		});
 	});
 
-	describe('trigger', () => {
+	describe('item-trigger', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			expect(screen.getByTestId('item-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('content', () => {
+	describe('item-content', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			expect(screen.getByTestId('item-content')).toBeInTheDocument();
 		});
 	});
 });
