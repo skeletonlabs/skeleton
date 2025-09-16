@@ -19,7 +19,6 @@
 	const attributes = $derived(
 		mergeProps(tooltip().getArrowProps(), rest, {
 			class: classesTooltip.arrow,
-			style: '--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);',
 		}),
 	);
 </script>

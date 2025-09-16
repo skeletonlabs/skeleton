@@ -9,7 +9,7 @@ export default function Page() {
 			<Tooltip.Positioner>
 				<Tooltip.Content>
 					Content
-					<Tooltip.Arrow>
+					<Tooltip.Arrow style={{ '--arrow-size': 'calc(var(--spacing) * 2)', '--arrow-background': 'var(--color-surface-100-900)' }}>
 						<Tooltip.ArrowTip />
 					</Tooltip.Arrow>
 				</Tooltip.Content>
