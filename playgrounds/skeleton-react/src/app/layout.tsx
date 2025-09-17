@@ -1,11 +1,25 @@
 import './globals.css';
 import LightSwitch from './light-switch';
+import { globSync } from 'node:fs';
+import { sep, relative, dirname } from 'node:path';
 
 export default function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	function kebabToPascalCase(str: string) {
+		return str
+			.split('-')
+			.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+			.join('');
+	}
+
+	const components = globSync('./**/components/*/page.tsx').map((route) => {
+		const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
+		const name = kebabToPascalCase(href.split('/').pop()!);
+		return { href, name };
+	});
 	return (
 		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
 			<body>
@@ -21,33 +35,11 @@ export default function RootLayout({
 						<div className="flex flex-col gap-4">
 							<div className="font-bold">Components</div>
 							<nav className="text-sm flex flex-col gap-1">
-								<a className="anchor" href="/components/accordion">
-									Accordion
-								</a>
-								<a className="anchor" href="/components/avatar">
-									Avatar
-								</a>
-								<a className="anchor" href="/components/progress-linear">
-									Progress Linear
-								</a>
-								<a className="anchor" href="/components/file-upload">
-									File Upload
-								</a>
-								<a className="anchor" href="/components/rating-group">
-									Rating Group
-								</a>
-								<a className="anchor" href="/components/switch">
-									Switch
-								</a>
-								<a className="anchor" href="/components/tabs">
-									Tabs
-								</a>
-								<a className="anchor" href="/components/toast">
-									Toast
-								</a>
-								<a className="anchor" href="/components/tooltip">
-									Tooltip
-								</a>
+								{components.map((component) => (
+									<a key={component.href} className="anchor" href={component.href}>
+										{component.name}
+									</a>
+								))}
 							</nav>
 						</div>
 					</div>
