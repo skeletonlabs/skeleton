@@ -3,6 +3,7 @@ export * from './components/avatar/index';
 export * from './components/file-upload/index';
 export * from './components/progress-linear/index';
 export * from './components/rating-group/index';
+export * from './components/segmented-control/index';
 export * from './components/switch/index';
 export * from './components/tabs/index';
 export * from './components/toast/index';
