@@ -1,4 +1,4 @@
-import SegmentedControl from './segmented-control';
+import SegmentedControl from './segmented-control.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
