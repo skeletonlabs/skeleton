@@ -39,6 +39,7 @@ export default function RootLayout({
 									<a key={component.href} className="anchor" href={component.href}>
 										{component.name}
 									</a>
+								))}
 							</nav>
 						</div>
 					</div>
