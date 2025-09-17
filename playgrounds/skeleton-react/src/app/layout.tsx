@@ -1,7 +1,7 @@
 import './globals.css';
 import LightSwitch from './light-switch';
 import { globSync } from 'node:fs';
-import { sep, relative, basename, dirname } from 'node:path';
+import { sep, relative, dirname } from 'node:path';
 
 export default function RootLayout({
 	children,
@@ -16,8 +16,8 @@ export default function RootLayout({
 	}
 
 	const components = globSync('./**/components/*/page.tsx').map((route) => {
-		const name = kebabToPascalCase(basename(dirname(route)));
 		const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
+		const name = kebabToPascalCase(href.split('/').pop()!);
 		return { href, name };
 	});
 	return (
