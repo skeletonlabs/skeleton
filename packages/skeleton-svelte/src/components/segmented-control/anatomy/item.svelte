@@ -32,7 +32,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<div {...attributes}>
+	<label {...attributes}>
 		{@render children?.()}
-	</div>
+	</label>
 {/if}
