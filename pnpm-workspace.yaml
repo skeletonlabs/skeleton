@@ -109,4 +109,10 @@ engineStrict: true
 
 minimumReleaseAge: 1440
 
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+
 savePrefix: ''
