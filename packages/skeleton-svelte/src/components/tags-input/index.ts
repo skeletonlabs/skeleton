@@ -1,0 +1,15 @@
+export type { TagsInputClearTriggerProps } from './anatomy/clear-trigger.svelte';
+export type { TagsInputControlProps } from './anatomy/control.svelte';
+export type { TagsInputHiddenInputProps } from './anatomy/hidden-input.svelte';
+export type { TagsInputInputProps } from './anatomy/input.svelte';
+export type { TagsInputItemProps } from './anatomy/item.svelte';
+export type { TagsInputItemDeleteTriggerProps } from './anatomy/item-delete-trigger.svelte';
+export type { TagsInputItemInputProps } from './anatomy/item-input.svelte';
+export type { TagsInputItemPreviewProps } from './anatomy/item-preview.svelte';
+export type { TagsInputItemTextProps } from './anatomy/item-text.svelte';
+export type { TagsInputLabelProps } from './anatomy/label.svelte';
+export type { TagsInputRootProps } from './anatomy/root.svelte';
+export type { TagsInputRootContextProps } from './anatomy/root-context.svelte';
+export type { TagsInputRootProviderProps } from './anatomy/root-provider.svelte';
+export { TagsInput } from './modules/anatomy';
+export { useTagsInput } from './modules/use-tags-input.svelte';

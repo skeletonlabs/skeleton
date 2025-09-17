@@ -13,17 +13,21 @@
     "@skeletonlabs/themes.skeleton.dev": "0.0.1"
   },
   "changesets": [
+    "better-shrimps-beam",
     "clear-places-shout",
     "dry-coats-return",
     "evil-hands-obey",
     "forty-badgers-clap",
+    "great-eagles-glow",
     "hot-beers-think",
     "kind-feet-serve",
     "legal-suits-write",
     "little-files-notice",
+    "major-trains-enter",
     "orange-towns-teach",
     "silly-bottles-hope",
     "small-words-drum",
-    "violet-signs-dream"
+    "violet-signs-dream",
+    "yellow-jokes-walk"
   ]
 }
