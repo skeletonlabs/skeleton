@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "2.0.0-next.6",
+	"version": "2.0.0-next.7",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"scripts": {
@@ -48,6 +48,7 @@
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@testing-library/jest-dom": "catalog:",
 		"@testing-library/svelte": "catalog:",
+		"@zag-js/tags-input": "catalog:",
 		"jsdom": "catalog:",
 		"publint": "catalog:",
 		"svelte": "catalog:",
