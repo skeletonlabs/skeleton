@@ -3,7 +3,7 @@ import type { Api, Props } from '@zag-js/progress';
 import { normalizeProps, useMachine, type PropTypes } from '@zag-js/react';
 import { useId } from 'react';
 
-export function useProgressLinear(props: Omit<Props, 'id'>): Api<PropTypes> {
+export function useProgressLinear(props: Omit<Props, 'id'> = {}): Api<PropTypes> {
 	const service = useMachine(machine, {
 		id: useId(),
 		...props,
