@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.3
+### Patch Changes
+
+
+- fix: disable hover styles for `btn` when `disabled` ([#3757](https://github.com/skeletonlabs/skeleton/pull/3757))
+
 ## 4.0.0-next.2
 ### Minor Changes
 
