@@ -35,6 +35,7 @@
 		"@zag-js/svelte": "catalog:",
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
+		"@zag-js/tags-input": "catalog:",
 		"@zag-js/toast": "catalog:",
 		"@zag-js/tooltip": "catalog:"
 	},
@@ -48,7 +49,6 @@
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@testing-library/jest-dom": "catalog:",
 		"@testing-library/svelte": "catalog:",
-		"@zag-js/tags-input": "catalog:",
 		"jsdom": "catalog:",
 		"publint": "catalog:",
 		"svelte": "catalog:",
