@@ -3,7 +3,7 @@
 	import '../app.css';
 	import LightSwitch from './light-switch.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 </script>
 
 <div class="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
@@ -16,15 +16,9 @@
 		<div class="flex flex-col gap-4">
 			<div class="font-bold">Components</div>
 			<nav class="text-sm flex flex-col gap-1">
-				<a class="anchor" href={resolve('/components/accordion')}> Accordion </a>
-				<a class="anchor" href={resolve('/components/avatar')}> Avatar </a>
-				<a class="anchor" href={resolve('/components/popover')}> Popover </a>
-				<a class="anchor" href={resolve('/components/file-upload')}> File Upload </a>
-				<a class="anchor" href={resolve('/components/progress-linear')}> Progress Linear </a>
-				<a class="anchor" href={resolve('/components/rating-group')}> Rating Group </a>
-				<a class="anchor" href={resolve('/components/switch')}> Switch </a>
-				<a class="anchor" href={resolve('/components/tabs')}> Tabs </a>
-				<a class="anchor" href={resolve('/components/toast')}> Toast </a>
+				{#each data.components as component (component.href)}
+					<a class="anchor" href={component.href}> {component.name} </a>
+				{/each}
 			</nav>
 		</div>
 	</div>
