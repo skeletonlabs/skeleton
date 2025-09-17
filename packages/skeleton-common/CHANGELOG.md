@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.6
+### Minor Changes
+
+
+- feat: tooltip ([#3697](https://github.com/skeletonlabs/skeleton/pull/3697))
+
+
+- feat: tags input ([#3740](https://github.com/skeletonlabs/skeleton/pull/3740))
+
+
+- feat: popover ([#3696](https://github.com/skeletonlabs/skeleton/pull/3696))
+
 ## 1.0.0-next.5
 ### Minor Changes
 
