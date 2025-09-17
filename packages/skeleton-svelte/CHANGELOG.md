@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.7
+### Minor Changes
+
+
+- feat: tooltip ([#3697](https://github.com/skeletonlabs/skeleton/pull/3697))
+
+
+- feat: tags input ([#3740](https://github.com/skeletonlabs/skeleton/pull/3740))
+
+
+- feat: popover ([#3696](https://github.com/skeletonlabs/skeleton/pull/3696))
+
+
+### Patch Changes
+
+- Updated dependencies [[`997c17f`](https://github.com/skeletonlabs/skeleton/commit/997c17ff6dd29328753f9381154e80853792ec3e), [`19bd792`](https://github.com/skeletonlabs/skeleton/commit/19bd79224a599cc05df7122b9279d88736c8e4c4), [`247fe15`](https://github.com/skeletonlabs/skeleton/commit/247fe154b55ec86b37b12b10771ba0403b488053)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.6
+
 ## 2.0.0-next.6
 ### Minor Changes
 
