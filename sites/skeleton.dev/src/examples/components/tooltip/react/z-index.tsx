@@ -4,7 +4,7 @@ export default function ZIndex() {
 	return (
 		<div className="grid grid-cols-2 gap-4">
 			<Tooltip>
-				<Tooltip.Trigger className="btn preset-filled">Default (auto)</Tooltip.Trigger>
+				<Tooltip.Trigger>Default (auto)</Tooltip.Trigger>
 				<Tooltip.Positioner>
 					<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
 						This example will be below the sibling.
@@ -13,7 +13,7 @@ export default function ZIndex() {
 			</Tooltip>
 
 			<Tooltip>
-				<Tooltip.Trigger className="btn preset-filled">Above (20)</Tooltip.Trigger>
+				<Tooltip.Trigger>Above (20)</Tooltip.Trigger>
 				<Tooltip.Positioner className="z-20!">
 					<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
 						This example will be above the sibling.

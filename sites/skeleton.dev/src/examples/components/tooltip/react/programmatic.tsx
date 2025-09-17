@@ -3,13 +3,13 @@ import { Tooltip, useTooltip } from '@skeletonlabs/skeleton-react';
 export default function Programmatic() {
 	const tooltip = useTooltip();
 	return (
-		<>
-			<button className="btn preset-filled-primary-500" onClick={() => tooltip.setOpen(!tooltip.open)}>
-				Tooltip is {tooltip.open ? 'Open' : 'Closed'}
+		<div className="flex flex-col gap-4">
+			<button className="btn preset-filled w-[150px]" onClick={() => tooltip.setOpen(!tooltip.open)}>
+				Trigger
 			</button>
 
 			<Tooltip.Provider value={tooltip}>
-				<Tooltip.Trigger className="btn preset-filled">Trigger</Tooltip.Trigger>
+				<Tooltip.Trigger>Anchor ({tooltip.open ? 'open' : 'closed'})</Tooltip.Trigger>
 				<Tooltip.Positioner>
 					<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
@@ -17,6 +17,6 @@ export default function Programmatic() {
 					</Tooltip.Content>
 				</Tooltip.Positioner>
 			</Tooltip.Provider>
-		</>
+		</div>
 	);
 }
