@@ -1,0 +1,10 @@
+export type { TooltipArrowProps } from './anatomy/arrow.svelte';
+export type { TooltipArrowTipProps } from './anatomy/arrow-tip.svelte';
+export type { TooltipContentProps } from './anatomy/content.svelte';
+export type { TooltipPositionerProps } from './anatomy/positioner.svelte';
+export type { TooltipRootProps } from './anatomy/root.svelte';
+export type { TooltipRootContextProps } from './anatomy/root-context.svelte';
+export type { TooltipRootProviderProps } from './anatomy/root-provider.svelte';
+export type { TooltipTriggerProps } from './anatomy/trigger.svelte';
+export { Tooltip } from './modules/anatomy';
+export { useTooltip } from './modules/use-tooltip.svelte';

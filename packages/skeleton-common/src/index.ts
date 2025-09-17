@@ -8,4 +8,5 @@ export * from './classes/switch';
 export * from './classes/tabs';
 export * from './classes/tags-input';
 export * from './classes/toast';
+export * from './classes/tooltip';
 export * from './themes';

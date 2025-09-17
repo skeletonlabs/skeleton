@@ -475,6 +475,9 @@ importers:
       '@zag-js/toast':
         specifier: 'catalog:'
         version: 1.24.1
+      '@zag-js/tooltip':
+        specifier: 'catalog:'
+        version: 1.24.1
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
