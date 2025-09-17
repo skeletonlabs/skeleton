@@ -29,6 +29,7 @@
 		"@zag-js/progress": "catalog:",
 		"@zag-js/rating-group": "catalog:",
 		"@zag-js/react": "catalog:",
+		"@zag-js/tags-input": "catalog:",
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/toast": "catalog:"
