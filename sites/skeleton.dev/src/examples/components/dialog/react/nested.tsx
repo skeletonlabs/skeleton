@@ -5,7 +5,7 @@ export default function Nested() {
 		<Dialog>
 			<Dialog.Trigger className="btn preset-filled">Open Dialog</Dialog.Trigger>
 			<Dialog.Backdrop />
-			<Dialog.Positioner className="z-10!">
+			<Dialog.Positioner>
 				<Dialog.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
 					<Dialog.Title className="font-bold">Dialog Title</Dialog.Title>
 					<Dialog.Description>This is a description of the dialog.</Dialog.Description>
@@ -14,7 +14,7 @@ export default function Nested() {
 						<Dialog>
 							<Dialog.Trigger className="btn preset-filled">Open Nested Dialog</Dialog.Trigger>
 							<Dialog.Backdrop />
-							<Dialog.Positioner className="z-20!">
+							<Dialog.Positioner>
 								<Dialog.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
 									<Dialog.Title className="font-bold">Dialog Title</Dialog.Title>
 									<Dialog.Description>This is a description of the dialog.</Dialog.Description>
