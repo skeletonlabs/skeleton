@@ -5,10 +5,7 @@ export const classesTagsInput = defineSkeletonClasses({
 	label: 'label-text',
 	control: 'input flex flex-wrap gap-2 p-2',
 	item: '',
-	itemPreview: [
-		'chip flex gap-0 p-0 preset-filled hover:brightness-100 w-fit',
-		'data-highlighted:ring-2 data-highlighted:ring-primary-500',
-	],
+	itemPreview: ['chip flex gap-0 p-0 preset-filled hover:brightness-100 w-fit', 'data-highlighted:ring data-highlighted:ring-primary-500'],
 	itemText: 'leading-none px-2 py-1',
 	itemDeleteTrigger: 'hover:preset-tonal px-2 py-1',
 	itemInput: 'input text-xs',
