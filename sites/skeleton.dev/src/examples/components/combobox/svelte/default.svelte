@@ -1,0 +1,48 @@
+<script lang="ts">
+	import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
+
+	const data = [
+		{ label: 'Apple', value: 'apple' },
+		{ label: 'Banana', value: 'banana' },
+		{ label: 'Orange', value: 'orange' },
+		{ label: 'Carrot', value: 'carrot' },
+		{ label: 'Broccoli', value: 'broccoli' },
+		{ label: 'Spinach', value: 'spinach' },
+	];
+
+	let items = $state(data);
+
+	const collection = $derived(
+		useListCollection({
+			items: items,
+			itemToString: (item) => item.label,
+			itemToValue: (item) => item.value,
+		}),
+	);
+
+	const onOpenChange = () => {
+		items = data;
+	};
+
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
+		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
+		items = filtered.length > 0 ? filtered : data;
+	};
+</script>
+
+<Combobox {collection} {onOpenChange} {onInputValueChange}>
+	<Combobox.Label>Label</Combobox.Label>
+	<Combobox.Control>
+		<Combobox.Input />
+		<Combobox.Trigger>Trigger</Combobox.Trigger>
+	</Combobox.Control>
+	<Combobox.Positioner>
+		<Combobox.Content>
+			{#each items as item (item.value)}
+				<Combobox.Item {item}>
+					{item.label}
+				</Combobox.Item>
+			{/each}
+		</Combobox.Content>
+	</Combobox.Positioner>
+</Combobox>

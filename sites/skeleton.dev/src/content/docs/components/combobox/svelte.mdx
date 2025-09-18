@@ -1,0 +1,49 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/combobox/svelte/default.svelte';
+import DefaultRaw from '@examples/components/combobox/svelte/default.svelte?raw';
+
+import Group from '@examples/components/combobox/svelte/group.svelte';
+import GroupRaw from '@examples/components/combobox/svelte/group.svelte?raw';
+
+import AutoHighlight from '@examples/components/combobox/svelte/auto-highlight.svelte';
+import AutoHighlightRaw from '@examples/components/combobox/svelte/auto-highlight.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Group
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Group client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={GroupRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Auto Highlight
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AutoHighlight client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AutoHighlightRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

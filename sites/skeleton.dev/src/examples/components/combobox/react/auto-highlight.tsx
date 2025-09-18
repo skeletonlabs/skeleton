@@ -1,49 +1,22 @@
-'use client';
-
 import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
 
 const data = [
-	{
-		label: 'Apple',
-		value: 'apple',
-		type: 'Fruits',
-	},
-	{
-		label: 'Banana',
-		value: 'banana',
-		type: 'Fruits',
-	},
-	{
-		label: 'Orange',
-		value: 'orange',
-		type: 'Fruits',
-	},
-	{
-		label: 'Carrot',
-		value: 'carrot',
-		type: 'Vegetables',
-	},
-	{
-		label: 'Broccoli',
-		value: 'broccoli',
-		type: 'Vegetables',
-	},
-	{
-		label: 'Spinach',
-		value: 'spinach',
-		type: 'Vegetables',
-	},
+	{ label: 'Apple', value: 'apple' },
+	{ label: 'Banana', value: 'banana' },
+	{ label: 'Orange', value: 'orange' },
+	{ label: 'Carrot', value: 'carrot' },
+	{ label: 'Broccoli', value: 'broccoli' },
+	{ label: 'Spinach', value: 'spinach' },
 ];
 
-export default function Page() {
+export default function AutoHighlight() {
 	const [items, setItems] = useState(data);
 
 	const collection = useListCollection({
 		items: items,
 		itemToString: (item) => item.label,
 		itemToValue: (item) => item.value,
-		groupBy: (item) => item.type,
 	});
 
 	const onOpenChange = () => {
@@ -56,7 +29,7 @@ export default function Page() {
 	};
 
 	return (
-		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
+		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange} inputBehavior="autohighlight">
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
@@ -64,15 +37,10 @@ export default function Page() {
 			</Combobox.Control>
 			<Combobox.Positioner>
 				<Combobox.Content>
-					{collection.group().map(([type, items]) => (
-						<Combobox.ItemGroup key={type}>
-							<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-							{items.map((item) => (
-								<Combobox.Item key={item.value} item={item}>
-									{item.label}
-								</Combobox.Item>
-							))}
-						</Combobox.ItemGroup>
+					{items.map((item) => (
+						<Combobox.Item key={item.value} item={item}>
+							{item.label}
+						</Combobox.Item>
 					))}
 				</Combobox.Content>
 			</Combobox.Positioner>

@@ -1,0 +1,49 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/combobox/react/default';
+import DefaultRaw from '@examples/components/combobox/react/default?raw';
+
+import Group from '@examples/components/combobox/react/group';
+import GroupRaw from '@examples/components/combobox/react/group?raw';
+
+import AutoHighlight from '@examples/components/combobox/react/auto-highlight';
+import AutoHighlightRaw from '@examples/components/combobox/react/auto-highlight?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Group
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Group client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={GroupRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Auto Highlight
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AutoHighlight client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AutoHighlightRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
