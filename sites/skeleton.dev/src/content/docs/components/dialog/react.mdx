@@ -7,6 +7,9 @@ export const components = componentSet;
 import Default from '@examples/components/dialog/react/default';
 import DefaultRaw from '@examples/components/dialog/react/default?raw';
 
+import AlertDialog from '@examples/components/dialog/react/alert-dialog';
+import AlertDialogRaw from '@examples/components/dialog/react/alert-dialog?raw';
+
 import Interaction from '@examples/components/dialog/react/interaction';
 import InteractionRaw from '@examples/components/dialog/react/interaction?raw';
 
@@ -25,6 +28,19 @@ import HeadlessRaw from '@examples/components/dialog/react/headless?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Alert Dialog
+
+The [alertdialog](https://w3c.github.io/aria/#alertdialog) role enables assistive technologies and browsers to distinguish alert dialogs from other dialogs so they have the option of giving alert dialogs special treatment, such as playing a system alert sound.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AlertDialog client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AlertDialogRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
