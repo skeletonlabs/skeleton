@@ -1,5 +1,6 @@
 export * from './components/accordion/index';
 export * from './components/avatar/index';
+export * from './components/dialog/index';
 export * from './components/file-upload/index';
 export * from './components/popover/index';
 export * from './components/progress-linear/index';

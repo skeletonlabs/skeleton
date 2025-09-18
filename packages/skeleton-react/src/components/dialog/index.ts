@@ -1,0 +1,12 @@
+export type { DialogBackdropProps } from './anatomy/backdrop';
+export type { DialogCloseTriggerProps } from './anatomy/close-trigger';
+export type { DialogContentProps } from './anatomy/content';
+export type { DialogDescriptionProps } from './anatomy/description';
+export type { DialogPositionerProps } from './anatomy/positioner';
+export type { DialogRootProps } from './anatomy/root';
+export type { DialogRootContextProps } from './anatomy/root-context';
+export type { DialogRootProviderProps } from './anatomy/root-provider';
+export type { DialogTitleProps } from './anatomy/title';
+export type { DialogTriggerProps } from './anatomy/trigger';
+export { Dialog } from './modules/anatomy';
+export { useDialog } from './modules/use-dialog';
