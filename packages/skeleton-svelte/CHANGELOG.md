@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.8
+### Minor Changes
+
+
+- feat: dialog ([#3700](https://github.com/skeletonlabs/skeleton/pull/3700))
+
+
+### Patch Changes
+
+- Updated dependencies [[`890c826`](https://github.com/skeletonlabs/skeleton/commit/890c8260f4d561a99e07440cfce3ef7a9b88e0ed)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.7
+
 ## 2.0.0-next.7
 ### Minor Changes
 

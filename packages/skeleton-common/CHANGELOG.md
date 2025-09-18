@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.7
+### Minor Changes
+
+
+- feat: dialog ([#3700](https://github.com/skeletonlabs/skeleton/pull/3700))
+
 ## 1.0.0-next.6
 ### Minor Changes
 
