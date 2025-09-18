@@ -8,8 +8,7 @@
 <script lang="ts">
 	import { DialogRootContext } from '../modules/root-context';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
-	import { mergeProps, portal } from '@zag-js/svelte';
-	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogBackdropProps = $props();
 
@@ -20,7 +19,6 @@
 	const attributes = $derived(
 		mergeProps(dialog().getBackdropProps(), rest, {
 			class: classesDialog.backdrop,
-			[createAttachmentKey()]: fromAction(portal, () => undefined),
 		}),
 	);
 </script>

@@ -4,7 +4,7 @@
 </script>
 
 <Dialog>
-	<Dialog.Trigger class="btn preset-filled">Open Drawer</Dialog.Trigger>
+	<Dialog.Trigger class="btn preset-filled">Trigger</Dialog.Trigger>
 	<Dialog.Backdrop />
 	<Dialog.Positioner class="z-50! justify-start">
 		<Dialog.Content class="h-screen card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">

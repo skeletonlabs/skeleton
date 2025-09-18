@@ -8,8 +8,7 @@
 <script lang="ts">
 	import { DialogRootContext } from '../modules/root-context';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
-	import { mergeProps, portal } from '@zag-js/svelte';
-	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogPositionerProps = $props();
 
@@ -20,7 +19,6 @@
 	const attributes = $derived(
 		mergeProps(dialog().getPositionerProps(), rest, {
 			class: classesDialog.positioner,
-			[createAttachmentKey()]: fromAction(portal, () => undefined),
 		}),
 	);
 </script>
