@@ -5,7 +5,7 @@ export const classesTabs = defineSkeletonClasses({
 	list: [
 		'relative flex gap-2 border-surface-200-800',
 		'data-[orientation=horizontal]:pb-2 data-[orientation=horizontal]:mb-4 data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:border-b',
-		'data-[orientation=vertical]:pe-2 data-[orientation=vertical]:me-4 data-[orientation=vertical]:flex-col data-[orientation=vertical]:border-e ',
+		'data-[orientation=vertical]:pe-2 data-[orientation=vertical]:me-4 data-[orientation=vertical]:flex-col data-[orientation=vertical]:border-e',
 	],
 	trigger: ['btn hover:preset-tonal-primary', 'data-disabled:opacity-50'],
 	indicator: [
