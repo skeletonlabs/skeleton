@@ -451,6 +451,9 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.24.1
+      '@zag-js/dialog':
+        specifier: 'catalog:'
+        version: 1.24.1
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 1.24.1

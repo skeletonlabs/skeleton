@@ -25,6 +25,7 @@
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
