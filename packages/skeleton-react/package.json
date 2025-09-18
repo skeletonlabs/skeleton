@@ -27,6 +27,7 @@
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
+		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
