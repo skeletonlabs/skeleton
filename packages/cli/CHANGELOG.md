@@ -1,166 +1,128 @@
 # skeleton
 
 ## 1.0.0
-### Major Changes
 
+### Major Changes
 
 - feat: 1.0 ([#3503](https://github.com/skeletonlabs/skeleton/pull/3503))
 
 ## 0.1.0
-### Minor Changes
 
+### Minor Changes
 
 - feat: add `skeleton` to bin paths ([#3500](https://github.com/skeletonlabs/skeleton/pull/3500))
 
 ## 0.0.5
-### Patch Changes
 
+### Patch Changes
 
 - fix: Simplify `script` parsing in Svelte modules ([#3451](https://github.com/skeletonlabs/skeleton/pull/3451))
 
 ## 0.0.4
-### Patch Changes
 
+### Patch Changes
 
 - fix: app.css being transformed twice ([#3392](https://github.com/skeletonlabs/skeleton/pull/3392))
 
 ## 0.0.3
-### Patch Changes
 
+### Patch Changes
 
 - fix: write to file using utf-8 ([#3390](https://github.com/skeletonlabs/skeleton/pull/3390))
 
 ## 0.0.2
-### Patch Changes
 
+### Patch Changes
 
 - fix: Correct the glob matcher for sourcefiles in the `skeleton-3` migration ([#3388](https://github.com/skeletonlabs/skeleton/pull/3388))
 
 ## 0.0.1
-### Patch Changes
 
+### Patch Changes
 
 - Feature: The `class:` directive will also be transformed when they're not also an identifier. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix: transformations on the package.json now preserve the original indentation. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix: `cwd` was wrongly interpeted. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Perserve non-skeleton imports and identifiers. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: `app.html` is now transformed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature: Svelte template code is now included when migrating svelte code. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: Better error handling is now in place. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Export mappings are safely accessed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature (migrate/skeleton-3): Installing dependencies shows actual spinner. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature: Svelte `<script>` tags are transformed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Initial release. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature (migrate/skeleton-3): Tailwind V4 support. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - bugfix: Add `@source` when component library is present ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature: tailwind.config transformation also include skeleton configuration. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: `<packagemanager> install` is now ran at the end of the migration. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Renaming components no longer includes a bug that could cause invalid components to be produced in bigger components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix (migrate/skeleton-3): Correctly handle conflicting renames/imports. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
-- bugfix: Append `dist` to the Skeleton `@source` path  as workaround for https://github.com/tailwindlabs/tailwindcss/issues/16038 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
+- bugfix: Append `dist` to the Skeleton `@source` path as workaround for https://github.com/tailwindlabs/tailwindcss/issues/16038 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
 - Feature: Rename all components imports and usages. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature (migrate/skeleton-3): All removed and renamed exports are now migrated. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix (migrate/skeleton-3): Selecting a single folder would cause 0 files to be globbed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Chore (migrate/skeleton-3): Simpler method of preserving quotes in Svelte template. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix (migrate/skeleton-3): Special characters like `\n`, `\t`, etc. are no longer literally interpreted. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Empty strings no longer crash the `transformSvelte` function ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix (migrate/skeleton-3): Partially reverts the previous change to `hasRange` and checks for empty strings instead as it's more consistent in the cases where we're preserving quotes. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix: Add `bin` back to package.json ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature (migrate/skeleton-3): Skeleton classes `@apply` rules in stylesheets (.{css,pcss,postcss}, <style></style>) are now transformed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - bugfix: Theme import is correctly migrated ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: TS/JS modules are transformed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Switch from `property in object` to `Object.hasOwn` so inherited properties aren't included. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: Source file directories are now prompted instead of being assumed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix (migrate/skeleton-3): Additionally check if range actually has characters (start < end). ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix: Fixed longstanding bug of svelte files not being transformed properly. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature (migrate/skeleton-3): `TabGroup` is now renamed to `Tabs` ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: Name, description and version are now pulled from the `package.json`. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature (migrate/skeleton-3): All file transformations are batched to write to disk at the end of the migration, this will prevent any files being written to disk if any of the file transformations fail. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Bugfix (migrate/skeleton-3): Remove `fixUnusedIdentifiers` calls to reduce migration noise. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Bugfix: Unused identifiers like imports are removed after tranformation. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Feature: Removed components have their imports removed. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
 ## 0.0.1-next.20
+
 ### Patch Changes
 
-
-- bugfix: Append `dist` to the Skeleton `@source` path  as workaround for https://github.com/tailwindlabs/tailwindcss/issues/16038 ([#3307](https://github.com/skeletonlabs/skeleton/pull/3307))
+- bugfix: Append `dist` to the Skeleton `@source` path as workaround for https://github.com/tailwindlabs/tailwindcss/issues/16038 ([#3307](https://github.com/skeletonlabs/skeleton/pull/3307))
 
 ## 0.0.1-next.19
 
