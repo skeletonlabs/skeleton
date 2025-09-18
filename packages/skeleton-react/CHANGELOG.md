@@ -1,11 +1,10 @@
 # @skeletonlabs/skeleton-react
 
 ## 2.0.0-next.7
+
 ### Minor Changes
 
-
 - feat: dialog ([#3700](https://github.com/skeletonlabs/skeleton/pull/3700))
-
 
 ### Patch Changes
 
