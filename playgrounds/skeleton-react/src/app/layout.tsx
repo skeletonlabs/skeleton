@@ -8,18 +8,17 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	function kebabToPascalCase(str: string) {
-		return str
-			.split('-')
-			.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-			.join('');
+	function capitalize(str: string) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
 	}
 
-	const components = globSync('./**/components/*/page.tsx').map((route) => {
-		const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
-		const name = kebabToPascalCase(href.split('/').pop()!);
-		return { href, name };
-	});
+	const components = globSync('./**/components/*/page.tsx')
+		.toSorted((a, b) => a.localeCompare(b))
+		.map((route) => {
+			const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
+			const name = href.split('/').pop()!.split('-').map(capitalize).join(' ');
+			return { href, name };
+		});
 	return (
 		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
 			<body>
