@@ -1,9 +1,0 @@
-.changeset
-.svelte-kit
-.astro
-.next
-build
-dist
-pagefind
-CHANGELOG.md
-pnpm-lock.yaml
