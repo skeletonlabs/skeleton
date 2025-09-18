@@ -1,173 +1,148 @@
 # @skeletonlabs/skeleton
 
 ## 4.0.0-next.3
-### Patch Changes
 
+### Patch Changes
 
 - fix: disable hover styles for `btn` when `disabled` ([#3757](https://github.com/skeletonlabs/skeleton/pull/3757))
 
 ## 4.0.0-next.2
-### Minor Changes
 
+### Minor Changes
 
 - feat: merge optional `preset` styles into core ([#3714](https://github.com/skeletonlabs/skeleton/pull/3714))
 
-
 ### Patch Changes
-
 
 - feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
 
 ## 4.0.0-next.1
-### Major Changes
 
+### Major Changes
 
 - feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
 
 ## 3.3.0-next.0
-### Minor Changes
 
+### Minor Changes
 
 - feat: Add framework package `@source` rules to remove the need for users to explicitely add these ([#3656](https://github.com/skeletonlabs/skeleton/pull/3656))
 
 ## 3.2.0
-### Minor Changes
 
+### Minor Changes
 
 - feat: add `skb` (`skeleton-base`) Tailwind variant ([#3491](https://github.com/skeletonlabs/skeleton/pull/3491))
 
 ## 3.1.8
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Added missing child border-radii to input group ([#3630](https://github.com/skeletonlabs/skeleton/pull/3630))
 
 ## 3.1.7
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Adjust selector for global placeholder styling ([#3608](https://github.com/skeletonlabs/skeleton/pull/3608))
 
 ## 3.1.6
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Set universal input placeholder to ensure consistent coloring ([#3606](https://github.com/skeletonlabs/skeleton/pull/3606))
 
 ## 3.1.5
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Remove unnecessary loop in `preset.scss` ([#3593](https://github.com/skeletonlabs/skeleton/pull/3593))
 
 ## 3.1.4
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Allow thumb to slide full length in range slider for all browsers ([#3566](https://github.com/skeletonlabs/skeleton/pull/3566))
 
 ## 3.1.3
-### Patch Changes
 
+### Patch Changes
 
 - Remove Color input border in Firefox ([#3530](https://github.com/skeletonlabs/skeleton/pull/3530))
 
 ## 3.1.2
-### Patch Changes
 
+### Patch Changes
 
 - bugfix: Input Group select updated to match checked state ([#3454](https://github.com/skeletonlabs/skeleton/pull/3454))
 
 ## 3.1.1
-### Patch Changes
 
+### Patch Changes
 
 - fix: apply card hover style correctly ([#3449](https://github.com/skeletonlabs/skeleton/pull/3449))
 
-
 - bugfix: Adjust Input Group styles to match individual elements ([#3446](https://github.com/skeletonlabs/skeleton/pull/3446))
-
 
 - bugfix: Resolve issue with Select arrows overlapping text ([#3445](https://github.com/skeletonlabs/skeleton/pull/3445))
 
-
 - fix: add missing core utilities ([#3442](https://github.com/skeletonlabs/skeleton/pull/3442))
 
-
 - fix: add back transparency for selection color ([#3433](https://github.com/skeletonlabs/skeleton/pull/3433))
-
 
 - bugfix: Remove redundant styling for selected `option` in `select` elements ([#3422](https://github.com/skeletonlabs/skeleton/pull/3422))
 
 ## 3.1.0
-### Minor Changes
 
+### Minor Changes
 
 - feat: `mark` utility ([#3408](https://github.com/skeletonlabs/skeleton/pull/3408))
 
 ## 3.0.0
-### Minor Changes
 
+### Minor Changes
 
 - chore: Updated to the latest dependencies ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - Feature: Added radial and conic gradient support ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 ### Patch Changes
 
-
 - chore: Restore Button and Chip default hover states ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - chore: Modified default styles based on theme gen improvements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - bugfix: fix css property typo in form-groups classes ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - bugfix: Resolved a number of small display issues with Input Groups ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - feature: Added a `contentPath` utility function for tailwind content paths ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - Fix conflicting build artifacts ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - chore: Improved button hover state brightness effect ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - bugfix: Resolve an issue causing a white flash when selecting inputs. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - feat: Tailwind v4 ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - All Skeleton components have been updated to integrate Zag.js. This contains a number of breaking component API changes. Updates all documentation. And includes new CSS animations in the Tailwind plugin. ([More Information](https://github.com/skeletonlabs/skeleton/discussions/2784)) ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - chore: Moved Prettier and ESLint to repo root, updated formatting, and rectified linting issues ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - fix: add `string` type to `contentPath` args ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-
 - chore: Improved global and per component focus state styles ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-
 
 - chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
 ## 3.0.0-next.13
-### Patch Changes
 
+### Patch Changes
 
 - chore: Restore Button and Chip default hover states ([#3331](https://github.com/skeletonlabs/skeleton/pull/3331))
 
-
 - bugfix: Resolved a number of small display issues with Input Groups ([#3332](https://github.com/skeletonlabs/skeleton/pull/3332))
-
 
 - chore: Style improvements for Buttons, Badges, Chips, and Form elements ([#3345](https://github.com/skeletonlabs/skeleton/pull/3345))
 
