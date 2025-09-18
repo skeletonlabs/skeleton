@@ -3,13 +3,13 @@
 </script>
 
 <Dialog>
-	<Dialog.Trigger>Open Dialog</Dialog.Trigger>
+	<Dialog.Trigger class="btn preset-filled">Trigger</Dialog.Trigger>
 	<Dialog.Backdrop />
 	<Dialog.Positioner>
-		<Dialog.Content>
-			<Dialog.Title>This is the title</Dialog.Title>
-			<Dialog.Description>This is the description</Dialog.Description>
-			<Dialog.CloseTrigger>Close</Dialog.CloseTrigger>
+		<Dialog.Content class="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
+			<Dialog.Title class="font-bold">Dialog Title</Dialog.Title>
+			<Dialog.Description>This is a description of the dialog.</Dialog.Description>
+			<Dialog.CloseTrigger class="btn preset-tonal">Close</Dialog.CloseTrigger>
 		</Dialog.Content>
 	</Dialog.Positioner>
 </Dialog>
