@@ -7,11 +7,17 @@ export const components = componentSet;
 import Default from '@examples/components/dialog/react/default';
 import DefaultRaw from '@examples/components/dialog/react/default?raw';
 
-import Nested from '@examples/components/dialog/react/nested';
-import NestedRaw from '@examples/components/dialog/react/nested?raw';
+import Interaction from '@examples/components/dialog/react/interaction';
+import InteractionRaw from '@examples/components/dialog/react/interaction?raw';
 
 import Drawer from '@examples/components/dialog/react/drawer';
 import DrawerRaw from '@examples/components/dialog/react/drawer?raw';
+
+import ZIndex from '@examples/components/dialog/react/z-index';
+import ZIndexRaw from '@examples/components/dialog/react/z-index?raw';
+
+import Headless from '@examples/components/dialog/react/headless';
+import HeadlessRaw from '@examples/components/dialog/react/headless?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -22,18 +28,23 @@ import DrawerRaw from '@examples/components/dialog/react/drawer?raw';
 	</Fragment>
 </Preview>
 
-## Nested
+## Interaction
+
+If desired, you can disable click to close interactions for the backdrop. We recommend using this sparingly, as this traps the
+user in this experience.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Nested client:visible />
+		<Interaction client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={NestedRaw} lang="tsx" />
+		<Code code={InteractionRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
 ## Drawer
+
+This example repurposes the Dialog for use as a side-panel Drawer. It also introduces basic transition animations.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -43,6 +54,38 @@ import DrawerRaw from '@examples/components/dialog/react/drawer?raw';
 		<Code code={DrawerRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+## Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component part.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ZIndex client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ZIndexRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Headless
+
+Unlike most components in Skeleton, this is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Headless client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={HeadlessRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+The benefits are as follows:
+
+- You can make the `Trigger` surround any element, including an icon, button, image, etc.
+- You can modify the entire structure within `Content`, including custom markup and styling.
+- You may place the `CloseTrigger` anywhere, and use it as an X close option.
 
 ## API Reference
 
