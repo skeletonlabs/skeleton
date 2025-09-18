@@ -1,6 +1,6 @@
 import { Dialog } from '@skeletonlabs/skeleton-react';
 
-export default function Nested() {
+export default function Interaction() {
 	return (
 		<Dialog closeOnInteractOutside={false}>
 			<Dialog.Trigger className="btn preset-filled">Trigger</Dialog.Trigger>

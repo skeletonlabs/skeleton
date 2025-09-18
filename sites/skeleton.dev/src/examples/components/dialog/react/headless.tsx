@@ -1,7 +1,7 @@
 import { Dialog } from '@skeletonlabs/skeleton-react';
 import { SkullIcon } from 'lucide-react';
 
-export default function Default() {
+export default function Headless() {
 	return (
 		<Dialog>
 			<Dialog.Trigger>
