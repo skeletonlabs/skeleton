@@ -1,4 +1,5 @@
 import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
+import Fuse from 'fuse.js';
 import { useState } from 'react';
 
 const data = [
@@ -10,7 +11,12 @@ const data = [
 	{ label: 'Spinach', value: 'spinach' },
 ];
 
-export default function AutoHighlight() {
+const fuse = new Fuse(data, {
+	keys: ['label', 'value'],
+	threshold: 0.3,
+});
+
+export default function Default() {
 	const [items, setItems] = useState(data);
 
 	const collection = useListCollection({
@@ -24,22 +30,16 @@ export default function AutoHighlight() {
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
-		if (filtered.length > 0) {
-			setItems(filtered);
+		const results = fuse.search(event.inputValue);
+		if (results.length > 0) {
+			setItems(results.map((result) => result.item));
 		} else {
 			setItems(data);
 		}
 	};
 
 	return (
-		<Combobox
-			placeholder="Search..."
-			collection={collection}
-			onOpenChange={onOpenChange}
-			onInputValueChange={onInputValueChange}
-			inputBehavior="autohighlight"
-		>
+		<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />

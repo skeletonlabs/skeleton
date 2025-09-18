@@ -13,6 +13,9 @@ import GroupRaw from '@examples/components/combobox/react/group?raw';
 import AutoHighlight from '@examples/components/combobox/react/auto-highlight';
 import AutoHighlightRaw from '@examples/components/combobox/react/auto-highlight?raw';
 
+import CustomFilter from '@examples/components/combobox/react/custom-filter';
+import CustomFilterRaw from '@examples/components/combobox/react/custom-filter?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -41,6 +44,19 @@ import AutoHighlightRaw from '@examples/components/combobox/react/auto-highlight
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={AutoHighlightRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Custom Filter
+
+Try typing `apeple` or `bannana` to see the custom filter using [Fuse.js](https://fusejs.io/) in action.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomFilter client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomFilterRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

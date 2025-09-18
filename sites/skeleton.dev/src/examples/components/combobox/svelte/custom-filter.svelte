@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import Fuse from 'fuse.js';
 
 	const data = [
 		{ label: 'Apple', value: 'apple' },
@@ -9,6 +10,11 @@
 		{ label: 'Broccoli', value: 'broccoli' },
 		{ label: 'Spinach', value: 'spinach' },
 	];
+
+	const fuse = new Fuse(data, {
+		keys: ['label', 'value'],
+		threshold: 0.3,
+	});
 
 	let items = $state(data);
 
@@ -25,9 +31,9 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
-		if (filtered.length > 0) {
-			items = filtered;
+		const results = fuse.search(event.inputValue);
+		if (results.length > 0) {
+			items = results.map((result) => result.item);
 		} else {
 			items = data;
 		}

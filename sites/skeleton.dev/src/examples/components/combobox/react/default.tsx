@@ -25,15 +25,19 @@ export default function Default() {
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
 		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
-		setItems(filtered.length > 0 ? filtered : data);
+		if (filtered.length > 0) {
+			setItems(filtered);
+		} else {
+			setItems(data);
+		}
 	};
 
 	return (
-		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
+		<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
-				<Combobox.Trigger>Trigger</Combobox.Trigger>
+				<Combobox.Trigger />
 			</Combobox.Control>
 			<Combobox.Positioner>
 				<Combobox.Content>

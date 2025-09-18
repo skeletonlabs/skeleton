@@ -27,15 +27,19 @@
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
 		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
-		items = filtered.length > 0 ? filtered : data;
+		if (filtered.length > 0) {
+			items = filtered;
+		} else {
+			items = data;
+		}
 	};
 </script>
 
-<Combobox {collection} {onOpenChange} {onInputValueChange}>
+<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
 	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>
 		<Combobox.Input />
-		<Combobox.Trigger>Trigger</Combobox.Trigger>
+		<Combobox.Trigger />
 	</Combobox.Control>
 	<Combobox.Positioner>
 		<Combobox.Content>

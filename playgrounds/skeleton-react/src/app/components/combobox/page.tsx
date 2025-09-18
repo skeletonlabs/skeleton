@@ -60,7 +60,7 @@ export default function Page() {
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
-				<Combobox.Trigger>Trigger</Combobox.Trigger>
+				<Combobox.Trigger />
 			</Combobox.Control>
 			<Combobox.Positioner>
 				<Combobox.Content>
