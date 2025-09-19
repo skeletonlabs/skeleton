@@ -1,4 +1,4 @@
-import Slider from './slider.js';
+import Slider from './slider';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
