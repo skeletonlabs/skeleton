@@ -13,6 +13,9 @@ import GroupRaw from '@examples/components/combobox/svelte/group.svelte?raw';
 import AutoHighlight from '@examples/components/combobox/svelte/auto-highlight.svelte';
 import AutoHighlightRaw from '@examples/components/combobox/svelte/auto-highlight.svelte?raw';
 
+import Multiple from '@examples/components/combobox/svelte/multiple.svelte';
+import MultipleRaw from '@examples/components/combobox/svelte/multiple.svelte?raw';
+
 import CustomFilter from '@examples/components/combobox/svelte/custom-filter.svelte';
 import CustomFilterRaw from '@examples/components/combobox/svelte/custom-filter.svelte?raw';
 
@@ -56,11 +59,18 @@ Search for any option, then tap Enter on your keyboard to automatically select i
 
 ## Multiple
 
-> NOTE: coming soon...
+<Preview client:load>
+	<Fragment slot="preview">
+		<Multiple client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ## Custom Filter
 
-Try typing `apple` or `bannana` to see the custom filter using [Fuse.js](https://fusejs.io/) in action.
+Try mistyping `apple` or `bannana` to see the custom filter using the fuzzy search from [Fuse.js](https://fusejs.io/) in action.
 
 <Preview client:load>
 	<Fragment slot="preview">
