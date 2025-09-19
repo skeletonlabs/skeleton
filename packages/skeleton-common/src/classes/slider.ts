@@ -8,7 +8,7 @@ export const classesSlider = defineSkeletonClasses({
 	track: 'bg-surface-200-800 rounded-full h-2 flex-1',
 	range: 'bg-surface-950-50 rounded-container h-full',
 	thumb:
-		'size-5 bg-surface-50-950 ring-inset ring-2 ring-surface-950-50 rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary-500',
+		'size-5 bg-surface-50-950 ring-inset ring-2 ring-surface-950-50 rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-surface-950-50',
 	hiddenInput: '',
 	markerGroup: '',
 	marker: 'text-sm text-surface-800-200',
