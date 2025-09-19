@@ -1,3 +1,4 @@
+import { ComboboxItemContext } from '../modules/item-context';
 import { ComboboxRootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
@@ -18,5 +19,9 @@ export default function Item(props: ComboboxItemProps) {
 		className: classesCombobox.item,
 	});
 
-	return element ? element(attributes) : <li {...attributes}>{children}</li>;
+	return (
+		<ComboboxItemContext.Provider value={itemProps}>
+			{element ? element(attributes) : <li {...attributes}>{children}</li>}
+		</ComboboxItemContext.Provider>
+	);
 }

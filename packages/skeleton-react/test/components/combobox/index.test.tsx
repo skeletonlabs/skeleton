@@ -72,4 +72,18 @@ describe('combobox', () => {
 			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
+
+	describe('item text', () => {
+		it('renders', () => {
+			render(<Combobox />);
+			expect(screen.getByTestId('item-text')).toBeInTheDocument();
+		});
+	});
+
+	describe('item indicator', () => {
+		it('renders', () => {
+			render(<Combobox />);
+			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+		});
+	});
 });

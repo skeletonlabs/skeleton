@@ -10,5 +10,10 @@ export const classesCombobox = defineSkeletonClasses({
 	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 space-y-2',
 	itemGroup: '',
 	itemGroupLabel: 'text-surface-600-400 text-xs px-2 py-1',
-	item: 'data-highlighted:preset-filled-primary-500 data-[state=checked]:preset-filled-primary-500 px-2 py-1 rounded cursor-pointer',
+	item: [
+		'flex justify-between items-center px-2 py-1 rounded cursor-pointer',
+		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50',
+	],
+	itemText: '',
+	itemIndicator: '',
 });

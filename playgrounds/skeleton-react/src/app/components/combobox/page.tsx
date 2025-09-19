@@ -56,20 +56,21 @@ export default function Page() {
 	};
 
 	return (
-		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
+		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange} inputBehavior="autohighlight">
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
 				<Combobox.Trigger />
 			</Combobox.Control>
-			<Combobox.Positioner class="z-[1]!">
+			<Combobox.Positioner>
 				<Combobox.Content>
 					{collection.group().map(([type, items]) => (
 						<Combobox.ItemGroup key={type}>
 							<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
 							{items.map((item) => (
 								<Combobox.Item key={item.value} item={item}>
-									{item.label}
+									<Combobox.ItemText>{item.label}</Combobox.ItemText>
+									<Combobox.ItemIndicator />
 								</Combobox.Item>
 							))}
 						</Combobox.ItemGroup>

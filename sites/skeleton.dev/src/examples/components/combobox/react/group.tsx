@@ -49,7 +49,8 @@ export default function Group() {
 								<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
 								{items.map((item) => (
 									<Combobox.Item key={item.value} item={item}>
-										{item.label}
+										<Combobox.ItemText>{item.label}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
 									</Combobox.Item>
 								))}
 							</Combobox.ItemGroup>

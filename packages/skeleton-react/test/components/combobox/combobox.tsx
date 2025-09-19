@@ -12,7 +12,10 @@ export default function ComboboxTest() {
 				<Combobox.Content data-testid="content">
 					<Combobox.ItemGroup data-testid="item-group">
 						<Combobox.ItemGroupLabel data-testid="item-group-label" />
-						<Combobox.Item item="item" data-testid="item" />
+						<Combobox.Item item="item" data-testid="item">
+							<Combobox.ItemText data-testid="item-text" />
+							<Combobox.ItemIndicator data-testid="item-indicator" />
+						</Combobox.Item>
 					</Combobox.ItemGroup>
 				</Combobox.Content>
 			</Combobox.Positioner>

@@ -48,7 +48,8 @@
 						<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
 						{#each items as item (item.value)}
 							<Combobox.Item {item}>
-								{item.label}
+								<Combobox.ItemText>{item.label}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
 							</Combobox.Item>
 						{/each}
 					</Combobox.ItemGroup>
