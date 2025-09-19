@@ -33,30 +33,29 @@ export default function Default() {
 	};
 
 	return (
-		<div className="w-full max-w-md">
-			<Combobox
-				placeholder="Search..."
-				collection={collection}
-				onOpenChange={onOpenChange}
-				onInputValueChange={onInputValueChange}
-				multiple={true}
-			>
-				<Combobox.Label>Label</Combobox.Label>
-				<Combobox.Control>
-					<Combobox.Input />
-					<Combobox.Trigger />
-				</Combobox.Control>
-				<Combobox.Positioner className="z-[1]!">
-					<Combobox.Content>
-						{items.map((item) => (
-							<Combobox.Item key={item.value} item={item}>
-								<Combobox.ItemText>{item.label}</Combobox.ItemText>
-								<Combobox.ItemIndicator />
-							</Combobox.Item>
-						))}
-					</Combobox.Content>
-				</Combobox.Positioner>
-			</Combobox>
-		</div>
+		<Combobox
+			className="w-full max-w-md"
+			placeholder="Search..."
+			collection={collection}
+			onOpenChange={onOpenChange}
+			onInputValueChange={onInputValueChange}
+			multiple={true}
+		>
+			<Combobox.Label>Label</Combobox.Label>
+			<Combobox.Control>
+				<Combobox.Input />
+				<Combobox.Trigger />
+			</Combobox.Control>
+			<Combobox.Positioner className="z-[1]!">
+				<Combobox.Content>
+					{items.map((item) => (
+						<Combobox.Item key={item.value} item={item}>
+							<Combobox.ItemText>{item.label}</Combobox.ItemText>
+							<Combobox.ItemIndicator />
+						</Combobox.Item>
+					))}
+				</Combobox.Content>
+			</Combobox.Positioner>
+		</Combobox>
 	);
 }
