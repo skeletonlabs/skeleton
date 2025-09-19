@@ -8,7 +8,7 @@
 	<Dialog.Positioner class="fixed inset-0 z-50 flex justify-center items-center">
 		<Dialog.Content class="card bg-surface-100-900 w-md p-4 space-y-2 shadow-xl">
 			<Dialog.Title class="text-2xl font-bold">Setting Z-Index</Dialog.Title>
-			<Dialog.Description>This dialog will have a z-index value of 20.</Dialog.Description>
+			<Dialog.Description>This dialog will have a z-index value of 50.</Dialog.Description>
 			<Dialog.CloseTrigger class="btn preset-tonal">Close</Dialog.CloseTrigger>
 		</Dialog.Content>
 	</Dialog.Positioner>
