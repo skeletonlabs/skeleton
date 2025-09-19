@@ -4,6 +4,7 @@
 
 <Slider data-testid="root">
 	<Slider.Label data-testid="label" />
+	<Slider.ValueText data-testid="value-text" />
 	<Slider.Control data-testid="control">
 		<Slider.Track data-testid="track">
 			<Slider.Range data-testid="range" />

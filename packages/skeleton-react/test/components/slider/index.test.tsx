@@ -17,6 +17,13 @@ describe('slider', () => {
 		});
 	});
 
+	describe('value text', () => {
+		it('renders', () => {
+			render(Slider);
+			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+		});
+	});
+
 	describe('control', () => {
 		it('renders', () => {
 			render(<Slider />);
