@@ -6,7 +6,10 @@ export const classesSegmentedControl = defineSkeletonClasses({
 		'data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col',
 	],
 	indicator: 'top-(--top) left-(--left) w-(--width) h-(--height) preset-filled rounded',
-	item: ['btn cursor-pointer outline-2 outline-transparent z-10', 'data-focus-visible:ring-2 data-focus-visible:ring-primary-500'],
+	item: [
+		'btn cursor-pointer z-10',
+		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
+	],
 	itemText: ['transition-colors', 'data-[state=checked]:text-surface-contrast-950 data-[state=checked]:dark:text-surface-contrast-50 '],
 	itemHiddenInput: '',
 });
