@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.4
+### Patch Changes
+
+
+- fix: replace `all` with dedicated transition properties on `btn` utility ([#3773](https://github.com/skeletonlabs/skeleton/pull/3773))
+
 ## 4.0.0-next.3
 
 ### Patch Changes

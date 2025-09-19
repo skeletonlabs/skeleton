@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.8
+### Minor Changes
+
+
+- feat: segmented control ([#3758](https://github.com/skeletonlabs/skeleton/pull/3758))
+
+
+### Patch Changes
+
+- Updated dependencies [[`aa6392e`](https://github.com/skeletonlabs/skeleton/commit/aa6392efb829ea01b1466b5c6a623adf05f96f4e)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.8
+
 ## 2.0.0-next.7
 
 ### Minor Changes
