@@ -16,6 +16,9 @@ import AutoHighlightRaw from '@examples/components/combobox/react/auto-highlight
 import Multiple from '@examples/components/combobox/react/multiple';
 import MultipleRaw from '@examples/components/combobox/react/multiple?raw';
 
+import DisabledItem from '@examples/components/combobox/react/disabled-item';
+import DisabledItemRaw from '@examples/components/combobox/react/disabled-item?raw';
+
 import CustomFilter from '@examples/components/combobox/react/custom-filter';
 import CustomFilterRaw from '@examples/components/combobox/react/custom-filter?raw';
 
@@ -65,6 +68,17 @@ Search for any option, then tap Enter on your keyboard to automatically select i
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MultipleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled Item
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DisabledItem client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledItemRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

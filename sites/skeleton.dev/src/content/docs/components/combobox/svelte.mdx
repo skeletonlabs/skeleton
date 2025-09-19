@@ -16,6 +16,9 @@ import AutoHighlightRaw from '@examples/components/combobox/svelte/auto-highligh
 import Multiple from '@examples/components/combobox/svelte/multiple.svelte';
 import MultipleRaw from '@examples/components/combobox/svelte/multiple.svelte?raw';
 
+import DisabledItem from '@examples/components/combobox/svelte/disabled-item.svelte';
+import DisabledItemRaw from '@examples/components/combobox/svelte/disabled-item.svelte?raw';
+
 import CustomFilter from '@examples/components/combobox/svelte/custom-filter.svelte';
 import CustomFilterRaw from '@examples/components/combobox/svelte/custom-filter.svelte?raw';
 
@@ -65,6 +68,17 @@ Search for any option, then tap Enter on your keyboard to automatically select i
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MultipleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled Item
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DisabledItem client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledItemRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
