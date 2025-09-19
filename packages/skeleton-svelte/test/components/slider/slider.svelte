@@ -11,7 +11,7 @@
 	</Slider.Control>
 	<Slider.Context>
 		{#snippet children(slider)}
-			{#each slider.value as _, index (index)}
+			{#each slider().value as _, index (index)}
 				<Slider.Thumb {index} data-testid={`thumb-${index}`}>
 					<Slider.HiddenInput data-testid={`hidden-input-${index}`} />
 				</Slider.Thumb>

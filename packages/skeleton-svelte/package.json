@@ -32,6 +32,7 @@
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/rating-group": "catalog:",
+		"@zag-js/slider": "catalog:",
 		"@zag-js/svelte": "catalog:",
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
