@@ -16,6 +16,9 @@ import AutoHighlightRaw from '@examples/components/combobox/svelte/auto-highligh
 import CustomFilter from '@examples/components/combobox/svelte/custom-filter.svelte';
 import CustomFilterRaw from '@examples/components/combobox/svelte/custom-filter.svelte?raw';
 
+import ZIndex from '@examples/components/combobox/svelte/z-index.svelte';
+import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -57,6 +60,19 @@ Try typing `apeple` or `bannana` to see the custom filter using [Fuse.js](https:
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={CustomFilterRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the Positioner component part.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ZIndex client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ZIndexRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
