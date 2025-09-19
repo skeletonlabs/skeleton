@@ -14,5 +14,9 @@
 	</Slider.Control>
 	<Slider.MarkerGroup>
 		<Slider.Marker value={0} />
+		<Slider.Marker value={25} />
+		<Slider.Marker value={50} />
+		<Slider.Marker value={75} />
+		<Slider.Marker value={100} />
 	</Slider.MarkerGroup>
 </Slider>
