@@ -2,7 +2,7 @@
 	import { Slider } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Slider>
+<Slider class="w-full">
 	<Slider.Label>Label</Slider.Label>
 	<Slider.Control>
 		<Slider.Track>
