@@ -18,5 +18,5 @@ export default function Marker(props: SliderMarkerProps) {
 		className: classesSlider.marker,
 	});
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <div {...attributes}>{children ?? value}</div>;
 }

@@ -28,6 +28,10 @@
 	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
-		{@render children?.()}
+		{#if children}
+			{@render children()}
+		{:else}
+			{value}
+		{/if}
 	</div>
 {/if}

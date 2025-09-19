@@ -17,6 +17,7 @@ export default function Page() {
 			</Slider.Control>
 			<Slider.MarkerGroup>
 				<Slider.Marker value={0} />
+				<Slider.Marker value={25} />
 			</Slider.MarkerGroup>
 		</Slider>
 	);
