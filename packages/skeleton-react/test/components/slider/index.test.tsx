@@ -19,7 +19,7 @@ describe('slider', () => {
 
 	describe('value text', () => {
 		it('renders', () => {
-			render(Slider);
+			render(<Slider />);
 			expect(screen.getByTestId('value-text')).toBeInTheDocument();
 		});
 	});
