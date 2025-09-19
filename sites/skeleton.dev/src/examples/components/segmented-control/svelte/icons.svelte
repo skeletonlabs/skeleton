@@ -1,7 +1,7 @@
 <script lang="ts">
-	import AlignCenterIcon from '@lucide/svelte/icons/align-center-horizontal';
-	import AlignEndIcon from '@lucide/svelte/icons/align-end-horizontal';
-	import AlignStartIcon from '@lucide/svelte/icons/align-start-horizontal';
+	import AlignCenterVerticalIcon from '@lucide/svelte/icons/align-center-vertical';
+	import AlignEndVerticalIcon from '@lucide/svelte/icons/align-end-vertical';
+	import AlignStartVerticalIcon from '@lucide/svelte/icons/align-start-vertical';
 	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 </script>
 
@@ -9,19 +9,19 @@
 	<SegmentedControl.Indicator />
 	<SegmentedControl.Item value="start">
 		<SegmentedControl.ItemText>
-			<AlignStartIcon />
+			<AlignStartVerticalIcon />
 		</SegmentedControl.ItemText>
 		<SegmentedControl.ItemHiddenInput />
 	</SegmentedControl.Item>
 	<SegmentedControl.Item value="center">
 		<SegmentedControl.ItemText>
-			<AlignCenterIcon />
+			<AlignCenterVerticalIcon />
 		</SegmentedControl.ItemText>
 		<SegmentedControl.ItemHiddenInput />
 	</SegmentedControl.Item>
 	<SegmentedControl.Item value="end">
 		<SegmentedControl.ItemText>
-			<AlignEndIcon />
+			<AlignEndVerticalIcon />
 		</SegmentedControl.ItemText>
 		<SegmentedControl.ItemHiddenInput />
 	</SegmentedControl.Item>

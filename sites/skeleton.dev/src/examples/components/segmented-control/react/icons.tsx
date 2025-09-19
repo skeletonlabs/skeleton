@@ -1,5 +1,5 @@
 import { SegmentedControl } from '@skeletonlabs/skeleton-react';
-import { AlignStartHorizontalIcon, AlignCenterHorizontalIcon, AlignEndHorizontalIcon } from 'lucide-react';
+import { AlignStartVerticalIcon, AlignCenterVerticalIcon, AlignEndVerticalIcon } from 'lucide-react';
 
 export default function Icons() {
 	return (
@@ -7,19 +7,19 @@ export default function Icons() {
 			<SegmentedControl.Indicator />
 			<SegmentedControl.Item value="start">
 				<SegmentedControl.ItemText>
-					<AlignStartHorizontalIcon />
+					<AlignStartVerticalIcon />
 				</SegmentedControl.ItemText>
 				<SegmentedControl.ItemHiddenInput />
 			</SegmentedControl.Item>
 			<SegmentedControl.Item value="center">
 				<SegmentedControl.ItemText>
-					<AlignCenterHorizontalIcon />
+					<AlignCenterVerticalIcon />
 				</SegmentedControl.ItemText>
 				<SegmentedControl.ItemHiddenInput />
 			</SegmentedControl.Item>
 			<SegmentedControl.Item value="end">
 				<SegmentedControl.ItemText>
-					<AlignEndHorizontalIcon />
+					<AlignEndVerticalIcon />
 				</SegmentedControl.ItemText>
 				<SegmentedControl.ItemHiddenInput />
 			</SegmentedControl.Item>
