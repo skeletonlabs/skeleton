@@ -14,7 +14,7 @@ export default function ItemText(props: SegmentedControlItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(segmentedControl.getItemProps(itemProps), rest, {
+	const attributes = mergeProps(segmentedControl.getItemTextProps(itemProps), rest, {
 		className: classesSegmentedControl.itemText,
 	});
 
