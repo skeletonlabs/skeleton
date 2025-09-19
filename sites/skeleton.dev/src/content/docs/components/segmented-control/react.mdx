@@ -1,0 +1,49 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/segmented-control/react/default';
+import DefaultRaw from '@examples/components/segmented-control/react/default?raw';
+
+import Icons from '@examples/components/segmented-control/react/icons';
+import IconsRaw from '@examples/components/segmented-control/react/icons?raw';
+
+import Orientation from '@examples/components/segmented-control/react/orientation';
+import OrientationRaw from '@examples/components/segmented-control/react/orientation?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Icons client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Orientation
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Orientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={OrientationRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
