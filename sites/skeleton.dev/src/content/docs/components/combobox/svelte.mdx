@@ -28,7 +28,9 @@ import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
 	</Fragment>
 </Preview>
 
-## Group
+## Groups
+
+Create labelled groups for your items.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -41,6 +43,8 @@ import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
 
 ## Auto Highlight
 
+Search for any option, then tap Enter on your keyboard to automatically select it.
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<AutoHighlight client:visible />
@@ -50,9 +54,13 @@ import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
 	</Fragment>
 </Preview>
 
+## Multiple
+
+> NOTE: coming soon...
+
 ## Custom Filter
 
-Try typing `apeple` or `bannana` to see the custom filter using [Fuse.js](https://fusejs.io/) in action.
+Try typing `apple` or `bannana` to see the custom filter using [Fuse.js](https://fusejs.io/) in action.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -75,6 +83,10 @@ By default we do not take an opinionated stance regarding z-index stacking. The 
 		<Code code={ZIndexRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+## Items Max
+
+Note that we do not recommend this interface for exessive amounts of items. For normal usage, a few dozen is likely best. Going above 500 items may cause performance issues.
 
 ## API Reference
 

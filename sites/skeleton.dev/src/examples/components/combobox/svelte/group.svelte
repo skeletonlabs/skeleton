@@ -35,24 +35,25 @@
 	};
 </script>
 
-<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
-	<Combobox.Label>Label</Combobox.Label>
-	<Combobox.Control>
-		<Combobox.Input />
-		<Combobox.Trigger />
-	</Combobox.Control>
-	<Combobox.Positioner>
-		<Combobox.Content>
-			{#each collection.group() as [type, items] (type)}
-				<Combobox.ItemGroup>
-					<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-					{#each items as item (item.value)}
-						<Combobox.Item {item}>
-							{item.label}
-						</Combobox.Item>
-					{/each}
-				</Combobox.ItemGroup>
-			{/each}
-		</Combobox.Content>
-	</Combobox.Positioner>
-</Combobox>
+<div class="w-full max-w-md">
+	<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+		<Combobox.Control>
+			<Combobox.Input />
+			<Combobox.Trigger />
+		</Combobox.Control>
+		<Combobox.Positioner class="z-[1]!">
+			<Combobox.Content>
+				{#each collection.group() as [type, items] (type)}
+					<Combobox.ItemGroup>
+						<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
+						{#each items as item (item.value)}
+							<Combobox.Item {item}>
+								{item.label}
+							</Combobox.Item>
+						{/each}
+					</Combobox.ItemGroup>
+				{/each}
+			</Combobox.Content>
+		</Combobox.Positioner>
+	</Combobox>
+</div>

@@ -33,27 +33,28 @@ export default function AutoHighlight() {
 	};
 
 	return (
-		<Combobox
-			placeholder="Search..."
-			collection={collection}
-			onOpenChange={onOpenChange}
-			onInputValueChange={onInputValueChange}
-			inputBehavior="autohighlight"
-		>
-			<Combobox.Label>Label</Combobox.Label>
-			<Combobox.Control>
-				<Combobox.Input />
-				<Combobox.Trigger />
-			</Combobox.Control>
-			<Combobox.Positioner>
-				<Combobox.Content>
-					{items.map((item) => (
-						<Combobox.Item key={item.value} item={item}>
-							{item.label}
-						</Combobox.Item>
-					))}
-				</Combobox.Content>
-			</Combobox.Positioner>
-		</Combobox>
+		<div className="w-full max-w-md">
+			<Combobox
+				placeholder="Search..."
+				collection={collection}
+				onOpenChange={onOpenChange}
+				onInputValueChange={onInputValueChange}
+				inputBehavior="autohighlight"
+			>
+				<Combobox.Control>
+					<Combobox.Input />
+					<Combobox.Trigger />
+				</Combobox.Control>
+				<Combobox.Positioner className="z-[1]!">
+					<Combobox.Content>
+						{items.map((item) => (
+							<Combobox.Item key={item.value} item={item}>
+								{item.label}
+							</Combobox.Item>
+						))}
+					</Combobox.Content>
+				</Combobox.Positioner>
+			</Combobox>
+		</div>
 	);
 }

@@ -36,26 +36,27 @@ export default function Group() {
 	};
 
 	return (
-		<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
-			<Combobox.Label>Label</Combobox.Label>
-			<Combobox.Control>
-				<Combobox.Input />
-				<Combobox.Trigger />
-			</Combobox.Control>
-			<Combobox.Positioner>
-				<Combobox.Content>
-					{collection.group().map(([type, items]) => (
-						<Combobox.ItemGroup key={type}>
-							<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-							{items.map((item) => (
-								<Combobox.Item key={item.value} item={item}>
-									{item.label}
-								</Combobox.Item>
-							))}
-						</Combobox.ItemGroup>
-					))}
-				</Combobox.Content>
-			</Combobox.Positioner>
-		</Combobox>
+		<div className="w-full max-w-md">
+			<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
+				<Combobox.Control>
+					<Combobox.Input />
+					<Combobox.Trigger />
+				</Combobox.Control>
+				<Combobox.Positioner className="z-[1]!">
+					<Combobox.Content>
+						{collection.group().map(([type, items]) => (
+							<Combobox.ItemGroup key={type}>
+								<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
+								{items.map((item) => (
+									<Combobox.Item key={item.value} item={item}>
+										{item.label}
+									</Combobox.Item>
+								))}
+							</Combobox.ItemGroup>
+						))}
+					</Combobox.Content>
+				</Combobox.Positioner>
+			</Combobox>
+		</div>
 	);
 }

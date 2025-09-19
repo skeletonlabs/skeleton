@@ -39,21 +39,22 @@ export default function Default() {
 	};
 
 	return (
-		<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
-			<Combobox.Label>Label</Combobox.Label>
-			<Combobox.Control>
-				<Combobox.Input />
-				<Combobox.Trigger />
-			</Combobox.Control>
-			<Combobox.Positioner>
-				<Combobox.Content>
-					{items.map((item) => (
-						<Combobox.Item key={item.value} item={item}>
-							{item.label}
-						</Combobox.Item>
-					))}
-				</Combobox.Content>
-			</Combobox.Positioner>
-		</Combobox>
+		<div className="w-full max-w-md">
+			<Combobox placeholder="Search..." collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange}>
+				<Combobox.Control>
+					<Combobox.Input />
+					<Combobox.Trigger />
+				</Combobox.Control>
+				<Combobox.Positioner className="z-[1]!">
+					<Combobox.Content>
+						{items.map((item) => (
+							<Combobox.Item key={item.value} item={item}>
+								{item.label}
+							</Combobox.Item>
+						))}
+					</Combobox.Content>
+				</Combobox.Positioner>
+			</Combobox>
+		</div>
 	);
 }

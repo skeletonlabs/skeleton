@@ -34,19 +34,20 @@
 	};
 </script>
 
-<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} inputBehavior="autohighlight">
-	<Combobox.Label>Label</Combobox.Label>
-	<Combobox.Control>
-		<Combobox.Input />
-		<Combobox.Trigger />
-	</Combobox.Control>
-	<Combobox.Positioner>
-		<Combobox.Content>
-			{#each items as item (item.value)}
-				<Combobox.Item {item}>
-					{item.label}
-				</Combobox.Item>
-			{/each}
-		</Combobox.Content>
-	</Combobox.Positioner>
-</Combobox>
+<div class="w-full max-w-md">
+	<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} inputBehavior="autohighlight">
+		<Combobox.Control>
+			<Combobox.Input />
+			<Combobox.Trigger />
+		</Combobox.Control>
+		<Combobox.Positioner class="z-[1]!">
+			<Combobox.Content>
+				{#each items as item (item.value)}
+					<Combobox.Item {item}>
+						{item.label}
+					</Combobox.Item>
+				{/each}
+			</Combobox.Content>
+		</Combobox.Positioner>
+	</Combobox>
+</div>

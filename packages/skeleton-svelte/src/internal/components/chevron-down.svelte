@@ -1,3 +1,7 @@
+<script lang="ts">
+	let { ...restAttrs } = $props();
+</script>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	width="24"
@@ -8,6 +12,7 @@
 	stroke-width="2"
 	stroke-linecap="round"
 	stroke-linejoin="round"
+	{...restAttrs}
 >
 	<path d="m6 9 6 6 6-6" />
 </svg>

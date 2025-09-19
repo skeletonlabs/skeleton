@@ -62,7 +62,7 @@ export default function Page() {
 				<Combobox.Input />
 				<Combobox.Trigger />
 			</Combobox.Control>
-			<Combobox.Positioner>
+			<Combobox.Positioner class="z-[1]!">
 				<Combobox.Content>
 					{collection.group().map(([type, items]) => (
 						<Combobox.ItemGroup key={type}>
