@@ -2,8 +2,8 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesSwitch = defineSkeletonClasses({
 	root: [
-		'cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50 inline-flex gap-2 items-center rounded p-1',
-		'data-focus-visible:ring data-focus-visible:ring-primary-500',
+		'cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50 inline-flex gap-2 items-center rounded',
+		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
 	],
 	control: [
 		'block preset-filled-surface-200-800 h-6 w-10 p-0.5 rounded-full flex justify-start',
