@@ -6,20 +6,18 @@ export default function Page() {
 	return (
 		<Slider>
 			<Slider.Label>Label</Slider.Label>
+			<Slider.ValueText />
 			<Slider.Control>
 				<Slider.Track>
 					<Slider.Range />
 				</Slider.Track>
+				<Slider.Thumb index={0}>
+					<Slider.HiddenInput />
+				</Slider.Thumb>
 			</Slider.Control>
-			<Slider.Context>
-				{(slider) =>
-					slider.value.map((_, index) => (
-						<Slider.Thumb key={index} index={index}>
-							<Slider.HiddenInput />
-						</Slider.Thumb>
-					))
-				}
-			</Slider.Context>
+			<Slider.MarkerGroup>
+				<Slider.Marker value={0} />
+			</Slider.MarkerGroup>
 		</Slider>
 	);
 }

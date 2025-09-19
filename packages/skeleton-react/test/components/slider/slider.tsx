@@ -8,16 +8,10 @@ export default function SliderTest() {
 				<Slider.Track data-testid="track">
 					<Slider.Range data-testid="range" />
 				</Slider.Track>
+				<Slider.Thumb index={0} data-testid="thumb">
+					<Slider.HiddenInput data-testid="hidden-input" />
+				</Slider.Thumb>
 			</Slider.Control>
-			<Slider.Context>
-				{(slider) =>
-					slider.value.map((_, index) => (
-						<Slider.Thumb key={index} index={index} data-testid={`thumb-${index}`}>
-							<Slider.HiddenInput data-testid={`hidden-input-${index}`} />
-						</Slider.Thumb>
-					))
-				}
-			</Slider.Context>
 			<Slider.MarkerGroup data-testid="marker-group">
 				<Slider.Marker value={0} data-testid="marker" />
 			</Slider.MarkerGroup>

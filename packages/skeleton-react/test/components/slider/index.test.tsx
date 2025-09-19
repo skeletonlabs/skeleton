@@ -41,14 +41,14 @@ describe('slider', () => {
 	describe('thumb', () => {
 		it('renders', () => {
 			render(<Slider />);
-			expect(screen.getByTestId('thumb-0')).toBeInTheDocument();
+			expect(screen.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
 	describe('hidden input', () => {
 		it('renders', () => {
 			render(<Slider />);
-			expect(screen.getByTestId('hidden-input-0')).toBeInTheDocument();
+			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
