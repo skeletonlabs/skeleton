@@ -42,6 +42,7 @@ catalog:
   '@zag-js/file-upload': 1.24.1
   '@zag-js/popover': 1.24.1
   '@zag-js/progress': 1.24.1
+  '@zag-js/radio-group': 1.24.1
   '@zag-js/rating-group': 1.24.1
   '@zag-js/react': 1.24.1
   '@zag-js/slider': 1.24.1

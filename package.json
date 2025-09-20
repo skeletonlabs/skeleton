@@ -11,11 +11,12 @@
 		"build": "pnpm --recursive --aggregate-output --reporter=append-only build",
 		"test": "pnpm --recursive -aggregate-output --reporter=append-only --parallel test",
 		"check": "pnpm --recursive -aggregate-output --reporter=append-only --parallel check",
-		"format": "prettier . --cache --ignore-path .gitignore --write --list-different",
-		"format:check": "prettier . --cache --ignore-path .gitignore --check",
+		"format": "prettier . --cache --write --list-different",
+		"format:check": "prettier . --cache --check",
 		"lint": "oxlint . --type-aware --fix",
 		"lint:check": "oxlint . --type-aware",
 		"changeset:publish": "changeset publish",
+		"changeset:version": "changeset version && pnpm format",
 		"postinstall": "pnpm --silent --recursive --parallel sync"
 	},
 	"devDependencies": {

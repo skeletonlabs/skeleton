@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "4.0.0-next.3",
+	"version": "4.0.0-next.4",
 	"scripts": {
 		"dev": "vite build --watch",
 		"build": "vite build",

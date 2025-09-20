@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.8
+
+### Minor Changes
+
+- feat: segmented control ([#3758](https://github.com/skeletonlabs/skeleton/pull/3758))
+
 ## 1.0.0-next.7
 
 ### Minor Changes
