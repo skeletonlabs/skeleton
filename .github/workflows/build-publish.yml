@@ -29,6 +29,7 @@ jobs:
         with:
           commit: 'chore(latest-release): version package'
           title: 'chore(latest-release): version package'
+          version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

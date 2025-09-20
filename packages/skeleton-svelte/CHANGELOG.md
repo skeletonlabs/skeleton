@@ -1,11 +1,10 @@
 # @skeletonlabs/skeleton-svelte
 
 ## 2.0.0-next.9
+
 ### Minor Changes
 
-
 - feat: segmented control ([#3758](https://github.com/skeletonlabs/skeleton/pull/3758))
-
 
 ### Patch Changes
 
