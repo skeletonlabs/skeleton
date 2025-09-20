@@ -1,0 +1,16 @@
+export type { ComboboxContentProps } from './anatomy/content';
+export type { ComboboxControlProps } from './anatomy/control';
+export type { ComboboxInputProps } from './anatomy/input';
+export type { ComboboxItemProps } from './anatomy/item';
+export type { ComboboxItemGroupProps } from './anatomy/item-group';
+export type { ComboboxItemGroupLabelProps } from './anatomy/item-group-label';
+export type { ComboboxItemIndicatorProps } from './anatomy/item-indicator';
+export type { ComboboxItemTextProps } from './anatomy/item-text';
+export type { ComboboxLabelProps } from './anatomy/label';
+export type { ComboboxPositionerProps } from './anatomy/positioner';
+export type { ComboboxRootProps } from './anatomy/root';
+export type { ComboboxRootContextProps } from './anatomy/root-context';
+export type { ComboboxRootProviderProps } from './anatomy/root-provider';
+export type { ComboboxTriggerProps } from './anatomy/trigger';
+export { Combobox } from './modules/anatomy';
+export { useCombobox } from './modules/use-combobox';
