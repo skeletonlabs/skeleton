@@ -34,7 +34,15 @@
 	};
 </script>
 
-<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} multiple>
+<Combobox
+	class="w-full max-w-md"
+	placeholder="Search..."
+	{collection}
+	{onOpenChange}
+	{onInputValueChange}
+	multiple
+	selectionBehavior="preserve"
+>
 	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>
 		<Combobox.Input />
