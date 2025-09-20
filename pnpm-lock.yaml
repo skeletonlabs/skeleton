@@ -129,6 +129,9 @@ catalogs:
     '@zag-js/react':
       specifier: 1.24.1
       version: 1.24.1
+    '@zag-js/slider':
+      specifier: 1.24.1
+      version: 1.24.1
     '@zag-js/svelte':
       specifier: 1.24.1
       version: 1.24.1
@@ -468,6 +471,9 @@ importers:
       '@zag-js/react':
         specifier: 'catalog:'
         version: 1.24.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@zag-js/slider':
+        specifier: 'catalog:'
+        version: 1.24.1
       '@zag-js/switch':
         specifier: 'catalog:'
         version: 1.24.1
@@ -554,6 +560,9 @@ importers:
         specifier: 'catalog:'
         version: 1.24.1
       '@zag-js/rating-group':
+        specifier: 'catalog:'
+        version: 1.24.1
+      '@zag-js/slider':
         specifier: 'catalog:'
         version: 1.24.1
       '@zag-js/svelte':
@@ -2872,6 +2881,9 @@ packages:
 
   '@zag-js/remove-scroll@1.24.1':
     resolution: { integrity: sha512-SAK3ZsnDUcJve5q3OHsMjrl0JOW9sv1fGbBFXyyid9Uu8s79LMh7EZw2na5jXDNzdMWmk1Euu82OaZSlLl9Kew== }
+
+  '@zag-js/slider@1.24.1':
+    resolution: { integrity: sha512-HClZBKcT+9tihZArRNRj35YOIUbztCcyYzggYYIrK4+OFD0RLYihA+yBO4hxs7xZVenzma9i0pc6q/Vo4z2tvA== }
 
   '@zag-js/store@1.24.1':
     resolution: { integrity: sha512-iVl+NX2CcxEDLL3hrj31mqSqBZYBqHEBqa/Z7FwKVoTImMQ1AabMF5XPreTtB8KFbaVJlNlM6D5qngDPpVj/xw== }
@@ -8290,6 +8302,14 @@ snapshots:
   '@zag-js/remove-scroll@1.24.1':
     dependencies:
       '@zag-js/dom-query': 1.24.1
+
+  '@zag-js/slider@1.24.1':
+    dependencies:
+      '@zag-js/anatomy': 1.24.1
+      '@zag-js/core': 1.24.1
+      '@zag-js/dom-query': 1.24.1
+      '@zag-js/types': 1.24.1
+      '@zag-js/utils': 1.24.1
 
   '@zag-js/store@1.24.1':
     dependencies:
