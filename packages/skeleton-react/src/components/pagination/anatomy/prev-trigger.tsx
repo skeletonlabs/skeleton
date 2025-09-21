@@ -10,7 +10,7 @@ export interface PaginationPrevTriggerProps extends PropsWithElement<'button'>, 
 export default function PrevTrigger(props: PaginationPrevTriggerProps) {
 	const pagination = use(PaginationRootContext);
 
-    const { element, children, ...rest } = props;
+	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(pagination.getPrevTriggerProps(), rest, {
 		className: classesPagination.prevTrigger,
