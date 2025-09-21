@@ -3,6 +3,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesProgressCircular = defineSkeletonClasses({
 	root: '',
 	label: 'label-text',
+    circle: '',
 	track: 'stroke-surface-200-800',
 	range: 'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',
 });
