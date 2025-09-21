@@ -6,4 +6,5 @@ export const classesProgressCircular = defineSkeletonClasses({
 	circle: '',
 	track: 'stroke-surface-200-800',
 	range: 'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',
+	valueText: '',
 });

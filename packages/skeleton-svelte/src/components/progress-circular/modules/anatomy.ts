@@ -5,6 +5,7 @@ import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Track from '../anatomy/track.svelte';
+import ValueText from '../anatomy/value-text.svelte';
 
 export const ProgressCircular = Object.assign(Root, {
 	Provider: RootProvider,
@@ -13,4 +14,5 @@ export const ProgressCircular = Object.assign(Root, {
 	Circle: Circle,
 	Track: Track,
 	Range: Range,
+	ValueText: ValueText,
 });

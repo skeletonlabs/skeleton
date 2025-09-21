@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { ProgressLinear } from '@/index';
+	import { ProgressCircular } from '@/index';
 </script>
 
-<ProgressLinear data-testid="root">
-	<ProgressLinear.Label data-testid="label" />
-	<ProgressLinear.Circle data-testid="circle">
-		<ProgressLinear.Range data-testid="range" />
-		<ProgressLinear.Track data-testid="track" />
-	</ProgressLinear.Circle>
-</ProgressLinear>
+<ProgressCircular data-testid="root">
+	<ProgressCircular.Label data-testid="label" />
+	<ProgressCircular.Circle data-testid="circle">
+		<ProgressCircular.Range data-testid="range" />
+		<ProgressCircular.Track data-testid="track" />
+	</ProgressCircular.Circle>
+	<ProgressCircular.ValueText data-testid="value-text" />
+</ProgressCircular>

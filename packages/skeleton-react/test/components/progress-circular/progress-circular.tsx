@@ -8,6 +8,7 @@ export default function ProgressCircularTest() {
 				<ProgressCircular.Track data-testid="track" />
 				<ProgressCircular.Range data-testid="range" />
 			</ProgressCircular.Circle>
+			<ProgressCircular.ValueText data-testid="value-text" />
 		</ProgressCircular>
 	);
 }

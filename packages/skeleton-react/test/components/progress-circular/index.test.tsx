@@ -37,4 +37,11 @@ describe('progress-circular', () => {
 			expect(screen.getByTestId('range')).toBeInTheDocument();
 		});
 	});
+
+	describe('value-text', () => {
+		it('renders', () => {
+			render(<ProgressCircular />);
+			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+		});
+	});
 });
