@@ -4,8 +4,9 @@
 
 <ProgressCircular>
 	<ProgressCircular.Label>Label</ProgressCircular.Label>
-	<ProgressCircular.Circle style={{ '--size': '4rem', '--thickness': '0.5rem' }}>
+	<ProgressCircular.Circle style="--size: 6rem; --thickness: 0.5rem;">
 		<ProgressCircular.Track />
 		<ProgressCircular.Range />
 	</ProgressCircular.Circle>
+	<ProgressCircular.ValueText />
 </ProgressCircular>
