@@ -2,5 +2,4 @@
 "skeleton": patch
 ---
 
-Avoid dead loop while transforming ts files in v3 migration script
-  
+Improve large-file processing performance when transforming TS files in v3 migration script
