@@ -1,5 +1,5 @@
 ---
-"skeleton": patch
+'skeleton': patch
 ---
 
-Improve large-file processing performance when transforming TS files in v3 migration script
+perf: Reduce overhead in v3 module migrations
