@@ -114,6 +114,9 @@ catalogs:
     '@zag-js/file-upload':
       specifier: 1.24.1
       version: 1.24.1
+    '@zag-js/pagination':
+      specifier: 1.24.1
+      version: 1.24.1
     '@zag-js/popover':
       specifier: 1.24.1
       version: 1.24.1
@@ -456,6 +459,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 1.24.1
+      '@zag-js/pagination':
+        specifier: 'catalog:'
+        version: 1.24.1
       '@zag-js/popover':
         specifier: 'catalog:'
         version: 1.24.1
@@ -542,6 +548,9 @@ importers:
         specifier: 'catalog:'
         version: 1.24.1
       '@zag-js/file-upload':
+        specifier: 'catalog:'
+        version: 1.24.1
+      '@zag-js/pagination':
         specifier: 'catalog:'
         version: 1.24.1
       '@zag-js/popover':
@@ -2848,6 +2857,9 @@ packages:
 
   '@zag-js/live-region@1.24.1':
     resolution: { integrity: sha512-A/55dOyRhfdgVtCBP05Uf2UGz/58H0TMWP69GdVYM4uADtfCLNPy6yxHAt9p334qJsWicg/YWSzBdEAVTThNag== }
+
+  '@zag-js/pagination@1.24.1':
+    resolution: { integrity: sha512-IO9Q5SiYmk00pjJAD18qFjOkpN1qb9iSeuX6A9Bdo8sMBFSigI6c7tGo1MPYGENma3b+aX7LbUpt8hYFufqUow== }
 
   '@zag-js/popover@1.24.1':
     resolution: { integrity: sha512-auNy7/5/VMeNUYbKfcvSz7OHkbrUWdODtA6gB/d/weAxvEHyMSk0+Ms4c5lmN8KDChrBAPJs4CfKSPv1U4I4zw== }
@@ -8233,6 +8245,14 @@ snapshots:
       '@zag-js/utils': 1.24.1
 
   '@zag-js/live-region@1.24.1': {}
+
+  '@zag-js/pagination@1.24.1':
+    dependencies:
+      '@zag-js/anatomy': 1.24.1
+      '@zag-js/core': 1.24.1
+      '@zag-js/dom-query': 1.24.1
+      '@zag-js/types': 1.24.1
+      '@zag-js/utils': 1.24.1
 
   '@zag-js/popover@1.24.1':
     dependencies:

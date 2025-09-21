@@ -2,6 +2,7 @@ export * from './classes/accordion';
 export * from './classes/avatar';
 export * from './classes/dialog';
 export * from './classes/file-upload';
+export * from './classes/pagination';
 export * from './classes/popover';
 export * from './classes/progress-linear';
 export * from './classes/rating-group';
