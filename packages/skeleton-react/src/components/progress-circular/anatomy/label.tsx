@@ -1,0 +1,20 @@
+import { ProgressCircularRootContext } from '../modules/root-context';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesProgressCircular } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
+import { use } from 'react';
+
+export interface ProgressCircularLabelProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+
+export default function Label(props: ProgressCircularLabelProps) {
+	const progressCircular = use(ProgressCircularRootContext);
+
+	const { element, children, ...rest } = props;
+
+	const attributes = mergeProps(progressCircular.getLabelProps(), rest, {
+		className: classesProgressCircular.label,
+	});
+
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+}

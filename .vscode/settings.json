@@ -16,5 +16,8 @@
 		"javascript": "javascript",
 		"typescript": "javascript",
 		"css": "css"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
 	}
 }
