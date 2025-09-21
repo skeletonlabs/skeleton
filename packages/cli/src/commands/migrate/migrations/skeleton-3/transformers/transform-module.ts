@@ -50,12 +50,18 @@ function transformModule(code: string) {
 			if (Object.hasOwn(EXPORT_MAPPINGS, name) && skeletonImports.includes(name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
 				if (exportMapping?.identifier.type === 'renamed') {
-					node.replaceWithText(exportMapping.identifier.value);
+					const updated = exportMapping.identifier.value;
+					if (updated !== node.getText()) {
+						node.replaceWithText(updated);
+					}
 				}
 			}
 		}
 		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
-			node.replaceWithText(transformClasses(node.getText()).code);
+			const transformed = transformClasses(node.getText()).code;
+			if (transformed !== node.getText()) {
+				node.replaceWithText(transformed);
+			}
 		}
 	});
 
