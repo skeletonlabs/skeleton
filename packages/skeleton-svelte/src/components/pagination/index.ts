@@ -1,0 +1,9 @@
+export { Pagination } from './modules/anatomy';
+export { usePagination } from './modules/use-pagination.svelte';
+export type { PaginationRootProviderProps } from './anatomy/root-provider.svelte';
+export type { PaginationPrevTriggerProps } from './anatomy/prev-trigger.svelte';
+export type { PaginationNextTriggerProps } from './anatomy/next-trigger.svelte';
+export type { PaginationItemProps } from './anatomy/item.svelte';
+export type { PaginationRootContextProps } from './anatomy/root-context.svelte';
+export type { PaginationRootProps } from './anatomy/root.svelte';
+export type { PaginationEllipsisProps } from './anatomy/ellipsis.svelte';
