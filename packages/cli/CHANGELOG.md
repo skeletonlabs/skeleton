@@ -1,5 +1,11 @@
 # skeleton
 
+## 1.0.1-next.0
+
+### Patch Changes
+
+- perf: Reduce overhead in v3 module migrations ([#3777](https://github.com/skeletonlabs/skeleton/pull/3777))
+
 ## 1.0.0
 
 ### Major Changes
