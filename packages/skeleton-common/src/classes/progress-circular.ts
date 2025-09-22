@@ -5,6 +5,9 @@ export const classesProgressCircular = defineSkeletonClasses({
 	label: 'label-text',
 	circle: '',
 	track: 'stroke-surface-200-800',
-	range: 'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',
+	range: [
+		'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',
+		'data-[state=indeterminate]:animate-progress-circular-indeterminate',
+	],
 	valueText: 'label-text',
 });

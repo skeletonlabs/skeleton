@@ -22,8 +22,8 @@ export const classesProgressLinear = defineSkeletonClasses({
 		// Common
 		'h-full bg-surface-950-50 rounded-base',
 		// Horizontal Orientation
-		'data-[orientation=horizontal]:transition-[width] data-[orientation=horizontal]:data-[state=indeterminate]:animate-progress-indeterminate-horz',
+		'data-[orientation=horizontal]:transition-[width] data-[orientation=horizontal]:data-[state=indeterminate]:animate-progress-linear-indeterminate-horizontal',
 		// Vertical Orientation
-		'data-[orientation=vertical]:transition-[height] data-[orientation=vertical]:data-[state=indeterminate]:animate-progress-indeterminate-vert',
+		'data-[orientation=vertical]:transition-[height] data-[orientation=vertical]:data-[state=indeterminate]:animate-progress-linear-indeterminate-vertical',
 	],
 });

@@ -2,7 +2,7 @@
 /* NOTE: only for use in the progress bar functional component. */
 
 /* Horizontal */
-@keyframes anim-progress-indeterminate-horz {
+@keyframes animate-progress-indeterminate-horizontal {
 	from {
 		transform: translateX(-200%);
 	}
@@ -12,7 +12,7 @@
 }
 
 /* Vertical */
-@keyframes anim-progress-indeterminate-vert {
+@keyframes animate-progress-indeterminate-vertical {
 	from {
 		transform: translateY(-200%);
 	}
