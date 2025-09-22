@@ -21,7 +21,6 @@
 	const end = $derived(start + pageSize);
 	const data = $derived(users.slice(start, end));
 
-	$inspect(page);
 </script>
 
 <div class="grid gap-4 w-full place-items-center">
