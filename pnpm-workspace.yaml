@@ -35,23 +35,23 @@ catalog:
   '@types/react-dom': 19.1.9
   '@types/semver': 7.7.0
   '@vitejs/plugin-react': 5.0.2
-  '@zag-js/accordion': 1.24.1
-  '@zag-js/avatar': 1.24.1
-  '@zag-js/combobox': 1.24.1
-  '@zag-js/dialog': 1.24.1
-  '@zag-js/file-upload': 1.24.1
-  '@zag-js/popover': 1.24.1
-  '@zag-js/progress': 1.24.1
-  '@zag-js/radio-group': 1.24.1
-  '@zag-js/rating-group': 1.24.1
-  '@zag-js/react': 1.24.1
-  '@zag-js/slider': 1.24.1
-  '@zag-js/svelte': 1.24.1
-  '@zag-js/switch': 1.24.1
-  '@zag-js/tabs': 1.24.1
-  '@zag-js/tags-input': 1.24.1
-  '@zag-js/toast': 1.24.1
-  '@zag-js/tooltip': 1.24.1
+  '@zag-js/accordion': 1.24.2
+  '@zag-js/avatar': 1.24.2
+  '@zag-js/combobox': 1.24.2
+  '@zag-js/dialog': 1.24.2
+  '@zag-js/file-upload': 1.24.2
+  '@zag-js/popover': 1.24.2
+  '@zag-js/progress': 1.24.2
+  '@zag-js/radio-group': 1.24.2
+  '@zag-js/rating-group': 1.24.2
+  '@zag-js/react': 1.24.2
+  '@zag-js/slider': 1.24.2
+  '@zag-js/svelte': 1.24.2
+  '@zag-js/switch': 1.24.2
+  '@zag-js/tabs': 1.24.2
+  '@zag-js/tags-input': 1.24.2
+  '@zag-js/toast': 1.24.2
+  '@zag-js/tooltip': 1.24.2
   astro: 5.13.5
   astro-auto-import: 0.4.4
   astro-expressive-code: 0.41.3
