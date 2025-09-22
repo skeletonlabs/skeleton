@@ -4,7 +4,7 @@ export const classesSlider = defineSkeletonClasses({
 	root: 'space-y-3',
 	label: 'label-text',
 	valueText: '',
-	control: 'flex items-center',
+	control: ['flex items-center', 'data-disabled:opacity-50'],
 	track: 'bg-surface-200-800 rounded-base h-2 overflow-hidden flex-1',
 	range: 'bg-surface-950-50 h-full',
 	thumb: [
