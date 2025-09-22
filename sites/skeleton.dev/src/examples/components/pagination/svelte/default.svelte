@@ -25,7 +25,7 @@
 	$inspect(page);
 </script>
 
-<div class="grid gap-2 w-full place-items-center">
+<div class="grid gap-4 w-full place-items-center">
 	<table class="table table-auto">
 		<thead>
 			<tr>

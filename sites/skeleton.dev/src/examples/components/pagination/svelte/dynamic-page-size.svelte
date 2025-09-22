@@ -24,7 +24,7 @@
 	$inspect(page);
 </script>
 
-<div class="grid gap-2 w-full place-items-center">
+<div class="grid gap-4 w-full place-items-center">
 	<table class="table table-auto">
 		<thead>
 			<tr>
@@ -46,9 +46,9 @@
 		</tbody>
 	</table>
 
-	<div class="flex justify-between gap-4">
+	<div class="flex justify-between items-center gap-4 w-full">
 		<label class="label">
-			<span class="label-text">Page Size</span>
+			<span class="label-text sr-only">Page Size</span>
 			<select class="select" value={pageSize} onchange={(e) => (pageSize = Number(e.currentTarget.value))}>
 				<option value="5">5</option>
 				<option value="10">10</option>

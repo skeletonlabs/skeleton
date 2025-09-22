@@ -19,7 +19,7 @@ export default function Default() {
 	const data = users.slice(start, end);
 
 	return (
-		<div className="grid gap-2 w-full place-items-center">
+		<div className="grid gap-4 w-full place-items-center">
 			<table className="table table-auto">
 				<thead>
 					<tr>
@@ -40,9 +40,9 @@ export default function Default() {
 					))}
 				</tbody>
 			</table>
-			<div className="flex justify-between gap-4 w-full">
+			<div className="flex justify-between items-center gap-4 w-full">
 				<label className="label">
-					<span className="label-text">Page Size</span>
+					<span className="label-text sr-only">Page Size</span>
 					<select className="select w-fit" value={pageSize} onChange={(e) => setPageSize(Number(e.currentTarget.value))}>
 						<option value="5">5</option>
 						<option value="10">10</option>

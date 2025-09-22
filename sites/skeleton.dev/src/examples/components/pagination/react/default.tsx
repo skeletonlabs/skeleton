@@ -20,7 +20,7 @@ export default function Default() {
 	const data = users.slice(start, end);
 
 	return (
-		<div className="grid gap-2 w-full place-items-center">
+		<div className="grid gap-4 w-full place-items-center">
 			<table className="table table-auto">
 				<thead>
 					<tr>
