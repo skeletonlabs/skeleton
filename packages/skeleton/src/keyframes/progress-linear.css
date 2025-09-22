@@ -2,7 +2,7 @@
 /* NOTE: only for use in the progress linear functional component. */
 
 /* Horizontal */
-@keyframes animate-progress-linear-indeterminate-horizontal {
+@keyframes progress-linear-indeterminate-horizontal {
 	from {
 		transform: translateX(-200%);
 	}
@@ -12,7 +12,7 @@
 }
 
 /* Vertical */
-@keyframes animate-progress-linear-indeterminate-vertical {
+@keyframes progress-linear-indeterminate-vertical {
 	from {
 		transform: translateY(-200%);
 	}

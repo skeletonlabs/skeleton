@@ -1,7 +1,7 @@
 /* Components: Keyframe - Progress Circular */
 /* NOTE: only for use in the progress circular functional component. */
 
-@keyframes animate-progress-circular-indeterminate {
+@keyframes progress-circular-indeterminate {
 	from {
 		stroke-dasharray: 1, 400;
 		stroke-dashoffset: 0;

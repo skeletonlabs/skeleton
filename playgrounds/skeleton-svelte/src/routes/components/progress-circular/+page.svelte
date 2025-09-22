@@ -4,7 +4,7 @@
 
 <ProgressCircular>
 	<ProgressCircular.Label>Label</ProgressCircular.Label>
-	<ProgressCircular.Circle style="--size: 6rem; --thickness: 0.5rem;">
+	<ProgressCircular.Circle --size="50px" --thickness="5px">
 		<ProgressCircular.Track />
 		<ProgressCircular.Range />
 	</ProgressCircular.Circle>
