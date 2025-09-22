@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Pagination } from '@skeletonlabs/skeleton-react';
+import { ArrowRightIcon, ArrowLeftIcon } from 'lucide-react';
 import { useState } from 'react';
 
 const users = Array.from({ length: 500 }, (_, i) => ({
@@ -9,12 +10,13 @@ const users = Array.from({ length: 500 }, (_, i) => ({
 	country: faker.location.country(),
 }));
 
+const PAGE_SIZE = 10;
+s;
 export default function Default() {
-	const pageSize = 10;
 	const [page, setPage] = useState(1);
 
-	const start = (page - 1) * pageSize;
-	const end = start + pageSize;
+	const start = (page - 1) * PAGE_SIZE;
+	const end = start + PAGE_SIZE;
 	const data = users.slice(start, end);
 
 	return (
@@ -39,8 +41,10 @@ export default function Default() {
 					))}
 				</tbody>
 			</table>
-			<Pagination count={users.length} pageSize={pageSize} page={page} onPageChange={(event) => setPage(event.page)}>
-				<Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
+			<Pagination count={users.length} pageSize={PAGE_SIZE} page={page} onPageChange={(event) => setPage(event.page)}>
+				<Pagination.PrevTrigger>
+					<ArrowLeftIcon className="size-4" />
+				</Pagination.PrevTrigger>
 				<Pagination.Context>
 					{(pagination) =>
 						pagination.pages.map((page, index) =>
@@ -56,7 +60,9 @@ export default function Default() {
 						)
 					}
 				</Pagination.Context>
-				<Pagination.NextTrigger>Next</Pagination.NextTrigger>
+				<Pagination.NextTrigger>
+					<ArrowRightIcon className="size-4" />
+				</Pagination.NextTrigger>
 			</Pagination>
 		</div>
 	);
