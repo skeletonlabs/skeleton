@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AppBarRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface AppBarRootProps extends PropsWithElement<'header'>, HTMLAttributes<'header'> {}
 </script>
 
 <script lang="ts">
@@ -22,7 +22,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<div {...attributes}>
+	<header {...attributes}>
 		{@render children?.()}
-	</div>
+	</header>
 {/if}

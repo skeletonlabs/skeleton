@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
-	export interface AppBarTrailProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface AppBarTrailProps extends PropsWithElement<'nav'>, HTMLAttributes<'nav'> {}
 </script>
 
 <script lang="ts">
@@ -22,7 +22,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<div {...attributes}>
+	<nav {...attributes}>
 		{@render children?.()}
-	</div>
+	</nav>
 {/if}
