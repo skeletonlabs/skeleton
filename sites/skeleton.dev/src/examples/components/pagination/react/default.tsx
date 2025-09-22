@@ -11,7 +11,7 @@ const users = Array.from({ length: 500 }, (_, i) => ({
 }));
 
 const PAGE_SIZE = 10;
-s;
+
 export default function Default() {
 	const [page, setPage] = useState(1);
 
