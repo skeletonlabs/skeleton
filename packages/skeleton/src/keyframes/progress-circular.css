@@ -1,5 +1,5 @@
-/* Components: Keyframe - Ring Indeterminate */
-/* NOTE: only for use in the progress ring functional component. */
+/* Components: Keyframe - Progress Circular */
+/* NOTE: only for use in the progress circular functional component. */
 
 @keyframes animate-progress-circular-indeterminate {
 	from {
