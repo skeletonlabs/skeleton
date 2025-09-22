@@ -41,7 +41,7 @@
 	{onOpenChange}
 	{onInputValueChange}
 	multiple
-	selectionBehavior="preserve"
+	selectionBehavior="replace"
 >
 	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>

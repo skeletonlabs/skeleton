@@ -40,7 +40,7 @@ export default function Default() {
 			onOpenChange={onOpenChange}
 			onInputValueChange={onInputValueChange}
 			multiple={true}
-			selectionBehavior="preserve"
+			selectionBehavior="replace"
 		>
 			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
