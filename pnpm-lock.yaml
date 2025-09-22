@@ -103,16 +103,11 @@ catalogs:
       specifier: 1.24.2
       version: 1.24.2
     '@zag-js/avatar':
-<<<<<<< HEAD
-      specifier: 1.24.1
-      version: 1.24.1
-    '@zag-js/collection':
-      specifier: 1.24.1
-      version: 1.24.1
-=======
       specifier: 1.24.2
       version: 1.24.2
->>>>>>> main
+    '@zag-js/collection':
+      specifier: 1.24.2
+      version: 1.24.2
     '@zag-js/combobox':
       specifier: 1.24.2
       version: 1.24.2
@@ -460,17 +455,13 @@ importers:
         version: 1.24.2
       '@zag-js/avatar':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.24.1
+        version: 1.24.2
       '@zag-js/collection':
         specifier: 'catalog:'
-        version: 1.24.1
+        version: 1.24.2
       '@zag-js/combobox':
         specifier: 'catalog:'
-        version: 1.24.1
-=======
         version: 1.24.2
->>>>>>> main
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.24.2
@@ -555,14 +546,10 @@ importers:
         version: 1.24.2
       '@zag-js/avatar':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.24.1
+        version: 1.24.2
       '@zag-js/collection':
         specifier: 'catalog:'
-        version: 1.24.1
-=======
         version: 1.24.2
->>>>>>> main
       '@zag-js/combobox':
         specifier: 'catalog:'
         version: 1.24.2
