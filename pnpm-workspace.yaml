@@ -12,6 +12,7 @@ catalog:
   '@atproto/api': 0.16.6
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
+  '@faker-js/faker': 10.0.0
   '@floating-ui/react': 0.27.16
   '@lucide/svelte': 0.542.0
   '@nanostores/persistent': 1.1.0
