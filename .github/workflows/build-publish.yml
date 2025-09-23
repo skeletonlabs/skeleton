@@ -9,6 +9,10 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
     name: Build & Publish Release (@latest)
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
@@ -32,5 +36,4 @@ jobs:
           version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
