@@ -4,7 +4,7 @@ import { CircleUserIcon } from 'lucide-react';
 import { MenuIcon } from 'lucide-react';
 import { SearchIcon } from 'lucide-react';
 
-export default function Page() {
+export default function Centered() {
 	return (
 		<AppBar>
 			<AppBar.Toolbar className="grid-cols-[1fr_2fr_1fr]">

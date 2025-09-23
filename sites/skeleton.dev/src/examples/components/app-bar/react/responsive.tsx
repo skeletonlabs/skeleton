@@ -4,7 +4,7 @@ import { CircleUserIcon } from 'lucide-react';
 import { MenuIcon } from 'lucide-react';
 import { SearchIcon } from 'lucide-react';
 
-export default function Page() {
+export default function Responsive() {
 	return (
 		<>
 			{/* 1. Set dynamic spacing */}

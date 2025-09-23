@@ -4,9 +4,9 @@ export default function AppBarTest() {
 	return (
 		<AppBar data-testid="root">
 			<AppBar.Toolbar data-testid="toolbar">
-				<AppBar.Lead data-testid="lead">Icon</AppBar.Lead>
-				<AppBar.Headline data-testid="headline">Headline</AppBar.Headline>
-				<AppBar.Trail data-testid="trail">Buttons</AppBar.Trail>
+				<AppBar.Lead data-testid="lead" />
+				<AppBar.Headline data-testid="headline" />
+				<AppBar.Trail data-testid="trail" />
 			</AppBar.Toolbar>
 		</AppBar>
 	);
