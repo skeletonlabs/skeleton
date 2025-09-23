@@ -10,6 +10,11 @@
 		"test:watch": "vitest run --watch",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/skeleton-svelte"
+	},
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
