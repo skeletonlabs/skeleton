@@ -10,6 +10,7 @@
 		{ label: 'Spinach', value: 'spinach' },
 	];
 
+	let value: string[] = $state([]);
 	let items = $state(data);
 
 	const collection = $derived(
@@ -32,30 +33,34 @@
 			items = data;
 		}
 	};
+
+	const onValueChange: ComboboxRootProps['onValueChange'] = (event) => {
+		value = event.value;
+	};
 </script>
 
-<Combobox
-	class="w-full max-w-md"
-	placeholder="Search..."
-	{collection}
-	{onOpenChange}
-	{onInputValueChange}
-	multiple
-	selectionBehavior="replace"
->
-	<Combobox.Label>Label</Combobox.Label>
-	<Combobox.Control>
-		<Combobox.Input />
-		<Combobox.Trigger />
-	</Combobox.Control>
-	<Combobox.Positioner class="z-[1]!">
-		<Combobox.Content>
-			{#each items as item (item.value)}
-				<Combobox.Item {item}>
-					<Combobox.ItemText>{item.label}</Combobox.ItemText>
-					<Combobox.ItemIndicator />
-				</Combobox.Item>
-			{/each}
-		</Combobox.Content>
-	</Combobox.Positioner>
-</Combobox>
+<div class="grid gap-2 w-full max-w-md">
+	<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} {value} {onValueChange} multiple>
+		<Combobox.Control>
+			<Combobox.Input />
+			<Combobox.Trigger />
+		</Combobox.Control>
+		<Combobox.Positioner class="z-[1]!">
+			<Combobox.Content>
+				{#each items as item (item.value)}
+					<Combobox.Item {item}>
+						<Combobox.ItemText>{item.label}</Combobox.ItemText>
+						<Combobox.ItemIndicator />
+					</Combobox.Item>
+				{/each}
+			</Combobox.Content>
+		</Combobox.Positioner>
+	</Combobox>
+	<div class="flex flex-wrap gap-2">
+		{#each value as item (item)}
+			<span class="chip preset-filled">
+				{item}
+			</span>
+		{/each}
+	</div>
+</div>

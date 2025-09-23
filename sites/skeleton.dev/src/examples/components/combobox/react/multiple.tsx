@@ -11,6 +11,7 @@ const data = [
 ];
 
 export default function Default() {
+	const [value, setValue] = useState<string[]>([]);
 	const [items, setItems] = useState(data);
 
 	const collection = useListCollection({
@@ -32,31 +33,43 @@ export default function Default() {
 		}
 	};
 
+	const onValueChange: ComboboxRootProps['onValueChange'] = (event) => {
+		setValue(event.value);
+	};
+
 	return (
-		<Combobox
-			className="w-full max-w-md"
-			placeholder="Search..."
-			collection={collection}
-			onOpenChange={onOpenChange}
-			onInputValueChange={onInputValueChange}
-			multiple={true}
-			selectionBehavior="replace"
-		>
-			<Combobox.Label>Label</Combobox.Label>
-			<Combobox.Control>
-				<Combobox.Input />
-				<Combobox.Trigger />
-			</Combobox.Control>
-			<Combobox.Positioner className="z-[1]!">
-				<Combobox.Content>
-					{items.map((item) => (
-						<Combobox.Item key={item.value} item={item}>
-							<Combobox.ItemText>{item.label}</Combobox.ItemText>
-							<Combobox.ItemIndicator />
-						</Combobox.Item>
-					))}
-				</Combobox.Content>
-			</Combobox.Positioner>
-		</Combobox>
+		<div className="grid gap-2 w-full max-w-md">
+			<Combobox
+				placeholder="Search..."
+				collection={collection}
+				onOpenChange={onOpenChange}
+				onInputValueChange={onInputValueChange}
+				multiple={true}
+				value={value}
+				onValueChange={onValueChange}
+			>
+				<Combobox.Control>
+					<Combobox.Input />
+					<Combobox.Trigger />
+				</Combobox.Control>
+				<Combobox.Positioner className="z-[1]!">
+					<Combobox.Content>
+						{items.map((item) => (
+							<Combobox.Item key={item.value} item={item}>
+								<Combobox.ItemText>{item.label}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
+							</Combobox.Item>
+						))}
+					</Combobox.Content>
+				</Combobox.Positioner>
+			</Combobox>
+			<div className="flex flex-wrap gap-2">
+				{value.map((item) => (
+					<span key={item} className="chip preset-filled">
+						{item}
+					</span>
+				))}
+			</div>
+		</div>
 	);
 }

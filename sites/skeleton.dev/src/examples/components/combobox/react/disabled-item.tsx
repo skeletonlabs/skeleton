@@ -41,7 +41,6 @@ export default function Default() {
 			onOpenChange={onOpenChange}
 			onInputValueChange={onInputValueChange}
 		>
-			<Combobox.Label>Label</Combobox.Label>
 			<Combobox.Control>
 				<Combobox.Input />
 				<Combobox.Trigger />
