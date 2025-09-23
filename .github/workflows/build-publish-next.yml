@@ -9,6 +9,10 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
     name: Build & Publish Release (@next)
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
