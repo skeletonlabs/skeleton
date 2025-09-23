@@ -1,0 +1,67 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/app-bar/svelte/default.svelte';
+import DefaultRaw from '@examples/components/app-bar/svelte/default.svelte?raw';
+
+import Centered from '@examples/components/app-bar/svelte/centered.svelte';
+import CenteredRaw from '@examples/components/app-bar/svelte/centered.svelte?raw';
+
+import Extended from '@examples/components/app-bar/svelte/extended.svelte';
+import ExtendedRaw from '@examples/components/app-bar/svelte/extended.svelte?raw';
+
+import Responsive from '@examples/components/app-bar/svelte/responsive.svelte';
+import ResponsiveRaw from '@examples/components/app-bar/svelte/responsive.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Centered
+
+Control the layout using a [grid-cols-\*](https://tailwindcss.com/docs/grid-column) utility class.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Centered client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CenteredRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Extended
+
+Move the `<AppBar.Headline>` to a new row within the root.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Extended client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExtendedRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Responsive
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Responsive client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ResponsiveRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
