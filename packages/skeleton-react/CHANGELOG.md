@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.9
+
+### Minor Changes
+
+- feat: app-bar ([#3783](https://github.com/skeletonlabs/skeleton/pull/3783))
+
+### Patch Changes
+
+- Updated dependencies [[`24526af`](https://github.com/skeletonlabs/skeleton/commit/24526affc00c70b08af0ba1299c82ba64ec9d58a)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.9
+
 ## 2.0.0-next.8
 
 ### Minor Changes
