@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.10
+
+### Patch Changes
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
+- Updated dependencies [[`6e68a49`](https://github.com/skeletonlabs/skeleton/commit/6e68a493da7aaf9b416b0e3c5d4b2570cf0039c4)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.10
+
 ## 2.0.0-next.9
 
 ### Minor Changes
