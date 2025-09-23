@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.2.1
+### Patch Changes
+
+
+- fix: disabled hover styles on `btn` utility when `disabled` ([#3788](https://github.com/skeletonlabs/skeleton/pull/3788))
+
 ## 3.2.0
 ### Minor Changes
 
