@@ -10,6 +10,11 @@
 		"check": "svelte-check",
 		"sync": "svelte-kit sync && pnpm build"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/skeleton-svelte"
+	},
 	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {

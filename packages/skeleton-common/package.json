@@ -8,6 +8,11 @@
 		"check": "tsc",
 		"sync": "pnpm build"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/skeleton-common"
+	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",

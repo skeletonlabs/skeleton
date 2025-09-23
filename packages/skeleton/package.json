@@ -8,7 +8,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton.git"
+		"url": "https://github.com/skeletonlabs/skeleton",
+		"directory": "packages/skeleton"
 	},
 	"exports": {
 		".": {
