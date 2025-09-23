@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - run: npm install -g npm@latest
       - name: Install dependencies
         run: pnpm install
       - name: Create Release Pull Request or Publish
