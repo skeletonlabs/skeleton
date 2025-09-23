@@ -1,5 +1,11 @@
 # skeleton
 
+## 1.0.1
+### Patch Changes
+
+
+- chore: trusted publishing ([#3795](https://github.com/skeletonlabs/skeleton/pull/3795))
+
 ## 1.0.0
 ### Major Changes
 
