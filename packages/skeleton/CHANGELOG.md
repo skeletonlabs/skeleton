@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 3.2.2
+### Patch Changes
+
+
+- chore: trusted publishing ([#3795](https://github.com/skeletonlabs/skeleton/pull/3795))
+
 ## 3.2.1
 ### Patch Changes
 
