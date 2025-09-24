@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.13
+
+### Patch Changes
+
+- fix: override skeleton specific attributes ([#3803](https://github.com/skeletonlabs/skeleton/pull/3803))
+
 ## 2.0.0-next.12
 
 ### Minor Changes
