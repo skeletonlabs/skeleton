@@ -36,7 +36,7 @@
 		<h3 class="h3">Rail</h3>
 		<Navigation parent="rail" class="h-[640px]">
 			<!-- <Navigation.Header>(Logo)</Navigation.Header> -->
-			<Navigation.Menu isRail>
+			<Navigation.Menu>
 				{#each links as link}
 					{@const Icon = link.icon}
 					<a href={link.href} class="{anchorClasses} aspect-square flex flex-col items-center gap-1">
