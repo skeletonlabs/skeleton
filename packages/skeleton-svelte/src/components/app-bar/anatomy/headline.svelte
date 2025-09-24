@@ -10,6 +10,7 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AppBarHeadlineProps = $props();
+
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
