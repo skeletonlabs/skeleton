@@ -1,10 +1,5 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-
 @import '@skeletonlabs/skeleton';
-
-/* Themes */
-/* NOTE: currently only used for the Import preview card */
 @import '@skeletonlabs/skeleton/themes/catppuccin';
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/themes/concord';
@@ -27,13 +22,8 @@
 @import '@skeletonlabs/skeleton/themes/vintage';
 @import '@skeletonlabs/skeleton/themes/vox';
 @import '@skeletonlabs/skeleton/themes/wintry';
+@import '@skeletonlabs/skeleton-svelte';
+
+@plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-/* body {
-	background-attachment: fixed;
-	background-size: cover;
-	background-image:
-		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
-		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
-} */
