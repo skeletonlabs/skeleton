@@ -19,9 +19,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(pagination().getItemProps(itemProps), rest, {
-			class: classesPagination.item,
-		}),
+		mergeProps(
+			pagination().getItemProps(itemProps),
+			{
+				class: classesPagination.item,
+			},
+			rest,
+		),
 	);
 </script>
 

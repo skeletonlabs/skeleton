@@ -14,9 +14,13 @@ export default function Item(props: PaginationItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(pagination.getItemProps(itemProps), rest, {
-		className: classesPagination.item,
-	});
+	const attributes = mergeProps(
+		pagination.getItemProps(itemProps),
+		{
+			className: classesPagination.item,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <a {...attributes}>{children}</a>;
 }

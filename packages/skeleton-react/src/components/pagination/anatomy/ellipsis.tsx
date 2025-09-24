@@ -14,9 +14,13 @@ export default function Ellipsis(props: PaginationEllipsisProps) {
 	const [ellipsisProps, componentProps] = splitEllipsisProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(pagination.getEllipsisProps(ellipsisProps), rest, {
-		className: classesPagination.ellipsis,
-	});
+	const attributes = mergeProps(
+		pagination.getEllipsisProps(ellipsisProps),
+		{
+			className: classesPagination.ellipsis,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

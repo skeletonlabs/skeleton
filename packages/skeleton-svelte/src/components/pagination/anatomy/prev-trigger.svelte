@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(pagination().getPrevTriggerProps(), rest, {
-			class: classesPagination.prevTrigger,
-		}),
+		mergeProps(
+			pagination().getPrevTriggerProps(),
+			{
+				class: classesPagination.prevTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

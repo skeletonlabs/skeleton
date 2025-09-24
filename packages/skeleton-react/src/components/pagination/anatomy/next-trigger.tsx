@@ -12,9 +12,13 @@ export default function NextTrigger(props: PaginationNextTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(pagination.getNextTriggerProps(), rest, {
-		className: classesPagination.nextTrigger,
-	});
+	const attributes = mergeProps(
+		pagination.getNextTriggerProps(),
+		{
+			className: classesPagination.nextTrigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

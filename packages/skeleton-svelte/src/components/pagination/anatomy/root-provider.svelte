@@ -18,9 +18,13 @@
 	const { element, children, value: pagination, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(pagination().getRootProps(), rest, {
-			class: classesPagination.root,
-		}),
+		mergeProps(
+			pagination().getRootProps(),
+			{
+				class: classesPagination.root,
+			},
+			rest,
+		),
 	);
 
 	PaginationRootContext.provide(() => pagination());

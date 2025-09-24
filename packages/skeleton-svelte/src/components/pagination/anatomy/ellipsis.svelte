@@ -19,9 +19,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(pagination().getEllipsisProps(ellipsisProps), rest, {
-			class: classesPagination.ellipsis,
-		}),
+		mergeProps(
+			pagination().getEllipsisProps(ellipsisProps),
+			{
+				class: classesPagination.ellipsis,
+			},
+			rest,
+		),
 	);
 </script>
 
