@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(avatar().getFallbackProps(), rest, {
-			class: classesAvatar.fallback,
-		}),
+		mergeProps(
+			avatar().getFallbackProps(),
+			{
+				class: classesAvatar.fallback,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -19,9 +19,13 @@
 	const { element, children = times, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getItemDeleteTriggerProps(itemProps()), rest, {
-			class: classesFileUpload.itemDeleteTrigger,
-		}),
+		mergeProps(
+			fileUpload().getItemDeleteTriggerProps(itemProps()),
+			{
+				class: classesFileUpload.itemDeleteTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

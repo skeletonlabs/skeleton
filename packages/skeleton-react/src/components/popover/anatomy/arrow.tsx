@@ -12,9 +12,13 @@ export default function Arrow(props: PopoverArrowProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getArrowProps(), rest, {
-		className: classesPopover.arrow,
-	});
+	const attributes = mergeProps(
+		popover.getArrowProps(),
+		{
+			className: classesPopover.arrow,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

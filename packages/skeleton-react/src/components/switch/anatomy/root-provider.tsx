@@ -12,9 +12,13 @@ export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTML
 export default function RootProvider(props: SwitchRootProviderProps) {
 	const { element, children, value: switch_, ...rest } = props;
 
-	const attributes = mergeProps(switch_.getRootProps(), rest, {
-		className: classesSwitch.root,
-	});
+	const attributes = mergeProps(
+		switch_.getRootProps(),
+		{
+			className: classesSwitch.root,
+		},
+		rest,
+	);
 
 	return (
 		<SwitchRootContext.Provider value={switch_}>

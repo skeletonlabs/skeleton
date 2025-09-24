@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(ratingGroup().getHiddenInputProps(), rest, {
-			class: classesRatingGroup.hiddenInput,
-		}),
+		mergeProps(
+			ratingGroup().getHiddenInputProps(),
+			{
+				class: classesRatingGroup.hiddenInput,
+			},
+			rest,
+		),
 	);
 </script>
 

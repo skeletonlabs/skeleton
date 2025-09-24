@@ -12,9 +12,13 @@ export default function Trigger(props: DialogTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(dialog.getTriggerProps(), rest, {
-		className: classesDialog.trigger,
-	});
+	const attributes = mergeProps(
+		dialog.getTriggerProps(),
+		{
+			className: classesDialog.trigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

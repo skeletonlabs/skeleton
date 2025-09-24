@@ -12,9 +12,13 @@ export default function Thumb(props: SwitchThumbProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(switch_.getThumbProps(), rest, {
-		className: classesSwitch.thumb,
-	});
+	const attributes = mergeProps(
+		switch_.getThumbProps(),
+		{
+			className: classesSwitch.thumb,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

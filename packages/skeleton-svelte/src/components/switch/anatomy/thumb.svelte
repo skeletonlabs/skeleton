@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(switch_().getThumbProps(), rest, {
-			class: classesSwitch.thumb,
-		}),
+		mergeProps(
+			switch_().getThumbProps(),
+			{
+				class: classesSwitch.thumb,
+			},
+			rest,
+		),
 	);
 </script>
 

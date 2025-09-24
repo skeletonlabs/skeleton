@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getInputProps(), rest, {
-			class: classesTagsInput.input,
-		}),
+		mergeProps(
+			tagsInput().getInputProps(),
+			{
+				class: classesTagsInput.input,
+			},
+			rest,
+		),
 	);
 </script>
 

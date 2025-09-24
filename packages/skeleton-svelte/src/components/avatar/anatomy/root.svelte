@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(avatar().getRootProps(), rest, {
-			class: classesAvatar.root,
-		}),
+		mergeProps(
+			avatar().getRootProps(),
+			{
+				class: classesAvatar.root,
+			},
+			rest,
+		),
 	);
 
 	AvatarRootContext.provide(() => avatar());

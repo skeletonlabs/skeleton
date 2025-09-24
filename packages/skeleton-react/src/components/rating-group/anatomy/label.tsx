@@ -12,9 +12,13 @@ export default function Label(props: RatingGroupLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(ratingGroup.getLabelProps(), rest, {
-		className: classesRatingGroup.label,
-	});
+	const attributes = mergeProps(
+		ratingGroup.getLabelProps(),
+		{
+			className: classesRatingGroup.label,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

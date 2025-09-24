@@ -12,9 +12,13 @@ export default function Range(props: SliderRangeProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(slider.getRangeProps(), rest, {
-		className: classesSlider.range,
-	});
+	const attributes = mergeProps(
+		slider.getRangeProps(),
+		{
+			className: classesSlider.range,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

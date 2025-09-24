@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(slider().getTrackProps(), rest, {
-			class: classesSlider.track,
-		}),
+		mergeProps(
+			slider().getTrackProps(),
+			{
+				class: classesSlider.track,
+			},
+			rest,
+		),
 	);
 </script>
 

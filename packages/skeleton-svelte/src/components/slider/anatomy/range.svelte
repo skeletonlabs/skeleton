@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(slider().getRangeProps(), rest, {
-			class: classesSlider.range,
-		}),
+		mergeProps(
+			slider().getRangeProps(),
+			{
+				class: classesSlider.range,
+			},
+			rest,
+		),
 	);
 </script>
 

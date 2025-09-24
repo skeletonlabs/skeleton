@@ -19,9 +19,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getItemSizeTextProps(itemProps()), rest, {
-			class: classesFileUpload.itemSizeText,
-		}),
+		mergeProps(
+			fileUpload().getItemSizeTextProps(itemProps()),
+			{
+				class: classesFileUpload.itemSizeText,
+			},
+			rest,
+		),
 	);
 </script>
 
