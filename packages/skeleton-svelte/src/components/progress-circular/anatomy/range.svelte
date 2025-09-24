@@ -17,10 +17,14 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(progressCircular().getCircleRangeProps(), rest, {
-			class: classesProgressCircular.range,
-			'stroke-linecap': 'round',
-		}),
+		mergeProps(
+			progressCircular().getCircleRangeProps(),
+			{
+				class: classesProgressCircular.range,
+				'stroke-linecap': 'round',
+			},
+			rest,
+		),
 	);
 </script>
 

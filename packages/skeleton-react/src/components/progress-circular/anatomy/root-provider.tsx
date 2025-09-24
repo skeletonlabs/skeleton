@@ -12,9 +12,13 @@ export interface ProgressCircularRootProviderProps extends PropsWithElement<'div
 export default function RootProvider(props: ProgressCircularRootProviderProps) {
 	const { element, children, value: progressCircular, ...rest } = props;
 
-	const attributes = mergeProps(progressCircular.getRootProps(), rest, {
-		className: classesProgressCircular.root,
-	});
+	const attributes = mergeProps(
+		progressCircular.getRootProps(),
+		{
+			className: classesProgressCircular.root,
+		},
+		rest,
+	);
 
 	return (
 		<ProgressCircularRootContext.Provider value={progressCircular}>

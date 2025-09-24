@@ -18,9 +18,13 @@
 	const { element, children, value: avatar, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(avatar().getRootProps(), rest, {
-			class: classesProgressCircular.root,
-		}),
+		mergeProps(
+			avatar().getRootProps(),
+			{
+				class: classesProgressCircular.root,
+			},
+			rest,
+		),
 	);
 
 	ProgressCircularRootContext.provide(() => avatar());

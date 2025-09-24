@@ -12,10 +12,14 @@ export default function Range(props: ProgressCircularRangeProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(progressCircular.getCircleRangeProps(), rest, {
-		className: classesProgressCircular.range,
-		strokeLinecap: 'round',
-	});
+	const attributes = mergeProps(
+		progressCircular.getCircleRangeProps(),
+		{
+			className: classesProgressCircular.range,
+			strokeLinecap: 'round',
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <circle {...attributes} />;
 }

@@ -12,9 +12,13 @@ export default function Track(props: ProgressCircularTrackProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(progressCircular.getCircleTrackProps(), rest, {
-		className: classesProgressCircular.track,
-	});
+	const attributes = mergeProps(
+		progressCircular.getCircleTrackProps(),
+		{
+			className: classesProgressCircular.track,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <circle {...attributes} />;
 }

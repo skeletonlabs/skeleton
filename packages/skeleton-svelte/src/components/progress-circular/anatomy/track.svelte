@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(progressCircular().getCircleTrackProps(), rest, {
-			class: classesProgressCircular.track,
-		}),
+		mergeProps(
+			progressCircular().getCircleTrackProps(),
+			{
+				class: classesProgressCircular.track,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(progressCircular().getValueTextProps(), rest, {
-			class: classesProgressCircular.valueText,
-		}),
+		mergeProps(
+			progressCircular().getValueTextProps(),
+			{
+				class: classesProgressCircular.valueText,
+			},
+			rest,
+		),
 	);
 </script>
 

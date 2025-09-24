@@ -18,9 +18,13 @@ export default function Root(props: ProgressCircularRootProps) {
 
 	const progressCircular = useProgressCircular(progressCircularProps);
 
-	const attributes = mergeProps(progressCircular.getRootProps(), rest, {
-		className: classesProgressCircular.root,
-	});
+	const attributes = mergeProps(
+		progressCircular.getRootProps(),
+		{
+			className: classesProgressCircular.root,
+		},
+		rest,
+	);
 
 	return (
 		<ProgressCircularRootContext.Provider value={progressCircular}>

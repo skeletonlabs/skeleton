@@ -12,9 +12,13 @@ export default function Label(props: ProgressCircularLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(progressCircular.getLabelProps(), rest, {
-		className: classesProgressCircular.label,
-	});
+	const attributes = mergeProps(
+		progressCircular.getLabelProps(),
+		{
+			className: classesProgressCircular.label,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

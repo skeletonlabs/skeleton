@@ -12,9 +12,13 @@ export default function ValueText(props: ProgressCircularValueTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(progressCircular.getValueTextProps(), rest, {
-		className: classesProgressCircular.valueText,
-	});
+	const attributes = mergeProps(
+		progressCircular.getValueTextProps(),
+		{
+			className: classesProgressCircular.valueText,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children ?? progressCircular.valueAsString}</span>;
 }
