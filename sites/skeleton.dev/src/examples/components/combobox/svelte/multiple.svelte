@@ -58,7 +58,7 @@
 	</Combobox>
 	<div class="flex flex-wrap gap-2">
 		{#each value as item (item)}
-			<span class="chip preset-filled">
+			<span class="badge preset-filled">
 				{item}
 			</span>
 		{/each}
