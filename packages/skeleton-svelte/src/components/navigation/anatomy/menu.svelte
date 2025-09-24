@@ -17,7 +17,7 @@
 
 	const attributes = $derived(
 		mergeProps(rest, {
-			'data-parent': navigation().parent,
+			'data-layout': navigation().layout,
 			class: classesNavigation.menu,
 		}),
 	);

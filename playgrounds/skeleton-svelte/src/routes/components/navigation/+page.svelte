@@ -20,7 +20,7 @@
 	</header>
 	<section class="space-y-4">
 		<h3 class="h3">Bar</h3>
-		<Navigation parent="bar" class="max-w-[480px]">
+		<Navigation layout="bar" class="max-w-[480px]">
 			<Navigation.Menu>
 				{#each links as link}
 					{@const Icon = link.icon}
@@ -34,7 +34,7 @@
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Rail</h3>
-		<Navigation parent="rail" class="h-[640px]">
+		<Navigation layout="rail" class="h-[640px]">
 			<!-- <Navigation.Header>(Logo)</Navigation.Header> -->
 			<Navigation.Menu>
 				{#each links as link}
@@ -53,7 +53,7 @@
 	<section class="space-y-4">
 		<h3 class="h3">Sidebar</h3>
 		<!-- <Navigation.Provider>
-			<Navigation parent="sidebar">
+			<Navigation layout="sidebar">
 				<Navigation.Header>
 					<h1>Skeleton</h1>
 				</Navigation.Header>

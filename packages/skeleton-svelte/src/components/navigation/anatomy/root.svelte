@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
-		parent: 'bar' | 'rail' | 'sidebar';
+		layout: 'bar' | 'rail' | 'sidebar';
 	}
 </script>
 
@@ -13,16 +13,16 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationRootProps = $props();
-	const { parent, element, children, ...rest } = $derived(props);
+	const { layout, element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(rest, {
-			'data-parent': parent,
+			'data-layout': layout,
 			class: classesNavigation.root,
 		}),
 	);
 
-	RootNavigationContext.provide(() => ({ parent }));
+	RootNavigationContext.provide(() => ({ layout }));
 </script>
 
 {#if element}
