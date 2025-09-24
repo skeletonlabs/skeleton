@@ -15,9 +15,13 @@ export default function ItemIndicator(props: AccordionItemIndicatorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(accordion.getItemIndicatorProps(itemProps), rest, {
-		className: classesAccordion.indicator,
-	});
+	const attributes = mergeProps(
+		accordion.getItemIndicatorProps(itemProps),
+		{
+			className: classesAccordion.indicator,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

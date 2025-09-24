@@ -14,9 +14,13 @@ export default function ItemHiddenInput(props: SegmentedControlItemHiddenInputPr
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(segmentedControl.getItemHiddenInputProps(itemProps), rest, {
-		className: classesSegmentedControl.itemHiddenInput,
-	});
+	const attributes = mergeProps(
+		segmentedControl.getItemHiddenInputProps(itemProps),
+		{
+			className: classesSegmentedControl.itemHiddenInput,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

@@ -14,9 +14,13 @@ export default function ItemText(props: TagsInputItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getItemTextProps(itemProps), rest, {
-		className: classesTagsInput.itemText,
-	});
+	const attributes = mergeProps(
+		tagsInput.getItemTextProps(itemProps),
+		{
+			className: classesTagsInput.itemText,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

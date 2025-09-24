@@ -12,9 +12,13 @@ export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, H
 export default function RootProvider(props: RatingGroupRootProviderProps) {
 	const { element, children, value: ratingGroup, ...rest } = props;
 
-	const attributes = mergeProps(ratingGroup.getRootProps(), rest, {
-		className: classesRatingGroup.root,
-	});
+	const attributes = mergeProps(
+		ratingGroup.getRootProps(),
+		{
+			className: classesRatingGroup.root,
+		},
+		rest,
+	);
 
 	return (
 		<RatingGroupRootContext.Provider value={ratingGroup}>

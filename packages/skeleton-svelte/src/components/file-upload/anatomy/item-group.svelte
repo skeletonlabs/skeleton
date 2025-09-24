@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getItemGroupProps(), rest, {
-			class: classesFileUpload.itemGroup,
-		}),
+		mergeProps(
+			fileUpload().getItemGroupProps(),
+			{
+				class: classesFileUpload.itemGroup,
+			},
+			rest,
+		),
 	);
 </script>
 

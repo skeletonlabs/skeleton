@@ -8,9 +8,12 @@ export interface ToastMessageProps extends PropsWithElement<'div'>, HTMLAttribut
 export default function Message(props: ToastMessageProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rest, {
-		className: classesToast.message,
-	});
+	const attributes = mergeProps(
+		{
+			className: classesToast.message,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

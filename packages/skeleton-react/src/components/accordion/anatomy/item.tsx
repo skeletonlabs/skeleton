@@ -17,9 +17,13 @@ export default function Item(props: AccordionItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(accordion.getItemProps(itemProps), rest, {
-		className: classesAccordion.item,
-	});
+	const attributes = mergeProps(
+		accordion.getItemProps(itemProps),
+		{
+			className: classesAccordion.item,
+		},
+		rest,
+	);
 
 	return (
 		<AccordionItemContext.Provider value={itemProps}>

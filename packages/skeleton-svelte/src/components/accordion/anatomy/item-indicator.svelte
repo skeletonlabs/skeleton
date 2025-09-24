@@ -18,7 +18,15 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(accordion().getItemIndicatorProps(itemProps()), rest, { class: classesAccordion.indicator }));
+	const attributes = $derived(
+		mergeProps(
+			accordion().getItemIndicatorProps(itemProps()),
+			{
+				class: classesAccordion.indicator,
+			},
+			rest,
+		),
+	);
 </script>
 
 {#if element}

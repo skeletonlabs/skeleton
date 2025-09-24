@@ -12,9 +12,13 @@ export default function Indicator(props: TabsIndicatorProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(tabs.getIndicatorProps(), rest, {
-		className: classesTabs.indicator,
-	});
+	const attributes = mergeProps(
+		tabs.getIndicatorProps(),
+		{
+			className: classesTabs.indicator,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

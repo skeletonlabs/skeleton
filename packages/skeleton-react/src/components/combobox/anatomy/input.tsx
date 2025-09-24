@@ -12,9 +12,13 @@ export default function Input(props: ComboboxInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(combobox.getInputProps(), rest, {
-		className: classesCombobox.input,
-	});
+	const attributes = mergeProps(
+		combobox.getInputProps(),
+		{
+			className: classesCombobox.input,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

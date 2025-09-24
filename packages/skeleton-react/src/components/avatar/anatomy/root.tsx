@@ -15,9 +15,13 @@ export default function AvatarRoot(props: AvatarRootProps) {
 
 	const avatar = useAvatar(avatarProps);
 
-	const attributes = mergeProps(avatar.getRootProps(), rest, {
-		className: classesAvatar.root,
-	});
+	const attributes = mergeProps(
+		avatar.getRootProps(),
+		{
+			className: classesAvatar.root,
+		},
+		rest,
+	);
 
 	return (
 		<AvatarRootContext.Provider value={avatar}>

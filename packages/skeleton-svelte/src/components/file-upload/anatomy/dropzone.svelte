@@ -18,9 +18,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getDropzoneProps(props), rest, {
-			class: classesFileUpload.dropzone,
-		}),
+		mergeProps(
+			fileUpload().getDropzoneProps(props),
+			{
+				class: classesFileUpload.dropzone,
+			},
+			rest,
+		),
 	);
 </script>
 

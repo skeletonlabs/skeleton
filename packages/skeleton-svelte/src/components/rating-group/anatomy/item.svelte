@@ -45,9 +45,13 @@
 	const itemState = $derived(ratingGroup().getItemState(itemProps));
 
 	const attributes = $derived(
-		mergeProps(ratingGroup().getItemProps(itemProps), rest, {
-			class: classesRatingGroup.item,
-		}),
+		mergeProps(
+			ratingGroup().getItemProps(itemProps),
+			{
+				class: classesRatingGroup.item,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(progressLinear().getRangeProps(), rest, {
-			class: classesProgressLinear.range,
-		}),
+		mergeProps(
+			progressLinear().getRangeProps(),
+			{
+				class: classesProgressLinear.range,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -24,9 +24,13 @@ export default function Root(props: ToastRootProps) {
 	});
 	const toast = connect(service, normalizeProps);
 
-	const attributes = mergeProps(toast.getRootProps(), rest, {
-		className: classesToast.root,
-	});
+	const attributes = mergeProps(
+		toast.getRootProps(),
+		{
+			className: classesToast.root,
+		},
+		rest,
+	);
 
 	return (
 		<>

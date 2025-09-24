@@ -12,9 +12,13 @@ export default function Positioner(props: ComboboxPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(combobox.getPositionerProps(), rest, {
-		className: classesCombobox.positioner,
-	});
+	const attributes = mergeProps(
+		combobox.getPositionerProps(),
+		{
+			className: classesCombobox.positioner,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

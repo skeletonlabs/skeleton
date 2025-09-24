@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(toast().getDescriptionProps(), rest, {
-			class: classesToast.description,
-		}),
+		mergeProps(
+			toast().getDescriptionProps(),
+			{
+				class: classesToast.description,
+			},
+			rest,
+		),
 	);
 </script>
 

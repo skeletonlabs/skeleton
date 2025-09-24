@@ -12,9 +12,13 @@ export default function Label(props: SliderLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(slider.getLabelProps(), rest, {
-		className: classesSlider.label,
-	});
+	const attributes = mergeProps(
+		slider.getLabelProps(),
+		{
+			className: classesSlider.label,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

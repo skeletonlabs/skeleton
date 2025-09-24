@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(toast().getActionTriggerProps(), rest, {
-			class: classesToast.actionTrigger,
-		}),
+		mergeProps(
+			toast().getActionTriggerProps(),
+			{
+				class: classesToast.actionTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

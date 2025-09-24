@@ -14,9 +14,13 @@ export default function ItemText(props: SegmentedControlItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(segmentedControl.getItemTextProps(itemProps), rest, {
-		className: classesSegmentedControl.itemText,
-	});
+	const attributes = mergeProps(
+		segmentedControl.getItemTextProps(itemProps),
+		{
+			className: classesSegmentedControl.itemText,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

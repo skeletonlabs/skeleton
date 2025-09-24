@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(popover().getDescriptionProps(), rest, {
-			class: classesPopover.description,
-		}),
+		mergeProps(
+			popover().getDescriptionProps(),
+			{
+				class: classesPopover.description,
+			},
+			rest,
+		),
 	);
 </script>
 

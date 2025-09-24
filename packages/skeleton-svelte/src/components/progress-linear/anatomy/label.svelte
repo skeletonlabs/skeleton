@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(progressLinear().getLabelProps(), rest, {
-			class: classesProgressLinear.label,
-		}),
+		mergeProps(
+			progressLinear().getLabelProps(),
+			{
+				class: classesProgressLinear.label,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -19,9 +19,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getItemPreviewProps(itemProps()), rest, {
-			class: classesTagsInput.itemPreview,
-		}),
+		mergeProps(
+			tagsInput().getItemPreviewProps(itemProps()),
+			{
+				class: classesTagsInput.itemPreview,
+			},
+			rest,
+		),
 	);
 </script>
 

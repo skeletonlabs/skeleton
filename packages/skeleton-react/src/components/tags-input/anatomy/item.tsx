@@ -15,9 +15,13 @@ export default function Item(props: TagsInputItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(tagsInput.getItemProps(itemProps), rest, {
-		className: classesTagsInput.item,
-	});
+	const attributes = mergeProps(
+		tagsInput.getItemProps(itemProps),
+		{
+			className: classesTagsInput.item,
+		},
+		rest,
+	);
 
 	return (
 		<TagsInputItemContext.Provider value={itemProps}>

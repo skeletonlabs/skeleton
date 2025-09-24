@@ -21,9 +21,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(segmentedControl().getItemProps(itemProps), rest, {
-			class: classesSegmentedControl.item,
-		}),
+		mergeProps(
+			segmentedControl().getItemProps(itemProps),
+			{
+				class: classesSegmentedControl.item,
+			},
+			rest,
+		),
 	);
 
 	SegmentedControlItemContext.provide(() => itemProps);

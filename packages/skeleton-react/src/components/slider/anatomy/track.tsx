@@ -12,9 +12,13 @@ export default function Track(props: SliderTrackProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(slider.getTrackProps(), rest, {
-		className: classesSlider.track,
-	});
+	const attributes = mergeProps(
+		slider.getTrackProps(),
+		{
+			className: classesSlider.track,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

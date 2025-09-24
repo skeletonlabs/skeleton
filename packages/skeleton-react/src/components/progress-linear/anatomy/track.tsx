@@ -12,9 +12,13 @@ export default function Track(props: ProgressLinearTrackProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(progressLinear.getTrackProps(), rest, {
-		className: classesProgressLinear.track,
-	});
+	const attributes = mergeProps(
+		progressLinear.getTrackProps(),
+		{
+			className: classesProgressLinear.track,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

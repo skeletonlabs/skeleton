@@ -18,9 +18,12 @@ export default function ItemHeading(props: AccordionItemHeadingProps) {
 
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 
-	const attributes = mergeProps(rest, {
-		className: classesAccordion.heading,
-	});
+	const attributes = mergeProps(
+		{
+			className: classesAccordion.heading,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <Tag {...attributes}>{children}</Tag>;
 }

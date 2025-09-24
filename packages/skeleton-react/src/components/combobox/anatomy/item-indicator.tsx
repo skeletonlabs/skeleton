@@ -15,9 +15,13 @@ export default function ItemIndicator(props: ComboboxItemIndicatorProps) {
 
 	const { element, children = <Check className="size-4" />, ...rest } = props;
 
-	const attributes = mergeProps(combobox.getItemIndicatorProps(itemProps), rest, {
-		className: classesCombobox.itemIndicator,
-	});
+	const attributes = mergeProps(
+		combobox.getItemIndicatorProps(itemProps),
+		{
+			className: classesCombobox.itemIndicator,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

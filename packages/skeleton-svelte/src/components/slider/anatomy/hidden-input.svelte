@@ -19,9 +19,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(slider().getHiddenInputProps(thumbProps()), rest, {
-			class: classesSlider.hiddenInput,
-		}),
+		mergeProps(
+			slider().getHiddenInputProps(thumbProps()),
+			{
+				class: classesSlider.hiddenInput,
+			},
+			rest,
+		),
 	);
 </script>
 
