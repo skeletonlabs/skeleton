@@ -18,9 +18,13 @@
 	const { element, children, value, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(slider().getMarkerProps({ value }), rest, {
-			class: classesSlider.marker,
-		}),
+		mergeProps(
+			slider().getMarkerProps({ value }),
+			{
+				class: classesSlider.marker,
+			},
+			rest,
+		),
 	);
 </script>
 

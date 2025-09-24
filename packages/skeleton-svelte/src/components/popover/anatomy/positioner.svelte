@@ -18,10 +18,14 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(popover().getPositionerProps(), rest, {
-			class: classesPopover.positioner,
-			[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !popover().portalled })),
-		}),
+		mergeProps(
+			popover().getPositionerProps(),
+			{
+				class: classesPopover.positioner,
+				[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !popover().portalled })),
+			},
+			rest,
+		),
 	);
 </script>
 

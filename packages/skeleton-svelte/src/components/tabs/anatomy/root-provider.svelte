@@ -17,9 +17,13 @@
 	const { element, children, value: tabs, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tabs().getRootProps(), rest, {
-			class: classesTabs.root,
-		}),
+		mergeProps(
+			tabs().getRootProps(),
+			{
+				class: classesTabs.root,
+			},
+			rest,
+		),
 	);
 
 	TabsRootContext.provide(() => tabs());

@@ -1,5 +1,7 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
+			mergeProps(avatarApi().getRootProps(), rest, {
+			class: classesAvatar.root,
+		}),ort type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { Props } from '@zag-js/avatar';
 

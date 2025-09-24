@@ -21,9 +21,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getItemProps(itemProps), rest, {
-			class: classesTagsInput.item,
-		}),
+		mergeProps(
+			tagsInput().getItemProps(itemProps),
+			{
+				class: classesTagsInput.item,
+			},
+			rest,
+		),
 	);
 
 	TagsInputItemContext.provide(() => itemProps);

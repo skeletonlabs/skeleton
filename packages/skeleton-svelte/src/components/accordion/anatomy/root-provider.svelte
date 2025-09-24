@@ -17,7 +17,7 @@
 
 	const { element, children, value: accordion, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(accordion().getRootProps(), { class: classesAccordion.root }, rest));
+	const attributes = $derived(mergeProps(accordion().getRootProps(), rest, { class: classesAccordion.root }));
 
 	AccordionRootContext.provide(() => accordion());
 </script>

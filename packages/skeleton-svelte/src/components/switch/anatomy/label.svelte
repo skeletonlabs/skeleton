@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(switch_().getLabelProps(), rest, {
-			class: classesSwitch.label,
-		}),
+		mergeProps(
+			switch_().getLabelProps(),
+			{
+				class: classesSwitch.label,
+			},
+			rest,
+		),
 	);
 </script>
 

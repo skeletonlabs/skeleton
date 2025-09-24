@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(ratingGroup().getRootProps(), rest, {
-			class: classesRatingGroup.root,
-		}),
+		mergeProps(
+			ratingGroup().getRootProps(),
+			{
+				class: classesRatingGroup.root,
+			},
+			rest,
+		),
 	);
 
 	RatingGroupRootContext.provide(() => ratingGroup());

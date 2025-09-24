@@ -20,9 +20,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(slider().getThumbProps(thumbProps), rest, {
-			class: classesSlider.thumb,
-		}),
+		mergeProps(
+			slider().getThumbProps(thumbProps),
+			{
+				class: classesSlider.thumb,
+			},
+			rest,
+		),
 	);
 
 	SliderThumbContext.provide(() => thumbProps);

@@ -28,9 +28,13 @@
 	const api = $derived(group.connect(service, normalizeProps));
 
 	const attributes = $derived(
-		mergeProps(api.getGroupProps(), rest, {
-			class: classesToast.group,
-		}),
+		mergeProps(
+			api.getGroupProps(),
+			{
+				class: classesToast.group,
+			},
+			rest,
+		),
 	);
 
 	ToastGroupContext.provide(() => service);
