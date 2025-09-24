@@ -12,9 +12,13 @@ export default function Title(props: DialogTitleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(dialog.getTitleProps(), rest, {
-		className: classesDialog.title,
-	});
+	const attributes = mergeProps(
+		dialog.getTitleProps(),
+		{
+			className: classesDialog.title,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

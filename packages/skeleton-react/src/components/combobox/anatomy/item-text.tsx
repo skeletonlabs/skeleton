@@ -14,9 +14,13 @@ export default function ItemText(props: ComboboxItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(combobox.getItemTextProps(itemProps), rest, {
-		className: classesCombobox.itemText,
-	});
+	const attributes = mergeProps(
+		combobox.getItemTextProps(itemProps),
+		{
+			className: classesCombobox.itemText,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

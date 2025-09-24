@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(avatar().getRootProps(), rest, {
-			class: classesProgressLinear.root,
-		}),
+		mergeProps(
+			avatar().getRootProps(),
+			{
+				class: classesProgressLinear.root,
+			},
+			rest,
+		),
 	);
 
 	ProgressLinearRootContext.provide(() => avatar());

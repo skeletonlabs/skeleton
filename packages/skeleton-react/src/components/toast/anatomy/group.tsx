@@ -22,9 +22,13 @@ export default function Group(props: ToastGroupProps) {
 	});
 	const api = group.connect(service, normalizeProps);
 
-	const attributes = mergeProps(api.getGroupProps(), rest, {
-		className: classesToast.group,
-	});
+	const attributes = mergeProps(
+		api.getGroupProps(),
+		{
+			className: classesToast.group,
+		},
+		rest,
+	);
 
 	return (
 		<ToastGroupContext.Provider value={service}>

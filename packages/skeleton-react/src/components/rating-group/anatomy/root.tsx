@@ -18,9 +18,13 @@ export default function Root(props: RatingGroupRootProps) {
 
 	const ratingGroup = useRatingGroup(ratingGroupProps);
 
-	const attributes = mergeProps(ratingGroup.getRootProps(), rest, {
-		className: classesRatingGroup.root,
-	});
+	const attributes = mergeProps(
+		ratingGroup.getRootProps(),
+		{
+			className: classesRatingGroup.root,
+		},
+		rest,
+	);
 
 	return (
 		<RatingGroupRootContext.Provider value={ratingGroup}>

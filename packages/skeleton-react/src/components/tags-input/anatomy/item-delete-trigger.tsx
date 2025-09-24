@@ -14,9 +14,13 @@ export default function ItemDeleteTrigger(props: TagsInputItemDeleteTriggerProps
 
 	const { element, children = <>&times;</>, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getItemDeleteTriggerProps(itemProps), rest, {
-		className: classesTagsInput.itemDeleteTrigger,
-	});
+	const attributes = mergeProps(
+		tagsInput.getItemDeleteTriggerProps(itemProps),
+		{
+			className: classesTagsInput.itemDeleteTrigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

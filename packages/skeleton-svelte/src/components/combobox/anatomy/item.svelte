@@ -21,9 +21,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(combobox().getItemProps(itemProps), rest, {
-			class: classesCombobox.item,
-		}),
+		mergeProps(
+			combobox().getItemProps(itemProps),
+			{
+				class: classesCombobox.item,
+			},
+			rest,
+		),
 	);
 
 	ComboboxItemContext.provide(() => itemProps);

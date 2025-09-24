@@ -12,9 +12,13 @@ export default function Input(props: TagsInputInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getInputProps(), rest, {
-		className: classesTagsInput.input,
-	});
+	const attributes = mergeProps(
+		tagsInput.getInputProps(),
+		{
+			className: classesTagsInput.input,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

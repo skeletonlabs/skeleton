@@ -13,9 +13,13 @@ export default function CloseTrigger(props: ToastCloseTriggerProps) {
 
 	const { element, children = <X />, ...rest } = props;
 
-	const attributes = mergeProps(toast.getCloseTriggerProps(), rest, {
-		className: classesToast.closeTrigger,
-	});
+	const attributes = mergeProps(
+		toast.getCloseTriggerProps(),
+		{
+			className: classesToast.closeTrigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

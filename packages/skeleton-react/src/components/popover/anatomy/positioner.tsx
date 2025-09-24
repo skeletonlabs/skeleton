@@ -14,9 +14,13 @@ export default function Positioner(props: PopoverPositionerProps) {
 
 	const Wrapper = popover.portalled ? Portal : Fragment;
 
-	const attributes = mergeProps(popover.getPositionerProps(), rest, {
-		className: classesPopover.positioner,
-	});
+	const attributes = mergeProps(
+		popover.getPositionerProps(),
+		{
+			className: classesPopover.positioner,
+		},
+		rest,
+	);
 
 	return <Wrapper>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Wrapper>;
 }

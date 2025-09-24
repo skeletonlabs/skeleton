@@ -12,9 +12,13 @@ export default function Description(props: PopoverDescriptionProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getDescriptionProps(), rest, {
-		className: classesPopover.description,
-	});
+	const attributes = mergeProps(
+		popover.getDescriptionProps(),
+		{
+			className: classesPopover.description,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

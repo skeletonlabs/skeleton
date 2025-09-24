@@ -12,9 +12,13 @@ export default function HiddenInput(props: TagsInputHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getHiddenInputProps(), rest, {
-		className: classesTagsInput.hiddenInput,
-	});
+	const attributes = mergeProps(
+		tagsInput.getHiddenInputProps(),
+		{
+			className: classesTagsInput.hiddenInput,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

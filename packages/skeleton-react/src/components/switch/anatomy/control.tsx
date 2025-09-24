@@ -12,9 +12,13 @@ export default function Control(props: SwitchControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(switch_.getControlProps(), rest, {
-		className: classesSwitch.control,
-	});
+	const attributes = mergeProps(
+		switch_.getControlProps(),
+		{
+			className: classesSwitch.control,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

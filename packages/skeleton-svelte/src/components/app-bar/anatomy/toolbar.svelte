@@ -10,12 +10,16 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AppBarToolbarProps = $props();
+
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rest, {
-			class: classesAppBar.toolbar,
-		}),
+		mergeProps(
+			{
+				class: classesAppBar.toolbar,
+			},
+			rest,
+		),
 	);
 </script>
 

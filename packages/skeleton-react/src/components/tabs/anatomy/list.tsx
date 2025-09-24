@@ -12,9 +12,13 @@ export default function List(props: TabsListProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tabs.getListProps(), rest, {
-		className: classesTabs.list,
-	});
+	const attributes = mergeProps(
+		tabs.getListProps(),
+		{
+			className: classesTabs.list,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

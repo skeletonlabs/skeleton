@@ -18,9 +18,13 @@ export default function ItemGroup(props: ComboboxItemGroupProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(combobox.getItemGroupProps(itemGroupProps), rest, {
-		className: classesCombobox.itemGroup,
-	});
+	const attributes = mergeProps(
+		combobox.getItemGroupProps(itemGroupProps),
+		{
+			className: classesCombobox.itemGroup,
+		},
+		rest,
+	);
 
 	return (
 		<ComboboxItemGroupContext.Provider value={itemGroupProps}>

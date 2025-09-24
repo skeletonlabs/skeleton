@@ -17,9 +17,13 @@
 	const { element, children, value: tagsInput, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getRootProps(), rest, {
-			class: classesTagsInput.root,
-		}),
+		mergeProps(
+			tagsInput().getRootProps(),
+			{
+				class: classesTagsInput.root,
+			},
+			rest,
+		),
 	);
 
 	TagsInputRootContext.provide(() => tagsInput());

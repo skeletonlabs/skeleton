@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(dialog().getPositionerProps(), rest, {
-			class: classesDialog.positioner,
-		}),
+		mergeProps(
+			dialog().getPositionerProps(),
+			{
+				class: classesDialog.positioner,
+			},
+			rest,
+		),
 	);
 </script>
 

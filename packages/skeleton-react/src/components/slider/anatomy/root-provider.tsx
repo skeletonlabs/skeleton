@@ -12,9 +12,13 @@ export interface SliderRootProviderProps extends PropsWithElement<'div'>, HTMLAt
 export default function SliderRootProvider(props: SliderRootProviderProps) {
 	const { element, children, value: slider, ...rest } = props;
 
-	const attributes = mergeProps(slider.getRootProps(), rest, {
-		className: classesSlider.root,
-	});
+	const attributes = mergeProps(
+		slider.getRootProps(),
+		{
+			className: classesSlider.root,
+		},
+		rest,
+	);
 
 	return (
 		<SliderRootContext.Provider value={slider}>

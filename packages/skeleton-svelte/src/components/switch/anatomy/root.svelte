@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(switch_().getRootProps(), rest, {
-			class: classesSwitch.root,
-		}),
+		mergeProps(
+			switch_().getRootProps(),
+			{
+				class: classesSwitch.root,
+			},
+			rest,
+		),
 	);
 
 	SwitchRootContext.provide(() => switch_());

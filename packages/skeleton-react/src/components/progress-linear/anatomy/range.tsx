@@ -12,9 +12,13 @@ export default function Range(props: ProgressLinearRangeProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(progressLinear.getRangeProps(), rest, {
-		className: classesProgressLinear.range,
-	});
+	const attributes = mergeProps(
+		progressLinear.getRangeProps(),
+		{
+			className: classesProgressLinear.range,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

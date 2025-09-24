@@ -12,9 +12,13 @@ export default function ItemGroup(props: FileUploadItemGroupProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(fileUpload.getItemGroupProps(), rest, {
-		className: classesFileUpload.itemGroup,
-	});
+	const attributes = mergeProps(
+		fileUpload.getItemGroupProps(),
+		{
+			className: classesFileUpload.itemGroup,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
 }

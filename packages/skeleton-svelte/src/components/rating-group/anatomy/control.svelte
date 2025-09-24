@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(ratingGroup().getControlProps(), rest, {
-			class: classesRatingGroup.control,
-		}),
+		mergeProps(
+			ratingGroup().getControlProps(),
+			{
+				class: classesRatingGroup.control,
+			},
+			rest,
+		),
 	);
 </script>
 

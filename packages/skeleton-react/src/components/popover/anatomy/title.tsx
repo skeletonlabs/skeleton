@@ -12,9 +12,13 @@ export default function Title(props: PopoverTitleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getTitleProps(), rest, {
-		className: classesPopover.title,
-	});
+	const attributes = mergeProps(
+		popover.getTitleProps(),
+		{
+			className: classesPopover.title,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -15,9 +15,13 @@ export default function Root(props: SwitchRootProps) {
 
 	const switch_ = useSwitch(switchProps);
 
-	const attributes = mergeProps(switch_.getRootProps(), rest, {
-		className: classesSwitch.root,
-	});
+	const attributes = mergeProps(
+		switch_.getRootProps(),
+		{
+			className: classesSwitch.root,
+		},
+		rest,
+	);
 
 	return (
 		<SwitchRootContext.Provider value={switch_}>

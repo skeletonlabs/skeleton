@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tooltip().getArrowProps(), rest, {
-			class: classesTooltip.arrow,
-		}),
+		mergeProps(
+			tooltip().getArrowProps(),
+			{
+				class: classesTooltip.arrow,
+			},
+			rest,
+		),
 	);
 </script>
 

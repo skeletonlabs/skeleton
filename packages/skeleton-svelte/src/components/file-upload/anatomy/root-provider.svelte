@@ -18,9 +18,13 @@
 	const { element, children, value: fileUpload, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getRootProps(), rest, {
-			class: classesFileUpload.root,
-		}),
+		mergeProps(
+			fileUpload().getRootProps(),
+			{
+				class: classesFileUpload.root,
+			},
+			rest,
+		),
 	);
 
 	FileUploadRootContext.provide(() => fileUpload());

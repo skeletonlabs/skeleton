@@ -15,15 +15,19 @@
 
 	const props: ProgressLinearRootProviderProps = $props();
 
-	const { element, children, value: avatar, ...rest } = $derived(props);
+	const { element, children, value: progressLinear, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(avatar().getRootProps(), rest, {
-			class: classesProgressLinear.root,
-		}),
+		mergeProps(
+			progressLinear().getRootProps(),
+			{
+				class: classesProgressLinear.root,
+			},
+			rest,
+		),
 	);
 
-	ProgressLinearRootContext.provide(() => avatar());
+	ProgressLinearRootContext.provide(() => progressLinear());
 </script>
 
 {#if element}

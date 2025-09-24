@@ -12,9 +12,13 @@ export default function Content(props: DialogContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(dialog.getContentProps(), rest, {
-		className: classesDialog.content,
-	});
+	const attributes = mergeProps(
+		dialog.getContentProps(),
+		{
+			className: classesDialog.content,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

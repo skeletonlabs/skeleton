@@ -12,9 +12,13 @@ export default function Control(props: TagsInputControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getControlProps(), rest, {
-		className: classesTagsInput.control,
-	});
+	const attributes = mergeProps(
+		tagsInput.getControlProps(),
+		{
+			className: classesTagsInput.control,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

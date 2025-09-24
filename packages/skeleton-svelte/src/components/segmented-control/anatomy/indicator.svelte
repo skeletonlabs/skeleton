@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(segmentedControl().getIndicatorProps(), rest, {
-			class: classesSegmentedControl.indicator,
-		}),
+		mergeProps(
+			segmentedControl().getIndicatorProps(),
+			{
+				class: classesSegmentedControl.indicator,
+			},
+			rest,
+		),
 	);
 </script>
 

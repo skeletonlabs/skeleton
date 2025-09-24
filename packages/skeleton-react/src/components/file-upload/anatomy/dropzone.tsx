@@ -12,9 +12,13 @@ export default function Dropzone(props: FileUploadDropzoneProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(fileUpload.getDropzoneProps(), rest, {
-		className: classesFileUpload.dropzone,
-	});
+	const attributes = mergeProps(
+		fileUpload.getDropzoneProps(),
+		{
+			className: classesFileUpload.dropzone,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
