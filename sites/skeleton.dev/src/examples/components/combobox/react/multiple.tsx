@@ -65,7 +65,7 @@ export default function Default() {
 			</Combobox>
 			<div className="flex flex-wrap gap-2">
 				{value.map((item) => (
-					<span key={item} className="chip preset-filled">
+					<span key={item} className="badge preset-filled">
 						{item}
 					</span>
 				))}
