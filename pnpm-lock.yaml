@@ -105,6 +105,9 @@ catalogs:
     '@zag-js/avatar':
       specifier: 1.24.2
       version: 1.24.2
+    '@zag-js/collection':
+      specifier: 1.24.2
+      version: 1.24.2
     '@zag-js/combobox':
       specifier: 1.24.2
       version: 1.24.2
@@ -127,6 +130,9 @@ catalogs:
       specifier: 1.24.2
       version: 1.24.2
     '@zag-js/react':
+      specifier: 1.24.2
+      version: 1.24.2
+    '@zag-js/slider':
       specifier: 1.24.2
       version: 1.24.2
     '@zag-js/svelte':
@@ -174,6 +180,9 @@ catalogs:
     detect-indent:
       specifier: 7.0.1
       version: 7.0.1
+    fuse.js:
+      specifier: 7.1.0
+      version: 7.1.0
     jsdom:
       specifier: 26.1.0
       version: 26.1.0
@@ -450,6 +459,12 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.24.2
+      '@zag-js/collection':
+        specifier: 'catalog:'
+        version: 1.24.2
+      '@zag-js/combobox':
+        specifier: 'catalog:'
+        version: 1.24.2
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.24.2
@@ -471,6 +486,9 @@ importers:
       '@zag-js/react':
         specifier: 'catalog:'
         version: 1.24.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      '@zag-js/slider':
+        specifier: 'catalog:'
+        version: 1.24.2
       '@zag-js/switch':
         specifier: 'catalog:'
         version: 1.24.2
@@ -535,6 +553,9 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.24.2
+      '@zag-js/collection':
+        specifier: 'catalog:'
+        version: 1.24.2
       '@zag-js/combobox':
         specifier: 'catalog:'
         version: 1.24.2
@@ -554,6 +575,9 @@ importers:
         specifier: 'catalog:'
         version: 1.24.2
       '@zag-js/rating-group':
+        specifier: 'catalog:'
+        version: 1.24.2
+      '@zag-js/slider':
         specifier: 'catalog:'
         version: 1.24.2
       '@zag-js/svelte':
@@ -768,6 +792,9 @@ importers:
       astro-icon:
         specifier: 'catalog:'
         version: 1.1.5
+      fuse.js:
+        specifier: 'catalog:'
+        version: 7.1.0
       lucide-react:
         specifier: 'catalog:'
         version: 0.542.0(react@19.1.1)
@@ -2873,6 +2900,9 @@ packages:
   '@zag-js/remove-scroll@1.24.2':
     resolution: { integrity: sha512-PLXXBw3NxVAfm7MbNnM0TVlv70Kn+xYFEbKxUBWhD0d/qoqsKJV/xS7N4yO5QPZg9UgXMvtRDtINGWoJvyuAlw== }
 
+  '@zag-js/slider@1.24.2':
+    resolution: { integrity: sha512-QxdSIRW96lPT/zJS/1pr2aj1rGujXBZ2ypUyb6JYZizFG55cZtmJqjJaZ81jU251peLuTdhug34C52vAvXyFZA== }
+
   '@zag-js/store@1.24.2':
     resolution: { integrity: sha512-PZViq7LD4y+6iEB/0tvbqywoEccNXGy6jcOGIg5lwdY0CiPulPMeoLFi0+Etx1/Wom398NqlzecPqT4ZbICYMQ== }
 
@@ -3688,6 +3718,10 @@ packages:
 
   function-bind@1.1.2:
     resolution: { integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA== }
+
+  fuse.js@7.1.0:
+    resolution: { integrity: sha512-trLf4SzuuUxfusZADLINj+dE8clK1frKdmqiJNb1Es75fmI5oY6X2mxLVUciLLjxqw/xr72Dhy+lER6dGd02FQ== }
+    engines: { node: '>=10' }
 
   gensync@1.0.0-beta.2:
     resolution: { integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg== }
@@ -8291,6 +8325,14 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 1.24.2
 
+  '@zag-js/slider@1.24.2':
+    dependencies:
+      '@zag-js/anatomy': 1.24.2
+      '@zag-js/core': 1.24.2
+      '@zag-js/dom-query': 1.24.2
+      '@zag-js/types': 1.24.2
+      '@zag-js/utils': 1.24.2
+
   '@zag-js/store@1.24.2':
     dependencies:
       proxy-compare: 3.0.1
@@ -9205,6 +9247,8 @@ snapshots:
     optional: true
 
   function-bind@1.1.2: {}
+
+  fuse.js@7.1.0: {}
 
   gensync@1.0.0-beta.2: {}
 

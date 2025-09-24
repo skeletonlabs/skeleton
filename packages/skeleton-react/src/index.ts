@@ -1,6 +1,7 @@
 export * from './components/accordion/index';
 export * from './components/app-bar/index';
 export * from './components/avatar/index';
+export * from './components/combobox/index';
 export * from './components/dialog/index';
 export * from './components/file-upload/index';
 export * from './components/popover/index';
@@ -8,8 +9,11 @@ export * from './components/progress-circular/index';
 export * from './components/progress-linear/index';
 export * from './components/rating-group/index';
 export * from './components/segmented-control/index';
+export * from './components/slider/index';
 export * from './components/switch/index';
 export * from './components/tabs/index';
 export * from './components/tags-input/index';
 export * from './components/toast/index';
 export * from './components/tooltip/index';
+
+export * from './hooks/use-list-collection';

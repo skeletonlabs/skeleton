@@ -1,6 +1,7 @@
 export * from './classes/accordion';
 export * from './classes/app-bar';
 export * from './classes/avatar';
+export * from './classes/combobox';
 export * from './classes/dialog';
 export * from './classes/file-upload';
 export * from './classes/popover';
@@ -8,6 +9,7 @@ export * from './classes/progress-circular';
 export * from './classes/progress-linear';
 export * from './classes/rating-group';
 export * from './classes/segmented-control';
+export * from './classes/slider';
 export * from './classes/switch';
 export * from './classes/tabs';
 export * from './classes/tags-input';

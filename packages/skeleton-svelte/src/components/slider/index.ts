@@ -1,0 +1,14 @@
+export { Slider } from './modules/anatomy';
+export { useSlider } from './modules/use-slider.svelte';
+export type { SliderRootProps } from './anatomy/root.svelte';
+export type { SliderRootProviderProps } from './anatomy/root-provider.svelte';
+export type { SliderRootContextProps } from './anatomy/root-context.svelte';
+export type { SliderTrackProps } from './anatomy/track.svelte';
+export type { SliderThumbProps } from './anatomy/thumb.svelte';
+export type { SliderHiddenInputProps } from './anatomy/hidden-input.svelte';
+export type { SliderRangeProps } from './anatomy/range.svelte';
+export type { SliderLabelProps } from './anatomy/label.svelte';
+export type { SliderValueTextProps } from './anatomy/value-text.svelte';
+export type { SliderControlProps } from './anatomy/control.svelte';
+export type { SliderMarkerGroupProps } from './anatomy/marker-group.svelte';
+export type { SliderMarkerProps } from './anatomy/marker.svelte';

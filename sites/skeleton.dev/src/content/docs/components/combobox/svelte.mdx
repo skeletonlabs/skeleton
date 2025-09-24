@@ -1,0 +1,119 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/combobox/svelte/default.svelte';
+import DefaultRaw from '@examples/components/combobox/svelte/default.svelte?raw';
+
+import Group from '@examples/components/combobox/svelte/group.svelte';
+import GroupRaw from '@examples/components/combobox/svelte/group.svelte?raw';
+
+import AutoHighlight from '@examples/components/combobox/svelte/auto-highlight.svelte';
+import AutoHighlightRaw from '@examples/components/combobox/svelte/auto-highlight.svelte?raw';
+
+import Multiple from '@examples/components/combobox/svelte/multiple.svelte';
+import MultipleRaw from '@examples/components/combobox/svelte/multiple.svelte?raw';
+
+import DisabledItem from '@examples/components/combobox/svelte/disabled-item.svelte';
+import DisabledItemRaw from '@examples/components/combobox/svelte/disabled-item.svelte?raw';
+
+import CustomFilter from '@examples/components/combobox/svelte/custom-filter.svelte';
+import CustomFilterRaw from '@examples/components/combobox/svelte/custom-filter.svelte?raw';
+
+import ZIndex from '@examples/components/combobox/svelte/z-index.svelte';
+import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Groups
+
+Create labelled groups for your items.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Group client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={GroupRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Auto Highlight
+
+Search for any option, then tap Enter on your keyboard to automatically select it.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<AutoHighlight client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AutoHighlightRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+To maintain filtering functionality and improve clarity for users, we recommend displaying the selected values outside of the Combobox component.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Multiple client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled Item
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DisabledItem client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledItemRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Custom Filter
+
+Try mistyping `apple` or `banana` to see the custom filter using the fuzzy search from [Fuse.js](https://fusejs.io/) in action.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomFilter client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomFilterRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the Positioner component part.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ZIndex client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ZIndexRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Items Max
+
+Note that we do not recommend this interface for excessive amounts of items. For normal usage, a few dozen is likely best. Going above 500 items may cause performance issues.
+
+## API Reference
+
+<ApiTable />
