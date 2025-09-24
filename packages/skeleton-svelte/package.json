@@ -1,8 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "2.0.0-next.9",
+	"version": "2.0.0-next.11",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton-svelte"
+	},
 	"scripts": {
 		"dev": "svelte-package --input src --output dist --watch",
 		"build": "svelte-package --input src --output dist",
@@ -10,7 +15,6 @@
 		"check": "svelte-check",
 		"sync": "svelte-kit sync && pnpm build"
 	},
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -22,6 +26,7 @@
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"dependencies": {
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
@@ -60,5 +65,6 @@
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
+	"license": "MIT",
 	"type": "module"
 }

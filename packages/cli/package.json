@@ -1,14 +1,12 @@
 {
 	"name": "skeleton",
 	"description": "The CLI for Skeleton related tooling.",
-	"version": "1.0.1-next.0",
+	"version": "1.0.1-next.1",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/cli"
 	},
-	"sideEffects": false,
-	"type": "module",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -16,10 +14,10 @@
 		}
 	},
 	"bin": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
@@ -37,7 +35,6 @@
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
-	"license": "MIT",
 	"dependencies": {
 		"@clack/prompts": "catalog:",
 		"colorette": "catalog:",
@@ -54,5 +51,7 @@
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"zimmerframe": "catalog:"
-	}
+	},
+	"license": "MIT",
+	"type": "module"
 }
