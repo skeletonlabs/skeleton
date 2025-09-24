@@ -336,9 +336,13 @@ import { mergeProps } from '@zag-js/react';
 export default function (props: AvatarRootProps) {
 	const { children, ...rest } = props;
 
-	const attributes = mergeProps(api.getRootProps(), rest, {
-		className: classesAvatar.root,
-	});
+	const attributes = mergeProps(
+		api.getRootProps(),
+		{
+			className: classesAvatar.root,
+		},
+		rest,
+	);
 
 	return <div {...attributes}>{children}</div>;
 }
@@ -353,9 +357,12 @@ import { mergeProps } from '@zag-js/react';
 export default function (props: NavigationRootProps) {
 	const { children, ...rest } = props;
 
-	const attributes = mergeProps(rest, {
-		className: classesNavigation.root,
-	});
+	const attributes = mergeProps(
+		{
+			className: classesNavigation.root,
+		},
+		rest,
+	);
 
 	return <div {...attributes}>{children}</div>;
 }
