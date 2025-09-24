@@ -1,0 +1,77 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/slider/react/default';
+import DefaultRaw from '@examples/components/slider/react/default?raw';
+
+import Color from '@examples/components/slider/react/color';
+import ColorRaw from '@examples/components/slider/react/color?raw';
+
+import Disabled from '@examples/components/slider/react/disabled';
+import DisabledRaw from '@examples/components/slider/react/disabled?raw';
+
+import Readonly from '@examples/components/slider/react/readonly';
+import ReadonlyRaw from '@examples/components/slider/react/readonly?raw';
+
+import MultipleThumbs from '@examples/components/slider/react/multiple-thumbs';
+import MultipleThumbsRaw from '@examples/components/slider/react/multiple-thumbs?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Color
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Color client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Readonly
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Readonly client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ReadonlyRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Multiple Thumbs
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MultipleThumbs client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleThumbsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

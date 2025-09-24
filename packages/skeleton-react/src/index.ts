@@ -7,6 +7,7 @@ export * from './components/popover/index';
 export * from './components/progress-linear/index';
 export * from './components/rating-group/index';
 export * from './components/segmented-control/index';
+export * from './components/slider/index';
 export * from './components/switch/index';
 export * from './components/tabs/index';
 export * from './components/tags-input/index';
