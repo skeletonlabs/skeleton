@@ -12,9 +12,13 @@ export default function HiddenInput(props: FileUploadHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(fileUpload.getHiddenInputProps(), rest, {
-		className: classesFileUpload.hiddenInput,
-	});
+	const attributes = mergeProps(
+		fileUpload.getHiddenInputProps(),
+		{
+			className: classesFileUpload.hiddenInput,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

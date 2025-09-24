@@ -12,9 +12,13 @@ export default function Label(props: TagsInputLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tagsInput.getLabelProps(), rest, {
-		className: classesTagsInput.label,
-	});
+	const attributes = mergeProps(
+		tagsInput.getLabelProps(),
+		{
+			className: classesTagsInput.label,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

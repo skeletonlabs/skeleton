@@ -12,9 +12,13 @@ export default function Trigger(props: PopoverTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getTriggerProps(), rest, {
-		className: classesPopover.trigger,
-	});
+	const attributes = mergeProps(
+		popover.getTriggerProps(),
+		{
+			className: classesPopover.trigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

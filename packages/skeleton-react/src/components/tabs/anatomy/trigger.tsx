@@ -15,9 +15,13 @@ export default function Trigger(props: TabsTriggerProps) {
 	const [triggerProps, componentProps] = splitTriggerProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(tabs.getTriggerProps(triggerProps), rest, {
-		className: classesTabs.trigger,
-	});
+	const attributes = mergeProps(
+		tabs.getTriggerProps(triggerProps),
+		{
+			className: classesTabs.trigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

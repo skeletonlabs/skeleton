@@ -18,9 +18,13 @@ export default function Root(props: ProgressLinearRootProps) {
 
 	const progressLinear = useProgressLinear(progressLinearProps);
 
-	const attributes = mergeProps(progressLinear.getRootProps(), rest, {
-		className: classesProgressLinear.root,
-	});
+	const attributes = mergeProps(
+		progressLinear.getRootProps(),
+		{
+			className: classesProgressLinear.root,
+		},
+		rest,
+	);
 
 	return (
 		<ProgressLinearRootContext.Provider value={progressLinear}>

@@ -12,9 +12,13 @@ export default function ArrowTip(props: PopoverArrowTipProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getArrowTipProps(), rest, {
-		className: classesPopover.arrowTip,
-	});
+	const attributes = mergeProps(
+		popover.getArrowTipProps(),
+		{
+			className: classesPopover.arrowTip,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

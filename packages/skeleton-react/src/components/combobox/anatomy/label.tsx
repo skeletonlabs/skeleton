@@ -12,9 +12,13 @@ export default function Label(props: ComboboxLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(combobox.getLabelProps(), rest, {
-		className: classesCombobox.label,
-	});
+	const attributes = mergeProps(
+		combobox.getLabelProps(),
+		{
+			className: classesCombobox.label,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

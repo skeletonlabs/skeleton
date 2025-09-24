@@ -12,9 +12,13 @@ export default function Content(props: PopoverContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getContentProps(), rest, {
-		className: classesPopover.content,
-	});
+	const attributes = mergeProps(
+		popover.getContentProps(),
+		{
+			className: classesPopover.content,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
