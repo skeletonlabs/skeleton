@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.6
+
+### Patch Changes
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
 ## 4.0.0-next.5
 
 ### Patch Changes
