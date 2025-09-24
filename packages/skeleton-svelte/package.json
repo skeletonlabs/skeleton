@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "2.0.0-next.11",
+	"version": "2.0.0-next.12",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -31,6 +31,7 @@
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
@@ -39,6 +40,7 @@
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
 		"@zag-js/rating-group": "catalog:",
+		"@zag-js/slider": "catalog:",
 		"@zag-js/svelte": "catalog:",
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",

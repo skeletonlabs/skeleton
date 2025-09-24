@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.12
+
+### Minor Changes
+
+- feat: combobox ([#3702](https://github.com/skeletonlabs/skeleton/pull/3702))
+
+- feat: slider ([#3771](https://github.com/skeletonlabs/skeleton/pull/3771))
+
+### Patch Changes
+
+- Updated dependencies [[`09bf2b2`](https://github.com/skeletonlabs/skeleton/commit/09bf2b20dbbfed53af7c31281da21cc5790d87c9), [`fc27770`](https://github.com/skeletonlabs/skeleton/commit/fc27770b37fc2b224444b220020c2141f9fe2da0)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.11
+
 ## 2.0.0-next.11
 
 ### Patch Changes
