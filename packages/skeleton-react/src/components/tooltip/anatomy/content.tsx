@@ -12,9 +12,13 @@ export default function Content(props: TooltipContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tooltip.getContentProps(), rest, {
-		className: classesTooltip.content,
-	});
+	const attributes = mergeProps(
+		tooltip.getContentProps(),
+		{
+			className: classesTooltip.content,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(dialog().getCloseTriggerProps(), rest, {
-			class: classesDialog.closeTrigger,
-		}),
+		mergeProps(
+			dialog().getCloseTriggerProps(),
+			{
+				class: classesDialog.closeTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

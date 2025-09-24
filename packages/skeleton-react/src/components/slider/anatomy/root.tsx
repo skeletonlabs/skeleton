@@ -18,9 +18,13 @@ export default function SliderRoot(props: SliderRootProps) {
 
 	const slider = useSlider(sliderProps);
 
-	const attributes = mergeProps(slider.getRootProps(), rest, {
-		className: classesSlider.root,
-	});
+	const attributes = mergeProps(
+		slider.getRootProps(),
+		{
+			className: classesSlider.root,
+		},
+		rest,
+	);
 
 	return (
 		<SliderRootContext.Provider value={slider}>

@@ -30,9 +30,13 @@
 	const toast = $derived(connect(service, normalizeProps));
 
 	const attributes = $derived(
-		mergeProps(toast.getRootProps(), rest, {
-			class: classesToast.root,
-		}),
+		mergeProps(
+			toast.getRootProps(),
+			{
+				class: classesToast.root,
+			},
+			rest,
+		),
 	);
 
 	ToastRootContext.provide(() => toast);

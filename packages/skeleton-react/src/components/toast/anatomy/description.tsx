@@ -12,9 +12,13 @@ export default function Description(props: ToastDescriptionProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(toast.getDescriptionProps(), rest, {
-		className: classesToast.description,
-	});
+	const attributes = mergeProps(
+		toast.getDescriptionProps(),
+		{
+			className: classesToast.description,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getHiddenInputProps(), rest, {
-			class: classesFileUpload.hiddenInput,
-		}),
+		mergeProps(
+			fileUpload().getHiddenInputProps(),
+			{
+				class: classesFileUpload.hiddenInput,
+			},
+			rest,
+		),
 	);
 </script>
 

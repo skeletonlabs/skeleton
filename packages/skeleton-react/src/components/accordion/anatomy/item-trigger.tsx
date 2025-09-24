@@ -15,9 +15,13 @@ export default function ItemTrigger(props: AccordionItemTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(accordion.getItemTriggerProps(itemProps), rest, {
-		className: classesAccordion.trigger,
-	});
+	const attributes = mergeProps(
+		accordion.getItemTriggerProps(itemProps),
+		{
+			className: classesAccordion.trigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -12,9 +12,13 @@ export default function Image(props: AvatarImageProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(avatar.getImageProps(), rest, {
-		className: classesAvatar.image,
-	});
+	const attributes = mergeProps(
+		avatar.getImageProps(),
+		{
+			className: classesAvatar.image,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <img {...attributes} />;
 }

@@ -19,9 +19,13 @@
 	const { element, children = times, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getItemDeleteTriggerProps(itemProps()), rest, {
-			class: classesTagsInput.itemDeleteTrigger,
-		}),
+		mergeProps(
+			tagsInput().getItemDeleteTriggerProps(itemProps()),
+			{
+				class: classesTagsInput.itemDeleteTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

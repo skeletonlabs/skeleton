@@ -14,9 +14,13 @@ export default function Marker(props: SliderMarkerProps) {
 	// TODO: Split `markerProps` from `props` using the missing `splitMarkerProps` function: https://github.com/chakra-ui/zag/issues/2725
 	const { element, children, value, ...rest } = props;
 
-	const attributes = mergeProps(slider.getMarkerProps({ value }), rest, {
-		className: classesSlider.marker,
-	});
+	const attributes = mergeProps(
+		slider.getMarkerProps({ value }),
+		{
+			className: classesSlider.marker,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children ?? value}</div>;
 }

@@ -18,10 +18,14 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tooltip().getPositionerProps(), rest, {
-			class: classesTooltip.positioner,
-			[createAttachmentKey()]: fromAction(portal, () => undefined),
-		}),
+		mergeProps(
+			tooltip().getPositionerProps(),
+			{
+				class: classesTooltip.positioner,
+				[createAttachmentKey()]: fromAction(portal, () => undefined),
+			},
+			rest,
+		),
 	);
 </script>
 

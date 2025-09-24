@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(fileUpload().getRootProps(), rest, {
-			class: classesFileUpload.root,
-		}),
+		mergeProps(
+			fileUpload().getRootProps(),
+			{
+				class: classesFileUpload.root,
+			},
+			rest,
+		),
 	);
 
 	FileUploadRootContext.provide(() => fileUpload());

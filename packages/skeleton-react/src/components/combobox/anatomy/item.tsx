@@ -15,9 +15,13 @@ export default function Item(props: ComboboxItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(combobox.getItemProps(itemProps), rest, {
-		className: classesCombobox.item,
-	});
+	const attributes = mergeProps(
+		combobox.getItemProps(itemProps),
+		{
+			className: classesCombobox.item,
+		},
+		rest,
+	);
 
 	return (
 		<ComboboxItemContext.Provider value={itemProps}>

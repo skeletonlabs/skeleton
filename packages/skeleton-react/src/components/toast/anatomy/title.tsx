@@ -12,9 +12,13 @@ export default function Title(props: ToastTitleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(toast.getTitleProps(), rest, {
-		className: classesToast.title,
-	});
+	const attributes = mergeProps(
+		toast.getTitleProps(),
+		{
+			className: classesToast.title,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -14,9 +14,13 @@ export default function ItemName(props: FileUploadItemNameProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(fileUpload.getItemNameProps(itemProps), rest, {
-		className: classesFileUpload.itemName,
-	});
+	const attributes = mergeProps(
+		fileUpload.getItemNameProps(itemProps),
+		{
+			className: classesFileUpload.itemName,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -18,9 +18,13 @@
 	const { element, children = chevronDown, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(combobox().getTriggerProps(), rest, {
-			class: classesCombobox.trigger,
-		}),
+		mergeProps(
+			combobox().getTriggerProps(),
+			{
+				class: classesCombobox.trigger,
+			},
+			rest,
+		),
 	);
 </script>
 

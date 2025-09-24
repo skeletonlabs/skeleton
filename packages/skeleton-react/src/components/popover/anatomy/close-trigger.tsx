@@ -12,9 +12,13 @@ export default function CloseTrigger(props: PopoverCloseTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(popover.getCloseTriggerProps(), rest, {
-		className: classesPopover.closeTrigger,
-	});
+	const attributes = mergeProps(
+		popover.getCloseTriggerProps(),
+		{
+			className: classesPopover.closeTrigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

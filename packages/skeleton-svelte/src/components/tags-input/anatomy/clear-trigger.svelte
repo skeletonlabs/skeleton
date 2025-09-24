@@ -17,9 +17,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(tagsInput().getClearTriggerProps(), rest, {
-			class: classesTagsInput.clearTrigger,
-		}),
+		mergeProps(
+			tagsInput().getClearTriggerProps(),
+			{
+				class: classesTagsInput.clearTrigger,
+			},
+			rest,
+		),
 	);
 </script>
 

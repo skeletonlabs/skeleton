@@ -12,9 +12,13 @@ export default function Control(props: RatingGroupControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(ratingGroup.getControlProps(), rest, {
-		className: classesRatingGroup.control,
-	});
+	const attributes = mergeProps(
+		ratingGroup.getControlProps(),
+		{
+			className: classesRatingGroup.control,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

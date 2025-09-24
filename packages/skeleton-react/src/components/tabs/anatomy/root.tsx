@@ -15,9 +15,13 @@ export default function Root(props: TabsRootProps) {
 
 	const tabs = useTabs(tabsProps);
 
-	const attributes = mergeProps(tabs.getRootProps(), rest, {
-		className: classesTabs.root,
-	});
+	const attributes = mergeProps(
+		tabs.getRootProps(),
+		{
+			className: classesTabs.root,
+		},
+		rest,
+	);
 
 	return (
 		<TabsRootContext.Provider value={tabs}>

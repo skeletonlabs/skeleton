@@ -12,9 +12,13 @@ export default function Indicator(props: SegmentedControlIndicatorProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(segmentedControl.getIndicatorProps(), rest, {
-		className: classesSegmentedControl.indicator,
-	});
+	const attributes = mergeProps(
+		segmentedControl.getIndicatorProps(),
+		{
+			className: classesSegmentedControl.indicator,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

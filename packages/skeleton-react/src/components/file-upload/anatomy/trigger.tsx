@@ -12,9 +12,13 @@ export default function Trigger(props: FileUploadTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(fileUpload.getTriggerProps(), rest, {
-		className: classesFileUpload.trigger,
-	});
+	const attributes = mergeProps(
+		fileUpload.getTriggerProps(),
+		{
+			className: classesFileUpload.trigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

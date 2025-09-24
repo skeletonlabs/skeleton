@@ -12,9 +12,13 @@ export interface SegmentedControlRootProviderProps extends PropsWithElement<'div
 export default function RootProvider(props: SegmentedControlRootProviderProps) {
 	const { element, children, value: segmentedControl, ...rest } = props;
 
-	const attributes = mergeProps(segmentedControl.getRootProps(), rest, {
-		className: classesSegmentedControl.root,
-	});
+	const attributes = mergeProps(
+		segmentedControl.getRootProps(),
+		{
+			className: classesSegmentedControl.root,
+		},
+		rest,
+	);
 
 	return (
 		<SegmentedControlRootContext.Provider value={segmentedControl}>

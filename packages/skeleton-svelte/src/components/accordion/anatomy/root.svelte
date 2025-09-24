@@ -25,9 +25,13 @@
 	}));
 
 	const attributes = $derived(
-		mergeProps(accordion().getRootProps(), rest, {
-			class: classesAccordion.root,
-		}),
+		mergeProps(
+			accordion().getRootProps(),
+			{
+				class: classesAccordion.root,
+			},
+			rest,
+		),
 	);
 
 	AccordionRootContext.provide(() => accordion());

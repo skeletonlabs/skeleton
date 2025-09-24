@@ -14,9 +14,12 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rest, {
-			class: classesToast.message,
-		}),
+		mergeProps(
+			{
+				class: classesToast.message,
+			},
+			rest,
+		),
 	);
 </script>
 

@@ -15,9 +15,13 @@ export default function Thumb(props: SliderThumbProps) {
 	const [thumbProps, componentProps] = splitThumbProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(slider.getThumbProps(thumbProps), rest, {
-		className: classesSlider.thumb,
-	});
+	const attributes = mergeProps(
+		slider.getThumbProps(thumbProps),
+		{
+			className: classesSlider.thumb,
+		},
+		rest,
+	);
 
 	return (
 		<SliderThumbContext.Provider value={thumbProps}>
