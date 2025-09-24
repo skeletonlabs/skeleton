@@ -1,0 +1,67 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/app-bar/react/default.tsx';
+import DefaultRaw from '@examples/components/app-bar/react/default.tsx?raw';
+
+import Centered from '@examples/components/app-bar/react/centered.tsx';
+import CenteredRaw from '@examples/components/app-bar/react/centered.tsx?raw';
+
+import Extended from '@examples/components/app-bar/react/extended.tsx';
+import ExtendedRaw from '@examples/components/app-bar/react/extended.tsx?raw';
+
+import Responsive from '@examples/components/app-bar/react/responsive.tsx';
+import ResponsiveRaw from '@examples/components/app-bar/react/responsive.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Centered
+
+Control the layout using a [grid-cols-\*](https://tailwindcss.com/docs/grid-column) utility class.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Centered client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CenteredRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Extended
+
+Move the `<AppBar.Headline>` to a new row within the root.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Extended client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExtendedRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Responsive
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Responsive client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ResponsiveRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

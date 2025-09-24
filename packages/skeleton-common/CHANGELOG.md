@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.10
+
+### Patch Changes
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
+## 1.0.0-next.9
+
+### Minor Changes
+
+- feat: app-bar ([#3783](https://github.com/skeletonlabs/skeleton/pull/3783))
+
 ## 1.0.0-next.8
 
 ### Minor Changes
