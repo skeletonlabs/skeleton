@@ -1,6 +1,7 @@
 export * from './classes/accordion';
 export * from './classes/app-bar';
 export * from './classes/avatar';
+export * from './classes/combobox';
 export * from './classes/dialog';
 export * from './classes/file-upload';
 export * from './classes/popover';
