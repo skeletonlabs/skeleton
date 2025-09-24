@@ -30,6 +30,25 @@ import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-p
 	</Fragment>
 </Preview>
 
+## Specifying Total Count
+
+If your source data is truncated, make sure to specify the total item `count`.
+
+```json
+{
+	"data": [...],
+	"pagination": {
+		"page": 1,
+		"limit": 10,
+		"count": 500,
+	}
+}
+```
+
+```svelte
+<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>...</Pagination>
+```
+
 ## API Reference
 
 <ApiTable />
