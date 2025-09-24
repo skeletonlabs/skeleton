@@ -1,9 +1,9 @@
-# Skeleton CLI
+# Skeleton Common
 
 ## Installation
 
 ```bash
-pnpm add skeleton
+pnpm add @skeletonlabs/skeleton-common
 ```
 
 ## Documentation
