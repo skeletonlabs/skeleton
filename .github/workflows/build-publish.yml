@@ -1,15 +1,19 @@
-name: Publish Skeleton (@latest)
+name: Publish Skeleton (@next)
 
 on:
   push:
     branches:
-      - v3
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
-    name: Build & Publish Release (@latest)
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    name: Build & Publish Release (@next)
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
@@ -21,16 +25,16 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - run: npm install -g npm@latest
       - name: Install dependencies
         run: pnpm install
       - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore(latest-release): version package'
-          title: 'chore(latest-release): version package'
+          commit: 'chore(next-release): version package'
+          title: 'chore(next-release): version package'
           version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

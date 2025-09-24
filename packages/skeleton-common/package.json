@@ -1,7 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "1.0.0-next.8",
-	"type": "module",
+	"version": "1.0.0-next.10",
+	"description": "The common package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton-common"
+	},
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
@@ -15,16 +21,17 @@
 			"style": "./dist/index.css"
 		}
 	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
 		"unplugin-macros": "catalog:",
 		"unplugin-raw": "catalog:"
-	}
+	},
+	"license": "MIT",
+	"type": "module"
 }

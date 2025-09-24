@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.5
+
+### Patch Changes
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
 ## 4.0.0-next.4
 
 ### Patch Changes
