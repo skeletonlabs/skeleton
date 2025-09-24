@@ -1,15 +1,17 @@
 {
 	"name": "@skeletonlabs/skeleton",
 	"version": "4.0.0-next.5",
+	"description": "The TailwindCSS package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton"
+	},
 	"scripts": {
 		"dev": "vite build --watch",
 		"build": "vite build",
 		"sync": "pnpm build"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton",
-		"directory": "packages/skeleton"
 	},
 	"exports": {
 		".": {
@@ -32,6 +34,6 @@
 		"tinyglobby": "catalog:",
 		"vite": "catalog:"
 	},
-	"type": "module",
-	"license": "MIT"
+	"license": "MIT",
+	"type": "module"
 }

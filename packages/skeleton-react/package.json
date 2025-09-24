@@ -1,7 +1,13 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
 	"version": "2.0.0-next.10",
-	"type": "module",
+	"description": "The React package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton-react"
+	},
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
@@ -9,13 +15,6 @@
 		"check": "tsc",
 		"sync": "pnpm build"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton",
-		"directory": "packages/skeleton-react"
-	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -26,6 +25,7 @@
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"dependencies": {
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
@@ -60,5 +60,7 @@
 		"typescript": "catalog:",
 		"vite": "catalog:",
 		"vitest": "catalog:"
-	}
+	},
+	"license": "MIT",
+	"type": "module"
 }
