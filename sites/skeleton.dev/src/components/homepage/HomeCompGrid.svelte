@@ -117,7 +117,7 @@
 						{/if}
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
 							<Avatar>
-								<Avatar.Image src="https://i.pravatar.cc/150?img={i + 10}" class="size-10 grayscale" />
+								<Avatar.Image src="https://i.pravatar.cc/150?img={i + 10}" class="grayscale" />
 							</Avatar>
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
@@ -137,7 +137,16 @@
 			<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-[1px] border-surface-500/50" />
 			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 				<IconPlay class="size-4 opacity-60" />
-				<!-- <Slider name="example" value={[75]} /> -->
+				<Slider defaultValue={[70]}>
+					<Slider.Control>
+						<Slider.Track>
+							<Slider.Range />
+						</Slider.Track>
+						<Slider.Thumb index={0}>
+							<Slider.HiddenInput />
+						</Slider.Thumb>
+					</Slider.Control>
+				</Slider>
 			</div>
 			<div class="grid grid-cols-4 gap-2 items-center">
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
