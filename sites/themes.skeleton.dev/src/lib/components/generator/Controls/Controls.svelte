@@ -72,12 +72,14 @@
 	</header>
 	<ControlsCore />
 	<div class="space-y-10">
-		<Accordion collapsible class="space-y-0">
-			{#each items as item, i}
+		<Accordion collapsible class="gap-0">
+			{#each items as item (item)}
 				<hr class="hr" />
-				<Accordion.Item value={item.value} class="rounded-none">
+				<Accordion.Item value={item.value} class="p-0">
 					<Accordion.ItemHeading class="h4">
-						<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+						<Accordion.ItemTrigger
+							class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-filled-surface-300-700 px-5 py-3 rounded-none"
+						>
 							<span class="btn-icon preset-tonal">
 								<svelte:component this={item.icon} class="size-5" />
 							</span>
@@ -86,9 +88,9 @@
 								<Accordion.Context>
 									{#snippet children(accordion)}
 										{#if accordion().getItemState(item).expanded}
-											<ChevronUpIcon class="size-5" />
+											<ChevronUpIcon />
 										{:else}
-											<ChevronDownIcon class="size-5" />
+											<ChevronDownIcon />
 										{/if}
 									{/snippet}
 								</Accordion.Context>
