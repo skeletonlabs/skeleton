@@ -6,28 +6,22 @@ export const classesNavigation = defineSkeletonClasses({
 		// Bar
 		'data-[layout=bar]:w-full data-[layout=bar]:p-2',
 		// Rail
-		'data-[layout=rail]:w-[100px] data-[layout=rail]:p-2 data-[layout=rail]:flex data-[layout=rail]:flex-col data-[layout=rail]:gap-4',
+		'data-[layout=rail]:w-[100px] data-[layout=rail]:h-full data-[layout=rail]:overflow-y-auto data-[layout=rail]:p-2 data-[layout=rail]:flex data-[layout=rail]:flex-col data-[layout=rail]:gap-4',
 		// Sidebar
-		'data-[layout=sidebar]:p-4',
+		'data-[layout=sidebar]:w-[280px] data-[layout=sidebar]:h-full data-[layout=sidebar]:overflow-y-auto data-[layout=sidebar]:p-4',
 	],
+	header: '',
+	content: 'space-y-4',
+	group: 'space-y-2',
+	label: 'text-xs text-surface-700-300',
 	menu: [
+		'flex gap-2',
 		// Bar
-		'data-[layout=bar]:flex items-stretch data-[layout=bar]:gap-2',
+		'data-[layout=bar]:items-stretch',
 		// Rail
-		'data-[layout=rail]:flex data-[layout=rail]:flex-col data-[layout=rail]:justify-center data-[layout=rail]:gap-2',
+		'data-[layout=rail]:flex-col data-[layout=rail]:justify-center',
 		// Sidebar
-		'data-[layout=sidebar]:space-y-2 data-[layout=sidebar]:overflow-y-auto',
+		'data-[layout=sidebar]:flex-col data-[layout=sidebar]:items-stretch',
 	],
-	header: [
-		// Rail
-		'',
-		// Sidebar
-		'',
-	],
-	footer: [
-		// Rail
-		'',
-		// Sidebar
-		'',
-	],
+	footer: '',
 });
