@@ -11,18 +11,26 @@
 	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconUsers from '@lucide/svelte/icons/user';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
+	import { Avatar, Switch, Slider } from '@skeletonlabs/skeleton-svelte';
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
 
 	// State
-	// const notifications = $state({
-	// 	doNotDisturb: false,
-	// 	global: false,
-	// 	personal: false,
-	// 	priority: false,
-	// 	news: false
-	// });
+	const notifications = $state({
+		doNotDisturb: false,
+		global: false,
+		personal: false,
+		priority: false,
+		news: false,
+	});
+
+	function camelCaseToReadable(str: string) {
+		return str
+			.replace(/([A-Z])/g, ' $1')
+			.replace(/^./, (s) => s.toUpperCase())
+			.trim();
+	}
 
 	// Seed Data
 	const teamData = [
@@ -72,53 +80,26 @@
 				<h2 class="h4">Notifications</h2>
 				<p class="opacity-60">Review each available option.</p>
 			</header>
-			<hr class="hr" />
 			<section class="w-full space-y-5">
-				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Do not disturb</p>
-					<!-- <Switch name="doNotDisturb" checked={notifications.doNotDisturb} onCheckedChange={(e) => (notifications.doNotDisturb = e.checked)}
-					></Switch> -->
-				</div>
-				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Global notifications</p>
-					<!-- <Switch
-						name="notifications"
-						checked={notifications.global && !notifications.doNotDisturb}
-						disabled={notifications.doNotDisturb}
-						onCheckedChange={(e) => (notifications.global = e.checked)}
-					></Switch> -->
-				</div>
-				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Personal notifications</p>
-					<!-- <Switch
-						name="disabled"
-						checked={notifications.personal && !notifications.doNotDisturb}
-						disabled={notifications.doNotDisturb}
-						onCheckedChange={(e) => (notifications.personal = e.checked)}
-					></Switch> -->
-				</div>
-				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Priority notifications</p>
-					<!-- <Switch
-						name="disturb"
-						checked={notifications.priority && !notifications.doNotDisturb}
-						disabled={notifications.doNotDisturb}
-						onCheckedChange={(e) => (notifications.priority = e.checked)}
-					></Switch> -->
-				</div>
-				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
-					<p class="opacity-60">Featured News alerts</p>
-					<!-- <Switch
-						name="notifications"
-						checked={notifications.news && !notifications.doNotDisturb}
-						disabled={notifications.doNotDisturb}
-						onCheckedChange={(e) => (notifications.news = e.checked)}
-					></Switch> -->
-				</div>
+				{#each Object.entries(notifications) as [key, value], i (key)}
+					{#if i > 0}
+						<hr class="hr" />
+					{/if}
+
+					<Switch
+						class="flex justify-between items-center gap-4"
+						name={key}
+						checked={key !== 'doNotDisturb' && notifications.doNotDisturb ? false : value}
+						onCheckedChange={(e) => (notifications[key as keyof typeof notifications] = e.checked)}
+						disabled={key !== 'doNotDisturb' && notifications.doNotDisturb}
+					>
+						<Switch.Label>{camelCaseToReadable(key)}</Switch.Label>
+						<Switch.Control>
+							<Switch.Thumb />
+						</Switch.Control>
+						<Switch.HiddenInput />
+					</Switch>
+				{/each}
 			</section>
 		</div>
 		<!-- 3 -->
@@ -130,10 +111,14 @@
 				</header>
 				<input type="search" class="input" placeholder="Search Members..." />
 				<div class="grid grid-cols-1 gap-2">
-					{#each teamData as member (member)}
-						<hr class="hr" />
+					{#each teamData as member, i (member)}
+						{#if i > 0}
+							<hr class="hr" />
+						{/if}
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
-							<!-- <Avatar src="https://i.pravatar.cc/150?img={i + 10}" name="" size="size-10" imageClasses="grayscale" /> -->
+							<Avatar>
+								<Avatar.Image src="https://i.pravatar.cc/150?img={i + 10}" class="size-10 grayscale" />
+							</Avatar>
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
 								<p class="opacity-60 text-xs">{member.email}</p>
@@ -399,7 +384,16 @@
 				</div>
 				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 					<IconVolume class="size-4 opacity-60" />
-					<!-- <Slider name="example" value={[70]} /> -->
+					<Slider defaultValue={[70]}>
+						<Slider.Control>
+							<Slider.Track>
+								<Slider.Range />
+							</Slider.Track>
+							<Slider.Thumb index={0}>
+								<Slider.HiddenInput />
+							</Slider.Thumb>
+						</Slider.Control>
+					</Slider>
 				</div>
 			</div>
 		</div>
