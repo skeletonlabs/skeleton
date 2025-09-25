@@ -37,9 +37,9 @@
 
 {#snippet treeNode(nodeProps: TreeViewNodeProps)}
 	{@const { node, indexPath } = nodeProps}
-	<TreeView.RootContext>
-		{#snippet children({ api })}
-			{#if api.getNodeState(nodeProps).isBranch}
+	<TreeView.Context>
+		{#snippet children(treeView)}
+			{#if treeView().getNodeState(nodeProps).isBranch}
 				<TreeView.Branch {nodeProps}>
 					<TreeView.BranchIndicator />
 					<TreeView.BranchControl>
@@ -58,7 +58,7 @@
 				</TreeView.Item>
 			{/if}
 		{/snippet}
-	</TreeView.RootContext>
+	</TreeView.Context>
 {/snippet}
 
 <TreeView {collection}>
