@@ -20,10 +20,13 @@
 	const { layout = 'bar', element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(rest, {
-			'data-layout': layout,
-			class: classesNavigation.root,
-		}),
+		mergeProps(
+			{
+				'data-layout': layout,
+				class: classesNavigation.root,
+			},
+			rest,
+		),
 	);
 
 	RootNavigationContext.provide(() => ({ layout }));

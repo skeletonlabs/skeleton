@@ -18,9 +18,13 @@ export default function Root(props: AccordionRootProps) {
 
 	const accordion = useAccordion(accordionProps);
 
-	const attributes = mergeProps(accordion.getRootProps(), rest, {
-		className: classesAccordion.root,
-	});
+	const attributes = mergeProps(
+		accordion.getRootProps(),
+		{
+			className: classesAccordion.root,
+		},
+		rest,
+	);
 
 	return (
 		<AccordionRootContext.Provider value={accordion}>

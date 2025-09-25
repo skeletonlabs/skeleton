@@ -20,9 +20,13 @@
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
-		mergeProps(tabs().getTriggerProps(triggerProps), rest, {
-			class: classesTabs.trigger,
-		}),
+		mergeProps(
+			tabs().getTriggerProps(triggerProps),
+			{
+				class: classesTabs.trigger,
+			},
+			rest,
+		),
 	);
 </script>
 

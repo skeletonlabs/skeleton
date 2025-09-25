@@ -15,9 +15,13 @@ export default function Root(props: FileUploadRootProps) {
 
 	const fileUpload = useFileUpload(fileUploadProps);
 
-	const attributes = mergeProps(fileUpload.getRootProps(), rest, {
-		className: classesFileUpload.root,
-	});
+	const attributes = mergeProps(
+		fileUpload.getRootProps(),
+		{
+			className: classesFileUpload.root,
+		},
+		rest,
+	);
 
 	return (
 		<FileUploadRootContext.Provider value={fileUpload}>

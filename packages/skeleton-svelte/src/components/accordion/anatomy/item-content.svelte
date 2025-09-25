@@ -19,9 +19,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(accordion().getItemContentProps(itemProps()), rest, {
-			class: classesAccordion.content,
-		}),
+		mergeProps(
+			accordion().getItemContentProps(itemProps()),
+			{
+				class: classesAccordion.content,
+			},
+			rest,
+		),
 	);
 </script>
 

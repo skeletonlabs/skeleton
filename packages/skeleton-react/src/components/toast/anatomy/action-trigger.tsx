@@ -12,9 +12,13 @@ export default function ActionTrigger(props: ToastActionTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(toast.getActionTriggerProps(), rest, {
-		className: classesToast.actionTrigger,
-	});
+	const attributes = mergeProps(
+		toast.getActionTriggerProps(),
+		{
+			className: classesToast.actionTrigger,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

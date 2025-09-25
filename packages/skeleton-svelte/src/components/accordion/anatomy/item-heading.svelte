@@ -22,9 +22,12 @@
 	const tag = $derived(`h${level}`);
 
 	const attributes = $derived(
-		mergeProps(rest, {
-			class: classesAccordion.heading,
-		}),
+		mergeProps(
+			{
+				class: classesAccordion.heading,
+			},
+			rest,
+		),
 	);
 </script>
 

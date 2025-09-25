@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.11
+
+### Minor Changes
+
+- feat: combobox ([#3702](https://github.com/skeletonlabs/skeleton/pull/3702))
+
+- feat: slider ([#3771](https://github.com/skeletonlabs/skeleton/pull/3771))
+
 ## 1.0.0-next.10
 
 ### Patch Changes

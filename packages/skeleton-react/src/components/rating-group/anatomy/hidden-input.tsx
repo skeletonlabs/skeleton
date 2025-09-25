@@ -12,9 +12,13 @@ export default function HiddenInput(props: RatingGroupHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(ratingGroup.getHiddenInputProps(), rest, {
-		className: classesRatingGroup.hiddenInput,
-	});
+	const attributes = mergeProps(
+		ratingGroup.getHiddenInputProps(),
+		{
+			className: classesRatingGroup.hiddenInput,
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

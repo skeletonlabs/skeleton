@@ -12,9 +12,13 @@ export default function Positioner(props: TooltipPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(tooltip.getPositionerProps(), rest, {
-		className: classesTooltip.positioner,
-	});
+	const attributes = mergeProps(
+		tooltip.getPositionerProps(),
+		{
+			className: classesTooltip.positioner,
+		},
+		rest,
+	);
 
 	return <Portal>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Portal>;
 }

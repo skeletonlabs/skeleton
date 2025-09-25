@@ -16,10 +16,13 @@
 	const navigation = RootNavigationContext.consume();
 
 	const attributes = $derived(
-		mergeProps(rest, {
-			'data-layout': navigation().layout,
-			class: classesNavigation.menu,
-		}),
+		mergeProps(
+			{
+				'data-layout': navigation().layout,
+				class: classesNavigation.menu,
+			},
+			rest,
+		),
 	);
 </script>
 

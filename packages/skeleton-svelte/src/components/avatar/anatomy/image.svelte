@@ -17,9 +17,13 @@
 	const { element, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(avatar().getImageProps(), rest, {
-			class: classesAvatar.image,
-		}),
+		mergeProps(
+			avatar().getImageProps(),
+			{
+				class: classesAvatar.image,
+			},
+			rest,
+		),
 	);
 </script>
 

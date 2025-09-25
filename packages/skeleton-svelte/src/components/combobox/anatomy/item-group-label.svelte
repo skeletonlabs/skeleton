@@ -29,9 +29,13 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
-		mergeProps(combobox().getItemGroupLabelProps(itemGroupLabelProps), rest, {
-			class: classesCombobox.itemGroupLabel,
-		}),
+		mergeProps(
+			combobox().getItemGroupLabelProps(itemGroupLabelProps),
+			{
+				class: classesCombobox.itemGroupLabel,
+			},
+			rest,
+		),
 	);
 </script>
 
