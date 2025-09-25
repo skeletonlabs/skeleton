@@ -7,6 +7,10 @@
 	import LeftIcon from '@lucide/svelte/icons/align-left';
 	import RightIcon from '@lucide/svelte/icons/align-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import CalendarIcon from '@lucide/svelte/icons/calendar';
+	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
+	import MenuIcon from '@lucide/svelte/icons/menu';
+	import SearchIcon from '@lucide/svelte/icons/search';
 	import SkullIcon from '@lucide/svelte/icons/skull';
 	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
@@ -38,23 +42,27 @@
 			<!-- Avatars -->
 			<div class="grid grid-cols-6 gap-4">
 				<!-- Source: https://avatar.iran.liara.run/ -->
-				<Avatar class="size-full">
+				<Avatar>
 					<Avatar.Image src="/images/male.png" class="grayscale" />
 				</Avatar>
-				<Avatar class="size-full">
+				<Avatar>
 					<Avatar.Image src="/images/female.png" class="grayscale" />
 				</Avatar>
-				<Avatar class="size-full">
-					<Avatar.Fallback class={currentPresets.filled} />
+				<Avatar>
+					<Avatar.Fallback class={currentPresets.filled}>SS</Avatar.Fallback>
 				</Avatar>
-				<Avatar class="size-full">
-					<Avatar.Fallback class={currentPresets.tonal} />
+				<Avatar>
+					<Avatar.Fallback class={currentPresets.tonal}>KK</Avatar.Fallback>
 				</Avatar>
-				<Avatar class="size-full">
-					<Avatar.Fallback class={currentPresets.outlined}><SkullIcon size={20} /></Avatar.Fallback>
+				<Avatar class="bg-transparent {currentPresets.outlined}">
+					<Avatar.Fallback>
+						<SkullIcon />
+					</Avatar.Fallback>
 				</Avatar>
-				<Avatar class="size-full">
-					<Avatar.Fallback class="preset-outlined-surface-200-800"><SkullIcon size={20} /></Avatar.Fallback>
+				<Avatar class="bg-transparent preset-outlined-surface-200-800">
+					<Avatar.Fallback>
+						<SkullIcon />
+					</Avatar.Fallback>
 				</Avatar>
 			</div>
 			<!-- Alert -->
@@ -109,7 +117,7 @@
 			<!-- Buttons -->
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
 				<Switch name="example" defaultChecked={true}>
-					<Switch.Control class={currentPresets.filled}>
+					<Switch.Control>
 						<Switch.Thumb />
 					</Switch.Control>
 					<Switch.HiddenInput />
@@ -170,19 +178,20 @@
 		</div>
 	</div>
 	<!-- App Bar -->
-	<AppBar class="bg-surface-100-900 shadow">
-		<AppBar.Lead>
-			<SkullIcon size={32} />
-		</AppBar.Lead>
-		<AppBar.Trail>
-			<nav class="flex items-center">
-				<button type="button" class="btn hover:preset-tonal">Services</button>
-				<button type="button" class="btn hover:preset-tonal">Prices</button>
-				<button type="button" class="btn hover:preset-tonal">Blog</button>
-				<button type="button" class="btn hover:preset-tonal">About</button>
-			</nav>
-			<button type="button" class="btn {currentPresets.filled}">Login</button>
-		</AppBar.Trail>
+	<AppBar>
+		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
+			<AppBar.Lead>
+				<button type="button" class="btn-icon btn-icon-lg hover:preset-tonal"><MenuIcon /></button>
+			</AppBar.Lead>
+			<AppBar.Headline>
+				<p class="text-2xl">Headline</p>
+			</AppBar.Headline>
+			<AppBar.Trail>
+				<button type="button" class="btn-icon hover:preset-tonal"><SearchIcon class="size-6" /></button>
+				<button type="button" class="btn-icon hover:preset-tonal"><CalendarIcon class="size-6" /></button>
+				<button type="button" class="btn-icon hover:preset-tonal"><CircleUserIcon class="size-6" /></button>
+			</AppBar.Trail>
+		</AppBar.Toolbar>
 	</AppBar>
 	<!-- Masonry -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
