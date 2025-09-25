@@ -69,10 +69,10 @@
 			<TreeView.Branch>
 				<TreeView.BranchControl>
 					<TreeView.BranchIndicator>
-						<ChevronDownIcon class="size-4" />
+						<ChevronDownIcon />
 					</TreeView.BranchIndicator>
 					<TreeView.BranchText>
-						<FolderIcon class="size-4" />
+						<FolderIcon />
 						{node.name}
 					</TreeView.BranchText>
 				</TreeView.BranchControl>
@@ -85,7 +85,7 @@
 			</TreeView.Branch>
 		{:else}
 			<TreeView.Item>
-				<FileIcon class="size-4" />
+				<FileIcon />
 				{node.name}
 			</TreeView.Item>
 		{/if}

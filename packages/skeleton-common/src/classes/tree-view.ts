@@ -5,17 +5,18 @@ export const classesTreeView = defineSkeletonClasses({
 	tree: '',
 	label: 'label-text',
 	item: [
-		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*4+calc(var(--spacing)*6))] pe-4 py-2 hover:preset-tonal rounded select-none',
+		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*6+calc(var(--spacing)*6))] pe-4 py-2 hover:preset-tonal rounded select-none',
 		'data-selected:preset-tonal',
+		'[&>svg]:size-4',
 	],
 	branch: 'grid',
 	branchControl: [
-		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*4)] pe-4 py-2 hover:preset-tonal rounded select-none',
+		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*6)] pe-4 py-2 hover:preset-tonal rounded select-none',
 		'data-selected:preset-tonal',
 	],
-	branchIndicator: '',
-	branchText: 'flex gap-2 items-center',
+	branchIndicator: ['[&>svg]:size-4'],
+	branchText: ['flex gap-2 items-center', '[&>svg]:size-4'],
 	branchContent: 'grid relative',
 	branchIndentGuide:
-		'absolute preset-filled-surface-500 w-0.5 left-[calc(var(--depth)*var(--spacing)*4+calc(var(--spacing)*2))] -translate-x-1/2 h-full rounded',
+		'absolute preset-filled-surface-500 w-0.5 left-[calc(var(--depth)*var(--spacing)*6+calc(var(--spacing)*2))] -translate-x-1/2 h-full rounded',
 });
