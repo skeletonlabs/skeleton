@@ -67,6 +67,11 @@ As such, we'll implement one component part respective of each element:
 - `<Avatar.Image>` - the child image
 - `<Avatar.Fallback>` - the fallback span
 
+We'll also include two special components:
+
+- `<Avatar.Provider>` - Similar to `<Avatar>` but allows the user to pass in the api.
+- `<Avatar.Context>` - Provides access to the component tree's Context API.
+
 ### Directory and File Names
 
 Components are housed in the following location per framework:
@@ -81,13 +86,15 @@ Skeleton uses a consistent naming convention per component:
 ```
 avatar/
 ├── anatomy/
-│   ├── avatar-fallback.{tsx|svelte}
-│   ├── avatar-image.{tsx|svelte}
-│   ├── avatar-root-context.{tsx|svelte}
-│   └── avatar-root.{tsx|svelte}
+│   ├── fallback.{tsx|svelte}
+│   ├── image.{tsx|svelte}
+│   ├── root-context.{tsx|svelte}
+│   ├── root-provider.{tsx|svelte}
+│   └── root.{tsx|svelte}
 ├── modules/
-│   ├── avatar-anatomy.ts
-│   └── avatar-root-context.ts
+│   ├── anatomy.ts
+│   ├── use-{component}.{ts|svelte.ts}
+│   └── root-context.ts
 └── index.ts
 ```
 
@@ -99,7 +106,7 @@ The anatomy folder contains each component part inside a seperate file.
 
 Every component part should export their component as a default export and their prop types as named exports.
 
-#### React
+**React**
 
 ```tsx title="avatar-root.tsx"
 export interface AvatarRootProps {
@@ -111,7 +118,7 @@ export default function (props: AvatarRootProps) {
 }
 ```
 
-#### Svelte
+**Svelte**
 
 ```svelte title="avatar-root.svelte"
 <script lang="ts" module>
@@ -129,62 +136,71 @@ export default function (props: AvatarRootProps) {
 <!-- ... --->
 ```
 
+Note that you may need to extend or omit portions of the type to avoid conflicts between Zag and HTML attributes.
+
+#### Extend
+
+- `PropsWithElement<Tag>` - from Skeleton's `@/internal/props-with-element`; allow for HTML template overrides.
+- `HTMLAttributes<Tag, Omit>` - from Skeleton's `@/internal/html-attributes`; allow for standard HTML attributes.
+
+#### Omit
+
+- `Omit<Props, 'id'>` - omit the `id` field from the `Props` interface as they will be provided inside the component itself.
+
 ### Modules Folder
 
 #### Anatomy File
 
-The `{component}-anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
+The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
 ```ts title="avatar-anatomy.ts"
-import AvatarRoot from '../anatomy/avatar-root.js';
-import AvatarImage from '../anatomy/avatar-image.js';
-import AvatarFallback from '../anatomy/avatar-fallback.js';
+import Fallback from '../anatomy/fallback';
+import Image from '../anatomy/image';
+import Root from '../anatomy/root';
 
 export const Avatar = Object.assign(
-	AvatarRoot, // <Avatar>
+	Root, // <Avatar>
 	{
-		Image: AvatarImage, // <Avatar.Image>
-		Fallback: AvatarFallback // <Avatar.Fallback>
-	}
+		Image: Image, // <Avatar.Image>
+		Fallback: Fallback, // <Avatar.Fallback>
+	},
 );
 ```
 
 #### Context Part File
 
-The `{component}-{part}-context.ts` file contains the exported context for each part's [context](/docs/resources/contribute/components#context-api). This pattern enables strong typing.
+The `{part}-context.ts` file contains the exported context for each part's [context](/docs/resources/contribute/components#context-api). This pattern enables strong typing.
+
+For most components this will only be necessary for the root component, some components however may require context for other parts as well, reference other components for examples.
 
 ```ts title="avatar-root-context.ts"
-import { createContext } from 'react';
+import type { useAvatar } from './use-avatar';
+import { createContext } from '@/internal/create-context';
 
-export interface AvatarContextType {
-	// ...
-}
-
-export const AvatarContext = createContext<AvatarContextType>(null!);
+export const AvatarContext = createContext<ReturnType<typeof useAvatar>>();
 ```
-
-> NOTE: The interface is suffixed `Type` to avoid conflicting with the context reference itself.
 
 #### Index File
 
 The index prepares all above files for export.
 
 ```ts
-export { Avatar } from './modules/avatar-anatomy.js';
-export type { AvatarRootProps } from './anatomy/avatar-root.js';
-export type { AvatarRootContextProps } from './anatomy/avatar-root-context.js';
-export type { AvatarImageProps } from './anatomy/avatar-image.js';
-export type { AvatarFallbackProps } from './anatomy/avatar-fallback.js';
-export type { AvatarRootContextType as AvatarRootContext } from './modules/avatar-root-context.js';
+export { Avatar } from './modules/anatomy';
+export { useAvatar } from './modules/use-avatar';
+export type { AvatarRootProps } from './anatomy/root';
+export type { AvatarRootProviderProps } from './anatomy/root-provider';
+export type { AvatarRootContextProps } from './anatomy/root-context';
+export type { AvatarImageProps } from './anatomy/image';
+export type { AvatarFallbackProps } from './anatomy/fallback';
 ```
 
 ### Component Exports
 
-Finally, make sure to implement the expoorts for each respective component's framework package. This is handled in `/packages/skeleton-{framework}/src/index.ts`.
+Finally, make sure to export the new component for each respective component's framework package. This is handled in `/packages/skeleton-{framework}/src/index.ts`.
 
 ```ts
-export * from './components/accordion/index.js';
-export * from './components/avatar/index.js';
+export * from './components/accordion/index';
+export * from './components/avatar/index';
 // ...
 ```
 
@@ -219,9 +235,21 @@ Note that Skeleton implements a [set convention for Context API](/docs/resources
 While each component will present a unique set of challenges, we recommend you reference other existing components to understand how they were implemented. But there are a few common conventions we'll detail below.
 
 - Try to stick as close to the Zag implementation DOM structure and naming as possible; don't get creative.
+- Use whitespace to seperate Zag versus Skeleton logic, such as props, attributes, and context definitions.
 - Avoid hardcoded english text or icons. Consider pass-throughs using props, snippets, or sub-components.
-- React-Only: Replace the hardcoded `id` with `useId()`
-- Svelte-Only: Replace the hardcoded `id` with `$props.id()`
+- Default to the named import pattern, such as `import { foo, bar, fizz } from 'whatever';` (Including Zag's imports, even though Zag uses catch-all imports in their docs).
+
+#### React Specific
+
+- Pass the `id` field into the `useMachine` hook using the `useId()` hook from `react`.
+- Consume context using `use()` from `react`.
+- Use the `className` attribute to pass Skeleton classes.
+
+#### Svelte Specific
+
+- Pass the `id` field into the `useMachine` function using the `props.id()` rune from `svelte`.
+- Consume context using the `{context}.consume()`.
+- Use the `class` attribute to pass Skeleton classes.
 
 > NOTE: if you're a contributor reading this and you feel there are more conventions to share. Please consider bringing this up with the Skeleton team. We might ask you to append these as you work on your contributions. The more knowledge we share, the more everyone benefits!
 
@@ -235,10 +263,11 @@ Styles are common and shared between all framework iterations of the same compon
 packages/
 └── skeleton-common/
 	└── src/
-		└── classes/
-			├── accordion.ts
-			├── avatar.ts
-			└── ...
+		├── classes/
+		|	├── accordion.ts
+		|	├── avatar.ts
+		|	└── ...
+		└── index.ts
 ```
 
 Here's an example of the Avatar styles found in `avatar.ts`:
@@ -249,22 +278,42 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesAvatar = defineSkeletonClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
-	fallback: 'size-full flex justify-center items-center'
+	fallback: 'size-full flex justify-center items-center',
 });
 ```
 
-- We'll cover the import `{ type: 'macro'}` in the next section.
+- We'll cover the import `{ type: 'macro' }` in the [style prefix](#style-prefix) section.
 - Use the naming convention of `classes{Component}`
 - Create a key for each component part.
 - Set the value to each component's default class list.
+- You can optionally pass an array of strings `['', '']` to document multi-line.
+- Make sure to export the component class file in `index.ts`.
+
+### Array Notation
+
+You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
+
+```ts title="avatar.ts"
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+
+export const classesProgressLinear = defineSkeletonClasses({
+	root: [
+		// Common
+		'items-center justify-center gap-2',
+		// Horizontal Orientation
+		'data-[orientation=horizontal]:flex data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
+		// Vertical Orientation
+		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col',
+	],
+	// ...
+});
+```
 
 ### Style Prefix
 
 It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:` (short for "Skeleton Base"). By applying `with { type: 'macro' }` to the import, the import will run `defineSkeletonClasses` specifically at build time. This variant prefix will assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over our internally defined classes. This is accomplished using the following Tailwind custom variant.
 
-```css title="base.css"
-/* Found in `/packages/skeleton/src/variants/base.css` */
-
+```css title="/packages/skeleton/src/variants/base.css"
 @custom-variant skb {
 	@layer base {
 		@slot;
@@ -274,47 +323,50 @@ It's worth noting that during build time, Skeleton will automatically prefix eac
 
 If you need to prevent a class from being prefixed at build time, apply a variant of `not-skb:` to that class.
 
+> NOTE: This should be a rare use-case requiring discussion with the Skeleton team prior to implementation as it means the user won't be able to override that specific class without using the anti-pattern: `!` for `!important`.
+
 ### Importing Class Lists
 
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
 ```tsx title="avatar-root.tsx" {1,2,9}
-import { mergeProps } from '@zag-js/react';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
 
 export default function (props: AvatarRootProps) {
-	// ...
+	const { children, ...rest } = props;
 
 	const attributes = mergeProps(
-		// api.getRootProps(),
-		{ className: classesAvatar.root }
-		// restAttributes
+		api.getRootProps(),
+		{
+			className: classesAvatar.root,
+		},
+		rest,
 	);
 
-	// return();
+	return <div {...attributes}>{children}</div>;
 }
 ```
 
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility.
 
 ```tsx title="navigation-root.tsx"
-import { mergeProps } from '@zag-js/react';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
 
 export default function (props: NavigationRootProps) {
-	// ...
+	const { children, ...rest } = props;
 
 	const attributes = mergeProps(
-		// api.getRootProps(),
-		{ className: classesNavigation.root }
-		// restAttributes
+		{
+			className: classesNavigation.root,
+		},
+		rest,
 	);
 
-	// return();
+	return <div {...attributes}>{children}</div>;
 }
 ```
-
----
 
 ## Additional Resources
 

@@ -25,9 +25,15 @@ const sortByOrder = (a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => 
 async function queryCollection(startsWith: string) {
 	return (
 		await getCollection('docs', (entry) => {
-			if (!entry.id.startsWith(startsWith)) return false;
-			if (entry.id.split('/').length > 2) return false;
-			if (entry.id.endsWith('meta')) return false;
+			if (!entry.id.startsWith(startsWith)) {
+				return false;
+			}
+			if (entry.id.split('/').length > 2) {
+				return false;
+			}
+			if (entry.id.endsWith('meta')) {
+				return false;
+			}
 			return true;
 		})
 	).toSorted(sortByOrder);
@@ -36,8 +42,12 @@ async function queryCollection(startsWith: string) {
 async function queryMetaCollection(startsWith: string) {
 	return (
 		await getCollection('docs', (entry) => {
-			if (!entry.id.startsWith(startsWith)) return false;
-			if (!entry.id.endsWith('meta')) return false;
+			if (!entry.id.startsWith(startsWith)) {
+				return false;
+			}
+			if (!entry.id.endsWith('meta')) {
+				return false;
+			}
 			return true;
 		})
 	).toSorted(sortByOrder);
@@ -47,7 +57,7 @@ const toNavItems = (entries: CollectionEntry<'docs'>[]) =>
 	entries.map((page) => ({
 		title: page.data.title,
 		href: `/docs/${page.id}`,
-		tag: page.data.stability === 'stable' ? undefined : page.data.stability
+		tag: page.data.stability === 'stable' ? undefined : page.data.stability,
 	}));
 
 // Define navigation sections
@@ -59,7 +69,7 @@ const sections: [string, string, (prefix: string) => Promise<CollectionEntry<'do
 	['Functional Components', 'components/', queryMetaCollection],
 	['Headless Components', 'headless/', queryCollection],
 	['Integrations', 'integrations/', queryMetaCollection],
-	['Resources', 'resources/', queryCollection]
+	['Resources', 'resources/', queryCollection],
 ];
 
 // Build navigation dynamically
@@ -68,10 +78,10 @@ const navigation: NavigationGroup[] = [
 	...(await Promise.all(
 		sections.map(async ([title, prefix, queryFn]) => ({
 			title,
-			items: toNavItems(await queryFn(prefix))
-		}))
+			items: toNavItems(await queryFn(prefix)),
+		})),
 	)),
-	...(bottomGroups ?? [])
+	...(bottomGroups ?? []),
 ];
 ---
 
@@ -89,8 +99,8 @@ const navigation: NavigationGroup[] = [
 									class:list={[
 										{
 											'preset-tonal': Astro.url.pathname === item.href,
-											anchor: Astro.url.pathname !== item.href
-										}
+											anchor: Astro.url.pathname !== item.href,
+										},
 									]}
 								>
 									{item.title}
@@ -109,12 +119,16 @@ const navigation: NavigationGroup[] = [
 	import { preferredFrameworkStore } from 'src/stores/preferred-framework';
 	const SIDEBAR_SCROLL_KEY = 'sidebar-scroll-position';
 	function handleSidebarScroll(event: Event) {
-		if (!(event.target instanceof HTMLElement)) return;
+		if (!(event.target instanceof HTMLElement)) {
+			return;
+		}
 		sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(event.target.scrollTop));
 	}
 	function restoreScrollPosition() {
 		const sidebar = document.querySelector('[data-navigation]');
-		if (!sidebar) return;
+		if (!sidebar) {
+			return;
+		}
 
 		const scrollPosition = sessionStorage.getItem(SIDEBAR_SCROLL_KEY);
 		sidebar.scrollTop = parseInt(scrollPosition ?? '0', 10);
@@ -125,7 +139,9 @@ const navigation: NavigationGroup[] = [
 	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
 		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
 		for (const anchor of anchors) {
-			if (!anchor.href.endsWith('meta')) continue;
+			if (!anchor.href.endsWith('meta')) {
+				continue;
+			}
 			anchor.setAttribute('href', anchor.href.replace('meta', framework));
 		}
 	}

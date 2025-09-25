@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { Accordion } from '../../../src/index.js';
+	import { Accordion } from '@/index';
 </script>
 
 <Accordion data-testid="root">
 	<Accordion.Item value="item" data-testid="item">
-		<Accordion.Heading data-testid="heading">
-			<Accordion.Trigger data-testid="trigger"></Accordion.Trigger>
-			<Accordion.Content data-testid="content"></Accordion.Content>
-		</Accordion.Heading>
+		<Accordion.ItemHeading data-testid="item-heading">
+			<Accordion.ItemTrigger data-testid="item-trigger" />
+			<Accordion.ItemIndicator data-testid="item-indicator" />
+			<Accordion.ItemContent data-testid="item-content" />
+		</Accordion.ItemHeading>
 	</Accordion.Item>
 </Accordion>

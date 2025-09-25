@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
 import { transformClasses } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-classes.js';
+import { describe, expect, it } from 'vitest';
 
 describe('transformClasses', () => {
 	const COLORS = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'];
@@ -13,9 +13,9 @@ describe('transformClasses', () => {
 				COLORS.flatMap((color) =>
 					V2_PAIRINGS.map((v2Pairing, index) => ({
 						v2: `${property}-${color}-${v2Pairing}-token`,
-						v3: `${property}-${color}-${V3_PAIRINGS[index]}`
-					}))
-				)
+						v3: `${property}-${color}-${V3_PAIRINGS[index]}`,
+					})),
+				),
 			);
 		for (const { v2, v3 } of createColorPairingMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -28,18 +28,18 @@ describe('transformClasses', () => {
 			// Backdrop mappings
 			...COLORS.map((color) => ({
 				v2: `bg-${color}-backdrop-token`,
-				v3: `bg-${color}-50/50 dark:bg-${color}-950/50`
+				v3: `bg-${color}-50/50 dark:bg-${color}-950/50`,
 			})),
 			// Hover mappings
 			...COLORS.map((color) => ({
 				v2: `bg-${color}-hover-token`,
-				v3: `preset-tonal-${color}`
+				v3: `preset-tonal-${color}`,
 			})),
 			// Active mappings
 			...COLORS.map((color) => ({
 				v2: `bg-${color}-active-token`,
-				v3: `preset-filled-${color}-500`
-			}))
+				v3: `preset-filled-${color}-500`,
+			})),
 		];
 		for (const { v2, v3 } of createBackgroundMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -51,22 +51,22 @@ describe('transformClasses', () => {
 		const createBorderRadiusMappings = () => [
 			{
 				v2: 'rounded-token',
-				v3: 'rounded-base'
+				v3: 'rounded-base',
 			},
 			{
 				v2: 'rounded-container-token',
-				v3: 'rounded-container'
+				v3: 'rounded-container',
 			},
 			...CORNERS.flatMap((corner) => [
 				{
 					v2: `rounded-${corner}-token`,
-					v3: `rounded-${corner}-base`
+					v3: `rounded-${corner}-base`,
 				},
 				{
 					v2: `rounded-${corner}-container-token`,
-					v3: `rounded-${corner}-container`
-				}
-			])
+					v3: `rounded-${corner}-container`,
+				},
+			]),
 		];
 		for (const { v2, v3 } of createBorderRadiusMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -78,14 +78,14 @@ describe('transformClasses', () => {
 		const createBorderMappings = () => [
 			{
 				v2: 'border-token',
-				v3: 'border'
+				v3: 'border',
 			},
 			...COLORS.flatMap((color) =>
 				V2_PAIRINGS.map((v2Pairing, index) => ({
 					v2: `border-${color}-${v2Pairing}-token`,
-					v3: `border-${color}-${V3_PAIRINGS[index]}`
-				}))
-			)
+					v3: `border-${color}-${V3_PAIRINGS[index]}`,
+				})),
+			),
 		];
 		for (const { v2, v3 } of createBorderMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -97,14 +97,14 @@ describe('transformClasses', () => {
 		const createRingMappings = () => [
 			{
 				v2: 'ring-token',
-				v3: 'ring'
+				v3: 'ring',
 			},
 			...COLORS.flatMap((color) =>
 				V2_PAIRINGS.map((v2Pairing, index) => ({
 					v2: `ring-${color}-${v2Pairing}-token`,
-					v3: `ring-${color}-${V3_PAIRINGS[index]}`
-				}))
-			)
+					v3: `ring-${color}-${V3_PAIRINGS[index]}`,
+				})),
+			),
 		];
 		for (const { v2, v3 } of createRingMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -117,29 +117,29 @@ describe('transformClasses', () => {
 			// Font tokens
 			{
 				v2: 'font-token',
-				v3: 'base-font-family'
+				v3: 'base-font-family',
 			},
 			{
 				v2: 'font-headings-token',
-				v3: 'heading-font-family'
+				v3: 'heading-font-family',
 			},
 			// Text color tokens
 			{
 				v2: 'text-token',
-				v3: 'base-font-color'
+				v3: 'base-font-color',
 			},
 			// Text on color contrast tokens
 			...COLORS.map((color) => ({
 				v2: `text-on-${color}-token`,
-				v3: `text-${color}-contrast-500`
+				v3: `text-${color}-contrast-500`,
 			})),
 			// Text color pairings
 			...COLORS.flatMap((color) =>
 				V2_PAIRINGS.map((v2Pairing, index) => ({
 					v2: `text-${color}-${v2Pairing}-token`,
-					v3: `text-${color}-${V3_PAIRINGS[index]}`
-				}))
-			)
+					v3: `text-${color}-${V3_PAIRINGS[index]}`,
+				})),
+			),
 		];
 		for (const { v2, v3 } of createTextMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -152,8 +152,8 @@ describe('transformClasses', () => {
 			COLORS.flatMap((color) =>
 				V2_PAIRINGS.map((v2Pairing, index) => ({
 					v2: `decoration-${color}-${v2Pairing}-token`,
-					v3: `decoration-${color}-${V3_PAIRINGS[index]}`
-				}))
+					v3: `decoration-${color}-${V3_PAIRINGS[index]}`,
+				})),
 			);
 
 		for (const { v2, v3 } of createDecorationMappings()) {
@@ -166,7 +166,7 @@ describe('transformClasses', () => {
 		const createAccentMappings = () =>
 			COLORS.map((color) => ({
 				v2: `accent-${color}-token`,
-				v3: `accent-${color}-500`
+				v3: `accent-${color}-500`,
 			}));
 
 		for (const { v2, v3 } of createAccentMappings()) {
@@ -179,44 +179,44 @@ describe('transformClasses', () => {
 		const createPresetMappings = () => [
 			{
 				v2: 'variant-filled',
-				v3: 'preset-filled'
+				v3: 'preset-filled',
 			},
 			...COLORS.map((color) => ({
 				v2: `variant-filled-${color}`,
-				v3: `preset-filled-${color}-500`
+				v3: `preset-filled-${color}-500`,
 			})),
 			{
 				v2: 'variant-ghost',
-				v3: 'preset-tonal border border-surface-500'
+				v3: 'preset-tonal border border-surface-500',
 			},
 			...COLORS.map((color) => ({
 				v2: `variant-ghost-${color}`,
-				v3: `preset-tonal-${color} border border-${color}-500`
+				v3: `preset-tonal-${color} border border-${color}-500`,
 			})),
 			{
 				v2: 'variant-soft',
-				v3: 'preset-tonal'
+				v3: 'preset-tonal',
 			},
 			...COLORS.map((color) => ({
 				v2: `variant-soft-${color}`,
-				v3: `preset-tonal-${color}`
+				v3: `preset-tonal-${color}`,
 			})),
 			{
 				v2: 'variant-ringed',
-				v3: 'preset-outlined'
+				v3: 'preset-outlined',
 			},
 			...COLORS.map((color) => ({
 				v2: `variant-ringed-${color}`,
-				v3: `preset-outlined-${color}-500`
+				v3: `preset-outlined-${color}-500`,
 			})),
 			{
 				v2: 'variant-glass',
-				v3: 'preset-tonal'
+				v3: 'preset-tonal',
 			},
 			...COLORS.map((color) => ({
 				v2: `variant-glass-${color}`,
-				v3: `preset-tonal-${color}`
-			}))
+				v3: `preset-tonal-${color}`,
+			})),
 		];
 		for (const { v2, v3 } of createPresetMappings()) {
 			it(`transforms ${v2}`, () => {
@@ -236,20 +236,20 @@ describe('transformClasses', () => {
 			// },
 			{
 				v2: 'btn-xl',
-				v3: 'btn-lg'
+				v3: 'btn-lg',
 			},
 			{
 				v2: 'btn-icon-xl',
-				v3: 'btn-icon-lg'
+				v3: 'btn-icon-lg',
 			},
 			{
 				v2: 'btn-group',
-				v3: ''
+				v3: '',
 			},
 			{
 				v2: 'table-hover',
-				v3: ''
-			}
+				v3: '',
+			},
 		];
 		for (const { v2, v3 } of createTailwindMappings()) {
 			it(`transforms ${v2}`, () => {

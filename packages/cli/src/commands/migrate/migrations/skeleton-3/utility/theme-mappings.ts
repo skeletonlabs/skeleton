@@ -10,7 +10,7 @@ const THEME_MAPPINGS: Record<string, Theme> = {
 	vintage: { type: 'preset', value: 'vintage' },
 	sahara: { type: 'preset', value: 'sahara' },
 	hamlindigo: { type: 'preset', value: 'hamlindigo' },
-	crimson: { type: 'preset', value: 'crimson' }
+	crimson: { type: 'preset', value: 'crimson' },
 };
 
 export { THEME_MAPPINGS };

@@ -1,10 +1,10 @@
-import { z, defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { defineCollection, z } from 'astro:content';
 
 const docs = defineCollection({
 	loader: glob({
 		base: './src/content/docs',
-		pattern: ['**/*.mdx', '!**/_*.mdx']
+		pattern: ['**/*.mdx', '!**/_*.mdx'],
 	}),
 	schema: z.object({
 		title: z.string().optional().default('(Title)'),
@@ -17,14 +17,14 @@ const docs = defineCollection({
 		showDocsUrl: z.boolean().optional().default(false),
 		pubDate: z.date().optional(),
 		tags: z.array(z.string()).optional(),
-		order: z.number().optional().default(0)
-	})
+		order: z.number().optional().default(0),
+	}),
 });
 
 const types = defineCollection({
 	loader: glob({
 		base: './src/content/types',
-		pattern: '**/*.json'
+		pattern: '**/*.json',
 	}),
 	schema: z.object({
 		name: z.string(),
@@ -42,18 +42,18 @@ const types = defineCollection({
 							tags: z.array(
 								z.object({
 									name: z.string(),
-									value: z.string().nullable()
-								})
-							)
-						})
-					})
+									value: z.string().nullable(),
+								}),
+							),
+						}),
+					}),
 				),
 				metadata: z.object({
-					classValue: z.string().optional()
-				})
-			})
-		)
-	})
+					classValue: z.string().optional(),
+				}),
+			}),
+		),
+	}),
 });
 
 export const collections = { docs, types };

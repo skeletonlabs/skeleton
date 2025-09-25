@@ -1,15 +1,20 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "2.0.0-next.2",
-	"type": "module",
-	"scripts": {
-		"build": "tsdown",
-		"dev": "tsdown --watch",
-		"test": "vitest run",
-		"test:watch": "vitest run --watch"
+	"version": "2.0.0-next.13",
+	"description": "The React package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton-react"
 	},
-	"main": "./dist/index.js",
-	"types": "./dist/index.d.ts",
+	"scripts": {
+		"dev": "tsdown --watch",
+		"build": "tsdown",
+		"test": "vitest run",
+		"check": "tsc",
+		"sync": "pnpm build"
+	},
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -20,12 +25,16 @@
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"dependencies": {
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/collection": "catalog:",
+		"@zag-js/combobox": "catalog:",
+		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
-		"@zag-js/pagination": "catalog:",
+		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
 		"@zag-js/rating-group": "catalog:",
@@ -34,24 +43,27 @@
 		"@zag-js/switch": "catalog:",
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
-		"@zag-js/toast": "catalog:"
+		"@zag-js/toast": "catalog:",
+		"@zag-js/tooltip": "catalog:"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@testing-library/jest-dom": "^6.8.0",
-		"@testing-library/react": "^16.3.0",
-		"@types/react": "^19.1.12",
-		"@types/react-dom": "^19.1.9",
-		"@vitejs/plugin-react": "^5.0.2",
-		"jsdom": "^26.1.0",
-		"react": "^19.1.1",
-		"react-dom": "^19.1.1",
-		"tsdown": "^0.14.2",
+		"@testing-library/jest-dom": "catalog:",
+		"@testing-library/react": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"@vitejs/plugin-react": "catalog:",
+		"jsdom": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"tsdown": "catalog:",
 		"typescript": "catalog:",
-		"vite": "^7.1.3",
-		"vitest": "^3.2.4"
-	}
+		"vite": "catalog:",
+		"vitest": "catalog:"
+	},
+	"license": "MIT",
+	"type": "module"
 }

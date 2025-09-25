@@ -3,7 +3,7 @@
 
 	// Source Data
 	const steps = [
-		{ component: ExampleStepOne, props: { label: 'Step 1' } }
+		{ component: ExampleStepOne, props: { label: 'Step 1' } },
 		// ...
 	];
 </script>

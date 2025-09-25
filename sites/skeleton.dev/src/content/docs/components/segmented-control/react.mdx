@@ -1,0 +1,91 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/segmented-control/react/default';
+import DefaultRaw from '@examples/components/segmented-control/react/default?raw';
+
+import Icons from '@examples/components/segmented-control/react/icons';
+import IconsRaw from '@examples/components/segmented-control/react/icons?raw';
+
+import Orientation from '@examples/components/segmented-control/react/orientation';
+import OrientationRaw from '@examples/components/segmented-control/react/orientation?raw';
+
+import ReadOnly from '@examples/components/segmented-control/react/read-only';
+import ReadOnlyRaw from '@examples/components/segmented-control/react/read-only?raw';
+
+import Disabled from '@examples/components/segmented-control/react/disabled';
+import DisabledRaw from '@examples/components/segmented-control/react/disabled?raw';
+
+import DisabledItem from '@examples/components/segmented-control/react/disabled-item';
+import DisabledItemRaw from '@examples/components/segmented-control/react/disabled-item?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icons
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Icons client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Orientation
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Orientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={OrientationRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Read Only
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ReadOnly client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ReadOnlyRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled Item
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DisabledItem client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledItemRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

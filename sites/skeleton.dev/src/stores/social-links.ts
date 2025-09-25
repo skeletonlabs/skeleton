@@ -10,21 +10,21 @@ export const socialLinks = atom<SocialLink[]>([
 	{
 		href: 'https://github.com/skeletonlabs/skeleton',
 		label: 'GitHub',
-		icon: 'github'
+		icon: 'github',
 	},
 	{
 		href: 'https://discord.gg/EXqV7W8MtY',
 		label: 'Discord',
-		icon: 'discord'
+		icon: 'discord',
 	},
 	{
 		href: 'https://bsky.app/profile/skeleton.dev',
 		label: 'Bluesky',
-		icon: 'bluesky'
+		icon: 'bluesky',
 	},
 	{
 		href: 'https://www.youtube.com/@skeletonlabs',
 		label: 'YouTube',
-		icon: 'youtube'
-	}
+		icon: 'youtube',
+	},
 ]);

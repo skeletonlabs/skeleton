@@ -1,4 +1,4 @@
-import { SourceFile } from 'ts-morph';
+import type { SourceFile } from 'ts-morph';
 
 function addNamedImport(file: SourceFile, specifier: string, name: string) {
 	const existingImportDeclaration = file.getImportDeclaration((importDeclaration) => {
@@ -12,7 +12,7 @@ function addNamedImport(file: SourceFile, specifier: string, name: string) {
 	} else {
 		file.addImportDeclaration({
 			moduleSpecifier: specifier,
-			namedImports: [name]
+			namedImports: [name],
 		});
 	}
 }

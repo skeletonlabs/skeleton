@@ -1,5 +1,5 @@
 ---
-import { Menu as IconMenu, X as IconClose } from 'lucide-react';
+import { X as IconClose, Menu as IconMenu } from 'lucide-react';
 
 interface DrawerProps {
 	navigation?: {
@@ -13,7 +13,7 @@ interface DrawerProps {
 
 const {
 	base = 'xl:hidden preset-filled-surface-100-900 border-white shadow-xl w-lg max-h-dvh h-dvh pb-24 overflow-y-scroll backdrop:bg-black/50 max-w-[75dvw]',
-	classes = ''
+	classes = '',
 }: DrawerProps = Astro.props;
 ---
 

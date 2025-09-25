@@ -1,8 +1,9 @@
-import type { JSX } from 'react';
+import type { HTMLAttributes } from './html-attributes';
+import type { JSX, ReactNode } from 'react';
 
-export interface PropsWithElement {
+export interface PropsWithElement<T extends keyof JSX.IntrinsicElements> {
 	/**
 	 * Render the element yourself
 	 */
-	element?: (arg: { attributes: Record<string, unknown> }) => JSX.Element | null;
+	element?: (attributes: HTMLAttributes<T>) => ReactNode;
 }

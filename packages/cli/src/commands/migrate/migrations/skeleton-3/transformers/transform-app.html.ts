@@ -1,5 +1,5 @@
-import { parse } from 'node-html-parser';
 import { THEME_MAPPINGS } from '../utility/theme-mappings';
+import { parse } from 'node-html-parser';
 
 function transformAppHtml(code: string) {
 	const parsed = parse(code);
@@ -9,8 +9,8 @@ function transformAppHtml(code: string) {
 		return {
 			code: code,
 			meta: {
-				theme: undefined
-			}
+				theme: undefined,
+			},
 		};
 	}
 	const theme = body.getAttribute('data-theme');
@@ -18,14 +18,14 @@ function transformAppHtml(code: string) {
 		return {
 			code: code,
 			meta: {
-				theme: undefined
-			}
+				theme: undefined,
+			},
 		};
 	}
 	let type: 'preset' | 'custom';
 	body.removeAttribute('data-theme');
 	if (Object.hasOwn(THEME_MAPPINGS, theme)) {
-		html.setAttribute('data-theme', THEME_MAPPINGS[theme].value);
+		html.setAttribute('data-theme', THEME_MAPPINGS[theme]!.value);
 		type = 'preset';
 	} else {
 		html.setAttribute('data-theme', theme);
@@ -36,9 +36,9 @@ function transformAppHtml(code: string) {
 		meta: {
 			theme: {
 				value: theme,
-				type: type
-			}
-		}
+				type: type,
+			},
+		},
 	};
 }
 

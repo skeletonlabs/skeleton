@@ -5,9 +5,13 @@
 <RatingGroup count={5}>
 	<RatingGroup.Label>Rate us:</RatingGroup.Label>
 	<RatingGroup.Control>
-		{#each Array.from({ length: 5 }), index}
-			<RatingGroup.Item index={index + 1} />
-		{/each}
+		<RatingGroup.Context>
+			{#snippet children(ratingGroup)}
+				{#each ratingGroup().items as index (index)}
+					<RatingGroup.Item {index} />
+				{/each}
+			{/snippet}
+		</RatingGroup.Context>
 	</RatingGroup.Control>
 	<RatingGroup.HiddenInput />
 </RatingGroup>

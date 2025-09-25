@@ -1,8 +1,6 @@
-'use client';
-
 import { Avatar } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Fallback() {
 	return (
 		<Avatar>
 			<Avatar.Fallback>SK</Avatar.Fallback>

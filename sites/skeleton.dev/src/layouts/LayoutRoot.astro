@@ -1,5 +1,6 @@
 ---
 import '@styles/app.css';
+
 import OpenGraphImage from '@images/meta/opengraph.png';
 import { ClientRouter } from 'astro:transitions';
 
@@ -15,7 +16,7 @@ const { title, description, classList } = Astro.props;
 const meta = {
 	title: `${title ? title + ' - ' : ''}Skeleton`,
 	description: description ? description : 'Skeleton is an adaptive design system powered by Tailwind CSS.',
-	image: OpenGraphImage.src
+	image: OpenGraphImage.src,
 };
 ---
 

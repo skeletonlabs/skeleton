@@ -6,9 +6,9 @@ description: Flexible, unstyled, and accessible primitives that provide the foun
 
 export const components = componentSet;
 
-import { Image } from 'astro:assets';
 import ImgBanner from '@images/headless/bits-ui/bits-banner.png';
 import ImgComponent from '@images/headless/bits-ui/bits-component.gif';
+import { Image } from 'astro:assets';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -193,8 +193,8 @@ Below is a complete example showing the entire component with all styles and bas
 
 ```svelte
 <script lang="ts">
-	import { Calendar } from 'bits-ui';
 	import { getLocalTimeZone, today } from '@internationalized/date';
+	import { Calendar } from 'bits-ui';
 
 	const isDateUnavailable: Calendar.RootProps['isDateUnavailable'] = (date) => {
 		return date.day === 17 || date.day === 18;

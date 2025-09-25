@@ -4,38 +4,24 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components/tabs/svelte/default.svelte';
-import ExampleRaw from '@examples/components/tabs/svelte/default.svelte?raw';
+import Default from '@examples/components/tabs/svelte/default.svelte';
+import DefaultRaw from '@examples/components/tabs/svelte/default.svelte?raw';
 
-import ExampleAnchor from '@examples/components/tabs/svelte/anchor.svelte';
-import ExampleAnchorRaw from '@examples/components/tabs/svelte/anchor.svelte?raw';
+import Fluid from '@examples/components/tabs/svelte/fluid.svelte';
+import FluidRaw from '@examples/components/tabs/svelte/fluid.svelte?raw';
 
-import ExampleFluid from '@examples/components/tabs/svelte/fluid.svelte';
-import ExampleFluidRaw from '@examples/components/tabs/svelte/fluid.svelte?raw';
+import Vertical from '@examples/components/tabs/svelte/vertical.svelte';
+import VerticalRaw from '@examples/components/tabs/svelte/vertical.svelte?raw';
 
-import ExampleVertical from '@examples/components/tabs/svelte/vertical.svelte';
-import ExampleVerticalRaw from '@examples/components/tabs/svelte/vertical.svelte?raw';
-
-import ExampleRtl from '@examples/components/tabs/svelte/rtl.svelte';
-import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
+import Rtl from '@examples/components/tabs/svelte/rtl.svelte';
+import RtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
-	</Fragment>
-</Preview>
-
-## Anchor
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<ExampleAnchor client:visible />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ExampleAnchorRaw} lang="svelte" />
+		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -43,10 +29,10 @@ import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFluid client:visible />
+		<Fluid client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleFluidRaw} lang="svelte" />
+		<Code code={FluidRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -54,10 +40,10 @@ import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleVertical client:visible />
+		<Vertical client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleVerticalRaw} lang="svelte" />
+		<Code code={VerticalRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -65,10 +51,10 @@ import ExampleRtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleRtl client:visible />
+		<Rtl client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRtlRaw} lang="svelte" />
+		<Code code={RtlRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

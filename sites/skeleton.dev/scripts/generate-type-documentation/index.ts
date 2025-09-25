@@ -1,20 +1,20 @@
+import { CLASSES_DIRECTORY, MONOREPO_ROOT, OUTPUT_DIRECTORY } from './constants';
+import { Parser } from './parser';
+import { kebabToCamel, kebabToPascal } from './string-utils';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
-import { Parser } from './parser';
-import { kebabToPascal } from './string-utils';
-import { frameworks } from './framework';
-import { MONOREPO_ROOT, CLASSES_DIRECTORY, OUTPUT_DIRECTORY } from './constants';
 
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
-		`${component}-anatomy.js`,
+		`anatomy.js`,
 		await readFile(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `${component}-anatomy.js`),
-			'utf-8'
-		)
+			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
+			'utf8',
+		),
 	);
 	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
 	return [
@@ -28,22 +28,20 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 					return `${kebabToPascal(component)}RootContext`;
 				}
 				return `${kebabToPascal(component)}${name}`;
-			})
+			}),
 	];
 }
 
 async function getClassValue(component: string, part: string) {
-	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
-	const sourceFile = project.createSourceFile(`${component}.ts`, await readFile(join(CLASSES_DIRECTORY, `${component}.ts`), 'utf-8'));
-	const classes = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	const property = classes
-		.getProperties()
-		.filter(tsMorph.Node.isPropertyAssignment)
-		.find((p) => p.getName() === part.replace(`${component}-`, '').toLowerCase());
-	if (!property) {
+	const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
+	const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
+	if (!value || typeof value !== 'string') {
 		return;
 	}
-	return property.getInitializerOrThrow().getText().replaceAll("'", '"');
+	return value
+		.split(' ')
+		.map((str) => str.replace('skb:', ''))
+		.join(' ');
 }
 
 function getComponentNameFromPath(path: string): string {
@@ -65,13 +63,13 @@ function getComponentPartNameFromPath(path: string): string {
 }
 
 async function main() {
-	for (const framework of frameworks) {
-		await rm(join(OUTPUT_DIRECTORY, framework.name), { recursive: true, force: true });
-		await mkdir(join(OUTPUT_DIRECTORY, framework.name), { recursive: true });
+	for (const framework of ['svelte', 'react'] as const) {
+		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
+		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
 
 		const paths = await glob(`**/anatomy/*.d.ts`, {
-			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework.name}`, 'dist', 'components'),
-			absolute: true
+			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components'),
+			absolute: true,
 		});
 
 		const components = paths.reduce(
@@ -83,29 +81,29 @@ async function main() {
 				acc[component].push(path);
 				return acc;
 			},
-			{} as Record<string, string[]>
+			{} as Record<string, string[]>,
 		);
 
 		const parser = new Parser(framework);
 
 		for (const [component, parts] of Object.entries(components)) {
-			const partOrder = await getPartOrderFromAnatomy(framework.name, component);
+			const partOrder = await getPartOrderFromAnatomy(framework, component);
 
 			const types = (
 				await Promise.all(
 					parts.map(async (part) => {
 						const sourceFile = parser.getSourceFile(part);
 						const componentPartName = getComponentPartNameFromPath(part);
-						const _interface = sourceFile.getInterface(`${kebabToPascal(componentPartName)}Props`);
+						const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
 						const classValue = await getClassValue(component, componentPartName);
 						return {
 							name: _interface.name,
 							props: _interface.props,
 							metadata: {
-								classValue: classValue
-							}
+								classValue: classValue,
+							},
 						};
-					})
+					}),
 				)
 			).toSorted((a, b) => {
 				const aName = a.name.replace(/Props$/, '');
@@ -116,15 +114,15 @@ async function main() {
 			const result = JSON.stringify(
 				{
 					name: component,
-					types: types
+					types: types,
 				},
-				null,
-				4
+				undefined,
+				4,
 			);
 
-			const outputPath = join(OUTPUT_DIRECTORY, framework.name, `${component}.json`);
+			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);
 
-			await writeFile(outputPath, result, 'utf-8');
+			await writeFile(outputPath, result, 'utf8');
 		}
 	}
 }

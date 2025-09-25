@@ -1,45 +1,47 @@
-import LightSwitch from './light-switch';
 import './globals.css';
+import LightSwitch from './light-switch';
+import { globSync } from 'node:fs';
+import { sep, relative, dirname } from 'node:path';
 
 export default function RootLayout({
-	children
+	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	function capitalize(str: string) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+	const components = globSync('./**/components/*/page.tsx')
+		.toSorted((a, b) => a.localeCompare(b))
+		.map((route) => {
+			const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
+			const name = href.split('/').pop()!.split('-').map(capitalize).join(' ');
+			return { href, name };
+		});
 	return (
-		<html lang="en" data-theme="cerberus" suppressHydrationWarning={true}>
+		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
 			<body>
-				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]" data-testid="app">
-					{/* Nav */}
-					<div className="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-						<header>
-							<a className="text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
+				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
+					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">
+						<header className="flex justify-between items-center">
+							<a className="inline-block text-sm bg-blue-500 p-2 font-mono font-bold text-white" href="/">
 								skeleton-react
 							</a>
+							<LightSwitch />
 						</header>
 						<hr className="hr" />
-						<LightSwitch></LightSwitch>
-						<hr className="hr" />
-						{/* Components */}
-						<div className="space-y-8">
+						<div className="flex flex-col gap-4">
 							<div className="font-bold">Components</div>
-							<nav className="text-sm flex flex-col gap-2">
-								<a className="anchor" href="/components/accordion">
-									Accordion
-								</a>
-								<a className="anchor" href="/components/avatar">
-									Avatar
-								</a>
-								<a className="anchor" href="/components/rating-group">
-									Rating Group
-								</a>
-								<a className="anchor" href="/components/tabs">
-									Tabs
-								</a>
+							<nav className="text-sm flex flex-col gap-1">
+								{components.map((component) => (
+									<a key={component.href} className="anchor" href={component.href}>
+										{component.name}
+									</a>
+								))}
 							</nav>
 						</div>
 					</div>
-					{/* Page */}
 					<main className="overflow-y-auto p-8">{children}</main>
 				</div>
 			</body>

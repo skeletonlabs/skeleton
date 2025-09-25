@@ -1,14 +1,12 @@
 {
 	"name": "skeleton",
 	"description": "The CLI for Skeleton related tooling.",
-	"version": "1.0.0",
+	"version": "1.0.1-next.2",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton",
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/cli"
 	},
-	"sideEffects": false,
-	"type": "module",
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
@@ -16,41 +14,44 @@
 		}
 	},
 	"bin": "./dist/index.js",
-	"types": "./dist/index.d.ts",
 	"files": [
 		"dist"
 	],
+	"sideEffects": false,
 	"scripts": {
-		"build": "tsdown",
 		"dev": "tsdown --watch",
+		"build": "tsdown",
 		"test": "vitest run",
-		"test:watch": "vitest watch"
+		"check": "tsc",
+		"sync": "pnpm build"
 	},
 	"devDependencies": {
-		"@types/estree": "^1.0.8",
-		"@types/node": "^24.3.0",
-		"@types/semver": "^7.7.0",
-		"tsdown": "^0.14.2",
-		"type-fest": "^4.41.0",
+		"@types/estree": "catalog:",
+		"@types/node": "catalog:",
+		"@types/semver": "catalog:",
+		"tsdown": "catalog:",
+		"type-fest": "catalog:",
 		"typescript": "catalog:",
-		"vitest": "^3.2.4"
+		"vite": "catalog:",
+		"vitest": "catalog:"
+	},
+	"dependencies": {
+		"@clack/prompts": "catalog:",
+		"colorette": "catalog:",
+		"commander": "catalog:",
+		"detect-indent": "catalog:",
+		"latest-version": "catalog:",
+		"magic-string": "catalog:",
+		"nanoid": "catalog:",
+		"node-html-parser": "catalog:",
+		"package-manager-detector": "catalog:",
+		"postcss": "catalog:",
+		"semver": "catalog:",
+		"svelte": "catalog:",
+		"tinyglobby": "catalog:",
+		"ts-morph": "catalog:",
+		"zimmerframe": "catalog:"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"@clack/prompts": "^0.11.0",
-		"colorette": "^2.0.20",
-		"commander": "^14.0.0",
-		"detect-indent": "^7.0.1",
-		"latest-version": "^9.0.0",
-		"magic-string": "^0.30.18",
-		"nanoid": "^5.1.5",
-		"node-html-parser": "^7.0.1",
-		"package-manager-detector": "^1.3.0",
-		"postcss": "^8.5.6",
-		"semver": "^7.7.2",
-		"svelte": "catalog:",
-		"tinyglobby": "^0.2.14",
-		"ts-morph": "^26.0.0",
-		"zimmerframe": "^1.1.2"
-	}
+	"type": "module"
 }

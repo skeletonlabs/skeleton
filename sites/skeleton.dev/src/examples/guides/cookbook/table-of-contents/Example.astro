@@ -16,20 +16,27 @@ const headings: PageHeadings[] = [
 	{ text: 'Grid', slug: 'grid', depth: 2 },
 	{ text: 'Alignment', slug: 'alignment', depth: 2 },
 	{ text: 'Responsive Design', slug: 'responsive-design', depth: 2 },
-	{ text: 'In Conclusion', slug: 'in-conclusion', depth: 1 }
+	{ text: 'In Conclusion', slug: 'in-conclusion', depth: 1 },
 ];
 
 /** Provide a padding-left class based on the depth. */
 function setIndentationClass(depth: number) {
 	// prettier-ignore
 	switch(depth) {
-		case(6): return 'pl-12';
-		case(5): return 'pl-10';
-		case(4): return 'pl-8';
-		case(3): return 'pl-6';
-		case(2): return 'pl-4';
-		case(1): return 'pl-2';
-		default: return 'pl-0';
+		case(6): { return 'pl-12';
+		}
+		case(5): { return 'pl-10';
+		}
+		case(4): { return 'pl-8';
+		}
+		case(3): { return 'pl-6';
+		}
+		case(2): { return 'pl-4';
+		}
+		case(1): { return 'pl-2';
+		}
+		default: { return 'pl-0';
+		}
 	}
 }
 ---

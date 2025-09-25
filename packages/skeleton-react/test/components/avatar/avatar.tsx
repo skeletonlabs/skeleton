@@ -1,6 +1,6 @@
-import { Avatar } from '../../../src/index.js';
+import { Avatar } from '@/index';
 
-export default function () {
+export default function AvatarTest() {
 	return (
 		<Avatar data-testid="root">
 			<Avatar.Image data-testid="image" src="https://picsum.photos/100/100" />

@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
 // Floating UI React
 import {
-	useFloating,
+	FloatingFocusManager,
 	autoUpdate,
-	offset,
 	flip,
+	offset,
 	shift,
 	useClick,
 	useDismiss,
-	useRole,
+	useFloating,
 	useInteractions,
-	FloatingFocusManager
+	useRole,
 } from '@floating-ui/react';
 // Themes
 import { themes } from '@skeletonlabs/skeleton-common';
@@ -18,6 +17,7 @@ import { themes } from '@skeletonlabs/skeleton-common';
 import { ArrowUpRight as IconArrow } from 'lucide-react';
 import { ChevronDown as IconChevron } from 'lucide-react';
 import { SwatchBook as IconTheme } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 
 export const HeaderThemes: React.FC = () => {
 	const defaultTheme = 'cerberus';
@@ -33,7 +33,7 @@ export const HeaderThemes: React.FC = () => {
 		open: isOpen,
 		onOpenChange: setIsOpen,
 		middleware: [offset(8), flip(), shift()],
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context);

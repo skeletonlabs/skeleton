@@ -1,17 +1,21 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"lib": ["ESNext"],
-		"moduleDetection": "force",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"types": ["node"],
-		"strict": true,
-		"noEmit": true,
 		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "es2022",
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
 		"isolatedModules": true,
-		"skipDefaultLibCheck": true,
-		"skipLibCheck": true
+		"verbatimModuleSyntax": true,
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"declaration": true,
+		"declarationMap": true,
+		"module": "preserve",
+		"noEmit": true,
+		"lib": ["es2022", "dom", "dom.iterable"]
 	},
 	"include": ["src"]
 }

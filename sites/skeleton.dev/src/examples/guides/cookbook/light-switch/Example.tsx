@@ -1,4 +1,4 @@
-export default function () {
+export default function Example() {
 	// const [checked, setChecked] = useState(false);
 	// useEffect(() => {
 	// 	const mode = localStorage.getItem('mode') || 'light';

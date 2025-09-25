@@ -1,6 +1,6 @@
-import { Tabs } from '@skeletonlabs/skeleton-react';
+import { Tabs } from '@/index';
 
-export default function () {
+export default function TabsTest() {
 	return (
 		<Tabs defaultValue="tab-1" data-testid="root">
 			<Tabs.List data-testid="list">

@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
 import Tabs from './tabs.svelte';
+import { render, screen } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 
 describe('tabs', () => {
 	describe('root', () => {

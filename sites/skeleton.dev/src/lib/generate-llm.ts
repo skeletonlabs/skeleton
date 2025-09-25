@@ -1,4 +1,5 @@
-import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -8,18 +9,24 @@ type TypesRecord = CollectionEntry<'types'>['data'];
 
 // Exact copy from ApiTable.astro
 async function getSchemaFromSlug(slug: string | undefined) {
-	if (!slug) return null;
+	if (!slug) {
+		return;
+	}
 	const parts = slug.split('/');
 	const component = parts.at(-2);
 	const framework = parts.at(-1);
-	if (!component || !framework) return null;
+	if (!component || !framework) {
+		return;
+	}
 	const entry = await getEntry('types', `${framework}/${component}`);
 	return entry?.data;
 }
 
 // Replacement from ApiTable.astro but instead converts schema to markdown tables
 function generateMarkdownApiTable(schema: TypesRecord | null | undefined): string {
-	if (!schema || typeof schema !== 'object') return '';
+	if (!schema || typeof schema !== 'object') {
+		return '';
+	}
 	let markdown = '';
 	for (const type of schema.types) {
 		const sectionTitle = type.name.replace('Props', '');
@@ -63,7 +70,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 
 	// Replace <Preview>…</Preview> blocks with Markdown code blocks.
 	const previewBlockRegex = /<Preview[^>]*>[\s\S]*?<\/Preview>/g;
-	const previewBlocks = Array.from(content.matchAll(previewBlockRegex));
+	const previewBlocks = [...content.matchAll(previewBlockRegex)];
 	for (const previewMatch of previewBlocks) {
 		const previewBlock = previewMatch[0];
 		// Example preview block
@@ -80,16 +87,20 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 
 		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw
 		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
-		if (!codeIdentifierMatch) continue;
+		if (!codeIdentifierMatch) {
+			continue;
+		}
 		const codeIdentifier = codeIdentifierMatch[1].trim();
 		const importPath = rawImports[codeIdentifier];
-		if (!importPath) continue;
+		if (!importPath) {
+			continue;
+		}
 		const resolvedPath = importPath.replace('@examples', './src/examples');
 		let fileContent = '';
 		try {
-			fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf-8');
-		} catch (err) {
-			console.error('Error reading file:', resolvedPath, err);
+			fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf8');
+		} catch (error) {
+			console.error('Error reading file:', resolvedPath, error);
 			fileContent = '// Error loading file';
 		}
 		const replacement = `\`\`\`${language}\n${fileContent}\n\`\`\``;
@@ -118,8 +129,8 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 	}
 
 	const apiTableRegex = /<ApiTable(?:\s+schema=\{([^}]+)\})?\s*\/>/g;
-	const apiTableMatches = Array.from(content.matchAll(apiTableRegex));
-	for (const apiMatch of apiTableMatches.reverse()) {
+	const apiTableMatches = [...content.matchAll(apiTableRegex)];
+	for (const apiMatch of apiTableMatches.toReversed()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
 		let schemaData: TypesRecord | null;
@@ -130,8 +141,8 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 				try {
 					const schemaModule = await import(/* @vite-ignore */ path.resolve(resolvedPath));
 					schemaData = schemaModule.default || schemaModule;
-				} catch (err) {
-					console.error('Error importing schema file:', resolvedPath, err);
+				} catch (error) {
+					console.error('Error importing schema file:', resolvedPath, error);
 					schemaData = null;
 				}
 			} else {
@@ -169,7 +180,7 @@ async function processGetStarted(): Promise<string> {
 
 async function processGuidesGeneral(): Promise<string> {
 	const guidesDocs = (await getCollection('docs')).filter(
-		(entry) => entry.id.startsWith('guides/') && !entry.id.startsWith('guides/figma/') && !entry.id.startsWith('guides/cookbook/')
+		(entry) => entry.id.startsWith('guides/') && !entry.id.startsWith('guides/figma/') && !entry.id.startsWith('guides/cookbook/'),
 	);
 	let guidesContent = '';
 	for (const doc of guidesDocs) {
@@ -244,7 +255,9 @@ async function processComponents(framework: Framework): Promise<string> {
 	for (const metaEntry of metaEntries) {
 		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
-		if (!docEntry) continue;
+		if (!docEntry) {
+			continue;
+		}
 		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
 		content = await processApiTables(content, docEntry.id);
@@ -265,7 +278,9 @@ async function processIntegrations(framework: Framework): Promise<string> {
 	for (const metaEntry of metaEntries) {
 		const docSlug = metaEntry.id.replace(/\/meta$/, `/${framework}`);
 		const docEntry = await getEntry('docs', docSlug);
-		if (!docEntry) continue;
+		if (!docEntry) {
+			continue;
+		}
 		let content = docEntry.body ?? '';
 		content = await processPreviewBlocks(content, framework);
 		content = await processApiTables(content, docEntry.id);

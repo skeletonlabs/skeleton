@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { render, screen } from '@testing-library/svelte';
 import Accordion from './accordion.svelte';
+import { render, screen } from '@testing-library/svelte';
+import { describe, expect, it } from 'vitest';
 
 describe('accordion', () => {
 	describe('root', () => {
@@ -17,24 +17,24 @@ describe('accordion', () => {
 		});
 	});
 
-	describe('heading', () => {
+	describe('item-heading', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('heading')).toBeInTheDocument();
+			expect(screen.getByTestId('item-heading')).toBeInTheDocument();
 		});
 	});
 
-	describe('trigger', () => {
+	describe('item-trigger', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			expect(screen.getByTestId('item-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('content', () => {
+	describe('item-content', () => {
 		it('renders', () => {
 			render(Accordion);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			expect(screen.getByTestId('item-content')).toBeInTheDocument();
 		});
 	});
 });

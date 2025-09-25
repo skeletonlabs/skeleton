@@ -1,13 +1,13 @@
+import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
+import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
+import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
+import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
+import { transformStyleSheet } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-stylesheet.js';
+import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
+import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
+import { readFile } from 'node:fs/promises';
 import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
-import { readFile } from 'node:fs/promises';
-import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-svelte.js';
-import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-module.js';
-import { transformAppHtml } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.html.js';
-import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-package.json.js';
-import { transformAppCss } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-app.css.js';
-import { FALLBACK_THEME } from '../../../src/commands/migrate/migrations/skeleton-3/utility/constants.js';
-import { transformStyleSheet } from '../../../src/commands/migrate/migrations/skeleton-3/transformers/transform-stylesheet.js';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
@@ -15,7 +15,7 @@ const TRANSFORMER_MAP = {
 	stylesheet: transformStyleSheet,
 	'app.html': transformAppHtml,
 	'app.css': transformAppCss,
-	'package.json': transformPackageJson
+	'package.json': transformPackageJson,
 };
 
 function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
@@ -23,12 +23,15 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 		case 'svelte':
 		case 'module':
 		case 'stylesheet':
-		case 'app.html':
+		case 'app.html': {
 			return TRANSFORMER_MAP[transformer](code).code;
-		case 'app.css':
-			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME, true).code;
-		case 'package.json':
+		}
+		case 'app.css': {
+			return TRANSFORMER_MAP[transformer](code, FALLBACK_THEME).code;
+		}
+		case 'package.json': {
 			return TRANSFORMER_MAP[transformer](code, '3.0.0', '1.0.0').code;
+		}
 	}
 }
 
@@ -37,7 +40,7 @@ function clean(code: string) {
 }
 
 const samples = import.meta.glob('./samples/**/*', {
-	query: '?raw'
+	query: '?raw',
 });
 
 const testCases = Object.keys(samples).reduce(
@@ -46,7 +49,7 @@ const testCases = Object.keys(samples).reduce(
 		const transformer = pathParts[2];
 		const testName = pathParts[3];
 		const fileType = pathParts[4];
-		if (!transformer || !testName || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
+		if (!transformer || !testName || !fileType || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
 			return acc;
 		}
 		acc[transformer] = acc[transformer] || {};
@@ -54,7 +57,7 @@ const testCases = Object.keys(samples).reduce(
 		acc[transformer][testName][fileType as 'input' | 'output'] = path;
 		return acc;
 	},
-	{} as Record<string, Record<string, { input: string; output: string }>>
+	{} as Record<string, Record<string, { input: string; output: string }>>,
 );
 
 describe('samples', () => {
@@ -65,9 +68,9 @@ describe('samples', () => {
 					continue;
 				}
 				test(testName, async () => {
-					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
+					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf8');
 					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
-					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf-8');
+					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf8');
 					expect(clean(actual)).toBe(clean(expected));
 				});
 			}

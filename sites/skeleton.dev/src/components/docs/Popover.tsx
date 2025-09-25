@@ -1,18 +1,18 @@
-import React, { useRef, useState } from 'react';
 import {
-	useFloating,
-	autoUpdate,
-	offset,
-	flip,
-	shift,
+	FloatingArrow,
 	arrow,
+	autoUpdate,
+	flip,
+	offset,
+	shift,
 	useClick,
-	useFocus,
 	useDismiss,
-	useRole,
+	useFloating,
+	useFocus,
 	useInteractions,
-	FloatingArrow
+	useRole,
 } from '@floating-ui/react';
+import React, { useRef, useState } from 'react';
 
 interface PopoverProps extends React.PropsWithChildren {
 	trigger: React.ReactNode;
@@ -42,7 +42,7 @@ export const Popover: React.FC<PopoverProps> = ({
 	arrowBase = '',
 	arrowClasses = '',
 	// Children
-	children
+	children,
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -52,7 +52,7 @@ export const Popover: React.FC<PopoverProps> = ({
 		onOpenChange: setIsOpen,
 		middleware: [offset(12), flip(), shift(), arrow({ element: arrowRef })],
 		placement: 'top',
-		whileElementsMounted: autoUpdate
+		whileElementsMounted: autoUpdate,
 	});
 
 	const click = useClick(context, {});

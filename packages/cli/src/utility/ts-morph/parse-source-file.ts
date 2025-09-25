@@ -1,11 +1,11 @@
-import { Project } from 'ts-morph';
 import { nanoid } from 'nanoid';
+import { Project } from 'ts-morph';
 
 const project = new Project({
 	useInMemoryFileSystem: true,
 	skipAddingFilesFromTsConfig: true,
 	skipFileDependencyResolution: true,
-	skipLoadingLibFiles: true
+	skipLoadingLibFiles: true,
 });
 
 function parseSourceFile(code: string) {

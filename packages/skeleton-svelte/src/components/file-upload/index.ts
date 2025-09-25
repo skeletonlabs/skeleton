@@ -1,0 +1,11 @@
+export type { FileUploadDropzoneProps } from './anatomy/dropzone.svelte';
+export type { FileUploadItemProps } from './anatomy/item.svelte';
+export type { FileUploadItemDeleteTriggerProps } from './anatomy/item-delete-trigger.svelte';
+export type { FileUploadItemGroupProps } from './anatomy/item-group.svelte';
+export type { FileUploadItemNameProps } from './anatomy/item-name.svelte';
+export type { FileUploadRootProps } from './anatomy/root.svelte';
+export type { FileUploadRootContextProps } from './anatomy/root-context.svelte';
+export type { FileUploadRootProviderProps } from './anatomy/root-provider.svelte';
+export type { FileUploadTriggerProps } from './anatomy/trigger.svelte';
+export { FileUpload } from './modules/anatomy';
+export { useFileUpload } from './modules/use-file-upload.svelte';

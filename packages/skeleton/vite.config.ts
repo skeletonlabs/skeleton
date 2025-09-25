@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
 import { basename, dirname, join } from 'node:path';
 import { glob } from 'tinyglobby';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
 	logLevel: 'silent',
@@ -12,13 +12,13 @@ export default defineConfig({
 			entry: {
 				['index']: 'src/index.css',
 				...Object.fromEntries(
-					(await glob('./src/{themes,optional}/*.{css,scss}')).map((path) => {
+					(await glob('./src/themes/*.{css,scss}')).map((path) => {
 						const directory = basename(dirname(path));
 						const filename = basename(path);
 						return [join(directory, filename), path];
-					})
-				)
-			}
-		}
-	}
+					}),
+				),
+			},
+		},
+	},
 });

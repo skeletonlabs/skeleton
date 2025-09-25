@@ -1,8 +1,6 @@
-'use client';
-
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Fluid() {
 	return (
 		<Tabs defaultValue="tab-1">
 			<Tabs.List>

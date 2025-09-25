@@ -1,0 +1,24 @@
+import { FileUploadRootContext } from '../modules/root-context';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
+import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+import { mergeProps } from '@zag-js/react';
+import { use } from 'react';
+
+export interface FileUploadHiddenInputProps extends PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
+
+export default function HiddenInput(props: FileUploadHiddenInputProps) {
+	const fileUpload = use(FileUploadRootContext);
+
+	const { element, ...rest } = props;
+
+	const attributes = mergeProps(
+		fileUpload.getHiddenInputProps(),
+		{
+			className: classesFileUpload.hiddenInput,
+		},
+		rest,
+	);
+
+	return element ? element(attributes) : <input {...attributes} />;
+}

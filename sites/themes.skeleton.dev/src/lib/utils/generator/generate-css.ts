@@ -1,15 +1,14 @@
 // Utility: Generate CSS
 // Generates the theme CSS for live previews.
-
-import { formageEdges, formatBackgrounds, formatColors, formatSpacing, formatTypography } from '$lib/utils/generator/format-output';
 import {
+	settingsBackgrounds,
 	// settingsCore,
 	settingsColors,
-	settingsBackgrounds,
-	settingsTypography,
+	settingsEdges,
 	settingsSpacing,
-	settingsEdges
+	settingsTypography,
 } from '$lib/state/generator.svelte';
+import { formageEdges, formatBackgrounds, formatColors, formatSpacing, formatTypography } from '$lib/utils/generator/format-output';
 
 export function generatePreviewCss() {
 	const themeCss = `

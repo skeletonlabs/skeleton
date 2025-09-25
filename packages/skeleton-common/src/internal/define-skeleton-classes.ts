@@ -1,10 +1,11 @@
-export function defineSkeletonClasses<T extends Record<string, string>>(anatomy: T) {
+export function defineSkeletonClasses<T extends Record<string, string | string[]>>(anatomy: T) {
 	const PREFIX = 'skb:';
 	const ESCAPE_PREFIX = 'not-skb:';
+
 	return Object.fromEntries(
-		Object.entries(anatomy).map(([key, value]) => [
-			key,
-			value
+		Object.entries(anatomy).map(([key, value]) => {
+			const normalized = Array.isArray(value) ? value.join(' ') : value;
+			const transformed = normalized
 				.split(' ')
 				.filter((cls) => cls.length > 0)
 				.map((cls) => {
@@ -13,7 +14,9 @@ export function defineSkeletonClasses<T extends Record<string, string>>(anatomy:
 					}
 					return `${PREFIX}${cls}`;
 				})
-				.join(' ')
-		])
-	) as T;
+				.join(' ');
+
+			return [key, transformed];
+		}),
+	) as { [K in keyof T]: string };
 }

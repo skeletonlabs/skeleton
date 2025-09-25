@@ -29,7 +29,7 @@
 		{ id: 2, avatar: 31, name: 'Susan' },
 		{ id: 3, avatar: 56, name: 'Joey' },
 		{ id: 4, avatar: 24, name: 'Lara' },
-		{ id: 5, avatar: 9, name: 'Melissa' }
+		{ id: 5, avatar: 9, name: 'Melissa' },
 	];
 	let currentPersonId: number = people[0].id;
 
@@ -42,7 +42,7 @@
 			name: 'Jane',
 			timestamp: 'Yesterday @ 2:30pm',
 			message: lorem,
-			color: 'preset-tonal-primary'
+			color: 'preset-tonal-primary',
 		},
 		{
 			id: 1,
@@ -51,7 +51,7 @@
 			name: 'Michael',
 			timestamp: 'Yesterday @ 2:45pm',
 			message: lorem,
-			color: 'preset-tonal-primary'
+			color: 'preset-tonal-primary',
 		},
 		{
 			id: 2,
@@ -60,7 +60,7 @@
 			name: 'Jane',
 			timestamp: 'Yesterday @ 2:50pm',
 			message: lorem,
-			color: 'preset-tonal-primary'
+			color: 'preset-tonal-primary',
 		},
 		{
 			id: 3,
@@ -69,8 +69,8 @@
 			name: 'Michael',
 			timestamp: 'Yesterday @ 2:52pm',
 			message: lorem,
-			color: 'preset-tonal-primary'
-		}
+			color: 'preset-tonal-primary',
+		},
 	];
 	let currentMessage = '';
 
@@ -90,7 +90,7 @@
 			name: 'Jane',
 			timestamp: `Today @ ${getCurrentTimestamp()}`,
 			message: currentMessage,
-			color: 'preset-tonal-primary'
+			color: 'preset-tonal-primary',
 		};
 		// Update the message feed
 		messageFeed = [...messageFeed, newMessage];

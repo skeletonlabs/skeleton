@@ -1,0 +1,49 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/tags-input/svelte/default.svelte';
+import DefaultRaw from '@examples/components/tags-input/svelte/default.svelte?raw';
+
+import CustomIcon from '@examples/components/tags-input/svelte/custom-icon.svelte';
+import CustomIconRaw from '@examples/components/tags-input/svelte/custom-icon.svelte?raw';
+
+import Color from '@examples/components/tags-input/svelte/color.svelte';
+import ColorRaw from '@examples/components/tags-input/svelte/color.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Custom Icon
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomIcon client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomIconRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Color
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Color client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

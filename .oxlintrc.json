@@ -1,0 +1,15 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": ["typescript", "unicorn", "react", "react-perf", "oxc", "import"],
+	"categories": {
+		"correctness": "error"
+	},
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"rules": {
+				"no-unassigned-vars": "off"
+			}
+		}
+	]
+}

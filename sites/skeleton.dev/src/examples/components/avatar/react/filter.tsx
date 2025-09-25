@@ -1,8 +1,6 @@
-'use client';
-
 import { Avatar } from '@skeletonlabs/skeleton-react';
 
-export default function () {
+export default function Filter() {
 	return (
 		<>
 			<Avatar>
@@ -18,7 +16,7 @@ export default function () {
             0 0 0 50 0"
 						result="final"
 						in="SourceGraphic"
-					></feColorMatrix>
+					/>
 				</filter>
 			</svg>
 		</>

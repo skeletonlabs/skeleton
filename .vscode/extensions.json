@@ -1,28 +1,11 @@
 {
 	"recommendations": [
-		/**
-		 * Astro
-		 */
 		"astro-build.astro-vscode",
-		/**
-		 * MDX
-		 */
 		"unifiedjs.vscode-mdx",
-		/**
-		 * Tailwind
-		 */
 		"bradlc.vscode-tailwindcss",
-		/**
-		 * Svelte
-		 */
 		"svelte.svelte-vscode",
-		/**
-		 * Prettier
-		 */
 		"esbenp.prettier-vscode",
-		/**
-		 * ESLint
-		 */
-		"dbaeumer.vscode-eslint"
+		"oxc.oxc-vscode",
+		"antfu.pnpm-catalog-lens"
 	]
 }

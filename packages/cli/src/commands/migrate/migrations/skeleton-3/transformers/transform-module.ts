@@ -1,8 +1,8 @@
-import { transformClasses } from './transform-classes';
-import { Node } from 'ts-morph';
 import { addNamedImport } from '../../../../../utility/ts-morph/add-named-import';
 import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
 import { EXPORT_MAPPINGS } from '../utility/export-mappings';
+import { transformClasses } from './transform-classes';
+import { Node } from 'ts-morph';
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
@@ -21,7 +21,7 @@ function transformModule(code: string) {
 			const name = node.getName();
 			if (Object.hasOwn(EXPORT_MAPPINGS, name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
-				switch (exportMapping.namedImport.type) {
+				switch (exportMapping?.namedImport.type) {
 					case 'renamed': {
 						if (exportMapping.namedImport.value.match(/^[A-Za-z]+\.[A-Za-z]+$/)) {
 							break;
@@ -49,21 +49,27 @@ function transformModule(code: string) {
 			const name = node.getText();
 			if (Object.hasOwn(EXPORT_MAPPINGS, name) && skeletonImports.includes(name)) {
 				const exportMapping = EXPORT_MAPPINGS[name];
-				if (exportMapping.identifier.type === 'renamed') {
-					node.replaceWithText(exportMapping.identifier.value);
+				if (exportMapping?.identifier.type === 'renamed') {
+					const updated = exportMapping.identifier.value;
+					if (updated !== node.getText()) {
+						node.replaceWithText(updated);
+					}
 				}
 			}
 		}
 		if (!node.wasForgotten() && Node.isStringLiteral(node) && !Node.isImportDeclaration(node.getParent())) {
-			node.replaceWithText(transformClasses(node.getText()).code);
+			const transformed = transformClasses(node.getText()).code;
+			if (transformed !== node.getText()) {
+				node.replaceWithText(transformed);
+			}
 		}
 	});
 
 	return {
 		code: file.getFullText(),
 		meta: {
-			skeletonImports: skeletonImports
-		}
+			skeletonImports: skeletonImports,
+		},
 	};
 }
 

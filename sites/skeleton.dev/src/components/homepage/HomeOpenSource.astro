@@ -1,6 +1,5 @@
 ---
 import { ChevronRight as IconChevron } from 'lucide-react';
-
 import { Octokit } from 'octokit';
 
 const octokit = new Octokit();
@@ -9,7 +8,7 @@ async function getContributors() {
 	const response = await octokit.rest.repos.listContributors({
 		owner: 'skeletonlabs',
 		repo: 'skeleton',
-		per_page: 100
+		per_page: 100,
 	});
 	return response.data;
 }

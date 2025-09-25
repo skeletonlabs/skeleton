@@ -1,13 +1,13 @@
 <script lang="ts">
 	// State
-	import { globals } from '$lib/state/generator.svelte';
 	// Constants
 	import * as constants from '$lib/constants/generator';
+	import { globals } from '$lib/state/generator.svelte';
 	// Components (generator)
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
+	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 	// Icons
 	import IconSkull from '@lucide/svelte/icons/skull';
-	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 
 	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);

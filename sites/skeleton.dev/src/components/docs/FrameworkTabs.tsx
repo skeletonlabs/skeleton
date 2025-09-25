@@ -1,6 +1,10 @@
 import React from 'react';
 
-type FrameworkTabsProps = { selected: 'svelte' | 'react'; svelte: React.ReactNode; react: React.ReactNode };
+interface FrameworkTabsProps {
+	selected: 'svelte' | 'react';
+	svelte: React.ReactNode;
+	react: React.ReactNode;
+}
 
 /** Create a framework-specific tab component. */
 export const FrameworkTabs: React.FC<FrameworkTabsProps> = (props) => {
@@ -9,7 +13,9 @@ export const FrameworkTabs: React.FC<FrameworkTabsProps> = (props) => {
 	const cTabActive = '!border-surface-950-50';
 
 	function selectedClass(tab: string) {
-		if (tab === selected) return cTabActive;
+		if (tab === selected) {
+			return cTabActive;
+		}
 	}
 
 	return (

@@ -6,9 +6,9 @@ description: An open-source Svelte library for building high-quality, accessible
 
 export const components = componentSet;
 
-import { Image } from 'astro:assets';
 import ImgBanner from '@images/headless/melt-ui/melt-banner.png';
 import ImgComponent from '@images/headless/melt-ui/melt-component.gif';
+import { Image } from 'astro:assets';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -171,8 +171,8 @@ Below is a complete example showing the entire component with styles, transition
 
 ```svelte
 <script lang="ts">
-	import { slide } from 'svelte/transition';
 	import { Accordion, type AccordionItem } from 'melt/builders';
+	import { slide } from 'svelte/transition';
 
 	type Item = AccordionItem<{
 		title: string;
@@ -183,18 +183,18 @@ Below is a complete example showing the entire component with styles, transition
 		{
 			id: 'item-1',
 			title: 'Bulbasaur',
-			description: 'For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.'
+			description: 'For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.',
 		},
 		{
 			id: 'item-2',
 			title: 'Charmander',
-			description: 'The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.'
+			description: 'The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.',
 		},
 		{
 			id: 'item-3',
 			title: 'Squirtle',
-			description: 'After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.'
-		}
+			description: 'After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.',
+		},
 	];
 
 	const accordion = new Accordion({ multiple: true });

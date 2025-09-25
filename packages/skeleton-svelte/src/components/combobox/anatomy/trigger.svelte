@@ -1,0 +1,41 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+
+	export interface ComboboxTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+</script>
+
+<script lang="ts">
+	import { ComboboxRootContext } from '../modules/root-context';
+	import ChevronDownIcon from '@/internal/components/chevron-down.svelte';
+	import { classesCombobox } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: ComboboxTriggerProps = $props();
+
+	const combobox = ComboboxRootContext.consume();
+
+	const { element, children = chevronDown, ...rest } = $derived(props);
+
+	const attributes = $derived(
+		mergeProps(
+			combobox().getTriggerProps(),
+			{
+				class: classesCombobox.trigger,
+			},
+			rest,
+		),
+	);
+</script>
+
+{#snippet chevronDown()}
+	<ChevronDownIcon />
+{/snippet}
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<button {...attributes}>
+		{@render children?.()}
+	</button>
+{/if}

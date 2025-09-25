@@ -6,9 +6,9 @@ description: Unstyled, accessible, open source React primitives for high-quality
 
 export const components = componentSet;
 
-import { Image } from 'astro:assets';
 import ImgBanner from '@images/headless/radix-ui/radix-banner.png';
 import ImgComponent from '@images/headless/radix-ui/radix-component.gif';
+import { Image } from 'astro:assets';
 
 import Process from '@components/docs/Process.astro';
 import ProcessStep from '@components/docs/ProcessStep.astro';
@@ -173,8 +173,8 @@ Styling each item component. Apply these styles to each button.
 Below is a complete example showing the entire component with all styles and basic configuration.
 
 ```tsx
-import { useState, type FC } from 'react';
 import * as RadixToggleGroup from '@radix-ui/react-toggle-group';
+import { useState, type FC } from 'react';
 
 interface ToggleGroupProps {
 	/* ... */

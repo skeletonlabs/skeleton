@@ -1,26 +1,43 @@
 {
-  "mode": "pre",
-  "tag": "next",
-  "initialVersions": {
-    "skeleton": "1.0.0",
-    "@skeletonlabs/necroparser": "0.0.1",
-    "@skeletonlabs/skeleton": "3.2.0",
-    "@skeletonlabs/skeleton-common": "0.0.1",
-    "@skeletonlabs/skeleton-react": "1.4.0",
-    "@skeletonlabs/skeleton-svelte": "1.5.1",
-    "@skeletonlabs/playground-skeleton-core": "0.0.1",
-    "@skeletonlabs/playground-skeleton-react": "0.0.1",
-    "@skeletonlabs/playground-skeleton-svelte": "0.0.1",
-    "@skeletonlabs/skeleton.dev": "0.0.1",
-    "@skeletonlabs/themes.skeleton.dev": "0.0.1",
-    "@skeletonlabs/playground-skeleton": "0.0.1"
-  },
-  "changesets": [
-    "dry-coats-return",
-    "forty-badgers-clap",
-    "kind-feet-serve",
-    "legal-suits-write",
-    "little-files-notice",
-    "small-words-drum"
-  ]
+	"mode": "pre",
+	"tag": "next",
+	"initialVersions": {
+		"skeleton": "1.0.0",
+		"@skeletonlabs/skeleton": "3.2.0",
+		"@skeletonlabs/skeleton-common": "0.0.1",
+		"@skeletonlabs/skeleton-react": "1.4.0",
+		"@skeletonlabs/skeleton-svelte": "1.5.1",
+		"@skeletonlabs/playground-skeleton-react": "0.0.1",
+		"@skeletonlabs/playground-skeleton-svelte": "0.0.1",
+		"@skeletonlabs/skeleton.dev": "0.0.1",
+		"@skeletonlabs/themes.skeleton.dev": "0.0.1"
+	},
+	"changesets": [
+		"better-shrimps-beam",
+		"calm-rooms-marry",
+		"clear-places-shout",
+		"dry-coats-return",
+		"evil-hands-obey",
+		"five-snakes-love",
+		"forty-badgers-clap",
+		"great-eagles-glow",
+		"hot-beers-think",
+		"kind-feet-serve",
+		"legal-suits-write",
+		"little-files-notice",
+		"major-trains-enter",
+		"mean-nights-repeat",
+		"neat-clubs-agree",
+		"orange-towns-teach",
+		"pretty-words-agree",
+		"purple-tigers-happen",
+		"quiet-bars-lay",
+		"silly-bottles-hope",
+		"slick-breads-wink",
+		"small-words-drum",
+		"strong-hotels-care",
+		"tidy-peaches-know",
+		"violet-signs-dream",
+		"yellow-jokes-walk"
+	]
 }

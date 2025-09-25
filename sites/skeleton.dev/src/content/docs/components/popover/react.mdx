@@ -1,0 +1,97 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/popover/react/default';
+import DefaultRaw from '@examples/components/popover/react/default?raw';
+
+import Programmatic from '@examples/components/popover/react/programmatic';
+import ProgrammaticRaw from '@examples/components/popover/react/programmatic?raw';
+
+import Arrow from '@examples/components/popover/react/arrow';
+import ArrowRaw from '@examples/components/popover/react/arrow?raw';
+
+import ZIndex from '@examples/components/popover/react/z-index';
+import ZIndexRaw from '@examples/components/popover/react/z-index?raw';
+
+import Styling from '@examples/components/popover/react/styling';
+import StylingRaw from '@examples/components/popover/react/styling?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Arrow
+
+You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts. Note that Zag.js opts to style these with CSS custom properties, which can be adjusted using a `style` attribute.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Arrow client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ArrowRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component part.
+
+> NOTE: This will need to be forced using `!` for `!important` to override the Zag.js defaults.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ZIndex client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ZIndexRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Programmatic Control
+
+This is made possible via the Provider Pattern.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Programmatic client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ProgrammaticRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Headless
+
+Unlike most components in Skeleton, this is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Styling client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={StylingRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+The benefits are as follows:
+
+- You can make the `Trigger` surround any element, including an icon, button, image, etc.
+- You can modify the entire structure within `Content`, including custom markup and styling.
+- You may place the `CloseTrigger` anywhere, and use it as an X close option.
+
+## Portals
+
+This component uses portals for the floating element to avoid being affected by the flow of the DOM.
+
+## API Reference
+
+<ApiTable />

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { intro, log, outro } from '@clack/prompts';
 import { migrate } from './commands/migrate';
+import { getOurPackageJson } from './utility/get-our-package-json';
+import { intro, log, outro } from '@clack/prompts';
 import { bgBlueBright, bgGreenBright, black, dim, red } from 'colorette';
 import { Command } from 'commander';
-import { getOurPackageJson } from './utility/get-our-package-json';
 
 const pkg = await getOurPackageJson();
 
@@ -18,7 +18,7 @@ const cli = new Command()
 		writeErr(str) {
 			outro(red(str.replace('\n', ' ')));
 			process.exit(1);
-		}
+		},
 	})
 	.hook('preAction', (_, ctx) => {
 		const args = ctx.args.join(' ');

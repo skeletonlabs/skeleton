@@ -6,8 +6,9 @@ showDocsUrl: false
 order: 8888
 ---
 
-export const components = componentSet;
 import NavGrid from '@components/docs/NavGrid.astro';
+
+export const components = componentSet;
 
 ## Introduction
 
@@ -93,7 +94,7 @@ Use the following steps to migrate to from PostCSS to the Vite plugin:
 ```ts
 plugins: [
 	tailwindcss(),
-	sveltekit() // or svelte()
+	sveltekit(), // or svelte()
 ];
 ```
 
@@ -172,6 +173,7 @@ Here's an example of changes for a single component from v2 to the new equivalen
 
 <script lang="ts">
 	import { RangeSlider } from '@skeletonlabs/skeleton';
+
 	let value = 15;
 </script>
 
@@ -183,6 +185,7 @@ Here's an example of changes for a single component from v2 to the new equivalen
 
 <script lang="ts">
 	import { Slider } from '@skeletonlabs/skeleton-svelte';
+
 	let value = $state([15]);
 </script>
 

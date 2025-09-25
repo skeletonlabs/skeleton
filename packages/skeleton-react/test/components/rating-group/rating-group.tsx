@@ -1,15 +1,15 @@
-import { RatingGroup } from '../../../src/index.js';
+import { RatingGroup } from '@/index';
 
-export default function () {
+export default function RatingGroupTest() {
 	return (
 		<RatingGroup count={3} data-testid="root">
 			<RatingGroup.Label data-testid="label">Label</RatingGroup.Label>
 			<RatingGroup.Control data-testid="control">
 				<RatingGroup.Context>
-					{(ctx) =>
-						ctx.api.items.map((index) => (
+					{(ratingGroup) =>
+						ratingGroup.items.map((index) => (
 							<RatingGroup.Item key={index} index={index} data-testid={`item-${index}`}>
-								Item
+								Item {index}
 							</RatingGroup.Item>
 						))
 					}

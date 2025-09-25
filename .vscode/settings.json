@@ -1,10 +1,22 @@
 {
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"prettier.enable": true,
 	"editor.formatOnSave": true,
-	"eslint.enable": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"oxc.enable": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit"
+		"source.fixAll.oxc": "always"
 	},
-	"tailwindCSS.experimental.classRegex": ["(?:class|className):\\s*['\"]([^'\"]*)['\"]"]
+	"svelte.enable-ts-plugin": true,
+	"editor.quickSuggestions": {
+		"strings": "on"
+	},
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.includeLanguages": {
+		"html": "html",
+		"javascript": "javascript",
+		"typescript": "javascript",
+		"css": "css"
+	}
 }

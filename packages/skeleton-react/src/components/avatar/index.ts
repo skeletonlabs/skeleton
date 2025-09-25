@@ -1,6 +1,7 @@
-export { Avatar } from './modules/avatar-anatomy';
-export type { AvatarRootProps } from './anatomy/avatar-root';
-export type { AvatarRootContextProps } from './anatomy/avatar-root-context';
-export type { AvatarImageProps } from './anatomy/avatar-image';
-export type { AvatarFallbackProps } from './anatomy/avatar-fallback';
-export type { AvatarRootContextType as AvatarRootContext } from './modules/avatar-root-context';
+export type { AvatarFallbackProps } from './anatomy/fallback';
+export type { AvatarImageProps } from './anatomy/image';
+export type { AvatarRootProps } from './anatomy/root';
+export type { AvatarRootContextProps } from './anatomy/root-context';
+export type { AvatarRootProviderProps } from './anatomy/root-provider';
+export { Avatar } from './modules/anatomy';
+export { useAvatar } from './modules/use-avatar';

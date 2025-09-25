@@ -1,28 +1,124 @@
 packages:
   - packages/*
-  - sites/*
   - playgrounds/*
+  - sites/*
 
 catalog:
-  '@zag-js/svelte': ^1.22.1
-  '@zag-js/react': ^1.22.1
-  '@zag-js/accordion': ^1.22.1
-  '@zag-js/avatar': ^1.22.1
-  '@zag-js/combobox': ^1.22.1
-  '@zag-js/dialog': ^1.22.1
-  '@zag-js/file-upload': ^1.22.1
-  '@zag-js/pagination': ^1.22.1
-  '@zag-js/popover': ^1.22.1
-  '@zag-js/progress': ^1.22.1
-  '@zag-js/radio-group': ^1.22.1
-  '@zag-js/rating-group': ^1.22.1
-  '@zag-js/slider': ^1.22.1
-  '@zag-js/switch': ^1.22.1
-  '@zag-js/tabs': ^1.22.1
-  '@zag-js/tags-input': ^1.22.1
-  '@zag-js/toast': ^1.22.1
-  '@zag-js/tooltip': ^1.22.1
-  '@zag-js/tree-view': ^1.22.1
-  typescript: ^5.9.2
-  svelte: ^5.38.6
-  tailwindcss: ^4.1.12
+  '@astrojs/check': 0.9.4
+  '@astrojs/mdx': 4.3.4
+  '@astrojs/partytown': 2.1.4
+  '@astrojs/react': 4.3.0
+  '@astrojs/svelte': 7.1.0
+  '@atproto/api': 0.16.6
+  '@changesets/cli': 2.29.7
+  '@clack/prompts': 0.11.0
+  '@floating-ui/react': 0.27.16
+  '@lucide/svelte': 0.542.0
+  '@nanostores/persistent': 1.1.0
+  '@sveltejs/adapter-auto': 6.1.0
+  '@sveltejs/adapter-vercel': 5.10.2
+  '@sveltejs/kit': 2.37.0
+  '@sveltejs/package': 2.5.0
+  '@sveltejs/vite-plugin-svelte': 6.1.3
+  '@svitejs/changesets-changelog-github-compact': 1.2.0
+  '@tailwindcss/forms': 0.5.10
+  '@tailwindcss/postcss': 4.1.12
+  '@tailwindcss/vite': 4.1.12
+  '@testing-library/jest-dom': 6.8.0
+  '@testing-library/react': 16.3.0
+  '@testing-library/svelte': 5.2.8
+  '@trivago/prettier-plugin-sort-imports': 5.2.2
+  '@types/chroma-js': 3.1.1
+  '@types/estree': 1.0.8
+  '@types/node': 24.4.0
+  '@types/react': 19.1.12
+  '@types/react-dom': 19.1.9
+  '@types/semver': 7.7.0
+  '@vitejs/plugin-react': 5.0.2
+  '@zag-js/accordion': 1.24.2
+  '@zag-js/avatar': 1.24.2
+  '@zag-js/collection': 1.24.2
+  '@zag-js/combobox': 1.24.2
+  '@zag-js/dialog': 1.24.2
+  '@zag-js/file-upload': 1.24.2
+  '@zag-js/popover': 1.24.2
+  '@zag-js/progress': 1.24.2
+  '@zag-js/radio-group': 1.24.2
+  '@zag-js/rating-group': 1.24.2
+  '@zag-js/react': 1.24.2
+  '@zag-js/slider': 1.24.2
+  '@zag-js/svelte': 1.24.2
+  '@zag-js/switch': 1.24.2
+  '@zag-js/tabs': 1.24.2
+  '@zag-js/tags-input': 1.24.2
+  '@zag-js/toast': 1.24.2
+  '@zag-js/tooltip': 1.24.2
+  '@zag-js/tree-view': 1.24.2
+  astro: 5.13.5
+  astro-auto-import: 0.4.4
+  astro-expressive-code: 0.41.3
+  astro-icon: 1.1.5
+  autoprefixer: 10.4.21
+  chroma-js: 3.1.2
+  colorette: 2.0.20
+  commander: 14.0.0
+  detect-indent: 7.0.1
+  fuse.js: 7.1.0
+  jsdom: 26.1.0
+  latest-version: 9.0.0
+  lucide-react: 0.542.0
+  magic-string: 0.30.18
+  nanoid: 5.1.5
+  nanostores: 1.0.1
+  next: 15.5.2
+  node-html-parser: 7.0.1
+  octokit: 5.0.3
+  oxlint: 1.15.0
+  oxlint-tsgolint: 0.2.0
+  package-manager-detector: 1.3.0
+  pagefind: 1.3.0
+  postcss: 8.5.6
+  prettier: 3.6.2
+  prettier-plugin-astro: 0.14.1
+  prettier-plugin-svelte: 3.4.0
+  prettier-plugin-tailwindcss: 0.6.14
+  publint: 0.3.12
+  react: 19.1.1
+  react-dom: 19.1.1
+  react-hot-toast: 2.6.0
+  sass-embedded: 1.91.0
+  semver: 7.7.2
+  sharp: 0.34.3
+  shiki: 3.12.0
+  svelte: 5.38.6
+  svelte-check: 4.3.1
+  tailwindcss: 4.1.12
+  tinyglobby: 0.2.14
+  ts-morph: 26.0.0
+  tsdown: 0.14.2
+  tslib: 2.8.1
+  tsx: 4.20.5
+  type-fest: 4.41.0
+  typescript: 5.9.2
+  unplugin-macros: 0.18.1
+  unplugin-raw: 0.6.1
+  vite: 7.1.3
+  vite-plugin-pagefind: 1.0.7
+  vitest: 3.2.4
+  zimmerframe: 1.1.2
+
+catalogMode: strict
+
+cleanupUnusedCatalogs: true
+
+engineStrict: true
+
+minimumReleaseAge: 1440
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+
+savePrefix: ''

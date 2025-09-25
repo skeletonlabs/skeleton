@@ -4,25 +4,30 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components/rating-group/react/default.tsx';
-import ExampleRaw from '@examples/components/rating-group/react/default.tsx?raw';
-import ExampleHalf from '@examples/components/rating-group/react/half.tsx';
-import ExampleHalfRaw from '@examples/components/rating-group/react/half.tsx?raw';
-import ExampleCustomIcons from '@examples/components/rating-group/react/custom-icons.tsx';
-import ExampleCustomIconsRaw from '@examples/components/rating-group/react/custom-icons.tsx?raw';
-import ExampleLabel from '@examples/components/rating-group/react/label.tsx';
-import ExampleLabelRaw from '@examples/components/rating-group/react/label.tsx?raw';
-import ExampleDisabled from '@examples/components/rating-group/react/disabled.tsx';
-import ExampleDisabledRaw from '@examples/components/rating-group/react/disabled.tsx?raw';
-import ExampleRtl from '@examples/components/rating-group/react/rtl.tsx';
-import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
+import Default from '@examples/components/rating-group/react/default.tsx';
+import DefaultRaw from '@examples/components/rating-group/react/default.tsx?raw';
+
+import Half from '@examples/components/rating-group/react/half.tsx';
+import HalfRaw from '@examples/components/rating-group/react/half.tsx?raw';
+
+import CustomIcons from '@examples/components/rating-group/react/custom-icons.tsx';
+import CustomIconsRaw from '@examples/components/rating-group/react/custom-icons.tsx?raw';
+
+import Label from '@examples/components/rating-group/react/label.tsx';
+import LabelRaw from '@examples/components/rating-group/react/label.tsx?raw';
+
+import Disabled from '@examples/components/rating-group/react/disabled.tsx';
+import DisabledRaw from '@examples/components/rating-group/react/disabled.tsx?raw';
+
+import Rtl from '@examples/components/rating-group/react/rtl.tsx';
+import RtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
+		<Code code={DefaultRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -30,10 +35,10 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleHalf client:visible />
+		<Half client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleHalfRaw} lang="tsx" />
+		<Code code={HalfRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -41,10 +46,10 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCustomIcons client:visible />
+		<CustomIcons client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCustomIconsRaw} lang="tsx" />
+		<Code code={CustomIconsRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -52,10 +57,10 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleLabel client:visible />
+		<Label client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleLabelRaw} lang="tsx" />
+		<Code code={LabelRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -63,10 +68,10 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleDisabled client:visible />
+		<Disabled client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleDisabledRaw} lang="tsx" />
+		<Code code={DisabledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -74,10 +79,10 @@ import ExampleRtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleRtl client:visible />
+		<Rtl client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRtlRaw} lang="tsx" />
+		<Code code={RtlRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

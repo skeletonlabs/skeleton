@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	// Themes
-	import { themes } from '@skeletonlabs/skeleton-common';
+	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
+	import { themes } from '@skeletonlabs/skeleton-common';
 
 	const defaultThemeName = 'cerberus';
 
@@ -14,11 +15,13 @@
 
 	function onSelectTemplate(fileCss: string, fileName: string) {
 		// Reset to default theme
-		if (fileName !== defaultThemeName) resetToDefaults();
+		if (fileName !== defaultThemeName) {
+			resetToDefaults();
+		}
 		// Run template import
 		importThemeV3(fileCss, fileName);
 		// Redirect to Generator page
-		goto('/themes/create');
+		goto(resolve('/themes/create'));
 	}
 
 	// async function onFileUpload(event) {

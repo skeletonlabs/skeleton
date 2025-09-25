@@ -1,26 +1,27 @@
 ---
 // Stores
-import { socialLinks } from 'src/stores/social-links';
 // Components
 import Drawer from '@components/docs/Drawer.astro';
-import { HeaderVersion } from './HeaderVersion';
-import { HeaderThemes } from './HeaderThemes';
-import { HeaderSponsors } from './HeaderSponsors';
 import Lightswitch from '@components/docs/Lightswitch.astro';
-import Search from './Search.svelte';
 import Navigation from '@components/docs/Navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
+import { socialLinks } from 'src/stores/social-links';
+
+import { HeaderSponsors } from './HeaderSponsors';
+import { HeaderThemes } from './HeaderThemes';
+import { HeaderVersion } from './HeaderVersion';
+import Search from './Search.svelte';
 
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', title: 'Docs' },
 	{ href: '/news', title: 'News' },
 	{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
-	{ href: '/figma', title: 'Figma' }
+	{ href: '/figma', title: 'Figma' },
 ];
 const versionLinks = [
 	{ href: 'https://v1.skeleton.dev/', title: 'Version 1', target: '_blank' },
-	{ href: 'https://v2.skeleton.dev/', title: 'Version 2', target: '_blank' }
+	{ href: 'https://v2.skeleton.dev/', title: 'Version 2', target: '_blank' },
 ];
 ---
 

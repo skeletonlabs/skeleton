@@ -1,19 +1,19 @@
 <script lang="ts">
-	import { untrack } from 'svelte';
-	import type { Pagefind } from 'vite-plugin-pagefind/types';
+	import IconBook from '@lucide/svelte/icons/book';
+	import IconChevronRight from '@lucide/svelte/icons/chevron-right';
+	import IconFilter from '@lucide/svelte/icons/filter';
+	import IconHash from '@lucide/svelte/icons/hash';
+	import IconLoader from '@lucide/svelte/icons/loader';
+	// Icons
+	import IconSearch from '@lucide/svelte/icons/search';
 	// Utils
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
 	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
-	// Icons
-	import IconSearch from '@lucide/svelte/icons/search';
-	import IconFilter from '@lucide/svelte/icons/filter';
-	import IconBook from '@lucide/svelte/icons/book';
-	import IconHash from '@lucide/svelte/icons/hash';
-	import IconLoader from '@lucide/svelte/icons/loader';
-	import IconChevronRight from '@lucide/svelte/icons/chevron-right';
+	import { untrack } from 'svelte';
+	import type { Pagefind } from 'vite-plugin-pagefind/types';
 
-	let dialog: HTMLDialogElement | null = $state(null);
-	let pagefind: Pagefind | null = $state(null);
+	let dialog: HTMLDialogElement | null = $state(undefined);
+	let pagefind: Pagefind | null = $state(undefined);
 	let query = $state('');
 	let docSearchSettings = $state(docSearchSettingsStore.get());
 	let showFilters = $state(false);
@@ -32,10 +32,14 @@
 		void [pagefind, query, docSearchSettings.framework];
 
 		return untrack(async () => {
-			if (pagefind === null || query === '') return [];
+			if (pagefind === null || query === '') {
+				return [];
+			}
 
 			const result = await pagefind.debouncedSearch(query, {}, 250);
-			if (result === null) return [];
+			if (result === null) {
+				return [];
+			}
 
 			const results = await Promise.all(result.results.map((result) => result.data()));
 			return results.filter((result) => {
@@ -63,8 +67,12 @@
 
 	const onClickOutside = (node: HTMLDialogElement) => {
 		const onclick = (event: MouseEvent) => {
-			if (event.target === null || !(event.target instanceof Element)) return;
-			if (event.target.tagName !== 'DIALOG') return; // prevents issues with forms
+			if (event.target === null || !(event.target instanceof Element)) {
+				return;
+			}
+			if (event.target.tagName !== 'DIALOG') {
+				return;
+			} // prevents issues with forms
 
 			const rect = event.target.getBoundingClientRect();
 
@@ -85,7 +93,7 @@
 		return {
 			destroy: () => {
 				document.removeEventListener('click', onclick);
-			}
+			},
 		};
 	};
 
@@ -99,9 +107,11 @@
 		});
 
 		return () => {
-			if (!pagefind) return;
+			if (!pagefind) {
+				return;
+			}
 			pagefind.destroy();
-			pagefind = null;
+			pagefind = undefined;
 		};
 	});
 

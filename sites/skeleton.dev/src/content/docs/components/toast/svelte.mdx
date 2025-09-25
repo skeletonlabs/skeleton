@@ -1,0 +1,120 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/toast/svelte/default.svelte';
+import DefaultRaw from '@examples/components/toast/svelte/default.svelte?raw';
+
+import Type from '@examples/components/toast/svelte/type.svelte';
+import TypeRaw from '@examples/components/toast/svelte/type.svelte?raw';
+
+import Action from '@examples/components/toast/svelte/action.svelte';
+import ActionRaw from '@examples/components/toast/svelte/action.svelte?raw';
+
+import Closable from '@examples/components/toast/svelte/closable.svelte';
+import ClosableRaw from '@examples/components/toast/svelte/closable.svelte?raw';
+
+import Placement from '@examples/components/toast/svelte/placement.svelte';
+import PlacementRaw from '@examples/components/toast/svelte/placement.svelte?raw';
+
+import Meta from '@examples/components/toast/svelte/meta.svelte';
+import MetaRaw from '@examples/components/toast/svelte/meta.svelte?raw';
+
+import Promise from '@examples/components/toast/svelte/promise.svelte';
+import PromiseRaw from '@examples/components/toast/svelte/promise.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Usage
+
+This component can act as a Singleton - meaning you you only implement a single instance (typically at the root scope of your app) and then reused it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app (for SvelteKit this would be your root `+layout.svelte`), and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
+
+## Type
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Type client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={TypeRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+Types can be specified in one of two ways:
+
+- Via a trigger method: `toaster.{info|success|warning|error}()`
+- Via the object key: `type: {info|success|warning|error}`
+
+## Action
+
+Include an optional action button.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Action client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ActionRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Closable
+
+By passing `closable: false` you can disable the close button.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Closable client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ClosableRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Placement
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Placement client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={PlacementRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Meta
+
+Use the `meta` key to provide arbitrary data. Then use this to modify your Toast template.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Meta client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MetaRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Promise
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Promise client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={PromiseRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

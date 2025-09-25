@@ -1,18 +1,22 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"lib": ["DOM", "ESNext"],
-		"moduleDetection": "force",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"types": ["node"],
-		"strict": true,
-		"noEmit": true,
 		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "es2022",
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
 		"isolatedModules": true,
 		"verbatimModuleSyntax": true,
-		"skipDefaultLibCheck": true,
-		"skipLibCheck": true
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitOverride": true,
+		"declaration": true,
+		"declarationMap": true,
+		"module": "preserve",
+		"noEmit": true,
+		"lib": ["es2022"],
+		"types": ["vite/client"]
 	},
-	"include": ["src/*.ts"]
+	"include": ["src", "test"]
 }

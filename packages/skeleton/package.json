@@ -1,13 +1,17 @@
 {
 	"name": "@skeletonlabs/skeleton",
-	"version": "4.0.0-next.1",
-	"scripts": {
-		"build": "vite build",
-		"dev": "vite build --watch"
-	},
+	"version": "4.0.0-next.6",
+	"description": "The TailwindCSS package for Skeleton.",
+	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/skeletonlabs/skeleton.git"
+		"url": "git+https://github.com/skeletonlabs/skeleton.git",
+		"directory": "packages/skeleton"
+	},
+	"scripts": {
+		"dev": "vite build --watch",
+		"build": "vite build",
+		"sync": "pnpm build"
 	},
 	"exports": {
 		".": {
@@ -17,10 +21,6 @@
 		"./themes/*": {
 			"style": "./dist/themes/*.css",
 			"default": "./dist/themes/*.css"
-		},
-		"./optional/*": {
-			"style": "./dist/optional/*.css",
-			"default": "./dist/optional/*.css"
 		}
 	},
 	"files": [
@@ -30,10 +30,10 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
-		"sass-embedded": "^1.91.0",
-		"tinyglobby": "^0.2.14",
-		"vite": "^7.1.3"
+		"sass-embedded": "catalog:",
+		"tinyglobby": "catalog:",
+		"vite": "catalog:"
 	},
-	"type": "module",
-	"license": "MIT"
+	"license": "MIT",
+	"type": "module"
 }

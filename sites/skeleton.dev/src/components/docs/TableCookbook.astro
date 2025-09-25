@@ -6,7 +6,9 @@ const path = 'guides/cookbook/';
 
 // Get Collection
 const tableData = await getCollection(collection, (item) => {
-	if (item.filePath?.includes(path)) return item;
+	if (item.filePath?.includes(path)) {
+		return item;
+	}
 });
 ---
 
