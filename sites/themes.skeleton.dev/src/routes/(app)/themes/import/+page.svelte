@@ -7,7 +7,7 @@
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
 	import FileUpIcon from '@lucide/svelte/icons/file-up';
 	import { themes } from '@skeletonlabs/skeleton-common';
-	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	import { FileUpload, type FileUploadRootProps } from '@skeletonlabs/skeleton-svelte';
 
 	const defaultThemeName = 'cerberus';
 
@@ -27,7 +27,7 @@
 		goto(resolve('/themes/create'));
 	}
 
-	async function onFileChange(event) {
+	const onFileChange: FileUploadRootProps['onFileChange'] = async (event) => {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to default theme
 		resetToDefaults();
@@ -50,7 +50,7 @@
 
 		// Redirect to Generator page
 		goto('/themes/create');
-	}
+	};
 </script>
 
 <div class="space-y-10">
