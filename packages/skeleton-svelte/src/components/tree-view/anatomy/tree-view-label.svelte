@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	export interface TreeViewLabelProps extends PropsWithElement, HTMLAttributes<HTMLSpanElement> {
 		/**
@@ -13,9 +13,9 @@
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
 	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { classesTreeview, headings } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewLabelProps = $props();
 	const rootContext = TreeViewRootContext.consume();
@@ -24,13 +24,13 @@
 		mergeProps(
 			rootContext.api.getLabelProps(),
 			{
-				class: classesTreeview.label
+				class: classesTreeview.label,
 			},
 			{
-				class: headings[level]
+				class: headings[level],
 			},
-			restAttributes
-		)
+			restAttributes,
+		),
 	);
 
 	const tag = $derived(`h${level}`);

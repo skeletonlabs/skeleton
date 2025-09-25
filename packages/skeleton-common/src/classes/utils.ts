@@ -4,5 +4,5 @@ export const headings = {
 	3: 'h3',
 	4: 'h4',
 	5: 'h5',
-	6: 'h6'
+	6: 'h6',
 } as const;

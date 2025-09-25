@@ -8,5 +8,5 @@ export const classesTreeview = {
 	branchText: '',
 	branchIndicator: 'inline-flex items-center transition-transform origin-center transform-fill',
 	branchContent: 'flex flex-col relative rounded-base',
-	branchIndentGuide: 'absolute h-full border-l'
+	branchIndentGuide: 'absolute h-full border-l',
 };

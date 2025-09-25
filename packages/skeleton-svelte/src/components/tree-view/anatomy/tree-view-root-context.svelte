@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
 	import type { TreeViewRootContextType } from '../modules/tree-view-root-context.js';
+	import type { Snippet } from 'svelte';
 
 	export interface TreeViewRootContextProps {
 		children: Snippet<[TreeViewRootContextType]>;

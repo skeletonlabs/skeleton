@@ -1,15 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	export interface TreeViewBranchControlProps extends PropsWithElement, HTMLAttributes<HTMLDivElement> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
-	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { TreeViewNodeContext } from '../modules/tree-view-node-context.js';
+	import { TreeViewRootContext } from '../modules/tree-view-root-context.js';
 	import { classesTreeview } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchControlProps = $props();
 	const nodeContext = TreeViewNodeContext.consume();
@@ -19,10 +19,10 @@
 		mergeProps(
 			rootContext.api.getBranchControlProps(nodeContext.nodeProps),
 			{
-				class: classesTreeview.branchControl
+				class: classesTreeview.branchControl,
 			},
-			restAttributes
-		)
+			restAttributes,
+		),
 	);
 </script>
 

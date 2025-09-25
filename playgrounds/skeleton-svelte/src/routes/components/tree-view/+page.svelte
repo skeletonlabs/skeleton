@@ -25,13 +25,13 @@
 							name: '@types',
 							children: [
 								{ id: 'node_modules/@types/react', name: 'react' },
-								{ id: 'node_modules/@types/react-dom', name: 'react-dom' }
-							]
-						}
-					]
-				}
-			]
-		}
+								{ id: 'node_modules/@types/react-dom', name: 'react-dom' },
+							],
+						},
+					],
+				},
+			],
+		},
 	});
 </script>
 
