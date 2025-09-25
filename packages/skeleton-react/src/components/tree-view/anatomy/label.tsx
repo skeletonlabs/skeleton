@@ -3,14 +3,21 @@ import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTreeView } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import { use, type JSX } from 'react';
 
-export interface TreeViewLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {}
+export interface TreeViewLabelProps extends PropsWithElement<'h3'>, HTMLAttributes<'h3'> {
+	/**
+	 * The level of the heading.
+	 *
+	 * @defaultValue 3
+	 */
+	level?: 1 | 2 | 3 | 4 | 5 | 6;
+}
 
 export default function Label(props: TreeViewLabelProps) {
 	const treeView = use(TreeViewRootContext);
 
-	const { element, children, ...rest } = props;
+	const { element, children, level = 3, ...rest } = props;
 
 	const attributes = mergeProps(
 		treeView.getLabelProps(),
@@ -20,5 +27,7 @@ export default function Label(props: TreeViewLabelProps) {
 		rest,
 	);
 
-	return element ? element(attributes) : <label {...attributes}>{children}</label>;
+	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
+
+	return element ? element(attributes) : <Tag {...attributes}>{children}</Tag>;
 }
