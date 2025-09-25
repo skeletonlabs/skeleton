@@ -161,14 +161,18 @@
 			<!-- Cards -->
 			<div class="space-y-4">
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<!-- <Avatar src="/images/male.png" name="" size="size-14" imageClasses="grayscale" /> -->
+					<Avatar class="size-14">
+						<Avatar.Image src="/images/male.png" class="grayscale" />
+					</Avatar>
 					<div>
 						<p class="font-bold">Gregory Smith</p>
 						<p class="opacity-60 text-xs">gregory.smith@example.com</p>
 					</div>
 				</div>
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<!-- <Avatar src="/images/female.png" name="" size="size-14" imageClasses="grayscale" /> -->
+					<Avatar class="size-14">
+						<Avatar.Image src="/images/female.png" class="grayscale" />
+					</Avatar>
 					<div>
 						<p class="font-bold">Stephanie Collins</p>
 						<p class="opacity-60 text-xs">stephanie.collins@example.com</p>
