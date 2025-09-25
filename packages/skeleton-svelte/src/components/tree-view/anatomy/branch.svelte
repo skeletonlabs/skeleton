@@ -1,11 +1,8 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { NodeProps } from '@zag-js/tree-view';
 
-	export interface TreeViewBranchProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
-		nodeProps: NodeProps;
-	}
+	export interface TreeViewBranchProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -17,20 +14,19 @@
 	const props: TreeViewBranchProps = $props();
 
 	const treeView = TreeViewRootContext.consume();
+	const nodeProps = TreeViewNodeContext.consume();
 
-	const { nodeProps, element, children, ...rest } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			treeView().getBranchProps(nodeProps),
+			treeView().getBranchProps(nodeProps()),
 			{
 				class: classesTreeView.branch,
 			},
 			rest,
 		),
 	);
-
-	TreeViewNodeContext.provide(() => nodeProps);
 </script>
 
 {#if element}

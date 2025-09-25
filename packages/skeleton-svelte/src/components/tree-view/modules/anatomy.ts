@@ -6,6 +6,7 @@ import BranchText from '../anatomy/branch-text.svelte';
 import Branch from '../anatomy/branch.svelte';
 import Item from '../anatomy/item.svelte';
 import Label from '../anatomy/label.svelte';
+import NodeProvider from '../anatomy/node-provider.svelte';
 import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
@@ -16,6 +17,7 @@ export const TreeView = Object.assign(Root, {
 	Context: RootContext,
 	Tree: Tree,
 	Label: Label,
+	NodeProvider: NodeProvider,
 	Branch: Branch,
 	BranchControl: BranchControl,
 	BranchText: BranchText,
