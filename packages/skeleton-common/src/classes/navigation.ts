@@ -10,7 +10,6 @@ export const classesNavigation = defineSkeletonClasses({
 		// Sidebar
 		'data-[layout=sidebar]:p-4',
 	],
-	// TODO: conver to `data-layout="bar|rail|sidebar" format
 	menu: [
 		// Rail
 		'data-[layout=bar]:flex data-[layout=bar]:gap-2',

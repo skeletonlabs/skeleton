@@ -3,6 +3,10 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
+		/**
+		 * @default bar
+		 * Set the preferred visual layout.
+		 * */
 		layout: 'bar' | 'rail' | 'sidebar';
 	}
 </script>
@@ -13,7 +17,7 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationRootProps = $props();
-	const { layout, element, children, ...rest } = $derived(props);
+	const { layout = 'bar', element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(rest, {
