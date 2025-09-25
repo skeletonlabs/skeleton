@@ -1,15 +1,15 @@
 <script lang="ts">
-	// State
-	// Constants
 	import * as constants from '$lib/constants/generator';
 	import { globals } from '$lib/state/generator.svelte';
-	// Components (generator)
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
-	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
-	// Icons
-	import IconSkull from '@lucide/svelte/icons/skull';
+	import CenterIcon from '@lucide/svelte/icons/align-center';
+	import JustifyIcon from '@lucide/svelte/icons/align-justify';
+	import LeftIcon from '@lucide/svelte/icons/align-left';
+	import RightIcon from '@lucide/svelte/icons/align-right';
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import SkullIcon from '@lucide/svelte/icons/skull';
+	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
-	// State
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
 </script>
 
@@ -28,22 +28,34 @@
 		<!-- Column 1 -->
 		<div class="space-y-10">
 			<!-- Tabs -->
-			<!-- <Tabs value="planes" fluid>
-				{#snippet list()}
-					<Tabs.Control value="planes" labelBase="btn {currentPresets.hover}">Planes</Tabs.Control>
-					<Tabs.Control value="trains" labelBase="btn {currentPresets.hover}">Trains</Tabs.Control>
-					<Tabs.Control value="automobiles" labelBase="btn {currentPresets.hover}">Automobiles</Tabs.Control>
-				{/snippet}
-			</Tabs> -->
+			<Tabs value="planes">
+				<Tabs.List>
+					<Tabs.Trigger value="planes" class={currentPresets.hover}>Planes</Tabs.Trigger>
+					<Tabs.Trigger value="trains" class={currentPresets.hover}>Trains</Tabs.Trigger>
+					<Tabs.Trigger value="automobiles" class={currentPresets.hover}>Automobiles</Tabs.Trigger>
+				</Tabs.List>
+			</Tabs>
 			<!-- Avatars -->
 			<div class="grid grid-cols-6 gap-4">
 				<!-- Source: https://avatar.iran.liara.run/ -->
-				<!-- <Avatar src="/images/male.png" name="" size="size-full" imageClasses="grayscale" />
-				<Avatar src="/images/female.png" name="" size="size-full" imageClasses="grayscale" />
-				<Avatar name="Skeleton" size="size-full" background={currentPresets.filled} />
-				<Avatar name="Kevin" size="size-full" background={currentPresets.tonal} />
-				<Avatar name="Kevin" size="size-full" background={currentPresets.outlined}><IconSkull size={20} /></Avatar>
-				<Avatar name="Kevin" size="size-full" background="preset-outlined-surface-200-800"><IconSkull size={20} /></Avatar> -->
+				<Avatar class="size-full">
+					<Avatar.Image src="/images/male.png" class="grayscale" />
+				</Avatar>
+				<Avatar class="size-full">
+					<Avatar.Image src="/images/female.png" class="grayscale" />
+				</Avatar>
+				<Avatar class="size-full">
+					<Avatar.Fallback class={currentPresets.filled} />
+				</Avatar>
+				<Avatar class="size-full">
+					<Avatar.Fallback class={currentPresets.tonal} />
+				</Avatar>
+				<Avatar class="size-full">
+					<Avatar.Fallback class={currentPresets.outlined}><SkullIcon size={20} /></Avatar.Fallback>
+				</Avatar>
+				<Avatar class="size-full">
+					<Avatar.Fallback class="preset-outlined-surface-200-800"><SkullIcon size={20} /></Avatar.Fallback>
+				</Avatar>
 			</div>
 			<!-- Alert -->
 			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
@@ -96,29 +108,48 @@
 			</div>
 			<!-- Buttons -->
 			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
-				<!-- <Switch name="example" checked={true} controlActive={currentPresets.filled} /> -->
+				<Switch name="example" defaultChecked={true}>
+					<Switch.Control class={currentPresets.filled}>
+						<Switch.Thumb />
+					</Switch.Control>
+					<Switch.HiddenInput />
+				</Switch>
 				<div class="grid grid-cols-4 gap-4">
-					<button type="button" class="btn preset-filled"><IconSkull size={20} /></button>
-					<button type="button" class="btn {currentPresets.filled}"><IconSkull size={20} /></button>
-					<button type="button" class="btn {currentPresets.tonal}"><IconSkull size={20} /></button>
-					<button type="button" class="btn {currentPresets.outlined}"><IconSkull size={20} /></button>
+					<button type="button" class="btn preset-filled"><SkullIcon size={20} /></button>
+					<button type="button" class="btn {currentPresets.filled}"><SkullIcon size={20} /></button>
+					<button type="button" class="btn {currentPresets.tonal}"><SkullIcon size={20} /></button>
+					<button type="button" class="btn {currentPresets.outlined}"><SkullIcon size={20} /></button>
 				</div>
 			</div>
 			<!-- Segment Control -->
-			<!-- <Segment name="display" value="left" classes="w-full">
-				<Segment.Item value="left" classes="w-full">
-					<IconLeft />
-				</Segment.Item>
-				<Segment.Item value="center" classes="w-full">
-					<IconCenter />
-				</Segment.Item>
-				<Segment.Item value="right" classes="w-full">
-					<IconRight />
-				</Segment.Item>
-				<Segment.Item value="justify" classes="w-full">
-					<IconJustify />
-				</Segment.Item>
-			</Segment> -->
+			<SegmentedControl defaultValue="left" class="w-full">
+				<SegmentedControl.Indicator />
+				<SegmentedControl.Item value="left" class="flex-1">
+					<SegmentedControl.ItemText>
+						<LeftIcon />
+					</SegmentedControl.ItemText>
+
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+				<SegmentedControl.Item value="center" class="flex-1">
+					<SegmentedControl.ItemText>
+						<CenterIcon />
+					</SegmentedControl.ItemText>
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+				<SegmentedControl.Item value="right" class="flex-1">
+					<SegmentedControl.ItemText>
+						<RightIcon />
+					</SegmentedControl.ItemText>
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+				<SegmentedControl.Item value="justify" class="flex-1">
+					<SegmentedControl.ItemText>
+						<JustifyIcon />
+					</SegmentedControl.ItemText>
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+			</SegmentedControl>
 			<!-- Cards -->
 			<div class="space-y-4">
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
@@ -139,11 +170,11 @@
 		</div>
 	</div>
 	<!-- App Bar -->
-	<!-- <AppBar background="bg-surface-100-900" toolbarClasses="items-center" classes="shadow">
-		{#snippet lead()}
-			<IconSkull size={32} />
-		{/snippet}
-		{#snippet trail()}
+	<AppBar class="bg-surface-100-900 shadow">
+		<AppBar.Lead>
+			<SkullIcon size={32} />
+		</AppBar.Lead>
+		<AppBar.Trail>
 			<nav class="flex items-center">
 				<button type="button" class="btn hover:preset-tonal">Services</button>
 				<button type="button" class="btn hover:preset-tonal">Prices</button>
@@ -151,8 +182,8 @@
 				<button type="button" class="btn hover:preset-tonal">About</button>
 			</nav>
 			<button type="button" class="btn {currentPresets.filled}">Login</button>
-		{/snippet}
-	</AppBar> -->
+		</AppBar.Trail>
+	</AppBar>
 	<!-- Masonry -->
 	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
 		<!-- Column 1: Image -->
@@ -182,7 +213,7 @@
 			</header>
 			<div class="spce-y-2 flex justify-center items-center scale-125">
 				<div>
-					<h2 class="h2 font-normal">1,337 <sup><IconArrowUpRight size={30} class="inline-block" /></sup></h2>
+					<h2 class="h2 font-normal">1,337 <sup><ArrowUpRightIcon size={30} class="inline-block" /></sup></h2>
 					<p>New users in 30 days.</p>
 				</div>
 			</div>

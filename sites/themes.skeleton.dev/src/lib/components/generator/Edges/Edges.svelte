@@ -9,14 +9,7 @@
 		gridCols?: string;
 	}
 
-	// prettier-ignore
-	let {
-		thickness = false,
-		name,
-		value = $bindable(),
-		items = [],
-		gridCols = 'grid-cols-7'
-	}: EdgesProps = $props();
+	let { thickness = false, name, value = $bindable(), items = [], gridCols = 'grid-cols-7' }: EdgesProps = $props();
 
 	function setValue(v: string) {
 		value = v;

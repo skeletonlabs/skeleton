@@ -2,9 +2,12 @@
 	// Themes
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
+	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
+	import FileUpIcon from '@lucide/svelte/icons/file-up';
 	import { themes } from '@skeletonlabs/skeleton-common';
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 
 	const defaultThemeName = 'cerberus';
 
@@ -24,48 +27,41 @@
 		goto(resolve('/themes/create'));
 	}
 
-	// async function onFileUpload(event) {
-	// 	if (event.acceptedFiles.length <= 0) return;
-	// 	// Reset to default theme
-	// 	resetToDefaults();
-	// 	// Gather Theme Data
-	// 	const fileName = event.acceptedFiles[0].name;
-	// 	const file = event.acceptedFiles[0];
-	// 	const fileText = await file.text();
-	// 	const isCssFormat = fileName.includes('.css');
+	async function onFileChange(event) {
+		if (event.acceptedFiles.length <= 0) return;
+		// Reset to default theme
+		resetToDefaults();
+		// Gather Theme Data
+		const fileName = event.acceptedFiles[0].name;
+		const file = event.acceptedFiles[0];
+		const fileText = await file.text();
+		const isCssFormat = fileName.includes('.css');
 
-	// 	// Run Importer
-	// 	if (isCssFormat) {
-	// 		importThemeV3(fileText, fileName);
-	// 	} else {
-	// 		importThemeV2(fileText, fileName);
-	// 	}
+		// Run Importer
+		if (isCssFormat) {
+			importThemeV3(fileText, fileName);
+		} else {
+			importThemeV2(fileText, fileName);
+		}
 
-	// 	// ******** DEBUG ONLY ********
-	// 	// importThemeV3Rc1(fileText, fileName);
-	// 	// ************ / *************
+		// ******** DEBUG ONLY ********
+		// importThemeV3Rc1(fileText, fileName);
+		// ************ / *************
 
-	// 	// Redirect to Generator page
-	// 	goto('/themes/create');
-	// }
+		// Redirect to Generator page
+		goto('/themes/create');
+	}
 </script>
 
 <div class="space-y-10">
-	<!-- Upload -->
-	<!-- <FileUpload
-		name="file"
-		accept=".css, .ts, .js"
-		maxFiles={1}
-		onFileChange={onFileUpload}
-		label="Drag and Drop Theme"
-		subtext="Accepts .css, .ts, or .js file formats."
-		interfacePadding="py-32"
-		classes="w-full"
-	>
-		{#snippet iconInterface()}<IconUpload class="size-16" />{/snippet}
-		{#snippet iconFile()}<IconFile class="size-4" />{/snippet}
-		{#snippet iconFileRemove()}<IconRemove class="size-4" />{/snippet}
-	</FileUpload> -->
+	<FileUpload class="w-full" name="file" accept=".css, .ts, .js" {onFileChange}>
+		<FileUpload.Dropzone class="py-32">
+			<FileUpIcon class="size-16" />
+			<span>Select file or drag here.</span>
+			<span class="text-sm opacity-50">Accepts .css, .ts, or .js file formats.</span>
+			<FileUpload.HiddenInput />
+		</FileUpload.Dropzone>
+	</FileUpload>
 	<!-- Text -->
 	<div class="flex justify-center gap-4">
 		<span class="opacity-10">&mdash;</span>
