@@ -1,0 +1,42 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { NodeProps } from '@zag-js/tree-view';
+
+	export interface TreeViewBranchProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
+		nodeProps: NodeProps;
+	}
+</script>
+
+<script lang="ts">
+	import { TreeViewNodeContext } from '../modules/node-context';
+	import { TreeViewRootContext } from '../modules/root-context';
+	import { classesTreeView } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: TreeViewBranchProps = $props();
+
+	const treeView = TreeViewRootContext.consume();
+
+	const { nodeProps, element, children, ...rest } = $derived(props);
+
+	const attributes = $derived(
+		mergeProps(
+			treeView().getBranchProps(nodeProps),
+			{
+				class: classesTreeView.branch,
+			},
+			rest,
+		),
+	);
+
+	TreeViewNodeContext.provide(() => nodeProps);
+</script>
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

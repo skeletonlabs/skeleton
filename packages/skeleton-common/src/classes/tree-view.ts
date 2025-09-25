@@ -1,4 +1,4 @@
-export const classesTreeview = {
+export const classesTreeView = {
 	root: 'flex flex-col w-fit space-y-4 rounded-base p-4',
 	tree: '',
 	label: '',
