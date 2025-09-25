@@ -162,7 +162,7 @@
 			<div class="space-y-4">
 				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 					<Avatar class="size-14">
-						<Avatar.Image src="/images/male.png" class="grayscale" />
+						<Avatar.Image src="https://picsum.photos/25/25" class="grayscale" />
 					</Avatar>
 					<div>
 						<p class="font-bold">Gregory Smith</p>
