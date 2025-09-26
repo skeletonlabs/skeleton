@@ -1,0 +1,35 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/progress-circular/react/default.tsx';
+import DefaultRaw from '@examples/components/progress-circular/react/default.tsx?raw';
+
+import Indeterminate from '@examples/components/progress-circular/react/indeterminate.tsx';
+import IndeterminateRaw from '@examples/components/progress-circular/react/indeterminate.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Indeterminate
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indeterminate client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndeterminateRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
