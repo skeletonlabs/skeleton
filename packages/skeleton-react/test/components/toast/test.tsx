@@ -1,7 +1,7 @@
 import { Toast, createToaster } from '@/index';
 import { useEffect } from 'react';
 
-export default function ToastTest() {
+export default function Test() {
 	const toaster = createToaster({});
 	useEffect(() => {
 		toaster.create({});

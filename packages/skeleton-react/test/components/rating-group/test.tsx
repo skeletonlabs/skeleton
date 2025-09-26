@@ -1,6 +1,6 @@
 import { RatingGroup } from '@/index';
 
-export default function RatingGroupTest() {
+export default function Test() {
 	return (
 		<RatingGroup count={3} data-testid="root">
 			<RatingGroup.Label data-testid="label">Label</RatingGroup.Label>
