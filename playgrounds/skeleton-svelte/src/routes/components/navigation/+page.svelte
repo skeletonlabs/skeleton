@@ -7,6 +7,7 @@
 	import MoviesIcon from '@lucide/svelte/icons/popcorn';
 	import SailboatIcon from '@lucide/svelte/icons/sailboat';
 	import SettingsIcon from '@lucide/svelte/icons/settings';
+	import SkullIcon from '@lucide/svelte/icons/skull';
 	import TvIcon from '@lucide/svelte/icons/tv';
 	import WavesIcon from '@lucide/svelte/icons/waves';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
@@ -31,6 +32,12 @@
 			{ label: 'Swimming', href: '#', icon: WavesIcon },
 		],
 	};
+
+	let compact = $state(false);
+
+	function toggleCompactMode() {
+		compact = !compact;
+	}
 </script>
 
 <div class="space-y-10">
@@ -47,7 +54,7 @@
 			<!-- --- -->
 			<Navigation layout="bar">
 				<Navigation.Menu>
-					{#each links as link}
+					{#each links as link (link)}
 						{@const Icon = link.icon}
 						<a href={link.href} class="{buttonClasses} flex-[25%] flex flex-col items-center gap-1">
 							<Icon class="size-5" />
@@ -66,12 +73,17 @@
 			<!-- --- -->
 			<Navigation layout="rail">
 				<Navigation.Header>
-					<button type="button" class="{buttonClasses} aspect-square w-full flex flex-col items-center gap-1">
-						<MenuIcon class="size-5" />
-					</button>
+					<a
+						href="/"
+						class="{buttonClasses} aspect-square w-full flex flex-col items-center gap-1"
+						title="View Homepage"
+						aria-label="View Homepage"
+					>
+						<SkullIcon class="size-8" />
+					</a>
 				</Navigation.Header>
 				<Navigation.Menu class="flex-1">
-					{#each links as link}
+					{#each links as link (link)}
 						{@const Icon = link.icon}
 						<a href={link.href} class="{buttonClasses} aspect-square w-full flex flex-col items-center gap-1">
 							<Icon class="size-5" />
@@ -80,7 +92,12 @@
 					{/each}
 				</Navigation.Menu>
 				<Navigation.Footer>
-					<a href="/settings" class="{buttonClasses} aspect-square w-full flex flex-col items-center gap-1">
+					<a
+						href="/settings"
+						class="{buttonClasses} aspect-square w-full flex flex-col items-center gap-1"
+						title="Settings"
+						aria-label="Settings"
+					>
 						<SettingsIcon class="size-5" />
 					</a>
 				</Navigation.Footer>
@@ -93,49 +110,69 @@
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Sidebar</h3>
+		<pre class="pre">compact: {compact}</pre>
 		<div class="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
 			<!-- --- -->
-			<!-- <Navigation.Provider> -->
-			<Navigation layout="sidebar" class="grid grid-rows-[auto_1fr_auto] gap-4">
+			<Navigation layout="sidebar" {compact} class="grid grid-rows-[auto_1fr_auto] gap-4">
 				<Navigation.Header>
-					<button type="button" class="btn-icon hover:preset-tonal">
+					<button
+						type="button"
+						class="btn-icon hover:preset-tonal"
+						onclick={toggleCompactMode}
+						title="Toggle Menu"
+						aria-label="Toggle Menu"
+					>
 						<MenuIcon class="size-4" />
 					</button>
 				</Navigation.Header>
 				<Navigation.Content>
 					<Navigation.Group>
-						<Navigation.Label class="pl-2">Entertainment</Navigation.Label>
+						{#if !compact}<Navigation.Label class="pl-2">Entertainment</Navigation.Label>{/if}
 						<Navigation.Menu>
-							{#each linksSidebar.entertainment as link}
+							{#each linksSidebar.entertainment as link (link)}
 								{@const Icon = link.icon}
-								<a href={link.href} class="{buttonClasses} justify-start px-2">
+								<a
+									href={link.href}
+									class="{compact ? 'btn-icon' : 'btn justify-start px-2'} hover:preset-tonal"
+									title={link.label}
+									aria-label={link.label}
+								>
 									<Icon class="size-4" />
-									<span>{link.label}</span>
+									{#if !compact}<span>{link.label}</span>{/if}
 								</a>
 							{/each}
 						</Navigation.Menu>
 					</Navigation.Group>
 					<Navigation.Group>
-						<Navigation.Label class="pl-2">Recreation</Navigation.Label>
+						{#if !compact}<Navigation.Label class="pl-2">Recreation</Navigation.Label>{/if}
 						<Navigation.Menu>
-							{#each linksSidebar.recreation as link}
+							{#each linksSidebar.recreation as link (link)}
 								{@const Icon = link.icon}
-								<a href={link.href} class="{buttonClasses} justify-start px-2">
+								<a
+									href={link.href}
+									class="{compact ? 'btn-icon' : 'btn justify-start px-2'} hover:preset-tonal"
+									title={link.label}
+									aria-label={link.label}
+								>
 									<Icon class="size-4" />
-									<span>{link.label}</span>
+									{#if !compact}<span>{link.label}</span>{/if}
 								</a>
 							{/each}
 						</Navigation.Menu>
 					</Navigation.Group>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<a href="/" class="{buttonClasses} justify-start px-2 w-full">
+					<a
+						href="/"
+						class="{compact ? 'btn-icon' : 'btn justify-start px-2  w-full'} hover:preset-tonal"
+						title="Settings"
+						aria-label="Settings"
+					>
 						<SettingsIcon class="size-4" />
-						<span>Settings</span>
+						{#if !compact}<span>Settings</span>{/if}
 					</a>
 				</Navigation.Footer>
 			</Navigation>
-			<!-- </Navigation.Provider> -->
 			<!-- --- -->
 			<div class="flex justify-center items-center">
 				<p class="opacity-50">Contents</p>
