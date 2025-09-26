@@ -9,27 +9,13 @@ dist/
 .next/
 next-env.d.ts
 sites/skeleton.dev/src/content/types/*/*.json
+**/pagefind
 
 # dependencies
 node_modules/
 
-# logs
-coverage/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# environment variables
-.env
-.env.*
-!.env.example
-
 # macOS-specific files
 .DS_Store
-
-# pagefind
-**/pagefind
 
 # build artifacts
 **/vite.config.js.timestamp-*
