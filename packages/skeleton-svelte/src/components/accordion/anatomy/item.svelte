@@ -7,15 +7,15 @@
 </script>
 
 <script lang="ts">
-	import { AccordionItemContext } from '../modules/item-context';
-	import { AccordionRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionItemProps = $props();
 
-	const accordion = AccordionRootContext.consume();
+	const accordion = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
@@ -30,7 +30,7 @@
 		),
 	);
 
-	AccordionItemContext.provide(() => itemProps);
+	ItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

@@ -1,5 +1,5 @@
-import { ComboboxRootContext } from '../modules/root-context';
-import { useCombobox } from '../modules/use-combobox';
+import { useCombobox } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
@@ -23,8 +23,6 @@ export default function RootProvider(props: ComboboxRootProviderProps) {
 	);
 
 	return (
-		<ComboboxRootContext.Provider value={combobox}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</ComboboxRootContext.Provider>
+		<RootContext.Provider value={combobox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

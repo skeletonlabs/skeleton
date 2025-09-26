@@ -1,4 +1,4 @@
-import { TabsRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTabs } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface TabsTriggerProps extends TriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value'> {}
 
 export default function Trigger(props: TabsTriggerProps) {
-	const tabs = use(TabsRootContext);
+	const tabs = use(RootContext);
 
 	const [triggerProps, componentProps] = splitTriggerProps(props);
 	const { element, children, ...rest } = componentProps;

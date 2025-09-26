@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxContentProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
+	const combobox = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -1,4 +1,4 @@
-import type { useProgressLinear } from './use-progress-linear.svelte';
+import type { useProgressLinear } from './provider.svelte';
 import { createContext } from '@/internal/create-context.js';
 
-export const ProgressLinearRootContext = createContext<ReturnType<typeof useProgressLinear>>();
+export const RootContext = createContext<ReturnType<typeof useProgressLinear>>();

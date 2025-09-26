@@ -1,5 +1,5 @@
-import { FileUploadItemContext } from '../modules/item-context';
-import { FileUploadRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
@@ -11,7 +11,7 @@ import { use } from 'react';
 export interface FileUploadItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
 
 export default function Item(props: FileUploadItemProps) {
-	const fileUpload = use(FileUploadRootContext);
+	const fileUpload = use(RootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -25,8 +25,6 @@ export default function Item(props: FileUploadItemProps) {
 	);
 
 	return (
-		<FileUploadItemContext.Provider value={itemProps}>
-			{element ? element(attributes) : <li {...attributes}>{children}</li>}
-		</FileUploadItemContext.Provider>
+		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <li {...attributes}>{children}</li>}</ItemContext.Provider>
 	);
 }

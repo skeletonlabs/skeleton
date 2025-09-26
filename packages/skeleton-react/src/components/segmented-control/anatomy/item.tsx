@@ -1,5 +1,5 @@
-import { SegmentedControlItemContext } from '../modules/item-context';
-import { SegmentedControlRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface SegmentedControlItemProps extends ItemProps, PropsWithElement<'label'>, HTMLAttributes<'label'> {}
 
 export default function Item(props: SegmentedControlItemProps) {
-	const segmentedControl = use(SegmentedControlRootContext);
+	const segmentedControl = use(RootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -24,8 +24,8 @@ export default function Item(props: SegmentedControlItemProps) {
 	);
 
 	return (
-		<SegmentedControlItemContext.Provider value={itemProps}>
+		<ItemContext.Provider value={itemProps}>
 			{element ? element(attributes) : <label {...attributes}>{children}</label>}
-		</SegmentedControlItemContext.Provider>
+		</ItemContext.Provider>
 	);
 }

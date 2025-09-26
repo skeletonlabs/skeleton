@@ -7,15 +7,15 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxItemGroupContext } from '../modules/item-group-context';
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { ItemGroupContext } from '../modules/item-group-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { splitItemGroupProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemGroupProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
+	const combobox = RootContext.consume();
 
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
@@ -36,7 +36,7 @@
 		),
 	);
 
-	ComboboxItemGroupContext.provide(() => itemGroupProps);
+	ItemGroupContext.provide(() => itemGroupProps);
 </script>
 
 {#if element}

@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputRootContext } from '../modules/root-context';
-	import { useTagsInput } from '../modules/use-tags-input.svelte';
+	import { useTagsInput } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/tags-input';
@@ -33,7 +33,7 @@
 		),
 	);
 
-	TagsInputRootContext.provide(() => tagsInput());
+	RootContext.provide(() => tagsInput());
 </script>
 
 {#if element}

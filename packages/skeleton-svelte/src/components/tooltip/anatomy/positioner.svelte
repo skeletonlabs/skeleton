@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { TooltipRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
 	const props: TooltipPositionerProps = $props();
 
-	const tooltip = TooltipRootContext.consume();
+	const tooltip = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

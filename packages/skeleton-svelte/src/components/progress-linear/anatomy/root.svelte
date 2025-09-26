@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { ProgressLinearRootContext } from '../modules/root-context';
-	import { useProgressLinear } from '../modules/use-progress-linear.svelte';
+	import { useProgressLinear } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/progress';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	ProgressLinearRootContext.provide(() => avatar());
+	RootContext.provide(() => avatar());
 </script>
 
 {#if element}

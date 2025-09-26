@@ -1,5 +1,5 @@
-import { SliderRootContext } from '../modules/root-context';
-import { SliderThumbContext } from '../modules/thumb-context';
+import { RootContext } from '../modules/root-context';
+import { ThumbContext } from '../modules/thumb-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSlider } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface SliderThumbProps extends ThumbProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Thumb(props: SliderThumbProps) {
-	const slider = use(SliderRootContext);
+	const slider = use(RootContext);
 
 	const [thumbProps, componentProps] = splitThumbProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -24,8 +24,8 @@ export default function Thumb(props: SliderThumbProps) {
 	);
 
 	return (
-		<SliderThumbContext.Provider value={thumbProps}>
+		<ThumbContext.Provider value={thumbProps}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</SliderThumbContext.Provider>
+		</ThumbContext.Provider>
 	);
 }

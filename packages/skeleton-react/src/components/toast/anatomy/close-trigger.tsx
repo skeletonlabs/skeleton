@@ -1,4 +1,4 @@
-import { ToastRootContext } from '../modules/root-context.js';
+import { RootContext } from '../modules/root-context.js';
 import X from '@/internal/components/x';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
@@ -9,7 +9,7 @@ import { use } from 'react';
 export interface ToastCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function CloseTrigger(props: ToastCloseTriggerProps) {
-	const toast = use(ToastRootContext);
+	const toast = use(RootContext);
 
 	const { element, children = <X />, ...rest } = props;
 
