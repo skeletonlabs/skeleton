@@ -1,5 +1,5 @@
-import { ProgressLinearRootContext } from '../modules/root-context';
-import type { useProgressLinear } from '../modules/use-progress-linear';
+import type { useProgressLinear } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
@@ -21,8 +21,8 @@ export default function RootProvider(props: ProgressLinearRootProviderProps) {
 	);
 
 	return (
-		<ProgressLinearRootContext.Provider value={progressLinear}>
+		<RootContext.Provider value={progressLinear}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</ProgressLinearRootContext.Provider>
+		</RootContext.Provider>
 	);
 }

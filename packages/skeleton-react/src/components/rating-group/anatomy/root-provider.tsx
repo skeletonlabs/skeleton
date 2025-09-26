@@ -1,5 +1,5 @@
-import { RatingGroupRootContext } from '../modules/root-context';
-import type { useRatingGroup } from '../modules/use-rating-group';
+import type { useRatingGroup } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
@@ -21,8 +21,6 @@ export default function RootProvider(props: RatingGroupRootProviderProps) {
 	);
 
 	return (
-		<RatingGroupRootContext.Provider value={ratingGroup}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</RatingGroupRootContext.Provider>
+		<RootContext.Provider value={ratingGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

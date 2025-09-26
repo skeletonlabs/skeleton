@@ -13,4 +13,4 @@ export type { ComboboxRootContextProps } from './anatomy/root-context.svelte';
 export type { ComboboxRootProviderProps } from './anatomy/root-provider.svelte';
 export type { ComboboxTriggerProps } from './anatomy/trigger.svelte';
 export { Combobox } from './modules/anatomy';
-export { useCombobox } from './modules/use-combobox.svelte';
+export { useCombobox } from './modules/provider.svelte';

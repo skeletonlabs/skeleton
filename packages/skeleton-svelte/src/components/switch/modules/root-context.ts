@@ -1,4 +1,4 @@
-import type { useSwitch } from './use-switch.svelte';
+import type { useSwitch } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const SwitchRootContext = createContext<ReturnType<typeof useSwitch>>();
+export const RootContext = createContext<ReturnType<typeof useSwitch>>();

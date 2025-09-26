@@ -1,5 +1,5 @@
-import { SwitchRootContext } from '../modules/root-context';
-import type { useSwitch } from '../modules/use-switch';
+import type { useSwitch } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
@@ -21,8 +21,6 @@ export default function RootProvider(props: SwitchRootProviderProps) {
 	);
 
 	return (
-		<SwitchRootContext.Provider value={switch_}>
-			{element ? element(attributes) : <label {...attributes}>{children}</label>}
-		</SwitchRootContext.Provider>
+		<RootContext.Provider value={switch_}>{element ? element(attributes) : <label {...attributes}>{children}</label>}</RootContext.Provider>
 	);
 }

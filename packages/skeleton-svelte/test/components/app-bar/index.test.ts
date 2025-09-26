@@ -2,36 +2,36 @@ import AppBar from './app-bar.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('app-bar', () => {
-	describe('root', () => {
+describe('AppBar', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(AppBar);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('toolbar', () => {
+	describe('Toolbar', () => {
 		it('renders', () => {
 			render(AppBar);
 			expect(screen.getByTestId('toolbar')).toBeInTheDocument();
 		});
 	});
 
-	describe('lead', () => {
+	describe('Lead', () => {
 		it('renders', () => {
 			render(AppBar);
 			expect(screen.getByTestId('lead')).toBeInTheDocument();
 		});
 	});
 
-	describe('headline', () => {
+	describe('Headline', () => {
 		it('renders', () => {
 			render(AppBar);
 			expect(screen.getByTestId('headline')).toBeInTheDocument();
 		});
 	});
 
-	describe('trail', () => {
+	describe('Trail', () => {
 		it('renders', () => {
 			render(AppBar);
 			expect(screen.getByTestId('trail')).toBeInTheDocument();

@@ -1,4 +1,4 @@
-import { RatingGroupRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface RatingGroupHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'id' | 'dir' | 'children'> {}
 
 export default function HiddenInput(props: RatingGroupHiddenInputProps) {
-	const ratingGroup = use(RatingGroupRootContext);
+	const ratingGroup = use(RootContext);
 
 	const { element, ...rest } = props;
 

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useRatingGroup } from '../modules/use-rating-group.svelte';
+	import type { useRatingGroup } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface RatingGroupRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: RatingGroupRootContextProps = $props();
 
-	const ratingGroup = RatingGroupRootContext.consume();
+	const ratingGroup = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -13,4 +13,4 @@ export type { ComboboxRootContextProps } from './anatomy/root-context';
 export type { ComboboxRootProviderProps } from './anatomy/root-provider';
 export type { ComboboxTriggerProps } from './anatomy/trigger';
 export { Combobox } from './modules/anatomy';
-export { useCombobox } from './modules/use-combobox';
+export { useCombobox } from './modules/provider';

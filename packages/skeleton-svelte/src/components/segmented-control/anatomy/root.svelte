@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlRootContext } from '../modules/root-context';
-	import { useSegmentedControl } from '../modules/use-segmented-control.svelte';
+	import { useSegmentedControl } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	SegmentedControlRootContext.provide(() => segmentedControl());
+	RootContext.provide(() => segmentedControl());
 </script>
 
 {#if element}

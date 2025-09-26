@@ -5,4 +5,4 @@ export type { ProgressLinearRootContextProps } from './anatomy/root-context.svel
 export type { ProgressLinearRootProviderProps } from './anatomy/root-provider.svelte';
 export type { ProgressLinearTrackProps } from './anatomy/track.svelte';
 export { ProgressLinear } from './modules/anatomy';
-export { useProgressLinear } from './modules/use-progress-linear.svelte';
+export { useProgressLinear } from './modules/provider.svelte';

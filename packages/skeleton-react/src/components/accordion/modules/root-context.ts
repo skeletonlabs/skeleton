@@ -1,4 +1,4 @@
-import { useAccordion } from './use-accordion';
+import { useAccordion } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const AccordionRootContext = createContext<ReturnType<typeof useAccordion>>();
+export const RootContext = createContext<ReturnType<typeof useAccordion>>();

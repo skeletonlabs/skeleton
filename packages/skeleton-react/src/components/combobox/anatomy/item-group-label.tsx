@@ -1,5 +1,5 @@
-import { ComboboxItemGroupContext } from '../modules/item-group-context';
-import { ComboboxRootContext } from '../modules/root-context';
+import { ItemGroupContext } from '../modules/item-group-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
@@ -10,8 +10,8 @@ import { use } from 'react';
 export interface ComboboxItemGroupLabelProps extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function ItemGroupLabel(props: ComboboxItemGroupLabelProps) {
-	const combobox = use(ComboboxRootContext);
-	const itemGroupProps = use(ComboboxItemGroupContext);
+	const combobox = use(RootContext);
+	const itemGroupProps = use(ItemGroupContext);
 
 	const [itemGroupLabelProps, componentProps] = splitItemGroupLabelProps({
 		htmlFor: itemGroupProps.id,

@@ -1,4 +1,4 @@
-import { TabsRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTabs } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Content(props: TabsContentProps) {
-	const tabs = use(TabsRootContext);
+	const tabs = use(RootContext);
 
 	const [contentProps, componentProps] = splitContentProps(props);
 	const { element, children, ...rest } = componentProps;

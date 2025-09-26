@@ -1,4 +1,4 @@
-import { SwitchRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface SwitchLabelProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function Label(props: SwitchLabelProps) {
-	const switch_ = use(SwitchRootContext);
+	const switch_ = use(RootContext);
 
 	const { element, children, ...rest } = props;
 

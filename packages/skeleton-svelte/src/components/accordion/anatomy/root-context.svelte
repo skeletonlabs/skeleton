@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useAccordion } from '../modules/use-accordion.svelte';
+	import type { useAccordion } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface AccordionRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { AccordionRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: AccordionRootContextProps = $props();
 
-	const accordion = AccordionRootContext.consume();
+	const accordion = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

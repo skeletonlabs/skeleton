@@ -2,8 +2,8 @@ import Switch from './switch.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('switch', () => {
-	describe('root', () => {
+describe('Switch', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(Switch);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
@@ -17,21 +17,21 @@ describe('switch', () => {
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
 			render(Switch);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('thumb', () => {
+	describe('Thumb', () => {
 		it('renders', () => {
 			render(Switch);
 			expect(screen.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
 			render(Switch);
 			expect(screen.getByTestId('label')).toBeInTheDocument();

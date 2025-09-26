@@ -1,4 +1,4 @@
-import type { useSegmentedControl } from './use-segmented-control.svelte';
+import type { useSegmentedControl } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const SegmentedControlRootContext = createContext<ReturnType<typeof useSegmentedControl>>();
+export const RootContext = createContext<ReturnType<typeof useSegmentedControl>>();

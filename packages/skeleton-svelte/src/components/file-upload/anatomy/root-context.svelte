@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/root-context';
-	import type { useFileUpload } from '../modules/use-file-upload.svelte';
+	import type { useFileUpload } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 
 	const props: FileUploadRootContextProps = $props();
 
-	const fileUpload = FileUploadRootContext.consume();
+	const fileUpload = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

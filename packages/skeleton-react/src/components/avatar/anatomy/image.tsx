@@ -1,4 +1,4 @@
-import { AvatarRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface AvatarImageProps extends PropsWithElement<'img'>, HTMLAttributes<'img', 'children'> {}
 
 export default function Image(props: AvatarImageProps) {
-	const avatar = use(AvatarRootContext);
+	const avatar = use(RootContext);
 
 	const { element, ...rest } = props;
 

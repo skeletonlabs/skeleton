@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { AvatarRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AvatarImageProps = $props();
 
-	const avatar = AvatarRootContext.consume();
+	const avatar = RootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

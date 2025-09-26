@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { SwitchRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SwitchControlProps = $props();
 
-	const switch_ = SwitchRootContext.consume();
+	const switch_ = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
