@@ -6,14 +6,15 @@
 </script>
 
 <script lang="ts">
-	import { RootNavigationContext } from '../modules/root-context';
+	import { NavigationRootContext } from '../modules/root-context';
 	import { classesNavigation } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationLabelProps = $props();
-	const { element, children, ...rest } = $derived(props);
 
-	const navigation = RootNavigationContext.consume();
+	const navigation = NavigationRootContext.consume();
+
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(

@@ -6,8 +6,7 @@ import { BookIcon } from 'lucide-react';
 import { HouseIcon } from 'lucide-react';
 import { MenuIcon } from 'lucide-react';
 import { MountainIcon } from 'lucide-react';
-// import { MoviesIcon } from 'lucide-react';
-import { BlocksIcon } from 'lucide-react';
+import { PopcornIcon } from 'lucide-react';
 import { SailboatIcon } from 'lucide-react';
 import { SettingsIcon } from 'lucide-react';
 import { SkullIcon } from 'lucide-react';
@@ -20,13 +19,13 @@ export default function Page() {
 	const links = [
 		{ label: 'Home', href: '#', icon: HouseIcon },
 		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: BlocksIcon }, // MoviesIcon
+		{ label: 'Movies', href: '#', icon: PopcornIcon },
 		{ label: 'Television', href: '#', icon: TvIcon },
 	];
 	const linksSidebar = {
 		entertainment: [
 			{ label: 'Books', href: '#', icon: BookIcon },
-			{ label: 'Movies', href: '#', icon: BlocksIcon }, // MoviesIcon
+			{ label: 'Movies', href: '#', icon: PopcornIcon },
 			{ label: 'Television', href: '#', icon: TvIcon },
 		],
 		recreation: [

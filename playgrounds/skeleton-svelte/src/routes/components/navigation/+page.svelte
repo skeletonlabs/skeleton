@@ -4,7 +4,7 @@
 	import HouseIcon from '@lucide/svelte/icons/house';
 	import MenuIcon from '@lucide/svelte/icons/menu';
 	import MountainIcon from '@lucide/svelte/icons/mountain';
-	import MoviesIcon from '@lucide/svelte/icons/popcorn';
+	import PopcornIcon from '@lucide/svelte/icons/popcorn';
 	import SailboatIcon from '@lucide/svelte/icons/sailboat';
 	import SettingsIcon from '@lucide/svelte/icons/settings';
 	import SkullIcon from '@lucide/svelte/icons/skull';
@@ -16,13 +16,13 @@
 	const links = [
 		{ label: 'Home', href: '#', icon: HouseIcon },
 		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: MoviesIcon },
+		{ label: 'Movies', href: '#', icon: PopcornIcon },
 		{ label: 'Television', href: '#', icon: TvIcon },
 	];
 	const linksSidebar = {
 		entertainment: [
 			{ label: 'Books', href: '#', icon: BookIcon },
-			{ label: 'Movies', href: '#', icon: MoviesIcon },
+			{ label: 'Movies', href: '#', icon: PopcornIcon },
 			{ label: 'Television', href: '#', icon: TvIcon },
 		],
 		recreation: [
