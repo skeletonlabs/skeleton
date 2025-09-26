@@ -1,6 +1,6 @@
 import { Pagination } from '@/index';
 
-export default function PaginationTest() {
+export default function Test() {
 	return (
 		<Pagination data-testid="root">
 			<Pagination.PrevTrigger data-testid="prev-trigger" />

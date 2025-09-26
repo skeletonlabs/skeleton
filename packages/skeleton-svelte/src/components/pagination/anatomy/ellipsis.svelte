@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { PaginationRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesPagination } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationEllipsisProps = $props();
 
-	const pagination = PaginationRootContext.consume();
+	const pagination = RootContext.consume();
 
 	const [ellipsisProps, componentProps] = $derived(splitEllipsisProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

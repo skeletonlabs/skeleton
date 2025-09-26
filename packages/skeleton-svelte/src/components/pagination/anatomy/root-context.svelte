@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { usePagination } from '../modules/use-pagination.svelte';
+	import type { usePagination } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface PaginationRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { PaginationRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: PaginationRootContextProps = $props();
 
-	const pagination = PaginationRootContext.consume();
+	const pagination = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -1,4 +1,4 @@
-import type { usePagination } from './use-pagination';
+import type { usePagination } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const PaginationRootContext = createContext<ReturnType<typeof usePagination>>();
+export const RootContext = createContext<ReturnType<typeof usePagination>>();

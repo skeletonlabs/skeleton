@@ -1,4 +1,4 @@
-import { PaginationRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesPagination } from '@skeletonlabs/skeleton-common';
@@ -9,7 +9,7 @@ import { use } from 'react';
 export interface PaginationEllipsisProps extends EllipsisProps, PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function Ellipsis(props: PaginationEllipsisProps) {
-	const pagination = use(PaginationRootContext);
+	const pagination = use(RootContext);
 
 	const [ellipsisProps, componentProps] = splitEllipsisProps(props);
 	const { element, children, ...rest } = componentProps;

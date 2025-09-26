@@ -1,39 +1,39 @@
-import Pagination from './pagination.svelte';
+import Test from './test.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('pagination', () => {
-	describe('root', () => {
+describe('Pagination', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(Pagination);
+			render(Test);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('prev-trigger', () => {
+	describe('PrevTrigger', () => {
 		it('renders', () => {
-			render(Pagination);
+			render(Test);
 			expect(screen.getByTestId('prev-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
-			render(Pagination);
+			render(Test);
 			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
-	describe('ellipsis', () => {
+	describe('Ellipsis', () => {
 		it('renders', () => {
-			render(Pagination);
+			render(Test);
 			expect(screen.getByTestId('ellipsis')).toBeInTheDocument();
 		});
 	});
 
-	describe('next-trigger', () => {
+	describe('NextTrigger', () => {
 		it('renders', () => {
-			render(Pagination);
+			render(Test);
 			expect(screen.getByTestId('next-trigger')).toBeInTheDocument();
 		});
 	});

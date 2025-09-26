@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { PaginationRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesPagination } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationItemProps = $props();
 
-	const pagination = PaginationRootContext.consume();
+	const pagination = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

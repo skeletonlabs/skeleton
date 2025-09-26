@@ -1,5 +1,5 @@
 export { Pagination } from './modules/anatomy';
-export { usePagination } from './modules/use-pagination';
+export { usePagination } from './modules/provider';
 export type { PaginationRootProviderProps } from './anatomy/root-provider';
 export type { PaginationPrevTriggerProps } from './anatomy/prev-trigger';
 export type { PaginationNextTriggerProps } from './anatomy/next-trigger';

@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { PaginationRootContext } from '../modules/root-context';
-	import { usePagination } from '../modules/use-pagination.svelte';
+	import { usePagination } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesPagination } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/pagination';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	PaginationRootContext.provide(() => pagination());
+	RootContext.provide(() => pagination());
 </script>
 
 {#if element}

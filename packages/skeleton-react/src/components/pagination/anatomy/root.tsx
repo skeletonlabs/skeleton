@@ -1,5 +1,5 @@
-import { PaginationRootContext } from '../modules/root-context';
-import { usePagination } from '../modules/use-pagination';
+import { usePagination } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesPagination } from '@skeletonlabs/skeleton-common';
@@ -24,8 +24,6 @@ export default function PaginationRoot(props: PaginationRootProps) {
 	);
 
 	return (
-		<PaginationRootContext.Provider value={pagination}>
-			{element ? element(attributes) : <nav {...attributes}>{children}</nav>}
-		</PaginationRootContext.Provider>
+		<RootContext.Provider value={pagination}>{element ? element(attributes) : <nav {...attributes}>{children}</nav>}</RootContext.Provider>
 	);
 }
