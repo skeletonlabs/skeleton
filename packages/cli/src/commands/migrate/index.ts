@@ -1,4 +1,5 @@
 import skeleton3 from './migrations/skeleton-3';
+import skeleton4 from './migrations/skeleton-4';
 import { Argument, Command, Option } from 'commander';
 
 interface MigrateOptions {
@@ -6,6 +7,7 @@ interface MigrateOptions {
 }
 const MIGRATIONS = {
 	'skeleton-3': skeleton3,
+	'skeleton-4': skeleton4,
 } as const;
 
 const migrate = new Command('migrate')
