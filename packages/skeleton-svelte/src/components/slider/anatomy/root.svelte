@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-	import { SliderRootContext } from '../modules/root-context';
-	import { useSlider } from '../modules/use-slider.svelte';
+	import { useSlider } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesSlider } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/slider';
 	import { mergeProps } from '@zag-js/svelte';
@@ -37,7 +37,7 @@
 		),
 	);
 
-	SliderRootContext.provide(() => slider());
+	RootContext.provide(() => slider());
 </script>
 
 {#if element}

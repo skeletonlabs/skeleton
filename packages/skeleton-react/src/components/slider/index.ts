@@ -1,5 +1,5 @@
 export { Slider } from './modules/anatomy';
-export { useSlider } from './modules/use-slider';
+export { useSlider } from './modules/provider';
 export type { SliderRootProps } from './anatomy/root';
 export type { SliderRootProviderProps } from './anatomy/root-provider';
 export type { SliderRootContextProps } from './anatomy/root-context';

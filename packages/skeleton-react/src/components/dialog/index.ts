@@ -9,4 +9,4 @@ export type { DialogRootProviderProps } from './anatomy/root-provider';
 export type { DialogTitleProps } from './anatomy/title';
 export type { DialogTriggerProps } from './anatomy/trigger';
 export { Dialog } from './modules/anatomy';
-export { useDialog } from './modules/use-dialog';
+export { useDialog } from './modules/provider';

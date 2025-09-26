@@ -9,16 +9,16 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxItemGroupContext } from '../modules/item-group-context';
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { ItemGroupContext } from '../modules/item-group-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemGroupLabelProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
-	const itemGroupProps = ComboboxItemGroupContext.consume();
+	const combobox = RootContext.consume();
+	const itemGroupProps = ItemGroupContext.consume();
 
 	const [itemGroupLabelProps] = $derived(
 		splitItemGroupLabelProps({

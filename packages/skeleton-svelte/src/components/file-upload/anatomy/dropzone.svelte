@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadDropzoneProps = $props();
 
-	const fileUpload = FileUploadRootContext.consume();
+	const fileUpload = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

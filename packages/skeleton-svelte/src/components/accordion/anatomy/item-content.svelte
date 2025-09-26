@@ -6,15 +6,15 @@
 </script>
 
 <script lang="ts">
-	import { AccordionItemContext } from '../modules/item-context';
-	import { AccordionRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionItemContentProps = $props();
 
-	const accordion = AccordionRootContext.consume();
-	const itemProps = AccordionItemContext.consume();
+	const accordion = RootContext.consume();
+	const itemProps = ItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

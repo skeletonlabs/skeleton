@@ -6,4 +6,4 @@ export type { RatingGroupRootProps } from './anatomy/root';
 export type { RatingGroupRootContextProps } from './anatomy/root-context';
 export type { RatingGroupRootProviderProps } from './anatomy/root-provider';
 export { RatingGroup } from './modules/anatomy';
-export { useRatingGroup } from './modules/use-rating-group';
+export { useRatingGroup } from './modules/provider';

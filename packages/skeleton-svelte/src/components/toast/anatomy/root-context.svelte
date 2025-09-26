@@ -9,11 +9,11 @@
 </script>
 
 <script lang="ts">
-	import { ToastRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: ToastRootContextProps = $props();
 
-	const toast = ToastRootContext.consume();
+	const toast = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

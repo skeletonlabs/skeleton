@@ -1,4 +1,4 @@
-import type { useTooltip } from './use-tooltip.svelte';
+import type { useTooltip } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const TooltipRootContext = createContext<ReturnType<typeof useTooltip>>();
+export const RootContext = createContext<ReturnType<typeof useTooltip>>();

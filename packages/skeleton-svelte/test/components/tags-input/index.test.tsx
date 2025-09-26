@@ -1,81 +1,81 @@
-import TagsInput from './tags-input.svelte';
+import Test from './test.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('tags-input', () => {
-	describe('root', () => {
+describe('TagsInput', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('item preview', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('item-preview')).toBeInTheDocument();
 		});
 	});
 
 	describe('item text', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('item delete trigger', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('item input', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('item-input')).toBeInTheDocument();
 		});
 	});
 
-	describe('input', () => {
+	describe('Input', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
 	describe('clear trigger', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('clear-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('hidden input', () => {
 		it('renders', () => {
-			render(TagsInput);
+			render(Test);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});

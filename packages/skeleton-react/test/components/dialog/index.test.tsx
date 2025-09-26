@@ -1,47 +1,47 @@
-import Dialog from './dialog';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('dialog', () => {
-	describe('trigger', () => {
+describe('Dialog', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
-	describe('backdrop', () => {
+	describe('Backdrop', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('backdrop')).toBeInTheDocument();
 		});
 	});
-	describe('positioner', () => {
+	describe('Positioner', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
-	describe('content', () => {
+	describe('Content', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
 	});
-	describe('title', () => {
+	describe('Title', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('title')).toBeInTheDocument();
 		});
 	});
-	describe('description', () => {
+	describe('Description', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('description')).toBeInTheDocument();
 		});
 	});
-	describe('close-trigger', () => {
+	describe('CloseTrigger', () => {
 		it('renders', () => {
-			render(<Dialog />);
+			render(<Test />);
 			expect(screen.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});

@@ -1,5 +1,5 @@
-import { TooltipRootContext } from '../modules/root-context';
-import type { useTooltip } from '../modules/use-tooltip';
+import type { useTooltip } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { PropsWithChildren } from 'react';
 
 export interface TooltipRootProviderProps extends PropsWithChildren {
@@ -9,5 +9,5 @@ export interface TooltipRootProviderProps extends PropsWithChildren {
 export default function RootProvider(props: TooltipRootProviderProps) {
 	const { children, value: tooltip } = props;
 
-	return <TooltipRootContext.Provider value={tooltip}>{children}</TooltipRootContext.Provider>;
+	return <RootContext.Provider value={tooltip}>{children}</RootContext.Provider>;
 }

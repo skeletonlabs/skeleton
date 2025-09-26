@@ -1,5 +1,5 @@
-import { TagsInputRootContext } from '../modules/root-context';
-import type { useTagsInput } from '../modules/use-tags-input';
+import type { useTagsInput } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { type ReactNode, use } from 'react';
 
 export interface TagsInputRootContextProps {
@@ -7,7 +7,7 @@ export interface TagsInputRootContextProps {
 }
 
 export default function RootContext(props: TagsInputRootContextProps) {
-	const tagsInput = use(TagsInputRootContext);
+	const tagsInput = use(RootContext_);
 
 	const { children } = props;
 

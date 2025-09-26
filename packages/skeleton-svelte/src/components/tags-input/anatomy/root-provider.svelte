@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useTagsInput } from '../modules/use-tags-input.svelte';
+	import type { useTagsInput } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -26,7 +26,7 @@
 		),
 	);
 
-	TagsInputRootContext.provide(() => tagsInput());
+	RootContext.provide(() => tagsInput());
 </script>
 
 {#if element}

@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-	import { ToastGroupContext } from '../modules/group-context';
+	import { GroupContext } from '../modules/group-context';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';
@@ -37,7 +37,7 @@
 		),
 	);
 
-	ToastGroupContext.provide(() => service);
+	GroupContext.provide(() => service);
 </script>
 
 {#if element}

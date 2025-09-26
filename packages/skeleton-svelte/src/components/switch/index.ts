@@ -6,4 +6,4 @@ export type { SwitchRootContextProps } from './anatomy/root-context.svelte';
 export type { SwitchRootProviderProps } from './anatomy/root-provider.svelte';
 export type { SwitchThumbProps } from './anatomy/thumb.svelte';
 export { Switch } from './modules/anatomy';
-export { useSwitch } from './modules/use-switch.svelte';
+export { useSwitch } from './modules/provider.svelte';

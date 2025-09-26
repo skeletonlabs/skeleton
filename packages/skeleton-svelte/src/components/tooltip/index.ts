@@ -7,4 +7,4 @@ export type { TooltipRootContextProps } from './anatomy/root-context.svelte';
 export type { TooltipRootProviderProps } from './anatomy/root-provider.svelte';
 export type { TooltipTriggerProps } from './anatomy/trigger.svelte';
 export { Tooltip } from './modules/anatomy';
-export { useTooltip } from './modules/use-tooltip.svelte';
+export { useTooltip } from './modules/provider.svelte';

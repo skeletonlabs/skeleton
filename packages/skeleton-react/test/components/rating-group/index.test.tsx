@@ -1,41 +1,41 @@
-import RatingGroup from './rating-group.jsx';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('rating-group', () => {
-	describe('root', () => {
+describe('RatingGroup', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(<RatingGroup />);
+			render(<Test />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(<RatingGroup />);
+			render(<Test />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
-			render(<RatingGroup />);
+			render(<Test />);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('items', () => {
+	describe('Items', () => {
 		it('renders all items', () => {
-			render(<RatingGroup />);
+			render(<Test />);
 			expect(screen.getByTestId('item-1')).toBeInTheDocument();
 			expect(screen.getByTestId('item-2')).toBeInTheDocument();
 			expect(screen.getByTestId('item-3')).toBeInTheDocument();
 		});
 	});
 
-	describe('hidden-input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
-			render(<RatingGroup />);
+			render(<Test />);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});

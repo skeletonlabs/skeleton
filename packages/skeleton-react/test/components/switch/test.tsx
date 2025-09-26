@@ -1,6 +1,6 @@
 import { Switch } from '@/index';
 
-export default function SwitchTest() {
+export default function Test() {
 	return (
 		<Switch data-testid="root">
 			<Switch.HiddenInput data-testid="hidden-input" />

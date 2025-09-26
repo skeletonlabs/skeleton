@@ -1,4 +1,4 @@
-import type { useTabs } from './use-tabs';
+import type { useTabs } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const TabsRootContext = createContext<ReturnType<typeof useTabs>>();
+export const RootContext = createContext<ReturnType<typeof useTabs>>();

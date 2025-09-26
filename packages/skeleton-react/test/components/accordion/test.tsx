@@ -1,6 +1,6 @@
 import { Accordion } from '@/index';
 
-export default function AccordionTest() {
+export default function Test() {
 	return (
 		<Accordion data-testid="root">
 			<Accordion.Item value="item" data-testid="item">

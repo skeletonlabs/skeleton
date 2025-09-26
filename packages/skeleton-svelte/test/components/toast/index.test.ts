@@ -1,36 +1,36 @@
-import Toast from './toast.svelte';
+import Test from './test.svelte';
 import { render, screen, waitFor } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('toast', () => {
-	describe('group', () => {
+describe('Toast', () => {
+	describe('Group', () => {
 		it('renders', () => {
-			render(Toast);
+			render(Test);
 			expect(screen.getByTestId('group')).toBeInTheDocument();
 		});
 	});
 
-	describe('root', () => {
+	describe('Root', () => {
 		it('renders', async () => {
-			render(Toast);
+			render(Test);
 			await waitFor(() => {
 				expect(screen.getByTestId('root')).toBeInTheDocument();
 			});
 		});
 	});
 
-	describe('title', () => {
+	describe('Title', () => {
 		it('renders', async () => {
-			render(Toast);
+			render(Test);
 			await waitFor(() => {
 				expect(screen.getByTestId('title')).toBeInTheDocument();
 			});
 		});
 	});
 
-	describe('description', () => {
+	describe('Description', () => {
 		it('renders', async () => {
-			render(Toast);
+			render(Test);
 			await waitFor(() => {
 				expect(screen.getByTestId('description')).toBeInTheDocument();
 			});
@@ -39,7 +39,7 @@ describe('toast', () => {
 
 	describe('action trigger', () => {
 		it('renders', async () => {
-			render(Toast);
+			render(Test);
 			await waitFor(() => {
 				expect(screen.getByTestId('action-trigger')).toBeInTheDocument();
 			});
@@ -48,7 +48,7 @@ describe('toast', () => {
 
 	describe('close trigger', () => {
 		it('renders', async () => {
-			render(Toast);
+			render(Test);
 			await waitFor(() => {
 				expect(screen.getByTestId('close-trigger')).toBeInTheDocument();
 			});

@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
-	import { DialogRootContext } from '../modules/root-context';
-	import { useDialog } from '../modules/use-dialog.svelte';
+	import { useDialog } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { splitProps } from '@zag-js/dialog';
 
 	const props: DialogRootProps = $props();
@@ -21,7 +21,7 @@
 		...machineProps,
 	}));
 
-	DialogRootContext.provide(() => dialog());
+	RootContext.provide(() => dialog());
 </script>
 
 {@render children?.()}

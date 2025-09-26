@@ -1,53 +1,53 @@
-import Popover from './popover.js';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('popover', () => {
-	describe('trigger', () => {
+describe('Popover', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
-	describe('positioner', () => {
+	describe('Positioner', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
-	describe('content', () => {
+	describe('Content', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
 	});
-	describe('arrow', () => {
+	describe('Arrow', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
 	describe('arrow tip', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
-	describe('title', () => {
+	describe('Title', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('title')).toBeInTheDocument();
 		});
 	});
-	describe('description', () => {
+	describe('Description', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('description')).toBeInTheDocument();
 		});
 	});
 	describe('close trigger', () => {
 		it('renders', () => {
-			render(<Popover />);
+			render(<Test />);
 			expect(screen.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});

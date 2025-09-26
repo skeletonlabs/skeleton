@@ -1,88 +1,88 @@
-import Combobox from './combobox';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('combobox', () => {
-	describe('root', () => {
+describe('Combobox', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('input', () => {
+	describe('Input', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
-	describe('trigger', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('positioner', () => {
+	describe('Positioner', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
-	describe('content', () => {
+	describe('Content', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('item group', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('item group label', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('item text', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('item indicator', () => {
 		it('renders', () => {
-			render(<Combobox />);
+			render(<Test />);
 			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
 		});
 	});

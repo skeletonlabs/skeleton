@@ -1,74 +1,74 @@
-import Slider from './slider.svelte';
+import Test from './test.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('slider', () => {
-	describe('root', () => {
+describe('Slider', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('value text', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('value-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('track', () => {
+	describe('Track', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
-	describe('range', () => {
+	describe('Range', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('range')).toBeInTheDocument();
 		});
 	});
 
-	describe('thumb', () => {
+	describe('Thumb', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
 	describe('hidden input', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
 	describe('marker group', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('marker-group')).toBeInTheDocument();
 		});
 	});
 
-	describe('marker', () => {
+	describe('Marker', () => {
 		it('renders', () => {
-			render(Slider);
+			render(Test);
 			expect(screen.getByTestId('marker')).toBeInTheDocument();
 		});
 	});

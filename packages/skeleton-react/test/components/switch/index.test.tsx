@@ -1,39 +1,39 @@
-import Switch from './switch';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('switch', () => {
-	describe('root', () => {
+describe('Switch', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(<Switch />);
+			render(<Test />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('hidden input', () => {
 		it('renders', () => {
-			render(<Switch />);
+			render(<Test />);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
-			render(<Switch />);
+			render(<Test />);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('thumb', () => {
+	describe('Thumb', () => {
 		it('renders', () => {
-			render(<Switch />);
+			render(<Test />);
 			expect(screen.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(<Switch />);
+			render(<Test />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});

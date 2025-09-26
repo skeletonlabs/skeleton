@@ -7,15 +7,15 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlItemContext } from '../modules/item-context';
-	import { SegmentedControlRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlItemProps = $props();
 
-	const segmentedControl = SegmentedControlRootContext.consume();
+	const segmentedControl = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
@@ -30,7 +30,7 @@
 		),
 	);
 
-	SegmentedControlItemContext.provide(() => itemProps);
+	ItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

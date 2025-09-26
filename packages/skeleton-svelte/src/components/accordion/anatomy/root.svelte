@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { AccordionRootContext } from '../modules/root-context';
-	import { useAccordion } from '../modules/use-accordion.svelte';
+	import { useAccordion } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	AccordionRootContext.provide(() => accordion());
+	RootContext.provide(() => accordion());
 </script>
 
 {#if element}

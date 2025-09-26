@@ -7,15 +7,15 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputItemContext } from '../modules/item-context';
-	import { TagsInputRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/tags-input';
 
 	const props: TagsInputItemProps = $props();
 
-	const tagsInput = TagsInputRootContext.consume();
+	const tagsInput = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
@@ -30,7 +30,7 @@
 		),
 	);
 
-	TagsInputItemContext.provide(() => itemProps);
+	ItemContext.provide(() => itemProps);
 </script>
 
 {#if element}
