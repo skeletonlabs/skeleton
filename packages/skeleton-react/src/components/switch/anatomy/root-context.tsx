@@ -1,5 +1,5 @@
-import { SwitchRootContext } from '../modules/root-context';
-import type { useSwitch } from '../modules/use-switch';
+import type { useSwitch } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface SwitchRootContextProps {
 }
 
 export default function RootContext(props: SwitchRootContextProps) {
-	const switch_ = use(SwitchRootContext);
+	const switch_ = use(RootContext_);
 
 	const { children } = props;
 

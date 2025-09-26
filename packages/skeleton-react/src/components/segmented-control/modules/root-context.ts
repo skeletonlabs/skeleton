@@ -1,4 +1,4 @@
-import type { useSegmentedControl } from './use-segmented-control';
+import type { useSegmentedControl } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const SegmentedControlRootContext = createContext<ReturnType<typeof useSegmentedControl>>();
+export const RootContext = createContext<ReturnType<typeof useSegmentedControl>>();

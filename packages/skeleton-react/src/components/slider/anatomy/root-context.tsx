@@ -1,5 +1,5 @@
-import { SliderRootContext } from '../modules/root-context';
-import type { useSlider } from '../modules/use-slider';
+import type { useSlider } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -7,8 +7,8 @@ export interface SliderRootContextProps {
 	children: (slider: ReturnType<typeof useSlider>) => ReactNode;
 }
 
-export default function SliderRootContextComponent(props: SliderRootContextProps) {
-	const slider = use(SliderRootContext);
+export default function RootContext(props: SliderRootContextProps) {
+	const slider = use(RootContext_);
 
 	const { children } = props;
 

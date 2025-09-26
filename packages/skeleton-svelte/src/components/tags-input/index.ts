@@ -12,4 +12,4 @@ export type { TagsInputRootProps } from './anatomy/root.svelte';
 export type { TagsInputRootContextProps } from './anatomy/root-context.svelte';
 export type { TagsInputRootProviderProps } from './anatomy/root-provider.svelte';
 export { TagsInput } from './modules/anatomy';
-export { useTagsInput } from './modules/use-tags-input.svelte';
+export { useTagsInput } from './modules/provider.svelte';

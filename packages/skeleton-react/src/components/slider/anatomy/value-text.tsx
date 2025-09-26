@@ -1,4 +1,4 @@
-import { SliderRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSlider } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface SliderValueTextProps extends PropsWithElement<'output'>, HTMLAttributes<'output'> {}
 
 export default function ValueText(props: SliderValueTextProps) {
-	const slider = use(SliderRootContext);
+	const slider = use(RootContext);
 
 	const { element, children, ...rest } = props;
 

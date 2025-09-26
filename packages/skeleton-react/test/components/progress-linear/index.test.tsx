@@ -2,29 +2,29 @@ import ProgressLinear from './progress-linear';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('progress-linear', () => {
-	describe('root', () => {
+describe('ProgressLinear', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(<ProgressLinear />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
 			render(<ProgressLinear />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('track', () => {
+	describe('Track', () => {
 		it('renders', () => {
 			render(<ProgressLinear />);
 			expect(screen.getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
-	describe('range', () => {
+	describe('Range', () => {
 		it('renders', () => {
 			render(<ProgressLinear />);
 			expect(screen.getByTestId('range')).toBeInTheDocument();

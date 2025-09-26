@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TabsIndicatorProps = $props();
 
-	const tabs = TabsRootContext.consume();
+	const tabs = RootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

@@ -1,4 +1,4 @@
-import type { useDialog } from './use-dialog.svelte';
+import type { useDialog } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const DialogRootContext = createContext<ReturnType<typeof useDialog>>();
+export const RootContext = createContext<ReturnType<typeof useDialog>>();

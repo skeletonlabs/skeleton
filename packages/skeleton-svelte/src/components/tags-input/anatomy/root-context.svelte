@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useTagsInput } from '../modules/use-tags-input.svelte';
+	import type { useTagsInput } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface TagsInputRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: TagsInputRootContextProps = $props();
 
-	const tagsInput = TagsInputRootContext.consume();
+	const tagsInput = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

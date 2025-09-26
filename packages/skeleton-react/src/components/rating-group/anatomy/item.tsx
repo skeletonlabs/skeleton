@@ -1,4 +1,4 @@
-import { RatingGroupRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import StarEmpty from '@/internal/components/star-empty';
 import StarFull from '@/internal/components/star-full';
 import StarHalf from '@/internal/components/star-half';
@@ -33,7 +33,7 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 }
 
 export default function Item(props: RatingGroupItemProps) {
-	const ratingGroup = use(RatingGroupRootContext);
+	const ratingGroup = use(RootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;

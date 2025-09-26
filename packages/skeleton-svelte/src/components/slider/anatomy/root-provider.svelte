@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useSlider } from '../modules/use-slider.svelte';
+	import type { useSlider } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { SliderRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSlider } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -27,7 +27,7 @@
 		),
 	);
 
-	SliderRootContext.provide(() => slider());
+	RootContext.provide(() => slider());
 </script>
 
 {#if element}

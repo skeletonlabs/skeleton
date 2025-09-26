@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { TooltipRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTooltip } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TooltipArrowTipProps = $props();
 
-	const tooltip = TooltipRootContext.consume();
+	const tooltip = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { SwitchRootContext } from '../modules/root-context';
-	import { useSwitch } from '../modules/use-switch.svelte';
+	import { useSwitch } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/switch';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	SwitchRootContext.provide(() => switch_());
+	RootContext.provide(() => switch_());
 </script>
 
 {#if element}

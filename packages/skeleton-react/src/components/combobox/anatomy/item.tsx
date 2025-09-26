@@ -1,5 +1,5 @@
-import { ComboboxItemContext } from '../modules/item-context';
-import { ComboboxRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface ComboboxItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
 
 export default function Item(props: ComboboxItemProps) {
-	const combobox = use(ComboboxRootContext);
+	const combobox = use(RootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -24,8 +24,6 @@ export default function Item(props: ComboboxItemProps) {
 	);
 
 	return (
-		<ComboboxItemContext.Provider value={itemProps}>
-			{element ? element(attributes) : <li {...attributes}>{children}</li>}
-		</ComboboxItemContext.Provider>
+		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <li {...attributes}>{children}</li>}</ItemContext.Provider>
 	);
 }

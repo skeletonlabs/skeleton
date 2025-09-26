@@ -1,5 +1,5 @@
-import { SliderRootContext } from '../modules/root-context';
-import { useSlider } from '../modules/use-slider';
+import { useSlider } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSlider } from '@skeletonlabs/skeleton-common';
@@ -27,8 +27,6 @@ export default function SliderRoot(props: SliderRootProps) {
 	);
 
 	return (
-		<SliderRootContext.Provider value={slider}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</SliderRootContext.Provider>
+		<RootContext.Provider value={slider}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

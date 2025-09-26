@@ -2,20 +2,20 @@ import Tooltip from './tooltip.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('tooltip', () => {
-	describe('trigger', () => {
+describe('Tooltip', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
 			render(Tooltip);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
-	describe('positioner', () => {
+	describe('Positioner', () => {
 		it('renders', () => {
 			render(Tooltip);
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
-	describe('arrow', () => {
+	describe('Arrow', () => {
 		it('renders', () => {
 			render(Tooltip);
 			expect(screen.getByTestId('arrow')).toBeInTheDocument();

@@ -2,29 +2,29 @@ import RatingGroup from './rating-group.jsx';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('rating-group', () => {
-	describe('root', () => {
+describe('RatingGroup', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(<RatingGroup />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
 			render(<RatingGroup />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
 			render(<RatingGroup />);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('items', () => {
+	describe('Items', () => {
 		it('renders all items', () => {
 			render(<RatingGroup />);
 			expect(screen.getByTestId('item-1')).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe('rating-group', () => {
 		});
 	});
 
-	describe('hidden-input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
 			render(<RatingGroup />);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();

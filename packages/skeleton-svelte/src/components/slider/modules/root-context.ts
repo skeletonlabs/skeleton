@@ -1,4 +1,4 @@
-import type { useSlider } from './use-slider.svelte';
+import type { useSlider } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const SliderRootContext = createContext<ReturnType<typeof useSlider>>();
+export const RootContext = createContext<ReturnType<typeof useSlider>>();

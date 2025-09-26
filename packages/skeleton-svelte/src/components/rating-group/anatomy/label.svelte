@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: RatingGroupLabelProps = $props();
 
-	const ratingGroup = RatingGroupRootContext.consume();
+	const ratingGroup = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

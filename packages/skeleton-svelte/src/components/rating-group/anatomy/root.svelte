@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context';
-	import { useRatingGroup } from '../modules/use-rating-group.svelte';
+	import { useRatingGroup } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	RatingGroupRootContext.provide(() => ratingGroup());
+	RootContext.provide(() => ratingGroup());
 </script>
 
 {#if element}

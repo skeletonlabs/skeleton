@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/root-context';
-	import { useFileUpload } from '../modules/use-file-upload.svelte';
+	import { useFileUpload } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/file-upload';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	FileUploadRootContext.provide(() => fileUpload());
+	RootContext.provide(() => fileUpload());
 </script>
 
 {#if element}

@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import ChevronDownIcon from '@/internal/components/chevron-down.svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxTriggerProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
+	const combobox = RootContext.consume();
 
 	const { element, children = chevronDown, ...rest } = $derived(props);
 

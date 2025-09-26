@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { SliderRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSlider } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderMarkerProps = $props();
 
-	const slider = SliderRootContext.consume();
+	const slider = RootContext.consume();
 
 	const { element, children, value, ...rest } = $derived(props);
 
