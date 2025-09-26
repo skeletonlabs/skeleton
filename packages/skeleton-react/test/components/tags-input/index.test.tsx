@@ -2,29 +2,29 @@ import TagsInput from './tags-input';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('tags-input', () => {
-	describe('root', () => {
+describe('TagsInput', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(<TagsInput />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
 			render(<TagsInput />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('control', () => {
+	describe('Control', () => {
 		it('renders', () => {
 			render(<TagsInput />);
 			expect(screen.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
 			render(<TagsInput />);
 			expect(screen.getByTestId('item')).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe('tags-input', () => {
 		});
 	});
 
-	describe('input', () => {
+	describe('Input', () => {
 		it('renders', () => {
 			render(<TagsInput />);
 			expect(screen.getByTestId('input')).toBeInTheDocument();

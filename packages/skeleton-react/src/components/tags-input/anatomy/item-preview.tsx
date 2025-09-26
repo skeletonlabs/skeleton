@@ -1,5 +1,5 @@
-import { TagsInputItemContext } from '../modules/item-context';
-import { TagsInputRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTagsInput } from '@skeletonlabs/skeleton-common';
@@ -9,8 +9,8 @@ import { use } from 'react';
 export interface TagsInputItemPreviewProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function ItemPreview(props: TagsInputItemPreviewProps) {
-	const tagsInput = use(TagsInputRootContext);
-	const itemProps = use(TagsInputItemContext);
+	const tagsInput = use(RootContext);
+	const itemProps = use(ItemContext);
 
 	const { element, children, ...rest } = props;
 

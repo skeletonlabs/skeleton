@@ -2,22 +2,22 @@ import SegmentedControl from './segmented-control.svelte';
 import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
 
-describe('segmented-control', () => {
-	describe('root', () => {
+describe('SegmentedControl', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(SegmentedControl);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('indicator', () => {
+	describe('Indicator', () => {
 		it('renders', () => {
 			render(SegmentedControl);
 			expect(screen.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
 			render(SegmentedControl);
 			expect(screen.getByTestId('item')).toBeInTheDocument();

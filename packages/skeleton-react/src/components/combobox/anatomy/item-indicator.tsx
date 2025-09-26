@@ -1,5 +1,5 @@
-import { ComboboxItemContext } from '../modules/item-context';
-import { ComboboxRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import Check from '@/internal/components/check';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
@@ -10,8 +10,8 @@ import { use } from 'react';
 export interface ComboboxItemIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function ItemIndicator(props: ComboboxItemIndicatorProps) {
-	const combobox = use(ComboboxRootContext);
-	const itemProps = use(ComboboxItemContext);
+	const combobox = use(RootContext);
+	const itemProps = use(ItemContext);
 
 	const { element, children = <Check className="size-4" />, ...rest } = props;
 

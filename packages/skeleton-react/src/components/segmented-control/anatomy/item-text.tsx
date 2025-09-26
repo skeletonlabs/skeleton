@@ -1,5 +1,5 @@
-import { SegmentedControlItemContext } from '../modules/item-context';
-import { SegmentedControlRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
@@ -9,8 +9,8 @@ import { use } from 'react';
 export interface SegmentedControlItemTextProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function ItemText(props: SegmentedControlItemTextProps) {
-	const segmentedControl = use(SegmentedControlRootContext);
-	const itemProps = use(SegmentedControlItemContext);
+	const segmentedControl = use(RootContext);
+	const itemProps = use(ItemContext);
 
 	const { element, children, ...rest } = props;
 

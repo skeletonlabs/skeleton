@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useTooltip } from '../modules/use-tooltip.svelte';
+	import type { useTooltip } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface TooltipRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { TooltipRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: TooltipRootContextProps = $props();
 
-	const tooltip = TooltipRootContext.consume();
+	const tooltip = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

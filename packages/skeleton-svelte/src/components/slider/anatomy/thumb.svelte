@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { SliderRootContext } from '../modules/root-context';
-	import { SliderThumbContext } from '../modules/thumb-context';
+	import { RootContext } from '../modules/root-context';
+	import { ThumbContext } from '../modules/thumb-context';
 	import { classesSlider } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderThumbProps = $props();
 
-	const slider = SliderRootContext.consume();
+	const slider = RootContext.consume();
 
 	const [thumbProps, componentProps] = $derived(splitThumbProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
@@ -29,7 +29,7 @@
 		),
 	);
 
-	SliderThumbContext.provide(() => thumbProps);
+	ThumbContext.provide(() => thumbProps);
 </script>
 
 {#if element}

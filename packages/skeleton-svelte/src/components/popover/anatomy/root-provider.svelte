@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { usePopover } from '../modules/use-popover.svelte';
+	import type { usePopover } from '../modules/provider.svelte';
 	import type { PropsWithChildren } from '@/internal/props-with-children';
 
 	export interface PopoverRootProviderProps extends PropsWithChildren {

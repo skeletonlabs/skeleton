@@ -26,7 +26,7 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import StarEmpty from '@/internal/components/star-empty.svelte';
 	import StarFull from '@/internal/components/star-full.svelte';
 	import StarHalf from '@/internal/components/star-half.svelte';
@@ -37,7 +37,7 @@
 
 	const props: RatingGroupItemProps = $props();
 
-	const ratingGroup = RatingGroupRootContext.consume();
+	const ratingGroup = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, empty = starEmpty, half = starHalf, full = starFull, ...rest } = $derived(componentProps);

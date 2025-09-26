@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useRatingGroup } from '../modules/use-rating-group.svelte';
+	import type { useRatingGroup } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -27,7 +27,7 @@
 		),
 	);
 
-	RatingGroupRootContext.provide(() => ratingGroup());
+	RootContext.provide(() => ratingGroup());
 </script>
 
 {#if element}

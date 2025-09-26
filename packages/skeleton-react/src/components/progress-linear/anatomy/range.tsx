@@ -1,4 +1,4 @@
-import { ProgressLinearRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface ProgressLinearRangeProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function Range(props: ProgressLinearRangeProps) {
-	const progressLinear = use(ProgressLinearRootContext);
+	const progressLinear = use(RootContext);
 
 	const { element, ...rest } = props;
 

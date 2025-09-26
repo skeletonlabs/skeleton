@@ -2,36 +2,36 @@ import Tabs from './tabs.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('tabs', () => {
-	describe('root', () => {
+describe('Tabs', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(<Tabs />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('list', () => {
+	describe('List', () => {
 		it('renders', () => {
 			render(<Tabs />);
 			expect(screen.getByTestId('list')).toBeInTheDocument();
 		});
 	});
 
-	describe('trigger', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
 			render(<Tabs />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('indicator', () => {
+	describe('Indicator', () => {
 		it('renders', () => {
 			render(<Tabs />);
 			expect(screen.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
-	describe('content', () => {
+	describe('Content', () => {
 		it('renders', () => {
 			render(<Tabs />);
 			expect(screen.getByTestId('content')).toBeInTheDocument();

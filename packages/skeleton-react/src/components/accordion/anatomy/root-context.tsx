@@ -1,5 +1,5 @@
-import { AccordionRootContext } from '../modules/root-context';
-import type { useAccordion } from '../modules/use-accordion';
+import type { useAccordion } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface AccordionRootContextProps {
 }
 
 export default function RootContext(props: AccordionRootContextProps) {
-	const accordion = use(AccordionRootContext);
+	const accordion = use(RootContext_);
 
 	const { children } = props;
 

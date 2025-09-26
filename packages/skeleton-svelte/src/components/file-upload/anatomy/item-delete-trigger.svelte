@@ -6,15 +6,15 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadItemContext } from '../modules/item-context';
-	import { FileUploadRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemDeleteTriggerProps = $props();
 
-	const fileUpload = FileUploadRootContext.consume();
-	const itemProps = FileUploadItemContext.consume();
+	const fileUpload = RootContext.consume();
+	const itemProps = ItemContext.consume();
 
 	const { element, children = times, ...rest } = $derived(props);
 

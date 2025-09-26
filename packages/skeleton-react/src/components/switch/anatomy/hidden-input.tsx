@@ -1,4 +1,4 @@
-import { SwitchRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSwitch } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface SwitchHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
 export default function HiddenInput(props: SwitchHiddenInputProps) {
-	const switch_ = use(SwitchRootContext);
+	const switch_ = use(RootContext);
 
 	const { element, ...rest } = props;
 

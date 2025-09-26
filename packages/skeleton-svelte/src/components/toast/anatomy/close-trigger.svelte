@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ToastRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import X from '@/internal/components/x.svelte';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToastCloseTriggerProps = $props();
 
-	const toast = ToastRootContext.consume();
+	const toast = RootContext.consume();
 
 	const { element, children = x, ...rest } = $derived(props);
 

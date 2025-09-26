@@ -1,5 +1,5 @@
-import { FileUploadRootContext } from '../modules/root-context';
-import { useFileUpload } from '../modules/use-file-upload';
+import { useFileUpload } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesFileUpload } from '@skeletonlabs/skeleton-common';
@@ -24,8 +24,6 @@ export default function Root(props: FileUploadRootProps) {
 	);
 
 	return (
-		<FileUploadRootContext.Provider value={fileUpload}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</FileUploadRootContext.Provider>
+		<RootContext.Provider value={fileUpload}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

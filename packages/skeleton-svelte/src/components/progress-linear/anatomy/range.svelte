@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { ProgressLinearRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesProgressLinear } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressLinearRangeProps = $props();
 
-	const progressLinear = ProgressLinearRootContext.consume();
+	const progressLinear = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitTriggerProps } from '@zag-js/tabs';
 
 	const props: TabsTriggerProps = $props();
 
-	const tabs = TabsRootContext.consume();
+	const tabs = RootContext.consume();
 
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

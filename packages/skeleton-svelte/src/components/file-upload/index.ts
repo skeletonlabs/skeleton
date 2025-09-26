@@ -8,4 +8,4 @@ export type { FileUploadRootContextProps } from './anatomy/root-context.svelte';
 export type { FileUploadRootProviderProps } from './anatomy/root-provider.svelte';
 export type { FileUploadTriggerProps } from './anatomy/trigger.svelte';
 export { FileUpload } from './modules/anatomy';
-export { useFileUpload } from './modules/use-file-upload.svelte';
+export { useFileUpload } from './modules/provider.svelte';

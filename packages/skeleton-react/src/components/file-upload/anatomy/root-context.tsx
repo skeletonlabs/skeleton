@@ -1,5 +1,5 @@
-import { FileUploadRootContext } from '../modules/root-context';
-import type { useFileUpload } from '../modules/use-file-upload';
+import type { useFileUpload } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface FileUploadRootContextProps {
 }
 
 export default function RootContext(props: FileUploadRootContextProps) {
-	const fileUpload = use(FileUploadRootContext);
+	const fileUpload = use(RootContext_);
 
 	const { children } = props;
 

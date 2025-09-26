@@ -6,16 +6,16 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxItemContext } from '../modules/item-context';
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import Check from '@/internal/components/check.svelte';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemIndicatorProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
-	const itemProps = ComboboxItemContext.consume();
+	const combobox = RootContext.consume();
+	const itemProps = ItemContext.consume();
 
 	const { element, children = check, ...rest } = $derived(props);
 

@@ -1,5 +1,5 @@
-import { TooltipRootContext } from '../modules/root-context';
-import { useTooltip } from '../modules/use-tooltip';
+import { useTooltip } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import { type Props, splitProps } from '@zag-js/tooltip';
 import type { PropsWithChildren } from 'react';
 
@@ -11,5 +11,5 @@ export default function Root(props: TooltipRootProps) {
 
 	const tooltip = useTooltip(tooltipProps);
 
-	return <TooltipRootContext.Provider value={tooltip}>{children}</TooltipRootContext.Provider>;
+	return <RootContext.Provider value={tooltip}>{children}</RootContext.Provider>;
 }

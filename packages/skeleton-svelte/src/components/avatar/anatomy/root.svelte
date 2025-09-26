@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { AvatarRootContext } from '../modules/root-context';
-	import { useAvatar } from '../modules/use-avatar.svelte';
+	import { useAvatar } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesAvatar } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/avatar';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	AvatarRootContext.provide(() => avatar());
+	RootContext.provide(() => avatar());
 </script>
 
 {#if element}

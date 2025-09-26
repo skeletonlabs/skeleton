@@ -6,4 +6,4 @@ export type { RatingGroupRootProps } from './anatomy/root.svelte';
 export type { RatingGroupRootContextProps } from './anatomy/root-context.svelte';
 export type { RatingGroupRootProviderProps } from './anatomy/root-provider.svelte';
 export { RatingGroup } from './modules/anatomy';
-export { useRatingGroup } from './modules/use-rating-group.svelte';
+export { useRatingGroup } from './modules/provider.svelte';

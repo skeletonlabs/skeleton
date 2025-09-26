@@ -1,4 +1,4 @@
-import type { useCombobox } from './use-combobox';
+import type { useCombobox } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const ComboboxRootContext = createContext<ReturnType<typeof useCombobox>>();
+export const RootContext = createContext<ReturnType<typeof useCombobox>>();

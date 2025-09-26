@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { TooltipRootContext } from '../modules/root-context';
-	import { useTooltip } from '../modules/use-tooltip.svelte';
+	import { useTooltip } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 
 	const props: TooltipRootProviderProps = $props();
 
 	const { children, value: tooltip } = $derived(props);
 
-	TooltipRootContext.provide(() => tooltip());
+	RootContext.provide(() => tooltip());
 </script>
 
 {@render children?.()}
