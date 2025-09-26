@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useSegmentedControl } from '../modules/use-segmented-control.svelte';
+	import type { useSegmentedControl } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface SegmentedControlRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: SegmentedControlRootContextProps = $props();
 
-	const segmentedControl = SegmentedControlRootContext.consume();
+	const segmentedControl = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

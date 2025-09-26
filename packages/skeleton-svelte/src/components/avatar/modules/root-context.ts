@@ -1,4 +1,4 @@
-import type { useAvatar } from './use-avatar.svelte';
+import type { useAvatar } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
+export const RootContext = createContext<ReturnType<typeof useAvatar>>();

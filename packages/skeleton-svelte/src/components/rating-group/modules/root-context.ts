@@ -1,4 +1,4 @@
-import type { useRatingGroup } from './use-rating-group.svelte';
+import type { useRatingGroup } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const RatingGroupRootContext = createContext<ReturnType<typeof useRatingGroup>>();
+export const RootContext = createContext<ReturnType<typeof useRatingGroup>>();

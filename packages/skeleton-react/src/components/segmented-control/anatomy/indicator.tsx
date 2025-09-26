@@ -1,4 +1,4 @@
-import { SegmentedControlRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface SegmentedControlIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function Indicator(props: SegmentedControlIndicatorProps) {
-	const segmentedControl = use(SegmentedControlRootContext);
+	const segmentedControl = use(RootContext);
 
 	const { element, ...rest } = props;
 

@@ -6,15 +6,15 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlItemContext } from '../modules/item-context';
-	import { SegmentedControlRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlItemHiddenInputProps = $props();
 
-	const segmentedcontrol = SegmentedControlRootContext.consume();
-	const itemProps = SegmentedControlItemContext.consume();
+	const segmentedcontrol = RootContext.consume();
+	const itemProps = ItemContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

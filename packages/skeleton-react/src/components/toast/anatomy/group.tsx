@@ -1,4 +1,4 @@
-import { ToastGroupContext } from '../modules/group-context';
+import { GroupContext } from '../modules/group-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesToast } from '@skeletonlabs/skeleton-common';
@@ -31,8 +31,8 @@ export default function Group(props: ToastGroupProps) {
 	);
 
 	return (
-		<ToastGroupContext.Provider value={service}>
+		<GroupContext.Provider value={service}>
 			{element ? element(attributes) : <div {...attributes}>{api.getToasts().map((toast) => children?.(toast))}</div>}
-		</ToastGroupContext.Provider>
+		</GroupContext.Provider>
 	);
 }

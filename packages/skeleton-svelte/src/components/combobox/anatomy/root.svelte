@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context';
-	import { useCombobox } from '../modules/use-combobox.svelte';
+	import { useCombobox } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
@@ -36,7 +36,7 @@
 		),
 	);
 
-	ComboboxRootContext.provide(() => combobox());
+	RootContext.provide(() => combobox());
 </script>
 
 {#if element}

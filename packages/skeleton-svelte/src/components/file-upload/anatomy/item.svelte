@@ -8,14 +8,14 @@
 </script>
 
 <script lang="ts">
-	import { FileUploadItemContext } from '../modules/item-context';
-	import { FileUploadRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemProps = $props();
 
-	const fileUpload = FileUploadRootContext.consume();
+	const fileUpload = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
@@ -30,7 +30,7 @@
 		),
 	);
 
-	FileUploadItemContext.provide(() => itemProps);
+	ItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

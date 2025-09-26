@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context';
-	import { useTabs } from '../modules/use-tabs.svelte';
+	import { useTabs } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesTabs } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/tabs';
@@ -33,7 +33,7 @@
 		),
 	);
 
-	TabsRootContext.provide(() => tabs());
+	RootContext.provide(() => tabs());
 </script>
 
 {#if element}

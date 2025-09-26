@@ -1,5 +1,5 @@
-import { DialogRootContext } from '../modules/root-context';
-import type { useDialog } from '../modules/use-dialog';
+import type { useDialog } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { type ReactNode, use } from 'react';
 
 export interface DialogRootContextProps {
@@ -7,7 +7,7 @@ export interface DialogRootContextProps {
 }
 
 export default function RootContext(props: DialogRootContextProps) {
-	const dialog = use(DialogRootContext);
+	const dialog = use(RootContext_);
 
 	const { children } = props;
 

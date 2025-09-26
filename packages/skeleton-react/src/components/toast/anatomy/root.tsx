@@ -1,5 +1,5 @@
-import { ToastGroupContext } from '../modules/group-context';
-import { ToastRootContext } from '../modules/root-context';
+import { GroupContext } from '../modules/group-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesToast } from '@skeletonlabs/skeleton-common';
@@ -13,7 +13,7 @@ export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<
 }
 
 export default function Root(props: ToastRootProps) {
-	const group = use(ToastGroupContext);
+	const group = use(GroupContext);
 
 	const { element, children, toast: toastProps, ...rest } = props;
 
@@ -34,11 +34,11 @@ export default function Root(props: ToastRootProps) {
 
 	return (
 		<>
-			<ToastRootContext.Provider value={toast}>
+			<RootContext.Provider value={toast}>
 				<div {...toast.getGhostBeforeProps()} />
 				{element ? element(attributes) : <div {...attributes}>{children}</div>}
 				<div {...toast.getGhostAfterProps()} />
-			</ToastRootContext.Provider>
+			</RootContext.Provider>
 			<style>{`
                 [data-part='root'] {
                     translate: var(--x) var(--y);

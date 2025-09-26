@@ -1,4 +1,4 @@
-import { DialogRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesDialog } from '@skeletonlabs/skeleton-common';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface DialogBackdropProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'children'> {}
 
 export default function Backdrop(props: DialogBackdropProps) {
-	const dialog = use(DialogRootContext);
+	const dialog = use(RootContext);
 
 	const { element, ...rest } = props;
 

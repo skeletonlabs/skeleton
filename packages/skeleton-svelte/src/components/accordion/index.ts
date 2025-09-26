@@ -7,4 +7,4 @@ export type { AccordionRootContextProps } from './anatomy/root-context.svelte';
 export type { AccordionRootProviderProps } from './anatomy/root-provider.svelte';
 export type { AccordionItemTriggerProps } from './anatomy/item-trigger.svelte';
 export { Accordion } from './modules/anatomy';
-export { useAccordion } from './modules/use-accordion.svelte';
+export { useAccordion } from './modules/provider.svelte';
