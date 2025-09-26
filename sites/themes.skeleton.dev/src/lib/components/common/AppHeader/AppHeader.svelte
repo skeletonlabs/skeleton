@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	// Components (common)
-	import Lightswitch from '$lib/components/common/LightSwitch/LightSwitch.svelte';
+	import LightSwitch from '$lib/components/common/LightSwitch/LightSwitch.svelte';
 	import Logo from '$lib/components/common/Logo/Logo.svelte';
 </script>
 
@@ -18,7 +18,7 @@
 			</nav>
 		</div>
 		<nav class="flex items-center gap-4">
-			<Lightswitch />
+			<LightSwitch />
 			<!-- <button class="btn preset-filled">Login</button> -->
 		</nav>
 	</div>
