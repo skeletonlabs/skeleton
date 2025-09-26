@@ -1,5 +1,11 @@
 # skeleton
 
+## 1.0.1-next.2
+
+### Patch Changes
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
 ## 1.0.1-next.1
 
 ### Patch Changes
