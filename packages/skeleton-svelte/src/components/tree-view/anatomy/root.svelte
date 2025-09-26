@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { TreeViewRootContext } from '../modules/root-context';
-	import { useTreeView } from '../modules/use-tree-view.svelte';
+	import { useTreeView } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesTreeView } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -33,7 +33,7 @@
 		),
 	);
 
-	TreeViewRootContext.provide(() => treeView());
+	RootContext.provide(() => treeView());
 </script>
 
 {#if element}

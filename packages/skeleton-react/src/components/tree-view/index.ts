@@ -1,5 +1,5 @@
 export { TreeView } from './modules/anatomy';
-export { useTreeView } from './modules/use-tree-view';
+export { useTreeView } from './modules/provider';
 export { createTreeViewCollection } from './modules/create-tree-view-collection';
 export type { TreeViewRootProps } from './anatomy/root';
 export type { TreeViewRootProviderProps } from './anatomy/root-provider';

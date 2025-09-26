@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { TreeViewRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTreeView } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewTreeProps = $props();
 
-	const treeView = TreeViewRootContext.consume();
+	const treeView = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

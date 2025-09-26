@@ -1,4 +1,4 @@
-import { TreeViewRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTreeView } from '@skeletonlabs/skeleton-common';
@@ -15,7 +15,7 @@ export interface TreeViewLabelProps extends PropsWithElement<'h3'>, HTMLAttribut
 }
 
 export default function Label(props: TreeViewLabelProps) {
-	const treeView = use(TreeViewRootContext);
+	const treeView = use(RootContext);
 
 	const { element, children, level = 3, ...rest } = props;
 

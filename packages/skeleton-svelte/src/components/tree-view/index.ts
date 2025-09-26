@@ -1,5 +1,5 @@
 export { TreeView } from './modules/anatomy';
-export { useTreeView } from './modules/use-tree-view.svelte';
+export { useTreeView } from './modules/provider.svelte';
 export { createTreeViewCollection } from './modules/create-tree-view-collection';
 export type { TreeViewRootProps } from './anatomy/root.svelte';
 export type { TreeViewRootProviderProps } from './anatomy/root-provider.svelte';

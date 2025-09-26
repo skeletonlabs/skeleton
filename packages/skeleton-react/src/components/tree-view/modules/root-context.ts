@@ -1,4 +1,4 @@
-import type { useTreeView } from './use-tree-view';
+import type { useTreeView } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const TreeViewRootContext = createContext<ReturnType<typeof useTreeView>>();
+export const RootContext = createContext<ReturnType<typeof useTreeView>>();

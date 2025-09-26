@@ -1,5 +1,5 @@
-import { TreeViewRootContext } from '../modules/root-context';
-import type { useTreeView } from '../modules/use-tree-view';
+import type { useTreeView } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTreeView } from '@skeletonlabs/skeleton-common';
@@ -21,8 +21,6 @@ export default function RootProvider(props: TreeViewRootProviderProps) {
 	);
 
 	return (
-		<TreeViewRootContext.Provider value={treeView}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</TreeViewRootContext.Provider>
+		<RootContext.Provider value={treeView}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

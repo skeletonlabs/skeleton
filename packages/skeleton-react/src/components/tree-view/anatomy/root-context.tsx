@@ -1,5 +1,5 @@
-import { TreeViewRootContext } from '../modules/root-context';
-import type { useTreeView } from '../modules/use-tree-view';
+import type { useTreeView } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface TreeViewRootContextProps {
 }
 
 export default function RootContext(props: TreeViewRootContextProps) {
-	const treeView = use(TreeViewRootContext);
+	const treeView = use(RootContext_);
 
 	const { children } = props;
 

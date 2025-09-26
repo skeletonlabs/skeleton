@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { TreeViewNodeContext } from '../modules/node-context';
+	import { NodeContext } from '../modules/node-context';
 	import type { NodeProps } from '@zag-js/tree-view';
 
 	const props: TreeViewNodeProviderProps = $props();
 
 	const { children, value: nodeProps } = $derived(props);
 
-	TreeViewNodeContext.provide(() => nodeProps);
+	NodeContext.provide(() => nodeProps);
 </script>
 
 {@render children?.()}
