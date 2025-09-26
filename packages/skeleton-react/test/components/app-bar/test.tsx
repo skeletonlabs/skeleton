@@ -1,6 +1,6 @@
 import { AppBar } from '@/index';
 
-export default function AppBarTest() {
+export default function Test() {
 	return (
 		<AppBar data-testid="root">
 			<AppBar.Toolbar data-testid="toolbar">
