@@ -1,6 +1,6 @@
 import { SegmentedControl } from '@/index';
 
-export default function SegmentedControlTest() {
+export default function Test() {
 	return (
 		<SegmentedControl data-testid="root">
 			<SegmentedControl.Indicator data-testid="indicator" />

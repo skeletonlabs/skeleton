@@ -1,6 +1,6 @@
 import { Tooltip } from '@/index';
 
-export default function TooltipTest() {
+export default function Test() {
 	return (
 		<Tooltip>
 			<Tooltip.Trigger data-testid="trigger" />
