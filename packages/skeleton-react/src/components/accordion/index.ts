@@ -3,7 +3,7 @@ export type { AccordionItemHeadingProps } from './anatomy/item-heading';
 export type { AccordionItemIndicatorProps } from './anatomy/item-indicator';
 export type { AccordionItemProps } from './anatomy/item';
 export type { AccordionRootProps } from './anatomy/root';
-export type { AccordionRootContextProps as RootContextProps } from './anatomy/root-context';
+export type { AccordionRootContextProps } from './anatomy/root-context';
 export type { AccordionRootProviderProps } from './anatomy/root-provider';
 export type { AccordionItemTriggerProps } from './anatomy/item-trigger';
 export { Accordion } from './modules/anatomy';
