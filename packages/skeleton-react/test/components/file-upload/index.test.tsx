@@ -2,64 +2,64 @@ import FileUpload from './file-upload.js';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('file-upload', () => {
-	describe('root', () => {
+describe('FileUpload', () => {
+	describe('Root', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('dropzone', () => {
+	describe('Dropzone', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('dropzone')).toBeInTheDocument();
 		});
 	});
 
-	describe('trigger', () => {
+	describe('Trigger', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('item-group', () => {
+	describe('ItemGroup', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
-	describe('item', () => {
+	describe('Item', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
-	describe('item-name', () => {
+	describe('ItemName', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('item-name')).toBeInTheDocument();
 		});
 	});
 
-	describe('item-size-text', () => {
+	describe('ItemSizeText', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('item-size-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('item-delete-trigger', () => {
+	describe('ItemDeleteTrigger', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('hidden-input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
 			render(<FileUpload />);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();

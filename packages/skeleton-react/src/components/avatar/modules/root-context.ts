@@ -1,4 +1,4 @@
-import type { useAvatar } from './use-avatar';
+import type { useAvatar } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
+export const RootContext = createContext<ReturnType<typeof useAvatar>>();

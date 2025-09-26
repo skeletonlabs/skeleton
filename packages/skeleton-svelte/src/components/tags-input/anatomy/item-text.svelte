@@ -6,15 +6,15 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputItemContext } from '../modules/item-context';
-	import { TagsInputRootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputItemTextProps = $props();
 
-	const tagsInput = TagsInputRootContext.consume();
-	const itemProps = TagsInputItemContext.consume();
+	const tagsInput = RootContext.consume();
+	const itemProps = ItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

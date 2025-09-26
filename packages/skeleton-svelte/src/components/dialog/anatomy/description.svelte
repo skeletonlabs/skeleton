@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { DialogRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesDialog } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogDescriptionProps = $props();
 
-	const dialog = DialogRootContext.consume();
+	const dialog = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

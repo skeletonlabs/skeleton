@@ -1,5 +1,5 @@
-import { TagsInputItemContext } from '../modules/item-context';
-import { TagsInputRootContext } from '../modules/root-context';
+import { ItemContext } from '../modules/item-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTagsInput } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ import { use } from 'react';
 export interface TagsInputItemProps extends ItemProps, PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function Item(props: TagsInputItemProps) {
-	const tagsInput = use(TagsInputRootContext);
+	const tagsInput = use(RootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -24,8 +24,6 @@ export default function Item(props: TagsInputItemProps) {
 	);
 
 	return (
-		<TagsInputItemContext.Provider value={itemProps}>
-			{element ? element(attributes) : <span {...attributes}>{children}</span>}
-		</TagsInputItemContext.Provider>
+		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <span {...attributes}>{children}</span>}</ItemContext.Provider>
 	);
 }

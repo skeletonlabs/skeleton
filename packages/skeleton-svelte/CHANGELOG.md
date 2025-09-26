@@ -1,5 +1,20 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.14
+
+### Patch Changes
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@1.0.0-next.11
+
+## 2.0.0-next.13
+
+### Patch Changes
+
+- fix: override skeleton specific attributes ([#3803](https://github.com/skeletonlabs/skeleton/pull/3803))
+
 ## 2.0.0-next.12
 
 ### Minor Changes

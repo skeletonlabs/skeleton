@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlIndicatorProps = $props();
 
-	const segmentedControl = SegmentedControlRootContext.consume();
+	const segmentedControl = RootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

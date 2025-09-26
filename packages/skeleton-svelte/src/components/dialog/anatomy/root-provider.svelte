@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useDialog } from '../modules/use-dialog.svelte';
+	import type { useDialog } from '../modules/provider.svelte';
 	import type { PropsWithChildren } from '@/internal/props-with-children';
 
 	export interface DialogRootProviderProps extends PropsWithChildren {
@@ -8,13 +8,13 @@
 </script>
 
 <script lang="ts">
-	import { DialogRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: DialogRootProviderProps = $props();
 
 	const { children, value: dialog } = $derived(props);
 
-	DialogRootContext.provide(() => dialog());
+	RootContext.provide(() => dialog());
 </script>
 
 {@render children?.()}

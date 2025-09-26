@@ -1,5 +1,5 @@
-import { AccordionItemContext } from '../modules/item-context.js';
-import { AccordionRootContext } from '../modules/root-context.js';
+import { ItemContext } from '../modules/item-context.js';
+import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
@@ -10,8 +10,8 @@ import type { PropsWithChildren } from 'react';
 export interface AccordionItemContentProps extends PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function ItemContent(props: AccordionItemContentProps) {
-	const accordion = use(AccordionRootContext);
-	const itemProps = use(AccordionItemContext);
+	const accordion = use(RootContext);
+	const itemProps = use(ItemContext);
 
 	const { element, children, ...rest } = props;
 

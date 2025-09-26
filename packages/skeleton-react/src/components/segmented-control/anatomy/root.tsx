@@ -1,5 +1,5 @@
-import { SegmentedControlRootContext } from '../modules/root-context';
-import { useSegmentedControl } from '../modules/use-segmented-control';
+import { useSegmentedControl } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
@@ -27,8 +27,8 @@ export default function Root(props: SegmentedControlRootProps) {
 	);
 
 	return (
-		<SegmentedControlRootContext.Provider value={segmentedControl}>
+		<RootContext.Provider value={segmentedControl}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</SegmentedControlRootContext.Provider>
+		</RootContext.Provider>
 	);
 }

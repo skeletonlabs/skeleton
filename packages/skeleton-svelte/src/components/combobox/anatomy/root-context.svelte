@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useCombobox } from '../modules/use-combobox.svelte';
+	import type { useCombobox } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface ComboboxRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: ComboboxRootContextProps = $props();
 
-	const combobox = ComboboxRootContext.consume();
+	const combobox = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -1,26 +1,11 @@
-# Skeleton-React
+# Skeleton React
 
-Provides all React features for [Skeleton](https://skeleton.dev/).
+## Installation
 
-## Project
-
-This project has been created using a [Vite/React](https://vitejs.dev/).
-
-## Exports
-
-Library exports are contained within `/src/lib/migrate.ts`
-
-## Routing
-
-Routing is provided by [vite-remix-router](https://vite-remix-router.vercel.app/) and Remix's [React Router](https://reactrouter.com/en/main).
-
-## Dev
-
-To run locally, follow the following instructions:
-
-```
-pnpm i
-pnpm dev
+```bash
+pnpm add @skeletonlabs/skeleton-react
 ```
 
-Then point your browser at http://localhost:5173/
+## Documentation
+
+Explore the full documentation at [skeleton.dev](https://skeleton.dev/).

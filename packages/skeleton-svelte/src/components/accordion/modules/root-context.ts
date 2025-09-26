@@ -1,4 +1,4 @@
-import type { useAccordion } from './use-accordion.svelte';
+import type { useAccordion } from './provider.svelte';
 import { createContext } from '@/internal/create-context';
 
-export const AccordionRootContext = createContext<ReturnType<typeof useAccordion>>();
+export const RootContext = createContext<ReturnType<typeof useAccordion>>();

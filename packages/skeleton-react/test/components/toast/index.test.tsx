@@ -2,8 +2,8 @@ import Toast from './toast';
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('toast', () => {
-	describe('group', () => {
+describe('Toast', () => {
+	describe('Group', () => {
 		it('renders', () => {
 			render(<Toast />);
 			expect(screen.getByTestId('group')).toBeInTheDocument();

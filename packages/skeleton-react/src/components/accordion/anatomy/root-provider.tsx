@@ -1,5 +1,5 @@
-import { AccordionRootContext } from '../modules/root-context';
-import type { useAccordion } from '../modules/use-accordion';
+import type { useAccordion } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
@@ -21,8 +21,6 @@ export default function RootProvider(props: AccordionRootProviderProps) {
 	);
 
 	return (
-		<AccordionRootContext.Provider value={accordion}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</AccordionRootContext.Provider>
+		<RootContext.Provider value={accordion}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

@@ -9,15 +9,15 @@
 </script>
 
 <script lang="ts">
-	import { ToastGroupContext } from '../modules/group-context';
-	import { ToastRootContext } from '../modules/root-context';
+	import { GroupContext } from '../modules/group-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { connect, machine } from '@zag-js/toast';
 
 	const props: ToastRootProps = $props();
 
-	const group = ToastGroupContext.consume();
+	const group = GroupContext.consume();
 
 	const { element, children, toast: toastProps, ...rest } = $derived(props);
 
@@ -39,7 +39,7 @@
 		),
 	);
 
-	ToastRootContext.provide(() => toast);
+	RootContext.provide(() => toast);
 </script>
 
 <div {...toast.getGhostBeforeProps()}></div>

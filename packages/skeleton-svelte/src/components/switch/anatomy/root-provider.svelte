@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useSwitch } from '../modules/use-switch.svelte';
+	import type { useSwitch } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { SwitchRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesSwitch } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -27,7 +27,7 @@
 		),
 	);
 
-	SwitchRootContext.provide(() => switch_());
+	RootContext.provide(() => switch_());
 </script>
 
 {#if element}

@@ -8,4 +8,4 @@ export type { PopoverRootProviderProps } from './anatomy/root-provider';
 export type { PopoverTitleProps } from './anatomy/title';
 export type { PopoverTriggerProps } from './anatomy/trigger';
 export { Popover } from './modules/anatomy';
-export { usePopover } from './modules/use-popover';
+export { usePopover } from './modules/provider';

@@ -1,5 +1,5 @@
-import { AvatarRootContext } from '../modules/root-context';
-import { useAvatar } from '../modules/use-avatar';
+import { useAvatar } from '../modules/provider';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
@@ -24,8 +24,6 @@ export default function AvatarRoot(props: AvatarRootProps) {
 	);
 
 	return (
-		<AvatarRootContext.Provider value={avatar}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</AvatarRootContext.Provider>
+		<RootContext.Provider value={avatar}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }

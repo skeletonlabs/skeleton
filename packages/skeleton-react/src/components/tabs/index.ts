@@ -6,4 +6,4 @@ export type { TabsRootContextProps } from './anatomy/root-context';
 export type { TabsRootProviderProps } from './anatomy/root-provider';
 export type { TabsTriggerProps } from './anatomy/trigger';
 export { Tabs } from './modules/anatomy';
-export { useTabs } from './modules/use-tabs';
+export { useTabs } from './modules/provider';
