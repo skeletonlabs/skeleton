@@ -1,5 +1,6 @@
 import type { MigrateOptions } from '../..';
 import { cli } from '../../../..';
+import type { FileMigration } from '../../../../utility/file-migration';
 import { installDependencies } from '../../../../utility/install-dependencies';
 import { transformAppCss } from './transformers/transform-app.css';
 import { transformAppHtml } from './transformers/transform-app.html';
@@ -15,11 +16,6 @@ import getLatestVersion from 'latest-version';
 import { readFile, writeFile } from 'node:fs/promises';
 import { extname } from 'node:path';
 import { glob } from 'tinyglobby';
-
-interface FileMigration {
-	path: string;
-	content: string;
-}
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
