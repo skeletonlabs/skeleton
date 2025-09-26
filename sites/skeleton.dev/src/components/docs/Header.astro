@@ -2,7 +2,7 @@
 // Stores
 // Components
 import Drawer from '@components/docs/Drawer.astro';
-import Lightswitch from '@components/docs/Lightswitch.astro';
+import LightSwitch from '@components/docs/LightSwitch.svelte';
 import Navigation from '@components/docs/Navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
@@ -64,7 +64,7 @@ const versionLinks = [
 		<!-- <div class="hidden xl:flex items-center justify-end gap-2"> -->
 		<div class="flex justify-end items-stretch gap-2">
 			<!-- Mode and Theme -->
-			<Lightswitch />
+			<LightSwitch client:load />
 			<HeaderThemes client:load />
 			<!-- Divider -->
 			<span class="border-r border-surface-200-800"></span>

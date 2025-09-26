@@ -26,4 +26,4 @@
 
 @plugin '@tailwindcss/forms';
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
