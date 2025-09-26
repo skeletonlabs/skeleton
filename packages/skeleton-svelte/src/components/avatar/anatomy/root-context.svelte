@@ -2,7 +2,7 @@
 	import type { useAvatar } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
-	export interface RootContextProps {
+	export interface AvatarRootContextProps {
 		children: Snippet<[ReturnType<typeof useAvatar>]>;
 	}
 </script>
@@ -10,7 +10,7 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context';
 
-	const props: RootContextProps = $props();
+	const props: AvatarRootContextProps = $props();
 
 	const avatar = RootContext.consume();
 

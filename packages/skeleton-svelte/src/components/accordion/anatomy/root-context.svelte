@@ -2,7 +2,7 @@
 	import type { useAccordion } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
-	export interface RootContextProps {
+	export interface AccordionRootContextProps {
 		children: Snippet<[ReturnType<typeof useAccordion>]>;
 	}
 </script>
@@ -10,7 +10,7 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context';
 
-	const props: RootContextProps = $props();
+	const props: AccordionRootContextProps = $props();
 
 	const accordion = RootContext.consume();
 
