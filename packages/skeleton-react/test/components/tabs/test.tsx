@@ -1,6 +1,6 @@
 import { Tabs } from '@/index';
 
-export default function TabsTest() {
+export default function Test() {
 	return (
 		<Tabs defaultValue="tab-1" data-testid="root">
 			<Tabs.List data-testid="list">

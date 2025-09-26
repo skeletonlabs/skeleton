@@ -1,6 +1,6 @@
 import { Slider } from '@/index';
 
-export default function SliderTest() {
+export default function Test() {
 	return (
 		<Slider data-testid="root">
 			<Slider.Label data-testid="label" />

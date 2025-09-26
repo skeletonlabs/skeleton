@@ -1,6 +1,6 @@
 import { TagsInput } from '@/index';
 
-export default function TagsInputTest() {
+export default function Test() {
 	return (
 		<TagsInput data-testid="root">
 			<TagsInput.Label data-testid="label" />
