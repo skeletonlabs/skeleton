@@ -1,5 +1,5 @@
-import { RootContext } from '../modules/root-context';
 import type { useTooltip } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { type ReactNode, use } from 'react';
 
 export interface TooltipRootContextProps {
@@ -7,7 +7,7 @@ export interface TooltipRootContextProps {
 }
 
 export default function RootContext(props: TooltipRootContextProps) {
-	const tooltip = use(RootContext);
+	const tooltip = use(RootContext_);
 
 	const { children } = props;
 

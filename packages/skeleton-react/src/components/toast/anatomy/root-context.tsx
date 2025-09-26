@@ -1,4 +1,4 @@
-import { RootContext } from '../modules/root-context';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import type { PropTypes } from '@zag-js/react';
 import type { Api } from '@zag-js/toast';
 import { use } from 'react';
@@ -9,7 +9,7 @@ export interface ToastRootContextProps {
 }
 
 export default function RootContext(props: ToastRootContextProps) {
-	const toast = use(RootContext);
+	const toast = use(RootContext_);
 
 	const { children } = props;
 

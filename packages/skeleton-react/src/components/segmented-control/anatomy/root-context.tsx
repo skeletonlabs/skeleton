@@ -1,5 +1,5 @@
-import { RootContext } from '../modules/root-context';
 import type { useSegmentedControl } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface SegmentedControlRootContextProps {
 }
 
 export default function RootContext(props: SegmentedControlRootContextProps) {
-	const segmentedControl = use(RootContext);
+	const segmentedControl = use(RootContext_);
 
 	const { children } = props;
 

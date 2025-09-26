@@ -1,5 +1,5 @@
-import { RootContext } from '../modules/root-context';
 import type { useTabs } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface TabsRootContextProps {
 }
 
 export default function RootContext(props: TabsRootContextProps) {
-	const tabs = use(RootContext);
+	const tabs = use(RootContext_);
 
 	const { children } = props;
 
