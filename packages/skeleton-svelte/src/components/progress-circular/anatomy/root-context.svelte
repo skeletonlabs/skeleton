@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useProgressCircular } from '../modules/use-progress-circular.svelte';
+	import type { useProgressCircular } from '../modules/provider.svelte';
 	import type { Snippet } from 'svelte';
 
 	export interface ProgressCircularRootContextProps {
@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { ProgressCircularRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 
 	const props: ProgressCircularRootContextProps = $props();
 
-	const progressCircular = ProgressCircularRootContext.consume();
+	const progressCircular = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

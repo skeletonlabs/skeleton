@@ -1,46 +1,46 @@
-import ProgressCircular from './progress-circular';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('progress-circular', () => {
-	describe('root', () => {
+describe('ProgressCircular', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('circle', () => {
+	describe('Circle', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('circle')).toBeInTheDocument();
 		});
 	});
 
-	describe('track', () => {
+	describe('Track', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
-	describe('range', () => {
+	describe('Range', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('range')).toBeInTheDocument();
 		});
 	});
 
-	describe('value-text', () => {
+	describe('ValueText', () => {
 		it('renders', () => {
-			render(<ProgressCircular />);
+			render(<Test />);
 			expect(screen.getByTestId('value-text')).toBeInTheDocument();
 		});
 	});

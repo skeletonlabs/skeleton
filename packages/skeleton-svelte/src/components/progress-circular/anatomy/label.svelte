@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { ProgressCircularRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesProgressCircular } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressCircularLabelProps = $props();
 
-	const progressCircular = ProgressCircularRootContext.consume();
+	const progressCircular = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { useProgressCircular } from '../modules/use-progress-circular.svelte';
+	import type { useProgressCircular } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { ProgressCircularRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesProgressCircular } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -27,7 +27,7 @@
 		),
 	);
 
-	ProgressCircularRootContext.provide(() => avatar());
+	RootContext.provide(() => avatar());
 </script>
 
 {#if element}

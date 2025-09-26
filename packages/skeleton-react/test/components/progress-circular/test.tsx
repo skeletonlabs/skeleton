@@ -1,6 +1,6 @@
 import { ProgressCircular } from '@/index';
 
-export default function ProgressCircularTest() {
+export default function Test() {
 	return (
 		<ProgressCircular data-testid="root">
 			<ProgressCircular.Label data-testid="label" />

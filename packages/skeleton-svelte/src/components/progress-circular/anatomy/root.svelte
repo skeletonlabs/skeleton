@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { ProgressCircularRootContext } from '../modules/root-context';
-	import { useProgressCircular } from '../modules/use-progress-circular.svelte';
+	import { useProgressCircular } from '../modules/provider.svelte';
+	import { RootContext } from '../modules/root-context';
 	import { classesProgressCircular } from '@skeletonlabs/skeleton-common';
 	import { splitProps } from '@zag-js/progress';
 	import { mergeProps } from '@zag-js/svelte';
@@ -34,7 +34,7 @@
 		),
 	);
 
-	ProgressCircularRootContext.provide(() => avatar());
+	RootContext.provide(() => avatar());
 </script>
 
 {#if element}

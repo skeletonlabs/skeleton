@@ -1,4 +1,4 @@
-import type { useProgressCircular } from './use-progress-circular';
+import type { useProgressCircular } from './provider';
 import { createContext } from '@/internal/create-context';
 
-export const ProgressCircularRootContext = createContext<ReturnType<typeof useProgressCircular>>();
+export const RootContext = createContext<ReturnType<typeof useProgressCircular>>();

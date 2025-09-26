@@ -1,5 +1,5 @@
-import { ProgressCircularRootContext } from '../modules/root-context';
-import type { useProgressCircular } from '../modules/use-progress-circular';
+import type { useProgressCircular } from '../modules/provider';
+import { RootContext as RootContext_ } from '../modules/root-context';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -8,7 +8,7 @@ export interface ProgressCircularRootContextProps {
 }
 
 export default function RootContext(props: ProgressCircularRootContextProps) {
-	const progressCircular = use(ProgressCircularRootContext);
+	const progressCircular = use(RootContext_);
 
 	const { children } = props;
 

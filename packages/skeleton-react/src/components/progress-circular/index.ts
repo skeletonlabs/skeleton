@@ -5,4 +5,4 @@ export type { ProgressCircularRootContextProps } from './anatomy/root-context';
 export type { ProgressCircularRootProviderProps } from './anatomy/root-provider';
 export type { ProgressCircularTrackProps } from './anatomy/track';
 export { ProgressCircular } from './modules/anatomy';
-export { useProgressCircular } from './modules/use-progress-circular';
+export { useProgressCircular } from './modules/provider';

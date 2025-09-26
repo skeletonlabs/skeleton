@@ -5,4 +5,4 @@ export type { ProgressCircularRootContextProps } from './anatomy/root-context.sv
 export type { ProgressCircularRootProviderProps } from './anatomy/root-provider.svelte';
 export type { ProgressCircularTrackProps } from './anatomy/track.svelte';
 export { ProgressCircular } from './modules/anatomy';
-export { useProgressCircular } from './modules/use-progress-circular.svelte';
+export { useProgressCircular } from './modules/provider.svelte';
