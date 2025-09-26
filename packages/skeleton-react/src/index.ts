@@ -4,6 +4,7 @@ export * from './components/avatar/index';
 export * from './components/combobox/index';
 export * from './components/dialog/index';
 export * from './components/file-upload/index';
+export * from './components/navigation/index';
 export * from './components/popover/index';
 export * from './components/progress-linear/index';
 export * from './components/rating-group/index';

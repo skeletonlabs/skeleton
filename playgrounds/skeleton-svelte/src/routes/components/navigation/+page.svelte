@@ -164,7 +164,7 @@
 				<Navigation.Footer>
 					<a
 						href="/"
-						class="{compact ? 'btn-icon' : 'btn justify-start px-2  w-full'} hover:preset-tonal"
+						class="{compact ? 'btn-icon' : 'btn justify-start px-2 w-full'} hover:preset-tonal"
 						title="Settings"
 						aria-label="Settings"
 					>
