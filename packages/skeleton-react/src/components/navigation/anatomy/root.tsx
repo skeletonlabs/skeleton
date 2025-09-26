@@ -1,4 +1,4 @@
-import { NavigationRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
@@ -32,8 +32,8 @@ export default function NavigationRoot(props: NavigationRootProps) {
 	);
 
 	return (
-		<NavigationRootContext.Provider value={{ layout, compact }}>
+		<RootContext.Provider value={{ layout, compact }}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</NavigationRootContext.Provider>
+		</RootContext.Provider>
 	);
 }

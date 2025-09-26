@@ -1,4 +1,4 @@
-import { NavigationRootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
@@ -10,7 +10,7 @@ export interface NavigationContentProps extends PropsWithElement<'div'>, HTMLAtt
 export default function NavigationContent(props: NavigationContentProps) {
 	const { element, children, ...rest } = props;
 
-	const navigation = use(NavigationRootContext);
+	const navigation = use(RootContext);
 
 	const attributes = mergeProps(
 		{

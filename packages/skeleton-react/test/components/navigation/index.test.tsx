@@ -1,53 +1,53 @@
-import Navigation from './navigation';
+import Test from './test';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-describe('navigation', () => {
-	describe('root', () => {
+describe('Navigation', () => {
+	describe('Root', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe('header', () => {
+	describe('Header', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('header')).toBeInTheDocument();
 		});
 	});
 
-	describe('content', () => {
+	describe('Content', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
-	describe('group', () => {
+	describe('Group', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('group')).toBeInTheDocument();
 		});
 	});
 
-	describe('label', () => {
+	describe('Label', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
-	describe('menu', () => {
+	describe('Menu', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('menu')).toBeInTheDocument();
 		});
 	});
 
 	describe('footer', () => {
 		it('renders', () => {
-			render(<Navigation />);
+			render(<Test />);
 			expect(screen.getByTestId('footer')).toBeInTheDocument();
 		});
 	});

@@ -1,6 +1,6 @@
 import { Navigation } from '@/index';
 
-export default function NavigationTest() {
+export default function Test() {
 	return (
 		<Navigation data-testid="root">
 			<Navigation.Header data-testid="header" />

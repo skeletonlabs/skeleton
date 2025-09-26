@@ -19,7 +19,7 @@
 </script>
 
 <script lang="ts">
-	import { NavigationRootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context';
 	import { classesNavigation } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -37,7 +37,7 @@
 		),
 	);
 
-	NavigationRootContext.provide(() => ({ layout, compact }));
+	RootContext.provide(() => ({ layout, compact }));
 </script>
 
 {#if element}
