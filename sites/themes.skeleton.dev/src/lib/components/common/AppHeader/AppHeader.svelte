@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	// Components (common)
-	import LightSwitch from '$lib/components/common/LightSwitch/LightSwitch.svelte';
+	import LightSwitch from '$lib/components/common/LightSwitch/LightSwitch-2.svelte';
 	import Logo from '$lib/components/common/Logo/Logo.svelte';
 </script>
 
