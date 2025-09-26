@@ -7,11 +7,13 @@ import { mergeProps } from '@zag-js/react';
 export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
 	/**
 	 * Sets the data-layout attribute, which modifies the visual presentation of the component set.
+	 *
 	 * @default bar
 	 * */
-	layout: 'bar' | 'rail' | 'sidebar';
+	layout?: 'bar' | 'rail' | 'sidebar';
 	/**
 	 * Sets the data-compacted attribute, which toggles the Sidebar compacted mode.
+	 *
 	 * @default false
 	 * */
 	compact?: boolean;
