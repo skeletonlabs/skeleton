@@ -1,4 +1,4 @@
-name: Publish Skeleton (@next)
+name: Publish Skeleton
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       contents: write
       pull-requests: write
       id-token: write
-    name: Build & Publish Release (@next)
+    name: Build & Publish
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
@@ -32,8 +32,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore(next-release): version package'
-          title: 'chore(next-release): version package'
           version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:

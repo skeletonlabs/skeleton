@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import { Combobox, type ComboboxRootProps, Portal, useListCollection } from '@skeletonlabs/skeleton-svelte';
 
 	const data = [
 		{
@@ -61,19 +61,21 @@
 		<Combobox.Input />
 		<Combobox.Trigger />
 	</Combobox.Control>
-	<Combobox.Positioner class="z-[1]!">
-		<Combobox.Content>
-			{#each collection.group() as [type, items] (type)}
-				<Combobox.ItemGroup>
-					<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-					{#each items as item (item.value)}
-						<Combobox.Item {item}>
-							<Combobox.ItemText>{item.label}</Combobox.ItemText>
-							<Combobox.ItemIndicator />
-						</Combobox.Item>
-					{/each}
-				</Combobox.ItemGroup>
-			{/each}
-		</Combobox.Content>
-	</Combobox.Positioner>
+	<Portal>
+		<Combobox.Positioner class="z-[1]!">
+			<Combobox.Content>
+				{#each collection.group() as [type, items] (type)}
+					<Combobox.ItemGroup>
+						<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
+						{#each items as item (item.value)}
+							<Combobox.Item {item}>
+								<Combobox.ItemText>{item.label}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
+							</Combobox.Item>
+						{/each}
+					</Combobox.ItemGroup>
+				{/each}
+			</Combobox.Content>
+		</Combobox.Positioner>
+	</Portal>
 </Combobox>

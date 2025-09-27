@@ -1,6 +1,6 @@
 'use client';
 
-import { Combobox, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
+import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
 
 const data = [
@@ -47,21 +47,23 @@ export default function Group() {
 				<Combobox.Input />
 				<Combobox.Trigger />
 			</Combobox.Control>
-			<Combobox.Positioner className="z-[1]!">
-				<Combobox.Content>
-					{collection.group().map(([type, items]) => (
-						<Combobox.ItemGroup key={type}>
-							<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-							{items.map((item) => (
-								<Combobox.Item key={item.value} item={item}>
-									<Combobox.ItemText>{item.label}</Combobox.ItemText>
-									<Combobox.ItemIndicator />
-								</Combobox.Item>
-							))}
-						</Combobox.ItemGroup>
-					))}
-				</Combobox.Content>
-			</Combobox.Positioner>
+			<Portal>
+				<Combobox.Positioner className="z-[1]!">
+					<Combobox.Content>
+						{collection.group().map(([type, items]) => (
+							<Combobox.ItemGroup key={type}>
+								<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
+								{items.map((item) => (
+									<Combobox.Item key={item.value} item={item}>
+										<Combobox.ItemText>{item.label}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
+									</Combobox.Item>
+								))}
+							</Combobox.ItemGroup>
+						))}
+					</Combobox.Content>
+				</Combobox.Positioner>
+			</Portal>
 		</Combobox>
 	);
 }
