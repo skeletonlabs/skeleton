@@ -22,7 +22,7 @@
 			</nav>
 		</div>
 	</div>
-	<main class="space-y-8 overflow-y-auto p-8">
+	<main class="space-y-8 overflow-y-auto p-8 pb-96">
 		{@render children?.()}
 	</main>
 </div>
