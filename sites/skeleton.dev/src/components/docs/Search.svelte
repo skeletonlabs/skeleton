@@ -5,16 +5,15 @@
 	import HashIcon from '@lucide/svelte/icons/hash';
 	import LoaderIcon from '@lucide/svelte/icons/loader';
 	import SearchIcon from '@lucide/svelte/icons/search';
-	import { Dialog, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Popover, Portal, SegmentedControl, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
-	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
+	import { frameworks, isFramework, preferredFrameworkStore, type Framework } from 'src/stores/preferred-framework';
 	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind/types';
 
 	let pagefind: Pagefind;
 	let query = $state('');
 	let docSearchSettings = $state(docSearchSettingsStore.get());
-	let showFilters = $state(false);
 
 	const id = $props.id();
 	const dialog = useDialog({
@@ -51,10 +50,6 @@
 		});
 	});
 
-	function toggleFilters() {
-		showFilters = !showFilters;
-	}
-
 	async function getOrCreatePagefind() {
 		if (pagefind) {
 			return pagefind;
@@ -89,7 +84,7 @@
 
 <Dialog.Provider value={dialog}>
 	<Dialog.Trigger
-		class="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 [&>*]:pointer-events-none hover:preset-tonal w-full xl:w-auto justify-start opacity-50 gap-8"
+		class="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 [&>*]:pointer-events-none hover:preset-tonal w-full xl:w-auto opacity-50 gap-8 justify-between"
 	>
 		<div class="flex items-center gap-2">
 			<SearchIcon class="size-5" />
@@ -115,19 +110,25 @@
 							<SearchIcon class="size-4 opacity-50" />
 						</div>
 						<input class="ig-input" placeholder="Search..." bind:value={query} />
-						<button type="button" class="ig-btn hover:preset-tonal" onclick={toggleFilters} title="Show Filters" tabindex="-1">
-							<FilterIcon class="size-4" />
-						</button>
+						<Popover>
+							<Popover.Trigger class="ig-btn hover:preset-tonal" tabindex={-1}><FilterIcon class="size-4" /></Popover.Trigger>
+							<Portal>
+								<Popover.Positioner>
+									<Popover.Content class="z-50 card max-w-md p-2 bg-surface-50-950 shadow-xl grid gap-2">
+										<label class="label">
+											<select class="select" bind:value={docSearchSettings.framework}>
+												<option value="preferred">Preferred Framework</option>
+												{#each frameworks as framework (framework.slug)}
+													<option value={framework.slug}>Only {framework.name}</option>
+												{/each}
+												<option value="all">All Frameworks</option>
+											</select>
+										</label>
+									</Popover.Content>
+								</Popover.Positioner>
+							</Portal>
+						</Popover>
 					</div>
-					<label class="label" hidden={!showFilters}>
-						<select class="select" bind:value={docSearchSettings.framework}>
-							<option value="preferred">Preferred Framework</option>
-							{#each frameworks as framework (framework.slug)}
-								<option value={framework.slug}>Only {framework.name}</option>
-							{/each}
-							<option value="all">All Frameworks</option>
-						</select>
-					</label>
 				</div>
 
 				<article class="flex justify-center">
