@@ -5,9 +5,9 @@
 	import HashIcon from '@lucide/svelte/icons/hash';
 	import LoaderIcon from '@lucide/svelte/icons/loader';
 	import SearchIcon from '@lucide/svelte/icons/search';
-	import { Dialog, Popover, Portal, SegmentedControl, useDialog } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Popover, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
-	import { frameworks, isFramework, preferredFrameworkStore, type Framework } from 'src/stores/preferred-framework';
+	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind/types';
 
