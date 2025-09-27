@@ -32,8 +32,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: 'chore(next-release): version package'
-          title: 'chore(next-release): version package'
           version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:
