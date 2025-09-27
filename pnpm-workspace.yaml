@@ -53,6 +53,7 @@ catalog:
   '@zag-js/tags-input': 1.24.2
   '@zag-js/toast': 1.24.2
   '@zag-js/tooltip': 1.24.2
+  '@zag-js/tree-view': 1.24.2
   astro: 5.13.5
   astro-auto-import: 0.4.4
   astro-expressive-code: 0.41.3
