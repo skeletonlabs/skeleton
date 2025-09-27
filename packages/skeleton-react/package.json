@@ -34,6 +34,7 @@
 		"@zag-js/combobox": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
+		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",
 		"@zag-js/radio-group": "catalog:",
