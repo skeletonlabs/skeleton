@@ -36,15 +36,17 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 }
 
 async function getClassValue(component: string, part: string) {
-	const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
-	const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
-	if (!value || typeof value !== 'string') {
-		return;
-	}
-	return value
-		.split(' ')
-		.map((str) => str.replace('skb:', ''))
-		.join(' ');
+	try {
+		const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
+		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
+		if (!value || typeof value !== 'string') {
+			return;
+		}
+		return value
+			.split(' ')
+			.map((str) => str.replace('skb:', ''))
+			.join(' ');
+	} catch {}
 }
 
 function getComponentNameFromPath(path: string): string {
