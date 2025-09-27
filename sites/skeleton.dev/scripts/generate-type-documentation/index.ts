@@ -16,7 +16,10 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 			'utf8',
 		),
 	);
-	const anatomy = sourceFile.getFirstDescendantByKindOrThrow(tsMorph.SyntaxKind.ObjectLiteralExpression);
+	const anatomy = sourceFile.getFirstDescendantByKind(tsMorph.SyntaxKind.ObjectLiteralExpression);
+	if (!anatomy) {
+		return [`${kebabToPascal(component)}Root`];
+	}
 	return [
 		`${kebabToPascal(component)}Root`,
 		...anatomy
