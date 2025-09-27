@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.14
+
+### Minor Changes
+
+- feat: portal ([#3812](https://github.com/skeletonlabs/skeleton/pull/3812))
+
 ## 2.0.0-next.13
 
 ### Patch Changes
