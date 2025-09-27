@@ -89,21 +89,30 @@
 
 <Dialog.Provider value={dialog}>
 	<Dialog.Trigger
-		class="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 [&>*]:pointer-events-none hover:preset-tonal w-full xl:w-auto justify-start"
+		class="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 [&>*]:pointer-events-none hover:preset-tonal w-full xl:w-auto justify-start opacity-50 gap-8"
 	>
-		<SearchIcon class="size-4 opacity-60" />
-		<span class="opacity-60">Search...</span>
+		<div class="flex items-center gap-2">
+			<SearchIcon class="size-5" />
+			<span>Search Docs...</span>
+		</div>
+
+		<div class="flex items-center gap-1 leading-4">
+			<kbd class="kbd flex justify-center items-center text-xs">⌘</kbd>
+			<kbd class="kbd flex justify-center items-center">K</kbd>
+		</div>
 	</Dialog.Trigger>
 	<Portal>
-		<Dialog.Backdrop class="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50" />
+		<Dialog.Backdrop
+			class="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50 data-[state=open]:animate-[fade-in_100ms_ease-in-out]"
+		/>
 		<Dialog.Positioner class="fixed inset-0 flex justify-center items-start md:py-[10dvh] md:px-[10dvw] z-50">
 			<Dialog.Content
-				class="bg-surface-50-950 rounded-container top-[10%]  w-full md:max-w-2xl lg:max-w-4xl max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto"
+				class="bg-surface-50-950 rounded-container top-[10%]  w-full md:max-w-2xl lg:max-w-4xl max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto data-[state=open]:animate-[pop-in_100ms_ease-out]"
 			>
 				<div class="space-y-2">
 					<div class="input-group grid-cols-[auto_1fr_auto]">
 						<div class="ig-cell">
-							<SearchIcon class="size-4 opacity-60" />
+							<SearchIcon class="size-4 opacity-50" />
 						</div>
 						<input class="ig-input" placeholder="Search..." bind:value={query} />
 						<button type="button" class="ig-btn hover:preset-tonal" onclick={toggleFilters} title="Show Filters" tabindex="-1">
@@ -121,14 +130,14 @@
 					</label>
 				</div>
 
-				<article class="[&_mark]:code [&_mark]:text-inherit">
+				<article class="flex justify-center">
 					{#await resultsPromise}
-						<p class="py-10 text-center"><LoaderIcon class="ml-2 inline size-4 animate-spin" /></p>
+						<span class="py-10 text-center"><LoaderIcon class="ml-2 inline size-4 animate-spin" /></span>
 					{:then results}
 						{#if results.length === 0 && query === ''}
-							<p class="py-10 text-center opacity-50">What can we help you find?</p>
+							<span class="py-10 text-center opacity-50"> What can we help you find? </span>
 						{:else if results.length === 0}
-							<p class="py-10 text-center opacity-50">No results found for <code class="code">{query}</code></p>
+							<span class="py-10 text-center opacity-50">No results found for <code class="code">{query}</code></span>
 						{:else}
 							<ol class="flex flex-col gap-4 space-y-4">
 								{#each results as result, i (result)}
@@ -137,12 +146,12 @@
 											class="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4"
 											href={result.url}
 										>
-											<BookIcon class="size-6 opacity-60" />
+											<BookIcon class="size-6 opacity-50" />
 											<div class="space-y-1">
 												<p class="text-lg font-bold">{result.meta.title}</p>
 												<p class="text-xs">{result.url}</p>
 											</div>
-											<ChevronRightIcon class="size-4 opacity-60" />
+											<ChevronRightIcon class="size-4 opacity-50" />
 										</a>
 										<div class="border-surface-200-800 divide-surface-100-900 space-y-2 divide-y-[1px] border-l pl-4">
 											{#each result.sub_results.filter((r) => r.title !== result.meta.title) as subResult (subResult)}
@@ -151,16 +160,16 @@
 													href={subResult.url}
 												>
 													<span class="hidden md:block">
-														<HashIcon class="size-4 opacity-60" />
+														<HashIcon class="size-4 opacity-50" />
 													</span>
 													<div class="space-y-1 overflow-hidden">
 														<p class="text-base font-bold">{subResult.title}</p>
-														<p class="text-xs text-surface-600-400 break-words">
+														<p class="text-xs text-surface-600-400 break-words [&_mark]:code">
 															{@html subResult.excerpt}
 														</p>
 													</div>
 													<span class="hidden md:block">
-														<ChevronRightIcon class="size-4 opacity-60" />
+														<ChevronRightIcon class="size-4 opacity-50" />
 													</span>
 												</a>
 											{/each}
@@ -175,3 +184,27 @@
 		</Dialog.Positioner>
 	</Portal>
 </Dialog.Provider>
+
+<style>
+	@keyframes -global-fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 100;
+		}
+	}
+
+	@keyframes -global-pop-in {
+		from {
+			transform: translateY(5%);
+			scale: 0.95;
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			scale: 1;
+			opacity: 100;
+		}
+	}
+</style>
