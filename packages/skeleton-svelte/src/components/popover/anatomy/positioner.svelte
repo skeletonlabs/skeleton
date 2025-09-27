@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { PopoverRootContext } from '../modules/root-context';
-	import { Portal } from '@/components/portal';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,12 +27,10 @@
 	);
 </script>
 
-<Portal disabled={!popover().portalled}>
-	{#if element}
-		{@render element(attributes)}
-	{:else}
-		<div {...attributes}>
-			{@render children?.()}
-		</div>
-	{/if}
-</Portal>
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

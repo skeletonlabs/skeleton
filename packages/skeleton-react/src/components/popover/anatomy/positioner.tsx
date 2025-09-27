@@ -1,5 +1,4 @@
 import { RootContext } from '../modules/root-context';
-import { Portal } from '@/components/portal';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesPopover } from '@skeletonlabs/skeleton-common';
@@ -21,5 +20,5 @@ export default function Positioner(props: PopoverPositionerProps) {
 		rest,
 	);
 
-	return <Portal disabled={!popover.portalled}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Portal>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
