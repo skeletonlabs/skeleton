@@ -2,8 +2,8 @@ import { RootContext } from '../modules/root-context';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesPopover } from '@skeletonlabs/skeleton-common';
-import { mergeProps, Portal } from '@zag-js/react';
-import { Fragment, use } from 'react';
+import { mergeProps } from '@zag-js/react';
+import { use } from 'react';
 
 export interface PopoverPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
@@ -11,8 +11,6 @@ export default function Positioner(props: PopoverPositionerProps) {
 	const popover = use(RootContext);
 
 	const { element, children, ...rest } = props;
-
-	const Wrapper = popover.portalled ? Portal : Fragment;
 
 	const attributes = mergeProps(
 		popover.getPositionerProps(),
@@ -22,5 +20,5 @@ export default function Positioner(props: PopoverPositionerProps) {
 		rest,
 	);
 
-	return <Wrapper>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Wrapper>;
+	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
