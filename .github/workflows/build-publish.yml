@@ -13,7 +13,7 @@ jobs:
       contents: write
       pull-requests: write
       id-token: write
-    name: Build & Publish Release (@latest)
+    name: Build & Publish
     if: github.repository == 'skeletonlabs/skeleton'
     runs-on: ubuntu-latest
     steps:
