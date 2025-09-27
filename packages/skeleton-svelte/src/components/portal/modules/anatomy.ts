@@ -1,3 +1,3 @@
 import Root from '../anatomy/root.svelte';
 
-export const Portal = Root;
+export const Portal = Object.assign(Root);
