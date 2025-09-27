@@ -20,7 +20,6 @@
 		mergeProps(
 			{
 				'data-layout': navigation().layout,
-				'data-compact': navigation().compact,
 				class: classesNavigation.label,
 			},
 			rest,

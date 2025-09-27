@@ -9,12 +9,6 @@
 		 * @default bar
 		 * */
 		layout?: 'bar' | 'rail' | 'sidebar';
-		/**
-		 * Sets the data-compacted attribute, which toggles the Sidebar compacted mode.
-		 *
-		 * @default false
-		 * */
-		compact?: boolean;
 	}
 </script>
 
@@ -24,20 +18,19 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationRootProps = $props();
-	const { layout = 'bar', compact = false, element, children, ...rest } = $derived(props);
+	const { layout = 'bar', element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
 			{
 				'data-layout': layout,
-				'data-compact': compact,
 				class: classesNavigation.root,
 			},
 			rest,
 		),
 	);
 
-	RootContext.provide(() => ({ layout, compact }));
+	RootContext.provide(() => ({ layout }));
 </script>
 
 {#if element}

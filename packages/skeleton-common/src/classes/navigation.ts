@@ -6,17 +6,26 @@ export const classesNavigation = defineSkeletonClasses({
 		// Bar
 		'data-[layout=bar]:w-full data-[layout=bar]:p-2',
 		// Rail
-		'data-[layout=rail]:w-[100px] data-[layout=rail]:h-full data-[layout=rail]:overflow-y-auto data-[layout=rail]:p-2 data-[layout=rail]:flex data-[layout=rail]:flex-col data-[layout=rail]:gap-4',
+		'data-[layout=rail]:w-[100px] data-[layout=rail]:h-full data-[layout=rail]:overflow-y-hidden data-[layout=rail]:p-2 data-[layout=rail]:flex data-[layout=rail]:flex-col data-[layout=rail]:gap-4',
 		// Sidebar
-		'data-[layout=sidebar]:h-full data-[layout=sidebar]:overflow-y-auto data-[layout=sidebar]:p-4',
-		'data-[layout=sidebar]:data-[compact=false]:w-[280px] data-[layout=sidebar]:data-[compact=true]:w-[70px]',
+		'data-[layout=sidebar]:w-[280px] data-[layout=sidebar]:h-full data-[layout=sidebar]:overflow-y-auto data-[layout=sidebar]:p-4',
 	],
 	header: '',
-	content: 'space-y-4',
-	group: 'space-y-2',
+	content: [
+		// Rail
+		'data-[layout=rail]:contents',
+		// Sidebar
+		'data-[layout=sidebar]:space-y-4',
+	],
+	group: [
+		// Rail
+		'data-[layout=rail]:contents',
+		// Sidebar
+		'data-[layout=sidebar]:space-y-2',
+	],
 	label: 'text-xs text-surface-700-300',
 	menu: [
-		'flex gap-2',
+		'flex-1 flex gap-2',
 		// Bar
 		'data-[layout=bar]:items-stretch',
 		// Rail
