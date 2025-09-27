@@ -34,7 +34,7 @@
 			</section>
 		{:else}
 			<!-- Theme Output -->
-			<section class="p-10 space-y-5">
+			<section class="py-10 px-5 space-y-5">
 				<header class="flex justify-between gap-4">
 					<!-- prettier-ignore -->
 					<p>

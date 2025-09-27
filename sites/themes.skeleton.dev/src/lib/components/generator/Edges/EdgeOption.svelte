@@ -6,13 +6,7 @@
 		onselect: (value: string) => void;
 	}
 
-	// prettier-ignore
-	let {
-		thickness = false,
-		value,
-		active,
-		onselect
-	}: EdgeItemProps = $props();
+	let { thickness = false, value, active, onselect }: EdgeItemProps = $props();
 
 	function handleOnClick() {
 		onselect(value);
