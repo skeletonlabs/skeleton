@@ -8,8 +8,7 @@
 <script lang="ts">
 	import { PopoverRootContext } from '../modules/root-context';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
-	import { mergeProps, portal } from '@zag-js/svelte';
-	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PopoverPositionerProps = $props();
 
@@ -22,7 +21,6 @@
 			popover().getPositionerProps(),
 			{
 				class: classesPopover.positioner,
-				[createAttachmentKey()]: fromAction(portal, () => ({ disabled: !popover().portalled })),
 			},
 			rest,
 		),
