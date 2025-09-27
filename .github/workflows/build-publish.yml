@@ -1,4 +1,4 @@
-name: Publish Skeleton (@next)
+name: Publish Skeleton
 
 on:
   push:
