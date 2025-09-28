@@ -1,13 +1,13 @@
-import { ProgressLinear } from '@skeletonlabs/skeleton-react';
+import { Progress } from '@skeletonlabs/skeleton-react';
 
 export default function CustomAnimation() {
 	return (
 		<>
-			<ProgressLinear value={null}>
-				<ProgressLinear.Track>
-					<ProgressLinear.Range className="animate-[custom-animation_2s_ease-in-out_infinite]" />
-				</ProgressLinear.Track>
-			</ProgressLinear>
+			<Progress value={null}>
+				<Progress.Track>
+					<Progress.Range className="animate-[custom-animation_2s_ease-in-out_infinite]" />
+				</Progress.Track>
+			</Progress>
 			<style>{`
                 @keyframes custom-animation {
                     from {

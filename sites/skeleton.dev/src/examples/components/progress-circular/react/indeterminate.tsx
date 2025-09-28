@@ -1,13 +1,13 @@
-import { ProgressCircular } from '@skeletonlabs/skeleton-react';
+import { Progress } from '@skeletonlabs/skeleton-react';
 
 export default function Default() {
 	return (
-		<ProgressCircular value={null}>
-			<ProgressCircular.Circle style={{ ['--size' as string]: '4rem', ['--thickness' as string]: '0.5rem' }}>
-				<ProgressCircular.Track />
-				<ProgressCircular.Range />
-			</ProgressCircular.Circle>
-			<ProgressCircular.ValueText />
-		</ProgressCircular>
+		<Progress className="items-center w-fit" value={null}>
+			<Progress.Circle style={{ ['--size' as string]: '4rem', ['--thickness' as string]: '0.5rem' }}>
+				<Progress.CircleTrack />
+				<Progress.CircleRange />
+			</Progress.Circle>
+			<Progress.ValueText />
+		</Progress>
 	);
 }

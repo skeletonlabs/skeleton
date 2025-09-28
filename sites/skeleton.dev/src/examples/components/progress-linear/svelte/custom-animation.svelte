@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ProgressLinear value={null}>
-	<ProgressLinear.Track>
-		<ProgressLinear.Range class="animate-[custom-animation_2s_ease-in-out_infinite]" />
-	</ProgressLinear.Track>
-</ProgressLinear>
+<Progress value={null}>
+	<Progress.Track>
+		<Progress.Range class="animate-[custom-animation_2s_ease-in-out_infinite]" />
+	</Progress.Track>
+</Progress>
 
 <style>
 	@keyframes -global-custom-animation {

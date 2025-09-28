@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ProgressCircular } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ProgressCircular>
-	<ProgressCircular.Label>Label</ProgressCircular.Label>
-	<ProgressCircular.Circle --size="4rem" --thickness="0.5rem">
-		<ProgressCircular.Track />
-		<ProgressCircular.Range />
-	</ProgressCircular.Circle>
-	<ProgressCircular.ValueText />
-</ProgressCircular>
+<Progress class="items-center w-fit">
+	<Progress.Label>Label</Progress.Label>
+	<Progress.Circle --size="4rem" --thickness="0.5rem">
+		<Progress.CircleTrack />
+		<Progress.CircleRange />
+	</Progress.Circle>
+	<Progress.ValueText />
+</Progress>
