@@ -4,6 +4,8 @@ export const classesProgressLinear = defineSkeletonClasses({
 	root: [
 		// Common
 		'flex flex-col gap-2',
+		// Horizontal Orientation
+		'data-[orientation=horizontal]:w-full',
 		// Vertical Orientation
 		'data-[orientation=vertical]:items-center',
 	],
