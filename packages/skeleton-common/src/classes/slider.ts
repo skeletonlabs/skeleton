@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesSlider = defineSkeletonClasses({
-	root: 'space-y-3',
+	root: 'space-y-2',
 	label: 'label-text',
 	valueText: '',
 	control: ['flex items-center', 'data-disabled:opacity-50'],

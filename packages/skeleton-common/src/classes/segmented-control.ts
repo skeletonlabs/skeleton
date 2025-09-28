@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesSegmentedControl = defineSkeletonClasses({
-	root: 'space-y-2 w-fit',
+	root: 'space-y-2',
 	label: 'label-text',
 	control: [
 		'inline-flex preset-outlined-surface-200-800 p-2 gap-2 rounded',

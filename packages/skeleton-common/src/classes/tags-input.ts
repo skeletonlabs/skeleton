@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesTagsInput = defineSkeletonClasses({
-	root: 'w-full space-y-2 gap-2',
+	root: 'space-y-2',
 	label: 'label-text',
 	control: 'input flex flex-wrap gap-2 p-2',
 	item: '',
