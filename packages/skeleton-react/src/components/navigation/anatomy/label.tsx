@@ -15,7 +15,6 @@ export default function NavigationLabel(props: NavigationLabelProps) {
 	const attributes = mergeProps(
 		{
 			'data-layout': navigation.layout,
-			'data-compact': navigation.compact,
 			className: classesNavigation.label,
 		},
 		rest,
