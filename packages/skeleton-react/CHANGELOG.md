@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.15
+
+### Minor Changes
+
+- feat: navigation ([#3800](https://github.com/skeletonlabs/skeleton/pull/3800))
+
+### Patch Changes
+
+- Updated dependencies [[`91c9bb5`](https://github.com/skeletonlabs/skeleton/commit/91c9bb5908c6c132f7b0bdeff928adf88094e952)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.12
+
 ## 2.0.0-next.14
 
 ### Minor Changes
