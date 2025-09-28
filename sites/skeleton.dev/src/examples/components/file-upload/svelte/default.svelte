@@ -2,7 +2,8 @@
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<FileUpload class="w-full">
+<FileUpload>
+	<FileUpload.Label>Label</FileUpload.Label>
 	<FileUpload.Dropzone>
 		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 		<FileUpload.HiddenInput />

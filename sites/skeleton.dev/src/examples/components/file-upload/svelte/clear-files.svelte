@@ -8,7 +8,7 @@
 	});
 </script>
 
-<div class="w-full grid gap-4">
+<div class="grid gap-4 w-full">
 	<FileUpload.Provider value={fileUpload}>
 		<FileUpload.Dropzone>
 			<FileUpload.Trigger>Browse Files</FileUpload.Trigger>

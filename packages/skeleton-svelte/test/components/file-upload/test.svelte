@@ -3,6 +3,7 @@
 </script>
 
 <FileUpload data-testid="root">
+	<FileUpload.Label data-testid="label" />
 	<FileUpload.Dropzone data-testid="dropzone">
 		<FileUpload.Trigger data-testid="trigger" />
 		<FileUpload.HiddenInput data-testid="hidden-input" />

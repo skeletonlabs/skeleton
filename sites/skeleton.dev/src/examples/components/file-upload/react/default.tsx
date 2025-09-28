@@ -2,7 +2,8 @@ import { FileUpload } from '@skeletonlabs/skeleton-react';
 
 export default function Default() {
 	return (
-		<FileUpload className="w-full">
+		<FileUpload>
+			<FileUpload.Label>Label</FileUpload.Label>
 			<FileUpload.Dropzone>
 				<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 				<FileUpload.HiddenInput />
