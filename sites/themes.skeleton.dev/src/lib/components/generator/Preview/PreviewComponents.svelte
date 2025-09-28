@@ -1,6 +1,7 @@
 <script lang="ts">
 	import * as constants from '$lib/constants/generator';
 	import { globals } from '$lib/state/generator.svelte';
+	import Indicator from '../../../../../../../packages/skeleton-svelte/dist/components/segmented-control/anatomy/indicator.svelte';
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	import CenterIcon from '@lucide/svelte/icons/align-center';
 	import JustifyIcon from '@lucide/svelte/icons/align-justify';
@@ -32,11 +33,12 @@
 		<!-- Column 1 -->
 		<div class="space-y-10">
 			<!-- Tabs -->
-			<Tabs value="planes">
+			<Tabs defaultValue="planes">
 				<Tabs.List>
-					<Tabs.Trigger value="planes" class={currentPresets.hover}>Planes</Tabs.Trigger>
-					<Tabs.Trigger value="trains" class={currentPresets.hover}>Trains</Tabs.Trigger>
-					<Tabs.Trigger value="automobiles" class={currentPresets.hover}>Automobiles</Tabs.Trigger>
+					<Tabs.Indicator />
+					<Tabs.Trigger value="planes" class="flex-1 {currentPresets.hover}">Planes</Tabs.Trigger>
+					<Tabs.Trigger value="trains" class="flex-1 {currentPresets.hover}">Trains</Tabs.Trigger>
+					<Tabs.Trigger value="automobiles" class="flex-1 {currentPresets.hover}">Automobiles</Tabs.Trigger>
 				</Tabs.List>
 			</Tabs>
 			<!-- Avatars -->
