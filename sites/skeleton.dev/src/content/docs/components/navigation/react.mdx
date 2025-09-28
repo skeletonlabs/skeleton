@@ -1,0 +1,85 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/navigation/react/default.tsx';
+import DefaultRaw from '@examples/components/navigation/react/default.tsx?raw';
+
+import Rail from '@examples/components/navigation/react/rail.tsx';
+import RailRaw from '@examples/components/navigation/react/rail.tsx?raw';
+
+import Sidebar from '@examples/components/navigation/react/sidebar.tsx';
+import SidebarRaw from '@examples/components/navigation/react/sidebar.tsx?raw';
+
+import Toggle from '@examples/components/navigation/react/toggle.tsx';
+import ToggleRaw from '@examples/components/navigation/react/toggle.tsx?raw';
+
+## Bar
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+- Recommended for small sized screens (ex: mobile).
+- Ideal for vertical screen layouts.
+- Should be fixed to the bottom of the viewport.
+- Supports 3-5 tiles based on contents and viewport width.
+- Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
+
+## Rail
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Rail client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RailRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+- Recommended for medium sized screens (ex: tablet).
+- Ideal for horizontal screen layouts.
+- Should be fixed to the left or right of the viewport.
+- Supports 3-7 tiles based on contents and viewport height.
+
+## Sidebar
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Sidebar client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SidebarRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+- Recommended for large sized screens (ex: desktop).
+- Ideal for horizontal screen layouts.
+- Should be fixed to the left or right of the viewport.
+- Supports multiple groups of links for deep navigation.
+- Supports a label field per each group.
+- Can scroll vertically if contents extend beyond the viewport height.
+
+## Toggle Layout
+
+Using reactive state we can dynamically switch between multiple layouts. Tap the double arrow icon to toggle.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Toggle client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ToggleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

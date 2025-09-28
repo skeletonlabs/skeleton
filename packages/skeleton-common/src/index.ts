@@ -4,6 +4,7 @@ export * from './classes/avatar';
 export * from './classes/combobox';
 export * from './classes/dialog';
 export * from './classes/file-upload';
+export * from './classes/navigation';
 export * from './classes/popover';
 export * from './classes/progress-circular';
 export * from './classes/progress-linear';
