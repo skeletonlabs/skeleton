@@ -3,6 +3,8 @@ export { useSegmentedControl } from './modules/provider';
 export type { SegmentedControlRootProps } from './anatomy/root';
 export type { SegmentedControlRootContextProps } from './anatomy/root-context';
 export type { SegmentedControlRootProviderProps } from './anatomy/root-provider';
+export type { SegmentedControlLabelProps } from './anatomy/label';
+export type { SegmentedControlControlProps } from './anatomy/control';
 export type { SegmentedControlIndicatorProps } from './anatomy/indicator';
 export type { SegmentedControlItemProps } from './anatomy/item';
 export type { SegmentedControlItemTextProps } from './anatomy/item-text';

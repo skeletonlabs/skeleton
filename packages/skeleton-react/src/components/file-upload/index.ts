@@ -5,6 +5,7 @@ export type { FileUploadItemDeleteTriggerProps } from './anatomy/item-delete-tri
 export type { FileUploadItemGroupProps } from './anatomy/item-group';
 export type { FileUploadItemNameProps } from './anatomy/item-name';
 export type { FileUploadItemSizeTextProps } from './anatomy/item-size-text';
+export type { FileUploadLabelProps } from './anatomy/label';
 export type { FileUploadRootProps } from './anatomy/root';
 export type { FileUploadRootContextProps } from './anatomy/root-context';
 export type { FileUploadRootProviderProps } from './anatomy/root-provider';

@@ -10,6 +10,13 @@ describe('FileUpload', () => {
 		});
 	});
 
+	describe('Label', () => {
+		it('renders', () => {
+			render(Test);
+			expect(screen.getByTestId('label')).toBeInTheDocument();
+		});
+	});
+
 	describe('Dropzone', () => {
 		it('renders', () => {
 			render(Test);
