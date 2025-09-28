@@ -5,7 +5,7 @@ export default function ClearFiles() {
 		defaultAcceptedFiles: [new File(['file'], 'example.png', { type: 'image/png' })],
 	});
 	return (
-		<div className="w-full grid gap-4">
+		<div className="grid gap-4 w-full">
 			<FileUpload.Provider value={fileUpload}>
 				<FileUpload.Dropzone>
 					<FileUpload.Trigger>Browse Files</FileUpload.Trigger>

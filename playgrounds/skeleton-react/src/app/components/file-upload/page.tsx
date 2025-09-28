@@ -9,6 +9,7 @@ export default function Page() {
 	return (
 		<>
 			<FileUpload.Provider value={fileUpload}>
+				<FileUpload.Label>Upload your files</FileUpload.Label>
 				<FileUpload.Dropzone>
 					<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 					<FileUpload.HiddenInput />
