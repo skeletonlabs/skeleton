@@ -34,7 +34,7 @@
 		{#if children}
 			{@render children?.()}
 		{:else}
-			{progressCircular().valueAsString}
+			{progressCircular().percentAsString}
 		{/if}
 	</span>
 {/if}

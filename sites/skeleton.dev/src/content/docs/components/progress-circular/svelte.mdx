@@ -10,6 +10,9 @@ import DefaultRaw from '@examples/components/progress-circular/svelte/default.sv
 import Indeterminate from '@examples/components/progress-circular/svelte/indeterminate.svelte';
 import IndeterminateRaw from '@examples/components/progress-circular/svelte/indeterminate.svelte?raw';
 
+import Format from '@examples/components/progress-circular/svelte/format.svelte';
+import FormatRaw from '@examples/components/progress-circular/svelte/format.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -27,6 +30,17 @@ import IndeterminateRaw from '@examples/components/progress-circular/svelte/inde
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={IndeterminateRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Format
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Format client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FormatRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
