@@ -30,6 +30,9 @@ catalogs:
     '@clack/prompts':
       specifier: 0.11.0
       version: 0.11.0
+    '@faker-js/faker':
+      specifier: 10.0.0
+      version: 10.0.0
     '@floating-ui/react':
       specifier: 0.27.16
       version: 0.27.16
@@ -115,6 +118,9 @@ catalogs:
       specifier: 1.24.2
       version: 1.24.2
     '@zag-js/file-upload':
+      specifier: 1.24.2
+      version: 1.24.2
+    '@zag-js/pagination':
       specifier: 1.24.2
       version: 1.24.2
     '@zag-js/popover':
@@ -474,6 +480,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 1.24.2
+      '@zag-js/pagination':
+        specifier: 'catalog:'
+        version: 1.24.2
       '@zag-js/popover':
         specifier: 'catalog:'
         version: 1.24.2
@@ -569,6 +578,9 @@ importers:
         specifier: 'catalog:'
         version: 1.24.2
       '@zag-js/file-upload':
+        specifier: 'catalog:'
+        version: 1.24.2
+      '@zag-js/pagination':
         specifier: 'catalog:'
         version: 1.24.2
       '@zag-js/popover':
@@ -762,6 +774,9 @@ importers:
       '@clack/prompts':
         specifier: 'catalog:'
         version: 0.11.0
+      '@faker-js/faker':
+        specifier: 'catalog:'
+        version: 10.0.0
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -1405,6 +1420,10 @@ packages:
 
   '@expressive-code/plugin-text-markers@0.41.3':
     resolution: { integrity: sha512-SN8tkIzDpA0HLAscEYD2IVrfLiid6qEdE9QLlGVSxO1KEw7qYvjpbNBQjUjMr5/jvTJ7ys6zysU2vLPHE0sb2g== }
+
+  '@faker-js/faker@10.0.0':
+    resolution: { integrity: sha512-UollFEUkVXutsaP+Vndjxar40Gs5JL2HeLcl8xO1QAjJgOdhc3OmBFWyEylS+RddWaaBiAzH+5/17PLQJwDiLw== }
+    engines: { node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10' }
 
   '@floating-ui/core@1.7.3':
     resolution: { integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w== }
@@ -2884,6 +2903,9 @@ packages:
 
   '@zag-js/live-region@1.24.2':
     resolution: { integrity: sha512-X5gp7m5/o7VeQ8hI2ffi9nEVkdCDcCw5wtSx9gFww6WeD6HJMkY/4HbTdi7ALvGVg9gNIMr5F9zrrzpvgc9DXg== }
+
+  '@zag-js/pagination@1.24.2':
+    resolution: { integrity: sha512-ULWw+RyOiJ/2OTCo6STxTwlSXoGbQp2cvNDF0gs6G+hukqlITlNWM0cPpgsRYfuFrtb6B6Lw0C1Z3JYbd8uj5Q== }
 
   '@zag-js/popover@1.24.2':
     resolution: { integrity: sha512-BBMBxjMTfeDHCg0wg8ohStk6MPTrmCa0PuOSNDeK0Mr/0i0Vv0EjsSiXuu5Wt1LS237XV1BIaLxt322dW+RfVg== }
@@ -6804,6 +6826,8 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.41.3
 
+  '@faker-js/faker@10.0.0': {}
+
   '@floating-ui/core@1.7.3':
     dependencies:
       '@floating-ui/utils': 0.2.10
@@ -8279,6 +8303,14 @@ snapshots:
       '@zag-js/utils': 1.24.2
 
   '@zag-js/live-region@1.24.2': {}
+
+  '@zag-js/pagination@1.24.2':
+    dependencies:
+      '@zag-js/anatomy': 1.24.2
+      '@zag-js/core': 1.24.2
+      '@zag-js/dom-query': 1.24.2
+      '@zag-js/types': 1.24.2
+      '@zag-js/utils': 1.24.2
 
   '@zag-js/popover@1.24.2':
     dependencies:
