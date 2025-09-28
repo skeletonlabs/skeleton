@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.16
+
+### Patch Changes
+
+- chore: Add missing `Label` and `Control` components to `SegmentedControl` ([#3817](https://github.com/skeletonlabs/skeleton/pull/3817))
+
+- Updated dependencies [[`69cf72e`](https://github.com/skeletonlabs/skeleton/commit/69cf72efdad48e3087852e63d7143628de1d7428)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.13
+
 ## 2.0.0-next.15
 
 ### Minor Changes

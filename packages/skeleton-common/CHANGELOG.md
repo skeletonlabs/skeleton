@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.13
+
+### Patch Changes
+
+- chore: Add missing `Label` and `Control` components to `SegmentedControl` ([#3817](https://github.com/skeletonlabs/skeleton/pull/3817))
+
 ## 1.0.0-next.12
 
 ### Minor Changes
