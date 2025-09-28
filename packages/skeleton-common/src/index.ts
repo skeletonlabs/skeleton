@@ -5,6 +5,7 @@ export * from './classes/combobox';
 export * from './classes/dialog';
 export * from './classes/file-upload';
 export * from './classes/navigation';
+export * from './classes/pagination';
 export * from './classes/popover';
 export * from './classes/progress-linear';
 export * from './classes/rating-group';

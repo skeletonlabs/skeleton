@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.14
+
+### Minor Changes
+
+- feat: pagination ([#3780](https://github.com/skeletonlabs/skeleton/pull/3780))
+
 ## 1.0.0-next.13
 
 ### Patch Changes
