@@ -8,12 +8,22 @@ describe('Navigation', () => {
 			render(Test);
 			expect(screen.getByTestId('root')).toBeInTheDocument();
 		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('root')).toHaveAttribute('data-layout');
+		});
 	});
 
 	describe('Header', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('header')).toBeInTheDocument();
+		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('header')).toHaveAttribute('data-layout');
 		});
 	});
 
@@ -22,12 +32,22 @@ describe('Navigation', () => {
 			render(Test);
 			expect(screen.getByTestId('content')).toBeInTheDocument();
 		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('content')).toHaveAttribute('data-layout');
+		});
 	});
 
 	describe('Group', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('group')).toBeInTheDocument();
+		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('group')).toHaveAttribute('data-layout');
 		});
 	});
 
@@ -36,6 +56,11 @@ describe('Navigation', () => {
 			render(Test);
 			expect(screen.getByTestId('label')).toBeInTheDocument();
 		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('label')).toHaveAttribute('data-layout');
+		});
 	});
 
 	describe('Menu', () => {
@@ -43,12 +68,22 @@ describe('Navigation', () => {
 			render(Test);
 			expect(screen.getByTestId('menu')).toBeInTheDocument();
 		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('menu')).toHaveAttribute('data-layout');
+		});
 	});
 
 	describe('Footer', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('footer')).toBeInTheDocument();
+		});
+
+		it('sets the data-layout attribute', () => {
+			render(Test);
+			expect(screen.getByTestId('footer')).toHaveAttribute('data-layout');
 		});
 	});
 });
