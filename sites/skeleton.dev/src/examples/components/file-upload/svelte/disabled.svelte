@@ -2,7 +2,7 @@
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<FileUpload disabled={true} class="w-full">
+<FileUpload disabled={true}>
 	<FileUpload.Dropzone>
 		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 		<FileUpload.HiddenInput />

@@ -3,7 +3,7 @@
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<FileUpload class="w-full">
+<FileUpload>
 	<FileUpload.Dropzone>
 		<FileIcon class="size-10" />
 		<span>Select file or drag here.</span>

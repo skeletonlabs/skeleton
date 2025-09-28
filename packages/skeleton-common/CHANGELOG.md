@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.12
+
+### Minor Changes
+
+- feat: navigation ([#3800](https://github.com/skeletonlabs/skeleton/pull/3800))
+
 ## 1.0.0-next.11
 
 ### Minor Changes

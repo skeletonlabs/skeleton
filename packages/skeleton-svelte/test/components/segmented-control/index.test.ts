@@ -10,6 +10,20 @@ describe('SegmentedControl', () => {
 		});
 	});
 
+	describe('Label', () => {
+		it('renders', () => {
+			render(Test);
+			expect(screen.getByTestId('label')).toBeInTheDocument();
+		});
+	});
+
+	describe('Control', () => {
+		it('renders', () => {
+			render(Test);
+			expect(screen.getByTestId('control')).toBeInTheDocument();
+		});
+	});
+
 	describe('Indicator', () => {
 		it('renders', () => {
 			render(Test);

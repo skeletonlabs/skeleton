@@ -3,6 +3,8 @@ export { useSegmentedControl } from './modules/provider.svelte';
 export type { SegmentedControlRootProps } from './anatomy/root.svelte';
 export type { SegmentedControlRootContextProps } from './anatomy/root-context.svelte';
 export type { SegmentedControlRootProviderProps } from './anatomy/root-provider.svelte';
+export type { SegmentedControlLabelProps } from './anatomy/label.svelte';
+export type { SegmentedControlControlProps } from './anatomy/control.svelte';
 export type { SegmentedControlIndicatorProps } from './anatomy/indicator.svelte';
 export type { SegmentedControlItemProps } from './anatomy/item.svelte';
 export type { SegmentedControlItemTextProps } from './anatomy/item-text.svelte';
