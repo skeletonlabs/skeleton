@@ -1,0 +1,36 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+
+	export interface FileUploadLabelProps extends PropsWithElement<'label'>, HTMLAttributes<'label'> {}
+</script>
+
+<script lang="ts">
+	import { RootContext } from '../modules/root-context';
+	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: FileUploadLabelProps = $props();
+
+	const fileUpload = RootContext.consume();
+
+	const { element, children, ...rest } = $derived(props);
+
+	const attributes = $derived(
+		mergeProps(
+			fileUpload().getLabelProps(),
+			{
+				class: classesFileUpload.label,
+			},
+			rest,
+		),
+	);
+</script>
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<label {...attributes}>
+		{@render children?.()}
+	</label>
+{/if}

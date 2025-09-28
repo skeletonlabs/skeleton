@@ -21,7 +21,7 @@ export const classesNavigation = defineSkeletonClasses({
 		// Rail
 		'data-[layout=rail]:contents',
 		// Sidebar
-		'data-[layout=sidebar]:space-y-2',
+		'data-[layout=sidebar]:flex flex-col gap-2',
 	],
 	label: 'text-xs text-surface-700-300',
 	menu: [

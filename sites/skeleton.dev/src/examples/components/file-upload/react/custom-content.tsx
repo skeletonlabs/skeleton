@@ -3,7 +3,7 @@ import { FileIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
-		<FileUpload className="w-full">
+		<FileUpload>
 			<FileUpload.Dropzone>
 				<FileIcon className="size-10" />
 				<span>Select file or drag here.</span>
