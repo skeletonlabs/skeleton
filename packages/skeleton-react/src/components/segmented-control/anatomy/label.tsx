@@ -20,5 +20,5 @@ export default function Label(props: SegmentedControlLabelProps) {
 		rest,
 	);
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }
