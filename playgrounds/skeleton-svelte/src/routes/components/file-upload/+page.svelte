@@ -6,6 +6,7 @@
 </script>
 
 <FileUpload.Provider value={fileUpload}>
+	<FileUpload.Label>Label</FileUpload.Label>
 	<FileUpload.Dropzone>
 		<div>Select file or drag here.</div>
 		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>

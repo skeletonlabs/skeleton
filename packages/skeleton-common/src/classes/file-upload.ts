@@ -1,7 +1,8 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesFileUpload = defineSkeletonClasses({
-	root: ['space-y-1 data-disabled:disabled'],
+	root: ['flex flex-col gap-2 data-disabled:disabled'],
+	label: 'label-text',
 	dropzone: [
 		'card px-4 py-10 border border-dashed border-surface-200-800 flex flex-col justify-center items-center gap-2 data-dragging:preset-tonal',
 	],

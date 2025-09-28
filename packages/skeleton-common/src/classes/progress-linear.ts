@@ -3,11 +3,9 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesProgressLinear = defineSkeletonClasses({
 	root: [
 		// Common
-		'items-center justify-center gap-2',
-		// Horizontal Orientation
-		'data-[orientation=horizontal]:flex data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
+		'flex flex-col gap-2',
 		// Vertical Orientation
-		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col',
+		'data-[orientation=vertical]:items-center',
 	],
 	label: 'label-text whitespace-nowrap',
 	track: [
