@@ -2,12 +2,16 @@
 /* NOTE: only for use in the progress circular functional component. */
 
 @keyframes progress-circular-indeterminate {
-	from {
-		stroke-dasharray: 1, 400;
+	0% {
+		stroke-dasharray: 1 var(--circumference);
 		stroke-dashoffset: 0;
 	}
-	to {
-		stroke-dasharray: 400, 400;
-		stroke-dashoffset: -140;
+	50% {
+		stroke-dasharray: calc(var(--circumference) * 0.75) var(--circumference);
+		stroke-dashoffset: calc(-1 * var(--circumference) * 0.5);
+	}
+	100% {
+		stroke-dasharray: 1 var(--circumference);
+		stroke-dashoffset: calc(-1 * var(--circumference));
 	}
 }
