@@ -1,7 +1,6 @@
 <script lang="ts">
 	import * as constants from '$lib/constants/generator';
 	import { globals } from '$lib/state/generator.svelte';
-	import Indicator from '../../../../../../../packages/skeleton-svelte/dist/components/segmented-control/anatomy/indicator.svelte';
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	import CenterIcon from '@lucide/svelte/icons/align-center';
 	import JustifyIcon from '@lucide/svelte/icons/align-justify';
@@ -133,32 +132,33 @@
 			</div>
 			<!-- Segment Control -->
 			<SegmentedControl defaultValue="left" class="w-full">
-				<SegmentedControl.Indicator />
-				<SegmentedControl.Item value="left" class="flex-1">
-					<SegmentedControl.ItemText>
-						<LeftIcon />
-					</SegmentedControl.ItemText>
-
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-				<SegmentedControl.Item value="center" class="flex-1">
-					<SegmentedControl.ItemText>
-						<CenterIcon />
-					</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-				<SegmentedControl.Item value="right" class="flex-1">
-					<SegmentedControl.ItemText>
-						<RightIcon />
-					</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-				<SegmentedControl.Item value="justify" class="flex-1">
-					<SegmentedControl.ItemText>
-						<JustifyIcon />
-					</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
+				<SegmentedControl.Control>
+					<SegmentedControl.Indicator />
+					<SegmentedControl.Item value="left" class="flex-1">
+						<SegmentedControl.ItemText>
+							<LeftIcon />
+						</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="center" class="flex-1">
+						<SegmentedControl.ItemText>
+							<CenterIcon />
+						</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="right" class="flex-1">
+						<SegmentedControl.ItemText>
+							<RightIcon />
+						</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="justify" class="flex-1">
+						<SegmentedControl.ItemText>
+							<JustifyIcon />
+						</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+				</SegmentedControl.Control>
 			</SegmentedControl>
 			<!-- Cards -->
 			<div class="space-y-4">
