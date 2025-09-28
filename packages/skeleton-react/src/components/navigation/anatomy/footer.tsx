@@ -15,7 +15,6 @@ export default function NavigationFooter(props: NavigationFooterProps) {
 	const attributes = mergeProps(
 		{
 			'data-layout': navigation.layout,
-			'data-compact': navigation.compact,
 			className: classesNavigation.footer,
 		},
 		rest,

@@ -11,29 +11,20 @@ export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttrib
 	 * @default bar
 	 * */
 	layout?: 'bar' | 'rail' | 'sidebar';
-	/**
-	 * Sets the data-compacted attribute, which toggles the Sidebar compacted mode.
-	 *
-	 * @default false
-	 * */
-	compact?: boolean;
 }
 
 export default function NavigationRoot(props: NavigationRootProps) {
-	const { layout = 'bar', compact = false, element, children, ...rest } = props;
+	const { layout = 'bar', element, children, ...rest } = props;
 
 	const attributes = mergeProps(
 		{
 			'data-layout': layout,
-			'data-compact': compact,
 			className: classesNavigation.root,
 		},
 		rest,
 	);
 
 	return (
-		<RootContext.Provider value={{ layout, compact }}>
-			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</RootContext.Provider>
+		<RootContext.Provider value={{ layout }}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
 	);
 }
