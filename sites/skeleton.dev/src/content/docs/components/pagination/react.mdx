@@ -1,0 +1,56 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/pagination/react/default.tsx';
+import DefaultRaw from '@examples/components/pagination/react/default.tsx?raw';
+
+import DynamicPageSize from '@examples/components/pagination/react/dynamic-page-size.tsx';
+import DynamicPageSizeRaw from '@examples/components/pagination/react/dynamic-page-size.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Dynamic Page Size
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DynamicPageSize client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DynamicPageSizeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Specifying Total Count
+
+If your source data is truncated, make sure to specify the total item `count`.
+
+```json
+{
+	"data": [...],
+	"pagination": {
+		"page": 1,
+		"limit": 10,
+		"count": 500,
+	}
+}
+```
+
+```tsx
+<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>
+	...
+</Pagination>
+```
+
+## API Reference
+
+<ApiTable />

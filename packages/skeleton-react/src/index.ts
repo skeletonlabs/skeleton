@@ -5,6 +5,7 @@ export * from './components/combobox/index';
 export * from './components/dialog/index';
 export * from './components/file-upload/index';
 export * from './components/navigation/index';
+export * from './components/pagination/index';
 export * from './components/popover/index';
 export * from './components/portal/index';
 export * from './components/progress-linear/index';
