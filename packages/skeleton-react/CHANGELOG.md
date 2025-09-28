@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.17
+
+### Minor Changes
+
+- feat: pagination ([#3780](https://github.com/skeletonlabs/skeleton/pull/3780))
+
+### Patch Changes
+
+- Updated dependencies [[`c4df8e6`](https://github.com/skeletonlabs/skeleton/commit/c4df8e6de82253838f5812af7cce586dd4076477)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.14
+
 ## 2.0.0-next.16
 
 ### Patch Changes
