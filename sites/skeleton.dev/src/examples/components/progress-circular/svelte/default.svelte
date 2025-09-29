@@ -1,12 +1,26 @@
 <script lang="ts">
-	import { Progress } from '@skeletonlabs/skeleton-svelte';
+	import { Progress, Slider } from '@skeletonlabs/skeleton-svelte';
+
+	let value = $state(50);
 </script>
 
-<Progress class="items-center w-fit">
-	<Progress.Label>Label</Progress.Label>
-	<Progress.Circle>
-		<Progress.CircleTrack />
-		<Progress.CircleRange />
-	</Progress.Circle>
-	<Progress.ValueText />
-</Progress>
+<div class="flex flex-col gap-8 items-center">
+	<Progress {value} class="items-center w-fit">
+		<Progress.Label>Label</Progress.Label>
+		<Progress.Circle>
+			<Progress.CircleTrack />
+			<Progress.CircleRange />
+		</Progress.Circle>
+		<Progress.ValueText />
+	</Progress>
+	<Slider class="w-full" value={[value]} onValueChange={(e) => (value = e.value[0])} step={10}>
+		<Slider.Control>
+			<Slider.Track>
+				<Slider.Range />
+			</Slider.Track>
+			<Slider.Thumb index={0}>
+				<Slider.HiddenInput />
+			</Slider.Thumb>
+		</Slider.Control>
+	</Slider>
+</div>

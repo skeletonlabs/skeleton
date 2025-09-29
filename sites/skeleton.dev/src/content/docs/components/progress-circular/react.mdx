@@ -7,6 +7,15 @@ export const components = componentSet;
 import Default from '@examples/components/progress-circular/react/default';
 import DefaultRaw from '@examples/components/progress-circular/react/default?raw';
 
+import Size from '@examples/components/progress-circular/react/size';
+import SizeRaw from '@examples/components/progress-circular/react/size?raw';
+
+import Color from '@examples/components/progress-circular/react/color';
+import ColorRaw from '@examples/components/progress-circular/react/color?raw';
+
+import Icon from '@examples/components/progress-circular/react/icon';
+import IconRaw from '@examples/components/progress-circular/react/icon?raw';
+
 import Indeterminate from '@examples/components/progress-circular/react/indeterminate';
 import IndeterminateRaw from '@examples/components/progress-circular/react/indeterminate?raw';
 
@@ -25,7 +34,42 @@ import CustomFormatRaw from '@examples/components/progress-circular/react/custom
 	</Fragment>
 </Preview>
 
+## Size
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Size client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SizeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Color
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Color client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Icon
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Icon client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IconRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
 ## Indeterminate
+
+Set the value to `null` to make the progress indeterminate.
 
 <Preview client:load>
 	<Fragment slot="preview">
