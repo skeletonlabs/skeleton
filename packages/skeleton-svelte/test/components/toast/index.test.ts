@@ -37,7 +37,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe('action trigger', () => {
+	describe('ActionTrigger', () => {
 		it('renders', async () => {
 			render(Test);
 			await waitFor(() => {
@@ -46,7 +46,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe('close trigger', () => {
+	describe('CloseTrigger', () => {
 		it('renders', async () => {
 			render(Test);
 			await waitFor(() => {

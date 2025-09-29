@@ -8,10 +8,12 @@ describe('Portal', () => {
 			render(<Test />);
 			expect(screen.getByTestId('child')).toBeInTheDocument();
 		});
+
 		it('renders in the target', () => {
 			render(<Test target={document.body} />);
 			expect(screen.getByTestId('child').parentElement).toBe(document.body);
 		});
+
 		it('renders in the parent when disabled', () => {
 			render(<Test disabled />);
 			expect(screen.getByTestId('child').parentElement).toBe(screen.getByTestId('parent'));
