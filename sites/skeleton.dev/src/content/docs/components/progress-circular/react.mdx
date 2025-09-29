@@ -13,6 +13,9 @@ import IndeterminateRaw from '@examples/components/progress-circular/react/indet
 import Format from '@examples/components/progress-circular/react/format';
 import FormatRaw from '@examples/components/progress-circular/react/format?raw';
 
+import CustomFormat from '@examples/components/progress-circular/react/custom-format';
+import CustomFormatRaw from '@examples/components/progress-circular/react/custom-format?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -41,6 +44,17 @@ import FormatRaw from '@examples/components/progress-circular/react/format?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={FormatRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Custom Format
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomFormat client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomFormatRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
