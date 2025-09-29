@@ -2,7 +2,7 @@
 	import IconChevron from '@lucide/svelte/icons/chevron-right';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
-	let checked = $state(true);
+	let checked = $state(false);
 </script>
 
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
@@ -29,8 +29,8 @@
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
 			<Switch {checked} onCheckedChange={(e) => (checked = e.checked)} class="scale-[2.0] shadow-xl">
-				<Switch.Control class="!bg-surface-50">
-					<Switch.Thumb class="!bg-surface-950" />
+				<Switch.Control class="data-[state=checked]:bg-surface-100">
+					<Switch.Thumb />
 				</Switch.Control>
 				<Switch.HiddenInput />
 			</Switch>
