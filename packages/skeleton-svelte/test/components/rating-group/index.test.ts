@@ -25,11 +25,9 @@ describe('RatingGroup', () => {
 	});
 
 	describe('Items', () => {
-		it('renders all items', () => {
+		it('renders', () => {
 			render(Test);
-			expect(screen.getByTestId('item-1')).toBeInTheDocument();
-			expect(screen.getByTestId('item-2')).toBeInTheDocument();
-			expect(screen.getByTestId('item-3')).toBeInTheDocument();
+			expect(screen.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 

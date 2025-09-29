@@ -9,19 +9,22 @@ describe('Tooltip', () => {
 			expect(screen.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
+
 	describe('Positioner', () => {
 		it('renders', () => {
 			render(<Test />);
 			expect(screen.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
+
 	describe('Arrow', () => {
 		it('renders', () => {
 			render(<Test />);
 			expect(screen.getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
-	describe('arrow tip', () => {
+
+	describe('ArrowTip', () => {
 		it('renders', () => {
 			render(<Test />);
 			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
