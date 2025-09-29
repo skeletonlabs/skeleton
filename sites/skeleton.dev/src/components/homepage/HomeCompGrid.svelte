@@ -360,7 +360,7 @@
 				</SegmentedControl.Control>
 			</SegmentedControl>
 			<label class="label">
-				<span class="label text">Message</span>
+				<span class="label-text">Message</span>
 				<textarea name="message" id="message" class="textarea rounded-container" placeholder="Provide a message..."></textarea>
 			</label>
 			<div class="flex justify-end">
