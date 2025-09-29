@@ -6,7 +6,7 @@
 [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/EXqV7W8MtY)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/skeletonlabs/skeleton/blob/master/LICENSE)
 
-Skeleton is an adaptive design system aimed at extending [Tailwind](https://tailwindcss.com/). Providing an opinionated solutions for themes, colors, typography, and more. Including easy to use components for your favorite web frameworks.
+Skeleton is an adaptive design system aimed at extending [Tailwind](https://tailwindcss.com/). Providing an opinionated solution for themes, colors, typography, and more. Including easy to use components for your favorite web frameworks.
 
 - [Documentation](https://skeleton.dev/)
 - [Theme Generator](https://themes.skeleton.dev/themes/create)
