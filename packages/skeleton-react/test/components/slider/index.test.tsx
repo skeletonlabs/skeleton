@@ -1,75 +1,95 @@
 import Test from './test';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 describe('Slider', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('root')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('label')).toBeInTheDocument();
+			});
 		});
 	});
 
-	describe('value text', () => {
-		it('renders', () => {
+	describe('ValueText', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('value-text')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Control', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('control')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('control')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Track', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('track')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('track')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Range', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('range')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('range')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Thumb', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('thumb')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('thumb')).toBeInTheDocument();
+			});
 		});
 	});
 
-	describe('hidden input', () => {
-		it('renders', () => {
+	describe('HiddenInput', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+			});
 		});
 	});
 
-	describe('marker group', () => {
-		it('renders', () => {
+	describe('MarkerGroup', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('marker-group')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('marker-group')).toBeInTheDocument();
+			});
 		});
 	});
 
 	describe('Marker', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(<Test />);
-			expect(screen.getByTestId('marker')).toBeInTheDocument();
+			await waitFor(() => {
+				expect(screen.getByTestId('marker')).toBeInTheDocument();
+			});
 		});
 	});
 });
