@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-react
 
+## 1.4.2
+### Patch Changes
+
+
+- fix: pin versions to keep buggy file upload behaviour we depend on ([#3824](https://github.com/skeletonlabs/skeleton/pull/3824))
+
 ## 1.4.1
 ### Patch Changes
 

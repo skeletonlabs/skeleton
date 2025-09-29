@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 1.5.3
+### Patch Changes
+
+
+- fix: pin versions to keep buggy file upload behaviour we depend on ([#3824](https://github.com/skeletonlabs/skeleton/pull/3824))
+
 ## 1.5.2
 ### Patch Changes
 
