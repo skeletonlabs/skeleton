@@ -10,7 +10,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('root', () => {
+	describe.skip('Root', () => {
 		it('renders', async () => {
 			render(<Test />);
 			await waitFor(() => {
@@ -19,7 +19,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('title', () => {
+	describe.skip('Title', () => {
 		it('renders', async () => {
 			render(<Test />);
 			await waitFor(() => {
@@ -28,7 +28,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('description', () => {
+	describe.skip('Description', () => {
 		it('renders', async () => {
 			render(<Test />);
 			await waitFor(() => {
@@ -37,7 +37,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('action trigger', () => {
+	describe.skip('ActionTrigger', () => {
 		it('renders', async () => {
 			render(<Test />);
 			await waitFor(() => {
@@ -46,7 +46,7 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('close trigger', () => {
+	describe.skip('CloseTrigger', () => {
 		it('renders', async () => {
 			render(<Test />);
 			await waitFor(() => {

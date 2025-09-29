@@ -52,14 +52,14 @@ describe('Combobox', () => {
 		});
 	});
 
-	describe('item group', () => {
+	describe('ItemGroup', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
-	describe('item group label', () => {
+	describe('ItemGroupLabel', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
@@ -73,14 +73,14 @@ describe('Combobox', () => {
 		});
 	});
 
-	describe('item text', () => {
+	describe('ItemText', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('item indicator', () => {
+	describe('ItemIndicator', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();

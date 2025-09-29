@@ -38,14 +38,14 @@ describe('SegmentedControl', () => {
 		});
 	});
 
-	describe('item text', () => {
+	describe('ItemText', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('item hidden input', () => {
+	describe('ItemHiddenInput', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-hidden-input')).toBeInTheDocument();

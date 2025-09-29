@@ -31,28 +31,28 @@ describe('TagsInput', () => {
 		});
 	});
 
-	describe('item preview', () => {
+	describe('ItemPreview', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-preview')).toBeInTheDocument();
 		});
 	});
 
-	describe('item text', () => {
+	describe('ItemText', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('item delete trigger', () => {
+	describe('ItemDeleteTrigger', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('item input', () => {
+	describe('ItemInput', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('item-input')).toBeInTheDocument();
@@ -66,14 +66,14 @@ describe('TagsInput', () => {
 		});
 	});
 
-	describe('clear trigger', () => {
+	describe('ClearTrigger', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('clear-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('hidden input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
