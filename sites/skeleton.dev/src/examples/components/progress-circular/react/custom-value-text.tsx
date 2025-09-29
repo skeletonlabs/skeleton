@@ -1,6 +1,6 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-export default function CustomFormat() {
+export default function CustomValueText() {
 	return (
 		<Progress className="items-center w-fit">
 			<Progress.Circle>

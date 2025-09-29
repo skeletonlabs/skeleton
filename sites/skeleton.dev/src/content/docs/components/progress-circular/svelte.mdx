@@ -22,8 +22,8 @@ import IndeterminateRaw from '@examples/components/progress-circular/svelte/inde
 import Format from '@examples/components/progress-circular/svelte/format.svelte';
 import FormatRaw from '@examples/components/progress-circular/svelte/format.svelte?raw';
 
-import CustomFormat from '@examples/components/progress-circular/svelte/custom-format.svelte';
-import CustomFormatRaw from '@examples/components/progress-circular/svelte/custom-format.svelte?raw';
+import CustomValueText from '@examples/components/progress-circular/svelte/custom-value-text.svelte';
+import CustomValueTextRaw from '@examples/components/progress-circular/svelte/custom-value-text.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -79,7 +79,6 @@ Set the value to `null` to make the progress indeterminate.
 		<Code code={IndeterminateRaw} lang="svelte" />
 	</Fragment>
 </Preview>
-
 ## Format
 
 Use the `format` prop to customize the output of the `ValueText` component, options are:
@@ -101,10 +100,10 @@ Use the `format` prop to customize the output of the `ValueText` component, opti
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<CustomFormat client:visible />
+		<CustomValueText client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={CustomFormatRaw} lang="svelte" />
+		<Code code={CustomValueTextRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
