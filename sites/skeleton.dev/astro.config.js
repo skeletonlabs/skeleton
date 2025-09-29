@@ -2,7 +2,7 @@ import mdx from '@astrojs/mdx';
 // Integrations
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
-import svelte from '@astrojs/svelte';
+import svelte, { vitePreprocess } from '@astrojs/svelte';
 // Vite Plugins
 import tailwindcss from '@tailwindcss/vite';
 import AutoImport from 'astro-auto-import';
@@ -17,7 +17,14 @@ export default defineConfig({
 		// https://docs.astro.build/en/guides/integrations-guide/partytown/
 		partytown(),
 		// https://docs.astro.build/en/guides/integrations-guide/svelte/
-		svelte(),
+		svelte({
+			preprocess: vitePreprocess(),
+			compilerOptions: {
+				experimental: {
+					async: true,
+				},
+			},
+		}),
 		// https://docs.astro.build/en/guides/integrations-guide/react/
 		react({
 			experimentalReactChildren: true,
