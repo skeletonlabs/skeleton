@@ -7,58 +7,58 @@ settings:
 catalogs:
   default:
     '@zag-js/accordion':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/avatar':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/combobox':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/dialog':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/file-upload':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/pagination':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/popover':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/progress':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/radio-group':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/rating-group':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/react':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/slider':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/svelte':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/switch':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/tabs':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/tags-input':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/toast':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     '@zag-js/tooltip':
-      specifier: ^1.18.3
+      specifier: 1.18.3
       version: 1.18.3
     svelte:
       specifier: ^5.36.1

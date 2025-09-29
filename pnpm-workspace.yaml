@@ -3,7 +3,7 @@ packages:
   - sites/*
   - playgrounds/*
 
-define: &zag_version '^1.18.3'
+define: &zag_version '1.18.3'
 
 catalog:
   '@zag-js/svelte': *zag_version
