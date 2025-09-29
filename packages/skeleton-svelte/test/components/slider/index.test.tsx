@@ -17,7 +17,7 @@ describe('Slider', () => {
 		});
 	});
 
-	describe('value text', () => {
+	describe('ValueText', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('value-text')).toBeInTheDocument();
@@ -52,14 +52,14 @@ describe('Slider', () => {
 		});
 	});
 
-	describe('hidden input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
-	describe('marker group', () => {
+	describe('MarkerGroup', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('marker-group')).toBeInTheDocument();
