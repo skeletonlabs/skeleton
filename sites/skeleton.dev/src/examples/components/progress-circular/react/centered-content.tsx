@@ -1,11 +1,10 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
-import { ThermometerSunIcon } from 'lucide-react';
 
-export default function Icon() {
+export default function CenteredContent() {
 	return (
 		<Progress className="w-fit relative">
 			<div className="absolute inset-0 flex items-center justify-center">
-				<ThermometerSunIcon />
+				<Progress.ValueText />
 			</div>
 			<Progress.Circle>
 				<Progress.CircleTrack />
