@@ -6,7 +6,7 @@ export default function Page() {
 	return (
 		<Progress className="items-center w-fit">
 			<Progress.Label>Label</Progress.Label>
-			<Progress.Circle style={{ ['--size' as string]: '4rem', ['--thickness' as string]: '0.5rem' }}>
+			<Progress.Circle>
 				<Progress.CircleTrack />
 				<Progress.CircleRange />
 			</Progress.Circle>

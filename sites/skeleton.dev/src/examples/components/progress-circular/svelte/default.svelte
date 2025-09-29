@@ -4,7 +4,7 @@
 
 <Progress class="items-center w-fit">
 	<Progress.Label>Label</Progress.Label>
-	<Progress.Circle --size="4rem" --thickness="0.5rem">
+	<Progress.Circle>
 		<Progress.CircleTrack />
 		<Progress.CircleRange />
 	</Progress.Circle>
