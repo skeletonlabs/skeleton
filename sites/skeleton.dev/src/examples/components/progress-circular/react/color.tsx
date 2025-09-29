@@ -1,6 +1,6 @@
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-export default function Size() {
+export default function Color() {
 	return (
 		<div className="flex gap-4 justify-evenly items-center w-full">
 			<Progress className="w-fit">

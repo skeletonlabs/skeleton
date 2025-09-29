@@ -11,7 +11,8 @@
 	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconUsers from '@lucide/svelte/icons/user';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
-	import { Avatar, Switch, Slider } from '@skeletonlabs/skeleton-svelte';
+	import { Avatar, Switch, Slider, Progress } from '@skeletonlabs/skeleton-svelte';
+	import ValueText from 'node_modules/@skeletonlabs/skeleton-svelte/dist/components/progress/anatomy/value-text.svelte';
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
@@ -220,9 +221,27 @@
 		<div class={`${cardClasses} row-span-2 row-start-3`}>
 			<h2 class="h4 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
-				<!-- <ProgressRing value={32} max={100} showLabel size="size-56" strokeWidth="5px" labelClasses="text-2xl" classes="row-span-2" />
-				<ProgressRing value={66} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" />
-				<ProgressRing value={35} max={100} showLabel size="size-16" strokeWidth="10px" labelClasses="text-sm" classes="self-center" /> -->
+				<Progress value={32} class="relative items-center w-fit row-span-2">
+					<Progress.Circle style="--size: 200px;">
+						<Progress.CircleTrack />
+						<Progress.CircleRange />
+					</Progress.Circle>
+					<Progress.ValueText class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-semibold" />
+				</Progress>
+				<Progress value={66} class="relative items-center w-fit self-center">
+					<Progress.Circle style="--size: 75px;">
+						<Progress.CircleTrack />
+						<Progress.CircleRange />
+					</Progress.Circle>
+					<Progress.ValueText class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+				</Progress>
+				<Progress value={35} class="relative items-center w-fit self-center">
+					<Progress.Circle style="--size: 75px;">
+						<Progress.CircleTrack />
+						<Progress.CircleRange />
+					</Progress.Circle>
+					<Progress.ValueText class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+				</Progress>
 			</div>
 		</div>
 		<!-- 8 -->
