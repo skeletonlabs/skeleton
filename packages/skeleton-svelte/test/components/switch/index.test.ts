@@ -10,7 +10,7 @@ describe('Switch', () => {
 		});
 	});
 
-	describe('hidden input', () => {
+	describe('HiddenInput', () => {
 		it('renders', () => {
 			render(Test);
 			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
