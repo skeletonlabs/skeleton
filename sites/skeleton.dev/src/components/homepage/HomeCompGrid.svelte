@@ -342,7 +342,7 @@
 		<div class={`${cardClasses} row-span-2 col-start-2 row-start-6 row-end-9`}>
 			<h2 class="h4">Set Reminder</h2>
 			<SegmentedControl name="time" defaultValue="15">
-				<SegmentedControl.Label>Mode</SegmentedControl.Label>
+				<SegmentedControl.Label>Time</SegmentedControl.Label>
 				<SegmentedControl.Control>
 					<SegmentedControl.Indicator />
 					<SegmentedControl.Item value="15">
