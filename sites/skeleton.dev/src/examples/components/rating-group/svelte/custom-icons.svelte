@@ -4,7 +4,7 @@
 	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<RatingGroup count={5}>
+<RatingGroup count={3}>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ratingGroup)}

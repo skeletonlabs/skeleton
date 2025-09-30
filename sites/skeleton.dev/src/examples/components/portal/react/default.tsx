@@ -6,18 +6,26 @@ export default function Default() {
 	const [disabled, setDisabled] = useState(true);
 	const ref = useRef<HTMLDivElement | null>(null);
 
+	const cardClasses = 'card preset-outlined-surface-300-700 size-24 grid place-items-center p-4';
+	const buttonClasses = 'col-span-2 btn preset-filled';
+
 	return (
-		<div className="flex flex-col items-center gap-8 w-full">
-			<div className="w-full flex justify-evenly">
-				<div className="card preset-outlined size-24 grid place-items-center p-4">
-					<Portal disabled={disabled} target={ref.current ?? undefined}>
-						<SkullIcon />
-					</Portal>
-				</div>
-				<div className="card preset-outlined size-24 grid place-items-center p-4" ref={ref}></div>
+		<div className="grid grid-cols-2 gap-4">
+			{/* Source */}
+			<div className={cardClasses}>
+				<Portal disabled={disabled} target={ref.current ?? undefined}>
+					<SkullIcon className="size-8" />
+				</Portal>
 			</div>
-			<button className="btn preset-filled w-fit" onClick={() => setDisabled(!disabled)}>
-				Portal: {disabled ? 'Disabled' : 'Enabled'}
+
+			{/* Target */}
+			<div className={cardClasses} ref={ref}>
+				{/* (the content will appear here) */}
+			</div>
+
+			{/* Trigger */}
+			<button className={buttonClasses} onClick={() => setDisabled(!disabled)}>
+				{disabled ? 'Enable' : 'Disable'}
 			</button>
 		</div>
 	);
