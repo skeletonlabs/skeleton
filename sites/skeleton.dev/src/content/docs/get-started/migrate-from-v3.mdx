@@ -11,8 +11,8 @@ export const components = componentSet;
 {
 
 <div class="card p-4 preset-tonal-warning space-y-2">
-	<h2 class="h3">Early Access Warning</h2>
-	<p>The Skeleton v4 Release Candidate is an early access preview not yet intended for production use.</p>
+	<h2 class="h3">Release Candidate</h2>
+	<p>The Skeleton v4 Release Candidate is an early access preview and not yet intended for production use.</p>
 </div>
 
 }
@@ -21,7 +21,7 @@ Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal 
 
 ## Prerequisites
 
-We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
+We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop and revert if something goes wrong.
 
 ```console
 git checkout -b migration
@@ -65,9 +65,7 @@ The `@source` import in your global stylesheet (ex: `app.css`) is no longer requ
 
 ## Migrating Components
 
-Per the Skeleton v4 RC, we do not yet have an automated migration CLI. For now, you will need to manually migrate each component in your project to the new format. Please consult the code snippets found on each respective component's documentation page for reference.
-
-Here's an example of that process using the Avatar component:
+Per the Skeleton v4 RC, we do not yet have an automated migration CLI. For now, you will need to manually migrate each component in your project to the new format. Please consult the code snippets found on each respective component's documentation page for reference. Below an example of that process using the Avatar component.
 
 **Was (v3)**
 
@@ -84,17 +82,17 @@ Here's an example of that process using the Avatar component:
 </Avatar>
 ```
 
-1. Consult the documentation for [React](/docs/components/avatar/react) or [Svelte](/docs/components/avatar/svelte).
+1. Consult the Avatar documentation for [React](/docs/components/avatar/react) or [Svelte](/docs/components/avatar/svelte).
 2. Keep the import as is; no changes are required for this component.
 3. The root component `<Avatar>` remains; remove the `src` or `name` props.
-4. Implement the new `<Avatar.Image>` child to pass the `src` path.
-5. Initials are no longer generated via the `name`; specify any fallback with `<Avatar.Fallback>`
+4. Implement the new `<Avatar.Image>` child and pass the `src` path.
+5. Initials are no longer generated via the `name`; instead specify a fallback with `<Avatar.Fallback>`
 
-> TIP: Use your code editor of choice and search by the v3 component element, such `<Avat...` for Avatar.
+> TIP: To locate components, search your project by the v3 component name, such `<Avat...` for Avatar.
 
 ### Rename Components
 
-Please note as part of the update to Skeleton v4, some components have been updated to follow [Zag.js](https://zagjs.com/) conventions.
+As part of this update, select components have been renamed to follow [Zag.js](https://zagjs.com/) naming conventions.
 
 | Was (v3)         | Now (v4)             | v4 Docs                                           |
 | ---------------- | -------------------- | ------------------------------------------------- |
@@ -104,14 +102,12 @@ Please note as part of the update to Skeleton v4, some components have been upda
 | `<Ratings>`      | `<RatingGroup>`      | [Link](/docs/components/rating-group/svelte)      |
 | `<Segment>`      | `<SegmentedControl>` | [Link](/docs/components/segmented-control/svelte) |
 
-> NOTE: we also recommend checking each sub-component as you go.
-
 ---
 
-## Get Support
+## Support and Feedback
 
-For the duration of this Release Candidate, we ask that you please test the new component structure, styling, and markup features in your real-world projects. We encourage you to share your experience and report issues on either Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). Your feedback will be invaluable to guide any last minutes changes and determine when the final release is ready. We appreciate your input!
+For the duration of this early access preview, we ask that you please test the new component structure, styling, and markup features in your real-world projects. We encourage you to share your experience and report issues on either Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). Your feedback will be invaluable to guide any last minutes changes and determine when the final release is ready. We appreciate your input!
 
 ## Component Guidelines
 
-If you would like a deeper understanding of how components operate in Skeleton v4, we recommend browsing the [Contribution Guidelines](https://next.skeleton.dev/docs/resources/contribute/components). Use this to update your custom components to the newest standards.
+If you would like a deeper understanding of how components operate in Skeleton v4, we recommend browsing the [Contribution Guidelines](https://next.skeleton.dev/docs/resources/contribute/components). Use this to update your custom components to the latest standards for Skeleton.

@@ -38,7 +38,7 @@ The following features fall under the umbrella of our design system. Provided vi
 
 ---
 
-## Tailwind
+## Tailwind Components
 
 Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
 
@@ -46,18 +46,18 @@ Tailwind components that act as primitives for creating complex interfaces. Prov
 
 ---
 
-## Components
+## Functional Components
 
 Skeleton also offers optional component packages for a number of select component frameworks. Each component automatically adapt to Skeleton's design system.
 
-| Framework | NPM Package                     | Description                                      |
-| --------- | ------------------------------- | ------------------------------------------------ |
-| React     | `@skeletonlabs/skeleton-react`  | Contains all components and features for React.  |
-| Svelte    | `@skeletonlabs/skeleton-svelte` | Contains all components and features for Svelte. |
+| Framework | NPM Package                     | Description                     |
+| --------- | ------------------------------- | ------------------------------- |
+| React     | `@skeletonlabs/skeleton-react`  | Contains all React components.  |
+| Svelte    | `@skeletonlabs/skeleton-svelte` | Contains all Svelte components. |
 
 ### Powered by Zag.js
 
-Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag was founded and maintained by industry veterans, such as [Segun Adebayo](https://github.com/segunadebayo) - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/).
+Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag is actively maintained by industry veterans, such as [Segun Adebayo](https://github.com/segunadebayo) - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/), [Ark UI](https://ark-ui.com/), and [PandaCSS](https://panda-css.com/).
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
@@ -67,7 +67,7 @@ Skeleton's components are built on **Zag.js**, which provides a collection of fr
 
 ### Importing Components
 
-You may import components frame each Skeleton framework as follows.
+You may import components per each Skeleton framework as follows.
 
 ```ts
 import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
@@ -81,7 +81,7 @@ import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-{react|svelte}
 
 ### Composed Pattern
 
-Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-\*`, `style`, `class`, and more.
+Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-*`, `style`, `class`, and more.
 
 ```svelte
 <Avatar>
@@ -113,7 +113,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 
 ### Extensible Markup
 
-Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the Element snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users.
+Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `Element()` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
 
 **React:**
 
@@ -155,7 +155,7 @@ export default function () {
 
 ### Custom Animations
 
-Using the extensible markup pattern, you may implement custom animations. While we showcase this with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), you could also use framework agnostic solutions like [Motion](https://motion.dev/) or [Animate.css](https://animate.style/).
+Using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
 
 ```ts
 import { slide } from 'svelte/transition';
@@ -188,4 +188,4 @@ import { slide } from 'svelte/transition';
 
 ### Learn More
 
-For a comprehensive understanding of how Skeleton implements components, refer to our [contribution guidelines](/docs/resources/contribute/components).
+For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/resources/contribute/components).
