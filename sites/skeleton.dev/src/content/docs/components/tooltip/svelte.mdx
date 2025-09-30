@@ -16,6 +16,9 @@ import ZIndexRaw from '@examples/components/tooltip/svelte/z-index.svelte?raw';
 import Programmatic from '@examples/components/tooltip/svelte/programmatic.svelte';
 import ProgrammaticRaw from '@examples/components/tooltip/svelte/programmatic.svelte?raw';
 
+import Dir from '@examples/components/tooltip/svelte/dir.svelte';
+import DirRaw from '@examples/components/tooltip/svelte/dir.svelte?raw';
+
 import Headless from '@examples/components/tooltip/svelte/headless.svelte';
 import HeadlessRaw from '@examples/components/tooltip/svelte/headless.svelte?raw';
 
@@ -64,6 +67,17 @@ This is made possible via the Provider Pattern.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ProgrammaticRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

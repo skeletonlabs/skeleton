@@ -19,11 +19,11 @@ import DrawerRaw from '@examples/components/dialog/svelte/drawer.svelte?raw';
 import ZIndex from '@examples/components/dialog/svelte/z-index.svelte';
 import ZIndexRaw from '@examples/components/dialog/svelte/z-index.svelte?raw';
 
-import Headless from '@examples/components/dialog/svelte/headless.svelte';
-import HeadlessRaw from '@examples/components/dialog/svelte/headless.svelte?raw';
-
 import Dir from '@examples/components/dialog/svelte/dir.svelte';
 import DirRaw from '@examples/components/dialog/svelte/dir.svelte?raw';
+
+import Headless from '@examples/components/dialog/svelte/headless.svelte';
+import HeadlessRaw from '@examples/components/dialog/svelte/headless.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -87,6 +87,17 @@ By default we do not take an opinionated stance regarding z-index stacking. The 
 	</Fragment>
 </Preview>
 
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
 ## Headless
 
 Unlike most components in Skeleton, this feature is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
@@ -105,17 +116,6 @@ The benefits are as follows:
 - You can make the `Trigger` surround any element, including an icon, button, image, etc.
 - You can modify the entire structure within `Content`, including custom markup and styling.
 - You may place the `CloseTrigger` anywhere, and use it as an X close option.
-
-## Direction
-
-<Preview client:load>
-	<Fragment slot="preview">
-		<Dir client:visible />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DirRaw} lang="svelte" />
-	</Fragment>
-</Preview>
 
 ## API Reference
 
