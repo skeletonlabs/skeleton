@@ -2,17 +2,17 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesProgress = defineSkeletonClasses({
 	root: [
-		// Common
 		'flex flex-col gap-2',
 		// Horizontal Orientation
 		'data-[orientation=horizontal]:w-full',
 		// Vertical Orientation
 		'data-[orientation=vertical]:items-center',
 	],
-	label: 'label-text whitespace-nowrap',
-	valueText: 'label-text',
+	label: 'whitespace-nowrap',
+	valueText: '',
+
+	// Linear
 	track: [
-		// Common
 		'bg-surface-200-800 rounded-base overflow-hidden',
 		// Horizontal Orientation
 		'data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-2',
@@ -20,13 +20,14 @@ export const classesProgress = defineSkeletonClasses({
 		'data-[orientation=vertical]:w-2 data-[orientation=vertical]:h-[100px]',
 	],
 	range: [
-		// Common
 		'h-full bg-surface-950-50 rounded-base',
 		// Horizontal Orientation
 		'data-[orientation=horizontal]:transition-[width] data-[orientation=horizontal]:data-[state=indeterminate]:animate-progress-linear-indeterminate-horizontal',
 		// Vertical Orientation
 		'data-[orientation=vertical]:transition-[height] data-[orientation=vertical]:data-[state=indeterminate]:animate-progress-linear-indeterminate-vertical',
 	],
+
+	// Circular
 	circle: '',
 	circleTrack: 'stroke-surface-200-800',
 	circleRange: [
