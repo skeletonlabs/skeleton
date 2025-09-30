@@ -96,7 +96,7 @@ avatar/
 │   └── root.{tsx|svelte}
 ├── modules/
 │   ├── anatomy.ts
-│   ├── use-{component}.{ts|svelte.ts}
+│   ├── provider(.svelte).ts
 │   └── root-context.ts
 └── index.ts
 ```
@@ -116,7 +116,7 @@ export interface AvatarRootProps {
 	// ...
 }
 
-export default function (props: AvatarRootProps) {
+export default function Root(props: AvatarRootProps) {
 	// ...
 }
 ```
@@ -170,7 +170,7 @@ export const Avatar = Object.assign(
 );
 ```
 
-#### Context Part File
+#### Context Files
 
 The `{part}-context.ts` file contains the exported context for each component part's [context](/docs/resources/contribute/components#context-api). This pattern enables strong typing of the context itself.
 
@@ -180,7 +180,7 @@ For most components this will only be necessary for the root component, some com
 import type { useAvatar } from './use-avatar';
 import { createContext } from '@/internal/create-context';
 
-export const AvatarContext = createContext<ReturnType<typeof useAvatar>>();
+export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 ```
 
 #### Index File
@@ -189,7 +189,7 @@ The index prepares all required component files for export.
 
 ```ts
 export { Avatar } from './modules/anatomy';
-export { useAvatar } from './modules/use-avatar';
+export { useAvatar } from './modules/provider';
 export type { AvatarRootProps } from './anatomy/root';
 export type { AvatarRootProviderProps } from './anatomy/root-provider';
 export type { AvatarRootContextProps } from './anatomy/root-context';
@@ -228,10 +228,10 @@ In some cases you may need to pass data from parent down to child components. Fo
 
 | Framework | Documentation                                                                                               |
 | --------- | ----------------------------------------------------------------------------------------------------------- |
-| React     | [View Component API docs](https://svelte.dev/docs/kit/state-management#Using-state-and-stores-with-context) |
-| Svelte    | [View Component API docs](https://react.dev/learn/passing-data-deeply-with-context)                         |
+| React     | [View Component API docs](https://react.dev/learn/passing-data-deeply-with-context)                         |
+| Svelte    | [View Component API docs](https://svelte.dev/docs/kit/state-management#Using-state-and-stores-with-context) |
 
-Note that Skeleton implements a [set convention for Context API](/docs/resources/contribute/components#context-file) to enable strong typing.
+Note that Skeleton implements a [set convention for Context API](/docs/resources/contribute/components#context-files) to enable strong typing.
 
 ### Common Conventions
 
@@ -245,16 +245,16 @@ While each component will present a unique set of challenges, we recommend you r
 #### React Specific
 
 - Pass the `id` field into the `useMachine` hook using the `useId()` hook from `react`.
-- Consume context using `use()` from `react`.
+- Consume context using `use(Context)` from `react`.
 - Use the `className` attribute to pass Skeleton classes.
 
 #### Svelte Specific
 
 - Pass the `id` field into the `useMachine` function using the `props.id()` rune from `svelte`.
-- Consume context using the `{context}.consume()`.
+- Consume context using the `Context.consume()`.
 - Use the `class` attribute to pass Skeleton classes.
 
-> NOTE: we welcome contributions to expand this section!
+> NOTE: We welcome contributions to expand this section!
 
 ---
 
@@ -332,9 +332,16 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
-```tsx title="avatar-root.tsx" {1,2,7}
+```tsx title="root.tsx"
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
+import type { Props } from '@zag-js/avatar';
 import { mergeProps } from '@zag-js/react';
+
+export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id'> {
+	// ...
+}
 
 export default function (props: AvatarRootProps) {
 	const { children, ...rest } = props;
@@ -351,9 +358,9 @@ export default function (props: AvatarRootProps) {
 }
 ```
 
-The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility.
+The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility, just without the `api.getPartProps()`.
 
-```tsx title="navigation-root.tsx" {1,2,7}
+```tsx title="root.tsx"
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 
@@ -370,6 +377,15 @@ export default function (props: NavigationRootProps) {
 	return <div {...attributes}>{children}</div>;
 }
 ```
+
+## Testing Components
+
+We recommend you reference existing components to see how we've handled testing. Each framework has slightly different testing conventions, but all utilize [Vitest](https://vitest.dev/) with [Testing Library](https://testing-library.com/).
+
+Test files are located in `packages/skeleton-{framework}/test/components/{component}` and each contain two files:
+
+- `index.test.{tsx|tsx}` - contains the actual test cases.
+- `test.{tsx/svelte}` - contains a wrapper component used to provide `data-testid` attributes to each respective component part.
 
 ## Additional Resources
 
