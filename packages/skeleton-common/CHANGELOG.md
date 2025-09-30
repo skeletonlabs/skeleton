@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.15
+
+### Minor Changes
+
+- feat: progress circular ([#3779](https://github.com/skeletonlabs/skeleton/pull/3779))
+
+### Patch Changes
+
+- fix: missing `loading` styling for toast ([#3830](https://github.com/skeletonlabs/skeleton/pull/3830))
+
+- fix: apply `flex-col` when in the vertical state ([#3830](https://github.com/skeletonlabs/skeleton/pull/3830))
+
 ## 1.0.0-next.14
 
 ### Minor Changes
