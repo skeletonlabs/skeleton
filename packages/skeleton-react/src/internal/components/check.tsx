@@ -5,6 +5,7 @@ export type CheckProps = HTMLAttributes<'svg', 'children'>;
 
 export default function Check(props: CheckProps) {
 	const { ...rest } = props;
+
 	const attributes = mergeProps(
 		{
 			xmlns: 'http://www.w3.org/2000/svg',
@@ -19,6 +20,7 @@ export default function Check(props: CheckProps) {
 		},
 		rest,
 	);
+
 	return (
 		<svg {...attributes}>
 			<path d="M20 6 9 17l-5-5" />
