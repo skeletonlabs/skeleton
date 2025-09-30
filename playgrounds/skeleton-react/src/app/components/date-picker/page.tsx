@@ -10,6 +10,9 @@ export default function Page() {
 				<DatePicker.Input placeholder="Select date..." />
 				<DatePicker.Trigger />
 			</DatePicker.Control>
+			<DatePicker.Positioner>
+				<DatePicker.Content>Pick a date here</DatePicker.Content>
+			</DatePicker.Positioner>
 		</DatePicker>
 	);
 }

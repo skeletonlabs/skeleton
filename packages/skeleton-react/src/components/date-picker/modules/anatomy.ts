@@ -1,6 +1,8 @@
+import Content from '../anatomy/content';
 import Control from '../anatomy/control';
 import Input from '../anatomy/input';
 import Label from '../anatomy/label';
+import Positioner from '../anatomy/positioner';
 import Root from '../anatomy/root';
 import RootContext from '../anatomy/root-context';
 import RootProvider from '../anatomy/root-provider';
@@ -13,4 +15,6 @@ export const DatePicker = Object.assign(Root, {
 	Control: Control,
 	Input: Input,
 	Trigger: Trigger,
+	Positioner: Positioner,
+	Content: Content,
 });
