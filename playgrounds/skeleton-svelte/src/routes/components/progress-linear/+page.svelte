@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 
 	let value = $state(25);
 </script>
@@ -9,80 +9,84 @@
 		<h2 class="h2">Progress Linear</h2>
 	</header>
 	<section class="space-y-4">
-		<ProgressLinear {value}>
-			<ProgressLinear.Track>
-				<ProgressLinear.Range />
-			</ProgressLinear.Track>
-		</ProgressLinear>
+		<Progress {value}>
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Colors</h2>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track class="bg-primary-50-950">
-				<ProgressLinear.Range class="bg-primary-500" />
-			</ProgressLinear.Track>
-		</ProgressLinear>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track class="bg-secondary-50-950">
-				<ProgressLinear.Range class="bg-secondary-500" />
-			</ProgressLinear.Track>
-		</ProgressLinear>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track class="bg-tertiary-50-950">
-				<ProgressLinear.Range class="bg-tertiary-500" />
-			</ProgressLinear.Track>
-		</ProgressLinear>
+		<Progress {value}>
+			<Progress.Track class="bg-primary-50-950">
+				<Progress.Range class="bg-primary-500" />
+			</Progress.Track>
+		</Progress>
+		<Progress {value}>
+			<Progress.Track class="bg-secondary-50-950">
+				<Progress.Range class="bg-secondary-500" />
+			</Progress.Track>
+		</Progress>
+		<Progress {value}>
+			<Progress.Track class="bg-tertiary-50-950">
+				<Progress.Range class="bg-tertiary-500" />
+			</Progress.Track>
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h2 class="h2">Height</h2>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track>
-				<ProgressLinear.Range />
-			</ProgressLinear.Track>
-		</ProgressLinear>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track class="h-4 rounded-full">
-				<ProgressLinear.Range class="rounded-full" />
-			</ProgressLinear.Track>
-		</ProgressLinear>
-		<ProgressLinear {value}>
-			<ProgressLinear.Track class="h-8 rounded-full">
-				<ProgressLinear.Range class="rounded-full" />
-			</ProgressLinear.Track>
-		</ProgressLinear>
+		<Progress {value}>
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+		</Progress>
+		<Progress {value}>
+			<Progress.Track class="h-4 rounded-full">
+				<Progress.Range class="rounded-full" />
+			</Progress.Track>
+		</Progress>
+		<Progress {value}>
+			<Progress.Track class="h-8 rounded-full">
+				<Progress.Range class="rounded-full" />
+			</Progress.Track>
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Orientation</h3>
 		<div class="flex flex-row items-start gap-4">
-			<ProgressLinear orientation="vertical" {value}>
-				<ProgressLinear.Label>{value}%</ProgressLinear.Label>
-				<ProgressLinear.Track>
-					<ProgressLinear.Range />
-				</ProgressLinear.Track>
-			</ProgressLinear>
-			<ProgressLinear orientation="vertical" value={null}>
-				<ProgressLinear.Label>null</ProgressLinear.Label>
-				<ProgressLinear.Track>
-					<ProgressLinear.Range />
-				</ProgressLinear.Track>
-			</ProgressLinear>
+			<Progress orientation="vertical" {value}>
+				<Progress.Label>
+					<Progress.ValueText />
+				</Progress.Label>
+				<Progress.Track>
+					<Progress.Range />
+				</Progress.Track>
+			</Progress>
+			<Progress orientation="vertical" value={null}>
+				<Progress.Label>null</Progress.Label>
+				<Progress.Track>
+					<Progress.Range />
+				</Progress.Track>
+			</Progress>
 		</div>
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Labeled</h3>
-		<ProgressLinear {value}>
-			<ProgressLinear.Label>{value}%</ProgressLinear.Label>
-			<ProgressLinear.Track>
-				<ProgressLinear.Range />
-			</ProgressLinear.Track>
-		</ProgressLinear>
+		<Progress {value}>
+			<Progress.Label>
+				<Progress.ValueText />
+			</Progress.Label>
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+		</Progress>
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Indeterminate</h3>
-		<ProgressLinear value={null}>
-			<ProgressLinear.Track>
-				<ProgressLinear.Range />
-			</ProgressLinear.Track>
-		</ProgressLinear>
+		<Progress value={null}>
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+		</Progress>
 	</section>
 </div>
