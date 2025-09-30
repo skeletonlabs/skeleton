@@ -8,11 +8,14 @@ order: 8888
 
 export const components = componentSet;
 
-{/* prettier-ignore */}
+{
+
 <div class="card p-4 preset-tonal-warning space-y-2">
 	<h2 class="h3">Early Access Warning</h2>
 	<p>The Skeleton v4 Release Candidate is an early access preview not yet intended for production use.</p>
 </div>
+
+}
 
 Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabalized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time.
 
@@ -93,13 +96,13 @@ Here's an example of that process using the Avatar component:
 
 Please note as part of the update to Skeleton v4, some components have been updated to follow [Zag.js](https://zagjs.com/) conventions.
 
-| Was (v3)         | Now (v4)             | v4 Docs                                             |
-| ---------------- | -------------------- | --------------------------------------------------- |
-| `<Modal>`        | `<Dialog>`           | [Link](/docs/components/dialog/svelte)              |
-| `<ProgressBar>`  | `<Progress>`         | [Link](/docs/components/progress-linear/svelte)     |
-| `<ProgressRing>` | `<Progress>`         | [Link](/docs/components/progress-circular/svelte)   |
-| `<Ratings>`      | `<RatingsGroup>`     | [Link](/docs/components/rating-group/svelte)        |
-| `<Segment>`      | `<SegmentedControl>` | [Link](/docs/components/segmented-control/svelte)   |
+| Was (v3)         | Now (v4)             | v4 Docs                                           |
+| ---------------- | -------------------- | ------------------------------------------------- |
+| `<Modal>`        | `<Dialog>`           | [Link](/docs/components/dialog/svelte)            |
+| `<ProgressBar>`  | `<Progress>`         | [Link](/docs/components/progress-linear/svelte)   |
+| `<ProgressRing>` | `<Progress>`         | [Link](/docs/components/progress-circular/svelte) |
+| `<Ratings>`      | `<RatingsGroup>`     | [Link](/docs/components/rating-group/svelte)      |
+| `<Segment>`      | `<SegmentedControl>` | [Link](/docs/components/segmented-control/svelte) |
 
 > NOTE: we also recommend checking each sub-component as you go.
 
