@@ -47,7 +47,7 @@
 
 	<Pagination count={users.length} pageSize={PAGE_SIZE} {page} onPageChange={(event) => (page = event.page)} dir="rtl">
 		<Pagination.PrevTrigger>
-			<ArrowLeftIcon class="size-4" />
+			<ArrowRightIcon class="size-4" />
 		</Pagination.PrevTrigger>
 		<Pagination.Context>
 			{#snippet children(pagination)}
@@ -63,7 +63,7 @@
 			{/snippet}
 		</Pagination.Context>
 		<Pagination.NextTrigger>
-			<ArrowRightIcon class="size-4" />
+			<ArrowLeftIcon class="size-4" />
 		</Pagination.NextTrigger>
 	</Pagination>
 </div>

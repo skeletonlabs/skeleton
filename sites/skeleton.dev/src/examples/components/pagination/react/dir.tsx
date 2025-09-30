@@ -43,7 +43,7 @@ export default function Dir() {
 			</table>
 			<Pagination count={users.length} pageSize={PAGE_SIZE} page={page} onPageChange={(event) => setPage(event.page)} dir="rtl">
 				<Pagination.PrevTrigger>
-					<ArrowLeftIcon className="size-4" />
+					<ArrowRightIcon className="size-4" />
 				</Pagination.PrevTrigger>
 				<Pagination.Context>
 					{(pagination) =>
@@ -61,7 +61,7 @@ export default function Dir() {
 					}
 				</Pagination.Context>
 				<Pagination.NextTrigger>
-					<ArrowRightIcon className="size-4" />
+					<ArrowLeftIcon className="size-4" />
 				</Pagination.NextTrigger>
 			</Pagination>
 		</div>
