@@ -31,31 +31,31 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
-  '@types/node': 24.5.2
+  '@types/node': 24.6.0
   '@types/react': 19.1.15
   '@types/react-dom': 19.1.9
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.0.4
-  '@zag-js/accordion': 1.24.2
-  '@zag-js/avatar': 1.24.2
-  '@zag-js/collection': 1.24.2
-  '@zag-js/combobox': 1.24.2
-  '@zag-js/date-picker': 1.24.2
-  '@zag-js/dialog': 1.24.2
-  '@zag-js/file-upload': 1.24.2
-  '@zag-js/pagination': 1.24.2
-  '@zag-js/popover': 1.24.2
-  '@zag-js/progress': 1.24.2
-  '@zag-js/radio-group': 1.24.2
-  '@zag-js/rating-group': 1.24.2
-  '@zag-js/react': 1.24.2
-  '@zag-js/slider': 1.24.2
-  '@zag-js/svelte': 1.24.2
-  '@zag-js/switch': 1.24.2
-  '@zag-js/tabs': 1.24.2
-  '@zag-js/tags-input': 1.24.2
-  '@zag-js/toast': 1.24.2
-  '@zag-js/tooltip': 1.24.2
+  '@zag-js/accordion': 1.25.0
+  '@zag-js/avatar': 1.25.0
+  '@zag-js/collection': 1.25.0
+  '@zag-js/combobox': 1.25.0
+  '@zag-js/date-picker': 1.25.0
+  '@zag-js/dialog': 1.25.0
+  '@zag-js/file-upload': 1.25.0
+  '@zag-js/pagination': 1.25.0
+  '@zag-js/popover': 1.25.0
+  '@zag-js/progress': 1.25.0
+  '@zag-js/radio-group': 1.25.0
+  '@zag-js/rating-group': 1.25.0
+  '@zag-js/react': 1.25.0
+  '@zag-js/slider': 1.25.0
+  '@zag-js/svelte': 1.25.0
+  '@zag-js/switch': 1.25.0
+  '@zag-js/tabs': 1.25.0
+  '@zag-js/tags-input': 1.25.0
+  '@zag-js/toast': 1.25.0
+  '@zag-js/tooltip': 1.25.0
   astro: 5.14.1
   astro-auto-import: 0.4.4
   astro-expressive-code: 0.41.3
@@ -75,7 +75,7 @@ catalog:
   next: 15.5.4
   node-html-parser: 7.0.1
   octokit: 5.0.3
-  oxlint: 1.18.0
+  oxlint: 1.19.0
   oxlint-tsgolint: 0.2.0
   package-manager-detector: 1.3.0
   pagefind: 1.4.0
