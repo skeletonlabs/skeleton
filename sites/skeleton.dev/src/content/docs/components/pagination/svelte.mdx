@@ -10,6 +10,9 @@ import DefaultRaw from '@examples/components/pagination/svelte/default.svelte?ra
 import DynamicPageSize from '@examples/components/pagination/svelte/dynamic-page-size.svelte';
 import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-page-size.svelte?raw';
 
+import Dir from '@examples/components/pagination/svelte/dir.svelte';
+import DirRaw from '@examples/components/pagination/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -27,6 +30,17 @@ import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-p
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DynamicPageSizeRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
