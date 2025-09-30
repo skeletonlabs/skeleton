@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.20
+
+### Patch Changes
+
+- chore: update zag ([#3836](https://github.com/skeletonlabs/skeleton/pull/3836))
+
 ## 2.0.0-next.19
 
 ### Minor Changes
