@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 
 	let value = $state(75);
 </script>
 
-<ProgressLinear {value}>
-	<ProgressLinear.Label>{value}%</ProgressLinear.Label>
-	<ProgressLinear.Track>
-		<ProgressLinear.Range />
-	</ProgressLinear.Track>
-</ProgressLinear>
+<Progress {value}>
+	<Progress.Label>{value}%</Progress.Label>
+	<Progress.Track>
+		<Progress.Range />
+	</Progress.Track>
+</Progress>

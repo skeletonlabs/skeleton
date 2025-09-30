@@ -1,0 +1,26 @@
+/* Components: Keyframe - Progress Linear */
+/* NOTE: only for use in the progress linear functional component. */
+
+/* Horizontal */
+@keyframes progress-linear-indeterminate-horizontal {
+	from {
+		scale: 0.5 1;
+		transform: translateX(-200%);
+	}
+	to {
+		scale: 0.5 1;
+		transform: translateX(200%);
+	}
+}
+
+/* Vertical */
+@keyframes progress-linear-indeterminate-vertical {
+	from {
+		scale: 0.5 1;
+		transform: translateY(-200%);
+	}
+	to {
+		scale: 0.5 1;
+		transform: translateY(200%);
+	}
+}
