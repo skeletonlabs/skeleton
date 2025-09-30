@@ -9,6 +9,8 @@ const docs = defineCollection({
 	schema: z.object({
 		title: z.string().optional().default('(Title)'),
 		description: z.string().optional().default('(Description)'),
+		srcCore: z.string().optional(),
+		srcCss: z.string().optional(),
 		srcSvelte: z.string().optional(),
 		srcReact: z.string().optional(),
 		srcAlly: z.string().optional(),
