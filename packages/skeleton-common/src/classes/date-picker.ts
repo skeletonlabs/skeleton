@@ -1,0 +1,28 @@
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
+
+export const classesDatePicker = defineSkeletonClasses({
+	root: '',
+	label: 'label-text',
+	control: '',
+	input: 'input',
+	trigger: '',
+	content: '',
+	monthSelect: '',
+	yearSelect: '',
+	rangeText: '',
+	table: '',
+	tableBody: '',
+	tableCell: '',
+	tableCellTrigger: '',
+	tableHead: '',
+	tableHeader: '',
+	tableRow: '',
+	view: '',
+	viewControl: '',
+	viewTrigger: '',
+	clearTrigger: '',
+	presetTrigger: '',
+	prevTrigger: '',
+	nextTrigger: '',
+	positioner: '',
+});
