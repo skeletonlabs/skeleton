@@ -22,6 +22,9 @@ import DisabledRaw from '@examples/components/segmented-control/svelte/disabled.
 import DisabledItem from '@examples/components/segmented-control/svelte/disabled-item.svelte';
 import DisabledItemRaw from '@examples/components/segmented-control/svelte/disabled-item.svelte?raw';
 
+import Dir from '@examples/components/segmented-control/svelte/dir.svelte';
+import DirRaw from '@examples/components/segmented-control/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -83,6 +86,17 @@ import DisabledItemRaw from '@examples/components/segmented-control/svelte/disab
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledItemRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
