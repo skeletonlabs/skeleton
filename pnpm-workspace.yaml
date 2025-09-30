@@ -40,6 +40,7 @@ catalog:
   '@zag-js/avatar': 1.24.2
   '@zag-js/collection': 1.24.2
   '@zag-js/combobox': 1.24.2
+  '@zag-js/date-picker': 1.24.2
   '@zag-js/dialog': 1.24.2
   '@zag-js/file-upload': 1.24.2
   '@zag-js/pagination': 1.24.2
