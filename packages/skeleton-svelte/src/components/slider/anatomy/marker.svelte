@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { MarkerProps } from '@zag-js/slider';
+	import { splitMarkerProps, type MarkerProps } from '@zag-js/slider';
 
 	export interface SliderMarkerProps extends MarkerProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
@@ -15,11 +15,12 @@
 
 	const slider = RootContext.consume();
 
-	const { element, children, value, ...rest } = $derived(props);
+	const [markerProps, componentProps] = $derived(splitMarkerProps(props));
+	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
 		mergeProps(
-			slider().getMarkerProps({ value }),
+			slider().getMarkerProps(markerProps),
 			{
 				class: classesSlider.marker,
 			},
@@ -35,7 +36,7 @@
 		{#if children}
 			{@render children()}
 		{:else}
-			{value}
+			{markerProps.value}
 		{/if}
 	</div>
 {/if}

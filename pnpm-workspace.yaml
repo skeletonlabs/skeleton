@@ -36,25 +36,25 @@ catalog:
   '@types/react-dom': 19.1.9
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.0.4
-  '@zag-js/accordion': 1.24.2
-  '@zag-js/avatar': 1.24.2
-  '@zag-js/collection': 1.24.2
-  '@zag-js/combobox': 1.24.2
-  '@zag-js/dialog': 1.24.2
-  '@zag-js/file-upload': 1.24.2
-  '@zag-js/pagination': 1.24.2
-  '@zag-js/popover': 1.24.2
-  '@zag-js/progress': 1.24.2
-  '@zag-js/radio-group': 1.24.2
-  '@zag-js/rating-group': 1.24.2
-  '@zag-js/react': 1.24.2
-  '@zag-js/slider': 1.24.2
-  '@zag-js/svelte': 1.24.2
-  '@zag-js/switch': 1.24.2
-  '@zag-js/tabs': 1.24.2
-  '@zag-js/tags-input': 1.24.2
-  '@zag-js/toast': 1.24.2
-  '@zag-js/tooltip': 1.24.2
+  '@zag-js/accordion': 1.25.0
+  '@zag-js/avatar': 1.25.0
+  '@zag-js/collection': 1.25.0
+  '@zag-js/combobox': 1.25.0
+  '@zag-js/dialog': 1.25.0
+  '@zag-js/file-upload': 1.25.0
+  '@zag-js/pagination': 1.25.0
+  '@zag-js/popover': 1.25.0
+  '@zag-js/progress': 1.25.0
+  '@zag-js/radio-group': 1.25.0
+  '@zag-js/rating-group': 1.25.0
+  '@zag-js/react': 1.25.0
+  '@zag-js/slider': 1.25.0
+  '@zag-js/svelte': 1.25.0
+  '@zag-js/switch': 1.25.0
+  '@zag-js/tabs': 1.25.0
+  '@zag-js/tags-input': 1.25.0
+  '@zag-js/toast': 1.25.0
+  '@zag-js/tooltip': 1.25.0
   astro: 5.14.1
   astro-auto-import: 0.4.4
   astro-expressive-code: 0.41.3
