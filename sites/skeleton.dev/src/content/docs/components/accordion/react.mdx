@@ -4,20 +4,20 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Default from '@examples/components/accordion/react/default.tsx';
-import DefaultRaw from '@examples/components/accordion/react/default.tsx?raw';
+import Default from '@examples/components/accordion/react/default';
+import DefaultRaw from '@examples/components/accordion/react/default?raw';
 
-import State from '@examples/components/accordion/react/state';
-import StateRaw from '@examples/components/accordion/react/state.tsx?raw';
+import Controlled from '@examples/components/accordion/react/controlled';
+import ControlledRaw from '@examples/components/accordion/react/controlled?raw';
 
-import Collapsible from '@examples/components/accordion/react/collapsible.tsx';
-import CollapsibleRaw from '@examples/components/accordion/react/collapsible.tsx?raw';
+import Collapsible from '@examples/components/accordion/react/collapsible';
+import CollapsibleRaw from '@examples/components/accordion/react/collapsible?raw';
 
-import Multiple from '@examples/components/accordion/react/multiple.tsx';
-import MultipleRaw from '@examples/components/accordion/react/multiple.tsx?raw';
+import Multiple from '@examples/components/accordion/react/multiple';
+import MultipleRaw from '@examples/components/accordion/react/multiple?raw';
 
 import Columns from '@examples/components/accordion/react/columns';
-import ColumnsRaw from '@examples/components/accordion/react/columns.tsx?raw';
+import ColumnsRaw from '@examples/components/accordion/react/columns?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -28,16 +28,16 @@ import ColumnsRaw from '@examples/components/accordion/react/columns.tsx?raw';
 	</Fragment>
 </Preview>
 
-## State
+## Controlled
 
-Note that `value` and `onValueChanged` are optional on the root component.
+Use `value` and `onValueChanged` to control the value of the Accordion.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<State client:visible />
+		<Controlled client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={StateRaw} lang="tsx" />
+		<Code code={ControlledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
