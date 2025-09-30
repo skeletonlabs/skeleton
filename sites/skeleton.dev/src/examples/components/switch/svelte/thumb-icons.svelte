@@ -10,9 +10,9 @@
 			<Switch.Context>
 				{#snippet children(switch_)}
 					{#if switch_().checked}
-						<Sun class="size-3 stroke-surface-50-950" />
+						<Sun class="size-3" />
 					{:else}
-						<Moon class="size-3 stroke-surface-950-50" />
+						<Moon class="size-3" />
 					{/if}
 				{/snippet}
 			</Switch.Context>

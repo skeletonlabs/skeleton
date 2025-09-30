@@ -57,7 +57,7 @@ Skeleton also offers optional component packages for a number of select componen
 
 ### Powered by Zag.js
 
-Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag was founded and maintained by industry veterans, such [Segun Adebayo](https://github.com/segunadebayo) - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/).
+Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag was founded and maintained by industry veterans, such as [Segun Adebayo](https://github.com/segunadebayo) - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/).
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
@@ -65,21 +65,23 @@ Skeleton's components are built on **Zag.js**, which provides a collection of fr
 	</a>
 </figure>
 
-### Importing Component
+### Importing Components
 
-Import the component you wish to use from your framework package of choice, then insert it into your page template.
+You may import components frame each Skeleton framework as follows.
 
 ```ts
 import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
 ```
 
-```svelte
-<Avatar>...</Avatar>
+This also includes access to the component prop types.
+
+```ts
+import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-{react|svelte}';
 ```
 
 ### Composed Pattern
 
-Skeleton components are explicit and granular. While a little more verbose, this offers direct access to all children within the tree, similar to working with raw HTML. Allowing the component to pass arbitrary props and attributes directly to the the template within. Including: `required`, `data-\*`, `style`, `class`, and more.
+Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-\*`, `style`, `class`, and more.
 
 ```svelte
 <Avatar>
@@ -90,7 +92,7 @@ Skeleton components are explicit and granular. While a little more verbose, this
 
 ### Styling Components
 
-Skeleton omponents utilize a universal convention for accepting utility classes via the standard `class` attribute.
+Skeleton components implement a universal convention for accepting CSS utility classes via the `class` attribute. Use this to pass any Tailwind or Skeleton utility class.
 
 ```svelte
 <Avatar class="rounded-2xl">
@@ -99,7 +101,7 @@ Skeleton omponents utilize a universal convention for accepting utility classes 
 </Avatar>
 ```
 
-By default, all internal default styles within the component are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures your styles, provide through the `class` attribute, always take precedence.
+By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures any classes you pass through the `class` attribute are automatically given precedence.
 
 ```css
 @custom-variant skb {
@@ -111,9 +113,7 @@ By default, all internal default styles within the component are auto-prefixed t
 
 ### Extensible Markup
 
-Skeleton components provide a mechasism for overwriting the internal HTML with custom markup.
-
-> NOTE: This is an optional feature aimed at advanced users that wish to have fine grain control over the display of their component-driven interfaces.
+Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the Element snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users.
 
 **React:**
 
@@ -155,7 +155,7 @@ export default function () {
 
 ### Custom Animations
 
-Building on the extensible markup feature described above, this provides additional control when it comes to implementing custom animations.
+Using the extensible markup pattern, you may implement custom animations. While we showcase this with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), you could also use framework agnostic solutions like [Motion](https://motion.dev/) or [Animate.css](https://animate.style/).
 
 ```ts
 import { slide } from 'svelte/transition';
@@ -185,8 +185,6 @@ import { slide } from 'svelte/transition';
 3. Override the `hidden` attribute to `false` to prevent it from showing/hiding the element too soon.
 4. Add the `transition:slide` and configure your preferred options.
 5. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
-
-While we showcase this with [Svelte Transitions]()https://svelte.dev/docs/svelte/transition, you could also substitute with any viable alternative. Including [Motion](https://motion.dev/) or framework agnostic animation library such as [Animate.css](https://animate.style/).
 
 ### Learn More
 

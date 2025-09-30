@@ -19,7 +19,7 @@ import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-p
 	</Fragment>
 </Preview>
 
-## Dynamic Page Size
+## Page Size
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -30,9 +30,9 @@ import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-p
 	</Fragment>
 </Preview>
 
-## Specifying Total Count
+## Total Count
 
-If your source data is truncated, make sure to specify the total item `count`.
+For server-side pagination, your data source may be truncated. Make sure to specify the total records using `count`.
 
 ```json
 {
@@ -45,8 +45,15 @@ If your source data is truncated, make sure to specify the total item `count`.
 }
 ```
 
+{/* prettier-ignore */}
 ```svelte
-<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>...</Pagination>
+<Pagination
+	page={response.pagination.page}
+	count={response.pagination.count}
+	pageSize={response.pagination.limit}
+>
+	...
+</Pagination>
 ```
 
 ## API Reference

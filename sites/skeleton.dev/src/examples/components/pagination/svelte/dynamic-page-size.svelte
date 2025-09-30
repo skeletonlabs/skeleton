@@ -46,8 +46,8 @@
 
 	<div class="flex justify-between items-center gap-4 w-full">
 		<label class="label">
-			<span class="label-text sr-only">Page Size</span>
-			<select class="select" value={pageSize} onchange={(e) => (pageSize = Number(e.currentTarget.value))}>
+			<span class="sr-only">Page Size</span>
+			<select class="select w-fit" value={pageSize} onchange={(e) => (pageSize = Number(e.currentTarget.value))}>
 				<option value="5">5</option>
 				<option value="10">10</option>
 				<option value="20">20</option>

@@ -3,7 +3,6 @@ import { TagsInput } from '@skeletonlabs/skeleton-react';
 export default function Default() {
 	return (
 		<TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']}>
-			<TagsInput.Label>Label</TagsInput.Label>
 			<TagsInput.Control>
 				<TagsInput.Context>
 					{(tagsInput) =>
@@ -20,7 +19,6 @@ export default function Default() {
 				</TagsInput.Context>
 				<TagsInput.Input placeholder="Add a flavor..." />
 			</TagsInput.Control>
-			<TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger>
 			<TagsInput.HiddenInput />
 		</TagsInput>
 	);
