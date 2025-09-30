@@ -19,6 +19,9 @@ import ReadonlyRaw from '@examples/components/slider/svelte/readonly.svelte?raw'
 import MultipleThumbs from '@examples/components/slider/svelte/multiple-thumbs.svelte';
 import MultipleThumbsRaw from '@examples/components/slider/svelte/multiple-thumbs.svelte?raw';
 
+import Dir from '@examples/components/slider/svelte/dir.svelte';
+import DirRaw from '@examples/components/slider/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -69,6 +72,17 @@ import MultipleThumbsRaw from '@examples/components/slider/svelte/multiple-thumb
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MultipleThumbsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

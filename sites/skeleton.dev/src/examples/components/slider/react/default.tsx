@@ -2,7 +2,7 @@ import { Slider } from '@skeletonlabs/skeleton-react';
 
 export default function Default() {
 	return (
-		<Slider defaultValue={[50]} className="w-full">
+		<Slider defaultValue={[50]}>
 			<Slider.Label>Label</Slider.Label>
 			<Slider.Control>
 				<Slider.Track>

@@ -3,7 +3,7 @@
 </script>
 
 <div class="space-y-8 w-full">
-	<Slider defaultValue={[50]} class="w-full">
+	<Slider defaultValue={[50]}>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range class="bg-primary-500" />
@@ -14,7 +14,7 @@
 		</Slider.Control>
 	</Slider>
 
-	<Slider defaultValue={[50]} class="w-full">
+	<Slider defaultValue={[50]}>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range class="bg-secondary-500" />
@@ -25,7 +25,7 @@
 		</Slider.Control>
 	</Slider>
 
-	<Slider defaultValue={[50]} class="w-full">
+	<Slider defaultValue={[50]}>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range class="bg-tertiary-500" />
