@@ -1,6 +1,24 @@
-export default function StarFull() {
+import type { HTMLAttributes } from '../html-attributes';
+import { mergeProps } from '@zag-js/react';
+
+export type StarFullProps = HTMLAttributes<'svg', 'children'>;
+
+export default function StarFull(props: StarFullProps) {
+	const { ...rest } = props;
+
+	const attributes = mergeProps(
+		{
+			xmlns: 'http://www.w3.org/2000/svg',
+			width: '24',
+			height: '24',
+			viewBox: '0 0 24 24',
+			fill: 'currentColor',
+		},
+		rest,
+	);
+
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" fill="currentColor">
+		<svg {...attributes}>
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"

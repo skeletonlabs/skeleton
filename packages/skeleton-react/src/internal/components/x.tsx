@@ -5,6 +5,7 @@ export type XProps = HTMLAttributes<'svg', 'children'>;
 
 export default function X(props: XProps) {
 	const { ...rest } = props;
+
 	const attributes = mergeProps(
 		{
 			xmlns: 'http://www.w3.org/2000/svg',
@@ -19,6 +20,7 @@ export default function X(props: XProps) {
 		},
 		rest,
 	);
+
 	return (
 		<svg {...attributes}>
 			<path d="M18 6 6 18" />

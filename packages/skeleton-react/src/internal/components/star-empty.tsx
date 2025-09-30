@@ -1,6 +1,26 @@
-export default function StarEmpty() {
+import type { HTMLAttributes } from '../html-attributes';
+import { mergeProps } from '@zag-js/react';
+
+export type StarEmptyProps = HTMLAttributes<'svg', 'children'>;
+
+export default function StarEmpty(props: StarEmptyProps) {
+	const { ...rest } = props;
+
+	const attributes = mergeProps(
+		{
+			xmlns: 'http://www.w3.org/2000/svg',
+			width: '24',
+			height: '24',
+			viewBox: '0 0 24 24',
+			fill: 'none',
+			stroke: 'currentColor',
+			strokeWidth: '1.5',
+		},
+		rest,
+	);
+
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" fill="none" stroke="currentColor" strokeWidth="1.5">
+		<svg {...attributes}>
 			<path
 				strokeLinecap="round"
 				strokeLinejoin="round"
