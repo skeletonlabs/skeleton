@@ -8,54 +8,54 @@ export default function Default() {
 		<Accordion>
 			<Accordion.Item value="item-1">
 				<Accordion.ItemHeading>
-					<Accordion.ItemTrigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconClub />
 						<span>Club</span>
 						<Accordion.ItemIndicator>
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-1') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-					<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 				</Accordion.ItemHeading>
+				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-2">
 				<Accordion.ItemHeading>
-					<Accordion.ItemTrigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconDiamond />
 						<span>Diamond</span>
 						<Accordion.ItemIndicator>
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-2') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-					<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 				</Accordion.ItemHeading>
+				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-3">
 				<Accordion.ItemHeading>
-					<Accordion.ItemTrigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconHeart />
 						<span>Heart</span>
 						<Accordion.ItemIndicator>
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-3') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-					<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 				</Accordion.ItemHeading>
+				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-4">
 				<Accordion.ItemHeading>
-					<Accordion.ItemTrigger className="grid-cols-[auto_1fr_auto]">
+					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconSpade />
 						<span>Spade</span>
 						<Accordion.ItemIndicator>
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-4') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-					<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 				</Accordion.ItemHeading>
+				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 		</Accordion>
 	);

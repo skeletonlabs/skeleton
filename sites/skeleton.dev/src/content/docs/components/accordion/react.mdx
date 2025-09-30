@@ -19,6 +19,9 @@ import MultipleRaw from '@examples/components/accordion/react/multiple?raw';
 import Columns from '@examples/components/accordion/react/columns';
 import ColumnsRaw from '@examples/components/accordion/react/columns?raw';
 
+import Dir from '@examples/components/accordion/react/dir';
+import DirRaw from '@examples/components/accordion/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -77,6 +80,17 @@ Use the [grid-cols-\*](https://tailwindcss.com/docs/grid-template-columns) utili
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColumnsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Dir
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

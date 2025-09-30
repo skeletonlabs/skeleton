@@ -19,6 +19,9 @@ import MultipleRaw from '@examples/components/accordion/svelte/multiple.svelte?r
 import Columns from '@examples/components/accordion/svelte/columns.svelte';
 import ColumnsRaw from '@examples/components/accordion/svelte/columns.svelte?raw';
 
+import Dir from '@examples/components/accordion/svelte/dir.svelte';
+import DirRaw from '@examples/components/accordion/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -77,6 +80,17 @@ Use the [grid-cols-\*](https://tailwindcss.com/docs/grid-template-columns) utili
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColumnsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Dir
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

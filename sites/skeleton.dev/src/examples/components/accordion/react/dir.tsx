@@ -1,11 +1,8 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
 
-export default function Controlled() {
-	const [value, setValue] = useState(['item-1']);
-
+export default function Dir() {
 	return (
-		<Accordion value={value} onValueChange={(e) => setValue(e.value)}>
+		<Accordion dir="rtl">
 			<Accordion.Item value="item-1">
 				<Accordion.ItemHeading>
 					<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>

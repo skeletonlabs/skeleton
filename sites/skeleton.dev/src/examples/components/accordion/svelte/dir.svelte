@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
-
-	let value = $state(['item-1']);
 </script>
 
-<Accordion {value} onValueChange={(e) => (value = e.value)}>
+<Accordion dir="rtl">
 	<Accordion.Item value="item-1">
 		<Accordion.ItemHeading>
 			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
