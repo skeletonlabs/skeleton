@@ -10,7 +10,7 @@ const data = [
 	{ label: 'Spinach', value: 'spinach' },
 ];
 
-export default function Default() {
+export default function Dir() {
 	const [items, setItems] = useState(data);
 
 	const collection = useListCollection({

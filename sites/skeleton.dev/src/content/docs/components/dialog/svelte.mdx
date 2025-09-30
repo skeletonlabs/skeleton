@@ -22,6 +22,9 @@ import ZIndexRaw from '@examples/components/dialog/svelte/z-index.svelte?raw';
 import Headless from '@examples/components/dialog/svelte/headless.svelte';
 import HeadlessRaw from '@examples/components/dialog/svelte/headless.svelte?raw';
 
+import Dir from '@examples/components/dialog/svelte/dir.svelte';
+import DirRaw from '@examples/components/dialog/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -102,6 +105,17 @@ The benefits are as follows:
 - You can make the `Trigger` surround any element, including an icon, button, image, etc.
 - You can modify the entire structure within `Content`, including custom markup and styling.
 - You may place the `CloseTrigger` anywhere, and use it as an X close option.
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
+	</Fragment>
+</Preview>
 
 ## API Reference
 
