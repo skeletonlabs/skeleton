@@ -2,7 +2,7 @@
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Switch>
+<Switch dir="rtl">
 	<Switch.Control>
 		<Switch.Thumb />
 	</Switch.Control>

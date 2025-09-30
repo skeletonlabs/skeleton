@@ -1,8 +1,8 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
 
-export default function Default() {
+export default function Dir() {
 	return (
-		<Switch>
+		<Switch dir="rtl">
 			<Switch.Control>
 				<Switch.Thumb />
 			</Switch.Control>

@@ -13,6 +13,9 @@ import ListRaw from '@examples/components/switch/react/list?raw';
 import ThumbIcons from '@examples/components/switch/react/thumb-icons';
 import ThumbIconsRaw from '@examples/components/switch/react/thumb-icons?raw';
 
+import Dir from '@examples/components/switch/react/dir';
+import DirRaw from '@examples/components/switch/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -41,6 +44,17 @@ import ThumbIconsRaw from '@examples/components/switch/react/thumb-icons?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ThumbIconsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
