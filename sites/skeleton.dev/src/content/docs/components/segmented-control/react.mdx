@@ -22,6 +22,9 @@ import DisabledRaw from '@examples/components/segmented-control/react/disabled?r
 import DisabledItem from '@examples/components/segmented-control/react/disabled-item';
 import DisabledItemRaw from '@examples/components/segmented-control/react/disabled-item?raw';
 
+import Dir from '@examples/components/segmented-control/react/dir';
+import DirRaw from '@examples/components/segmented-control/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -83,6 +86,17 @@ import DisabledItemRaw from '@examples/components/segmented-control/react/disabl
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledItemRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

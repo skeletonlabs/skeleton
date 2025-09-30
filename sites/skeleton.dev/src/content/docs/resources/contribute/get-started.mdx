@@ -75,9 +75,8 @@ Modular Skeleton packages distributed via NPM.
 | `/packages/skeleton`        | The Skeleton core package, contains Skeleton's Tailwind-specific features. |
 | `/packages/skeleton-react`  | The Skeleton React package, contains Skeleton React components.            |
 | `/packages/skeleton-svelte` | The Skeleton Svelte package, contains Skeleton Svelte components.          |
-| `/packages/cli`             | The Skeleton CLI, contains Skeleton's migrations.                          |
 | `/packages/skeleton-common` | The Skeleton common package, contains shared internal only utilities.      |
-| `/packages/necroparser`     | An internal tool for generating component type schema for API references.  |
+| `/packages/cli`             | The Skeleton CLI, contains Skeleton's migrations.                          |
 
 ## Playgrounds
 
@@ -85,7 +84,6 @@ Isolated sandbox environments for developing, testing and experimenting.
 
 | Path                           | Description                                           |
 | ------------------------------ | ----------------------------------------------------- |
-| `/playgrounds/skeleton-core`   | An Astro playground for testing the Tailwind package  |
 | `/playgrounds/skeleton-svelte` | A SvelteKit playground for testing the Svelte package |
 | `/playgrounds/skeleton-react`  | A NextJS playground for testing the React package     |
 
@@ -105,7 +103,7 @@ Please use the following naming convention when creating your pull request.
 | ----------- | ------------------------------------- |
 | `docs/*`    | When updating the documentation site. |
 | `feature/*` | When implementing a new feature.      |
-| `chore/*`   | When implementing a chore.            |
+| `task/*`    | When implementing a small task.       |
 | `bugfix/*`  | When implementing a fix for a bug.    |
 
 Keep branch names short and semantic, and use snake-case to separate words.
@@ -117,14 +115,14 @@ bugfix/accordion-render-issue
 
 ## Documentation Schema
 
-Before your first run of the `/sites/skeleton.dev` documentation project, make sure to run `pnpm schema` first. This will generate the schema files required to populate API Reference tables on each component's documentation page.
+Before your first run of the `/sites/skeleton.dev` documentation project, make sure to run `pnpm generate:types` at least one time. This will generate the assets required to populate API Reference tables on each component's documentation page.
 
 ## Changesets
 
 [Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release.
 
 - Any contributions made within `/packages` _must_ contain a Changeset
-- Any contributions made within `/sites` should _not_ include a Changeset.
+- Any contributions made within `/sites` should <u>not</u> include a Changeset.
 
 Follow these instructions to generate a changeset:
 
@@ -150,12 +148,12 @@ Changeset descriptions will appear verbatim on the [Changelog](https://github.co
 '@skeletonlabs/skeleton-svelte': minor
 ---
 
-feature: Added a new `background` component prop.
+feature: Added a new Avatar component.
 ```
 
 ## Tooling
 
-Skeleton makes use of the following technology to improve the developer experience. It's recommended you run these tools before flagging the PR as "ready for review".
+Skeleton makes use of the following technology to improve the developer experience. It's recommended you run these tools before flagging the PR as "ready for review" on GitHub.
 
 ### Root Commands
 

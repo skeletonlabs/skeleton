@@ -4,33 +4,36 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Example from '@examples/components/progress-linear/react/default.tsx';
-import ExampleRaw from '@examples/components/progress-linear/react/default.tsx?raw';
+import Default from '@examples/components/progress-linear/react/default';
+import DefaultRaw from '@examples/components/progress-linear/react/default?raw';
 
-import ExampleColor from '@examples/components/progress-linear/react/color';
-import ExampleColorRaw from '@examples/components/progress-linear/react/color.tsx?raw';
+import Color from '@examples/components/progress-linear/react/color';
+import ColorRaw from '@examples/components/progress-linear/react/color?raw';
 
-import ExampleHeight from '@examples/components/progress-linear/react/height';
-import ExampleHeightRaw from '@examples/components/progress-linear/react/height.tsx?raw';
+import Height from '@examples/components/progress-linear/react/height';
+import HeightRaw from '@examples/components/progress-linear/react/height?raw';
 
-import ExampleOrientation from '@examples/components/progress-linear/react/orientation';
-import ExampleOrientationRaw from '@examples/components/progress-linear/react/orientation.tsx?raw';
+import Orientation from '@examples/components/progress-linear/react/orientation';
+import OrientationRaw from '@examples/components/progress-linear/react/orientation?raw';
 
-import ExampleIndeterminate from '@examples/components/progress-linear/react/indeterminate';
-import ExampleIndeterminateRaw from '@examples/components/progress-linear/react/indeterminate.tsx?raw';
+import Indeterminate from '@examples/components/progress-linear/react/indeterminate';
+import IndeterminateRaw from '@examples/components/progress-linear/react/indeterminate?raw';
 
-import ExampleCustomAnimation from '@examples/components/progress-linear/react/custom-animation';
-import ExampleCustomAnimationRaw from '@examples/components/progress-linear/react/custom-animation.tsx?raw';
+import CustomAnimation from '@examples/components/progress-linear/react/custom-animation';
+import CustomAnimationRaw from '@examples/components/progress-linear/react/custom-animation?raw';
 
-import ExampleNative from '@examples/components/progress-linear/react/native';
-import ExampleNativeRaw from '@examples/components/progress-linear/react/native.tsx?raw';
+import Native from '@examples/components/progress-linear/react/native';
+import NativeRaw from '@examples/components/progress-linear/react/native?raw';
+
+import Dir from '@examples/components/progress-linear/react/dir';
+import DirRaw from '@examples/components/progress-linear/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
+		<Code code={DefaultRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -40,10 +43,10 @@ Provide background color values for the track and range to customize the colors.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleColor client:visible />
+		<Color client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColorRaw} lang="tsx" />
+		<Code code={ColorRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -51,10 +54,10 @@ Provide background color values for the track and range to customize the colors.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleHeight client:visible />
+		<Height client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleHeightRaw} lang="tsx" />
+		<Code code={HeightRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -64,10 +67,10 @@ For vertical orieintation, a height must be defined on the Track component. The 
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleOrientation client:visible />
+		<Orientation client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleOrientationRaw} lang="tsx" />
+		<Code code={OrientationRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -77,10 +80,10 @@ You must explicitely specify a `null` value to trigger indeterminate mode.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleIndeterminate client:visible />
+		<Indeterminate client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleIndeterminateRaw} lang="tsx" />
+		<Code code={IndeterminateRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -88,10 +91,10 @@ You must explicitely specify a `null` value to trigger indeterminate mode.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCustomAnimation client:visible />
+		<CustomAnimation client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCustomAnimationRaw} lang="tsx" />
+		<Code code={CustomAnimationRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -107,10 +110,21 @@ The native [`progress`](https://developer.mozilla.org/en-US/docs/Web/HTML/Elemen
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleNative client:visible />
+		<Native client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleNativeRaw} lang="tsx" />
+		<Code code={NativeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

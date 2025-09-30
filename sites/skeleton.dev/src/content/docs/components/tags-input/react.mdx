@@ -13,6 +13,9 @@ import CustomIconRaw from '@examples/components/tags-input/react/custom-icon?raw
 import Color from '@examples/components/tags-input/react/color';
 import ColorRaw from '@examples/components/tags-input/react/color?raw';
 
+import Dir from '@examples/components/tags-input/react/dir';
+import DirRaw from '@examples/components/tags-input/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -41,6 +44,17 @@ import ColorRaw from '@examples/components/tags-input/react/color?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColorRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

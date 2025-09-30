@@ -4,11 +4,14 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Default from '@examples/components/pagination/react/default.tsx';
-import DefaultRaw from '@examples/components/pagination/react/default.tsx?raw';
+import Default from '@examples/components/pagination/react/default';
+import DefaultRaw from '@examples/components/pagination/react/default?raw';
 
-import DynamicPageSize from '@examples/components/pagination/react/dynamic-page-size.tsx';
-import DynamicPageSizeRaw from '@examples/components/pagination/react/dynamic-page-size.tsx?raw';
+import DynamicPageSize from '@examples/components/pagination/react/dynamic-page-size';
+import DynamicPageSizeRaw from '@examples/components/pagination/react/dynamic-page-size?raw';
+
+import Dir from '@examples/components/pagination/react/dir';
+import DirRaw from '@examples/components/pagination/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -19,7 +22,7 @@ import DynamicPageSizeRaw from '@examples/components/pagination/react/dynamic-pa
 	</Fragment>
 </Preview>
 
-## Dynamic Page Size
+## Page Size
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -30,9 +33,20 @@ import DynamicPageSizeRaw from '@examples/components/pagination/react/dynamic-pa
 	</Fragment>
 </Preview>
 
-## Specifying Total Count
+## Direction
 
-If your source data is truncated, make sure to specify the total item `count`.
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Total Count
+
+For server-side pagination, your data source may be truncated. Make sure to specify the total records using `count`.
 
 ```json
 {
@@ -45,8 +59,13 @@ If your source data is truncated, make sure to specify the total item `count`.
 }
 ```
 
+{/* prettier-ignore */}
 ```tsx
-<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>
+<Pagination
+	page={response.pagination.page}
+	count={response.pagination.count}
+	pageSize={response.pagination.limit}
+>
 	...
 </Pagination>
 ```

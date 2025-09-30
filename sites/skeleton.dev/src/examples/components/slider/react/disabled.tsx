@@ -2,7 +2,7 @@ import { Slider } from '@skeletonlabs/skeleton-react';
 
 export default function Disabled() {
 	return (
-		<Slider defaultValue={[50]} className="w-full" disabled>
+		<Slider defaultValue={[50]} disabled>
 			<Slider.Control>
 				<Slider.Track>
 					<Slider.Range />

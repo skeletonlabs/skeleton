@@ -4,23 +4,23 @@ layout: '@layouts/LayoutDoc.astro'
 
 export const components = componentSet;
 
-import Default from '@examples/components/rating-group/react/default.tsx';
-import DefaultRaw from '@examples/components/rating-group/react/default.tsx?raw';
+import Default from '@examples/components/rating-group/react/default';
+import DefaultRaw from '@examples/components/rating-group/react/default?raw';
 
-import Half from '@examples/components/rating-group/react/half.tsx';
-import HalfRaw from '@examples/components/rating-group/react/half.tsx?raw';
+import Half from '@examples/components/rating-group/react/half';
+import HalfRaw from '@examples/components/rating-group/react/half?raw';
 
-import CustomIcons from '@examples/components/rating-group/react/custom-icons.tsx';
-import CustomIconsRaw from '@examples/components/rating-group/react/custom-icons.tsx?raw';
+import CustomIcons from '@examples/components/rating-group/react/custom-icons';
+import CustomIconsRaw from '@examples/components/rating-group/react/custom-icons?raw';
 
-import Label from '@examples/components/rating-group/react/label.tsx';
-import LabelRaw from '@examples/components/rating-group/react/label.tsx?raw';
+import Label from '@examples/components/rating-group/react/label';
+import LabelRaw from '@examples/components/rating-group/react/label?raw';
 
-import Disabled from '@examples/components/rating-group/react/disabled.tsx';
-import DisabledRaw from '@examples/components/rating-group/react/disabled.tsx?raw';
+import Disabled from '@examples/components/rating-group/react/disabled';
+import DisabledRaw from '@examples/components/rating-group/react/disabled?raw';
 
-import Rtl from '@examples/components/rating-group/react/rtl.tsx';
-import RtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
+import Dir from '@examples/components/rating-group/react/dir';
+import DirRaw from '@examples/components/rating-group/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -75,14 +75,14 @@ import RtlRaw from '@examples/components/rating-group/react/rtl.tsx?raw';
 	</Fragment>
 </Preview>
 
-## Right-to-Left
+## Direction
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Rtl client:visible />
+		<Dir client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={RtlRaw} lang="tsx" />
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

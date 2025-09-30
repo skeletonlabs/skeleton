@@ -19,6 +19,9 @@ import ReadonlyRaw from '@examples/components/slider/react/readonly?raw';
 import MultipleThumbs from '@examples/components/slider/react/multiple-thumbs';
 import MultipleThumbsRaw from '@examples/components/slider/react/multiple-thumbs?raw';
 
+import Dir from '@examples/components/slider/react/dir';
+import DirRaw from '@examples/components/slider/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -69,6 +72,17 @@ import MultipleThumbsRaw from '@examples/components/slider/react/multiple-thumbs
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MultipleThumbsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

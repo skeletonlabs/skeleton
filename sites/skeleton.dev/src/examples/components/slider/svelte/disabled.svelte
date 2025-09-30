@@ -2,7 +2,7 @@
 	import { Slider } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Slider defaultValue={[50]} class="w-full" disabled>
+<Slider defaultValue={[50]} disabled>
 	<Slider.Control>
 		<Slider.Track>
 			<Slider.Range />

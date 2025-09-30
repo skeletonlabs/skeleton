@@ -3,6 +3,7 @@
 </script>
 
 <RatingGroup count={5} dir="rtl">
+	<RatingGroup.Label>Label</RatingGroup.Label>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ratingGroup)}

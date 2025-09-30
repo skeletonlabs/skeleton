@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.7
+
+### Minor Changes
+
+- feat: progress circular ([#3779](https://github.com/skeletonlabs/skeleton/pull/3779))
+
 ## 4.0.0-next.6
 
 ### Patch Changes

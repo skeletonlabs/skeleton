@@ -3,7 +3,7 @@ import { Bone, Skull } from 'lucide-react';
 
 export default function CustomIcons() {
 	return (
-		<RatingGroup count={5}>
+		<RatingGroup count={3}>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
 					{(ratingGroup) =>

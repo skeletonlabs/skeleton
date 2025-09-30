@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 2.0.0-next.18
+
+### Minor Changes
+
+- feat: progress circular ([#3779](https://github.com/skeletonlabs/skeleton/pull/3779))
+
+### Patch Changes
+
+- Updated dependencies [[`3c28f1a`](https://github.com/skeletonlabs/skeleton/commit/3c28f1a37cc559e2ba33d69301a0154e30750ca0), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.15
+
 ## 2.0.0-next.17
 
 ### Minor Changes

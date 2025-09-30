@@ -19,6 +19,9 @@ import ButtonRaw from '@examples/components/file-upload/react/button?raw';
 import ClearFiles from '@examples/components/file-upload/react/clear-files';
 import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?raw';
 
+import Dir from '@examples/components/file-upload/react/dir';
+import DirRaw from '@examples/components/file-upload/react/dir?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -29,6 +32,8 @@ import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?ra
 </Preview>
 
 ## Custom Content
+
+Supply your own text and icons within the dropzone.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -50,7 +55,7 @@ import ClearFilesRaw from '@examples/components/file-upload/react/clear-files?ra
 	</Fragment>
 </Preview>
 
-## Button
+## Button Only
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -73,6 +78,17 @@ Use the `Provider` pattern to access the `clearFiles` method.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ClearFilesRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesTabs = defineSkeletonClasses({
-	root: ['flex', 'data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row'],
+	root: 'w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row',
 	list: [
 		'relative flex gap-2 border-surface-200-800',
 		'data-[orientation=horizontal]:pb-2 data-[orientation=horizontal]:mb-4 data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:border-b',

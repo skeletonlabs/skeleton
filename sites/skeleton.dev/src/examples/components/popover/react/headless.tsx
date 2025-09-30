@@ -1,6 +1,6 @@
 import { Popover, Portal } from '@skeletonlabs/skeleton-react';
 
-export default function Styling() {
+export default function Headless() {
 	return (
 		<Popover>
 			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>
