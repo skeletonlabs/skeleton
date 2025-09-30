@@ -4,7 +4,7 @@ import { SegmentedControl } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
 	return (
-		<SegmentedControl defaultValue="item-1">
+		<SegmentedControl defaultValue="item-1" orientation="vertical">
 			<SegmentedControl.Label>Label</SegmentedControl.Label>
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
