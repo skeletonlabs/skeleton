@@ -1,8 +1,8 @@
 import { Slider } from '@skeletonlabs/skeleton-react';
 
-export default function Disabled() {
+export default function Readonly() {
 	return (
-		<Slider defaultValue={[50]} className="w-full" readOnly>
+		<Slider defaultValue={[50]} readOnly>
 			<Slider.Control>
 				<Slider.Track>
 					<Slider.Range />

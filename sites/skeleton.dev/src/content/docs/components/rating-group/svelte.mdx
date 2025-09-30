@@ -19,8 +19,8 @@ import LabelRaw from '@examples/components/rating-group/svelte/label.svelte?raw'
 import Disabled from '@examples/components/rating-group/svelte/disabled.svelte';
 import DisabledRaw from '@examples/components/rating-group/svelte/disabled.svelte?raw';
 
-import Rtl from '@examples/components/rating-group/svelte/rtl.svelte';
-import RtlRaw from '@examples/components/rating-group/svelte/rtl.svelte?raw';
+import Dir from '@examples/components/rating-group/svelte/dir.svelte';
+import DirRaw from '@examples/components/rating-group/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -75,14 +75,14 @@ import RtlRaw from '@examples/components/rating-group/svelte/rtl.svelte?raw';
 	</Fragment>
 </Preview>
 
-## Right-to-Left
+## Direction
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Rtl client:visible />
+		<Dir client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={RtlRaw} lang="svelte" />
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

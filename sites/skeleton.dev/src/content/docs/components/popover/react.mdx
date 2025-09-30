@@ -16,8 +16,11 @@ import ArrowRaw from '@examples/components/popover/react/arrow?raw';
 import ZIndex from '@examples/components/popover/react/z-index';
 import ZIndexRaw from '@examples/components/popover/react/z-index?raw';
 
-import Styling from '@examples/components/popover/react/styling';
-import StylingRaw from '@examples/components/popover/react/styling?raw';
+import Dir from '@examples/components/popover/react/dir';
+import DirRaw from '@examples/components/popover/react/dir?raw';
+
+import Headless from '@examples/components/popover/react/headless';
+import HeadlessRaw from '@examples/components/popover/react/headless?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -69,16 +72,27 @@ This is made possible via the Provider Pattern.
 	</Fragment>
 </Preview>
 
-## Headless
-
-Unlike most components in Skeleton, this is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
+## Direction
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Styling client:visible />
+		<Dir client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={StylingRaw} lang="svelte" />
+		<Code code={DirRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Headless
+
+Unlike most components in Skeleton, this feature is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Headless client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={HeadlessRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

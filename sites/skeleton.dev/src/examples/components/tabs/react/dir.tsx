@@ -1,6 +1,6 @@
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export default function Rtl() {
+export default function Dir() {
 	return (
 		<Tabs defaultValue="tab-1" dir="rtl">
 			<Tabs.List>

@@ -38,7 +38,7 @@ export const HeaderVersion: React.FC = () => {
 		<div>
 			{/* Trigger */}
 			<button className="btn hover:preset-tonal gap-1" ref={refs.setReference} {...getReferenceProps()}>
-				<span>v3</span>
+				<span>v4</span>
 				<IconChevron className="size-4 opacity-60" />
 			</button>
 			{/* Popup */}
@@ -50,6 +50,16 @@ export const HeaderVersion: React.FC = () => {
 						style={floatingStyles}
 						{...getFloatingProps()}
 					>
+						<a
+							className="btn hover:preset-tonal justify-between"
+							href="https://v3.skeleton.dev/"
+							target="_blank"
+							rel="noreferrer"
+							onClick={() => setIsOpen(false)}
+						>
+							<span>v3 Docs</span>
+							<IconArrow className="size-4 opacity-60" />
+						</a>
 						<a
 							className="btn hover:preset-tonal justify-between"
 							href="https://v2.skeleton.dev/"

@@ -19,6 +19,9 @@ import ButtonRaw from '@examples/components/file-upload/svelte/button.svelte?raw
 import ClearFiles from '@examples/components/file-upload/svelte/clear-files.svelte';
 import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.svelte?raw';
 
+import Dir from '@examples/components/file-upload/svelte/dir.svelte';
+import DirRaw from '@examples/components/file-upload/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -29,6 +32,8 @@ import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.s
 </Preview>
 
 ## Custom Content
+
+Supply your own text and icons within the dropzone.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -50,7 +55,7 @@ import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.s
 	</Fragment>
 </Preview>
 
-## Button
+## Button Only
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -73,6 +78,17 @@ Use the `Provider` pattern to access the `clearFiles` method.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ClearFilesRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

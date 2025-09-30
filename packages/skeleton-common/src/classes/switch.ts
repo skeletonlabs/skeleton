@@ -10,8 +10,9 @@ export const classesSwitch = defineSkeletonClasses({
 		'data-[state=checked]:preset-filled-primary-500',
 	],
 	thumb: [
-		'rounded-full block preset-filled-surface-50-950 h-full aspect-square transition-transform grid place-items-center',
-		'data-[state=checked]:bg-surface-950-50 data-[state=checked]:translate-x-4 rtl:data-[state=checked]:-translate-x-4',
+		'grid justify-center items-center h-full aspect-square rounded-full',
+		'bg-surface-50 text-surface-contrast-50 fill-surface-contrast-50',
+		'transition-transform duration-100 data-[state=checked]:translate-x-4 rtl:data-[state=checked]:-translate-x-4',
 	],
 	label: 'label-text',
 	hiddenInput: '',

@@ -7,8 +7,8 @@ export const components = componentSet;
 import Default from '@examples/components/accordion/svelte/default.svelte';
 import DefaultRaw from '@examples/components/accordion/svelte/default.svelte?raw';
 
-import State from '@examples/components/accordion/svelte/state.svelte';
-import StateRaw from '@examples/components/accordion/svelte/state.svelte?raw';
+import Controlled from '@examples/components/accordion/svelte/controlled.svelte';
+import ControlledRaw from '@examples/components/accordion/svelte/controlled.svelte?raw';
 
 import Collapsible from '@examples/components/accordion/svelte/collapsible.svelte';
 import CollapsibleRaw from '@examples/components/accordion/svelte/collapsible.svelte?raw';
@@ -19,6 +19,9 @@ import MultipleRaw from '@examples/components/accordion/svelte/multiple.svelte?r
 import Columns from '@examples/components/accordion/svelte/columns.svelte';
 import ColumnsRaw from '@examples/components/accordion/svelte/columns.svelte?raw';
 
+import Dir from '@examples/components/accordion/svelte/dir.svelte';
+import DirRaw from '@examples/components/accordion/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -28,16 +31,16 @@ import ColumnsRaw from '@examples/components/accordion/svelte/columns.svelte?raw
 	</Fragment>
 </Preview>
 
-## State
+## Controlled
 
-Note that `value` and `onValueChanged` are optional on the root component.
+Use `value` and `onValueChange` to control the value of the Accordion.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<State client:visible />
+		<Controlled client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={StateRaw} lang="svelte" />
+		<Code code={ControlledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -69,7 +72,7 @@ Adding `multiple` allows items to open independently.
 
 ## Grid Columns
 
-Use [Grid Columns](https://tailwindcss.com/docs/grid-template-columns) to adjust the layout of the Trigger component.
+Use the [grid-cols-\*](https://tailwindcss.com/docs/grid-template-columns) utility to adjust the layout of the Trigger component.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -77,6 +80,17 @@ Use [Grid Columns](https://tailwindcss.com/docs/grid-template-columns) to adjust
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColumnsRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

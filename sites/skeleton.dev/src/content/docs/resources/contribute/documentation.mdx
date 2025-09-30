@@ -91,6 +91,8 @@ Functional components for the Astro project are housed in `/src/components`. The
 - Astro - used for simple presentational components without logic.
 - React/Svelte - functional components that implement state, logic, or interaction.
 
+> TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
+
 ## Global Components
 
 A suite of global components are automatically imported within MDX pages via [astro-auto-importer](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import).
@@ -149,35 +151,11 @@ To allow for a common preview to have framework specific code, use the `codeReac
 
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
 
-### Anatomy
-
-Allows you to [generate a visual aid](/docs/components/accordion/react#anatomy) that showcases how a component's template is structured, how we label each part of the component, and how those labels are used for style prop prefixes.
-
-```astro
-## Anatomy
-
-<Anatomy label="Accordion" isComponent>
-	<Anatomy label="Accordion.Item" isComponent>
-		<Anatomy label="Accordion.Control" element="button" isComponent>
-			<Anatomy label="lead" />
-			<Anatomy label="content" />
-			<Anatomy label="indicator" />
-		</Anatomy>
-		<Anatomy label="Accordion.Panel" isComponent />
-	</Anatomy>
-	<Anatomy label="Accordion.Item" isComponent />
-</Anatomy>
-```
-
-- `label` - sets the left-side label text presented in a code tag.
-- `element` - sets the right-side element tag text; defaults to `div`.
-- `isComponent` - denotes a parent component element; wraps the `label` with `<>` brackets.
-
 ### API Tables
 
 When placed on a component documentation page, these will automatically fetch and display the type schema for the respective component.
 
-```astro
+```mdx
 ## API Reference
 
 <ApiTable />

@@ -2,7 +2,7 @@ import { Slider } from '@skeletonlabs/skeleton-react';
 
 export default function MultipleThumbs() {
 	return (
-		<Slider defaultValue={[25, 75]} className="w-full">
+		<Slider defaultValue={[25, 75]}>
 			<Slider.Control>
 				<Slider.Track>
 					<Slider.Range />

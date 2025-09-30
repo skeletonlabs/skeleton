@@ -42,8 +42,8 @@ export default function Default() {
 			</table>
 			<div className="flex justify-between items-center gap-4 w-full">
 				<label className="label">
-					<span className="label-text sr-only">Page Size</span>
-					<select className="select w-fit" value={pageSize} onChange={(e) => setPageSize(Number(e.currentTarget.value))}>
+					<span className="sr-only">Page Size</span>
+					<select className="select w-fit" value={String(pageSize)} onChange={(e) => setPageSize(Number(e.currentTarget.value))}>
 						<option value="5">5</option>
 						<option value="10">10</option>
 						<option value="20">20</option>

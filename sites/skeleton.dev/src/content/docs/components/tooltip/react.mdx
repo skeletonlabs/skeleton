@@ -16,6 +16,9 @@ import ArrowRaw from '@examples/components/tooltip/react/arrow?raw';
 import ZIndex from '@examples/components/tooltip/react/z-index';
 import ZIndexRaw from '@examples/components/tooltip/react/z-index?raw';
 
+import Dir from '@examples/components/tooltip/react/dir';
+import DirRaw from '@examples/components/tooltip/react/dir?raw';
+
 import Headless from '@examples/components/tooltip/react/headless';
 import HeadlessRaw from '@examples/components/tooltip/react/headless?raw';
 
@@ -67,9 +70,20 @@ This is made possible via the Provider Pattern.
 	</Fragment>
 </Preview>
 
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
 ## Headless
 
-Unlike most components in Skeleton, this is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
+Unlike most components in Skeleton, this feature is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
 
 <Preview client:load>
 	<Fragment slot="preview">

@@ -11,8 +11,7 @@
 	import IconRewind from '@lucide/svelte/icons/rewind';
 	import IconUsers from '@lucide/svelte/icons/user';
 	import IconVolume from '@lucide/svelte/icons/volume-2';
-	import { Avatar, Switch, Slider, Progress } from '@skeletonlabs/skeleton-svelte';
-	import ValueText from 'node_modules/@skeletonlabs/skeleton-svelte/dist/components/progress/anatomy/value-text.svelte';
+	import { Avatar, Switch, Slider, Progress, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
 	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
@@ -360,16 +359,26 @@
 		<!-- 12 -->
 		<div class={`${cardClasses} row-span-2 col-start-2 row-start-6 row-end-9`}>
 			<h2 class="h4">Set Reminder</h2>
+			<SegmentedControl name="time" defaultValue="15">
+				<SegmentedControl.Label>Time</SegmentedControl.Label>
+				<SegmentedControl.Control>
+					<SegmentedControl.Indicator />
+					<SegmentedControl.Item value="15">
+						<SegmentedControl.ItemText>5 mins</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="60">
+						<SegmentedControl.ItemText>15 mins</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="240">
+						<SegmentedControl.ItemText>30 mins</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+				</SegmentedControl.Control>
+			</SegmentedControl>
 			<label class="label">
-				<span class="label text">Mode</span>
-				<nav class="btn-group preset-outlined-surface-200-800 grid grid-cols-3 gap-2 p-2">
-					<button type="button" class="btn preset-filled">5 mins</button>
-					<button type="button" class="btn hover:preset-tonal">24 hours</button>
-					<button type="button" class="btn hover:preset-tonal">30 days</button>
-				</nav>
-			</label>
-			<label class="label">
-				<span class="label text">Message</span>
+				<span class="label-text">Message</span>
 				<textarea name="message" id="message" class="textarea rounded-container" placeholder="Provide a message..."></textarea>
 			</label>
 			<div class="flex justify-end">

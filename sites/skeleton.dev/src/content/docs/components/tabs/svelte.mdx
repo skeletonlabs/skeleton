@@ -13,8 +13,8 @@ import FluidRaw from '@examples/components/tabs/svelte/fluid.svelte?raw';
 import Vertical from '@examples/components/tabs/svelte/vertical.svelte';
 import VerticalRaw from '@examples/components/tabs/svelte/vertical.svelte?raw';
 
-import Rtl from '@examples/components/tabs/svelte/rtl.svelte';
-import RtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
+import Dir from '@examples/components/tabs/svelte/dir.svelte';
+import DirRaw from '@examples/components/tabs/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -25,7 +25,7 @@ import RtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 	</Fragment>
 </Preview>
 
-## Fluid
+## Fluid Width
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -47,14 +47,14 @@ import RtlRaw from '@examples/components/tabs/svelte/rtl.svelte?raw';
 	</Fragment>
 </Preview>
 
-## RTL
+## Direction
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Rtl client:visible />
+		<Dir client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={RtlRaw} lang="svelte" />
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

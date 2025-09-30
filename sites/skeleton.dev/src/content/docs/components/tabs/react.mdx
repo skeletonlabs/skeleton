@@ -13,8 +13,8 @@ import FluidRaw from '@examples/components/tabs/react/fluid.tsx?raw';
 import Vertical from '@examples/components/tabs/react/vertical.tsx';
 import VerticalRaw from '@examples/components/tabs/react/vertical.tsx?raw';
 
-import Rtl from '@examples/components/tabs/react/rtl.tsx';
-import RtlRaw from '@examples/components/tabs/react/rtl.tsx?raw';
+import Dir from '@examples/components/tabs/react/dir.tsx';
+import DirRaw from '@examples/components/tabs/react/dir.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -25,7 +25,7 @@ import RtlRaw from '@examples/components/tabs/react/rtl.tsx?raw';
 	</Fragment>
 </Preview>
 
-## Fluid
+## Fluid Width
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -47,14 +47,14 @@ import RtlRaw from '@examples/components/tabs/react/rtl.tsx?raw';
 	</Fragment>
 </Preview>
 
-## RTL
+## Direction
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Rtl client:visible />
+		<Dir client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={RtlRaw} lang="tsx" />
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
