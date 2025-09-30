@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ProgressLinear dir="rtl">
-	<ProgressLinear.Label>Label</ProgressLinear.Label>
-	<ProgressLinear.Track>
-		<ProgressLinear.Range />
-	</ProgressLinear.Track>
-</ProgressLinear>
+<Progress dir="rtl">
+	<Progress.Label>Label</Progress.Label>
+	<Progress.Track>
+		<Progress.Range />
+	</Progress.Track>
+</Progress>
