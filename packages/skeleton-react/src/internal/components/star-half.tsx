@@ -1,6 +1,26 @@
-export default function StarHalf() {
+import type { HTMLAttributes } from '../html-attributes';
+import { mergeProps } from '@zag-js/react';
+
+export type StarHalfProps = HTMLAttributes<'svg', 'children'>;
+
+export default function StarHalf(props: StarHalfProps) {
+	const { ...rest } = props;
+
+	const attributes = mergeProps(
+		{
+			xmlns: 'http://www.w3.org/2000/svg',
+			width: '24',
+			height: '24',
+			viewBox: '0 0 24 24',
+			fill: 'none',
+			stroke: 'currentColor',
+			strokeWidth: '1.5',
+		},
+		rest,
+	);
+
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" fill="none" stroke="currentColor" strokeWidth="1.5">
+		<svg {...attributes}>
 			<defs>
 				<linearGradient id="half-fill" x1="0%" y1="0%" x2="100%" y2="0%">
 					<stop offset="50%" stopColor="currentColor" />
