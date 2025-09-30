@@ -8,7 +8,7 @@ export * from './components/navigation/index';
 export * from './components/pagination/index';
 export * from './components/popover/index';
 export * from './components/portal/index';
-export * from './components/progress-linear/index';
+export * from './components/progress/index';
 export * from './components/rating-group/index';
 export * from './components/segmented-control/index';
 export * from './components/slider/index';

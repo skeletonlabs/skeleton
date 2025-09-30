@@ -1,0 +1,112 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/progress-circular/svelte/default.svelte';
+import DefaultRaw from '@examples/components/progress-circular/svelte/default.svelte?raw';
+
+import Size from '@examples/components/progress-circular/svelte/size.svelte';
+import SizeRaw from '@examples/components/progress-circular/svelte/size.svelte?raw';
+
+import Color from '@examples/components/progress-circular/svelte/color.svelte';
+import ColorRaw from '@examples/components/progress-circular/svelte/color.svelte?raw';
+
+import CenteredContent from '@examples/components/progress-circular/svelte/centered-content.svelte';
+import CenteredContentRaw from '@examples/components/progress-circular/svelte/centered-content.svelte?raw';
+
+import Indeterminate from '@examples/components/progress-circular/svelte/indeterminate.svelte';
+import IndeterminateRaw from '@examples/components/progress-circular/svelte/indeterminate.svelte?raw';
+
+import Format from '@examples/components/progress-circular/svelte/format.svelte';
+import FormatRaw from '@examples/components/progress-circular/svelte/format.svelte?raw';
+
+import CustomValueText from '@examples/components/progress-circular/svelte/custom-value-text.svelte';
+import CustomValueTextRaw from '@examples/components/progress-circular/svelte/custom-value-text.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Size
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Size client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SizeRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Color
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Color client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Centered Content
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CenteredContent client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CenteredContentRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Indeterminate
+
+Set the value to `null` to make the progress indeterminate.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indeterminate client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndeterminateRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+## Format
+
+Use the `format` prop to customize the output of the `ValueText` component, options are:
+
+- `percentage` (default) - shows the percentage value
+- `decimal` - shows the decimal value (0.0 - 1.0)
+- Provide formatting using the [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Format client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FormatRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Custom Value Text
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomValueText client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomValueTextRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable component="progress" />
