@@ -1,39 +1,31 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ProgressLinear value={null}>
-	<ProgressLinear.Track>
-		<ProgressLinear.Range class="my-custom-animation" />
-	</ProgressLinear.Track>
-</ProgressLinear>
+<Progress value={null}>
+	<Progress.Track>
+		<Progress.Range class="animate-[custom-animation_2s_ease-in-out_infinite]" />
+	</Progress.Track>
+</Progress>
 
 <style>
-	/*
-        Note: The `:global` modifier is used to apply the
-        animation to the progress bar because Svelte styles
-        are scoped by default.
-    */
-	:global(.my-custom-animation) {
-		animation: my-custom-animation 2s ease-in-out infinite;
-	}
-
-	@keyframes my-custom-animation {
-		0% {
-			translate: -100%;
+	@keyframes -global-custom-animation {
+		from {
+			scale: 0.5 1;
+			transform: translateX(-200%);
 		}
 		25% {
-			scale: 1;
+			transform: translateX(50%);
 		}
 		50% {
-			scale: 0.5 1;
-			translate: 0%;
+			transform: translateX(-50%);
 		}
 		75% {
-			scale: 1;
+			transform: translateX(150%);
 		}
-		100% {
-			translate: 100%;
+		to {
+			scale: 0.5 1;
+			transform: translateX(200%);
 		}
 	}
 </style>

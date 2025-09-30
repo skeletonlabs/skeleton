@@ -1,34 +1,31 @@
-import { ProgressLinear } from '@skeletonlabs/skeleton-react';
+import { Progress } from '@skeletonlabs/skeleton-react';
 
 export default function CustomAnimation() {
 	return (
 		<>
-			<ProgressLinear value={undefined}>
-				<ProgressLinear.Track>
-					<ProgressLinear.Range className="my-custom-animation" />
-				</ProgressLinear.Track>
-			</ProgressLinear>
-			{/* Inlining styles like this only works in React 19+. For React 18 and below, add these styles to your global CSS file. */}
+			<Progress value={null}>
+				<Progress.Track>
+					<Progress.Range className="animate-[custom-animation_2s_ease-in-out_infinite]" />
+				</Progress.Track>
+			</Progress>
 			<style>{`
-                .my-custom-animation {
-                    animation: my-custom-animation 2s ease-in-out infinite;
-                }
-                @keyframes my-custom-animation {
-                    0% {
-                        translate: -100%;
+                @keyframes custom-animation {
+                    from {
+                        scale: 0.5 1;
+                        transform: translateX(-200%);
                     }
                     25% {
-                        scale: 1;
+                        transform: translateX(50%);
                     }
                     50% {
-                        scale: 0.5 1;
-                        translate: 0%;
+                        transform: translateX(-50%);
                     }
                     75% {
-                        scale: 1;
+                        transform: translateX(150%);
                     }
-                    100% {
-                        translate: 100%;
+                    to {
+                        scale: 0.5 1;
+                        transform: translateX(200%);
                     }
                 }
             `}</style>
