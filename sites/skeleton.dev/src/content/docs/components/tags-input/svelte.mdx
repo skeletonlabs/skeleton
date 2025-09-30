@@ -13,6 +13,9 @@ import CustomIconRaw from '@examples/components/tags-input/svelte/custom-icon.sv
 import Color from '@examples/components/tags-input/svelte/color.svelte';
 import ColorRaw from '@examples/components/tags-input/svelte/color.svelte?raw';
 
+import Dir from '@examples/components/tags-input/svelte/dir.svelte';
+import DirRaw from '@examples/components/tags-input/svelte/dir.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -41,6 +44,17 @@ import ColorRaw from '@examples/components/tags-input/svelte/color.svelte?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColorRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
