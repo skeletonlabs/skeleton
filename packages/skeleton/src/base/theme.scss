@@ -56,9 +56,9 @@
 
 	/* Animations --- */
 
-	--animate-progress-indeterminate-horz: anim-progress-indeterminate-horz 2s linear infinite;
-	--animate-progress-indeterminate-vert: anim-progress-indeterminate-vert 2s linear infinite;
-	--animate-ring-indeterminate: anim-ring-indeterminate 2s linear infinite;
+	--animate-progress-linear-indeterminate-horizontal: progress-linear-indeterminate-horizontal 1.5s ease-in-out infinite;
+	--animate-progress-linear-indeterminate-vertical: progress-linear-indeterminate-vertical 1.5s ease-in-out infinite;
+	--animate-progress-circular-indeterminate: progress-circular-indeterminate 1.5s linear infinite;
 
 	/* Colors --- */
 

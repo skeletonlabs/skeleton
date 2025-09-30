@@ -1,0 +1,113 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Default from '@examples/components/progress-circular/react/default';
+import DefaultRaw from '@examples/components/progress-circular/react/default?raw';
+
+import Size from '@examples/components/progress-circular/react/size';
+import SizeRaw from '@examples/components/progress-circular/react/size?raw';
+
+import Color from '@examples/components/progress-circular/react/color';
+import ColorRaw from '@examples/components/progress-circular/react/color?raw';
+
+import CenteredContent from '@examples/components/progress-circular/react/centered-content';
+import CenteredContentRaw from '@examples/components/progress-circular/react/centered-content?raw';
+
+import Indeterminate from '@examples/components/progress-circular/react/indeterminate';
+import IndeterminateRaw from '@examples/components/progress-circular/react/indeterminate?raw';
+
+import Format from '@examples/components/progress-circular/react/format';
+import FormatRaw from '@examples/components/progress-circular/react/format?raw';
+
+import CustomValueText from '@examples/components/progress-circular/react/custom-value-text';
+import CustomValueTextRaw from '@examples/components/progress-circular/react/custom-value-text?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Size
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Size client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SizeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Color
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Color client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Centered Content
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CenteredContent client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CenteredContentRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Indeterminate
+
+Set the value to `null` to make the progress indeterminate.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indeterminate client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndeterminateRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Format
+
+Use the `format` prop to customize the output of the `ValueText` component, options are:
+
+- `percentage` (default) - shows the percentage value
+- `decimal` - shows the decimal value (0.0 - 1.0)
+- Provide formatting using the [Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Format client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={FormatRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Custom Value Text
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CustomValueText client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CustomValueTextRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable component="progress" />

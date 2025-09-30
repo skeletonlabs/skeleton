@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { ProgressLinear } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ProgressLinear orientation="vertical">
-	<ProgressLinear.Track>
-		<ProgressLinear.Range />
-	</ProgressLinear.Track>
-</ProgressLinear>
+<Progress orientation="vertical">
+	<Progress.Track>
+		<Progress.Range />
+	</Progress.Track>
+</Progress>

@@ -1,0 +1,17 @@
+/* Components: Keyframe - Progress Circular */
+/* NOTE: only for use in the progress circular functional component. */
+
+@keyframes progress-circular-indeterminate {
+	0% {
+		stroke-dasharray: 1 var(--circumference);
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: calc(var(--circumference) * 0.75) var(--circumference);
+		stroke-dashoffset: calc(-1 * var(--circumference) * 0.5);
+	}
+	100% {
+		stroke-dasharray: 1 var(--circumference);
+		stroke-dashoffset: calc(-1 * var(--circumference));
+	}
+}
