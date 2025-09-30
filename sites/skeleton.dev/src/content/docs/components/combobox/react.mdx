@@ -22,6 +22,9 @@ import DisabledItemRaw from '@examples/components/combobox/react/disabled-item?r
 import CustomFilter from '@examples/components/combobox/react/custom-filter';
 import CustomFilterRaw from '@examples/components/combobox/react/custom-filter?raw';
 
+import Dir from '@examples/components/combobox/react/dir';
+import DirRaw from '@examples/components/combobox/react/dir?raw';
+
 import ZIndex from '@examples/components/combobox/react/z-index';
 import ZIndexRaw from '@examples/components/combobox/react/z-index?raw';
 
@@ -94,6 +97,17 @@ Try mistyping `apple` or `banana` to see the custom filter using the fuzzy searc
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={CustomFilterRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

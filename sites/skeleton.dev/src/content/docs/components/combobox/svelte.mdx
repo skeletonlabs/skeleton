@@ -22,6 +22,9 @@ import DisabledItemRaw from '@examples/components/combobox/svelte/disabled-item.
 import CustomFilter from '@examples/components/combobox/svelte/custom-filter.svelte';
 import CustomFilterRaw from '@examples/components/combobox/svelte/custom-filter.svelte?raw';
 
+import Dir from '@examples/components/combobox/svelte/dir.svelte';
+import DirRaw from '@examples/components/combobox/svelte/dir.svelte?raw';
+
 import ZIndex from '@examples/components/combobox/svelte/z-index.svelte';
 import ZIndexRaw from '@examples/components/combobox/svelte/z-index.svelte?raw';
 
@@ -94,6 +97,17 @@ Try mistyping `apple` or `banana` to see the custom filter using the fuzzy searc
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={CustomFilterRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
