@@ -1,6 +1,5 @@
 import { ItemContext } from '../modules/item-context';
 import { RootContext } from '../modules/root-context';
-import Check from '@/internal/components/check';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';
@@ -13,6 +12,7 @@ export default function ItemIndicator(props: ComboboxItemIndicatorProps) {
 	const combobox = use(RootContext);
 	const itemProps = use(ItemContext);
 
+	// oxlint-disable-next-line jsx-no-undef
 	const { element, children = <Check className="size-4" />, ...rest } = props;
 
 	const attributes = mergeProps(
