@@ -12,7 +12,7 @@ export default function Test() {
 				<DatePicker.Content data-testid="content">
 					<DatePicker.YearSelect data-testid="year-select" />
 					<DatePicker.MonthSelect data-testid="month-select" />
-					<DatePicker.View data-testid="view">
+					<DatePicker.View view="day" data-testid="view">
 						<DatePicker.ViewControl data-testid="view-control">
 							<DatePicker.PrevTrigger data-testid="prev-trigger" />
 							<DatePicker.ViewTrigger data-testid="view-trigger">
