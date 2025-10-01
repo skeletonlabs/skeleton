@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DatePicker } from '@/index';
+	import { DatePicker, parseDate } from '@/index';
 </script>
 
 <DatePicker data-testid="root">
@@ -28,7 +28,7 @@
 					</DatePicker.TableHead>
 					<DatePicker.TableBody data-testid="table-body">
 						<DatePicker.TableRow data-testid="table-row">
-							<DatePicker.TableCell value={0} data-testid="table-cell">
+							<DatePicker.TableCell value={parseDate('1970-01-01')} data-testid="table-cell">
 								<DatePicker.TableCellTrigger data-testid="table-cell-trigger" />
 							</DatePicker.TableCell>
 						</DatePicker.TableRow>
