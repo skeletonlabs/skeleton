@@ -577,6 +577,9 @@ importers:
       '@zag-js/combobox':
         specifier: 'catalog:'
         version: 1.25.0
+      '@zag-js/date-picker':
+        specifier: 'catalog:'
+        version: 1.25.0(@internationalized/date@3.9.0)
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.25.0
