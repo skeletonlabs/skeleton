@@ -10,7 +10,9 @@ export interface DatePickerRangeTextProps extends PropsWithElement<'div'>, HTMLA
 export default function RangeText(props: DatePickerRangeTextProps) {
 	const datePicker = use(RootContext);
 
-	const { element, children = datePicker.visibleRangeText.formatted, ...rest } = props;
+	const rangeText = Array.from(new Set([datePicker.visibleRangeText.start, datePicker.visibleRangeText.end])).join(' - ');
+
+	const { element, children = rangeText, ...rest } = props;
 
 	const attributes = mergeProps(
 		datePicker.getRangeTextProps(),
