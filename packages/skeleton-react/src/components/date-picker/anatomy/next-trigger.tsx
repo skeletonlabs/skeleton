@@ -1,5 +1,7 @@
+// oxlint-disable-next-line no-unused-vars
 import { RootContext } from '../modules/root-context';
 import { ViewContext } from '../modules/view-context';
+import ChevronRight from '@/internal/components/chevron-right';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesDatePicker } from '@skeletonlabs/skeleton-common';
@@ -12,7 +14,7 @@ export default function NextTrigger(props: DatePickerNextTriggerProps) {
 	const datePicker = use(RootContext);
 	const viewProps = use(ViewContext);
 
-	const { element, children, ...rest } = props;
+	const { element, children = <ChevronRight />, ...rest } = props;
 
 	const attributes = mergeProps(
 		datePicker.getNextTriggerProps(viewProps),

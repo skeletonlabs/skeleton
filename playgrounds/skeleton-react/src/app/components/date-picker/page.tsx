@@ -12,18 +12,18 @@ export default function Page() {
 			</DatePicker.Control>
 			<DatePicker.Positioner>
 				<DatePicker.Content>
-					<DatePicker.YearSelect />
-					<DatePicker.MonthSelect />
+					{/* <DatePicker.YearSelect />
+					<DatePicker.MonthSelect /> */}
 					<DatePicker.View>
 						<DatePicker.Context>
 							{(datePicker) => (
 								<>
 									<DatePicker.ViewControl>
-										<DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+										<DatePicker.PrevTrigger />
 										<DatePicker.ViewTrigger>
 											<DatePicker.RangeText />
 										</DatePicker.ViewTrigger>
-										<DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+										<DatePicker.NextTrigger />
 									</DatePicker.ViewControl>
 									<DatePicker.Table>
 										<DatePicker.TableHead>
@@ -54,11 +54,11 @@ export default function Page() {
 							{(datePicker) => (
 								<>
 									<DatePicker.ViewControl>
-										<DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+										<DatePicker.PrevTrigger />
 										<DatePicker.ViewTrigger>
 											<DatePicker.RangeText />
 										</DatePicker.ViewTrigger>
-										<DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+										<DatePicker.NextTrigger />
 									</DatePicker.ViewControl>
 									<DatePicker.Table>
 										<DatePicker.TableBody>
@@ -82,11 +82,11 @@ export default function Page() {
 							{(datePicker) => (
 								<>
 									<DatePicker.ViewControl>
-										<DatePicker.PrevTrigger>Prev</DatePicker.PrevTrigger>
+										<DatePicker.PrevTrigger />
 										<DatePicker.ViewTrigger>
 											<DatePicker.RangeText />
 										</DatePicker.ViewTrigger>
-										<DatePicker.NextTrigger>Next</DatePicker.NextTrigger>
+										<DatePicker.NextTrigger />
 									</DatePicker.ViewControl>
 									<DatePicker.Table>
 										<DatePicker.TableBody>

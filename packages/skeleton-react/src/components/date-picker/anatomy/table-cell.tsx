@@ -17,8 +17,6 @@ export default function TableCell(props: DatePickerTableCellProps) {
 	const [tableCellProps, componentProps] = splitTableCellProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	console.log(tableCellProps);
-
 	function getTableCellProps(tableCellProps: TableCellProps) {
 		switch (viewProps.view) {
 			case 'day':
