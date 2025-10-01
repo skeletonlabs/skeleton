@@ -7,12 +7,12 @@ import { splitViewProps, type ViewProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface DatePickerViewProps extends ViewProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface DatePickerViewProps extends Required<ViewProps>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function View(props: DatePickerViewProps) {
 	const datePicker = use(RootContext);
 
-	const [viewProps, componentProps] = splitViewProps(props);
+	const [viewProps, componentProps] = splitViewProps(props) as [Required<ViewProps>, Omit<DatePickerViewProps, keyof ViewProps>];
 	const { element, children, ...rest } = componentProps;
 
 	const attributes = mergeProps(

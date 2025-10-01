@@ -4,11 +4,10 @@ import { DatePicker } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
 	return (
-		<DatePicker selectionMode="range">
+		<DatePicker>
 			<DatePicker.Label>Label</DatePicker.Label>
 			<DatePicker.Control>
-				<DatePicker.Input placeholder="Select from..." index={0} />
-				<DatePicker.Input placeholder="Select to..." index={1} />
+				<DatePicker.Input placeholder="Select date..." />
 				<DatePicker.Trigger />
 			</DatePicker.Control>
 			<DatePicker.Positioner>
