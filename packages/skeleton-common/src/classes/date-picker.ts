@@ -28,6 +28,7 @@ export const classesDatePicker = defineSkeletonClasses({
 		'size-full btn p-0 hover:preset-tonal cursor-pointer',
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
 		'data-selected:preset-filled',
+		'data-in-range:preset-filled',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
 });
