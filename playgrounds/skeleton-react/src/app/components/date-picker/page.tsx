@@ -13,8 +13,8 @@ export default function Page() {
 			<Portal>
 				<DatePicker.Positioner>
 					<DatePicker.Content>
-						{/* <DatePicker.YearSelect />
-					<DatePicker.MonthSelect /> */}
+						<DatePicker.YearSelect />
+						<DatePicker.MonthSelect />
 						<DatePicker.View view="day">
 							<DatePicker.Context>
 								{(datePicker) => (
