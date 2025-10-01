@@ -29,6 +29,7 @@ export const classesDatePicker = defineSkeletonClasses({
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
 		'data-selected:preset-filled',
 		'data-in-range:preset-filled',
+		'data-today:underline data-today:underline-offset-4',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
 });
