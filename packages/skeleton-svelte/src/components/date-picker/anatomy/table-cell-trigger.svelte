@@ -1,7 +1,6 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { TableCellProps } from '@zag-js/date-picker';
 
 	export interface DatePickerTableCellTriggerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
@@ -11,6 +10,7 @@
 	import { TableCellContext } from '../modules/table-cell-context';
 	import { ViewContext } from '../modules/view-context';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import type { TableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableCellTriggerProps = $props();
@@ -35,7 +35,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			getTableCellTriggerProps(tableCellProps()),
+			getTableCellTriggerProps(tableCellProps() as TableCellProps),
 			{
 				class: classesDatePicker.tableCellTrigger,
 			},

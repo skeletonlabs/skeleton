@@ -30,7 +30,7 @@ export default function TableCellTrigger(props: DatePickerTableCellTriggerProps)
 	}
 
 	const attributes = mergeProps(
-		getTableCellTriggerProps(tableCellProps),
+		getTableCellTriggerProps(tableCellProps as TableCellProps),
 		{
 			className: classesDatePicker.tableCellTrigger,
 		},
