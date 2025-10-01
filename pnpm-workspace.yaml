@@ -42,6 +42,7 @@ catalog:
   '@zag-js/combobox': 1.25.0
   '@zag-js/dialog': 1.25.0
   '@zag-js/file-upload': 1.25.0
+  '@zag-js/listbox': 1.25.0
   '@zag-js/pagination': 1.25.0
   '@zag-js/popover': 1.25.0
   '@zag-js/progress': 1.25.0
