@@ -1,9 +1,9 @@
 import { DatePicker, Portal } from '@skeletonlabs/skeleton-react';
 
-export default function DatePickerDisabled() {
+export default function Disabled() {
 	return (
 		<DatePicker disabled>
-			<DatePicker.Label>Disabled date picker</DatePicker.Label>
+			<DatePicker.Label>Label</DatePicker.Label>
 			<DatePicker.Control>
 				<DatePicker.Input placeholder="mm/dd/yyyy" />
 				<DatePicker.Trigger />

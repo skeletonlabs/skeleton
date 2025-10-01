@@ -1,8 +1,8 @@
-import { DatePicker, parseDate, Portal, type DatePickerRootProps } from '@skeletonlabs/skeleton-react';
+import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
 
-export default function DatePickerControlled() {
-	const [value, setValue] = useState<DatePickerRootProps['value']>([parseDate('2025-10-15')]);
+export default function Controlled() {
+	const [value, setValue] = useState([parseDate('2025-10-15')]);
 
 	return (
 		<div>

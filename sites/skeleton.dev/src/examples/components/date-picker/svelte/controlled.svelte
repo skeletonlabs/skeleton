@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { DatePicker, parseDate, Portal, type DatePickerRootProps } from '@skeletonlabs/skeleton-svelte';
+	import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	let value = $state<DatePickerRootProps['value']>([parseDate('2025-10-15')]);
+	let value = $state([parseDate('2025-10-15')]);
 </script>
 
 <DatePicker {value} onValueChange={(e) => (value = e.value)}>
-	<DatePicker.Label>Controlled date picker</DatePicker.Label>
+	<DatePicker.Label>Label</DatePicker.Label>
 	<DatePicker.Control>
 		<DatePicker.Input placeholder="mm/dd/yyyy" />
 		<DatePicker.Trigger />

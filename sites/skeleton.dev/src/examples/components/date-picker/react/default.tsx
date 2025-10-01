@@ -1,9 +1,9 @@
 import { DatePicker, Portal } from '@skeletonlabs/skeleton-react';
 
-export default function DatePickerDefault() {
+export default function Default() {
 	return (
 		<DatePicker>
-			<DatePicker.Label>Select a date</DatePicker.Label>
+			<DatePicker.Label>Label</DatePicker.Label>
 			<DatePicker.Control>
 				<DatePicker.Input placeholder="mm/dd/yyyy" />
 				<DatePicker.Trigger />
