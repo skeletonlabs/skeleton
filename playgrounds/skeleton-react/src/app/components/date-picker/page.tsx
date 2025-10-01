@@ -14,7 +14,7 @@ export default function Page() {
 				<DatePicker.Content>
 					{/* <DatePicker.YearSelect />
 					<DatePicker.MonthSelect /> */}
-					<DatePicker.View>
+					<DatePicker.View view="day">
 						<DatePicker.Context>
 							{(datePicker) => (
 								<>
