@@ -1,9 +1,13 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { TableCellProps } from '@zag-js/date-picker';
+	import type { Union } from '@/internal/union';
+	import type { DayTableCellProps, TableCellProps } from '@zag-js/date-picker';
 
-	export interface DatePickerTableCellProps extends TableCellProps, PropsWithElement<'td'>, HTMLAttributes<'td'> {}
+	export interface DatePickerTableCellProps
+		extends Union<TableCellProps, DayTableCellProps>,
+			PropsWithElement<'td'>,
+			HTMLAttributes<'td'> {}
 </script>
 
 <script lang="ts">
@@ -19,7 +23,12 @@
 	const datePicker = RootContext.consume();
 	const viewProps = ViewContext.consume();
 
-	const [tableCellProps, componentProps] = $derived(splitTableCellProps(props));
+	const [tableCellProps, componentProps] = $derived(
+		splitTableCellProps(props as unknown as TableCellProps) as unknown as [
+			Union<TableCellProps, DayTableCellProps>,
+			Omit<DatePickerTableCellProps, keyof Union<TableCellProps, DayTableCellProps>>,
+		],
+	);
 	const { element, children, ...rest } = $derived(componentProps);
 
 	function getTableCellProps(tableCellProps: TableCellProps) {
@@ -36,7 +45,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			getTableCellProps(tableCellProps),
+			getTableCellProps(tableCellProps as TableCellProps),
 			{
 				class: classesDatePicker.tableCell,
 			},
