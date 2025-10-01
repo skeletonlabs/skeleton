@@ -113,7 +113,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 
 ### Extensible Markup
 
-Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `Element()` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
+Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
 
 **React:**
 
@@ -185,6 +185,32 @@ import { slide } from 'svelte/transition';
 3. Override the `hidden` attribute to `false` to prevent it from showing/hiding the element too soon.
 4. Add the `transition:slide` and configure your preferred options.
 5. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
+
+### Provider Pattern
+
+Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root, and provides access to the inner component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
+
+```svelte
+<script lang="ts">
+	import { Portal, Tooltip, useTooltip } from '@skeletonlabs/skeleton-svelte';
+
+	const id = $props.id();
+	const tooltip = useTooltip({ id });
+</script>
+
+<!-- External trigger using the Zag.js `open` state and `setOpen()` method -->
+<button type="button" onclick={() => tooltip().setOpen(!tooltip().open)}>Trigger</button>
+
+<!-- Tooltip provider and reference value -->
+<Tooltip.Provider value={tooltip}>
+	<Tooltip.Trigger>Anchor</Tooltip.Trigger>
+	<Portal>
+		<Tooltip.Positioner>
+			<Tooltip.Content>Content</Tooltip.Content>
+		</Tooltip.Positioner>
+	</Portal>
+</Tooltip.Provider>
+```
 
 ### Learn More
 
