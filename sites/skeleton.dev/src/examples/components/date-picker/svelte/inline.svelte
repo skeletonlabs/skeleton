@@ -5,8 +5,6 @@
 <DatePicker inline>
 	<DatePicker.Label>Label</DatePicker.Label>
 	<DatePicker.Content>
-		<DatePicker.YearSelect />
-		<DatePicker.MonthSelect />
 		<DatePicker.View view="day">
 			<DatePicker.Context>
 				{#snippet children(datePicker)}

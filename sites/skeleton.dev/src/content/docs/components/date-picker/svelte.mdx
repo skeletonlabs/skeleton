@@ -22,6 +22,9 @@ import RangeRaw from '@examples/components/date-picker/svelte/range.svelte?raw';
 import Inline from '@examples/components/date-picker/svelte/inline.svelte';
 import InlineRaw from '@examples/components/date-picker/svelte/inline.svelte?raw';
 
+import WithSelects from '@examples/components/date-picker/svelte/with-selects.svelte';
+import WithSelectsRaw from '@examples/components/date-picker/svelte/with-selects.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -93,6 +96,19 @@ Display the calendar inline without a popover by adding the `inline` prop to the
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={InlineRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## With month and year selects
+
+Optionally add `<DatePicker.MonthSelect />` and `<DatePicker.YearSelect />` components to provide dropdown selectors for quickly changing the month and year.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<WithSelects client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={WithSelectsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

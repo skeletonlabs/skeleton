@@ -2,16 +2,17 @@
 	import { DatePicker, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<DatePicker selectionMode="range">
-	<DatePicker.Label>Select Date Range</DatePicker.Label>
+<DatePicker>
+	<DatePicker.Label>Label</DatePicker.Label>
 	<DatePicker.Control>
-		<DatePicker.Input index={0} placeholder="Start date..." />
-		<DatePicker.Input index={1} placeholder="End date..." />
+		<DatePicker.Input placeholder="mm/dd/yyyy" />
 		<DatePicker.Trigger />
 	</DatePicker.Control>
 	<Portal>
 		<DatePicker.Positioner>
 			<DatePicker.Content>
+				<DatePicker.YearSelect />
+				<DatePicker.MonthSelect />
 				<DatePicker.View view="day">
 					<DatePicker.Context>
 						{#snippet children(datePicker)}

@@ -11,8 +11,6 @@ export default function Disabled() {
 			<Portal>
 				<DatePicker.Positioner>
 					<DatePicker.Content>
-						<DatePicker.YearSelect />
-						<DatePicker.MonthSelect />
 						<DatePicker.View view="day">
 							<DatePicker.Context>
 								{(datePicker) => (
