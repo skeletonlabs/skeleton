@@ -1,4 +1,5 @@
-import { MONOREPO_ROOT } from './constants';
+// oxlint-disable-next-line no-unused-vars
+import { MONOREPO_DIRECTORY, PACKAGE_DIRECTORY } from './constants';
 import { join } from 'node:path';
 import * as tsMorph from 'ts-morph';
 
@@ -112,9 +113,9 @@ export class Parser {
 	constructor(framework: string) {
 		this.project = new tsMorph.Project({
 			skipAddingFilesFromTsConfig: true,
-			tsConfigFilePath: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'tsconfig.json'),
+			tsConfigFilePath: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'tsconfig.json'),
 		});
-		this.project.addSourceFilesAtPaths(join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components/*/anatomy/*.d.ts'));
+		this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components/*/anatomy/*.d.ts'));
 	}
 
 	public getSourceFile(path: string): SourceFile {
