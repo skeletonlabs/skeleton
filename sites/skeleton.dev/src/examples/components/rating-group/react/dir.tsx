@@ -2,7 +2,7 @@ import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
 export default function Dir() {
 	return (
-		<RatingGroup count={5}>
+		<RatingGroup count={5} dir="rtl">
 			<RatingGroup.Label>Label</RatingGroup.Label>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
