@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+	logLevel: 'error',
 	plugins: [svelte(), svelteTesting()],
 	resolve: {
 		alias: {
