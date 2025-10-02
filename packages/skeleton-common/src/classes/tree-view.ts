@@ -1,21 +1,30 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesTreeView = defineSkeletonClasses({
-	root: 'flex flex-col gap-2 w-full',
-	tree: '',
+	root: 'w-full space-y-2 select-none',
+	tree: 'space-y-1',
 	label: 'label-text',
 	item: [
-		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*6+var(--spacing)*4)] pe-4 py-2 hover:preset-tonal rounded select-none',
-		'data-selected:preset-tonal',
-		'[&>svg]:size-4',
+		'flex items-center gap-2 pe-4 py-2 rounded-base',
+		// Hover and selection states
+		'hover:preset-tonal data-selected:preset-filled',
+		// Left side overlap effect
+		'ps-[calc(var(--depth)*var(--spacing)*6+var(--spacing)*4)]',
 	],
-	branch: 'flex flex-col',
+	branch: 'space-y-1',
 	branchControl: [
-		'flex gap-2 items-center ps-[calc(var(--depth)*var(--spacing)*6-var(--spacing)*2)] pe-4 py-2 hover:preset-tonal rounded select-none',
-		'data-selected:preset-tonal',
+		'flex items-center gap-2 pe-4 py-2 rounded-base',
+		// Hover and selection states
+		'hover:preset-tonal data-selected:preset-filled',
+		// Left side overlap effect
+		'ps-[calc(var(--depth)*var(--spacing)*6-var(--spacing)*2)]',
 	],
-	branchIndicator: ['[&>svg]:size-4'],
-	branchText: ['flex gap-2 items-center', '[&>svg]:size-4'],
-	branchContent: 'flex flex-col relative',
-	branchIndentGuide: 'absolute preset-filled-surface-500 w-0.5 left-[calc(var(--depth)*var(--spacing)*6)] -translate-x-1/2 h-full rounded',
+	branchIndicator: '',
+	branchText: 'flex items-center gap-2',
+	branchContent: 'space-y-1 relative',
+	branchIndentGuide: [
+		'absolute bg-surface-200-800 w-0.5 h-full rounded-base',
+		// Left side overlap effect
+		'left-[calc(var(--depth)*var(--spacing)*6)] -translate-x-1/2',
+	],
 });

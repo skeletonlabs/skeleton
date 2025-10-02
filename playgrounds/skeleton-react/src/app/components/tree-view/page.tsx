@@ -16,10 +16,10 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				<TreeView.Branch>
 					<TreeView.BranchControl>
 						<TreeView.BranchIndicator>
-							<ChevronDownIcon />
+							<ChevronDownIcon className="size-4" />
 						</TreeView.BranchIndicator>
 						<TreeView.BranchText>
-							<FolderIcon />
+							<FolderIcon className="size-4" />
 							{props.node.name}
 						</TreeView.BranchText>
 					</TreeView.BranchControl>
@@ -32,7 +32,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				</TreeView.Branch>
 			) : (
 				<TreeView.Item>
-					<FileIcon />
+					<FileIcon className="size-4" />
 					{props.node.name}
 				</TreeView.Item>
 			)}
