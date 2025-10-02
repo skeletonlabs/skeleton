@@ -1,4 +1,5 @@
-import { CLASSES_DIRECTORY, MONOREPO_ROOT, OUTPUT_DIRECTORY } from './constants';
+// oxlint-disable-next-line no-unused-vars
+import { MONOREPO_DIRECTORY, PACKAGE_DIRECTORY, SITE_DIRECTORY } from './constants';
 import { Parser } from './parser';
 import { kebabToCamel, kebabToPascal } from './string-utils';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -7,37 +8,36 @@ import { pathToFileURL } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
+const ROOT_PARTS = ['Context', 'Provider'];
+
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
-		`anatomy.js`,
-		await readFile(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
-			'utf8',
-		),
+		`anatomy.ts`,
+		await readFile(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components', component, 'modules', `anatomy.ts`), 'utf-8'),
 	);
+	const order = [`${kebabToPascal(component)}Root`];
 	const anatomy = sourceFile.getFirstDescendantByKind(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	if (!anatomy) {
-		return [`${kebabToPascal(component)}Root`];
+	if (anatomy) {
+		order.push(
+			...anatomy
+				.getProperties()
+				.filter(tsMorph.Node.isPropertyAssignment)
+				.map((p) => {
+					const name = p.getName();
+					if (ROOT_PARTS.includes(name)) {
+						return `${kebabToPascal(component)}Root${name}`;
+					}
+					return `${kebabToPascal(component)}${name}`;
+				}),
+		);
 	}
-	return [
-		`${kebabToPascal(component)}Root`,
-		...anatomy
-			.getProperties()
-			.filter(tsMorph.Node.isPropertyAssignment)
-			.map((p) => {
-				const name = p.getName();
-				if (name === 'Context') {
-					return `${kebabToPascal(component)}RootContext`;
-				}
-				return `${kebabToPascal(component)}${name}`;
-			}),
-	];
+	return order;
 }
 
 async function getClassValue(component: string, part: string) {
 	try {
-		const module = await import(pathToFileURL(join(CLASSES_DIRECTORY, `${component}.js`)).href);
+		const module = await import(pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href);
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
 		if (!value || typeof value !== 'string') {
 			return;
@@ -68,12 +68,14 @@ function getComponentPartNameFromPath(path: string): string {
 }
 
 async function main() {
+	const OUTPUT_DIRECTORY = join(SITE_DIRECTORY('skeleton.dev'), 'src', 'content', 'types');
+
 	for (const framework of ['svelte', 'react'] as const) {
 		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
 		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
 
 		const paths = await glob(`**/anatomy/*.d.ts`, {
-			cwd: join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components'),
+			cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components'),
 			absolute: true,
 		});
 
@@ -127,7 +129,7 @@ async function main() {
 
 			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);
 
-			await writeFile(outputPath, result, 'utf8');
+			await writeFile(outputPath, result, 'utf-8');
 		}
 	}
 }
