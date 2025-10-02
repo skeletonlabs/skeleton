@@ -88,9 +88,7 @@
 		{#if node.children}
 			<TreeView.Branch>
 				<TreeView.BranchControl>
-					<TreeView.BranchIndicator>
-						<ChevronDownIcon />
-					</TreeView.BranchIndicator>
+					<TreeView.BranchIndicator />
 					<TreeView.BranchText>
 						<FolderIcon />
 						{node.name}
