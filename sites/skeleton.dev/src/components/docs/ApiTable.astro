@@ -12,8 +12,11 @@ const component = Astro.props.component ?? Astro.params.slug?.split('/').at(-2);
 
 const types = await getEntry('types', `${framework}/${component}`);
 
-function capitalize(str: string) {
-	return str.charAt(0).toUpperCase() + str.slice(1);
+function kebabToPascal(str: string) {
+	return str
+		.split('-')
+		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+		.join('');
 }
 ---
 
@@ -27,7 +30,7 @@ function capitalize(str: string) {
 			<section class="grid gap-4">
 				{types.data.types.map((type) => (
 					<>
-						<h3 class="h3">{type.name.replace(capitalize(component), '').replace('Props', '')}</h3>
+						<h3 class="h3">{type.name.replace(kebabToPascal(component), '').replace('Props', '')}</h3>
 						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
 						<table class="table">
 							<thead>
