@@ -1,5 +1,7 @@
+// oxlint-disable-next-line no-unused-vars
 import { NodeContext } from '../modules/node-context';
 import { RootContext } from '../modules/root-context';
+import ChevronRight from '@/internal/components/chevron-right';
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesTreeView } from '@skeletonlabs/skeleton-common';
@@ -12,7 +14,7 @@ export default function BranchIndicator(props: TreeViewBranchIndicatorProps) {
 	const treeView = use(RootContext);
 	const nodeProps = use(NodeContext);
 
-	const { element, children, ...rest } = props;
+	const { element, children = <ChevronRight className="size-4" />, ...rest } = props;
 
 	const attributes = mergeProps(
 		treeView.getBranchIndicatorProps(nodeProps),

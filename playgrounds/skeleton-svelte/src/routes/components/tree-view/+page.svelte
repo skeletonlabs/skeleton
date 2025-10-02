@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import FileIcon from '@lucide/svelte/icons/file';
 	import FolderIcon from '@lucide/svelte/icons/folder';
 	import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-svelte';
@@ -88,9 +87,7 @@
 		{#if node.children}
 			<TreeView.Branch>
 				<TreeView.BranchControl>
-					<TreeView.BranchIndicator>
-						<ChevronRight class="size-4" />
-					</TreeView.BranchIndicator>
+					<TreeView.BranchIndicator />
 					<TreeView.BranchText>
 						<FolderIcon class="size-4" />
 						{node.name}

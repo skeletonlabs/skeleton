@@ -8,6 +8,7 @@
 <script lang="ts">
 	import { NodeContext } from '../modules/node-context';
 	import { RootContext } from '../modules/root-context';
+	import ChevronRight from '@/internal/components/chevron-right.svelte';
 	import { classesTreeView } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -16,7 +17,7 @@
 	const treeView = RootContext.consume();
 	const nodeProps = NodeContext.consume();
 
-	const { element, children, ...rest } = $derived(props);
+	const { element, children = chevronRight, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
@@ -28,6 +29,10 @@
 		),
 	);
 </script>
+
+{#snippet chevronRight()}
+	<ChevronRight class="size-4" />
+{/snippet}
 
 {#if element}
 	{@render element(attributes)}

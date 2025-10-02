@@ -1,7 +1,7 @@
 'use client';
 
 import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-react';
-import { ChevronRightIcon, FileIcon, FolderIcon } from 'lucide-react';
+import { FileIcon, FolderIcon } from 'lucide-react';
 
 interface Node {
 	id: string;
@@ -15,9 +15,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 			{props.node.children ? (
 				<TreeView.Branch>
 					<TreeView.BranchControl>
-						<TreeView.BranchIndicator>
-							<ChevronRightIcon className="size-4" />
-						</TreeView.BranchIndicator>
+						<TreeView.BranchIndicator />
 						<TreeView.BranchText>
 							<FolderIcon className="size-4" />
 							{props.node.name}
