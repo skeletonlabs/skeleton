@@ -3,6 +3,7 @@ import { glob } from 'tinyglobby';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+	logLevel: 'error',
 	build: {
 		cssCodeSplit: true,
 		cssMinify: false,
