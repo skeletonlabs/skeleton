@@ -1,4 +1,4 @@
-import { CLASSES_DIRECTORY, MONOREPO_ROOT, OUTPUT_DIRECTORY } from './constants';
+import { CLASSES_DIRECTORY, PACKAGES_FRAMEWORK_ROOT, MONOREPO_ROOT, OUTPUT_DIRECTORY } from './constants';
 import { Parser } from './parser';
 import { kebabToCamel, kebabToPascal } from './string-utils';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -10,29 +10,26 @@ import * as tsMorph from 'ts-morph';
 async function getPartOrderFromAnatomy(framework: string, component: string) {
 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
 	const sourceFile = project.createSourceFile(
-		`anatomy.js`,
-		await readFile(
-			join(MONOREPO_ROOT, 'packages', `skeleton-${framework}`, 'dist', 'components', component, 'modules', `anatomy.js`),
-			'utf8',
-		),
+		`anatomy.ts`,
+		await readFile(join(PACKAGES_FRAMEWORK_ROOT(framework), 'src', 'components', component, 'modules', `anatomy.ts`), 'utf-8'),
 	);
+	const order = [`${kebabToPascal(component)}Root`];
 	const anatomy = sourceFile.getFirstDescendantByKind(tsMorph.SyntaxKind.ObjectLiteralExpression);
-	if (!anatomy) {
-		return [`${kebabToPascal(component)}Root`];
+	if (anatomy) {
+		order.push(
+			...anatomy
+				.getProperties()
+				.filter(tsMorph.Node.isPropertyAssignment)
+				.map((p) => {
+					const name = p.getName();
+					if (['Context', 'Provider'].includes(name)) {
+						return `${kebabToPascal(component)}Root${name}`;
+					}
+					return `${kebabToPascal(component)}${name}`;
+				}),
+		);
 	}
-	return [
-		`${kebabToPascal(component)}Root`,
-		...anatomy
-			.getProperties()
-			.filter(tsMorph.Node.isPropertyAssignment)
-			.map((p) => {
-				const name = p.getName();
-				if (name === 'Context') {
-					return `${kebabToPascal(component)}RootContext`;
-				}
-				return `${kebabToPascal(component)}${name}`;
-			}),
-	];
+	return order;
 }
 
 async function getClassValue(component: string, part: string) {
