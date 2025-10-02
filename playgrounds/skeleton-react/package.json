@@ -3,8 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build"
+		"dev": "next dev --turbopack"
 	},
 	"dependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
