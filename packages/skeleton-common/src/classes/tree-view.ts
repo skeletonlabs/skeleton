@@ -23,7 +23,7 @@ export const classesTreeView = defineSkeletonClasses({
 	branchText: 'flex items-center gap-2',
 	branchContent: 'space-y-1 relative',
 	branchIndentGuide: [
-		'absolute bg-surface-200-800 w-0.5 h-full rounded-base',
+		'absolute bg-surface-500/50 w-0.5 h-full rounded-base',
 		// Left side overlap effect
 		'left-[calc(var(--depth)*var(--spacing)*6)] -translate-x-1/2',
 	],
