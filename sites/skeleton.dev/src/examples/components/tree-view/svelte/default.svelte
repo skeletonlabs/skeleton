@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import FileIcon from '@lucide/svelte/icons/file';
 	import FolderIcon from '@lucide/svelte/icons/folder';
 	import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-svelte';
