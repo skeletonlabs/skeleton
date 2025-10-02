@@ -9,7 +9,7 @@ catalog:
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
   '@astrojs/svelte': 7.2.0
-  '@atproto/api': 0.16.11
+  '@atproto/api': 0.17.0
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.0.0
@@ -18,21 +18,21 @@ catalog:
   '@nanostores/persistent': 1.1.0
   '@sveltejs/adapter-auto': 6.1.0
   '@sveltejs/adapter-vercel': 5.10.2
-  '@sveltejs/kit': 2.43.5
+  '@sveltejs/kit': 2.43.6
   '@sveltejs/package': 2.5.4
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.10
   '@tailwindcss/postcss': 4.1.13
   '@tailwindcss/vite': 4.1.13
-  '@testing-library/jest-dom': 6.8.0
+  '@testing-library/jest-dom': 6.9.0
   '@testing-library/react': 16.3.0
   '@testing-library/svelte': 5.2.8
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
-  '@types/node': 24.6.0
-  '@types/react': 19.1.15
+  '@types/node': 24.6.1
+  '@types/react': 19.1.16
   '@types/react-dom': 19.1.9
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.0.4
@@ -92,16 +92,16 @@ catalog:
   semver: 7.7.2
   sharp: 0.34.4
   shiki: 3.13.0
-  svelte: 5.39.6
+  svelte: 5.39.7
   svelte-check: 4.3.2
   tailwindcss: 4.1.13
   tinyglobby: 0.2.15
   ts-morph: 27.0.0
-  tsdown: 0.15.5
+  tsdown: 0.15.6
   tslib: 2.8.1
   tsx: 4.20.6
   type-fest: 5.0.1
-  typescript: 5.9.2
+  typescript: 5.9.3
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
   vite: 7.1.7
