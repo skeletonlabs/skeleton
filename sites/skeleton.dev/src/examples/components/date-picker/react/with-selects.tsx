@@ -19,7 +19,7 @@ export default function WithSelects() {
 									<>
 										<DatePicker.ViewControl>
 											<DatePicker.PrevTrigger />
-											<DatePicker.ViewTrigger>
+											<DatePicker.ViewTrigger disabled>
 												<DatePicker.RangeText />
 											</DatePicker.ViewTrigger>
 											<DatePicker.NextTrigger />
