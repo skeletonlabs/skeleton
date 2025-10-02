@@ -3,9 +3,9 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 export const classesDatePicker = defineSkeletonClasses({
 	root: 'flex flex-col gap-2',
 	label: 'label-text',
-	control: 'relative',
+	control: 'relative flex flex-col gap-2',
 	input: 'input',
-	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-1/2 -translate-y-1/2',
+	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-[calc(var(--spacing)*1.25)]',
 	clearTrigger: '',
 	presetTrigger: '',
 	positioner: '',

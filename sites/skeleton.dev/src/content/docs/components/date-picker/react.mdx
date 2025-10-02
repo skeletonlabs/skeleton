@@ -16,6 +16,12 @@ import DisabledRaw from '@examples/components/date-picker/react/disabled.tsx?raw
 import MinMax from '@examples/components/date-picker/react/min-max.tsx';
 import MinMaxRaw from '@examples/components/date-picker/react/min-max.tsx?raw';
 
+import Range from '@examples/components/date-picker/react/range.tsx';
+import RangeRaw from '@examples/components/date-picker/react/range.tsx?raw';
+
+import Inline from '@examples/components/date-picker/react/inline.tsx';
+import InlineRaw from '@examples/components/date-picker/react/inline.tsx?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
@@ -61,6 +67,32 @@ Restrict date selection to a specific range using the `min` and `max` props with
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={MinMaxRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Range selection
+
+Enable range selection by setting `selectionMode="range"` on the root component. Use two input fields with `index={0}` and `index={1}` to represent the start and end dates.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Range client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RangeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Inline calendar
+
+Display the calendar inline without a popover by adding the `inline` prop to the root component. When using inline mode, omit the `Portal` and `Positioner` components.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Inline client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={InlineRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

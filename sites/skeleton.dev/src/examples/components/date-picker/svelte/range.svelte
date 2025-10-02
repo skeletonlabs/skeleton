@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-svelte';
-
-	let value = $state([parseDate('2025-10-15')]);
+	import { DatePicker, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<DatePicker {value} onValueChange={(e) => (value = e.value)}>
-	<DatePicker.Label>Picked date: {value.at(0)?.toString()}</DatePicker.Label>
+<DatePicker selectionMode="range">
+	<DatePicker.Label>Select Date Range</DatePicker.Label>
 	<DatePicker.Control>
-		<DatePicker.Input placeholder="mm/dd/yyyy" />
+		<DatePicker.Input index={0} placeholder="Start date..." />
+		<DatePicker.Input index={1} placeholder="End date..." />
 		<DatePicker.Trigger />
 	</DatePicker.Control>
 	<Portal>

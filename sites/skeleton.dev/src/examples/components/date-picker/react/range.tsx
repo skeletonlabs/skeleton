@@ -1,14 +1,12 @@
-import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { DatePicker, Portal } from '@skeletonlabs/skeleton-react';
 
-export default function Controlled() {
-	const [value, setValue] = useState([parseDate('2025-10-15')]);
-
+export default function Range() {
 	return (
-		<DatePicker value={value} onValueChange={(e) => setValue(e.value)}>
-			<DatePicker.Label>Picked date: {value.at(0)?.toString()}</DatePicker.Label>
+		<DatePicker selectionMode="range">
+			<DatePicker.Label>Select Date Range</DatePicker.Label>
 			<DatePicker.Control>
-				<DatePicker.Input placeholder="mm/dd/yyyy" />
+				<DatePicker.Input index={0} placeholder="Start date..." />
+				<DatePicker.Input index={1} placeholder="End date..." />
 				<DatePicker.Trigger />
 			</DatePicker.Control>
 			<Portal>
