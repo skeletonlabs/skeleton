@@ -65,12 +65,32 @@ export default function Default() {
 							],
 						},
 						{
-							id: 'node_modules/zag-js',
-							name: 'zag-js',
+							id: 'node_modules/@skeletonlabs',
+							name: '@skeletonlabs',
+							children: [
+								{
+									id: 'node_modules/@skeletonlabs/skeleton',
+									name: 'skeleton',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-react',
+									name: 'skeleton-react',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-svelte',
+									name: 'skeleton-svelte',
+								},
+							],
 						},
+					],
+				},
+				{
+					id: 'src',
+					name: 'src',
+					children: [
 						{
-							id: 'node_modules/pandacss',
-							name: 'panda',
+							id: 'src/index.ts',
+							name: 'index.ts',
 						},
 					],
 				},

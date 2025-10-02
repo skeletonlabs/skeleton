@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import ChevronRight from '@lucide/svelte/icons/chevron-right';
 	import FileIcon from '@lucide/svelte/icons/file';
 	import FolderIcon from '@lucide/svelte/icons/folder';
 	import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-svelte';
@@ -36,12 +36,32 @@
 							],
 						},
 						{
-							id: 'node_modules/zag-js',
-							name: 'zag-js',
+							id: 'node_modules/@skeletonlabs',
+							name: '@skeletonlabs',
+							children: [
+								{
+									id: 'node_modules/@skeletonlabs/skeleton',
+									name: 'skeleton',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-react',
+									name: 'skeleton-react',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-svelte',
+									name: 'skeleton-svelte',
+								},
+							],
 						},
+					],
+				},
+				{
+					id: 'src',
+					name: 'src',
+					children: [
 						{
-							id: 'node_modules/pandacss',
-							name: 'panda',
+							id: 'src/index.ts',
+							name: 'index.ts',
 						},
 					],
 				},
@@ -69,7 +89,7 @@
 			<TreeView.Branch>
 				<TreeView.BranchControl>
 					<TreeView.BranchIndicator>
-						<ChevronDownIcon class="size-4" />
+						<ChevronRight class="size-4" />
 					</TreeView.BranchIndicator>
 					<TreeView.BranchText>
 						<FolderIcon class="size-4" />

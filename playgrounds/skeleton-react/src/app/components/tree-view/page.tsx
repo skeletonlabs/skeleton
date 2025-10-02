@@ -1,7 +1,7 @@
 'use client';
 
 import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-react';
-import { ChevronDownIcon, FileIcon, FolderIcon } from 'lucide-react';
+import { ChevronRightIcon, FileIcon, FolderIcon } from 'lucide-react';
 
 interface Node {
 	id: string;
@@ -16,7 +16,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				<TreeView.Branch>
 					<TreeView.BranchControl>
 						<TreeView.BranchIndicator>
-							<ChevronDownIcon className="size-4" />
+							<ChevronRightIcon className="size-4" />
 						</TreeView.BranchIndicator>
 						<TreeView.BranchText>
 							<FolderIcon className="size-4" />
@@ -67,12 +67,32 @@ export default function Page() {
 							],
 						},
 						{
-							id: 'node_modules/zag-js',
-							name: 'zag-js',
+							id: 'node_modules/@skeletonlabs',
+							name: '@skeletonlabs',
+							children: [
+								{
+									id: 'node_modules/@skeletonlabs/skeleton',
+									name: 'skeleton',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-react',
+									name: 'skeleton-react',
+								},
+								{
+									id: 'node_modules/@skeletonlabs/skeleton-svelte',
+									name: 'skeleton-svelte',
+								},
+							],
 						},
+					],
+				},
+				{
+					id: 'src',
+					name: 'src',
+					children: [
 						{
-							id: 'node_modules/pandacss',
-							name: 'panda',
+							id: 'src/index.ts',
+							name: 'index.ts',
 						},
 					],
 				},
@@ -83,6 +103,7 @@ export default function Page() {
 			],
 		},
 	});
+
 	return (
 		<TreeView collection={collection}>
 			<TreeView.Label>File System</TreeView.Label>

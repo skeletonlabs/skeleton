@@ -19,7 +19,7 @@ export const classesTreeView = defineSkeletonClasses({
 		// Left side overlap effect
 		'ps-[calc(var(--depth)*var(--spacing)*6-var(--spacing)*2)]',
 	],
-	branchIndicator: '',
+	branchIndicator: 'data-[state=open]:rotate-90',
 	branchText: 'flex items-center gap-2',
 	branchContent: 'space-y-1 relative',
 	branchIndentGuide: [
