@@ -4,6 +4,7 @@ export * from './classes/avatar';
 export * from './classes/combobox';
 export * from './classes/dialog';
 export * from './classes/file-upload';
+export * from './classes/listbox';
 export * from './classes/navigation';
 export * from './classes/pagination';
 export * from './classes/popover';
