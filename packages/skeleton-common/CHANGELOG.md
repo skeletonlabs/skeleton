@@ -1,5 +1,15 @@
 # @skeletonlabs/skeleton-common
 
+## 1.0.0-next.16
+
+### Minor Changes
+
+- feat: date picker ([#3835](https://github.com/skeletonlabs/skeleton/pull/3835))
+
+### Patch Changes
+
+- chore: remove Accordion.ItemHeading in favor of having users provide a <h3> themselves ([#3850](https://github.com/skeletonlabs/skeleton/pull/3850))
+
 ## 1.0.0-next.15
 
 ### Minor Changes
