@@ -1,4 +1,6 @@
 import a from '@/components/mdx/a.astro';
+import blockquote from '@/components/mdx/blockquote-temp.astro';
+import code from '@/components/mdx/code-temp.astro';
 import h1 from '@/components/mdx/h1.astro';
 import h2 from '@/components/mdx/h2.astro';
 import h3 from '@/components/mdx/h3.astro';
@@ -7,6 +9,7 @@ import h5 from '@/components/mdx/h5.astro';
 import h6 from '@/components/mdx/h6.astro';
 import hr from '@/components/mdx/hr.astro';
 import ol from '@/components/mdx/ol.astro';
+import table from '@/components/mdx/table-temp.astro';
 import ul from '@/components/mdx/ul.astro';
 
 export const components = {
