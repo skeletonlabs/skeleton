@@ -91,14 +91,14 @@ layout: '@/layouts/LayoutDoc.astro'
 Import examples and their raw source code in **alphabetical order by feature name**:
 
 ```mdx
-import Default from '@examples/components/avatar/react/default.tsx';
-import DefaultRaw from '@examples/components/avatar/react/default.tsx?raw';
+import Default from '@/examples/components/avatar/react/default.tsx';
+import DefaultRaw from '@/examples/components/avatar/react/default.tsx?raw';
 
-import Fallback from '@examples/components/avatar/react/fallback.tsx';
-import FallbackRaw from '@examples/components/avatar/react/fallback.tsx?raw';
+import Fallback from '@/examples/components/avatar/react/fallback.tsx';
+import FallbackRaw from '@/examples/components/avatar/react/fallback.tsx?raw';
 
-import Filter from '@examples/components/avatar/react/filter.tsx';
-import FilterRaw from '@examples/components/avatar/react/filter.tsx?raw';
+import Filter from '@/examples/components/avatar/react/filter.tsx';
+import FilterRaw from '@/examples/components/avatar/react/filter.tsx?raw';
 
 ;
 ```
@@ -345,8 +345,8 @@ The generation script is in `scripts/generate-type-documentation/`.
 layout: '@/layouts/LayoutDoc.astro'
 ---
 
-import Default from '@examples/components/example/react/default.tsx';
-import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
+import Default from '@/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -365,11 +365,11 @@ import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
 ### Multiple Examples Pattern
 
 ```mdx
-import Default from '@examples/components/example/react/default.tsx';
-import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
+import Default from '@/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
 
-import Advanced from '@examples/components/example/react/advanced.tsx';
-import AdvancedRaw from '@examples/components/example/react/advanced.tsx?raw';
+import Advanced from '@/examples/components/example/react/advanced.tsx';
+import AdvancedRaw from '@/examples/components/example/react/advanced.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
