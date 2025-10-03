@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Logo Clouds
 description: Provides a grid for presenting a set of logos, brands, or sponsors.
 showDocsUrl: true
@@ -7,12 +7,10 @@ pubDate: 2024-11-18
 tags: ['blocks', 'branding']
 ---
 
-export const components = componentSet;
-
-import Example from '@examples/guides/cookbook/logo-clouds/Example.astro';
-import ExampleRaw from '@examples/guides/cookbook/logo-clouds/Example.astro?raw';
-import ExampleRows from '@examples/guides/cookbook/logo-clouds/ExampleRows.astro';
-import ExampleRowsRaw from '@examples/guides/cookbook/logo-clouds/ExampleRows.astro?raw';
+import Example from '@/examples/guides/cookbook/logo-clouds/Example.astro';
+import ExampleRaw from '@/examples/guides/cookbook/logo-clouds/Example.astro?raw';
+import ExampleRows from '@/examples/guides/cookbook/logo-clouds/ExampleRows.astro';
+import ExampleRowsRaw from '@/examples/guides/cookbook/logo-clouds/ExampleRows.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">

@@ -1,17 +1,15 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/pagination/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/pagination/svelte/default.svelte?raw';
 
-import Default from '@examples/components/pagination/svelte/default.svelte';
-import DefaultRaw from '@examples/components/pagination/svelte/default.svelte?raw';
+import DynamicPageSize from '@/examples/components/pagination/svelte/dynamic-page-size.svelte';
+import DynamicPageSizeRaw from '@/examples/components/pagination/svelte/dynamic-page-size.svelte?raw';
 
-import DynamicPageSize from '@examples/components/pagination/svelte/dynamic-page-size.svelte';
-import DynamicPageSizeRaw from '@examples/components/pagination/svelte/dynamic-page-size.svelte?raw';
-
-import Dir from '@examples/components/pagination/svelte/dir.svelte';
-import DirRaw from '@examples/components/pagination/svelte/dir.svelte?raw';
+import Dir from '@/examples/components/pagination/svelte/dir.svelte';
+import DirRaw from '@/examples/components/pagination/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

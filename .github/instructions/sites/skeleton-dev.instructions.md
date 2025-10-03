@@ -82,35 +82,23 @@ stability: 'stable' # Optional: 'alpha', 'beta', or 'stable' (default)
 
 ```mdx
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 ```
-
-### Required Exports
-
-Must include this line at the top after frontmatter:
-
-```mdx
-export const components = componentSet;
-
-;
-```
-
-This enables custom MDX component overrides (styled headings, links, tables, etc.).
 
 ### Import Pattern
 
 Import examples and their raw source code in **alphabetical order by feature name**:
 
 ```mdx
-import Default from '@examples/components/avatar/react/default.tsx';
-import DefaultRaw from '@examples/components/avatar/react/default.tsx?raw';
+import Default from '@/examples/components/avatar/react/default.tsx';
+import DefaultRaw from '@/examples/components/avatar/react/default.tsx?raw';
 
-import Fallback from '@examples/components/avatar/react/fallback.tsx';
-import FallbackRaw from '@examples/components/avatar/react/fallback.tsx?raw';
+import Fallback from '@/examples/components/avatar/react/fallback.tsx';
+import FallbackRaw from '@/examples/components/avatar/react/fallback.tsx?raw';
 
-import Filter from '@examples/components/avatar/react/filter.tsx';
-import FilterRaw from '@examples/components/avatar/react/filter.tsx?raw';
+import Filter from '@/examples/components/avatar/react/filter.tsx';
+import FilterRaw from '@/examples/components/avatar/react/filter.tsx?raw';
 
 ;
 ```
@@ -354,13 +342,11 @@ The generation script is in `scripts/generate-type-documentation/`.
 
 ```mdx
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
-
-import Default from '@examples/components/example/react/default.tsx';
-import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
+import Default from '@/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -379,11 +365,11 @@ import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
 ### Multiple Examples Pattern
 
 ```mdx
-import Default from '@examples/components/example/react/default.tsx';
-import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
+import Default from '@/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
 
-import Advanced from '@examples/components/example/react/advanced.tsx';
-import AdvancedRaw from '@examples/components/example/react/advanced.tsx?raw';
+import Advanced from '@/examples/components/example/react/advanced.tsx';
+import AdvancedRaw from '@/examples/components/example/react/advanced.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -466,7 +452,6 @@ Before submitting documentation:
 
 ## Common Mistakes to Avoid
 
-- Forgetting `export const components = componentSet;` at the top
 - Incorrect import paths (use `@examples/` alias)
 - Missing `.tsx` or `.svelte` extensions in imports
 - Not using `?raw` suffix for source code imports

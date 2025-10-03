@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Floating UI Attachments
 description: A Svelte-focused guide around integrating Floating UI and Svelte attachments.
 showDocsUrl: true
@@ -7,11 +7,9 @@ pubDate: 2025-08-13
 tags: ['integration', 'popovers', 'svelte']
 ---
 
-export const components = componentSet;
-
-import ExampleAttachment from '@examples/guides/cookbook/floating-ui-attachments/ExampleAttachment.txt?raw';
-import ExamplePopover from '@examples/guides/cookbook/floating-ui-attachments/ExamplePopover.txt?raw';
-import ExampleTooltip from '@examples/guides/cookbook/floating-ui-attachments/ExampleTooltip.txt?raw';
+import ExampleAttachment from '@/examples/guides/cookbook/floating-ui-attachments/ExampleAttachment.txt?raw';
+import ExamplePopover from '@/examples/guides/cookbook/floating-ui-attachments/ExamplePopover.txt?raw';
+import ExampleTooltip from '@/examples/guides/cookbook/floating-ui-attachments/ExampleTooltip.txt?raw';
 
 Please note that this is a Svelte-only guide based around the [attachments](https://svelte.dev/docs/svelte/svelte-attachments) feature introduced in Svelte `v5.29`.
 

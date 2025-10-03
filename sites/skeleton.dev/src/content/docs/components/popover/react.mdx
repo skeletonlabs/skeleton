@@ -1,26 +1,24 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/popover/react/default';
+import DefaultRaw from '@/examples/components/popover/react/default?raw';
 
-import Default from '@examples/components/popover/react/default';
-import DefaultRaw from '@examples/components/popover/react/default?raw';
+import Programmatic from '@/examples/components/popover/react/programmatic';
+import ProgrammaticRaw from '@/examples/components/popover/react/programmatic?raw';
 
-import Programmatic from '@examples/components/popover/react/programmatic';
-import ProgrammaticRaw from '@examples/components/popover/react/programmatic?raw';
+import Arrow from '@/examples/components/popover/react/arrow';
+import ArrowRaw from '@/examples/components/popover/react/arrow?raw';
 
-import Arrow from '@examples/components/popover/react/arrow';
-import ArrowRaw from '@examples/components/popover/react/arrow?raw';
+import ZIndex from '@/examples/components/popover/react/z-index';
+import ZIndexRaw from '@/examples/components/popover/react/z-index?raw';
 
-import ZIndex from '@examples/components/popover/react/z-index';
-import ZIndexRaw from '@examples/components/popover/react/z-index?raw';
+import Dir from '@/examples/components/popover/react/dir';
+import DirRaw from '@/examples/components/popover/react/dir?raw';
 
-import Dir from '@examples/components/popover/react/dir';
-import DirRaw from '@examples/components/popover/react/dir?raw';
-
-import Headless from '@examples/components/popover/react/headless';
-import HeadlessRaw from '@examples/components/popover/react/headless?raw';
+import Headless from '@/examples/components/popover/react/headless';
+import HeadlessRaw from '@/examples/components/popover/react/headless?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

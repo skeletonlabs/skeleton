@@ -1,26 +1,24 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/slider/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/slider/svelte/default.svelte?raw';
 
-import Default from '@examples/components/slider/svelte/default.svelte';
-import DefaultRaw from '@examples/components/slider/svelte/default.svelte?raw';
+import Color from '@/examples/components/slider/svelte/color.svelte';
+import ColorRaw from '@/examples/components/slider/svelte/color.svelte?raw';
 
-import Color from '@examples/components/slider/svelte/color.svelte';
-import ColorRaw from '@examples/components/slider/svelte/color.svelte?raw';
+import Disabled from '@/examples/components/slider/svelte/disabled.svelte';
+import DisabledRaw from '@/examples/components/slider/svelte/disabled.svelte?raw';
 
-import Disabled from '@examples/components/slider/svelte/disabled.svelte';
-import DisabledRaw from '@examples/components/slider/svelte/disabled.svelte?raw';
+import Readonly from '@/examples/components/slider/svelte/readonly.svelte';
+import ReadonlyRaw from '@/examples/components/slider/svelte/readonly.svelte?raw';
 
-import Readonly from '@examples/components/slider/svelte/readonly.svelte';
-import ReadonlyRaw from '@examples/components/slider/svelte/readonly.svelte?raw';
+import MultipleThumbs from '@/examples/components/slider/svelte/multiple-thumbs.svelte';
+import MultipleThumbsRaw from '@/examples/components/slider/svelte/multiple-thumbs.svelte?raw';
 
-import MultipleThumbs from '@examples/components/slider/svelte/multiple-thumbs.svelte';
-import MultipleThumbsRaw from '@examples/components/slider/svelte/multiple-thumbs.svelte?raw';
-
-import Dir from '@examples/components/slider/svelte/dir.svelte';
-import DirRaw from '@examples/components/slider/svelte/dir.svelte?raw';
+import Dir from '@/examples/components/slider/svelte/dir.svelte';
+import DirRaw from '@/examples/components/slider/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
