@@ -1,5 +1,4 @@
 export type { AccordionItemContentProps } from './anatomy/item-content.svelte';
-export type { AccordionItemHeadingProps } from './anatomy/item-heading.svelte';
 export type { AccordionItemIndicatorProps } from './anatomy/item-indicator.svelte';
 export type { AccordionItemProps } from './anatomy/item.svelte';
 export type { AccordionRootProps } from './anatomy/root.svelte';

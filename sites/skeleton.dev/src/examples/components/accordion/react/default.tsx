@@ -7,7 +7,7 @@ export default function Default() {
 	return (
 		<Accordion>
 			<Accordion.Item value="item-1">
-				<Accordion.ItemHeading>
+				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconClub />
 						<span>Club</span>
@@ -15,12 +15,12 @@ export default function Default() {
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-1') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-				</Accordion.ItemHeading>
+				</h3>
 				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-2">
-				<Accordion.ItemHeading>
+				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconDiamond />
 						<span>Diamond</span>
@@ -28,12 +28,12 @@ export default function Default() {
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-2') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-				</Accordion.ItemHeading>
+				</h3>
 				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-3">
-				<Accordion.ItemHeading>
+				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconHeart />
 						<span>Heart</span>
@@ -41,12 +41,12 @@ export default function Default() {
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-3') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-				</Accordion.ItemHeading>
+				</h3>
 				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 			<hr className="hr" />
 			<Accordion.Item value="item-4">
-				<Accordion.ItemHeading>
+				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[auto_1fr_auto] gap-2">
 						<IconSpade />
 						<span>Spade</span>
@@ -54,7 +54,7 @@ export default function Default() {
 							<Accordion.Context>{(accordion) => (accordion.value.includes('item-4') ? '-' : '+')}</Accordion.Context>
 						</Accordion.ItemIndicator>
 					</Accordion.ItemTrigger>
-				</Accordion.ItemHeading>
+				</h3>
 				<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 			</Accordion.Item>
 		</Accordion>

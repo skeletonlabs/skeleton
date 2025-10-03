@@ -17,13 +17,6 @@ describe('Accordion', () => {
 		});
 	});
 
-	describe('ItemHeading', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-heading')).toBeInTheDocument();
-		});
-	});
-
 	describe('ItemTrigger', () => {
 		it('renders', () => {
 			render(<Test />);
