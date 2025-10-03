@@ -452,7 +452,6 @@ Before submitting documentation:
 
 ## Common Mistakes to Avoid
 
-- Forgetting `` at the top
 - Incorrect import paths (use `@examples/` alias)
 - Missing `.tsx` or `.svelte` extensions in imports
 - Not using `?raw` suffix for source code imports
