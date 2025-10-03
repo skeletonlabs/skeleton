@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-svelte
 
+## 2.0.0-next.21
+
+### Minor Changes
+
+- feat: date picker ([#3835](https://github.com/skeletonlabs/skeleton/pull/3835))
+
+### Patch Changes
+
+- chore: remove Accordion.ItemHeading in favor of having users provide a <h3> themselves ([#3850](https://github.com/skeletonlabs/skeleton/pull/3850))
+
+- Updated dependencies [[`5dcc4bb`](https://github.com/skeletonlabs/skeleton/commit/5dcc4bb6ce3d7de181956932521b5fec10a581f2), [`867170c`](https://github.com/skeletonlabs/skeleton/commit/867170cc7f5aa8def2ebf4d9569bbde42492d133)]:
+  - @skeletonlabs/skeleton-common@1.0.0-next.16
+
 ## 2.0.0-next.20
 
 ### Patch Changes

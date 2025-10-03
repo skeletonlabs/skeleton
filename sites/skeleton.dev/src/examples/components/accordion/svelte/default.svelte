@@ -11,7 +11,7 @@
 
 <Accordion>
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
 				<IconClub />
 				<span>Club</span>
@@ -23,12 +23,12 @@
 					</Accordion.Context>
 				</Accordion.ItemIndicator>
 			</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 	</Accordion.Item>
 	<hr class="hr" />
 	<Accordion.Item value="item-2">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
 				<IconDiamond />
 				<span>Diamond</span>
@@ -40,12 +40,12 @@
 					</Accordion.Context>
 				</Accordion.ItemIndicator>
 			</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 	</Accordion.Item>
 	<hr class="hr" />
 	<Accordion.Item value="item-3">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
 				<IconHeart />
 				<span>Heart</span>
@@ -57,12 +57,12 @@
 					</Accordion.Context>
 				</Accordion.ItemIndicator>
 			</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 	</Accordion.Item>
 	<hr class="hr" />
 	<Accordion.Item value="item-4">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
 				<IconSpade />
 				<span>Spade</span>
@@ -74,7 +74,7 @@
 					</Accordion.Context>
 				</Accordion.ItemIndicator>
 			</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
 	</Accordion.Item>
 </Accordion>

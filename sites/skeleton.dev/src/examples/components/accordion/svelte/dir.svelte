@@ -4,23 +4,23 @@
 
 <Accordion dir="rtl">
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 	</Accordion.Item>
 	<hr class="hr" />
 	<Accordion.Item value="item-2">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 2</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 2</Accordion.ItemContent>
 	</Accordion.Item>
 	<hr class="hr" />
 	<Accordion.Item value="item-3">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 3</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 3</Accordion.ItemContent>
 	</Accordion.Item>
 </Accordion>

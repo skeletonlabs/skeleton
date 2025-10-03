@@ -76,7 +76,7 @@
 			{#each items as item (item)}
 				<hr class="hr" />
 				<Accordion.Item value={item.value} class="p-0">
-					<Accordion.ItemHeading class="h4">
+					<h4 class="h4">
 						<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none">
 							<span class="btn-icon preset-tonal">
 								<svelte:component this={item.icon} class="size-5" />
@@ -94,7 +94,7 @@
 								</Accordion.Context>
 							</Accordion.ItemIndicator>
 						</Accordion.ItemTrigger>
-					</Accordion.ItemHeading>
+					</h4>
 					<Accordion.ItemContent class="p-5">
 						<svelte:component this={item.component} />
 					</Accordion.ItemContent>
