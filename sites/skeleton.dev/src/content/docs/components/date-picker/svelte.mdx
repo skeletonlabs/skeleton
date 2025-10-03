@@ -1,29 +1,27 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Controlled from '@/examples/components/date-picker/svelte/controlled.svelte';
+import ControlledRaw from '@/examples/components/date-picker/svelte/controlled.svelte?raw';
 
-import Controlled from '@examples/components/date-picker/svelte/controlled.svelte';
-import ControlledRaw from '@examples/components/date-picker/svelte/controlled.svelte?raw';
+import Default from '@/examples/components/date-picker/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/date-picker/svelte/default.svelte?raw';
 
-import Default from '@examples/components/date-picker/svelte/default.svelte';
-import DefaultRaw from '@examples/components/date-picker/svelte/default.svelte?raw';
+import Disabled from '@/examples/components/date-picker/svelte/disabled.svelte';
+import DisabledRaw from '@/examples/components/date-picker/svelte/disabled.svelte?raw';
 
-import Disabled from '@examples/components/date-picker/svelte/disabled.svelte';
-import DisabledRaw from '@examples/components/date-picker/svelte/disabled.svelte?raw';
+import MinMax from '@/examples/components/date-picker/svelte/min-max.svelte';
+import MinMaxRaw from '@/examples/components/date-picker/svelte/min-max.svelte?raw';
 
-import MinMax from '@examples/components/date-picker/svelte/min-max.svelte';
-import MinMaxRaw from '@examples/components/date-picker/svelte/min-max.svelte?raw';
+import Range from '@/examples/components/date-picker/svelte/range.svelte';
+import RangeRaw from '@/examples/components/date-picker/svelte/range.svelte?raw';
 
-import Range from '@examples/components/date-picker/svelte/range.svelte';
-import RangeRaw from '@examples/components/date-picker/svelte/range.svelte?raw';
+import Inline from '@/examples/components/date-picker/svelte/inline.svelte';
+import InlineRaw from '@/examples/components/date-picker/svelte/inline.svelte?raw';
 
-import Inline from '@examples/components/date-picker/svelte/inline.svelte';
-import InlineRaw from '@examples/components/date-picker/svelte/inline.svelte?raw';
-
-import WithSelects from '@examples/components/date-picker/svelte/with-selects.svelte';
-import WithSelectsRaw from '@examples/components/date-picker/svelte/with-selects.svelte?raw';
+import WithSelects from '@/examples/components/date-picker/svelte/with-selects.svelte';
+import WithSelectsRaw from '@/examples/components/date-picker/svelte/with-selects.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

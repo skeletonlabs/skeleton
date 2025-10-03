@@ -1,20 +1,18 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Figma UI kit
 description: Welcome to the Skeleton Figma Design System Tutorials!
 order: 60
 ---
 
-export const components = componentSet;
+import FigmaBuyNow from '@/components/docs/FigmaBuyNow.astro';
+import NavGrid from '@/components/docs/NavGrid.astro';
 
-import FigmaBuyNow from '@components/docs/FigmaBuyNow.astro';
-import NavGrid from '@components/docs/NavGrid.astro';
-
-import ImgComponents from '@images/get-started/figma/components.webp';
-import ImgHero from '@images/get-started/figma/hero.webp';
-import ImgPlugin from '@images/get-started/figma/plugin.webp';
-import ImgTutorial from '@images/get-started/figma/tutorials.webp';
-import ImgKit from '@images/get-started/figma/ui-kit.webp';
+import ImgComponents from '@/images/get-started/figma/components.webp';
+import ImgHero from '@/images/get-started/figma/hero.webp';
+import ImgPlugin from '@/images/get-started/figma/plugin.webp';
+import ImgTutorial from '@/images/get-started/figma/tutorials.webp';
+import ImgKit from '@/images/get-started/figma/ui-kit.webp';
 import { Image } from 'astro:assets';
 import { Clock3 } from 'lucide-react';
 import { Shapes } from 'lucide-react';

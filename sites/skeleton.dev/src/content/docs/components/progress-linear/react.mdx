@@ -1,32 +1,30 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/progress-linear/react/default';
+import DefaultRaw from '@/examples/components/progress-linear/react/default?raw';
 
-import Default from '@examples/components/progress-linear/react/default';
-import DefaultRaw from '@examples/components/progress-linear/react/default?raw';
+import Color from '@/examples/components/progress-linear/react/color';
+import ColorRaw from '@/examples/components/progress-linear/react/color?raw';
 
-import Color from '@examples/components/progress-linear/react/color';
-import ColorRaw from '@examples/components/progress-linear/react/color?raw';
+import Height from '@/examples/components/progress-linear/react/height';
+import HeightRaw from '@/examples/components/progress-linear/react/height?raw';
 
-import Height from '@examples/components/progress-linear/react/height';
-import HeightRaw from '@examples/components/progress-linear/react/height?raw';
+import Orientation from '@/examples/components/progress-linear/react/orientation';
+import OrientationRaw from '@/examples/components/progress-linear/react/orientation?raw';
 
-import Orientation from '@examples/components/progress-linear/react/orientation';
-import OrientationRaw from '@examples/components/progress-linear/react/orientation?raw';
+import Indeterminate from '@/examples/components/progress-linear/react/indeterminate';
+import IndeterminateRaw from '@/examples/components/progress-linear/react/indeterminate?raw';
 
-import Indeterminate from '@examples/components/progress-linear/react/indeterminate';
-import IndeterminateRaw from '@examples/components/progress-linear/react/indeterminate?raw';
+import CustomAnimation from '@/examples/components/progress-linear/react/custom-animation';
+import CustomAnimationRaw from '@/examples/components/progress-linear/react/custom-animation?raw';
 
-import CustomAnimation from '@examples/components/progress-linear/react/custom-animation';
-import CustomAnimationRaw from '@examples/components/progress-linear/react/custom-animation?raw';
+import Native from '@/examples/components/progress-linear/react/native';
+import NativeRaw from '@/examples/components/progress-linear/react/native?raw';
 
-import Native from '@examples/components/progress-linear/react/native';
-import NativeRaw from '@examples/components/progress-linear/react/native?raw';
-
-import Dir from '@examples/components/progress-linear/react/dir';
-import DirRaw from '@examples/components/progress-linear/react/dir?raw';
+import Dir from '@/examples/components/progress-linear/react/dir';
+import DirRaw from '@/examples/components/progress-linear/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

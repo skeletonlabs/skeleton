@@ -1,5 +1,6 @@
 ---
-import LayoutRoot from '@layouts/LayoutRoot.astro';
+import { components } from '@/components/mdx';
+import LayoutRoot from '@/layouts/LayoutRoot.astro';
 import type { GetStaticPaths } from 'astro';
 import { render } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
@@ -19,15 +20,15 @@ export const getStaticPaths = (async () => {
 const { page } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(page);
 
-let meta: Awaited<ReturnType<typeof getEntry>>;
-if (['components/', 'integrations/'].some((id) => page.id.startsWith(id))) {
-	meta = await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta'));
-	if (meta !== undefined) {
-		Object.assign(remarkPluginFrontmatter, meta.data);
-	}
+const meta = ['components/', 'integrations/'].some((id) => page.id.startsWith(id))
+	? await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta'))
+	: undefined;
+
+if (meta) {
+	Object.assign(remarkPluginFrontmatter, meta.data);
 }
 ---
 
 <LayoutRoot title={meta ? meta.data.title : page.data.title} description={meta ? meta.data.title : page.data.description}>
-	<Content />
+	<Content components={components} />
 </LayoutRoot>

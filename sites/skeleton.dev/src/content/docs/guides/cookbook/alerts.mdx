@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Alerts
 description: General purpose notifications to attract attention and provide critical actions.
 showDocsUrl: true
@@ -7,12 +7,10 @@ pubDate: 2024-11-18
 tags: ['blocks', 'notifications']
 ---
 
-export const components = componentSet;
-
-import Example from '@examples/guides/cookbook/alerts/Example.astro';
-import ExampleRaw from '@examples/guides/cookbook/alerts/Example.astro?raw';
-import ExampleColors from '@examples/guides/cookbook/alerts/ExampleColors.astro';
-import ExampleColorsRaw from '@examples/guides/cookbook/alerts/ExampleColors.astro?raw';
+import Example from '@/examples/guides/cookbook/alerts/Example.astro';
+import ExampleRaw from '@/examples/guides/cookbook/alerts/Example.astro?raw';
+import ExampleColors from '@/examples/guides/cookbook/alerts/ExampleColors.astro';
+import ExampleColorsRaw from '@/examples/guides/cookbook/alerts/ExampleColors.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">

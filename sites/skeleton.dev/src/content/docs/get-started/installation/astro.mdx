@@ -1,14 +1,12 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Astro
 description: Install and configure Skeleton for Astro.
 order: 1000
 ---
 
-export const components = componentSet;
-
-import Process from '@components/docs/Process.astro';
-import ProcessStep from '@components/docs/ProcessStep.astro';
+import Process from '@/components/docs/Process.astro';
+import ProcessStep from '@/components/docs/ProcessStep.astro';
 
 {/* --- */}
 
@@ -138,7 +136,7 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
     	```
     	```astro title="page.astro"
     	---
-    	import { ReactAvatarWrapper } from '@components/ReactAvatarWrapper';
+    	import { ReactAvatarWrapper } from '@/components/ReactAvatarWrapper';
     	---
 
     	<ReactAvatarWrapper />
@@ -154,7 +152,7 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
     	```
     	```astro title="page.astro"
     	---
-    	import { SvelteAvatarWrapper } from '@components/SvelteAvatarWrapper';
+    	import { SvelteAvatarWrapper } from '@/components/SvelteAvatarWrapper';
     	---
 
     	<SvelteAvatarWrapper />

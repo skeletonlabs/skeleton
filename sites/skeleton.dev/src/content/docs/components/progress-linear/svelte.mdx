@@ -1,32 +1,30 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/progress-linear/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/progress-linear/svelte/default.svelte?raw';
 
-import Default from '@examples/components/progress-linear/svelte/default.svelte';
-import DefaultRaw from '@examples/components/progress-linear/svelte/default.svelte?raw';
+import Color from '@/examples/components/progress-linear/svelte/color.svelte';
+import ColorRaw from '@/examples/components/progress-linear/svelte/color.svelte?raw';
 
-import Color from '@examples/components/progress-linear/svelte/color.svelte';
-import ColorRaw from '@examples/components/progress-linear/svelte/color.svelte?raw';
+import Height from '@/examples/components/progress-linear/svelte/height.svelte';
+import HeightRaw from '@/examples/components/progress-linear/svelte/height.svelte?raw';
 
-import Height from '@examples/components/progress-linear/svelte/height.svelte';
-import HeightRaw from '@examples/components/progress-linear/svelte/height.svelte?raw';
+import Orientation from '@/examples/components/progress-linear/svelte/orientation.svelte';
+import OrientationRaw from '@/examples/components/progress-linear/svelte/orientation.svelte?raw';
 
-import Orientation from '@examples/components/progress-linear/svelte/orientation.svelte';
-import OrientationRaw from '@examples/components/progress-linear/svelte/orientation.svelte?raw';
+import Indeterminate from '@/examples/components/progress-linear/svelte/indeterminate.svelte';
+import IndeterminateRaw from '@/examples/components/progress-linear/svelte/indeterminate.svelte?raw';
 
-import Indeterminate from '@examples/components/progress-linear/svelte/indeterminate.svelte';
-import IndeterminateRaw from '@examples/components/progress-linear/svelte/indeterminate.svelte?raw';
+import CustomAnimation from '@/examples/components/progress-linear/svelte/custom-animation.svelte';
+import CustomAnimationRaw from '@/examples/components/progress-linear/svelte/custom-animation.svelte?raw';
 
-import CustomAnimation from '@examples/components/progress-linear/svelte/custom-animation.svelte';
-import CustomAnimationRaw from '@examples/components/progress-linear/svelte/custom-animation.svelte?raw';
+import Native from '@/examples/components/progress-linear/svelte/native.svelte';
+import NativeRaw from '@/examples/components/progress-linear/svelte/native.svelte?raw';
 
-import Native from '@examples/components/progress-linear/svelte/native.svelte';
-import NativeRaw from '@examples/components/progress-linear/svelte/native.svelte?raw';
-
-import Dir from '@examples/components/progress-linear/svelte/dir.svelte';
-import DirRaw from '@examples/components/progress-linear/svelte/dir.svelte?raw';
+import Dir from '@/examples/components/progress-linear/svelte/dir.svelte';
+import DirRaw from '@/examples/components/progress-linear/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

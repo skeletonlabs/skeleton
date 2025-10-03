@@ -43,21 +43,19 @@ export default defineConfig({
 		// https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import
 		AutoImport({
 			imports: [
-				// import ApiTable from '@components/docs/ApiTable.astro';
-				'@components/docs/ApiTable.astro',
-				// import Anatomy from '@components/docs/Anatomy.astro';
-				'@components/docs/Anatomy.astro',
+				// import ApiTable from '@/components/docs/ApiTable.astro';
+				'@/components/docs/ApiTable.astro',
+				// import Anatomy from '@/components/docs/Anatomy.astro';
+				'@/components/docs/Anatomy.astro',
 				{
-					// import componentSet from "@components/mdx/index";
-					'@components/mdx/index': [['default', 'componentSet']],
 					// import { Icon } from 'astro-icon/components';
 					'astro-icon/components': ['Icon'],
 					// import { Code } from 'astro-expressive-code/components';
 					'astro-expressive-code/components': ['Code'],
-					// import { Preview } from '@components/docs/Preview.tsx';
-					'@components/docs/Preview.tsx': ['Preview'],
-					// import { FrameworkTabs } from '@components/docs/FrameworkTabs';
-					'@components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
+					// import { Preview } from '@/components/docs/Preview.tsx';
+					'@/components/docs/Preview.tsx': ['Preview'],
+					// import { FrameworkTabs } from '@/components/docs/FrameworkTabs';
+					'@/components/docs/FrameworkTabs.tsx': ['FrameworkTabs'],
 				},
 			],
 		}),
