@@ -1,11 +1,9 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
-
-import Default from '@examples/components/tree-view/react/default';
-import DefaultRaw from '@examples/components/tree-view/react/default?raw';
+import Default from '@/examples/components/tree-view/react/default';
+import DefaultRaw from '@/examples/components/tree-view/react/default?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
