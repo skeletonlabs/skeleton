@@ -1,11 +1,9 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Documentation
 description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
 ---
-
-export const components = componentSet;
 
 ## Astro
 
@@ -70,20 +68,6 @@ If you wish to prevent a page from showing in the navigation, prefix it with an 
 
 View the [Astro MDX Documentation](https://docs.astro.build/en/guides/markdown-content/) or refer to `/src/content/docs/resources/_markdown.md` for a "kitchen sink" example page.
 
-### MDX Components
-
-This application makes use of [custom MDX components](https://mdxjs.com/table-of-components/) to enable Skeleton typography styles for page contents. Browse these components within `/src/components/mdx`. To enable MDX components for your page, add the following import.
-
-```mdx
----
-{ /* (frontmatter) */ }
----
-
-export const components = componentSet {/* <-- ADD THIS! */}
-
-{/* (content) */}
-```
-
 ## Doc-Only Components
 
 Functional components for the Astro project are housed in `/src/components`. These support Astro/Svelte/React.
@@ -114,8 +98,8 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via
 Allows you to quickly toggle between an example component and it's source code.
 
 ```ts
-import Example from '@examples/foo/Example.astro';
-import ExampleRaw from '@examples/foo/Example.astro?raw';
+import Example from '@/examples/foo/Example.astro';
+import ExampleRaw from '@/examples/foo/Example.astro?raw';
 ```
 
 ```astro

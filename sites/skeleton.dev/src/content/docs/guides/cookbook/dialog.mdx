@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Dialog Element
 description: Implement a simple popup dialog using the native HTML element.
 showDocsUrl: true
@@ -7,10 +7,8 @@ pubDate: 2024-11-19
 tags: ['native', 'popover']
 ---
 
-export const components = componentSet;
-
-import Example from '@examples/guides/cookbook/dialog/Example.astro';
-import ExampleRaw from '@examples/guides/cookbook/dialog/Example.astro?raw';
+import Example from '@/examples/guides/cookbook/dialog/Example.astro';
+import ExampleRaw from '@/examples/guides/cookbook/dialog/Example.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">

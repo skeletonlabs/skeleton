@@ -1,26 +1,24 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/accordion/react/default';
+import DefaultRaw from '@/examples/components/accordion/react/default?raw';
 
-import Default from '@examples/components/accordion/react/default';
-import DefaultRaw from '@examples/components/accordion/react/default?raw';
+import Controlled from '@/examples/components/accordion/react/controlled';
+import ControlledRaw from '@/examples/components/accordion/react/controlled?raw';
 
-import Controlled from '@examples/components/accordion/react/controlled';
-import ControlledRaw from '@examples/components/accordion/react/controlled?raw';
+import Collapsible from '@/examples/components/accordion/react/collapsible';
+import CollapsibleRaw from '@/examples/components/accordion/react/collapsible?raw';
 
-import Collapsible from '@examples/components/accordion/react/collapsible';
-import CollapsibleRaw from '@examples/components/accordion/react/collapsible?raw';
+import Multiple from '@/examples/components/accordion/react/multiple';
+import MultipleRaw from '@/examples/components/accordion/react/multiple?raw';
 
-import Multiple from '@examples/components/accordion/react/multiple';
-import MultipleRaw from '@examples/components/accordion/react/multiple?raw';
+import Columns from '@/examples/components/accordion/react/columns';
+import ColumnsRaw from '@/examples/components/accordion/react/columns?raw';
 
-import Columns from '@examples/components/accordion/react/columns';
-import ColumnsRaw from '@examples/components/accordion/react/columns?raw';
-
-import Dir from '@examples/components/accordion/react/dir';
-import DirRaw from '@examples/components/accordion/react/dir?raw';
+import Dir from '@/examples/components/accordion/react/dir';
+import DirRaw from '@/examples/components/accordion/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

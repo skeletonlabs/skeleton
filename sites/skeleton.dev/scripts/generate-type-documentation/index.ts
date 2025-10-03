@@ -1,5 +1,4 @@
-// oxlint-disable-next-line no-unused-vars
-import { MONOREPO_DIRECTORY, PACKAGE_DIRECTORY, SITE_DIRECTORY } from './constants';
+import { PACKAGE_DIRECTORY, SITE_DIRECTORY } from './constants';
 import { Parser } from './parser';
 import { kebabToCamel, kebabToPascal } from './string-utils';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';

@@ -1,17 +1,15 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/avatar/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/avatar/svelte/default.svelte?raw';
 
-import Default from '@examples/components/avatar/svelte/default.svelte';
-import DefaultRaw from '@examples/components/avatar/svelte/default.svelte?raw';
+import Fallback from '@/examples/components/avatar/svelte/fallback.svelte';
+import FallbackRaw from '@/examples/components/avatar/svelte/fallback.svelte?raw';
 
-import Fallback from '@examples/components/avatar/svelte/fallback.svelte';
-import FallbackRaw from '@examples/components/avatar/svelte/fallback.svelte?raw';
-
-import Filter from '@examples/components/avatar/svelte/filter.svelte';
-import FilterRaw from '@examples/components/avatar/svelte/filter.svelte?raw';
+import Filter from '@/examples/components/avatar/svelte/filter.svelte';
+import FilterRaw from '@/examples/components/avatar/svelte/filter.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">

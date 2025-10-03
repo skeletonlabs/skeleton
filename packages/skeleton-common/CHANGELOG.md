@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.22
+
+### Patch Changes
+
+- chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
+
 ## 1.0.0-next.16
 
 ### Minor Changes

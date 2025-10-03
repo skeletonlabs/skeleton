@@ -1,17 +1,15 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Bits UI
 description: Flexible, unstyled, and accessible primitives that provide the foundation for building your own high-quality Svelte component library.
 ---
 
-export const components = componentSet;
-
-import ImgBanner from '@images/headless/bits-ui/bits-banner.png';
-import ImgComponent from '@images/headless/bits-ui/bits-component.gif';
+import ImgBanner from '@/images/headless/bits-ui/bits-banner.png';
+import ImgComponent from '@/images/headless/bits-ui/bits-component.gif';
 import { Image } from 'astro:assets';
 
-import Process from '@components/docs/Process.astro';
-import ProcessStep from '@components/docs/ProcessStep.astro';
+import Process from '@/components/docs/Process.astro';
+import ProcessStep from '@/components/docs/ProcessStep.astro';
 
 <Image src={ImgBanner} alt="banner" class="rounded-container shadow-xl" />
 

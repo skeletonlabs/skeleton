@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.0.0-next.22
+
+### Patch Changes
+
+- chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
+
+- Updated dependencies [[`f818b24`](https://github.com/skeletonlabs/skeleton/commit/f818b2478f9ee0b5f64f119fd69d1a27a58c1d07)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.22
+
 ## 2.0.0-next.20
 
 ### Minor Changes

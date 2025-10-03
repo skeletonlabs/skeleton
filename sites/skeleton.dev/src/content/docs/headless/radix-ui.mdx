@@ -1,17 +1,15 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: Radix UI
 description: Unstyled, accessible, open source React primitives for high-quality web apps and design systems.
 ---
 
-export const components = componentSet;
-
-import ImgBanner from '@images/headless/radix-ui/radix-banner.png';
-import ImgComponent from '@images/headless/radix-ui/radix-component.gif';
+import ImgBanner from '@/images/headless/radix-ui/radix-banner.png';
+import ImgComponent from '@/images/headless/radix-ui/radix-component.gif';
 import { Image } from 'astro:assets';
 
-import Process from '@components/docs/Process.astro';
-import ProcessStep from '@components/docs/ProcessStep.astro';
+import Process from '@/components/docs/Process.astro';
+import ProcessStep from '@/components/docs/ProcessStep.astro';
 
 <Image src={ImgBanner} alt="banner" class="rounded-container shadow-xl" />
 

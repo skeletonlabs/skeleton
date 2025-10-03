@@ -1,23 +1,21 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 title: 1 - Setup & Usage
 description: Get Started with Skeleton.
 order: 0
 ---
 
-export const components = componentSet;
+import NavGrid from '@/components/docs/NavGrid.astro';
+import Process from '@/components/docs/Process.astro';
+import ProcessStep from '@/components/docs/ProcessStep.astro';
 
-import NavGrid from '@components/docs/NavGrid.astro';
-import Process from '@components/docs/Process.astro';
-import ProcessStep from '@components/docs/ProcessStep.astro';
-
-import ImgCreateNewProject from '@images/tutorials/figma/chapter-1/01_createNewProject.webp';
-import ImgImportProject from '@images/tutorials/figma/chapter-1/02_importProject.webp';
-import ImgPublish from '@images/tutorials/figma/chapter-1/03_publish.webp';
-import ImgCreateNewFile from '@images/tutorials/figma/chapter-1/04_createNewFile.webp';
-import ImgSelectLibrary from '@images/tutorials/figma/chapter-1/05_selectLibrary.webp';
-import ImgUseLibrary from '@images/tutorials/figma/chapter-1/06_useLibrary.webp';
-import SvgSkeleton from '@images/tutorials/figma/skeletonFileIcon.svg';
+import ImgCreateNewProject from '@/images/tutorials/figma/chapter-1/01_createNewProject.webp';
+import ImgImportProject from '@/images/tutorials/figma/chapter-1/02_importProject.webp';
+import ImgPublish from '@/images/tutorials/figma/chapter-1/03_publish.webp';
+import ImgCreateNewFile from '@/images/tutorials/figma/chapter-1/04_createNewFile.webp';
+import ImgSelectLibrary from '@/images/tutorials/figma/chapter-1/05_selectLibrary.webp';
+import ImgUseLibrary from '@/images/tutorials/figma/chapter-1/06_useLibrary.webp';
+import SvgSkeleton from '@/images/tutorials/figma/skeletonFileIcon.svg';
 import { BookOpen } from '@lucide/svelte';
 import { Image } from 'astro:assets';
 

@@ -1,26 +1,24 @@
 ---
-layout: '@layouts/LayoutDoc.astro'
+layout: '@/layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
+import Default from '@/examples/components/file-upload/svelte/default.svelte';
+import DefaultRaw from '@/examples/components/file-upload/svelte/default.svelte?raw';
 
-import Default from '@examples/components/file-upload/svelte/default.svelte';
-import DefaultRaw from '@examples/components/file-upload/svelte/default.svelte?raw';
+import CustomContent from '@/examples/components/file-upload/svelte/custom-content.svelte';
+import CustomContentRaw from '@/examples/components/file-upload/svelte/custom-content.svelte?raw';
 
-import CustomContent from '@examples/components/file-upload/svelte/custom-content.svelte';
-import CustomContentRaw from '@examples/components/file-upload/svelte/custom-content.svelte?raw';
+import Disabled from '@/examples/components/file-upload/svelte/disabled.svelte';
+import DisabledRaw from '@/examples/components/file-upload/svelte/disabled.svelte?raw';
 
-import Disabled from '@examples/components/file-upload/svelte/disabled.svelte';
-import DisabledRaw from '@examples/components/file-upload/svelte/disabled.svelte?raw';
+import Button from '@/examples/components/file-upload/svelte/button.svelte';
+import ButtonRaw from '@/examples/components/file-upload/svelte/button.svelte?raw';
 
-import Button from '@examples/components/file-upload/svelte/button.svelte';
-import ButtonRaw from '@examples/components/file-upload/svelte/button.svelte?raw';
+import ClearFiles from '@/examples/components/file-upload/svelte/clear-files.svelte';
+import ClearFilesRaw from '@/examples/components/file-upload/svelte/clear-files.svelte?raw';
 
-import ClearFiles from '@examples/components/file-upload/svelte/clear-files.svelte';
-import ClearFilesRaw from '@examples/components/file-upload/svelte/clear-files.svelte?raw';
-
-import Dir from '@examples/components/file-upload/svelte/dir.svelte';
-import DirRaw from '@examples/components/file-upload/svelte/dir.svelte?raw';
+import Dir from '@/examples/components/file-upload/svelte/dir.svelte';
+import DirRaw from '@/examples/components/file-upload/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
