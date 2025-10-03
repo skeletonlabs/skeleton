@@ -53,12 +53,27 @@ npm remove @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
 npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
 ```
 
-### Remove Source Import
+---
 
-The `@source` import in your global stylesheet (ex: `app.css`) is no longer required. Please remove this, but keep all other Skeleton-related imports.
+## Migrating Your Global Stylesheet
 
-```css
-@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+The following migration steps apply to your global stylesheet (ex: `app.css`).
+
+### Replace Source Rules
+
+The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
+
+```diff
+- @source '../node_modules/@skeletonlabs/skeleton-{framework}/dist';
++ @import '@skeletonlabs/skeleton-{framework}';
+```
+
+### Remove Optional Preset Import
+
+The optional preset import is no longer required as these styles are now part of the core package.
+
+```diff
+- @import '@skeletonlabs/skeleton/optional/presets';
 ```
 
 ---
@@ -97,7 +112,6 @@ As part of this update, select components have been renamed to follow [Zag.js](h
 | Was (v3)         | Now (v4)             | v4 Docs                                           |
 | ---------------- | -------------------- | ------------------------------------------------- |
 | `<Modal>`        | `<Dialog>`           | [Link](/docs/components/dialog/svelte)            |
-| `<ProgressBar>`  | `<Progress>`         | [Link](/docs/components/progress-linear/svelte)   |
 | `<ProgressRing>` | `<Progress>`         | [Link](/docs/components/progress-circular/svelte) |
 | `<Ratings>`      | `<RatingGroup>`      | [Link](/docs/components/rating-group/svelte)      |
 | `<Segment>`      | `<SegmentedControl>` | [Link](/docs/components/segmented-control/svelte) |
