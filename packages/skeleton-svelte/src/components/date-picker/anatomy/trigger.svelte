@@ -1,0 +1,41 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+
+	export interface DatePickerTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+</script>
+
+<script lang="ts">
+	import { RootContext } from '../modules/root-context';
+	import CalendarIcon from '@/internal/components/calendar.svelte';
+	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: DatePickerTriggerProps = $props();
+
+	const datePicker = RootContext.consume();
+
+	const { element, children = calendarIcon, ...rest } = $derived(props);
+
+	const attributes = $derived(
+		mergeProps(
+			datePicker().getTriggerProps(),
+			{
+				class: classesDatePicker.trigger,
+			},
+			rest,
+		),
+	);
+</script>
+
+{#snippet calendarIcon()}
+	<CalendarIcon />
+{/snippet}
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<button {...attributes}>
+		{@render children?.()}
+	</button>
+{/if}

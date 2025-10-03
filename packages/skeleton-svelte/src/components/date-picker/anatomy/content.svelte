@@ -1,0 +1,36 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+
+	export interface DatePickerContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+</script>
+
+<script lang="ts">
+	import { RootContext } from '../modules/root-context';
+	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: DatePickerContentProps = $props();
+
+	const datePicker = RootContext.consume();
+
+	const { element, children, ...rest } = $derived(props);
+
+	const attributes = $derived(
+		mergeProps(
+			datePicker().getContentProps(),
+			{
+				class: classesDatePicker.content,
+			},
+			rest,
+		),
+	);
+</script>
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

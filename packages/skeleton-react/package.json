@@ -32,6 +32,7 @@
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
+		"@zag-js/date-picker": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/pagination": "catalog:",
