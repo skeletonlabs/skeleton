@@ -86,18 +86,6 @@ layout: '@layouts/LayoutDoc.astro'
 ---
 ```
 
-### Required Exports
-
-Must include this line at the top after frontmatter:
-
-```mdx
-export const components = componentSet;
-
-;
-```
-
-This enables custom MDX component overrides (styled headings, links, tables, etc.).
-
 ### Import Pattern
 
 Import examples and their raw source code in **alphabetical order by feature name**:
@@ -357,8 +345,6 @@ The generation script is in `scripts/generate-type-documentation/`.
 layout: '@layouts/LayoutDoc.astro'
 ---
 
-export const components = componentSet;
-
 import Default from '@examples/components/example/react/default.tsx';
 import DefaultRaw from '@examples/components/example/react/default.tsx?raw';
 
@@ -466,7 +452,7 @@ Before submitting documentation:
 
 ## Common Mistakes to Avoid
 
-- Forgetting `export const components = componentSet;` at the top
+- Forgetting `` at the top
 - Incorrect import paths (use `@examples/` alias)
 - Missing `.tsx` or `.svelte` extensions in imports
 - Not using `?raw` suffix for source code imports

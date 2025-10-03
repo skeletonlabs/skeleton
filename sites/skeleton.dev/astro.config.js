@@ -48,8 +48,6 @@ export default defineConfig({
 				// import Anatomy from '@components/docs/Anatomy.astro';
 				'@components/docs/Anatomy.astro',
 				{
-					// import componentSet from "@components/mdx/index";
-					'@components/mdx/index': [['default', 'componentSet']],
 					// import { Icon } from 'astro-icon/components';
 					'astro-icon/components': ['Icon'],
 					// import { Code } from 'astro-expressive-code/components';

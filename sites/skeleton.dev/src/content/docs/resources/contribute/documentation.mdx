@@ -5,8 +5,6 @@ description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
 ---
 
-export const components = componentSet;
-
 ## Astro
 
 The Skeleton documentation website is maintained using the Astro framework.
@@ -69,20 +67,6 @@ If you wish to prevent a page from showing in the navigation, prefix it with an 
 ## Using MDX
 
 View the [Astro MDX Documentation](https://docs.astro.build/en/guides/markdown-content/) or refer to `/src/content/docs/resources/_markdown.md` for a "kitchen sink" example page.
-
-### MDX Components
-
-This application makes use of [custom MDX components](https://mdxjs.com/table-of-components/) to enable Skeleton typography styles for page contents. Browse these components within `/src/components/mdx`. To enable MDX components for your page, add the following import.
-
-```mdx
----
-{ /* (frontmatter) */ }
----
-
-export const components = componentSet {/* <-- ADD THIS! */}
-
-{/* (content) */}
-```
 
 ## Doc-Only Components
 
