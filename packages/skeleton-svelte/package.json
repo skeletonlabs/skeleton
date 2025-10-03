@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "2.0.0-next.20",
+	"version": "2.0.0-next.21",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -33,6 +33,7 @@
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
+		"@zag-js/date-picker": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/pagination": "catalog:",

@@ -114,6 +114,9 @@ catalogs:
     '@zag-js/combobox':
       specifier: 1.25.0
       version: 1.25.0
+    '@zag-js/date-picker':
+      specifier: 1.25.0
+      version: 1.25.0
     '@zag-js/dialog':
       specifier: 1.25.0
       version: 1.25.0
@@ -477,6 +480,9 @@ importers:
       '@zag-js/combobox':
         specifier: 'catalog:'
         version: 1.25.0
+      '@zag-js/date-picker':
+        specifier: 'catalog:'
+        version: 1.25.0(@internationalized/date@3.9.0)
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.25.0
@@ -577,6 +583,9 @@ importers:
       '@zag-js/combobox':
         specifier: 'catalog:'
         version: 1.25.0
+      '@zag-js/date-picker':
+        specifier: 'catalog:'
+        version: 1.25.0(@internationalized/date@3.9.0)
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.25.0
@@ -1618,6 +1627,9 @@ packages:
     peerDependenciesMeta:
       '@types/node':
         optional: true
+
+  '@internationalized/date@3.9.0':
+    resolution: { integrity: sha512-yaN3brAnHRD+4KyyOsJyk49XUvj2wtbNACSqg0bz3u8t2VuzhC8Q5dfRnrSxjnnbDb+ienBnkn1TzQfE154vyg== }
 
   '@isaacs/balanced-match@4.0.1':
     resolution: { integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ== }
@@ -2764,6 +2776,16 @@ packages:
 
   '@zag-js/core@1.25.0':
     resolution: { integrity: sha512-B3ZBqabQV+QdtHCi1t5D+Ekh7RJ2X01hfjFjU3AsXbW0LiHAzcAhT/lLjrItwZZyhI4pIer33MlI5DNPeXhD2g== }
+
+  '@zag-js/date-picker@1.25.0':
+    resolution: { integrity: sha512-z3sxCD9EWd/NXnxhLQR4M5RfUQrZxEPERuQTF76jsuf9mX+VnQsp7VmeMouibq0j8szmaeXM2eSjfD77Fp4eBw== }
+    peerDependencies:
+      '@internationalized/date': '>=3.0.0'
+
+  '@zag-js/date-utils@1.25.0':
+    resolution: { integrity: sha512-N772LLvm37pdKwOzrU4AOwhoMmYzMrT6T5nyLXqM06wovJlrvxtYxx/MJUuw7o1ND1x5w9FafjIKPftapPoBew== }
+    peerDependencies:
+      '@internationalized/date': '>=3.0.0'
 
   '@zag-js/dialog@1.25.0':
     resolution: { integrity: sha512-S4ddR8nuKmcFUDL9G7weFmA/WwWvNHVQUDR0I2X73FprPS8NTjopt7u3FaoNCwEvnbxkFRmFEBApNFRMFPi7Iw== }
@@ -6816,6 +6838,10 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.6.1
 
+  '@internationalized/date@3.9.0':
+    dependencies:
+      '@swc/helpers': 0.5.17
+
   '@isaacs/balanced-match@4.0.1': {}
 
   '@isaacs/brace-expansion@5.0.0':
@@ -7968,6 +7994,23 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 1.25.0
       '@zag-js/utils': 1.25.0
+
+  '@zag-js/date-picker@1.25.0(@internationalized/date@3.9.0)':
+    dependencies:
+      '@internationalized/date': 3.9.0
+      '@zag-js/anatomy': 1.25.0
+      '@zag-js/core': 1.25.0
+      '@zag-js/date-utils': 1.25.0(@internationalized/date@3.9.0)
+      '@zag-js/dismissable': 1.25.0
+      '@zag-js/dom-query': 1.25.0
+      '@zag-js/live-region': 1.25.0
+      '@zag-js/popper': 1.25.0
+      '@zag-js/types': 1.25.0
+      '@zag-js/utils': 1.25.0
+
+  '@zag-js/date-utils@1.25.0(@internationalized/date@3.9.0)':
+    dependencies:
+      '@internationalized/date': 3.9.0
 
   '@zag-js/dialog@1.25.0':
     dependencies:

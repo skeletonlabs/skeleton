@@ -8,7 +8,9 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ChevronRightProps = $props();
+
 	const { ...rest } = $derived(props);
+
 	const attributes = $derived(
 		mergeProps(
 			{

@@ -1,0 +1,149 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Controlled from '@examples/components/date-picker/react/controlled.tsx';
+import ControlledRaw from '@examples/components/date-picker/react/controlled.tsx?raw';
+
+import Default from '@examples/components/date-picker/react/default.tsx';
+import DefaultRaw from '@examples/components/date-picker/react/default.tsx?raw';
+
+import Disabled from '@examples/components/date-picker/react/disabled.tsx';
+import DisabledRaw from '@examples/components/date-picker/react/disabled.tsx?raw';
+
+import MinMax from '@examples/components/date-picker/react/min-max.tsx';
+import MinMaxRaw from '@examples/components/date-picker/react/min-max.tsx?raw';
+
+import Range from '@examples/components/date-picker/react/range.tsx';
+import RangeRaw from '@examples/components/date-picker/react/range.tsx?raw';
+
+import Inline from '@examples/components/date-picker/react/inline.tsx';
+import InlineRaw from '@examples/components/date-picker/react/inline.tsx?raw';
+
+import WithSelects from '@examples/components/date-picker/react/with-selects.tsx';
+import WithSelectsRaw from '@examples/components/date-picker/react/with-selects.tsx?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+Manage the selected date value with React state.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+Disable the date picker to prevent user interaction.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Min and max dates
+
+Restrict date selection to a specific range using the `min` and `max` props with the `parseDate` helper function.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MinMax client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MinMaxRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Range selection
+
+Enable range selection by setting `selectionMode="range"` on the root component. Use two input fields with `index={0}` and `index={1}` to represent the start and end dates.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Range client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RangeRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Inline calendar
+
+Display the calendar inline without a popover by adding the `inline` prop to the root component. When using inline mode, omit the `Portal` and `Positioner` components.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Inline client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={InlineRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## With month and year selects
+
+Optionally add `<DatePicker.MonthSelect />` and `<DatePicker.YearSelect />` components to provide dropdown selectors for quickly changing the month and year.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<WithSelects client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={WithSelectsRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Guidelines
+
+### Portal
+
+The Date Picker content is rendered inside a [Portal](/docs/components/portal) component by default to avoid z-index stacking issues. The Portal renders the content at the end of the document body.
+
+### Views
+
+The Date Picker supports three different views:
+
+- **Day view** - Select a specific day from the calendar
+- **Month view** - Select a month by clicking the view trigger when in day view
+- **Year view** - Select a year by clicking the view trigger when in month view
+
+Use the `<DatePicker.View>` component with the `view` prop to define each view's layout.
+
+### Context
+
+The `<DatePicker.Context>` component provides access to the date picker API for rendering dynamic content like weeks, months, and years grids. Use the render prop pattern to access the API.
+
+### Parse Date
+
+Use the `parseDate` helper function to convert strings or Date objects to the appropriate date format. This function uses `@internationalized/date` under the hood.
+
+```tsx
+import { parseDate } from '@skeletonlabs/skeleton-react';
+
+const date = parseDate('2025-10-15');
+const minDate = parseDate('2024-01-01');
+const maxDate = parseDate('2024-12-31');
+```
+
+## API Reference
+
+<ApiTable />
