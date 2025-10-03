@@ -6,13 +6,7 @@
 		"jsxImportSource": "react",
 		"moduleResolution": "Bundler",
 		"paths": {
-			"@layouts/*": ["src/layouts/*"],
-			"@components/*": ["src/components/*"],
-			"@examples/*": ["src/examples/*"],
-			"@lib/*": ["src/lib/*"],
-			"@content/*": ["src/content/*"],
-			"@styles/*": ["src/styles/*"],
-			"@images/*": ["src/images/*"]
+			"@/*": ["src/*"]
 		}
 	},
 	"include": ["src", "scripts"]
