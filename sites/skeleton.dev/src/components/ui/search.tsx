@@ -42,7 +42,7 @@ export default function Search() {
 
 			try {
 				const pf = await getOrInitializePagefind();
-				const result = await pf.debouncedSearch(searchQuery, {}, 300);
+				const result = await pf.debouncedSearch(searchQuery, {}, 250);
 
 				// If null, this search was cancelled by a more recent search - do nothing
 				if (result === null) {
@@ -97,9 +97,9 @@ export default function Search() {
 				</div>
 			</Dialog.Trigger>
 			<Portal>
-				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50" />
+				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50 data-[state=open]:animate-[fade-in_150ms_ease-out]" />
 				<Dialog.Positioner className="fixed inset-0 flex justify-center items-start md:py-[10dvh] md:px-[10dvw] z-50">
-					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto">
+					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto data-[state=open]:animate-[fly-in_150ms_ease-out]">
 						<div className="input-group grid-cols-[auto_1fr_auto]">
 							<div className="ig-cell preset-tonal">
 								<SearchIcon className="size-4 opacity-50" />
