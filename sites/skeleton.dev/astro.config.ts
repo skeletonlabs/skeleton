@@ -10,6 +10,8 @@ import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import { rm } from 'node:fs/promises';
+// oxlint-disable-next-line no-unused-vars
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex } from 'pagefind';
 import { pagefind } from 'vite-plugin-pagefind';
@@ -42,12 +44,12 @@ function skeleton(): AstroIntegration {
 				if (!index) {
 					throw new Error(`Failed to create search index: ${errors?.join(', ')}`);
 				}
-				const directory = await index.addDirectory({
+				await index.addDirectory({
 					path: fileURLToPath(ctx.dir),
 				});
-				console.log({ directory });
-				const response = await index.writeFiles();
-				console.log({ response });
+				const response = await index.writeFiles({
+					outputPath: join(fileURLToPath(ctx.dir), 'pagefind'),
+				});
 				if (response.errors.length > 0) {
 					ctx.logger.error(`Failed to write search index.: ${response.errors.join(', ')}`);
 				} else {
