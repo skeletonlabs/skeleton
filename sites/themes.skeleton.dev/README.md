@@ -1,3 +1,5 @@
-# themes.skeleton.dev
+# Skeleton Themes
 
-The theme builder for Skeleton
+## Documentation
+
+Explore the full documentation at [skeleton.dev](https://skeleton.dev/).
