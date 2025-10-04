@@ -5,11 +5,11 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "pnpm generate:types && astro build && pnpm generate:search",
+		"build": "pnpm generate-type-documentation && astro build && pnpm generate-search",
 		"check": "astro check --noSync",
 		"sync": "astro sync",
-		"generate:type-documentation": "tsx ./scripts/generate-type-documentation",
-		"generate:search": "pagefind --site dist --exclude-selectors \".expressive-code\""
+		"generate-type-documentation": "tsx ./scripts/generate-type-documentation",
+		"generate-search-index": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "catalog:",
