@@ -2,10 +2,9 @@
 layout: '@/components/layouts/docs.astro'
 ---
 
-import Example from '@/components/examples/integrations/code-block/Example.astro';
-import SvelteComponentRaw from '@/components/examples/integrations/code-block/SvelteComponent.txt?raw';
-import SveltePageRaw from '@/components/examples/integrations/code-block/SveltePage.txt?raw';
-import TypesRaw from '@/components/examples/integrations/code-block/Types.txt?raw';
+import ComponentRaw from '@/components/examples/integrations/code-block/component.svelte?raw';
+import Example from '@/components/examples/integrations/code-block/default.astro';
+import PageRaw from '@/components/examples/integrations/code-block/page.svelte?raw';
 
 {/* --- */}
 
@@ -32,9 +31,8 @@ npm install -D shiki
 
 A reusable component should suffice in most projects. Tap the `code` tab below to access the source, then follow the steps below.
 
-1. Implement a new `<CodeBlock>` component in `/src/lib/components/CodeBlock/CodeBlock.svelte`.
-2. Implement the required component prop types in `/src/lib/components/CodeBlock/types.ts`.
-3. Implement several variations of our `<CodeBlock>` component in any SvelteKit route `+page.svelte`.
+1. Implement a new `<CodeBlock>` component in `/src/lib/components/code-block.svelte`.
+2. Implement several variations of our `<CodeBlock>` component in any SvelteKit route `+page.svelte`.
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -42,9 +40,8 @@ A reusable component should suffice in most projects. Tap the `code` tab below t
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">
-			<Code code={SvelteComponentRaw} lang="svelte" title="CodeBlock.svelte" />
-			<Code code={TypesRaw} lang="ts" title="types.ts" />
-			<Code code={SveltePageRaw} lang="svelte" title="+page.svelte" />
+			<Code code={ComponentRaw} lang="svelte" title="CodeBlock.svelte" />
+			<Code code={PageRaw} lang="svelte" title="+page.svelte" />
 		</div>
 	</Fragment>
 </Preview>

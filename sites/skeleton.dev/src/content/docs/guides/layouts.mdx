@@ -5,14 +5,10 @@ description: Learn best practices for creating responsive layouts using semantic
 order: 50
 ---
 
-import ExampleColOne from '@/components/examples/guides/cookbook/layouts/ExampleColOne.astro';
-import ExampleColOneRaw from '@/components/examples/guides/cookbook/layouts/ExampleColOne.astro?raw';
-import ExampleColThree from '@/components/examples/guides/cookbook/layouts/ExampleColThree.astro';
-import ExampleColThreeRaw from '@/components/examples/guides/cookbook/layouts/ExampleColThree.astro?raw';
-import ExampleColTwo from '@/components/examples/guides/cookbook/layouts/ExampleColTwo.astro';
-import ExampleColTwoRaw from '@/components/examples/guides/cookbook/layouts/ExampleColTwo.astro?raw';
-import ExampleStickyHeader from '@/components/examples/guides/cookbook/layouts/ExampleStickyHeader.astro';
-import ExampleStickyHeaderRaw from '@/components/examples/guides/cookbook/layouts/ExampleStickyHeader.astro?raw';
+import ColOne from '@/components/examples/guides/cookbook/layouts/col-one.astro';
+import ColThree from '@/components/examples/guides/cookbook/layouts/col-three.astro';
+import ColTwo from '@/components/examples/guides/cookbook/layouts/col-two.astro';
+import StickyHeader from '@/components/examples/guides/cookbook/layouts/sticky-header.astro';
 
 <p class="text-xl">
 	Skeleton supports a variety of web-based frameworks and meta-frameworks, and this guide serves as a universal reference when implementing
@@ -116,7 +112,7 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### One Column
 
-<ExampleColOne />
+<ColOne />
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/3ayrvPnIC4" target="_blank">
@@ -126,7 +122,7 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### Two Column
 
-<ExampleColTwo />
+<ColTwo />
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/yCv0ZOICSx" target="_blank">
@@ -136,7 +132,7 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### Three Column
 
-<ExampleColThree />
+<ColThree />
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/BH0iosKxix" target="_blank">
@@ -158,7 +154,7 @@ For `<header>`, we'll implement a few specific utility classes:
 
 > TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce the hazy glass-like effect for overlapped semi-transparent elements.
 
-<ExampleStickyHeader />
+<StickyHeader />
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/g7ory5pA4K" target="_blank">

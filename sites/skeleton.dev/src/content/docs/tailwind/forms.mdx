@@ -6,31 +6,30 @@ srcCore: '/utilities/'
 showDocsUrl: true
 ---
 
-import Example from '@/components/examples/tailwind/forms/Example.astro';
-import ExampleCheckboxes from '@/components/examples/tailwind/forms/ExampleCheckboxes.astro';
-import ExampleCheckboxesRaw from '@/components/examples/tailwind/forms/ExampleCheckboxes.astro?raw';
-import ExampleGroups from '@/components/examples/tailwind/forms/ExampleGroups.astro';
-import ExampleGroupsRaw from '@/components/examples/tailwind/forms/ExampleGroups.astro?raw';
-import ExampleInputRaw from '@/components/examples/tailwind/forms/ExampleInput.astro?raw';
-import ExampleInputs from '@/components/examples/tailwind/forms/ExampleInputs.astro';
-import ExampleInputsRaw from '@/components/examples/tailwind/forms/ExampleInputs.astro?raw';
-import ExampleRadio from '@/components/examples/tailwind/forms/ExampleRadio.astro';
-import ExampleRadioRaw from '@/components/examples/tailwind/forms/ExampleRadio.astro?raw';
-import ExampleSelectRaw from '@/components/examples/tailwind/forms/ExampleSelect.astro?raw';
-import ExampleSelection from '@/components/examples/tailwind/forms/ExampleSelection.astro';
-import ExampleSelectionRaw from '@/components/examples/tailwind/forms/ExampleSelection.astro?raw';
-import ExampleSpecial from '@/components/examples/tailwind/forms/ExampleSpecial.astro';
-import ExampleSpecialRaw from '@/components/examples/tailwind/forms/ExampleSpecial.astro?raw';
-import ExampleTextareaRaw from '@/components/examples/tailwind/forms/ExampleTextarea.astro?raw';
+import Checkboxes from '@/components/examples/tailwind/forms/checkboxes.astro';
+import CheckboxesRaw from '@/components/examples/tailwind/forms/checkboxes.astro?raw';
+import Default from '@/components/examples/tailwind/forms/default.astro';
+import Groups from '@/components/examples/tailwind/forms/groups.astro';
+import GroupsRaw from '@/components/examples/tailwind/forms/groups.astro?raw';
+import Input from '@/components/examples/tailwind/forms/input.astro';
+import InputRaw from '@/components/examples/tailwind/forms/input.astro?raw';
+import Radio from '@/components/examples/tailwind/forms/radio.astro';
+import RadioRaw from '@/components/examples/tailwind/forms/radio.astro?raw';
+import SelectRaw from '@/components/examples/tailwind/forms/select.astro?raw';
+import Selection from '@/components/examples/tailwind/forms/selection.astro';
+import SelectionRaw from '@/components/examples/tailwind/forms/selection.astro?raw';
+import Special from '@/components/examples/tailwind/forms/special.astro';
+import SpecialRaw from '@/components/examples/tailwind/forms/special.astro?raw';
+import TextareaRaw from '@/components/examples/tailwind/forms/textarea.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<div class="space-y-4" slot="code">
-		<Code code={ExampleInputRaw} lang="html" />
-		<Code code={ExampleSelectRaw} lang="html" />
-		<Code code={ExampleTextareaRaw} lang="html" />
+		<Code code={InputRaw} lang="html" />
+		<Code code={SelectRaw} lang="html" />
+		<Code code={TextareaRaw} lang="html" />
 	</div>
 </Preview>
 
@@ -69,10 +68,10 @@ The display of native and semantic HTML form elements can vary between both oper
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleInputs />
+		<Input />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleInputsRaw} lang="astro" />
+		<Code code={InputRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -80,10 +79,10 @@ The display of native and semantic HTML form elements can vary between both oper
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSelection />
+		<Selection />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleSelectionRaw} lang="astro" />
+		<Code code={SelectionRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -91,10 +90,10 @@ The display of native and semantic HTML form elements can vary between both oper
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCheckboxes />
+		<Checkboxes />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCheckboxesRaw} lang="astro" />
+		<Code code={CheckboxesRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -102,10 +101,10 @@ The display of native and semantic HTML form elements can vary between both oper
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleRadio />
+		<Radio />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRadioRaw} lang="astro" />
+		<Code code={RadioRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -115,10 +114,10 @@ Display and functionality of these elements may vary greatly between devices and
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSpecial />
+		<Special />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleSpecialRaw} lang="astro" />
+		<Code code={SpecialRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -128,10 +127,10 @@ Input groups support a subset of form elements and button styles. These pair wel
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleGroups />
+		<Groups />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGroupsRaw} lang="astro" />
+		<Code code={GroupsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 

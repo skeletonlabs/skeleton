@@ -6,23 +6,23 @@ srcCore: '/utilities/buttons.css'
 showDocsUrl: true
 ---
 
-import Example from '@/components/examples/tailwind/buttons/Example.astro';
-import ExampleRaw from '@/components/examples/tailwind/buttons/Example.astro?raw';
-import ExampleDisabled from '@/components/examples/tailwind/buttons/ExampleDisabled.astro';
-import ExampleDisabledRaw from '@/components/examples/tailwind/buttons/ExampleDisabled.astro?raw';
-import ExampleGroup from '@/components/examples/tailwind/buttons/ExampleGroup.astro';
-import ExampleGroupRaw from '@/components/examples/tailwind/buttons/ExampleGroup.astro?raw';
-import ExamplePresets from '@/components/examples/tailwind/buttons/ExamplePresets.astro';
-import ExamplePresetsRaw from '@/components/examples/tailwind/buttons/ExamplePresets.astro?raw';
-import ExampleSizes from '@/components/examples/tailwind/buttons/ExampleSizes.astro';
-import ExampleSizesRaw from '@/components/examples/tailwind/buttons/ExampleSizes.astro?raw';
+import Default from '@/components/examples/tailwind/buttons/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/buttons/default.astro?raw';
+import Disabled from '@/components/examples/tailwind/buttons/disabled.astro';
+import DisabledRaw from '@/components/examples/tailwind/buttons/disabled.astro?raw';
+import Group from '@/components/examples/tailwind/buttons/group.astro';
+import GroupRaw from '@/components/examples/tailwind/buttons/group.astro?raw';
+import Presets from '@/components/examples/tailwind/buttons/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind/buttons/presets.astro?raw';
+import Sizes from '@/components/examples/tailwind/buttons/sizes.astro';
+import SizesRaw from '@/components/examples/tailwind/buttons/sizes.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -32,10 +32,10 @@ Provides full support of [Presets](/docs/design/presets).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExamplePresets />
+		<Presets />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExamplePresetsRaw} lang="astro" />
+		<Code code={PresetsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -43,10 +43,10 @@ Provides full support of [Presets](/docs/design/presets).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSizes />
+		<Sizes />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleSizesRaw} lang="astro" />
+		<Code code={SizesRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -56,10 +56,10 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleDisabled />
+		<Disabled />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleDisabledRaw} lang="astro" />
+		<Code code={DisabledRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -67,9 +67,9 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleGroup />
+		<Group />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGroupRaw} lang="astro" />
+		<Code code={GroupRaw} lang="astro" />
 	</Fragment>
 </Preview>

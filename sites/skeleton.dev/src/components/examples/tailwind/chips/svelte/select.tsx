@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export const Page: React.FC = () => {
+export default function Select() {
 	const colors = ['red', 'blue', 'green'];
 	const [color, setColor] = useState(colors[0]);
 
@@ -16,4 +16,4 @@ export const Page: React.FC = () => {
 				))}
 		</div>
 	);
-};
+}

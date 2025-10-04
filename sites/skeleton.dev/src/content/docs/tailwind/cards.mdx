@@ -6,28 +6,28 @@ srcCore: '/utilities/cards.css'
 showDocsUrl: true
 ---
 
-import Example from '@/components/examples/tailwind/cards/Example.astro';
-import ExampleRaw from '@/components/examples/tailwind/cards/Example.astro?raw';
-import ExampleDetailed from '@/components/examples/tailwind/cards/ExampleDetailed.astro';
-import ExampleDetailedRaw from '@/components/examples/tailwind/cards/ExampleDetailed.astro?raw';
-import ExamplePresets from '@/components/examples/tailwind/cards/ExamplePresets.astro';
-import ExamplePresetsRaw from '@/components/examples/tailwind/cards/ExamplePresets.astro?raw';
+import Default from '@/components/examples/tailwind/cards/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/cards/default.astro?raw';
+import Detailed from '@/components/examples/tailwind/cards/detailed.astro';
+import DetailedRaw from '@/components/examples/tailwind/cards/detailed.astro?raw';
+import Presets from '@/components/examples/tailwind/cards/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind/cards/presets.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleDetailed />
+		<Detailed />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleDetailedRaw} lang="astro" />
+		<Code code={DetailedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -37,9 +37,9 @@ Provides full support of [Presets](/docs/design/presets).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExamplePresets />
+		<Presets />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExamplePresetsRaw} lang="astro" />
+		<Code code={PresetsRaw} lang="astro" />
 	</Fragment>
 </Preview>
