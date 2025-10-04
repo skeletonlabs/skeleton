@@ -1,20 +1,19 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Placeholders
 description: Provides "skeleton" placeholders that can display while content loads.
 srcCore: '/utilities/placeholders.css'
 showDocsUrl: true
 ---
 
-import Example from '@/examples/tailwind/placeholders/Example.astro';
-import ExampleRaw from '@/examples/tailwind/placeholders/Example.astro?raw';
+import Default from '@/components/examples/tailwind/placeholders/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/placeholders/default.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="html" />
+		<Code code={DefaultRaw} lang="html" />
 	</Fragment>
 </Preview>
 

@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Logo Clouds
 description: Provides a grid for presenting a set of logos, brands, or sponsors.
 showDocsUrl: true
@@ -7,17 +6,17 @@ pubDate: 2024-11-18
 tags: ['blocks', 'branding']
 ---
 
-import Example from '@/examples/guides/cookbook/logo-clouds/Example.astro';
-import ExampleRaw from '@/examples/guides/cookbook/logo-clouds/Example.astro?raw';
-import ExampleRows from '@/examples/guides/cookbook/logo-clouds/ExampleRows.astro';
-import ExampleRowsRaw from '@/examples/guides/cookbook/logo-clouds/ExampleRows.astro?raw';
+import Default from '@/components/examples/guides/cookbook/logo-clouds/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/logo-clouds/default.astro?raw';
+import Rows from '@/components/examples/guides/cookbook/logo-clouds/rows.astro';
+import RowsRaw from '@/components/examples/guides/cookbook/logo-clouds/rows.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -25,9 +24,9 @@ import ExampleRowsRaw from '@/examples/guides/cookbook/logo-clouds/ExampleRows.a
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleRows />
+		<Rows />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRowsRaw} lang="astro" />
+		<Code code={RowsRaw} lang="astro" />
 	</Fragment>
 </Preview>

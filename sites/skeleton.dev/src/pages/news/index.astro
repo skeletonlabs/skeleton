@@ -1,9 +1,9 @@
 ---
-import BlueSkyFeed from '@/components/docs/BlueskyFeed.svelte';
-import Footer from '@/components/docs/Footer.astro';
-import Header from '@/components/docs/Header.astro';
+import BlueSkyFeed from '@/components/ui/bluesky-feed';
+import Footer from '@/components/ui/footer.astro';
+import Header from '@/components/ui/header.astro';
 // Components
-import LayoutRoot from '@/layouts/LayoutRoot.astro';
+import LayoutRoot from '@/components/layouts/root.astro';
 import { Icon } from 'astro-icon/components';
 
 const layoutProps = {
@@ -26,7 +26,7 @@ const layoutProps = {
 			</a>
 		</header>
 		<div class="grid gap-8">
-			<BlueSkyFeed client:load />
+			<BlueSkyFeed client:only="react" />
 		</div>
 		<div class="flex justify-center">
 			<a class="btn preset-filled" href="https://bsky.app/profile/skeleton.dev" target="_blank">

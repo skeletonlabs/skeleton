@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components';
+import { socialLinks } from '@/lib/social-links';
+
+const { classList = 'p-4' } = Astro.props;
+---
+
+<footer class:list={['border-t-[1px] border-surface-500/20', classList]}>
+	<div class="container mx-auto flex flex-col xl:flex-row justify-between items-center gap-4">
+		<div class="flex items-center gap-4">
+			<!-- <Icon name="skeleton" size={20} /> -->
+			<p class="text-xs opacity-60">
+				Built by <a class="underline" href="https://www.skeletonlabs.co/" target="_blank">Skeleton Labs</a> and the
+				<a href="https://github.com/skeletonlabs/skeleton/graphs/contributors" target="_blank" class="underline">Skeleton community</a>.
+			</p>
+		</div>
+		<!-- Social -->
+		<nav class="flex items-center">
+			{
+				socialLinks.map((link) => (
+					<a class="btn-icon hover:preset-tonal" href={link.href} target="_blank" title={link.label} aria-label={link.label}>
+						<Icon name={link.icon} size={24} />
+					</a>
+				))
+			}
+		</nav>
+	</div>
+</footer>

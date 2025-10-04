@@ -1,17 +1,16 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Spacing
 description: Set a dynamic scale for application whitespace.
 order: 40
 ---
 
-import Example from '@/examples/design/spacing/Example.svelte';
+import Default from '@/components/examples/design/spacing/default.svelte';
 
 This is enabled by the [Tailwind spacing system](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">

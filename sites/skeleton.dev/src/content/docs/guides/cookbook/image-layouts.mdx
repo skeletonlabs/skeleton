@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Image Layouts
 description: Layouts for displaying sets of images.
 showDocsUrl: true
@@ -7,23 +6,23 @@ pubDate: 2024-11-18
 tags: ['blocks', 'layouts', 'images']
 ---
 
-import ExampleFeatured from '@/examples/guides/cookbook/image-layouts/ExampleFeatured.astro';
-import ExampleFeaturedRaw from '@/examples/guides/cookbook/image-layouts/ExampleFeatured.astro?raw';
-import ExampleGrid from '@/examples/guides/cookbook/image-layouts/ExampleGrid.astro';
-import ExampleGridRaw from '@/examples/guides/cookbook/image-layouts/ExampleGrid.astro?raw';
-import ExampleMasonry from '@/examples/guides/cookbook/image-layouts/ExampleMasonry.astro';
-import ExampleMasonryRaw from '@/examples/guides/cookbook/image-layouts/ExampleMasonry.astro?raw';
-import ExampleQuad from '@/examples/guides/cookbook/image-layouts/ExampleQuad.astro';
-import ExampleQuadRaw from '@/examples/guides/cookbook/image-layouts/ExampleQuad.astro?raw';
+import Featured from '@/components/examples/guides/cookbook/image-layouts/featured.astro';
+import FeaturedRaw from '@/components/examples/guides/cookbook/image-layouts/featured.astro?raw';
+import Grid from '@/components/examples/guides/cookbook/image-layouts/grid.astro';
+import GridRaw from '@/components/examples/guides/cookbook/image-layouts/grid.astro?raw';
+import Masonry from '@/components/examples/guides/cookbook/image-layouts/masonry.astro';
+import MasonryRaw from '@/components/examples/guides/cookbook/image-layouts/masonry.astro?raw';
+import Quad from '@/components/examples/guides/cookbook/image-layouts/quad.astro';
+import QuadRaw from '@/components/examples/guides/cookbook/image-layouts/quad.astro?raw';
 
 ## Grid
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleGrid />
+		<Grid />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGridRaw} lang="astro" />
+		<Code code={GridRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -31,10 +30,10 @@ import ExampleQuadRaw from '@/examples/guides/cookbook/image-layouts/ExampleQuad
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleQuad />
+		<Quad />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleQuadRaw} lang="astro" />
+		<Code code={QuadRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -42,10 +41,10 @@ import ExampleQuadRaw from '@/examples/guides/cookbook/image-layouts/ExampleQuad
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleMasonry />
+		<Masonry />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleMasonryRaw} lang="astro" />
+		<Code code={MasonryRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -53,10 +52,10 @@ import ExampleQuadRaw from '@/examples/guides/cookbook/image-layouts/ExampleQuad
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleFeatured />
+		<Featured />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleFeaturedRaw} lang="astro" />
+		<Code code={FeaturedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 

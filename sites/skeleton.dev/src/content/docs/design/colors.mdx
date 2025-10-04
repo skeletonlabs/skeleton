@@ -1,21 +1,20 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Colors
 description: The Skeleton color system.
 srcCore: '/base/theme.scss'
 order: 10
 ---
 
-import ExampleColors from '@/examples/design/colors/ExampleColors.svelte';
-import ExampleContrast from '@/examples/design/colors/ExampleContrast.astro';
-import ExampleContrastRaw from '@/examples/design/colors/ExampleContrast.astro?raw';
-import ExamplePairings from '@/examples/design/colors/ExamplePairings.astro';
-import ExamplePairingsDynamic from '@/examples/design/colors/ExamplePairingsDynamic.astro';
-import ExamplePairingsStack from '@/examples/design/colors/ExamplePairingsStack.astro';
+import Contrast from '@/components/examples/design/colors/contrast.astro';
+import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
+import Default from '@/components/examples/design/colors/default.astro';
+import PairingsDynamic from '@/components/examples/design/colors/pairings-dynamic.astro';
+import PairingsStack from '@/components/examples/design/colors/pairings-stack.astro';
+import Pairings from '@/components/examples/design/colors/pairings.astro';
 
 ## Color Palette
 
-<ExampleColors />
+<Default />
 
 Supports <u>all</u> standard Tailwind color utility classes using the following pattern.
 
@@ -47,10 +46,10 @@ Contrast color values are available for every shade. Use these to set accessible
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleContrast />
+		<Contrast />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleContrastRaw} lang="astro" />
+		<Code code={ContrastRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -94,11 +93,11 @@ By default, Skeleton sets the overall app's color scheme to match light or dark 
 
 The following is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported.
 
-<ExamplePairings />
+<Pairings />
 
 The following shows actual Color Pairings. Toggle this website between light and dark mode to see how these react.
 
-<ExamplePairingsDynamic />
+<PairingsDynamic />
 
 ### When to use Pairings
 
@@ -106,7 +105,7 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExamplePairingsStack />
+		<PairingsStack />
 	</Fragment>
 	<Fragment slot="code">
 		```html

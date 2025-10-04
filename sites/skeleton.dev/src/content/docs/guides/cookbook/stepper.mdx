@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Stepper
 description: Divide and present content in sequenced steps.
 showDocsUrl: true
@@ -7,21 +6,21 @@ pubDate: 2024-11-19
 tags: ['blocks', 'navigation', 'ux']
 ---
 
-import Example from '@/examples/guides/cookbook/stepper/Example.svelte';
-import ExampleRaw from '@/examples/guides/cookbook/stepper/Example.svelte?raw';
-import ExampleComponent from '@/examples/guides/cookbook/stepper/ExampleComponent.svelte';
-import ExampleComponentRaw from '@/examples/guides/cookbook/stepper/ExampleComponent.svelte?raw';
-import ExampleStepOne from '@/examples/guides/cookbook/stepper/ExampleStepOne.svelte?raw';
+import Component from '@/components/examples/guides/cookbook/stepper/component.svelte';
+import ComponentRaw from '@/components/examples/guides/cookbook/stepper/component.svelte?raw';
+import Default from '@/components/examples/guides/cookbook/stepper/default.svelte';
+import DefaultRaw from '@/components/examples/guides/cookbook/stepper/default.svelte?raw';
+import StepOne from '@/components/examples/guides/cookbook/stepper/step-one.svelte?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="codeReact">
 		<Code code={`Coming soon...`} lang="tsx" />
 	</Fragment>
 	<Fragment slot="codeSvelte">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -31,15 +30,15 @@ Optionally, you can substitute primitive data for components and props.
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleComponent client:visible />
+		<Component client:visible />
 	</Fragment>
 	<Fragment slot="codeReact">
 		<Code code={`Coming soon...`} lang="tsx" />
 	</Fragment>
 	<Fragment slot="codeSvelte">
 		<div class="space-y-4">
-			<Code code={ExampleComponentRaw} lang="svelte" />
-			<Code code={ExampleStepOne} lang="svelte" title="ExampleStepOne.svelte" />
+			<Code code={ComponentRaw} lang="svelte" />
+			<Code code={StepOne} lang="svelte" title="ExampleStepOne.svelte" />
 		</div>
 	</Fragment>
 </Preview>

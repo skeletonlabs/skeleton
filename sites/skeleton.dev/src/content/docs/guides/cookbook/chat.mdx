@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Chat
 description: Create a custom chat feed or AI prompt interface.
 showDocsUrl: true
@@ -7,26 +6,26 @@ pubDate: 2024-11-19
 tags: ['blocks', 'machine learning']
 ---
 
-import Example from '@/examples/guides/cookbook/chat/Example.svelte';
-import ExampleRaw from '@/examples/guides/cookbook/chat/Example.svelte?raw';
-import ExampleBubbles from '@/examples/guides/cookbook/chat/ExampleBubbles.astro';
-import ExampleBubblesRaw from '@/examples/guides/cookbook/chat/ExampleBubbles.astro?raw';
-import ExampleColumns from '@/examples/guides/cookbook/chat/ExampleColumns.astro';
-import ExampleColumnsRaw from '@/examples/guides/cookbook/chat/ExampleColumns.astro?raw';
-import ExampleFeed from '@/examples/guides/cookbook/chat/ExampleFeed.astro';
-import ExampleFeedRaw from '@/examples/guides/cookbook/chat/ExampleFeed.astro?raw';
-import ExampleRows from '@/examples/guides/cookbook/chat/ExampleRows.astro';
-import ExampleRowsRaw from '@/examples/guides/cookbook/chat/ExampleRows.astro?raw';
+import Bubbles from '@/components/examples/guides/cookbook/chat/bubbles.astro';
+import BubblesRaw from '@/components/examples/guides/cookbook/chat/bubbles.astro?raw';
+import Columns from '@/components/examples/guides/cookbook/chat/columns.astro';
+import ColumnsRaw from '@/components/examples/guides/cookbook/chat/columns.astro?raw';
+import Default from '@/components/examples/guides/cookbook/chat/default.svelte';
+import DefaultRaw from '@/components/examples/guides/cookbook/chat/default.svelte?raw';
+import Feed from '@/components/examples/guides/cookbook/chat/feed.astro';
+import FeedRaw from '@/components/examples/guides/cookbook/chat/feed.astro?raw';
+import Rows from '@/components/examples/guides/cookbook/chat/rows.astro';
+import RowsRaw from '@/components/examples/guides/cookbook/chat/rows.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="codeReact">
 		<Code code={`Coming soon...`} lang="tsx" />
 	</Fragment>
 	<Fragment slot="codeSvelte">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -36,10 +35,10 @@ Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns)
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleColumns />
+		<Columns />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColumnsRaw} lang="astro" />
+		<Code code={ColumnsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -49,10 +48,10 @@ Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utili
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleRows />
+		<Rows />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRowsRaw} lang="astro" />
+		<Code code={RowsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -62,10 +61,10 @@ The feed simply loops through the available feed data. Each `<pre>` tag represen
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleFeed />
+		<Feed />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleFeedRaw} lang="astro" />
+		<Code code={FeedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -75,10 +74,10 @@ Provide styling to each bubble element.
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleBubbles />
+		<Bubbles />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleBubblesRaw} lang="astro" />
+		<Code code={BubblesRaw} lang="astro" />
 	</Fragment>
 </Preview>
 

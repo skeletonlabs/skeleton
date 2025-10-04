@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Floating UI Attachments
 description: A Svelte-focused guide around integrating Floating UI and Svelte attachments.
 showDocsUrl: true
@@ -7,9 +6,9 @@ pubDate: 2025-08-13
 tags: ['integration', 'popovers', 'svelte']
 ---
 
-import ExampleAttachment from '@/examples/guides/cookbook/floating-ui-attachments/ExampleAttachment.txt?raw';
-import ExamplePopover from '@/examples/guides/cookbook/floating-ui-attachments/ExamplePopover.txt?raw';
-import ExampleTooltip from '@/examples/guides/cookbook/floating-ui-attachments/ExampleTooltip.txt?raw';
+import PopoverRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover.svelte?raw';
+import PopoverModuleRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover?raw';
+import TooltipRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/tooltip.svelte?raw';
 
 Please note that this is a Svelte-only guide based around the [attachments](https://svelte.dev/docs/svelte/svelte-attachments) feature introduced in Svelte `v5.29`.
 
@@ -39,7 +38,7 @@ If this is your first time using Floating UI, we recommend following the [guided
 
 Next, let's generate our custom attachment. If you're working with SvelteKit, we recommend adding this to `/src/lib/attachments/floating.svelte.ts`.
 
-<Code code={ExampleAttachment} lang="ts" />
+<Code code={PopoverModuleRaw} lang="ts" />
 
 This attachment will handle the following critical functionality:
 
@@ -85,7 +84,7 @@ Floating UI [requires these CSS styles](https://floating-ui.com/docs/tutorial#ma
 
 Add the following to any page within your application to generate a basic popover.
 
-<Code code={ExamplePopover} lang="svelte" />
+<Code code={PopoverRaw} lang="svelte" />
 
 1. First, import the Popover attachment and generate an instance using `new Popover()`.
 2. Next, create a wrapping `<span>` to ensure your popover is not affected by the flow of the document.
@@ -100,7 +99,7 @@ Add the following to any page within your application to generate a basic popove
 
 Add the following to any page within your application to generate a basic tooltip.
 
-<Code code={ExampleTooltip} lang="svelte" />
+<Code code={TooltipRaw} lang="svelte" />
 
 1. Similar to the Popover - we import, initialize, and scaffold the common attachment requirements.
 2. Unlike the Popover though, we configure `new Popover({ ... })` to adjust `interaction` and `placement` settings.

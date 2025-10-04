@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Table of Contents
 description: Navigate the hierarchy of headings for the current page.
 showDocsUrl: true
@@ -7,15 +6,15 @@ pubDate: 2024-11-19
 tags: ['blocks', 'navigation', 'guides']
 ---
 
-import Example from '@/examples/guides/cookbook/table-of-contents/Example.astro';
-import ExampleRaw from '@/examples/guides/cookbook/table-of-contents/Example.astro?raw';
+import Default from '@/components/examples/guides/cookbook/table-of-contents/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/table-of-contents/default.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
