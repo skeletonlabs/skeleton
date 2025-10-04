@@ -11,10 +11,7 @@ import {
 	useInteractions,
 	useRole,
 } from '@floating-ui/react';
-// Icons
-import { ArrowUpRight as IconArrow } from 'lucide-react';
-import { ChevronDown as IconChevron } from 'lucide-react';
-import { Heart as IconHeart } from 'lucide-react';
+import { ArrowUpRightIcon, ChevronDownIcon, HeartIcon } from 'lucide-react';
 import React from 'react';
 import { useState } from 'react';
 
@@ -39,8 +36,8 @@ export const HeaderSponsors: React.FC = () => {
 		<nav className="h-full flex items-stretch">
 			{/* Trigger */}
 			<button className="hidden xl:flex btn hover:preset-tonal gap-1" title="Sponsor Us" ref={refs.setReference} {...getReferenceProps()}>
-				<IconHeart className="size-5" />
-				<IconChevron className="size-4 opacity-60" />
+				<HeartIcon className="size-5" />
+				<ChevronDownIcon className="size-4 opacity-60" />
 			</button>
 			{/* Popup */}
 			{isOpen && (
@@ -65,7 +62,7 @@ export const HeaderSponsors: React.FC = () => {
 								onClick={() => setIsOpen(false)}
 							>
 								<span>Via GitHub</span>
-								<IconArrow className="size-4 opacity-60" />
+								<ArrowUpRightIcon className="size-4 opacity-60" />
 							</a>
 							<a
 								className="btn hover:preset-tonal justify-between"
@@ -75,7 +72,7 @@ export const HeaderSponsors: React.FC = () => {
 								onClick={() => setIsOpen(false)}
 							>
 								<span>Via Ko-Fi</span>
-								<IconArrow className="size-4 opacity-60" />
+								<ArrowUpRightIcon className="size-4 opacity-60" />
 							</a>
 						</div>
 					</div>

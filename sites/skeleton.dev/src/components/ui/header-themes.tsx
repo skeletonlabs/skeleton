@@ -14,9 +14,7 @@ import {
 // Themes
 import { themes } from '@skeletonlabs/skeleton-common';
 // Icons
-import { ArrowUpRight as IconArrow } from 'lucide-react';
-import { ChevronDown as IconChevron } from 'lucide-react';
-import { SwatchBook as IconTheme } from 'lucide-react';
+import { SwatchBookIcon, ChevronDownIcon, ArrowUpRightIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
 export const HeaderThemes: React.FC = () => {
@@ -62,9 +60,9 @@ export const HeaderThemes: React.FC = () => {
 		<div>
 			{/* Trigger */}
 			<button className="btn hover:preset-tonal gap-1" title="Choose Theme" ref={refs.setReference} {...getReferenceProps()}>
-				<IconTheme className="xl:hidden size-5" />
+				<SwatchBookIcon className="xl:hidden size-5" />
 				<span className="hidden xl:inline">Theme</span>
-				<IconChevron className="size-4 opacity-60" />
+				<ChevronDownIcon className="size-4 opacity-60" />
 			</button>
 			{/* Popup */}
 			{isOpen && (
@@ -85,7 +83,7 @@ export const HeaderThemes: React.FC = () => {
 								onClick={() => setIsOpen(false)}
 							>
 								<span>Create a Theme</span>
-								<IconArrow className="size-4" />
+								<ArrowUpRightIcon className="size-4" />
 							</a>
 						</figure>
 						{/* Divider */}

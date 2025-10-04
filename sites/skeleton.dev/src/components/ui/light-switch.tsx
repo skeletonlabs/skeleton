@@ -1,4 +1,4 @@
-import { Moon, Sun } from 'lucide-react';
+import { MoonIcon, SunIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 type Mode = 'dark' | 'light';
@@ -28,7 +28,7 @@ export default function LightSwitch() {
 			title="Toggle dark mode."
 			aria-label="Toggle dark mode."
 		>
-			{mode === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />}
+			{mode === 'dark' ? <SunIcon className="size-5" /> : <MoonIcon className="size-5" />}
 		</button>
 	);
 }

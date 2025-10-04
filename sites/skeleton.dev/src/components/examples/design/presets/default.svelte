@@ -45,7 +45,8 @@
 	<!-- 8. Gradient -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-gradient">Gradient</button>
-		<div class={diagramCircle}>8</div>``
+		<div class={diagramCircle}>8</div>
+		``
 	</div>
 </div>
 

@@ -1,5 +1,5 @@
 ---
-import { Check, CircleDollarSign, Search } from 'lucide-react';
+import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 ---
 
 <form class="w-full space-y-8">
@@ -11,7 +11,7 @@ import { Check, CircleDollarSign, Search } from 'lucide-react';
 	<!-- Amount -->
 	<div class="input-group grid-cols-[auto_1fr_auto]">
 		<div class="ig-cell preset-tonal">
-			<CircleDollarSign size={16} />
+			<CircleDollarSignIcon size={16} />
 		</div>
 		<input class="ig-input" type="text" placeholder="Amount" />
 		<select class="ig-select">
@@ -24,13 +24,13 @@ import { Check, CircleDollarSign, Search } from 'lucide-react';
 	<div class="input-group grid-cols-[1fr_auto]">
 		<input class="ig-input" type="text" placeholder="Enter Username..." />
 		<button class="ig-btn preset-filled" title="Username already in use.">
-			<Check size={16} />
+			<CheckIcon size={16} />
 		</button>
 	</div>
 	<!-- Search -->
 	<div class="input-group grid-cols-[auto_1fr_auto]">
 		<div class="ig-cell preset-tonal">
-			<Search size={16} />
+			<SearchIcon size={16} />
 		</div>
 		<input class="ig-input" type="search" placeholder="Search..." />
 		<button class="ig-btn preset-filled">Submit</button>
