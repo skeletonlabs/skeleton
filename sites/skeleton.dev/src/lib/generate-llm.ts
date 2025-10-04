@@ -95,14 +95,30 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		if (!importPath) {
 			continue;
 		}
-		const resolvedPath = importPath.replace('@examples', './src/examples');
+		const resolvedPath = importPath.replace('@examples', './src/examples').replace(/^@\/examples/, './src/examples');
+
+		// Try multiple extensions if the path doesn't have one (Currently there are no ts, js, and html files)
+		const extensions = ['.tsx', '.svelte', '.astro', '.ts', '.js', '.jsx', 'txt', 'html', ''];
 		let fileContent = '';
-		try {
-			fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf8');
-		} catch (error) {
-			console.error('Error reading file:', resolvedPath, error);
-			fileContent = '// Error loading file';
+		let foundFile = false;
+
+		for (const ext of extensions) {
+			try {
+				const pathToTry = resolvedPath + ext;
+				fileContent = await fs.readFile(path.resolve(pathToTry), 'utf8');
+				foundFile = true;
+				break;
+			} catch (error) {
+				// Try next extension
+				continue;
+			}
 		}
+
+		if (!foundFile) {
+			console.error('Error reading file (tried all extensions):', resolvedPath);
+			fileContent = '// Error loading file, please report this issue.';
+		}
+
 		const replacement = `\`\`\`${language}\n${fileContent}\n\`\`\``;
 		content = content.replace(previewBlock, replacement);
 	}
@@ -289,6 +305,52 @@ async function processIntegrations(framework: Framework): Promise<string> {
 	}
 	integrationsContent = `# Integrations\n\n` + integrationsContent;
 	return integrationsContent;
+}
+
+/**
+ * Generates documentation for a single page.
+ * @param docEntry The document entry from the content collection.
+ * @param metaEntry Optional meta entry for components/integrations.
+ */
+export async function generateSinglePageDocumentation(
+	docEntry: CollectionEntry<'docs'>,
+	metaEntry?: CollectionEntry<'docs'>,
+): Promise<string> {
+	// Determine framework from slug if present
+	const slug = docEntry.id;
+	let framework: Framework | 'html' = 'html';
+	if (slug.endsWith('/react')) {
+		framework = 'react';
+	} else if (slug.endsWith('/svelte')) {
+		framework = 'svelte';
+	}
+
+	// Use meta title/description if available, otherwise use doc entry
+	const title = metaEntry?.data.title ?? docEntry.data.title;
+	const description = metaEntry?.data.description ?? docEntry.data.description;
+
+	// Start with system prompt
+	let content = ``;
+
+	// Add title and description
+	content += `# ${title}\n${description}\n\n`;
+
+	// Process the body content
+	let bodyContent = docEntry.body ?? '';
+
+	// Apply transformations based on document type
+	const language = framework === 'react' ? 'tsx' : framework === 'svelte' ? 'svelte' : 'html';
+	bodyContent = await processPreviewBlocks(bodyContent, language);
+	bodyContent = await processApiTables(bodyContent, docEntry.id);
+
+	content += bodyContent;
+
+	// Final cleanup
+	content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
+	content = content.replace(/(\r?\n){3,}/g, '\n\n');
+	content = content.replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
+
+	return content;
 }
 
 /**

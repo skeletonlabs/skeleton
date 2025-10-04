@@ -1,5 +1,5 @@
 ---
-import { PersonStanding as IconA11y, BookOpen as IconBook, Code as IconCode, Blocks as IconZap } from 'lucide-react';
+import { PersonStanding as IconA11y, BookOpen as IconBook, Code as IconCode, Blocks as IconZap, FileText as IconLLM } from 'lucide-react';
 
 // Props
 const { frontmatter, urls } = Astro.props;
@@ -66,4 +66,10 @@ const { frontmatter, urls } = Astro.props;
 			</a>
 		)
 	}
+
+	<!-- LLM.txt anchor -->
+	<a class="chip preset-filled-surface-200-800" href={`${Astro.url.pathname}/llms.txt`}>
+		<IconLLM size={16} />
+		<span>LLM.txt</span>
+	</a>
 </div>
