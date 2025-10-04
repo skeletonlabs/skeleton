@@ -7,10 +7,10 @@ pubDate: 2024-11-19
 tags: ['native', 'programmatic']
 ---
 
-import Example from '@/components/examples/guides/cookbook/clipboard/Example.astro';
-import ExampleRaw from '@/components/examples/guides/cookbook/clipboard/Example.astro?raw';
-import ExampleInput from '@/components/examples/guides/cookbook/clipboard/ExampleInput.astro';
-import ExampleInputRaw from '@/components/examples/guides/cookbook/clipboard/ExampleInput.astro?raw';
+import Default from '@/components/examples/guides/cookbook/clipboard/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/clipboard/default.astro?raw';
+import Input from '@/components/examples/guides/cookbook/clipboard/input.astro';
+import InputRaw from '@/components/examples/guides/cookbook/clipboard/input.astro?raw';
 
 ## How It Works
 
@@ -20,10 +20,10 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -31,9 +31,9 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleInput />
+		<Input />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleInputRaw} lang="astro" />
+		<Code code={InputRaw} lang="astro" />
 	</Fragment>
 </Preview>

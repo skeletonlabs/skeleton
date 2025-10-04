@@ -7,11 +7,11 @@ pubDate: 2025-03-18
 tags: ['theme', 'mode', 'guides']
 ---
 
-import Process from '@/components/docs/Process.astro';
-import ProcessStep from '@/components/docs/ProcessStep.astro';
+import ProcessStep from '@/components/docs/process-step.astro';
+import Process from '@/components/docs/process.astro';
 
-import ExampleSvelteRaw from '@/components/examples/guides/cookbook/light-switch/Example.svelte?raw';
-import ExampleReactRaw from '@/components/examples/guides/cookbook/light-switch/Example.tsx?raw';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/light-switch/react/default?raw';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/light-switch/svelte/default.svelte?raw';
 
 Use [Dark Mode](/docs/guides/mode) to make use of either a base or `dark:` variant for your utility class styles. By default, Tailwind uses the `prefers-color-scheme` media query to determine and match the user's operating system settings. However, if you wish to provide your users manual control, you'll need to adjust the Dark Mode strategy for Tailwind, as well as provide the toggle interface (aka a light switch). This guide will show you how to fulfill both requirements.
 
@@ -37,10 +37,10 @@ Use [Dark Mode](/docs/guides/mode) to make use of either a base or `dark:` varia
         We'll create a implementation of the Switch component that can toggle the mode on demand.
 	   <Preview selected="codeReact" client:visible>
 			<Fragment slot="codeReact">
-				<Code code={ExampleReactRaw} lang="tsx" />
+				<Code code={DefaultReactRaw} lang="tsx" />
 			</Fragment>
 			<Fragment slot="codeSvelte">
-				<Code code={ExampleSvelteRaw} lang="svelte" />
+				<Code code={DefaultSvelteRaw} lang="svelte" />
 			</Fragment>
 		</Preview>
     </ProcessStep>
