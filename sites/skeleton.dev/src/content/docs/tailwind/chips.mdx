@@ -6,15 +6,15 @@ srcCore: '/utilities/chips.css'
 showDocsUrl: true
 ---
 
+import Example from '@/components/examples/tailwind/chips/Example.astro';
 import ExampleRaw from '@/components/examples/tailwind/chips/Example.astro?raw';
+import ExampleDisabled from '@/components/examples/tailwind/chips/ExampleDisabled.astro';
 import ExampleDisabledRaw from '@/components/examples/tailwind/chips/ExampleDisabled.astro?raw';
+import ExamplePresets from '@/components/examples/tailwind/chips/ExamplePresets.astro';
 import ExamplePresetsRaw from '@/components/examples/tailwind/chips/ExamplePresets.astro?raw';
 import ExampleSelectSvelteRaw from '@/components/examples/tailwind/chips/ExampleSelect.svelte?raw';
 import ExampleSelectReactRaw from '@/components/examples/tailwind/chips/ExampleSelect.tsx?raw';
-import Example from '@/lib/components/examples/tailwind/chips/Example.astro';
-import ExampleDisabled from '@/lib/components/examples/tailwind/chips/ExampleDisabled.astro';
-import ExamplePresets from '@/lib/components/examples/tailwind/chips/ExamplePresets.astro';
-import { Page as ExampleSelectReact } from '@/lib/components/examples/tailwind/chips/svelte/select';
+import { Page as ExampleSelectReact } from '@/components/examples/tailwind/chips/svelte/select';
 
 <Preview client:load>
 	<Fragment slot="preview">

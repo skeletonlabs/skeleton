@@ -34,7 +34,7 @@ interface CodeBlockProps {
 	preClasses?: string;
 }
 
-export function CodeBlock({
+export default function CodeBlock({
 	code = '',
 	lang = 'console',
 	theme = 'dark-plus',

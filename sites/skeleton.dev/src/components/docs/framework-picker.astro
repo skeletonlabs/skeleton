@@ -33,7 +33,7 @@ const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30
 }
 
 <script>
-	import { isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
+	import { isFramework, preferredFrameworkStore } from '@/lib/stores/preferred-framework';
 	function onClick(event: MouseEvent) {
 		if (!(event.target instanceof HTMLElement)) {
 			return;

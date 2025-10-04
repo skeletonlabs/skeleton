@@ -1,17 +1,17 @@
 ---
 // Stores
 // Components
-import Drawer from '@/components/docs/Drawer.astro';
-import LightSwitch from '@/components/docs/LightSwitch.svelte';
-import Navigation from '@/components/docs/Navigation.astro';
+import Drawer from '@/components/docs/drawer.astro';
+import LightSwitch from '@/components/docs/light-switch.svelte';
+import Navigation from '@/components/docs/navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
 import { socialLinks } from '@/lib/stores/social-links';
 
-import { HeaderSponsors } from './HeaderSponsors';
-import { HeaderThemes } from './HeaderThemes';
-import { HeaderVersion } from './HeaderVersion';
-import Search from './Search.svelte';
+import { HeaderSponsors } from '@/components/docs/header-sponsors';
+import { HeaderThemes } from '@/components/docs/header-themes';
+import { HeaderVersion } from '@/components/docs/header-version';
+import Search from '@/components/docs/search.svelte';
 
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', title: 'Docs' },

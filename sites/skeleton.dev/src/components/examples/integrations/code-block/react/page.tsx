@@ -1,4 +1,4 @@
-import { CodeBlock } from '@/components/CodeBlock/CodeBlock';
+import CodeBlock from '@/components/examples/integrations/code-block/react/component';
 
 export default function Home() {
 	// Source Code

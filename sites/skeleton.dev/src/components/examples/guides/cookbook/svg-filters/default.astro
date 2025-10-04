@@ -1,12 +1,30 @@
 ---
-import * as Filters from './filters/index.js';
+import Apollo from './filters/apollo.astro';
+import BlueNight from './filters/blue-night.astro';
+import Emerald from './filters/emerald.astro';
+import GreenFall from './filters/green-fall.astro';
+import Noir from './filters/noir.astro';
+import NoirLight from './filters/noir-light.astro';
+import Rustic from './filters/rustic.astro';
+import Summer from './filters/summer.astro';
+import XPro from './filters/x-pro.astro';
+
+const filters = {
+	Apollo,
+	BlueNight,
+	Emerald,
+	GreenFall,
+	Noir,
+	NoirLight,
+	Rustic,
+	Summer,
+	XPro,
+} as const;
 ---
 
-<!-- Generate Previews -->
 <div class="w-full grid grid-cols-3 gap-4">
 	{
-		// Loop each filter
-		Object.keys(Filters).map((filterName: string, i: number) => (
+		Object.entries(filters).map(([name, Filter], i) => (
 			<div class="flex flex-col items-center space-y-2">
 				{/* Apply the `filter: url()` style. */}
 				<img
@@ -14,21 +32,11 @@ import * as Filters from './filters/index.js';
 					class="rounded-container"
 					alt={`full-${i}`}
 					loading="lazy"
-					style={`filter: url(#${filterName})`}
+					style={`filter: url(#${name})`}
 				/>
-				<span class="badge preset-tonal">#{filterName}</span>
+				<span class="badge preset-tonal">#{name}</span>
+				<Filter />
 			</div>
 		))
 	}
 </div>
-
-<!-- Filter Embeds -->
-<Filters.Apollo />
-<Filters.BlueNight />
-<Filters.Emerald />
-<Filters.GreenFall />
-<Filters.Noir />
-<Filters.NoirLight />
-<Filters.Rustic />
-<Filters.Summer />
-<Filters.XPro />
