@@ -17,7 +17,7 @@ export default function Search() {
 
 	const dialog = useDialog();
 
-	async function getOrInitializePagefind() {
+	const getOrInitializePagefind = useCallback(async () => {
 		if (pagefind) {
 			return pagefind;
 		}
@@ -28,7 +28,8 @@ export default function Search() {
 		}
 		await pagefind.init();
 		return pagefind;
-	}
+		// oxlint-disable-next-line exhaustive-deps
+	}, []);
 
 	const performSearch = useCallback(
 		async (searchQuery: string) => {
