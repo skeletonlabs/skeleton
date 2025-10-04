@@ -1,3 +1,4 @@
+import { generateTypeDocumentation } from './scripts/generate-type-documentation';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
@@ -7,6 +8,9 @@ import AutoImport from 'astro-auto-import';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
+import { rm } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { createIndex } from 'pagefind';
 import { pagefind } from 'vite-plugin-pagefind';
 
 export default defineConfig({
@@ -48,12 +52,47 @@ export default defineConfig({
 		 * Note: Keep this as the last integration so that framework components are available in MDX.
 		 */
 		mdx(),
+		{
+			name: 'skeleton',
+			hooks: {
+				'astro:build:start': async (ctx) => {
+					ctx.logger.info('Generating type documentation...');
+					await generateTypeDocumentation();
+					ctx.logger.info('Type documentation generated.');
+				},
+				'astro:build:done': async (ctx) => {
+					ctx.logger.info('Removing meta pages...');
+					for (const page of ctx.pages) {
+						if (!page.pathname.endsWith('/meta/')) {
+							continue;
+						}
+						await rm(fileURLToPath(new URL(page.pathname, ctx.dir).href), {
+							recursive: true,
+						});
+						ctx.logger.info(`Removed ${page.pathname}`);
+					}
+					ctx.logger.info('Meta pages removed.');
+					ctx.logger.info('Generating search index...');
+					const { index, errors } = await createIndex({
+						excludeSelectors: ['.expressive-code'],
+					});
+					if (!index) {
+						throw new Error(`Failed to create search index: ${errors?.join(', ')}`);
+					}
+					await index.addDirectory({
+						path: fileURLToPath(ctx.dir),
+					});
+					await index.writeFiles();
+					ctx.logger.info('Search index generated.');
+				},
+			},
+		},
 	],
 	vite: {
 		plugins: [
-			// https://tailwindcss.com/docs/installation/framework-guides/astro
+			// @ts-expect-error - vite version mismatch
 			tailwindcss(),
-			// https://github.com/Hugos68/vite-plugin-pagefind
+			// @ts-expect-error - vite version mismatch
 			pagefind({
 				outputDirectory: 'dist',
 			}),

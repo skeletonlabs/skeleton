@@ -49,20 +49,14 @@ export default function Search() {
 					return;
 				}
 
-				const results = await Promise.all(result.results.map((r) => r.data()));
-
-				const filteredResults = results.filter((res) => {
-					if (res.url.endsWith('/meta')) {
-						return false;
-					}
+				const results = (await Promise.all(result.results.map((r) => r.data()))).filter((res) => {
 					const urlFramework = res.url.split('/').at(-2);
 					if (!isFramework(urlFramework)) return true;
 					return urlFramework === framework.get();
 				});
 
-				setSearchState({ status: 'success', results: filteredResults });
-				// oxlint-disable-next-line no-unused-vars
-			} catch (error) {
+				setSearchState({ status: 'success', results: results });
+			} catch {
 				setSearchState({ status: 'error', error: 'Search failed' });
 			}
 		},
