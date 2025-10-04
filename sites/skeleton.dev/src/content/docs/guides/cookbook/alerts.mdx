@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Alerts
 description: General purpose notifications to attract attention and provide critical actions.
 showDocsUrl: true
@@ -7,17 +6,17 @@ pubDate: 2024-11-18
 tags: ['blocks', 'notifications']
 ---
 
-import Example from '@/examples/guides/cookbook/alerts/Example.astro';
-import ExampleRaw from '@/examples/guides/cookbook/alerts/Example.astro?raw';
-import ExampleColors from '@/examples/guides/cookbook/alerts/ExampleColors.astro';
-import ExampleColorsRaw from '@/examples/guides/cookbook/alerts/ExampleColors.astro?raw';
+import Colors from '@/components/examples/guides/cookbook/alerts/colors.astro';
+import ColorsRaw from '@/components/examples/guides/cookbook/alerts/colors.astro?raw';
+import Default from '@/components/examples/guides/cookbook/alerts/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.astro?raw';
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -27,9 +26,9 @@ For even more customization, try mixing and matching various [Presets](/docs/des
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleColors />
+		<Colors />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColorsRaw} lang="astro" />
+		<Code code={ColorsRaw} lang="astro" />
 	</Fragment>
 </Preview>

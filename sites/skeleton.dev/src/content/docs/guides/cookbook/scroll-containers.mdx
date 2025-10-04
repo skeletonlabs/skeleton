@@ -1,5 +1,4 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Scroll Containers
 description: Create scrolling containers using the scroll snap features from Tailwind.
 showDocsUrl: true
@@ -7,12 +6,12 @@ pubDate: 2024-11-19
 tags: ['blocks', 'images']
 ---
 
-import Example from '@/examples/guides/cookbook/scroll-containers/Example.astro';
-import ExampleRaw from '@/examples/guides/cookbook/scroll-containers/Example.astro?raw';
-import ExampleCarousel from '@/examples/guides/cookbook/scroll-containers/ExampleCarousel.astro';
-import ExampleCarouselRaw from '@/examples/guides/cookbook/scroll-containers/ExampleCarousel.astro?raw';
-import ExampleMultiColumn from '@/examples/guides/cookbook/scroll-containers/ExampleMultiColumn.astro';
-import ExampleMultiColumnRaw from '@/examples/guides/cookbook/scroll-containers/ExampleMultiColumn.astro?raw';
+import Carousel from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro';
+import CarouselRaw from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro?raw';
+import Default from '@/components/examples/guides/cookbook/scroll-containers/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/scroll-containers/default.astro?raw';
+import MultiColumn from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro';
+import MultiColumnRaw from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro?raw';
 
 ## Scroll Snap
 
@@ -20,10 +19,10 @@ Implements Tailwind's [Scroll Snap Alignment](https://tailwindcss.com/docs/scrol
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -33,10 +32,10 @@ Using Scroll Containers, we can create a fully functional carousel, complete wit
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleCarousel />
+		<Carousel />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCarouselRaw} lang="astro" />
+		<Code code={CarouselRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -46,10 +45,10 @@ Using Scroll Containers, we can scroll sets of items.
 
 <Preview client:visible>
 	<Fragment slot="preview">
-		<ExampleMultiColumn />
+		<MultiColumn />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleMultiColumnRaw} lang="astro" />
+		<Code code={MultiColumnRaw} lang="astro" />
 	</Fragment>
 </Preview>
 

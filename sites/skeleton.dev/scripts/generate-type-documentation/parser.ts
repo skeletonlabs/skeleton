@@ -1,5 +1,4 @@
-// oxlint-disable-next-line no-unused-vars
-import { MONOREPO_DIRECTORY, PACKAGE_DIRECTORY } from './constants';
+import { PACKAGE_DIRECTORY } from './constants';
 import { join } from 'node:path';
 import * as tsMorph from 'ts-morph';
 
