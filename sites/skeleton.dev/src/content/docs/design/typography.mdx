@@ -6,41 +6,41 @@ srcCore: '/utilities/typography.css'
 order: 30
 ---
 
-import ExampleTypescale from '@/components/examples/design/typography/ExampleTypescale.svelte';
-import ExampleTypescaleRaw from '@/components/examples/design/typography/ExampleTypescale.svelte?raw';
+import Typescale from '@/components/examples/design/typography/typescale.svelte';
+import TypescaleRaw from '@/components/examples/design/typography/typescale.svelte?raw';
 
-import Anchors from '@/components/examples/design/typography/Anchors.astro';
-import AnchorsRaw from '@/components/examples/design/typography/Anchors.astro?raw';
-import Blockquotes from '@/components/examples/design/typography/Blockquotes.astro';
-import BlockquotesRaw from '@/components/examples/design/typography/Blockquotes.astro?raw';
-import CodeTag from '@/components/examples/design/typography/CodeTag.astro';
-import CodeTagRaw from '@/components/examples/design/typography/CodeTag.astro?raw';
-import Headings from '@/components/examples/design/typography/Headings.astro';
-import HeadingsRaw from '@/components/examples/design/typography/Headings.astro?raw';
-import InsDel from '@/components/examples/design/typography/InsDel.astro';
-import InsDelRaw from '@/components/examples/design/typography/InsDel.astro?raw';
-import Keyboard from '@/components/examples/design/typography/Keyboard.astro';
-import KeyboardRaw from '@/components/examples/design/typography/Keyboard.astro?raw';
-import Mark from '@/components/examples/design/typography/Mark.astro';
-import MarkRaw from '@/components/examples/design/typography/Mark.astro?raw';
-import Paragraphs from '@/components/examples/design/typography/Paragraphs.astro';
-import ParagraphsRaw from '@/components/examples/design/typography/Paragraphs.astro?raw';
-import Pre from '@/components/examples/design/typography/Pre.astro';
-import PreRaw from '@/components/examples/design/typography/Pre.astro?raw';
+import Anchors from '@/components/examples/design/typography/anchors.astro';
+import AnchorsRaw from '@/components/examples/design/typography/anchors.astro?raw';
+import Blockquotes from '@/components/examples/design/typography/blockquotes.astro';
+import BlockquotesRaw from '@/components/examples/design/typography/blockquotes.astro?raw';
+import CodeTag from '@/components/examples/design/typography/code-tag.astro';
+import CodeTagRaw from '@/components/examples/design/typography/code-tag.astro?raw';
+import Headings from '@/components/examples/design/typography/headings.astro';
+import HeadingsRaw from '@/components/examples/design/typography/headings.astro?raw';
+import InsDel from '@/components/examples/design/typography/ins-del.astro';
+import InsDelRaw from '@/components/examples/design/typography/ins-del.astro?raw';
+import Keyboard from '@/components/examples/design/typography/keyboard.astro';
+import KeyboardRaw from '@/components/examples/design/typography/keyboard.astro?raw';
+import Mark from '@/components/examples/design/typography/mark.astro';
+import MarkRaw from '@/components/examples/design/typography/mark.astro?raw';
+import Paragraphs from '@/components/examples/design/typography/paragraphs.astro';
+import ParagraphsRaw from '@/components/examples/design/typography/paragraphs.astro?raw';
+import Pre from '@/components/examples/design/typography/pre.astro';
+import PreRaw from '@/components/examples/design/typography/pre.astro?raw';
 
-import ListBasic from '@/components/examples/design/typography/ListBasic.astro';
-import ListBasicRaw from '@/components/examples/design/typography/ListBasic.astro?raw';
-import ListDesc from '@/components/examples/design/typography/ListDesc.astro';
-import ListDescRaw from '@/components/examples/design/typography/ListDesc.astro?raw';
-import ListNav from '@/components/examples/design/typography/ListNav.astro';
-import ListNavRaw from '@/components/examples/design/typography/ListNav.astro?raw';
-import ListOrdered from '@/components/examples/design/typography/ListOrdered.astro';
-import ListOrderedRaw from '@/components/examples/design/typography/ListOrdered.astro?raw';
-import ListUnordered from '@/components/examples/design/typography/ListUnordered.astro';
-import ListUnorderedRaw from '@/components/examples/design/typography/ListUnordered.astro?raw';
+import ListBasic from '@/components/examples/design/typography/list-basic.astro';
+import ListBasicRaw from '@/components/examples/design/typography/list-basic.astro?raw';
+import ListDesc from '@/components/examples/design/typography/list-desc.astro';
+import ListDescRaw from '@/components/examples/design/typography/list-desc.astro?raw';
+import ListNav from '@/components/examples/design/typography/list-nav.astro';
+import ListNavRaw from '@/components/examples/design/typography/list-nav.astro?raw';
+import ListOrdered from '@/components/examples/design/typography/list-ordered.astro';
+import ListOrderedRaw from '@/components/examples/design/typography/list-ordered.astro?raw';
+import ListUnordered from '@/components/examples/design/typography/list-unordered.astro';
+import ListUnorderedRaw from '@/components/examples/design/typography/list-unordered.astro?raw';
 
-import ExampleSemantic from '@/components/examples/design/typography/ExampleSemantic.svelte';
-import ExampleSemanticRaw from '@/components/examples/design/typography/ExampleSemantic.svelte?raw';
+import Semantic from '@/components/examples/design/typography/semantic.svelte';
+import SemanticRaw from '@/components/examples/design/typography/semantic.svelte?raw';
 
 {
 
@@ -57,7 +57,7 @@ Skeleton introduces customizable [Typographic Scale](https://designcode.io/typog
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleTypescale client:visible />
+		<Typescale client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<div class="space-y-4">
@@ -254,9 +254,9 @@ When working with your designers, they may craft a semantic typography set for y
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSemantic client:visible />
+		<Semantic client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleSemanticRaw} lang="svelte" />
+		<Code code={SemanticRaw} lang="svelte" />
 	</Fragment>
 </Preview>
