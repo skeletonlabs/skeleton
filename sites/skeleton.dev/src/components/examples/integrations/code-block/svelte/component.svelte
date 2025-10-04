@@ -1,4 +1,4 @@
-<script module>
+<script lang="ts" module>
 	import { createHighlighterCoreSync } from 'shiki/core';
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 	import console from 'shiki/langs/console.mjs';
