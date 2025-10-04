@@ -45,8 +45,12 @@ function skeleton(): AstroIntegration {
 				await index.addDirectory({
 					path: fileURLToPath(ctx.dir),
 				});
-				await index.writeFiles();
-				ctx.logger.info('Search index generated.');
+				const response = await index.writeFiles();
+				if (response.errors) {
+					ctx.logger.error(`Failed to write search index: ${response.errors.join(', ')}`);
+				} else {
+					ctx.logger.info('Search index generated.');
+				}
 			},
 		},
 	};
