@@ -6,20 +6,20 @@ srcCore: '/utilities/presets.scss'
 order: 20
 ---
 
-import Example from '@/components/examples/design/presets/Example.svelte';
-import ExampleRaw from '@/components/examples/design/presets/Example.svelte?raw';
-import ExampleCustom from '@/components/examples/design/presets/ExampleCustom.astro';
-import ExampleCustomRaw from '@/components/examples/design/presets/ExampleCustom.astro?raw';
-import ExampleFilled from '@/components/examples/design/presets/ExampleFilled.astro';
-import ExampleFilledRaw from '@/components/examples/design/presets/ExampleFilled.astro?raw';
-import ExampleGlass from '@/components/examples/design/presets/ExampleGlass.astro';
-import ExampleGlassRaw from '@/components/examples/design/presets/ExampleGlass.astro?raw';
-import ExampleGradient from '@/components/examples/design/presets/ExampleGradient.astro';
-import ExampleGradientRaw from '@/components/examples/design/presets/ExampleGradient.astro?raw';
-import ExampleOutlined from '@/components/examples/design/presets/ExampleOutlined.astro';
-import ExampleOutlinedRaw from '@/components/examples/design/presets/ExampleOutlined.astro?raw';
-import ExampleTonal from '@/components/examples/design/presets/ExampleTonal.astro';
-import ExampleTonalRaw from '@/components/examples/design/presets/ExampleTonal.astro?raw';
+import Custom from '@/components/examples/design/presets/custom.astro';
+import CustomRaw from '@/components/examples/design/presets/custom.astro?raw';
+import Default from '@/components/examples/design/presets/default.svelte';
+import DefaultRaw from '@/components/examples/design/presets/default.svelte?raw';
+import Filled from '@/components/examples/design/presets/filled.astro';
+import FilledRaw from '@/components/examples/design/presets/filled.astro?raw';
+import Glass from '@/components/examples/design/presets/glass.astro';
+import GlassRaw from '@/components/examples/design/presets/glass.astro?raw';
+import Gradient from '@/components/examples/design/presets/gradient.astro';
+import GradientRaw from '@/components/examples/design/presets/gradient.astro?raw';
+import Outlined from '@/components/examples/design/presets/outlined.astro';
+import OutlinedRaw from '@/components/examples/design/presets/outlined.astro?raw';
+import Tonal from '@/components/examples/design/presets/tonal.astro';
+import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
 
 {
 
@@ -32,10 +32,10 @@ import ExampleTonalRaw from '@/components/examples/design/presets/ExampleTonal.a
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example client:visible />
+		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="svelte" />
+		<Code code={DefaultRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -60,10 +60,10 @@ preset-filled-{color}-{lightModeShade}-{darkModeShade}
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFilled />
+		<Filled />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleFilledRaw} lang="astro" />
+		<Code code={FilledRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -75,10 +75,10 @@ preset-tonal-{color}
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleTonal />
+		<Tonal />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleTonalRaw} lang="astro" />
+		<Code code={TonalRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -90,10 +90,10 @@ preset-outlined-{color}-{shade}-{shade}
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleOutlined />
+		<Outlined />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleOutlinedRaw} lang="astro" />
+		<Code code={OutlinedRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -114,10 +114,10 @@ Please be aware the following presets are not included by Skeleton. Rather, thes
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleCustom />
+		<Custom />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleCustomRaw} lang="astro" />
+		<Code code={CustomRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -127,10 +127,10 @@ Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/g
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleGradient />
+		<Gradient />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGradientRaw} lang="astro" />
+		<Code code={GradientRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -138,9 +138,9 @@ Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/g
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleGlass />
+		<Glass />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleGlassRaw} lang="astro" />
+		<Code code={GlassRaw} lang="astro" />
 	</Fragment>
 </Preview>

@@ -257,7 +257,7 @@ export default function ExampleName() {
 Used within `<Preview>` to display source:
 
 ```mdx
-<Code code={ExampleRaw} lang="tsx" />
+<Code code={DefaultRaw} lang="tsx" />
 ```
 
 Languages: `tsx`, `svelte`, `ts`, `js`, `css`, `astro`, `shell`
@@ -272,7 +272,7 @@ Interactive example with preview/code tabs:
 		<Example client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="tsx" />
+		<Code code={DefaultRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 ```
