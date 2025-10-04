@@ -1,0 +1,48 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes';
+	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { ItemGroupProps } from '@zag-js/listbox';
+
+	export interface ListboxItemGroupProps extends Omit<ItemGroupProps, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id'> {}
+</script>
+
+<script lang="ts">
+	import { ItemGroupContext } from '../modules/item-group-context';
+	import { RootContext } from '../modules/root-context';
+	import { classesListbox } from '@skeletonlabs/skeleton-common';
+	import { splitItemGroupProps } from '@zag-js/listbox';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: ListboxItemGroupProps = $props();
+
+	const listbox = RootContext.consume();
+
+	const id = $props.id();
+	const [itemGroupProps, componentProps] = $derived(
+		splitItemGroupProps({
+			id: id,
+			...props,
+		}),
+	);
+	const { element, children, ...rest } = $derived(componentProps);
+
+	const attributes = $derived(
+		mergeProps(
+			listbox().getItemGroupProps(itemGroupProps),
+			{
+				class: classesListbox.itemGroup,
+			},
+			rest,
+		),
+	);
+
+	ItemGroupContext.provide(() => itemGroupProps);
+</script>
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}
