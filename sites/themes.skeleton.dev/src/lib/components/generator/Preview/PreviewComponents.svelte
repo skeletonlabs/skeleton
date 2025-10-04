@@ -2,16 +2,18 @@
 	import * as constants from '$lib/constants/generator';
 	import { globals } from '$lib/state/generator.svelte';
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
-	import CenterIcon from '@lucide/svelte/icons/align-center';
-	import JustifyIcon from '@lucide/svelte/icons/align-justify';
-	import LeftIcon from '@lucide/svelte/icons/align-left';
-	import RightIcon from '@lucide/svelte/icons/align-right';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import CalendarIcon from '@lucide/svelte/icons/calendar';
-	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
-	import MenuIcon from '@lucide/svelte/icons/menu';
-	import SearchIcon from '@lucide/svelte/icons/search';
-	import SkullIcon from '@lucide/svelte/icons/skull';
+	import {
+		TextAlignCenter,
+		TextAlignJustify,
+		TextAlignStart,
+		TextAlignEnd,
+		ArrowUpRightIcon,
+		CalendarIcon,
+		CircleUserIcon,
+		MenuIcon,
+		SearchIcon,
+		SkullIcon,
+	} from '@lucide/svelte';
 	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
@@ -136,25 +138,25 @@
 					<SegmentedControl.Indicator />
 					<SegmentedControl.Item value="left" class="flex-1">
 						<SegmentedControl.ItemText>
-							<LeftIcon />
+							<TextAlignStart />
 						</SegmentedControl.ItemText>
 						<SegmentedControl.ItemHiddenInput />
 					</SegmentedControl.Item>
 					<SegmentedControl.Item value="center" class="flex-1">
 						<SegmentedControl.ItemText>
-							<CenterIcon />
+							<TextAlignCenter />
 						</SegmentedControl.ItemText>
 						<SegmentedControl.ItemHiddenInput />
 					</SegmentedControl.Item>
 					<SegmentedControl.Item value="right" class="flex-1">
 						<SegmentedControl.ItemText>
-							<RightIcon />
+							<TextAlignEnd />
 						</SegmentedControl.ItemText>
 						<SegmentedControl.ItemHiddenInput />
 					</SegmentedControl.Item>
 					<SegmentedControl.Item value="justify" class="flex-1">
 						<SegmentedControl.ItemText>
-							<JustifyIcon />
+							<TextAlignJustify />
 						</SegmentedControl.ItemText>
 						<SegmentedControl.ItemHiddenInput />
 					</SegmentedControl.Item>

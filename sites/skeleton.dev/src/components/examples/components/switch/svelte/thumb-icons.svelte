@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Moon from '@lucide/svelte/icons/moon';
-	import Sun from '@lucide/svelte/icons/sun';
+	import { MoonIcon, SunIcon } from '@lucide/svelte';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 </script>
 

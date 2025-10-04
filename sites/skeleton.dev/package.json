@@ -19,7 +19,8 @@
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"tsx": "catalog:",
-		"vite-plugin-pagefind": "catalog:"
+		"vite-plugin-pagefind": "catalog:",
+		"vite-plugin-transform-lucide-imports": "catalog:"
 	},
 	"dependencies": {
 		"@astrojs/check": "catalog:",

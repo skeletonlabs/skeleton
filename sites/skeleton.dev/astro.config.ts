@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex } from 'pagefind';
 import { pagefind } from 'vite-plugin-pagefind';
+import transformLucideImports from 'vite-plugin-transform-lucide-imports';
 
 function skeleton(): AstroIntegration {
 	return {
@@ -108,6 +109,8 @@ export default defineConfig({
 			pagefind({
 				outputDirectory: 'dist',
 			}),
+			// @ts-expect-error - vite version mismatch
+			transformLucideImports(),
 		],
 	},
 });

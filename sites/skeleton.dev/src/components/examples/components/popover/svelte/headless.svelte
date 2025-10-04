@@ -1,11 +1,11 @@
 <script>
-	import IconSkull from '@lucide/svelte/icons/skull';
+	import { SkullIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <Popover>
 	<Popover.Trigger>
-		<IconSkull class="size-12" />
+		<SkullIcon class="size-12" />
 	</Popover.Trigger>
 	<Portal>
 		<Popover.Positioner>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconSend from '@lucide/svelte/icons/send-horizontal';
+	import { IconSend } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
 	// Types
