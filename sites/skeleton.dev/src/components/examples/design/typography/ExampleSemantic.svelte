@@ -78,7 +78,7 @@
 <style lang="postcss">
 	/* IGNORE THIS: this is only required for our example <style> block. */
 	/* https://tailwindcss.com/docs/functions-and-directives#reference-directive */
-	@reference "src/styles/app.css";
+	@reference "@/app.css";
 
 	/*
 		Copy the following classes to your global stylesheet. Rename and modify as desired.
