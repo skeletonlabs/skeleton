@@ -89,7 +89,6 @@ export default function Search() {
 					<kbd className="kbd">K</kbd>
 				</div>
 			</Dialog.Trigger>
-
 			<Portal>
 				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50" />
 				<Dialog.Positioner className="fixed inset-0 flex justify-center items-start md:py-[10dvh] md:px-[10dvw] z-50">
