@@ -98,14 +98,14 @@ Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via
 Allows you to quickly toggle between an example component and it's source code.
 
 ```ts
-import Example from '@/components/examples/foo/Example.astro';
-import ExampleRaw from '@/components/examples/foo/Example.astro?raw';
+import Default from '@/components/examples/foo/default';
+import DefaultRaw from '@/components/examples/foo/default?raw';
 ```
 
 ```astro
 <Preview client:load>
-	<Fragment slot="preview"><Example /></Fragment>
-	<Fragment slot="code"><Code code={ExampleRaw} lang="html" /></Fragment>
+	<Fragment slot="preview"><Default /></Fragment>
+	<Fragment slot="code"><Code code={DefaultRaw} lang="html" /></Fragment>
 </Preview>
 ```
 
@@ -118,16 +118,16 @@ To allow for a common preview to have framework specific code, use the `codeReac
 	<Fragment slot="preview"><Example /></Fragment>
 	<Preview>
 		<Fragment slot="preview">
-			<Example />
+			<Default />
 		</Fragment>
 		<Fragment slot="code">
-			<Code code={ExampleGenericRaw} lang="astro" />
+			<Code code={DefaultGenericRaw} lang="astro" />
 		</Fragment>
 		<Fragment slot="codeReact">
-			<Code code={ExampleSvelteRaw} lang="tsx" />
+			<Code code={DefaultReactRaw} lang="tsx" />
 		</Fragment>
 		<Fragment slot="codeSvelte">
-			<Code code={ExampleReactRaw} lang="svelte" />
+			<Code code={DefaultSvelteRaw} lang="svelte" />
 		</Fragment>
 	</Preview>
 </Preview>
