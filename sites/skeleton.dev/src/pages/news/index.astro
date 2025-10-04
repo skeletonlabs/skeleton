@@ -1,5 +1,5 @@
 ---
-import BlueSkyFeed from '@/components/docs/bluesky-feed.svelte';
+import BlueSkyFeed from '@/components/docs/bluesky-feed';
 import Footer from '@/components/docs/footer.astro';
 import Header from '@/components/docs/header.astro';
 // Components
@@ -26,7 +26,7 @@ const layoutProps = {
 			</a>
 		</header>
 		<div class="grid gap-8">
-			<BlueSkyFeed client:load />
+			<BlueSkyFeed client:only="react" />
 		</div>
 		<div class="flex justify-center">
 			<a class="btn preset-filled" href="https://bsky.app/profile/skeleton.dev" target="_blank">

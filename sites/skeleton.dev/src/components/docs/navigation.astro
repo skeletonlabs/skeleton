@@ -116,7 +116,7 @@ const navigation: NavigationGroup[] = [
 </aside>
 
 <script>
-	import { preferredFrameworkStore } from '@/lib/stores/preferred-framework';
+	import { framework } from '@/lib/framework';
 
 	const SIDEBAR_SCROLL_KEY = 'sidebar-scroll-position';
 
@@ -140,25 +140,25 @@ const navigation: NavigationGroup[] = [
 		sidebar.addEventListener('scroll', handleSidebarScroll);
 	}
 
-	function rewriteAnchorHrefs(framework: ReturnType<typeof preferredFrameworkStore.get>) {
+	function rewriteAnchorHrefs(value: ReturnType<typeof framework.get>) {
 		const anchors = document.querySelectorAll<HTMLAnchorElement>('a');
 		for (const anchor of anchors) {
 			if (!anchor.href.endsWith('meta')) {
 				continue;
 			}
-			anchor.setAttribute('href', anchor.href.replace('meta', framework));
+			anchor.setAttribute('href', anchor.href.replace('meta', value));
 		}
 	}
 
 	restoreScrollPosition();
-	rewriteAnchorHrefs(preferredFrameworkStore.get());
+	rewriteAnchorHrefs(framework.get());
 
-	preferredFrameworkStore.subscribe((preferredFramework) => {
-		rewriteAnchorHrefs(preferredFramework);
+	framework.subscribe((framework) => {
+		rewriteAnchorHrefs(framework);
 	});
 
 	document.addEventListener('astro:after-swap', () => {
 		restoreScrollPosition();
-		rewriteAnchorHrefs(preferredFrameworkStore.get());
+		rewriteAnchorHrefs(framework.get());
 	});
 </script>

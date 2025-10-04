@@ -2,16 +2,16 @@
 // Stores
 // Components
 import Drawer from '@/components/docs/drawer.astro';
-import LightSwitch from '@/components/docs/light-switch.svelte';
+import LightSwitch from '@/components/docs/light-switch';
 import Navigation from '@/components/docs/navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
-import { socialLinks } from '@/lib/stores/social-links';
+import { socialLinks } from '@/lib/social-links';
 
 import { HeaderSponsors } from '@/components/docs/header-sponsors';
 import { HeaderThemes } from '@/components/docs/header-themes';
 import { HeaderVersion } from '@/components/docs/header-version';
-import Search from '@/components/docs/search.svelte';
+import Search from '@/components/docs/search';
 
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', title: 'Docs' },
@@ -72,14 +72,11 @@ const versionLinks = [
 			<!-- Social -->
 			<nav class="flex items-center gap-1">
 				{
-					socialLinks
-						.get()
-						.slice(0, 2)
-						.map((l) => (
-							<a class="btn-icon hover:preset-tonal" href={l.href} target="_blank" title={l.label} aria-label={l.label}>
-								<Icon name={l.icon} size={20} />
-							</a>
-						))
+					socialLinks.slice(0, 2).map((link) => (
+						<a class="btn-icon hover:preset-tonal" href={link.href} target="_blank" title={link.label} aria-label={link.label}>
+							<Icon name={link.icon} size={20} />
+						</a>
+					))
 				}
 			</nav>
 			<!-- Divider -->

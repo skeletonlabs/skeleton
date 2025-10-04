@@ -1,12 +1,4 @@
-import { atom } from 'nanostores';
-
-interface SocialLink {
-	href: string;
-	label: string;
-	icon: string;
-}
-
-export const socialLinks = atom<SocialLink[]>([
+export const socialLinks = [
 	{
 		href: 'https://github.com/skeletonlabs/skeleton',
 		label: 'GitHub',
@@ -27,4 +19,4 @@ export const socialLinks = atom<SocialLink[]>([
 		label: 'YouTube',
 		icon: 'youtube',
 	},
-]);
+] as const;
