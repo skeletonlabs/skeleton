@@ -2,6 +2,7 @@ import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import fs from 'fs/promises';
 import path from 'path';
+import { glob } from 'tinyglobby';
 
 type Framework = 'svelte' | 'react';
 
@@ -85,9 +86,33 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		// We really only care about the code part and detect which path it is referring to
 		// by using the rawImports Record
 
+		// Note, there is a edge case where preview have code embeded, We are checking this first
+		/*
+		<Fragment slot="code">
+			<div class="space-y-4">
+				Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+				```css
+				[data-theme='cerberus'] {
+					--spacing: 0.25rem;
+				}
+				```
+			</div>
+		</Fragment>
+		*/
+
 		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw
 		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
 		if (!codeIdentifierMatch) {
+			// No Code component found - check if there's embedded content in the code slot
+			// slot=["']code["'] Match exactly "code" or 'code'
+			// [^>]* Match anything except >, include additional possible attributes
+			// ([\s\S]*?) Match everything including newlines
+			const codeSlotMatch = previewBlock.match(/<Fragment\s+slot=["']code["'][^>]*>([\s\S]*?)<\/Fragment>/);
+			if (codeSlotMatch) {
+				const codeSlotContent = codeSlotMatch[1].trim();
+				// Include everything from the code slot - if no code is found
+				content = content.replace(previewBlock, codeSlotContent);
+			}
 			continue;
 		}
 		const codeIdentifier = codeIdentifierMatch[1].trim();
@@ -97,25 +122,33 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		}
 		const resolvedPath = importPath.replace('@examples', './src/examples').replace(/^@\/examples/, './src/examples');
 
-		// Try multiple extensions if the path doesn't have one (Currently there are no ts, js, and html files)
-		const extensions = ['.tsx', '.svelte', '.astro', '.ts', '.js', '.jsx', 'txt', 'html', ''];
 		let fileContent = '';
-		let foundFile = false;
 
-		for (const ext of extensions) {
-			try {
-				const pathToTry = resolvedPath + ext;
-				fileContent = await fs.readFile(path.resolve(pathToTry), 'utf8');
-				foundFile = true;
-				break;
-			} catch (error) {
-				// Try next extension
-				continue;
+		// Check if the path already has an extension
+		const hasExtension = path.extname(resolvedPath) !== '';
+
+		try {
+			if (hasExtension) {
+				// Path already has extension, read directly
+				fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf8');
+			} else {
+				// No extension, use glob to find the file with any extension
+				const globPattern = `${resolvedPath}.*`;
+				const matches = await glob([globPattern], {
+					absolute: false,
+				});
+
+				if (matches.length > 0) {
+					// Pick the first match
+					const filePath = matches[0];
+					fileContent = await fs.readFile(path.resolve(filePath), 'utf8');
+				} else {
+					console.error('No file found matching pattern:', globPattern);
+					fileContent = '// Error loading file, please report this issue.';
+				}
 			}
-		}
-
-		if (!foundFile) {
-			console.error('Error reading file (tried all extensions):', resolvedPath);
+		} catch (error) {
+			console.error('Error reading file:', resolvedPath, error);
 			fileContent = '// Error loading file, please report this issue.';
 		}
 
@@ -127,7 +160,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 
 // TODO: wait for the APITable update, prehaps the API table could be export its function so no rewrite is needed here
 /**
- * Replaces preview blocks with Markdown code blocks.
+ * Replaces APITable with Markdown Tables.
  * @param content The content to process.
  * @param docSlug The slug of the content.
  */
@@ -329,16 +362,12 @@ export async function generateSinglePageDocumentation(
 	const title = metaEntry?.data.title ?? docEntry.data.title;
 	const description = metaEntry?.data.description ?? docEntry.data.description;
 
-	// Start with system prompt
-	let content = ``;
-
-	// Add title and description
-	content += `# ${title}\n${description}\n\n`;
+	let content = `# ${title}\n${description}\n\n`;
 
 	// Process the body content
 	let bodyContent = docEntry.body ?? '';
 
-	// Apply transformations based on document type
+	// Replace previews
 	const language = framework === 'react' ? 'tsx' : framework === 'svelte' ? 'svelte' : 'html';
 	bodyContent = await processPreviewBlocks(bodyContent, language);
 	bodyContent = await processApiTables(bodyContent, docEntry.id);
@@ -358,11 +387,7 @@ export async function generateSinglePageDocumentation(
  * @param framework The target framework ('svelte' or 'react').
  */
 export async function generateDocumentation(framework: Framework): Promise<string> {
-	let content = `<system>
-This documentation provides a comprehensive reference for the Skeleton v3 UI framework, featuring ${framework.replace(/^./, (c) => c.toUpperCase())} examples.
-If you are using a different JavaScript framework, please refer to the respective framework-specific documentation for examples.
-Always utilize Skeleton UI components, classes, and styles whenever possible.
-</system>\n`;
+	let content = `<SYSTEM>This is the developer documentation for Skeleton, an adaptive design system powered by Tailwind CSS, featuring ${framework.replace(/^./, (c) => c.toUpperCase())} specific examples.</SYSTEM>\n`;
 
 	content += await processGetStarted();
 	content += '\n\n';
