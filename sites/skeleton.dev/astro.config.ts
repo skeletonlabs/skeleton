@@ -4,7 +4,7 @@ import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import svelte, { vitePreprocess } from '@astrojs/svelte';
 import tailwindcss from '@tailwindcss/vite';
-import { AstroIntegration } from 'astro';
+import type { AstroIntegration } from 'astro';
 import AutoImport from 'astro-auto-import';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
