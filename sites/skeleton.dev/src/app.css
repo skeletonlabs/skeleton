@@ -180,3 +180,25 @@ html {
 	text-align: right;
 	text-transform: uppercase;
 }
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 100;
+	}
+}
+
+@keyframes fly-in {
+	from {
+		transform: translateY(5%);
+		scale: 0.95;
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		scale: 1;
+		opacity: 100;
+	}
+}
