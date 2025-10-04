@@ -11,21 +11,24 @@ type SearchState =
 	| { status: 'error'; error: string };
 
 export default function Search() {
-	const [pagefind, setPagefind] = useState<Pagefind | null>(null);
+	let pagefind: Pagefind | null = null;
 	const [query, setQuery] = useState('');
 	const [searchState, setSearchState] = useState<SearchState>({ status: 'idle' });
 
 	const dialog = useDialog();
 
-	const getOrInitializePagefind = useCallback(async () => {
-		if (pagefind) return pagefind;
-
+	async function getOrInitializePagefind() {
+		if (pagefind) {
+			return pagefind;
+		}
 		// @ts-expect-error - will be present at runtime
-		const pf: Pagefind = await import('/pagefind/pagefind.js');
-		pf.init();
-		setPagefind(pf);
-		return pf;
-	}, [pagefind]);
+		pagefind = await import('/pagefind/pagefind.js');
+		if (!pagefind) {
+			throw new Error('Unable to find pagefind module');
+		}
+		await pagefind.init();
+		return pagefind;
+	}
 
 	const performSearch = useCallback(
 		async (searchQuery: string) => {
@@ -59,11 +62,14 @@ export default function Search() {
 				setSearchState({ status: 'error', error: 'Search failed' });
 			}
 		},
+		// oxlint-disable-next-line exhaustive-deps
 		[getOrInitializePagefind],
 	);
 
 	useEffect(() => {
-		performSearch(query);
+		performSearch(query).catch(() => {
+			setSearchState({ status: 'error', error: 'Search failed' });
+		});
 	}, [query, performSearch]);
 
 	useEffect(() => {

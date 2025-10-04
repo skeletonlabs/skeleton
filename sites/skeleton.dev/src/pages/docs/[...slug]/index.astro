@@ -1,8 +1,8 @@
 ---
 import { components } from '@/components/mdx';
-import LayoutRoot from '@/components/layouts/root.astro';
+import LayoutDocs from '@/components/layouts/docs.astro';
 import type { GetStaticPaths } from 'astro';
-import { render } from 'astro:content';
+import { render, type InferEntrySchema } from 'astro:content';
 import { getCollection, getEntry } from 'astro:content';
 
 export const getStaticPaths = (async () => {
@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(page);
+const { Content, remarkPluginFrontmatter, headings } = await render(page);
 
 const meta = ['components/', 'integrations/'].some((id) => page.id.startsWith(id))
 	? await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta'))
@@ -29,6 +29,6 @@ if (meta) {
 }
 ---
 
-<LayoutRoot title={meta ? meta.data.title : page.data.title} description={meta ? meta.data.title : page.data.description}>
+<LayoutDocs headings={headings} frontmatter={remarkPluginFrontmatter as InferEntrySchema<'docs'>}>
 	<Content components={components} />
-</LayoutRoot>
+</LayoutDocs>
