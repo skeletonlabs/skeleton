@@ -82,7 +82,7 @@ stability: 'stable' # Optional: 'alpha', 'beta', or 'stable' (default)
 
 ```mdx
 ---
-layout: '@/layouts/LayoutDoc.astro'
+layout: '@/components/layouts/LayoutDoc.astro'
 ---
 ```
 
@@ -91,14 +91,14 @@ layout: '@/layouts/LayoutDoc.astro'
 Import examples and their raw source code in **alphabetical order by feature name**:
 
 ```mdx
-import Default from '@/examples/components/avatar/react/default.tsx';
-import DefaultRaw from '@/examples/components/avatar/react/default.tsx?raw';
+import Default from '@/components/examples/components/avatar/react/default.tsx';
+import DefaultRaw from '@/components/examples/components/avatar/react/default.tsx?raw';
 
-import Fallback from '@/examples/components/avatar/react/fallback.tsx';
-import FallbackRaw from '@/examples/components/avatar/react/fallback.tsx?raw';
+import Fallback from '@/components/examples/components/avatar/react/fallback.tsx';
+import FallbackRaw from '@/components/examples/components/avatar/react/fallback.tsx?raw';
 
-import Filter from '@/examples/components/avatar/react/filter.tsx';
-import FilterRaw from '@/examples/components/avatar/react/filter.tsx?raw';
+import Filter from '@/components/examples/components/avatar/react/filter.tsx';
+import FilterRaw from '@/components/examples/components/avatar/react/filter.tsx?raw';
 
 ;
 ```
@@ -313,20 +313,13 @@ Creates a grid of navigation cards:
 - Use `client:visible` on example components inside Preview
 - This optimizes initial page load while keeping examples interactive
 
-## File Path Aliases
+## File Path Alias
 
-The following path aliases are configured:
+The following path alias is configured:
 
-- `@components/` → `src/components/`
-- `@examples/` → `src/examples/`
-- `@layouts/` → `src/layouts/`
-- `@lib/` → `src/lib/`
-- `@icons/` → `src/icons/`
-- `@images/` → `src/images/`
-- `@content/` → `src/content/`
-- `@styles/` → `src/styles/`
+- `@/` → `src/`
 
-Always use these aliases in imports for consistency.
+Always use this alias in imports for consistency.
 
 ## Type Documentation
 
@@ -342,11 +335,11 @@ The generation script is in `scripts/generate-type-documentation/`.
 
 ```mdx
 ---
-layout: '@/layouts/LayoutDoc.astro'
+layout: '@/components/layouts/LayoutDoc.astro'
 ---
 
-import Default from '@/examples/components/example/react/default.tsx';
-import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
+import Default from '@/components/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/components/examples/components/example/react/default.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -365,11 +358,11 @@ import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
 ### Multiple Examples Pattern
 
 ```mdx
-import Default from '@/examples/components/example/react/default.tsx';
-import DefaultRaw from '@/examples/components/example/react/default.tsx?raw';
+import Default from '@/components/examples/components/example/react/default.tsx';
+import DefaultRaw from '@/components/examples/components/example/react/default.tsx?raw';
 
-import Advanced from '@/examples/components/example/react/advanced.tsx';
-import AdvancedRaw from '@/examples/components/example/react/advanced.tsx?raw';
+import Advanced from '@/components/examples/components/example/react/advanced.tsx';
+import AdvancedRaw from '@/components/examples/components/example/react/advanced.tsx?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
