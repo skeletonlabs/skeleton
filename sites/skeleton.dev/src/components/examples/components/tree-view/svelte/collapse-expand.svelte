@@ -1,7 +1,7 @@
 <script lang="ts">
 	import FileIcon from '@lucide/svelte/icons/file';
 	import FolderIcon from '@lucide/svelte/icons/folder';
-	import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-svelte';
+	import { TreeView, createTreeViewCollection, useTreeView } from '@skeletonlabs/skeleton-svelte';
 
 	interface Node {
 		id: string;
@@ -39,16 +39,29 @@
 			],
 		},
 	});
+
+	const id = $props.id();
+	const treeView = useTreeView({
+		id: id,
+		collection: collection,
+	});
 </script>
 
-<TreeView {collection}>
-	<TreeView.Label>File System</TreeView.Label>
-	<TreeView.Tree>
-		{#each collection.rootNode.children || [] as node, index (node)}
-			{@render treeNode(node, [index])}
-		{/each}
-	</TreeView.Tree>
-</TreeView>
+<div class="space-y-2">
+	<TreeView.Provider value={treeView}>
+		<TreeView.Label>File System</TreeView.Label>
+		<TreeView.Tree>
+			{#each collection.rootNode.children || [] as node, index (node)}
+				{@render treeNode(node, [index])}
+			{/each}
+		</TreeView.Tree>
+	</TreeView.Provider>
+
+	<div class="flex gap-2">
+		<button class="btn preset-filled" onclick={() => treeView().collapse()}> Collapse </button>
+		<button class="btn preset-filled" onclick={() => treeView().expand()}> Expand </button>
+	</div>
+</div>
 
 {#snippet treeNode(node: Node, indexPath: number[])}
 	<TreeView.NodeProvider value={{ node, indexPath }}>

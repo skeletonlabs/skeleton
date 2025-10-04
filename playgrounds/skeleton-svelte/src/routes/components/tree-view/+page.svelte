@@ -21,20 +21,6 @@
 					name: 'node_modules',
 					children: [
 						{
-							id: 'node_modules/@types',
-							name: '@types',
-							children: [
-								{
-									id: 'node_modules/@types/react',
-									name: 'react',
-								},
-								{
-									id: 'node_modules/@types/react-dom',
-									name: 'react-dom',
-								},
-							],
-						},
-						{
 							id: 'node_modules/@skeletonlabs',
 							name: '@skeletonlabs',
 							children: [
@@ -42,25 +28,7 @@
 									id: 'node_modules/@skeletonlabs/skeleton',
 									name: 'skeleton',
 								},
-								{
-									id: 'node_modules/@skeletonlabs/skeleton-react',
-									name: 'skeleton-react',
-								},
-								{
-									id: 'node_modules/@skeletonlabs/skeleton-svelte',
-									name: 'skeleton-svelte',
-								},
 							],
-						},
-					],
-				},
-				{
-					id: 'src',
-					name: 'src',
-					children: [
-						{
-							id: 'src/index.ts',
-							name: 'index.ts',
 						},
 					],
 				},

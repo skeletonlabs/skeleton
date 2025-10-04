@@ -15,7 +15,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 					<TreeView.BranchControl>
 						<TreeView.BranchIndicator />
 						<TreeView.BranchText>
-							<FolderIcon />
+							<FolderIcon className="size-4" />
 							{props.node.name}
 						</TreeView.BranchText>
 					</TreeView.BranchControl>
@@ -28,7 +28,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				</TreeView.Branch>
 			) : (
 				<TreeView.Item>
-					<FileIcon />
+					<FileIcon className="size-4" />
 					{props.node.name}
 				</TreeView.Item>
 			)}
@@ -49,20 +49,6 @@ export default function Default() {
 					name: 'node_modules',
 					children: [
 						{
-							id: 'node_modules/@types',
-							name: '@types',
-							children: [
-								{
-									id: 'node_modules/@types/react',
-									name: 'react',
-								},
-								{
-									id: 'node_modules/@types/react-dom',
-									name: 'react-dom',
-								},
-							],
-						},
-						{
 							id: 'node_modules/@skeletonlabs',
 							name: '@skeletonlabs',
 							children: [
@@ -70,25 +56,7 @@ export default function Default() {
 									id: 'node_modules/@skeletonlabs/skeleton',
 									name: 'skeleton',
 								},
-								{
-									id: 'node_modules/@skeletonlabs/skeleton-react',
-									name: 'skeleton-react',
-								},
-								{
-									id: 'node_modules/@skeletonlabs/skeleton-svelte',
-									name: 'skeleton-svelte',
-								},
 							],
-						},
-					],
-				},
-				{
-					id: 'src',
-					name: 'src',
-					children: [
-						{
-							id: 'src/index.ts',
-							name: 'index.ts',
 						},
 					],
 				},
