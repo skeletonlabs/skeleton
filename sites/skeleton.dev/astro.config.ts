@@ -10,7 +10,6 @@ import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import { rm } from 'node:fs/promises';
-// oxlint-disable-next-line no-unused-vars
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex } from 'pagefind';
