@@ -1,14 +1,13 @@
-import React from 'react';
+import { useState, type ReactNode } from 'react';
 
 interface FrameworkTabsProps {
 	selected: 'svelte' | 'react';
-	svelte: React.ReactNode;
-	react: React.ReactNode;
+	svelte: ReactNode;
+	react: ReactNode;
 }
 
-/** Create a framework-specific tab component. */
-export const FrameworkTabs: React.FC<FrameworkTabsProps> = (props) => {
-	const [selected, setSelected] = React.useState(props.selected || 'react');
+export default function FrameworkTabs(props: FrameworkTabsProps) {
+	const [selected, setSelected] = useState(props.selected || 'react');
 	const cTab = 'font-bold py-2 px-4 border-b-[3px] border-transparent capitalize';
 	const cTabActive = '!border-surface-950-50';
 
@@ -35,4 +34,4 @@ export const FrameworkTabs: React.FC<FrameworkTabsProps> = (props) => {
 			<div className={selected === 'svelte' ? 'block' : 'hidden'}>{props.svelte}</div>
 		</div>
 	);
-};
+}

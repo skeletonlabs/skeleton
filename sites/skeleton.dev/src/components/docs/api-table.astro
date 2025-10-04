@@ -18,13 +18,17 @@ function kebabToPascal(str: string) {
 		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 		.join('');
 }
+
+if (!types && import.meta.env.PROD) {
+	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
+}
 ---
 
 <div class="grid gap-8">
 	{
 		!types ? (
 			<p class="italic text-sm opacity-50">
-				Unable to load types for {framework}/{component}
+				Unable to load auto detect types for {framework}/{component}
 			</p>
 		) : (
 			<section class="grid gap-4">
