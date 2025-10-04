@@ -1,9 +1,8 @@
 import { blueSkyAgent } from '@/lib/bluesky';
-import type { PostView } from '@atproto/api/dist/client/types/app/bsky/feed/defs';
 import { useEffect, useState } from 'react';
 
 export default function BlueskyFeed() {
-	const [posts, setPosts] = useState<PostView[]>([]);
+	const [posts, setPosts] = useState<Awaited<ReturnType<typeof blueSkyAgent.getAuthorFeed>>['data']['feed'][number]['post'][]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 
@@ -54,24 +53,32 @@ export default function BlueskyFeed() {
 						src="https://avatars.githubusercontent.com/u/118298875?s=400&u=66ff2a8ff80de0400757270d5a4eb90d61c867f1&v=4"
 						alt="avatar"
 					/>
+					{/* @ts-expect-error type mistmatch */}
 					<small className="opacity-60">{new Date(post.record.createdAt).toLocaleString()}</small>
 				</header>
-				<p className="xl:text-lg">{post.record.text}</p>
+				<p className="xl:text-lg">{post.record.text as string}</p>
 				<footer className="space-y-4">
 					{post.embed &&
 						(post.embed.$type.includes('external') ? (
 							<div className="block">
+								{/* @ts-expect-error type mistmatch */}
 								{post.embed.external.thumb ? (
 									<img
 										className="w-full bg-surface-500/10 hover:bg-surface-500 p-0.5 rounded-container overflow-hidden shadow"
+										// @ts-expect-error type mistmatch
 										src={post.embed.external.thumb}
+										// @ts-expect-error type mistmatch
 										alt={post.embed.external.title}
 									/>
 								) : (
-									<div className="card preset-outlined-surface-200-800 p-4 text-surface-800-200">{post.embed.external.title}</div>
+									<div className="card preset-outlined-surface-200-800 p-4 text-surface-800-200">
+										{/* @ts-expect-error type mistmatch */}
+										{post.embed.external.title}
+									</div>
 								)}
 							</div>
 						) : post.embed.$type.includes('images') ? (
+							// @ts-expect-error type mistmatch
 							post.embed.images.map((image: any, idx: number) => (
 								<img
 									key={image.thumb || idx}
