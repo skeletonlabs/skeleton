@@ -78,14 +78,6 @@ stability: 'stable' # Optional: 'alpha', 'beta', or 'stable' (default)
 
 ## Framework-Specific MDX Files (react.mdx / svelte.mdx)
 
-### Required Frontmatter
-
-```mdx
----
-layout: '@/components/layouts/docs.astro'
----
-```
-
 ### Import Pattern
 
 Import examples and their raw source code in **alphabetical order by feature name**:
@@ -334,10 +326,6 @@ The generation script is in `scripts/generate-type-documentation/`.
 ### Basic Component Example
 
 ```mdx
----
-layout: '@/components/layouts/docs.astro'
----
-
 import Default from '@/components/examples/components/example/react/default.tsx';
 import DefaultRaw from '@/components/examples/components/example/react/default.tsx?raw';
 
