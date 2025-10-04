@@ -82,7 +82,7 @@ stability: 'stable' # Optional: 'alpha', 'beta', or 'stable' (default)
 
 ```mdx
 ---
-layout: '@/components/layouts/LayoutDoc.astro'
+layout: '@/components/layouts/docs.astro'
 ---
 ```
 
@@ -335,7 +335,7 @@ The generation script is in `scripts/generate-type-documentation/`.
 
 ```mdx
 ---
-layout: '@/components/layouts/LayoutDoc.astro'
+layout: '@/components/layouts/docs.astro'
 ---
 
 import Default from '@/components/examples/components/example/react/default.tsx';
