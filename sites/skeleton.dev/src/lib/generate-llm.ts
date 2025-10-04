@@ -37,7 +37,8 @@ function generateMarkdownApiTable(schema: TypesRecord | null | undefined): strin
 		for (const property of type.props) {
 			const required = property.optional ? false : true;
 			const propName = `\`${property.name}\`${required ? '*' : ''}`;
-			const typeStr = property.type;
+			// Replace pipe characters in union types with commas to avoid breaking table format (types are listed like number | null | undefined)
+			const typeStr = property.type.replace(/\s*\|\s*/g, ', ');
 			let description = (property.JSDoc?.description ?? '') as string;
 			const defaultTag = property.JSDoc?.tags?.find((t) => t.name === 'default');
 			if (defaultTag && defaultTag.value) {
