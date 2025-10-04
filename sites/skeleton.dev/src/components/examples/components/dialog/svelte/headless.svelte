@@ -1,11 +1,11 @@
 <script lang="ts">
-	import IconSkull from '@lucide/svelte/icons/skull';
+	import { SkullIcon } from '@lucide/svelte';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <Dialog>
 	<Dialog.Trigger>
-		<IconSkull class="size-12" />
+		<SkullIcon class="size-12" />
 	</Dialog.Trigger>
 	<Portal>
 		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50" />

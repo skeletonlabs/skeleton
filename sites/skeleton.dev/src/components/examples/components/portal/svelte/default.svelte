@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SkullIcon from '@lucide/svelte/icons/skull';
+	import { SkullIcon } from '@lucide/svelte';
 	import { Portal } from '@skeletonlabs/skeleton-svelte';
 
 	let disabled = $state(true);

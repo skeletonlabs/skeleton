@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Moon from '@lucide/svelte/icons/moon';
-	import Sun from '@lucide/svelte/icons/sun';
+	import { MoonIcon, SunIcon } from '@lucide/svelte';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
 	let checked = $state(false);
@@ -32,9 +31,9 @@
 			<Switch.Context>
 				{#snippet children(switch_)}
 					{#if switch_().checked}
-						<Sun class="size-4 stroke-surface-50-950" />
+						<SunIcon class="size-4 stroke-surface-50-950" />
 					{:else}
-						<Moon class="size-4 stroke-surface-950-50" />
+						<MoonIcon class="size-4 stroke-surface-950-50" />
 					{/if}
 				{/snippet}
 			</Switch.Context>

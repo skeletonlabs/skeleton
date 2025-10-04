@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Bone from '@lucide/svelte/icons/bone';
-	import Skull from '@lucide/svelte/icons/skull';
+	import { BoneIcon, SkullIcon } from '@lucide/svelte';
 	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
 </script>
 
@@ -11,10 +10,10 @@
 				{#each ratingGroup().items as index (index)}
 					<RatingGroup.Item {index}>
 						{#snippet empty()}
-							<Bone />
+							<BoneIcon />
 						{/snippet}
 						{#snippet full()}
-							<Skull />
+							<SkullIcon />
 						{/snippet}
 					</RatingGroup.Item>
 				{/each}

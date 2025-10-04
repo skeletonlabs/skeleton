@@ -1,6 +1,5 @@
 <script lang="ts">
-	import IconMoon from '@lucide/svelte/icons/moon';
-	import IconSun from '@lucide/svelte/icons/sun';
+	import { MoonIcon, SunIcon } from '@lucide/svelte';
 
 	type Mode = 'dark' | 'light';
 
@@ -48,8 +47,8 @@
 	aria-label="Toggle dark mode."
 >
 	{#if mode === 'dark'}
-		<IconSun class="size-5" />
+		<MoonIcon class="size-5" />
 	{:else}
-		<IconMoon class="size-5" />
+		<SunIcon class="size-5" />
 	{/if}
 </button>
