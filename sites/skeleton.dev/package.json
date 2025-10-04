@@ -8,7 +8,7 @@
 		"build": "pnpm generate:types && astro build && pnpm generate:search",
 		"check": "astro check --noSync",
 		"sync": "astro sync",
-		"generate:types": "tsx ./scripts/generate-type-documentation/index",
+		"generate:type-documentation": "tsx ./scripts/generate-type-documentation",
 		"generate:search": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"devDependencies": {
