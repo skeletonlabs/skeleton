@@ -52,6 +52,9 @@ export default function Search() {
 				const results = await Promise.all(result.results.map((r) => r.data()));
 
 				const filteredResults = results.filter((res) => {
+					if (res.url.endsWith('/meta')) {
+						return false;
+					}
 					const urlFramework = res.url.split('/').at(-2);
 					if (!isFramework(urlFramework)) return true;
 					return urlFramework === framework.get();
