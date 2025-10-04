@@ -167,6 +167,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 async function processApiTables(content: string, docSlug: string): Promise<string> {
 	// ApiTable might be called in a few ways:
 	// 1. <ApiTable /> 2. <ApiTable {schema} />
+	// 3. <ApiTable component="progress" />
 	// The schema is always imported as json
 	const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
 	const schemaImports: Record<string, string> = {};
@@ -177,13 +178,16 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 		schemaImports[identifier] = importPath;
 	}
 
-	const apiTableRegex = /<ApiTable(?:\s+schema=\{([^}]+)\})?\s*\/>/g;
+	const apiTableRegex = /<ApiTable(?:\s+(?:schema=\{([^}]+)\}|component=["']([^"']+)["']))?\s*\/>/g;
 	const apiTableMatches = [...content.matchAll(apiTableRegex)];
 	for (const apiMatch of apiTableMatches.toReversed()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
+		const componentName = apiMatch[2]?.trim();
 		let schemaData: TypesRecord | null;
+
 		if (schemaVar) {
+			// Case 2
 			const importPath = schemaImports[schemaVar];
 			if (importPath) {
 				const resolvedPath = importPath.replace(/^@types|@content\/types/, './src/content/types');
@@ -197,7 +201,19 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 			} else {
 				schemaData = null;
 			}
+		} else if (componentName) {
+			// Case 3
+			const parts = docSlug.split('/');
+			const framework = parts.at(-1);
+			if (framework && (framework === 'react' || framework === 'svelte')) {
+				const componentSlug = `${framework}/${componentName}`;
+				const entry = await getEntry('types', componentSlug);
+				schemaData = entry?.data as unknown as TypesRecord | null;
+			} else {
+				schemaData = null;
+			}
 		} else {
+			// Case 1
 			schemaData = (await getSchemaFromSlug(docSlug)) as unknown as TypesRecord | null;
 		}
 		const markdownTable = generateMarkdownApiTable(schemaData);
