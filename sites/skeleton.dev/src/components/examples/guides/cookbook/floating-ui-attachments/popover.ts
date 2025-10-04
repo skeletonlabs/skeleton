@@ -1,5 +1,5 @@
-import { createAttachmentKey } from 'svelte/attachments';
 import { computePosition, autoUpdate, flip, offset, type Placement } from '@floating-ui/dom';
+import { createAttachmentKey } from 'svelte/attachments';
 
 interface PopoverOptions {
 	interaction?: 'click' | 'hover';
@@ -9,7 +9,7 @@ interface PopoverOptions {
 export class Popover {
 	private options: PopoverOptions = {
 		interaction: 'click',
-		placement: 'bottom-start'
+		placement: 'bottom-start',
 	};
 	private open = $state(false);
 	private referenceElement: HTMLElement | undefined = $state();
@@ -30,7 +30,7 @@ export class Popover {
 			},
 			onclick: () => {},
 			onmouseover: () => {},
-			onmouseout: () => {}
+			onmouseout: () => {},
 		};
 		// If click interaction
 		if (this.options.interaction === 'click') {
@@ -57,7 +57,7 @@ export class Popover {
 		return {
 			[createAttachmentKey()]: (node: HTMLElement) => {
 				this.floatingElement = node;
-			}
+			},
 		};
 	}
 
@@ -71,12 +71,12 @@ export class Popover {
 		}
 		const position = await computePosition(this.referenceElement, this.floatingElement, {
 			placement: this.options.placement,
-			middleware: [flip(), offset(8)]
+			middleware: [flip(), offset(8)],
 		});
 		const { x, y } = position;
 		Object.assign(this.floatingElement.style, {
 			left: `${x}px`,
-			top: `${y}px`
+			top: `${y}px`,
 		});
 	};
 }

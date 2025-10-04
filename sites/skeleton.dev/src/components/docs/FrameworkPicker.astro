@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { frameworks } from 'src/stores/preferred-framework';
+import { frameworks } from '@/lib/stores/preferred-framework';
 
 function getPathAndFramework(pathname: string) {
 	const parts = pathname.split('/').filter(Boolean);

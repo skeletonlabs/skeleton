@@ -1,32 +1,39 @@
-<!-- @component Code Block based on: https://shiki.style/ -->
-
 <script module>
 	import { createHighlighterCoreSync } from 'shiki/core';
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
-	// Themes
-	// https://shiki.style/themes
-	import themeDarkPlus from 'shiki/themes/dark-plus.mjs';
-	// Languages
-	// https://shiki.style/languages
 	import console from 'shiki/langs/console.mjs';
-	import html from 'shiki/langs/html.mjs';
 	import css from 'shiki/langs/css.mjs';
+	import html from 'shiki/langs/html.mjs';
 	import js from 'shiki/langs/javascript.mjs';
+	import themeDarkPlus from 'shiki/themes/dark-plus.mjs';
 
-	// https://shiki.style/guide/sync-usage
 	const shiki = createHighlighterCoreSync({
 		engine: createJavaScriptRegexEngine(),
 		// Implement your import theme.
 		themes: [themeDarkPlus],
 		// Implement your imported and supported languages.
-		langs: [console, html, css, js]
+		langs: [console, html, css, js],
 	});
+
+	interface CodeBlockProps {
+		code: string;
+		lang?: string;
+		theme?: string;
+		// Base Style Props
+		base?: string;
+		background?: string;
+		rounded?: string;
+		shadow?: string;
+		classes?: string;
+		// Pre Style Props
+		preBase?: string;
+		prePadding?: string;
+		preClasses?: string;
+	}
 </script>
 
 <script lang="ts">
-	import type { CodeBlockProps } from './types';
-
-	let {
+	const {
 		code = '',
 		lang = 'console',
 		theme = 'dark-plus',
@@ -38,7 +45,7 @@
 		// Pre Style Props
 		preBase = '',
 		prePadding = '[&>pre]:p-4',
-		preClasses = ''
+		preClasses = '',
 	}: CodeBlockProps = $props();
 
 	// Shiki convert to HTML

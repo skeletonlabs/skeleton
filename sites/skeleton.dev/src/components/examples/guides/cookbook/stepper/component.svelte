@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ExampleStepOne from './ExampleStepOne.svelte';
+	import ExampleStepOne from './step-one.svelte';
 
 	// Source Data
 	const steps = [

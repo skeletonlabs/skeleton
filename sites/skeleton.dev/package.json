@@ -12,17 +12,18 @@
 		"generate:search": "pagefind --site dist --exclude-selectors \".expressive-code\""
 	},
 	"devDependencies": {
+		"@floating-ui/dom": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"colorette": "catalog:",
 		"next": "catalog:",
+		"shiki": "catalog:",
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"tsx": "catalog:",
 		"vite-plugin-pagefind": "catalog:"
 	},
 	"dependencies": {
-		"fuse.js": "catalog:",
 		"@astrojs/check": "catalog:",
 		"@astrojs/mdx": "catalog:",
 		"@astrojs/partytown": "catalog:",
@@ -44,6 +45,7 @@
 		"astro-auto-import": "catalog:",
 		"astro-expressive-code": "catalog:",
 		"astro-icon": "catalog:",
+		"fuse.js": "catalog:",
 		"lucide-react": "catalog:",
 		"nanostores": "catalog:",
 		"octokit": "catalog:",

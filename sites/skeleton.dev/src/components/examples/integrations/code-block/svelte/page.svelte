@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CodeBlock from '$lib/components/CodeBlock/CodeBlock.svelte';
+	import CodeBlock from './component.svelte';
 
 	// Source Code
 	const exampleConsole = `npx sv create my-skeleton-app`;

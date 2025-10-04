@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { docSearchSettingsStore } from '@/lib/stores/doc-search-settings';
+	import { frameworks, isFramework, preferredFrameworkStore } from '@/lib/stores/preferred-framework';
 	import BookIcon from '@lucide/svelte/icons/book';
 	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
 	import FilterIcon from '@lucide/svelte/icons/filter';
@@ -6,8 +8,6 @@
 	import LoaderIcon from '@lucide/svelte/icons/loader';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Popover, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
-	import { docSearchSettingsStore } from 'src/stores/doc-search-settings';
-	import { frameworks, isFramework, preferredFrameworkStore } from 'src/stores/preferred-framework';
 	import { untrack } from 'svelte';
 	import type { Pagefind } from 'vite-plugin-pagefind/types';
 
