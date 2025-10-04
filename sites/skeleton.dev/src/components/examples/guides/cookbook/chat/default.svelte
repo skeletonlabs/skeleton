@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { IconSend } from '@lucide/svelte';
+	import { SendIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 
 	// Types
@@ -190,7 +190,7 @@
 						onkeydown={onPromptKeydown}
 					></textarea>
 					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" onclick={addMessage}>
-						<IconSend />
+						<SendIcon />
 					</button>
 				</div>
 			</section>
