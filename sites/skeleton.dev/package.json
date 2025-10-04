@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "pnpm generate-type-documentation && astro build && pnpm generate-search",
+		"build": "pnpm generate-type-documentation && astro build && pnpm generate-search-index",
 		"check": "astro check --noSync",
 		"sync": "astro sync",
 		"generate-type-documentation": "tsx ./scripts/generate-type-documentation",
