@@ -10,6 +10,7 @@ import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import { rm } from 'node:fs/promises';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex } from 'pagefind';
 import { pagefind } from 'vite-plugin-pagefind';
@@ -45,7 +46,9 @@ function skeleton(): AstroIntegration {
 				await index.addDirectory({
 					path: fileURLToPath(ctx.dir),
 				});
-				const response = await index.writeFiles();
+				const response = await index.writeFiles({
+					outputPath: join(fileURLToPath(ctx.dir), 'pagefind'),
+				});
 				if (response.errors.length > 0) {
 					ctx.logger.error(`Failed to write search index.: ${response.errors.join(', ')}`);
 				} else {
