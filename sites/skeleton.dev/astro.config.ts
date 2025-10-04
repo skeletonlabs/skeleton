@@ -42,10 +42,12 @@ function skeleton(): AstroIntegration {
 				if (!index) {
 					throw new Error(`Failed to create search index: ${errors?.join(', ')}`);
 				}
-				await index.addDirectory({
+				const directory = await index.addDirectory({
 					path: fileURLToPath(ctx.dir),
 				});
+				console.log({ directory });
 				const response = await index.writeFiles();
+				console.log({ response });
 				if (response.errors.length > 0) {
 					ctx.logger.error(`Failed to write search index.: ${response.errors.join(', ')}`);
 				} else {
