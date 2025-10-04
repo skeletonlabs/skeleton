@@ -1,28 +1,27 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Dividers
 description: Horizontal and vertical rule styling.
 srcCore: '/utilities/dividers.css'
 showDocsUrl: true
 ---
 
-import Example from '@/examples/tailwind/dividers/Example.astro';
-import ExampleRaw from '@/examples/tailwind/dividers/Example.astro?raw';
-import ExampleColors from '@/examples/tailwind/dividers/ExampleColors.astro';
-import ExampleColorsRaw from '@/examples/tailwind/dividers/ExampleColors.astro?raw';
-import ExampleSize from '@/examples/tailwind/dividers/ExampleSize.astro';
-import ExampleSizeRaw from '@/examples/tailwind/dividers/ExampleSize.astro?raw';
-import ExampleStyle from '@/examples/tailwind/dividers/ExampleStyle.astro';
-import ExampleStyleRaw from '@/examples/tailwind/dividers/ExampleStyle.astro?raw';
-import ExampleVert from '@/examples/tailwind/dividers/ExampleVert.astro';
-import ExampleVertRaw from '@/examples/tailwind/dividers/ExampleVert.astro?raw';
+import Colors from '@/components/examples/tailwind/dividers/colors.astro';
+import ColorsRaw from '@/components/examples/tailwind/dividers/colors.astro?raw';
+import Default from '@/components/examples/tailwind/dividers/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/dividers/default.astro?raw';
+import Size from '@/components/examples/tailwind/dividers/size.astro';
+import SizeRaw from '@/components/examples/tailwind/dividers/size.astro?raw';
+import Style from '@/components/examples/tailwind/dividers/style.astro';
+import StyleRaw from '@/components/examples/tailwind/dividers/style.astro?raw';
+import Vert from '@/components/examples/tailwind/dividers/vert.astro';
+import VertRaw from '@/components/examples/tailwind/dividers/vert.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -32,10 +31,10 @@ Use Tailwind's [border width](https://tailwindcss.com/docs/border-width) utiliti
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSize />
+		<Size />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleSizeRaw} lang="astro" />
+		<Code code={SizeRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -45,10 +44,10 @@ Use Tailwind's [border style](https://tailwindcss.com/docs/border-style) utiliti
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleStyle />
+		<Style />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleStyleRaw} lang="astro" />
+		<Code code={StyleRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -58,10 +57,10 @@ Use any Tailwind or Skeleton [colors or pairing](/docs/design/colors).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleColors />
+		<Colors />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleColorsRaw} lang="astro" />
+		<Code code={ColorsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -71,9 +70,9 @@ Use `vr` for a vertical rule, which supports all above styles. Make sure to set 
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleVert />
+		<Vert />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleVertRaw} lang="astro" />
+		<Code code={VertRaw} lang="astro" />
 	</Fragment>
 </Preview>

@@ -1,27 +1,26 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Chips
 description: Provides a robust set of interactive chip styles.
 srcCore: '/utilities/chips.css'
 showDocsUrl: true
 ---
 
-import Example from '@/examples/tailwind/chips/Example.astro';
-import ExampleRaw from '@/examples/tailwind/chips/Example.astro?raw';
-import ExampleDisabled from '@/examples/tailwind/chips/ExampleDisabled.astro';
-import ExampleDisabledRaw from '@/examples/tailwind/chips/ExampleDisabled.astro?raw';
-import ExamplePresets from '@/examples/tailwind/chips/ExamplePresets.astro';
-import ExamplePresetsRaw from '@/examples/tailwind/chips/ExamplePresets.astro?raw';
-import ExampleSelectSvelteRaw from '@/examples/tailwind/chips/ExampleSelect.svelte?raw';
-import { Page as ExampleSelectReact } from '@/examples/tailwind/chips/ExampleSelect.tsx';
-import ExampleSelectReactRaw from '@/examples/tailwind/chips/ExampleSelect.tsx?raw';
+import Default from '@/components/examples/tailwind/chips/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/chips/default.astro?raw';
+import Disabled from '@/components/examples/tailwind/chips/disabled.astro';
+import DisabledRaw from '@/components/examples/tailwind/chips/disabled.astro?raw';
+import Presets from '@/components/examples/tailwind/chips/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind/chips/presets.astro?raw';
+import SelectReact from '@/components/examples/tailwind/chips/react/select';
+import SelectReactRaw from '@/components/examples/tailwind/chips/react/select?raw';
+import SelectSvelteRaw from '@/components/examples/tailwind/chips/svelte/select.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -31,10 +30,10 @@ Provides full support of [Presets](/docs/design/presets).
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExamplePresets />
+		<Presets />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExamplePresetsRaw} lang="astro" />
+		<Code code={PresetsRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -44,10 +43,10 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleDisabled />
+		<Disabled />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleDisabledRaw} lang="astro" />
+		<Code code={DisabledRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -55,12 +54,12 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleSelectReact client:visible />
+		<SelectReact client:visible />
 	</Fragment>
 	<Fragment slot="codeReact">
-		<Code code={ExampleSelectReactRaw} lang="tsx" />
+		<Code code={SelectReactRaw} lang="tsx" />
 	</Fragment>
 	<Fragment slot="codeSvelte">
-		<Code code={ExampleSelectSvelteRaw} lang="svelte" />
+		<Code code={SelectSvelteRaw} lang="svelte" />
 	</Fragment>
 </Preview>

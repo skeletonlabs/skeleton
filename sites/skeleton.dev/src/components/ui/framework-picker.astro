@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon/components';
+import { frameworks } from '@/lib/framework';
+
+function getPathAndFramework(pathname: string) {
+	const parts = pathname.split('/').filter(Boolean);
+	const path = parts.slice(0, -1).join('/');
+	const frameworkSlug = parts.at(-1);
+	const framework = frameworks.find(({ slug }) => slug === frameworkSlug);
+	return [path, framework] as const;
+}
+
+const [path, framework] = getPathAndFramework(Astro.url.pathname);
+
+// Classes
+const cBtn = 'flex justify-center items-center space-x-4 py-8 rounded-tl-container rounded-tr-container';
+const cActive =
+	'bg-gradient-to-b from-surface-100 dark:from-surface-900/30 to-transparent border-t-[1px] border-l-[1px] border-r-[1px] border-surface-200-800';
+const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30 to-transparent border-b-[1px] border-surface-200-800';
+---
+
+{
+	framework && (
+		<nav class="grid grid-cols-2">
+			{frameworks.map(({ name, slug, iconName }) => (
+				<a data-framework={slug} href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
+					<Icon name={iconName} size={24} />
+					<span>{name}</span>
+				</a>
+			))}
+		</nav>
+	)
+}
+
+<script>
+	import { isFramework, framework } from '@/lib/framework';
+	function onClick(event: MouseEvent) {
+		if (!(event.target instanceof HTMLElement)) {
+			return;
+		}
+		const dataFramework = event.target.getAttribute('data-framework');
+		if (!(dataFramework && isFramework(dataFramework))) {
+			return;
+		}
+		framework.set(dataFramework);
+	}
+	function attachFrameworkListeners() {
+		for (const frameworkTab of document.querySelectorAll('[data-framework]')) {
+			if (!(frameworkTab instanceof HTMLElement)) {
+				continue;
+			}
+			const framework = frameworkTab.getAttribute('data-framework');
+			if (!(framework && isFramework(framework))) {
+				continue;
+			}
+			frameworkTab.removeEventListener('click', onClick);
+			frameworkTab.addEventListener('click', onClick);
+		}
+	}
+	attachFrameworkListeners();
+	document.addEventListener('astro:after-swap', () => {
+		attachFrameworkListeners();
+	});
+</script>
