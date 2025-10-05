@@ -38,16 +38,16 @@ function skeleton(): AstroIntegration {
 				}
 				ctx.logger.info('Meta pages removed.');
 				ctx.logger.info('Generating search index...');
-				const { index, errors } = await createIndex({
+				const pagefind = await createIndex({
 					excludeSelectors: ['.expressive-code'],
 				});
-				if (!index) {
-					throw new Error(`Failed to create search index: ${errors?.join(', ')}`);
+				if (!pagefind.index || pagefind.errors.length > 0) {
+					throw new Error(`Failed to create search index: ${pagefind.errors.join(', ')}`);
 				}
-				await index.addDirectory({
+				await pagefind.index.addDirectory({
 					path: fileURLToPath(ctx.dir),
 				});
-				const response = await index.writeFiles({
+				const response = await pagefind.index.writeFiles({
 					outputPath: join(fileURLToPath(ctx.dir), 'pagefind'),
 				});
 				if (response.errors.length > 0) {
