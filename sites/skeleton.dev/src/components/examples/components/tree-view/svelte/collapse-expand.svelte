@@ -46,7 +46,7 @@
 	});
 </script>
 
-<div class="w-full flex flex-col gap-4 items-center">
+<div class="w-full flex flex-col items-center gap-4">
 	<TreeView.Provider value={treeView}>
 		<TreeView.Label>File System</TreeView.Label>
 		<TreeView.Tree>
