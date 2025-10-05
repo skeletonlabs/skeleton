@@ -18,7 +18,8 @@
 		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:"
+		"vite": "catalog:",
+		"vite-plugin-transform-lucide-imports": "catalog:"
 	},
 	"type": "module"
 }

@@ -1,12 +1,11 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Astro
 description: Install and configure Skeleton for Astro.
 order: 1000
 ---
 
-import Process from '@/components/docs/Process.astro';
-import ProcessStep from '@/components/docs/ProcessStep.astro';
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
 
 {/* --- */}
 
@@ -36,7 +35,7 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
         ### Install Skeleton
         Install the Skeleton core package for the Tailwind plugin.
         ```console
-        npm i -D @skeletonlabs/skeleton
+        npm i -D @skeletonlabs/skeleton@next
         ```
     </ProcessStep>
     <ProcessStep step="3">

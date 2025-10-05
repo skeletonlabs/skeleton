@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+import { EllipsisIcon } from 'lucide-react';
+---
+
+<div class="card bg-noise preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
+	<!-- Text -->
+	<div class="self-center space-y-1">
+		<h2 class="h2">Live Demos</h2>
+		<p class="xl:text-balance xl:max-w-96">Test drive Skeleton directly in your browser for supported frameworks.</p>
+		<p class="pt-4 text-xs text-surface-600-400">* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.</p>
+	</div>
+	<!-- Options -->
+	<div class="self-center grid grid-cols-2 md:grid-cols-6 gap-4">
+		<a
+			href="https://stackblitz.com/github/skeletonlabs/skeleton-repl-nextjs?file=README.md"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#00D8FF]">
+				<Icon name="react" class="size-10 text-white" />
+			</div>
+			<p class="font-bold text-xs">React</p>
+		</a>
+		<a
+			href="https://stackblitz.com/github/skeletonlabs/skeleton-repl-sveltekit?file=README.md"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#FF3E00]">
+				<Icon name="svelte" class="size-10 text-white" />
+			</div>
+			<p class="font-bold text-xs">Svelte</p>
+		</a>
+		<a
+			href="https://stackblitz.com/github/skeletonlabs/skeleton-repl-nuxt?file=README.md"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#42B883]">
+				<Icon name="vue" class="size-10 text-white" />
+			</div>
+			<p class="font-bold text-xs">Vue <span class="text-surface-700-300">*</span></p>
+		</a>
+		<a
+			href="https://stackblitz.com/github/skeletonlabs/skeleton-repl-solidstart?file=README.md"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#57A0FF]">
+				<Icon name="solid" class="size-10 text-white" />
+			</div>
+			<p class="font-bold text-xs">Solid <span class="text-surface-700-300">*</span></p>
+		</a>
+		<a
+			href="https://stackblitz.com/github/skeletonlabs/skeleton-repl-astro?file=README.md"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#761CBA]">
+				<Icon name="astro" class="size-10 text-white" />
+			</div>
+			<p class="font-bold text-xs">Astro <span class="text-surface-700-300">*</span></p>
+		</a>
+		<a
+			href="/docs/get-started/installation"
+			target="_blank"
+			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		>
+			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center preset-tonal">
+				<EllipsisIcon className="size-4" />
+			</div>
+			<p class="font-bold text-xs">More</p>
+		</a>
+	</div>
+</div>

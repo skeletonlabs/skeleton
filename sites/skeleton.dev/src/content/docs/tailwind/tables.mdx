@@ -1,24 +1,23 @@
 ---
-layout: '@/layouts/LayoutDoc.astro'
 title: Tables
 description: Provides a set of styles for native HTML table elements.
 srcCore: '/utilities/tables.css'
 showDocsUrl: true
 ---
 
-import Example from '@/examples/tailwind/tables/Example.astro';
-import ExampleRaw from '@/examples/tailwind/tables/Example.astro?raw';
-import ExampleFull from '@/examples/tailwind/tables/ExampleFull.astro';
-import ExampleFullRaw from '@/examples/tailwind/tables/ExampleFull.astro?raw';
-import ExampleNav from '@/examples/tailwind/tables/ExampleNav.astro';
-import ExampleNavRaw from '@/examples/tailwind/tables/ExampleNav.astro?raw';
+import Default from '@/components/examples/tailwind/tables/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/tables/default.astro?raw';
+import Full from '@/components/examples/tailwind/tables/full.astro';
+import FullRaw from '@/components/examples/tailwind/tables/full.astro?raw';
+import Nav from '@/components/examples/tailwind/tables/nav.astro';
+import NavRaw from '@/components/examples/tailwind/tables/nav.astro?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Example />
+		<Default />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleRaw} lang="astro" />
+		<Code code={DefaultRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -28,10 +27,10 @@ Optionally add a header, footer, and caption.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleFull />
+		<Full />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleFullRaw} lang="astro" />
+		<Code code={FullRaw} lang="astro" />
 	</Fragment>
 </Preview>
 
@@ -41,10 +40,10 @@ Native HTML tables do not support interaction. For accessibility, use anchors or
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<ExampleNav />
+		<Nav />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ExampleNavRaw} lang="astro" />
+		<Code code={NavRaw} lang="astro" />
 	</Fragment>
 </Preview>
 

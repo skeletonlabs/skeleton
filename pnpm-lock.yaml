@@ -33,6 +33,9 @@ catalogs:
     '@faker-js/faker':
       specifier: 10.0.0
       version: 10.0.0
+    '@floating-ui/dom':
+      specifier: 1.7.4
+      version: 1.7.4
     '@floating-ui/react':
       specifier: 0.27.16
       version: 0.27.16
@@ -312,6 +315,9 @@ catalogs:
     vite-plugin-pagefind:
       specifier: 1.0.7
       version: 1.0.7
+    vite-plugin-transform-lucide-imports:
+      specifier: 0.2.0
+      version: 0.2.0
     vitest:
       specifier: 3.2.4
       version: 3.2.4
@@ -753,6 +759,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+      vite-plugin-transform-lucide-imports:
+        specifier: 'catalog:'
+        version: 0.2.0(vite@7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
   sites/skeleton.dev:
     dependencies:
@@ -859,6 +868,9 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
     devDependencies:
+      '@floating-ui/dom':
+        specifier: 'catalog:'
+        version: 1.7.4
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.16
@@ -871,6 +883,9 @@ importers:
       next:
         specifier: 'catalog:'
         version: 15.5.4(@babel/core@7.28.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(sass@1.93.2)
+      shiki:
+        specifier: 'catalog:'
+        version: 3.13.0
       tinyglobby:
         specifier: 'catalog:'
         version: 0.2.15
@@ -883,6 +898,9 @@ importers:
       vite-plugin-pagefind:
         specifier: 'catalog:'
         version: 1.0.7(vite@7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      vite-plugin-transform-lucide-imports:
+        specifier: 'catalog:'
+        version: 0.2.0(vite@7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
   sites/themes.skeleton.dev:
     devDependencies:
@@ -940,6 +958,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+      vite-plugin-transform-lucide-imports:
+        specifier: 'catalog:'
+        version: 0.2.0(vite@7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
 packages:
   '@adobe/css-tools@4.4.4':
@@ -5619,6 +5640,11 @@ packages:
     resolution: { integrity: sha512-BTYGhqbEsEBfG7ZIbV41HjKAKGlJcq+h819Lsq+83+bkN5mcrl0YLqbh0fx+tCvmdOZs9rfgMpKoBlyv8pcvfQ== }
     peerDependencies:
       vite: '>=4.0.0'
+
+  vite-plugin-transform-lucide-imports@0.2.0:
+    resolution: { integrity: sha512-/pJ+wmjcEgMZ8D3GhD9sYd1Cqwo+YQQn/eq5HIbkkZoDbnK3DSmvYKvNw/I3EOWRpoERJDixfrYp4KHWDaukAQ== }
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
 
   vite@6.3.6:
     resolution: { integrity: sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA== }
@@ -11376,6 +11402,14 @@ snapshots:
     dependencies:
       colorette: 2.0.20
       package-manager-detector: 0.2.11
+      vite: 7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+
+  vite-plugin-transform-lucide-imports@0.2.0(vite@7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)):
+    dependencies:
+      '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
+      acorn: 8.15.0
+      estree-walker: 3.0.3
+      magic-string: 0.30.19
       vite: 7.1.7(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
 
   vite@6.3.6(@types/node@24.6.1)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1):

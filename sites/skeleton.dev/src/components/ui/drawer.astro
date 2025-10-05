@@ -1,0 +1,140 @@
+---
+import { XIcon, MenuIcon } from 'lucide-react';
+
+interface DrawerProps {
+	navigation?: {
+		href: string;
+		label: string;
+		target: string;
+	}[];
+	base?: string;
+	classes?: string;
+}
+
+const {
+	base = 'xl:hidden preset-filled-surface-100-900 border-white shadow-xl w-lg max-h-dvh h-dvh pb-24 overflow-y-scroll backdrop:bg-black/50 max-w-[75dvw]',
+	classes = '',
+}: DrawerProps = Astro.props;
+---
+
+{/* Drawer */}
+<dialog class={`${base} ${classes}`} data-drawer>
+	<!-- Header -->
+	<header
+		class="flex justify-between items-center p-6 from-surface-100-900 from-75% to-surface-100-900/0 bg-linear-to-b start sticky top-0"
+	>
+		<h2 class="h3">Skeleton</h2>
+		<button class="btn-icon" title="Close drawer" aria-label="Close drawer" data-drawer-trigger>
+			<XIcon />
+		</button>
+	</header>
+	<div class="p-4">
+		<!-- Slot -->
+		<slot />
+	</div>
+</dialog>
+
+{/* Drawer Trigger */}
+<button class="xl:hidden btn-icon translate-x" title="Open drawer" aria-label="Open drawer" data-drawer-trigger>
+	<MenuIcon />
+</button>
+
+<style>
+	[data-drawer] {
+		transition:
+			display 200ms allow-discrete,
+			overlay 200ms allow-discrete;
+		animation: drawer-close 200ms forwards;
+		&[open] {
+			animation: drawer-open 200ms forwards;
+		}
+		&::backdrop {
+			transition: opacity 100ms allow-discrete;
+			animation: backdrop-close 200ms forwards;
+		}
+		&[open]::backdrop {
+			animation: backdrop-open 200ms forwards;
+		}
+	}
+
+	@keyframes drawer-open {
+		from {
+			translate: -100% 0;
+		}
+		to {
+			translate: 0 0;
+		}
+	}
+
+	@keyframes drawer-close {
+		from {
+			translate: 0 0;
+		}
+		to {
+			translate: -100% 0;
+		}
+	}
+
+	@keyframes backdrop-open {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes backdrop-close {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>
+
+<script>
+	function initializeEventHandlers() {
+		const drawerTriggers = document.querySelectorAll<HTMLButtonElement>('[data-drawer-trigger]');
+		for (const drawerTrigger of drawerTriggers) {
+			drawerTrigger.addEventListener('click', () => {
+				const drawer = document.querySelector<HTMLDialogElement>('[data-drawer]');
+				if (!drawer) {
+					return;
+				}
+				if (drawer.open) {
+					drawer.close();
+				} else {
+					drawer.showModal();
+				}
+			});
+		}
+	}
+	document.addEventListener('click', (event) => {
+		const drawer = document.querySelector<HTMLDialogElement>('[data-drawer]');
+		if (!drawer) {
+			return;
+		}
+		if (event.target === null || !(event.target instanceof Element)) {
+			return;
+		}
+		if (event.target.tagName !== 'DIALOG') {
+			//This prevents issues with forms
+			return;
+		}
+		const rect = event.target.getBoundingClientRect();
+		const clickedInDialog =
+			rect.top <= event.clientY &&
+			event.clientY <= rect.top + rect.height &&
+			rect.left <= event.clientX &&
+			event.clientX <= rect.left + rect.width;
+		if (clickedInDialog === false) {
+			drawer.close();
+		}
+	});
+	initializeEventHandlers();
+	document.addEventListener('astro:after-swap', () => {
+		initializeEventHandlers();
+	});
+</script>

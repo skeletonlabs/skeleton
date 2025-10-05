@@ -1,0 +1,77 @@
+<script lang="ts">
+	import { ClubIcon, DiamondIcon, HeartIcon, SpadeIcon } from '@lucide/svelte';
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+
+	const lorem =
+		'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit esse nisi eligendi fuga! Quas nisi repellat adipisci animi repellendus incidunt laborum sunt qui nesciunt, ducimus saepe sapiente sed ut labore.';
+</script>
+
+<Accordion>
+	<Accordion.Item value="item-1">
+		<h3>
+			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
+				<ClubIcon />
+				<span>Club</span>
+				<Accordion.ItemIndicator>
+					<Accordion.Context>
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-1') ? '-' : '+'}
+						{/snippet}
+					</Accordion.Context>
+				</Accordion.ItemIndicator>
+			</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
+	</Accordion.Item>
+	<hr class="hr" />
+	<Accordion.Item value="item-2">
+		<h3>
+			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
+				<DiamondIcon />
+				<span>Diamond</span>
+				<Accordion.ItemIndicator>
+					<Accordion.Context>
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-2') ? '-' : '+'}
+						{/snippet}
+					</Accordion.Context>
+				</Accordion.ItemIndicator>
+			</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
+	</Accordion.Item>
+	<hr class="hr" />
+	<Accordion.Item value="item-3">
+		<h3>
+			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
+				<HeartIcon />
+				<span>Heart</span>
+				<Accordion.ItemIndicator>
+					<Accordion.Context>
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-3') ? '-' : '+'}
+						{/snippet}
+					</Accordion.Context>
+				</Accordion.ItemIndicator>
+			</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
+	</Accordion.Item>
+	<hr class="hr" />
+	<Accordion.Item value="item-4">
+		<h3>
+			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
+				<SpadeIcon />
+				<span>Spade</span>
+				<Accordion.ItemIndicator>
+					<Accordion.Context>
+						{#snippet children(accordion)}
+							{accordion().value.includes('item-4') ? '-' : '+'}
+						{/snippet}
+					</Accordion.Context>
+				</Accordion.ItemIndicator>
+			</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>{lorem}</Accordion.ItemContent>
+	</Accordion.Item>
+</Accordion>
