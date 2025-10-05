@@ -121,7 +121,11 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		if (!importPath) {
 			continue;
 		}
-		const resolvedPath = importPath.replace('@examples', './src/examples').replace(/^@\/examples/, './src/examples');
+
+		const resolvedPath = importPath
+			.replace('@examples', './src/components/examples')
+			.replace(/^@\/components\/examples/, './src/components/examples')
+			.replace(/^@\/examples/, './src/components/examples');
 
 		let fileContent = '';
 
