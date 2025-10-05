@@ -3,7 +3,7 @@ import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, getEntry } from 'astro:content';
 
 export const getStaticPaths = (async () => {
-	const pages = await getCollection('docs');
+	const pages = await getCollection('docs', (page) => !page.id.endsWith('/meta'));
 	return pages.map((page) => ({
 		params: {
 			slug: page.id,
