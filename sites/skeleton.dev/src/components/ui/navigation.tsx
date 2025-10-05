@@ -64,7 +64,12 @@ export default function Navigation(props: NavigationProps) {
 					<ul className="flex flex-col gap-1">
 						{group.items.map((item) => (
 							<li key={item.title}>
-								<a href={String(item.href)} title={item.title} className="flex justify-between items-center">
+								<a
+									suppressHydrationWarning={true}
+									href={String(item.href)}
+									title={item.title}
+									className="flex justify-between items-center"
+								>
 									<span className={`grow px-2 py-1 rounded-base ${url.pathname === item.href ? 'preset-tonal' : 'anchor'}`}>
 										{item.title}
 									</span>
