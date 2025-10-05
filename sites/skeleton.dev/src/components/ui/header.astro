@@ -1,16 +1,16 @@
 ---
 // Stores
 // Components
-import Drawer from '@/components/ui/drawer.astro';
+import Drawer from '@/components/ui/drawer';
 import LightSwitch from '@/components/ui/light-switch';
 import Navigation from '@/components/ui/navigation.astro';
 // Icons
 import { Icon } from 'astro-icon/components';
 import { socialLinks } from '@/lib/social-links';
 
-import { HeaderSponsors } from '@/components/ui/header-sponsors';
-import { HeaderThemes } from '@/components/ui/header-themes';
-import { HeaderVersion } from '@/components/ui/header-version';
+import HeaderSponsors from '@/components/ui/header-sponsors';
+import HeaderThemes from '@/components/ui/header-themes';
+import HeaderVersion from '@/components/ui/header-version';
 import Search from '@/components/ui/search';
 
 const coreLinks = [
@@ -32,8 +32,7 @@ const versionLinks = [
 	>
 		<!-- Left -->
 		<div class="flex items-stretch justify-start gap-4">
-			<!-- Mobile Nav Drawer -->
-			<Drawer>
+			<Drawer client:load>
 				<Navigation
 					topGroups={[{ title: 'Overview', items: coreLinks }]}
 					bottomGroups={[{ title: 'Previous Versions', items: versionLinks }]}
