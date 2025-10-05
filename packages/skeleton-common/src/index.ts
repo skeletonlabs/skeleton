@@ -18,4 +18,5 @@ export * from './classes/tabs';
 export * from './classes/tags-input';
 export * from './classes/toast';
 export * from './classes/tooltip';
+export * from './classes/tree-view';
 export * from './themes';

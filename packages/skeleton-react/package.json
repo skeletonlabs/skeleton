@@ -47,7 +47,8 @@
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
 		"@zag-js/toast": "catalog:",
-		"@zag-js/tooltip": "catalog:"
+		"@zag-js/tooltip": "catalog:",
+		"@zag-js/tree-view": "catalog:"
 	},
 	"peerDependencies": {
 		"react": "^18.0.0 || ^19.0.0",

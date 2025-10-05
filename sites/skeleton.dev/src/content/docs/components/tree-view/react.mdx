@@ -1,0 +1,59 @@
+import Default from '@/components/examples/components/tree-view/react/default';
+import DefaultRaw from '@/components/examples/components/tree-view/react/default?raw';
+
+import MultipleSelection from '@/components/examples/components/tree-view/react/multiple-selection';
+import MultipleSelectionRaw from '@/components/examples/components/tree-view/react/multiple-selection?raw';
+
+import CollapseExpand from '@/components/examples/components/tree-view/react/collapse-expand';
+import CollapseExpandRaw from '@/components/examples/components/tree-view/react/collapse-expand?raw';
+
+import LazyLoading from '@/components/examples/components/tree-view/react/lazy-loading';
+import LazyLoadingRaw from '@/components/examples/components/tree-view/react/lazy-loading?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Multiple Selection
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MultipleSelection client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleSelectionRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Collapse and Expand
+
+Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to gain access to the `collapse` and `expand` methods on the `treeView` instance.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CollapseExpand client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CollapseExpandRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Lazy Loading
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<LazyLoading client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={LazyLoadingRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
