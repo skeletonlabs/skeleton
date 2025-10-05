@@ -40,7 +40,7 @@ const navigationGroups = [
 		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
 	>
 		<div class="flex items-stretch justify-start gap-4">
-			<Drawer>
+			<Drawer client:load>
 				<Navigation navigationGroups={navigationGroups} url={Astro.url} client:load />
 			</Drawer>
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
