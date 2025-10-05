@@ -31,7 +31,6 @@
 		"@atproto/api": "catalog:",
 		"@clack/prompts": "catalog:",
 		"@faker-js/faker": "catalog:",
-		"@floating-ui/react": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@nanostores/persistent": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
