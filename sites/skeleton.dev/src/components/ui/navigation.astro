@@ -60,7 +60,6 @@ const toNavItems = (entries: CollectionEntry<'docs'>[]) =>
 		tag: page.data.stability === 'stable' ? undefined : page.data.stability,
 	}));
 
-// Define navigation sections
 const sections: [string, string, (prefix: string) => Promise<CollectionEntry<'docs'>[]>][] = [
 	['Get Started', 'get-started/', queryCollection],
 	['Guides', 'guides/', queryCollection],
@@ -72,7 +71,6 @@ const sections: [string, string, (prefix: string) => Promise<CollectionEntry<'do
 	['Resources', 'resources/', queryCollection],
 ];
 
-// Build navigation dynamically
 const navigation: NavigationGroup[] = [
 	...(topGroups ?? []),
 	...(await Promise.all(
