@@ -14,12 +14,8 @@ export default function HeaderThemes() {
 
 	function selectTheme(theme: string) {
 		setActiveTheme(theme);
-		document.body.classList.add('transition-all', 'duration-200');
 		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem('theme', theme);
-		setTimeout(() => {
-			document.body.classList.remove('transition-all', 'duration-200');
-		}, 200);
 	}
 
 	return (
