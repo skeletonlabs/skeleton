@@ -1,7 +1,7 @@
 import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import fs from 'fs/promises';
-import path from 'path';
+import { readFile } from 'node:fs/promises';
+import { extname, resolve } from 'node:path';
 import { glob } from 'tinyglobby';
 
 type Framework = 'svelte' | 'react';
@@ -35,8 +35,7 @@ function generateMarkdownApiTable(schema: TypesRecord | null | undefined): strin
 		markdown += `| Property | Type | Description |\n`;
 		markdown += `| --- | --- | --- |\n`;
 		for (const property of type.props) {
-			const required = property.optional ? false : true;
-			const propName = `\`${property.name}\`${required ? '*' : ''}`;
+			const propName = `\`${property.name}\`${property.optional ? '' : '*'}`;
 			// Replace pipe characters in union types with commas to avoid breaking table format (types are listed like number | null | undefined)
 			const typeStr = property.type.replace(/\s*\|\s*/g, ', ');
 			let description = (property.JSDoc?.description ?? '') as string;
@@ -122,20 +121,19 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 			continue;
 		}
 
-		const resolvedPath = importPath
-			.replace('@examples', './src/components/examples')
-			.replace(/^@\/components\/examples/, './src/components/examples')
-			.replace(/^@\/examples/, './src/components/examples');
+		// Hardcoded tsconfig path alias
+		// TODO: Import tsconfig and resolve paths dynamically
+		const resolvedPath = importPath.replace('@/', './src/');
 
 		let fileContent = '';
 
 		// Check if the path already has an extension
-		const hasExtension = path.extname(resolvedPath) !== '';
+		const hasExtension = extname(resolvedPath) !== '';
 
 		try {
 			if (hasExtension) {
 				// Path already has extension, read directly
-				fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf8');
+				fileContent = await readFile(resolve(resolvedPath), 'utf8');
 			} else {
 				// No extension, use glob to find the file with any extension
 				const globPattern = `${resolvedPath}.*`;
@@ -146,7 +144,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 				if (matches.length > 0) {
 					// Pick the first match
 					const filePath = matches[0];
-					fileContent = await fs.readFile(path.resolve(filePath), 'utf8');
+					fileContent = await readFile(resolve(filePath), 'utf8');
 				} else {
 					console.error('No file found matching pattern:', globPattern);
 					fileContent = '// Error loading file, please report this issue.';
@@ -197,7 +195,7 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 			if (importPath) {
 				const resolvedPath = importPath.replace(/^@types|@content\/types/, './src/content/types');
 				try {
-					const schemaModule = await import(/* @vite-ignore */ path.resolve(resolvedPath));
+					const schemaModule = await import(/* @vite-ignore */ resolve(resolvedPath));
 					schemaData = schemaModule.default || schemaModule;
 				} catch (error) {
 					console.error('Error importing schema file:', resolvedPath, error);

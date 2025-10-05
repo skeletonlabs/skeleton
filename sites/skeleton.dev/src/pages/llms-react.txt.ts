@@ -1,5 +1,5 @@
+import { generateDocumentation } from '@/lib/llms';
 import type { APIRoute } from 'astro';
-import { generateDocumentation } from 'src/lib/generate-llm';
 
 export const GET: APIRoute = async () => {
 	const content = await generateDocumentation('react');

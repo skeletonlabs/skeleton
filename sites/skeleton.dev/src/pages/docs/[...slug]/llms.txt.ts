@@ -1,6 +1,6 @@
+import { generateSinglePageDocumentation } from '@/lib/llms';
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, getEntry } from 'astro:content';
-import { generateSinglePageDocumentation } from 'src/lib/generate-llm';
 
 export const getStaticPaths = (async () => {
 	const pages = await getCollection('docs');
