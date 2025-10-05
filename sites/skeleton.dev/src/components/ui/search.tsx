@@ -96,7 +96,7 @@ export default function Search() {
 			<Portal>
 				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50 data-[state=open]:animate-[fade-in_150ms_ease-out]" />
 				<Dialog.Positioner className="fixed inset-0 flex justify-center items-start md:py-[10dvh] md:px-[10dvw] z-50">
-					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto data-[state=open]:animate-[fly-in_150ms_ease-out]">
+					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[75dvh] md:max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto data-[state=open]:animate-[fly-in_150ms_ease-out]">
 						<div className="input-group grid-cols-[auto_1fr_auto]">
 							<div className="ig-cell preset-tonal">
 								<SearchIcon className="size-4 opacity-50" />
@@ -123,6 +123,7 @@ export default function Search() {
 											<a
 												className="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4"
 												href={result.url}
+												onClick={() => dialog.setOpen(false)}
 											>
 												<BookIcon className="w-6 h-6 opacity-50" />
 												<div className="space-y-1">
@@ -139,6 +140,7 @@ export default function Search() {
 															key={subResult.url}
 															className="card preset-outlined-surface-100-900 hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 space-y-1 p-4"
 															href={subResult.url}
+															onClick={() => dialog.setOpen(false)}
 														>
 															<span className="hidden md:block">
 																<HashIcon className="w-4 h-4 opacity-50" />
