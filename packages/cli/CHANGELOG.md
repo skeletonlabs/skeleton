@@ -1,5 +1,7 @@
 # skeleton
 
+## 4.0.0-next.24
+
 ## 4.0.0-next.22
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @skeletonlabs/skeleton-react
 
+## 4.0.0-next.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.24
+
 ## 4.0.0-next.23
 
 ### Patch Changes
