@@ -1,8 +1,14 @@
 import Default from '@/components/examples/components/tree-view/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/tree-view/svelte/default.svelte?raw';
 
+import MultipleSelection from '@/components/examples/components/tree-view/svelte/multiple-selection.svelte';
+import MultipleSelectionRaw from '@/components/examples/components/tree-view/svelte/multiple-selection.svelte?raw';
+
 import CollapseExpand from '@/components/examples/components/tree-view/svelte/collapse-expand.svelte';
 import CollapseExpandRaw from '@/components/examples/components/tree-view/svelte/collapse-expand.svelte?raw';
+
+import LazyLoading from '@/components/examples/components/tree-view/svelte/lazy-loading.svelte';
+import LazyLoadingRaw from '@/components/examples/components/tree-view/svelte/lazy-loading.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -10,6 +16,17 @@ import CollapseExpandRaw from '@/components/examples/components/tree-view/svelte
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Multiple Selection
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<MultipleSelection client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleSelectionRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -23,6 +40,17 @@ Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to g
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={CollapseExpandRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Lazy Loading
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<LazyLoading client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={LazyLoadingRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
