@@ -3,10 +3,10 @@
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import HomeBottomCta from '@/components/homepage/cta.astro';
-import HomeCompGrid from '@/components/homepage/component-grid.svelte';
-import HomeDesignSystem from '@/components/homepage/design-system.svelte';
+import HomeComponentGrid from '@/components/homepage/component-grid';
+import HomeDesignSystem from '@/components/homepage/design-system';
 import HomeEvenMore from '@/components/homepage/even-more.astro';
-import HomeFrameworkComps from '@/components/homepage/framework-components.svelte';
+import HomeFrameworkComps from '@/components/homepage/framework-components';
 import HomeHero from '@/components/homepage/hero.astro';
 import HomeMetrics from '@/components/homepage/metrics.astro';
 import HomeOpenSource from '@/components/homepage/open-source.astro';
@@ -39,7 +39,7 @@ const layoutProps = {
 			<!-- Section: Component Grid -->
 			<section class="hidden 2xl:block">
 				<div class="container mx-auto p-10 py-20">
-					<HomeCompGrid client:load />
+					<HomeComponentGrid client:load />
 				</div>
 			</section>
 
