@@ -12,7 +12,8 @@ export const classesCombobox = defineSkeletonClasses({
 	itemGroupLabel: 'text-surface-600-400 text-xs px-2 py-1',
 	item: [
 		'flex justify-between items-center px-2 py-1 rounded cursor-pointer',
-		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50',
+		'data-[state=checked]:preset-filled',
+		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50 data-highlighted:preset-tonal',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
 	itemText: '',

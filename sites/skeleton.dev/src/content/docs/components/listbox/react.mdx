@@ -1,0 +1,111 @@
+import Default from '@/components/examples/components/listbox/react/default';
+import DefaultRaw from '@/components/examples/components/listbox/react/default?raw';
+
+import Group from '@/components/examples/components/listbox/react/group';
+import GroupRaw from '@/components/examples/components/listbox/react/group?raw';
+
+import Multiple from '@/components/examples/components/listbox/react/multiple';
+import MultipleRaw from '@/components/examples/components/listbox/react/multiple?raw';
+
+import Disabled from '@/components/examples/components/listbox/react/disabled';
+import DisabledRaw from '@/components/examples/components/listbox/react/disabled?raw';
+
+import DisabledItem from '@/components/examples/components/listbox/react/disabled-item';
+import DisabledItemRaw from '@/components/examples/components/listbox/react/disabled-item?raw';
+
+import Search from '@/components/examples/components/listbox/react/search';
+import SearchRaw from '@/components/examples/components/listbox/react/search?raw';
+
+import Dir from '@/components/examples/components/listbox/react/dir';
+import DirRaw from '@/components/examples/components/listbox/react/dir?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Groups
+
+Create labelled groups for your items.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Group client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={GroupRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Multiple
+
+Select multiple items from the list.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Multiple client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultipleRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+Disable the entire listbox.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled Item
+
+Disable specific items in the list.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<DisabledItem client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledItemRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Search
+
+Add a search input to filter items.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Search client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SearchRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+Control the text direction of the listbox.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
