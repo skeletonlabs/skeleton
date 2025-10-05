@@ -21,7 +21,8 @@
 		"./themes/*": {
 			"style": "./dist/themes/*.css",
 			"default": "./dist/themes/*.css"
-		}
+		},
+		"./package.json": "./package.json"
 	},
 	"files": [
 		"dist"

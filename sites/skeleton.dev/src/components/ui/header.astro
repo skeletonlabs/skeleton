@@ -1,13 +1,10 @@
 ---
-// Stores
-// Components
+
 import Drawer from '@/components/ui/drawer';
 import LightSwitch from '@/components/ui/light-switch';
 import Navigation from '@/components/ui/navigation.astro';
-// Icons
 import { Icon } from 'astro-icon/components';
 import { socialLinks } from '@/lib/social-links';
-
 import HeaderSponsors from '@/components/ui/header-sponsors';
 import HeaderThemes from '@/components/ui/header-themes';
 import HeaderVersion from '@/components/ui/header-version';
@@ -30,7 +27,6 @@ const versionLinks = [
 	<div
 		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
 	>
-		<!-- Left -->
 		<div class="flex items-stretch justify-start gap-4">
 			<Drawer client:load>
 				<Navigation
@@ -38,14 +34,11 @@ const versionLinks = [
 					bottomGroups={[{ title: 'Previous Versions', items: versionLinks }]}
 				/>
 			</Drawer>
-			<!-- Logo -->
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
 				<Icon name="skeleton" size={32} />
 			</a>
 			<div class="hidden xl:flex items-center">
-				<!-- Version Picker -->
 				<HeaderVersion client:load />
-				<!-- Navigation -->
 				{
 					coreLinks.map((link) => (
 						<a class="btn hover:preset-tonal" href={link.href} target={link.target}>
@@ -55,20 +48,13 @@ const versionLinks = [
 				}
 			</div>
 		</div>
-		<!-- Middle -->
 		<div class="flex items-center gap-2">
-			<!-- Search -->
 			<Search client:load />
 		</div>
-		<!-- Right -->
-		<!-- <div class="hidden xl:flex items-center justify-end gap-2"> -->
 		<div class="flex justify-end items-stretch gap-2">
-			<!-- Mode and Theme -->
 			<LightSwitch client:load />
 			<HeaderThemes client:load />
-			<!-- Divider -->
 			<span class="border-r border-surface-200-800"></span>
-			<!-- Social -->
 			<nav class="flex items-center gap-1">
 				{
 					socialLinks.slice(0, 2).map((link) => (
@@ -78,9 +64,7 @@ const versionLinks = [
 					))
 				}
 			</nav>
-			<!-- Divider -->
 			<span class="hidden xl:inline-block border-r border-surface-200-800"></span>
-			<!-- Sponsors -->
 			<div>
 				<HeaderSponsors client:load />
 			</div>
