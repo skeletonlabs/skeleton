@@ -59,16 +59,16 @@ export default function ComponentGrid() {
 						<button className="btn preset-outlined-surface-200-800 hover:preset-tonal">Google</button>
 					</nav>
 					<hr className="hr" />
-					<article className="grid grid-cols-1 gap-5">
+					<form className="grid grid-cols-1 gap-5">
 						<label className="label">
 							<span className="label-text">Email</span>
-							<input type="email" className="input" placeholder="me@example.com" />
+							<input type="email" className="input" placeholder="me@example.com" autoComplete="email" />
 						</label>
 						<label className="label">
 							<span className="label-text">Password</span>
-							<input type="password" className="input" placeholder="me@example.com" />
+							<input type="password" className="input" placeholder="Enter your password..." autoComplete="current-password" />
 						</label>
-					</article>
+					</form>
 					<button className="w-full btn preset-filled-primary-500">Create Account</button>
 				</div>
 				<div className={`${cardClasses}`}>
@@ -84,10 +84,10 @@ export default function ComponentGrid() {
 									className="flex justify-between items-center gap-4"
 									name={key}
 									checked={key !== 'doNotDisturb' && notifications.doNotDisturb ? false : value}
-									onCheckedChange={(e) =>
+									onCheckedChange={(details) =>
 										setNotifications((prev) => ({
 											...prev,
-											[key]: e.checked,
+											[key]: details.checked,
 										}))
 									}
 									disabled={key !== 'doNotDisturb' && notifications.doNotDisturb}
@@ -359,7 +359,7 @@ export default function ComponentGrid() {
 								{tableData.map((row, i) => (
 									<tr key={row.atomic_no}>
 										<td>
-											<input type="checkbox" className="checkbox" checked={i === 1} />
+											<input type="checkbox" className="checkbox" defaultChecked={i === 1} />
 										</td>
 										<td>{row.symbol}</td>
 										<td>{row.name}</td>
