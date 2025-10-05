@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CircleXIcon from '@lucide/svelte/icons/circle-x';
+	import { CircleXIcon } from '@lucide/svelte';
 	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
 </script>
 

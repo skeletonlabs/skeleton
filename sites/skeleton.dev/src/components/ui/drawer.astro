@@ -1,5 +1,5 @@
 ---
-import { X as IconClose, Menu as IconMenu } from 'lucide-react';
+import { XIcon, MenuIcon } from 'lucide-react';
 
 interface DrawerProps {
 	navigation?: {
@@ -25,7 +25,7 @@ const {
 	>
 		<h2 class="h3">Skeleton</h2>
 		<button class="btn-icon" title="Close drawer" aria-label="Close drawer" data-drawer-trigger>
-			<IconClose />
+			<XIcon />
 		</button>
 	</header>
 	<div class="p-4">
@@ -36,7 +36,7 @@ const {
 
 {/* Drawer Trigger */}
 <button class="xl:hidden btn-icon translate-x" title="Open drawer" aria-label="Open drawer" data-drawer-trigger>
-	<IconMenu />
+	<MenuIcon />
 </button>
 
 <style>

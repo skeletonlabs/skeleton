@@ -1,12 +1,8 @@
 <script lang="ts">
-	// Icons
-	import IconBookmark from '@lucide/svelte/icons/bookmark';
-	import IconFigma from '@lucide/svelte/icons/figma';
-	import IconHeart from '@lucide/svelte/icons/heart';
-	import IconTriangle from '@lucide/svelte/icons/triangle';
-	import IconUserRound from '@lucide/svelte/icons/user-round';
+	import { BookmarkIcon, FigmaIcon, HeartIcon, TriangleIcon, UserRoundIcon } from '@lucide/svelte';
 
 	let state = $state(0);
+
 	const steps = [
 		{
 			label: 'The Figma UI Kit',
@@ -58,7 +54,7 @@
 		<nav class="grid grid-cols-2 gap-4">
 			{#each steps as step, i (step)}
 				<button type="button" onclick={() => setState(i)} class={`${setStateClass(i)} ${i === 0 ? 'col-span-2' : ''}`}>
-					{#if i === 0}<IconFigma class="size-4" />{/if}
+					{#if i === 0}<FigmaIcon class="size-4" />{/if}
 					<span>{step.label}</span>
 				</button>
 			{/each}
@@ -143,7 +139,7 @@
 				</div>
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn hover:preset-filled hover:brightness-100">
-						<IconBookmark className="size-6" />
+						<BookmarkIcon className="size-6" />
 					</button>
 				</div>
 			</div>
@@ -166,9 +162,9 @@
 		{:else if state == 6}
 			<!-- Step 7: Iconography -->
 			<div class="flex gap-5 md:gap-10">
-				<IconHeart class="size-16 md:size-24" />
-				<IconUserRound class="size-16 md:size-24" />
-				<IconTriangle class="size-16 md:size-24" />
+				<HeartIcon class="size-16 md:size-24" />
+				<UserRoundIcon class="size-16 md:size-24" />
+				<TriangleIcon class="size-16 md:size-24" />
 			</div>
 		{/if}
 	</div>

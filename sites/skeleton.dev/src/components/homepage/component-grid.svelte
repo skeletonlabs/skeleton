@@ -1,22 +1,21 @@
 <script lang="ts">
-	// Icons
-	import IconArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
-	import IconEqualizer from '@lucide/svelte/icons/audio-lines';
-	import IconNormalize from '@lucide/svelte/icons/audio-waveform';
-	import IconCrossfade from '@lucide/svelte/icons/chart-no-axes-column-increasing';
-	import IconCheck from '@lucide/svelte/icons/check';
-	import IconFastForward from '@lucide/svelte/icons/fast-forward';
-	import Icon3dAudio from '@lucide/svelte/icons/move-3d';
-	import IconPlay from '@lucide/svelte/icons/play';
-	import IconRewind from '@lucide/svelte/icons/rewind';
-	import IconUsers from '@lucide/svelte/icons/user';
-	import IconVolume from '@lucide/svelte/icons/volume-2';
+	import {
+		ArrowUpRightIcon,
+		CheckIcon,
+		AudioLinesIcon,
+		FastForwardIcon,
+		AudioWaveform,
+		Headphones,
+		PlayIcon,
+		RewindIcon,
+		UsersIcon,
+		Volume2Icon,
+		ChartNoAxesColumnIncreasingIcon,
+	} from '@lucide/svelte';
 	import { Avatar, Switch, Slider, Progress, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
-	// Classes
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';
 
-	// State
 	const notifications = $state({
 		doNotDisturb: false,
 		global: false,
@@ -32,13 +31,13 @@
 			.trim();
 	}
 
-	// Seed Data
 	const teamData = [
 		{ name: 'Janet Rosenbell', email: 'jrosenbell@email.com' },
 		{ name: 'Jason Greene', email: 'jgreene@email.com' },
 		{ name: 'Lucas Gamble', email: 'lgamble@email.com' },
 		{ name: 'Murray Henderson', email: 'mhenderson@email.com' },
 	];
+
 	const tableData = [
 		{ position: '0', name: 'Iron', symbol: 'Fe', atomic_no: '26' },
 		{ position: '1', name: 'Rhodium', symbol: 'Rh', atomic_no: '45' },
@@ -136,7 +135,7 @@
 			</header>
 			<img src="https://i.imgur.com/kocJdtN.png" alt="Massive Attack" class="rounded-container border-[1px] border-surface-500/50" />
 			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
-				<IconPlay class="size-4 opacity-60" />
+				<PlayIcon class="size-4 opacity-60" />
 				<Slider defaultValue={[70]}>
 					<Slider.Control>
 						<Slider.Track>
@@ -151,25 +150,25 @@
 			<div class="grid grid-cols-4 gap-2 items-center">
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
-						<IconNormalize class="size-4" />
+						<AudioLinesIcon class="size-4" />
 					</div>
 					<span class="text-[10px]">Normalize</span>
 				</button>
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
-						<IconEqualizer class="size-4" />
+						<AudioWaveform class="size-4" />
 					</div>
 					<span class="text-[10px]">Equalizer</span>
 				</button>
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
-						<Icon3dAudio class="size-4" />
+						<Headphones class="size-4" />
 					</div>
 					<span class="text-[10px]">3D Audio</span>
 				</button>
 				<button type="button" class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal">
 					<div class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500">
-						<IconCrossfade class="size-4" />
+						<ChartNoAxesColumnIncreasingIcon class="size-4" />
 					</div>
 					<span class="text-[10px]">Crossfade</span>
 				</button>
@@ -251,7 +250,7 @@
 					<p class="text-xs opacity-60">Posted April 1-13</p>
 				</div>
 				<button type="button" class="btn-icon rounded-full preset-tonal" title="Expand revenue details" aria-label="Expand revenue details">
-					<IconArrowUpRight class="size-4" />
+					<ArrowUpRightIcon class="size-4" />
 				</button>
 			</header>
 			<hr class="hr" />
@@ -314,7 +313,7 @@
 		<!-- 10 -->
 		<div class={`${cardClasses} row-span-2 row-start-5 text-center`}>
 			<button type="button" class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full">
-				<IconCheck class="size-8" />
+				<CheckIcon class="size-8" />
 			</button>
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
@@ -390,7 +389,7 @@
 			<div class="space-y-2">
 				<header class="flex justify-between items-center gap-4">
 					<h2 class="h6">Contributions</h2>
-					<IconUsers class="size-4 opacity-60" />
+					<UsersIcon class="size-4 opacity-60" />
 				</header>
 				<h2 class="text-4xl font-bold">+1,248</h2>
 				<p class="text-xs opacity-60"><span class="badge preset-tonal">+150% increase</span></p>
@@ -405,10 +404,10 @@
 					title="Play music"
 					aria-label="Play music"
 				>
-					<IconPlay class="size-6 fill-current stroke-none" />
+					<PlayIcon class="size-6 fill-current stroke-none" />
 				</button>
 				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
-					<button type="button" class="btn hover:preset-tonal"><IconRewind class="size-4 opacity-60" /></button>
+					<button type="button" class="btn hover:preset-tonal"><RewindIcon class="size-4 opacity-60" /></button>
 					<div class="space-y-1">
 						<p class="font-bold">Pink Floyd</p>
 						<progress class="progress" value={75} max={100}></progress>
@@ -417,10 +416,10 @@
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
 					</div>
-					<button type="button" class="btn hover:preset-tonal"><IconFastForward class="size-4 opacity-60" /></button>
+					<button type="button" class="btn hover:preset-tonal"><FastForwardIcon class="size-4 opacity-60" /></button>
 				</div>
 				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
-					<IconVolume class="size-4 opacity-60" />
+					<Volume2Icon class="size-4 opacity-60" />
 					<Slider defaultValue={[70]}>
 						<Slider.Control>
 							<Slider.Track>

@@ -1,8 +1,5 @@
 <script lang="ts">
-	import IconClub from '@lucide/svelte/icons/club';
-	import IconDiamond from '@lucide/svelte/icons/diamond';
-	import IconHeart from '@lucide/svelte/icons/heart';
-	import IconSpade from '@lucide/svelte/icons/spade';
+	import { ClubIcon, DiamondIcon, HeartIcon, SpadeIcon } from '@lucide/svelte';
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 
 	const lorem =
@@ -13,7 +10,7 @@
 	<Accordion.Item value="item-1">
 		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
-				<IconClub />
+				<ClubIcon />
 				<span>Club</span>
 				<Accordion.ItemIndicator>
 					<Accordion.Context>
@@ -30,7 +27,7 @@
 	<Accordion.Item value="item-2">
 		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
-				<IconDiamond />
+				<DiamondIcon />
 				<span>Diamond</span>
 				<Accordion.ItemIndicator>
 					<Accordion.Context>
@@ -47,7 +44,7 @@
 	<Accordion.Item value="item-3">
 		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
-				<IconHeart />
+				<HeartIcon />
 				<span>Heart</span>
 				<Accordion.ItemIndicator>
 					<Accordion.Context>
@@ -64,7 +61,7 @@
 	<Accordion.Item value="item-4">
 		<h3>
 			<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-2">
-				<IconSpade />
+				<SpadeIcon />
 				<span>Spade</span>
 				<Accordion.ItemIndicator>
 					<Accordion.Context>

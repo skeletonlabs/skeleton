@@ -1,5 +1,5 @@
 ---
-import { PersonStanding as IconA11y, BookOpen as IconBook, Code as IconCode, Blocks as IconZap } from 'lucide-react';
+import { PersonStandingIcon, BookOpenIcon, CodeIcon, BlocksIcon } from 'lucide-react';
 
 // Props
 const { frontmatter, urls } = Astro.props;
@@ -9,7 +9,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcCore && (
 			<a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
-				<IconCode size={16} />
+				<CodeIcon size={16} />
 				<span>Source</span>
 			</a>
 		)
@@ -17,7 +17,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcCss && (
 			<a class="chip preset-filled-surface-200-800" href={`${urls.githubSkeletonCommon + frontmatter.srcCss}.ts`} target="_blank">
-				<IconCode size={16} />
+				<CodeIcon size={16} />
 				<span>CSS</span>
 			</a>
 		)
@@ -25,7 +25,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcReact && (
 			<a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
-				<IconCode size={16} />
+				<CodeIcon size={16} />
 				<span>React</span>
 			</a>
 		)
@@ -33,7 +33,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcSvelte && (
 			<a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-				<IconCode size={16} />
+				<CodeIcon size={16} />
 				<span>Svelte</span>
 			</a>
 		)
@@ -45,7 +45,7 @@ const { frontmatter, urls } = Astro.props;
 				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
 				target="_blank"
 			>
-				<IconBook size={16} />
+				<BookOpenIcon size={16} />
 				<span>Doc</span>
 			</a>
 		)
@@ -53,7 +53,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcAlly && (
 			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
-				<IconA11y size={16} />
+				<PersonStandingIcon size={16} />
 				<span>A11y</span>
 			</a>
 		)
@@ -61,7 +61,7 @@ const { frontmatter, urls } = Astro.props;
 	{
 		frontmatter.srcZag && (
 			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcZag} target="_blank">
-				<IconZap size={16} />
+				<BlocksIcon size={16} />
 				<span>API</span>
 			</a>
 		)

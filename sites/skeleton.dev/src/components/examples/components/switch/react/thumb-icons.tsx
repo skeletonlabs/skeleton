@@ -1,5 +1,5 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
-import { Moon, Sun } from 'lucide-react';
+import { MoonIcon, SunIcon } from 'lucide-react';
 
 export default function ThumbIcons() {
 	return (
@@ -7,7 +7,9 @@ export default function ThumbIcons() {
 			<Switch.HiddenInput />
 			<Switch.Control>
 				<Switch.Thumb>
-					<Switch.Context>{(switch_) => (switch_.checked ? <Sun className="size-3" /> : <Moon className="size-3" />)}</Switch.Context>
+					<Switch.Context>
+						{(switch_) => (switch_.checked ? <SunIcon className="size-3" /> : <MoonIcon className="size-3" />)}
+					</Switch.Context>
 				</Switch.Thumb>
 			</Switch.Control>
 			<Switch.Label>Label</Switch.Label>

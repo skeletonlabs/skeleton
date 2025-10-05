@@ -1,5 +1,5 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
-import { Skull } from 'lucide-react';
+import { SkullIcon } from 'lucide-react';
 
 export default function Meta() {
 	const toaster = createToaster({});
@@ -13,7 +13,7 @@ export default function Meta() {
 						title: 'Title',
 						description: 'This is a description.',
 						meta: {
-							icon: <Skull className="size-8" />,
+							icon: <SkullIcon className="size-8" />,
 						},
 					})
 				}

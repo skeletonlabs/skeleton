@@ -1,5 +1,5 @@
 ---
-import { ChevronRight as IconChevron } from 'lucide-react';
+import { ChevronRightIcon } from 'lucide-react';
 import { Octokit } from 'octokit';
 
 const octokit = new Octokit();
@@ -42,7 +42,7 @@ const contributors = process.env.VERCEL_ENV === 'production' ? await getContribu
 		<nav class="flex gap-4">
 			<a href="https://github.com/skeletonlabs/skeleton" target="_blank" class="btn preset-filled">
 				<span>View GitHub</span>
-				<IconChevron className="size-4" />
+				<ChevronRightIcon className="size-4" />
 			</a>
 			<a href="/docs/resources/contribute" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
 				<span>How to Contribute</span>

@@ -12,8 +12,7 @@ import {
 	useRole,
 } from '@floating-ui/react';
 // Icons
-import { ChevronDown as IconChevron } from 'lucide-react';
-import { ArrowUpRight as IconArrow } from 'lucide-react';
+import { ChevronDownIcon, ArrowUpRightIcon } from 'lucide-react';
 import React from 'react';
 import { useState } from 'react';
 
@@ -39,7 +38,7 @@ export const HeaderVersion: React.FC = () => {
 			{/* Trigger */}
 			<button className="btn hover:preset-tonal gap-1" ref={refs.setReference} {...getReferenceProps()}>
 				<span>v4</span>
-				<IconChevron className="size-4 opacity-60" />
+				<ChevronDownIcon className="size-4 opacity-60" />
 			</button>
 			{/* Popup */}
 			{isOpen && (
@@ -58,7 +57,7 @@ export const HeaderVersion: React.FC = () => {
 							onClick={() => setIsOpen(false)}
 						>
 							<span>v3 Docs</span>
-							<IconArrow className="size-4 opacity-60" />
+							<ArrowUpRightIcon className="size-4 opacity-60" />
 						</a>
 						<a
 							className="btn hover:preset-tonal justify-between"
@@ -68,7 +67,7 @@ export const HeaderVersion: React.FC = () => {
 							onClick={() => setIsOpen(false)}
 						>
 							<span>v2 Docs</span>
-							<IconArrow className="size-4 opacity-60" />
+							<ArrowUpRightIcon className="size-4 opacity-60" />
 						</a>
 						<a
 							className="btn hover:preset-tonal justify-between"
@@ -78,7 +77,7 @@ export const HeaderVersion: React.FC = () => {
 							onClick={() => setIsOpen(false)}
 						>
 							<span>v1 Docs</span>
-							<IconArrow className="size-4 opacity-60" />
+							<ArrowUpRightIcon className="size-4 opacity-60" />
 						</a>
 					</div>
 				</FloatingFocusManager>

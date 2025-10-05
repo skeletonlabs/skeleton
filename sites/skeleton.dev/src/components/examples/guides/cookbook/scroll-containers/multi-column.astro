@@ -1,5 +1,5 @@
 ---
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 
 interface Movie {
 	name: string;
@@ -61,7 +61,7 @@ export const movies: Movie[] = [
 	<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
 		<button type="button" class="btn-icon preset-filled" data-multi-column-left title="Scroll left" aria-label="Scroll left">
-			<ArrowLeft size={16} />
+			<ArrowLeftIcon size={16} />
 		</button>
 		<!-- Carousel -->
 		<div data-multi-column class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto">
@@ -82,7 +82,7 @@ export const movies: Movie[] = [
 		</div>
 		<!-- Button-Right -->
 		<button type="button" class="btn-icon preset-filled" data-multi-column-right title="Scroll right" aria-label="Scroll right">
-			<ArrowRight size={16} />
+			<ArrowRightIcon size={16} />
 		</button>
 	</div>
 </div>
