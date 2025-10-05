@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.25
+
+### Minor Changes
+
+- feat: listbox ([#3843](https://github.com/skeletonlabs/skeleton/pull/3843))
+
 ## 4.0.0-next.24
 
 ## 4.0.0-next.23
