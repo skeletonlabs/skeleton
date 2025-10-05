@@ -11,7 +11,7 @@ export default function Default() {
 							Item {item}
 							<Accordion.ItemIndicator>
 								<Accordion.Context>
-									{(accordion) => (accordion.value.includes(item) ? <PlusIcon className="size-4" /> : <MinusIcon className="size-4" />)}
+									{(accordion) => (accordion.value.includes(item) ? <MinusIcon className="size-4" /> : <PlusIcon className="size-4" />)}
 								</Accordion.Context>
 							</Accordion.ItemIndicator>
 						</Accordion.ItemTrigger>

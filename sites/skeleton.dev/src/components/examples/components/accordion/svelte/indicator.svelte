@@ -13,9 +13,9 @@
 						<Accordion.Context>
 							{#snippet children(accordion)}
 								{#if accordion().value.includes(item)}
-									<PlusIcon class="size-4" />
-								{:else}
 									<MinusIcon class="size-4" />
+								{:else}
+									<PlusIcon class="size-4" />
 								{/if}
 							{/snippet}
 						</Accordion.Context>
