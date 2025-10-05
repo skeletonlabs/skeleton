@@ -12,18 +12,18 @@ export default function HeaderVersion() {
 			<Portal>
 				<Popover.Positioner>
 					<Popover.Content className="card bg-surface-50-950 border border-surface-200-800 flex flex-col gap-1 p-4 z-50">
-						<a className="btn hover:preset-tonal justify-between" href="https://v3.skeleton.dev/" target="_blank" rel="noreferrer">
-							<span>v3 Docs</span>
-							<ArrowUpRightIcon className="size-4 opacity-60" />
-						</a>
-						<a className="btn hover:preset-tonal justify-between" href="https://v2.skeleton.dev/" target="_blank" rel="noreferrer">
-							<span>v2 Docs</span>
-							<ArrowUpRightIcon className="size-4 opacity-60" />
-						</a>
-						<a className="btn hover:preset-tonal justify-between" href="https://v1.skeleton.dev/" target="_blank" rel="noreferrer">
-							<span>v1 Docs</span>
-							<ArrowUpRightIcon className="size-4 opacity-60" />
-						</a>
+						{['v3', 'v2', 'v1'].map((version) => (
+							<a
+								key={version}
+								className="btn hover:preset-tonal justify-between"
+								href={`https://${version}.skeleton.dev/`}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<span>{version} Docs</span>
+								<ArrowUpRightIcon className="size-4 opacity-60" />
+							</a>
+						))}
 					</Popover.Content>
 				</Popover.Positioner>
 			</Portal>
