@@ -4,7 +4,7 @@ import { Accordion } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
 	return (
-		<Accordion>
+		<Accordion orientation="horizontal">
 			<Accordion.Item value="item-1">
 				<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
 				<Accordion.ItemContent>Content 1</Accordion.ItemContent>

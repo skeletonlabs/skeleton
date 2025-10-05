@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.24
+
+### Patch Changes
+
+- fix: changeset link ([#3863](https://github.com/skeletonlabs/skeleton/pull/3863))
+
 ## 4.0.0-next.22
 
 ### Patch Changes

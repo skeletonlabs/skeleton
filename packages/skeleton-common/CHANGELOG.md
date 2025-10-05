@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.24
+
+## 4.0.0-next.23
+
+### Minor Changes
+
+- feat: accordion `horizontal` orientation ([#3861](https://github.com/skeletonlabs/skeleton/pull/3861))
+
 ## 4.0.0-next.22
 
 ### Patch Changes

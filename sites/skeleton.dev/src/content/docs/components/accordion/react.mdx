@@ -4,14 +4,17 @@ import DefaultRaw from '@/components/examples/components/accordion/react/default
 import Controlled from '@/components/examples/components/accordion/react/controlled';
 import ControlledRaw from '@/components/examples/components/accordion/react/controlled?raw';
 
+import Indicator from '@/components/examples/components/accordion/react/indicator';
+import IndicatorRaw from '@/components/examples/components/accordion/react/indicator?raw';
+
 import Collapsible from '@/components/examples/components/accordion/react/collapsible';
 import CollapsibleRaw from '@/components/examples/components/accordion/react/collapsible?raw';
 
 import Multiple from '@/components/examples/components/accordion/react/multiple';
 import MultipleRaw from '@/components/examples/components/accordion/react/multiple?raw';
 
-import Columns from '@/components/examples/components/accordion/react/columns';
-import ColumnsRaw from '@/components/examples/components/accordion/react/columns?raw';
+import Orientation from '@/components/examples/components/accordion/react/orientation';
+import OrientationRaw from '@/components/examples/components/accordion/react/orientation?raw';
 
 import Dir from '@/components/examples/components/accordion/react/dir';
 import DirRaw from '@/components/examples/components/accordion/react/dir?raw';
@@ -35,6 +38,19 @@ Use `value` and `onValueChange` to control the value of the Accordion.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ControlledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Indicator
+
+Add an indicator to the trigger with `Accordion.ItemIndicator`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indicator client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndicatorRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -64,16 +80,16 @@ Adding `multiple` allows items to open independently.
 	</Fragment>
 </Preview>
 
-## Grid Columns
+## Orientation
 
-Use the [grid-cols-\*](https://tailwindcss.com/docs/grid-template-columns) utility to adjust the layout of the Trigger component.
+Use the `orientation` prop to change the layout direction of the Accordion.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Columns client:visible />
+		<Orientation client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ColumnsRaw} lang="tsx" />
+		<Code code={OrientationRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

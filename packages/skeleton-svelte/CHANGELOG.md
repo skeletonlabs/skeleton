@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.24
+
+## 4.0.0-next.23
+
+### Patch Changes
+
+- Updated dependencies [[`6972031`](https://github.com/skeletonlabs/skeleton/commit/69720310c6510eaf430f9bacda2b456dae8993ff)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.23
+
 ## 4.0.0-next.22
 
 ### Patch Changes

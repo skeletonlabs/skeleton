@@ -1,9 +1,9 @@
+import { generateFrameworkText } from '@/lib/llms';
 import type { APIRoute } from 'astro';
-import { generateDocumentation } from 'src/lib/generate-llm';
 
 export const GET: APIRoute = async () => {
-	const content = await generateDocumentation('svelte');
-	return new Response(content, {
+	const text = await generateFrameworkText('svelte');
+	return new Response(text, {
 		headers: { 'Content-Type': 'text/plain; charset=utf-8' },
 	});
 };

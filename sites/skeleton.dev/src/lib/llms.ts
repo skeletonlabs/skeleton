@@ -1,7 +1,8 @@
 import { getCollection, getEntry } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import fs from 'fs/promises';
-import path from 'path';
+import { readFile } from 'node:fs/promises';
+import { extname, resolve } from 'node:path';
+import { glob } from 'tinyglobby';
 
 type Framework = 'svelte' | 'react';
 
@@ -34,9 +35,9 @@ function generateMarkdownApiTable(schema: TypesRecord | null | undefined): strin
 		markdown += `| Property | Type | Description |\n`;
 		markdown += `| --- | --- | --- |\n`;
 		for (const property of type.props) {
-			const required = property.optional ? false : true;
-			const propName = `\`${property.name}\`${required ? '*' : ''}`;
-			const typeStr = property.type;
+			const propName = `\`${property.name}\`${property.optional ? '' : '*'}`;
+			// Replace pipe characters in union types with commas to avoid breaking table format (types are listed like number | null | undefined)
+			const typeStr = property.type.replace(/\s*\|\s*/g, ', ');
 			let description = (property.JSDoc?.description ?? '') as string;
 			const defaultTag = property.JSDoc?.tags?.find((t) => t.name === 'default');
 			if (defaultTag && defaultTag.value) {
@@ -85,9 +86,33 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		// We really only care about the code part and detect which path it is referring to
 		// by using the rawImports Record
 
+		// Note, there is a edge case where preview have code embeded, We are checking this first
+		/*
+		<Fragment slot="code">
+			<div class="space-y-4">
+				Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+				```css
+				[data-theme='cerberus'] {
+					--spacing: 0.25rem;
+				}
+				```
+			</div>
+		</Fragment>
+		*/
+
 		// <Code code={ExampleRaw} lang="tsx" /> -> ExampleRaw
 		const codeIdentifierMatch = previewBlock.match(/<Code\s+code=\{([^}]+)\}/);
 		if (!codeIdentifierMatch) {
+			// No Code component found - check if there's embedded content in the code slot
+			// slot=["']code["'] Match exactly "code" or 'code'
+			// [^>]* Match anything except >, include additional possible attributes
+			// ([\s\S]*?) Match everything including newlines
+			const codeSlotMatch = previewBlock.match(/<Fragment\s+slot=["']code["'][^>]*>([\s\S]*?)<\/Fragment>/);
+			if (codeSlotMatch) {
+				const codeSlotContent = codeSlotMatch[1].trim();
+				// Include everything from the code slot - if no code is found
+				content = content.replace(previewBlock, codeSlotContent);
+			}
 			continue;
 		}
 		const codeIdentifier = codeIdentifierMatch[1].trim();
@@ -95,14 +120,41 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		if (!importPath) {
 			continue;
 		}
-		const resolvedPath = importPath.replace('@examples', './src/examples');
+
+		// Hardcoded tsconfig path alias
+		// TODO: Import tsconfig and resolve paths dynamically
+		const resolvedPath = importPath.replace('@/', './src/');
+
 		let fileContent = '';
+
+		// Check if the path already has an extension
+		const hasExtension = extname(resolvedPath) !== '';
+
 		try {
-			fileContent = await fs.readFile(path.resolve(resolvedPath), 'utf8');
+			if (hasExtension) {
+				// Path already has extension, read directly
+				fileContent = await readFile(resolve(resolvedPath), 'utf8');
+			} else {
+				// No extension, use glob to find the file with any extension
+				const globPattern = `${resolvedPath}.*`;
+				const matches = await glob([globPattern], {
+					absolute: false,
+				});
+
+				if (matches.length > 0) {
+					// Pick the first match
+					const filePath = matches[0];
+					fileContent = await readFile(resolve(filePath), 'utf8');
+				} else {
+					console.error('No file found matching pattern:', globPattern);
+					fileContent = '// Error loading file, please report this issue.';
+				}
+			}
 		} catch (error) {
 			console.error('Error reading file:', resolvedPath, error);
-			fileContent = '// Error loading file';
+			fileContent = '// Error loading file, please report this issue.';
 		}
+
 		const replacement = `\`\`\`${language}\n${fileContent}\n\`\`\``;
 		content = content.replace(previewBlock, replacement);
 	}
@@ -111,13 +163,14 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 
 // TODO: wait for the APITable update, prehaps the API table could be export its function so no rewrite is needed here
 /**
- * Replaces preview blocks with Markdown code blocks.
+ * Replaces APITable with Markdown Tables.
  * @param content The content to process.
  * @param docSlug The slug of the content.
  */
 async function processApiTables(content: string, docSlug: string): Promise<string> {
 	// ApiTable might be called in a few ways:
 	// 1. <ApiTable /> 2. <ApiTable {schema} />
+	// 3. <ApiTable component="progress" />
 	// The schema is always imported as json
 	const schemaImportRegex = /import\s+(\w+)\s+from\s+['"]([^'"]+\.json)['"];/g;
 	const schemaImports: Record<string, string> = {};
@@ -128,18 +181,21 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 		schemaImports[identifier] = importPath;
 	}
 
-	const apiTableRegex = /<ApiTable(?:\s+schema=\{([^}]+)\})?\s*\/>/g;
+	const apiTableRegex = /<ApiTable(?:\s+(?:schema=\{([^}]+)\}|component=["']([^"']+)["']))?\s*\/>/g;
 	const apiTableMatches = [...content.matchAll(apiTableRegex)];
 	for (const apiMatch of apiTableMatches.toReversed()) {
 		const fullMatch = apiMatch[0];
 		const schemaVar = apiMatch[1]?.trim();
+		const componentName = apiMatch[2]?.trim();
 		let schemaData: TypesRecord | null;
+
 		if (schemaVar) {
+			// Case 2
 			const importPath = schemaImports[schemaVar];
 			if (importPath) {
 				const resolvedPath = importPath.replace(/^@types|@content\/types/, './src/content/types');
 				try {
-					const schemaModule = await import(/* @vite-ignore */ path.resolve(resolvedPath));
+					const schemaModule = await import(/* @vite-ignore */ resolve(resolvedPath));
 					schemaData = schemaModule.default || schemaModule;
 				} catch (error) {
 					console.error('Error importing schema file:', resolvedPath, error);
@@ -148,7 +204,19 @@ async function processApiTables(content: string, docSlug: string): Promise<strin
 			} else {
 				schemaData = null;
 			}
+		} else if (componentName) {
+			// Case 3
+			const parts = docSlug.split('/');
+			const framework = parts.at(-1);
+			if (framework && (framework === 'react' || framework === 'svelte')) {
+				const componentSlug = `${framework}/${componentName}`;
+				const entry = await getEntry('types', componentSlug);
+				schemaData = entry?.data as unknown as TypesRecord | null;
+			} else {
+				schemaData = null;
+			}
 		} else {
+			// Case 1
 			schemaData = (await getSchemaFromSlug(docSlug)) as unknown as TypesRecord | null;
 		}
 		const markdownTable = generateMarkdownApiTable(schemaData);
@@ -292,15 +360,50 @@ async function processIntegrations(framework: Framework): Promise<string> {
 }
 
 /**
+ * Generates documentation for a single page.
+ * @param docEntry The document entry from the content collection.
+ * @param metaEntry Optional meta entry for components/integrations.
+ */
+export async function generatePageText(docEntry: CollectionEntry<'docs'>, metaEntry?: CollectionEntry<'docs'>): Promise<string> {
+	// Determine framework from slug if present
+	const slug = docEntry.id;
+	let framework: Framework | 'html' = 'html';
+	if (slug.endsWith('/react')) {
+		framework = 'react';
+	} else if (slug.endsWith('/svelte')) {
+		framework = 'svelte';
+	}
+
+	// Use meta title/description if available, otherwise use doc entry
+	const title = metaEntry?.data.title ?? docEntry.data.title;
+	const description = metaEntry?.data.description ?? docEntry.data.description;
+
+	let content = `# ${title}\n${description}\n\n`;
+
+	// Process the body content
+	let bodyContent = docEntry.body ?? '';
+
+	// Replace previews
+	const language = framework === 'react' ? 'tsx' : framework === 'svelte' ? 'svelte' : 'html';
+	bodyContent = await processPreviewBlocks(bodyContent, language);
+	bodyContent = await processApiTables(bodyContent, docEntry.id);
+
+	content += bodyContent;
+
+	// Final cleanup, removing raw imports, extra new line characters, and comments
+	content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
+	content = content.replace(/(\r?\n){3,}/g, '\n\n');
+	content = content.replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
+
+	return content;
+}
+
+/**
  * Generates the complete documentation content.
  * @param framework The target framework ('svelte' or 'react').
  */
-export async function generateDocumentation(framework: Framework): Promise<string> {
-	let content = `<system>
-This documentation provides a comprehensive reference for the Skeleton v3 UI framework, featuring ${framework.replace(/^./, (c) => c.toUpperCase())} examples.
-If you are using a different JavaScript framework, please refer to the respective framework-specific documentation for examples.
-Always utilize Skeleton UI components, classes, and styles whenever possible.
-</system>\n`;
+export async function generateFrameworkText(framework: Framework): Promise<string> {
+	let content = `<SYSTEM>This is the developer documentation for Skeleton, an adaptive design system powered by Tailwind CSS, featuring ${framework.replace(/^./, (c) => c.toUpperCase())} specific examples.</SYSTEM>\n`;
 
 	content += await processGetStarted();
 	content += '\n\n';
