@@ -1,9 +1,14 @@
+import Navigation from './navigation';
+import type { NavigationGroup } from '@/lib/navigation';
 import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
 import { XIcon, MenuIcon } from 'lucide-react';
-import type { PropsWithChildren } from 'react';
 
-export default function Drawer(props: PropsWithChildren) {
-	const { children } = props;
+interface DrawerProps {
+	navigationGroups: NavigationGroup[];
+	url: URL;
+}
+
+export default function Drawer(props: DrawerProps) {
 	return (
 		<Dialog>
 			<Dialog.Trigger className="xl:hidden btn-icon translate-x" title="Open drawer">
@@ -19,7 +24,9 @@ export default function Drawer(props: PropsWithChildren) {
 								<XIcon />
 							</Dialog.CloseTrigger>
 						</header>
-						<div className="p-4">{children}</div>
+						<div className="p-4">
+							<Navigation {...props} />
+						</div>
 					</Dialog.Content>
 				</Dialog.Positioner>
 			</Portal>

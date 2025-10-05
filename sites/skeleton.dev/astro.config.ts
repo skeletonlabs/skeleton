@@ -62,9 +62,7 @@ export default defineConfig({
 				},
 			},
 		}),
-		react({
-			experimentalReactChildren: true,
-		}),
+		react(),
 		expressiveCode({
 			defaultProps: { wrap: true },
 			themes: ['dark-plus', 'github-dark'],
