@@ -1,5 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
+import React from '@/images/brand/react.svg';
+import Svelte from '@/images/brand/svelte.svg';
+import Vue from '@/images/brand/vue.svg';
+import Solid from '@/images/brand/solid.svg';
+import Astro_ from '@/images/brand/astro.svg'; // Astro is a reserved word
 import { EllipsisIcon } from 'lucide-react';
 ---
 
@@ -18,7 +22,7 @@ import { EllipsisIcon } from 'lucide-react';
 			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
 		>
 			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#00D8FF]">
-				<Icon name="react" class="size-10 text-white" />
+				<React class="size-10 fill-current" />
 			</div>
 			<p class="font-bold text-xs">React</p>
 		</a>
@@ -28,7 +32,7 @@ import { EllipsisIcon } from 'lucide-react';
 			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
 		>
 			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#FF3E00]">
-				<Icon name="svelte" class="size-10 text-white" />
+				<Svelte class="size-10 fill-current" />
 			</div>
 			<p class="font-bold text-xs">Svelte</p>
 		</a>
@@ -38,7 +42,7 @@ import { EllipsisIcon } from 'lucide-react';
 			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
 		>
 			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#42B883]">
-				<Icon name="vue" class="size-10 text-white" />
+				<Vue class="size-10 fill-current" />
 			</div>
 			<p class="font-bold text-xs">Vue <span class="text-surface-700-300">*</span></p>
 		</a>
@@ -48,7 +52,7 @@ import { EllipsisIcon } from 'lucide-react';
 			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
 		>
 			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#57A0FF]">
-				<Icon name="solid" class="size-10 text-white" />
+				<Solid class="size-10 fill-current" />
 			</div>
 			<p class="font-bold text-xs">Solid <span class="text-surface-700-300">*</span></p>
 		</a>
@@ -58,7 +62,7 @@ import { EllipsisIcon } from 'lucide-react';
 			class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
 		>
 			<div class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center bg-[#761CBA]">
-				<Icon name="astro" class="size-10 text-white" />
+				<Astro_ class="size-10 fill-current" />
 			</div>
 			<p class="font-bold text-xs">Astro <span class="text-surface-700-300">*</span></p>
 		</a>

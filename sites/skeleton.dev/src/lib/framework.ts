@@ -1,3 +1,5 @@
+import React from '@/images/brand/react.svg';
+import Svelte from '@/images/brand/svelte.svg';
 import { persistentAtom } from '@nanostores/persistent';
 
 export type Framework = (typeof frameworks)[number]['slug'];
@@ -6,12 +8,12 @@ export const frameworks = [
 	{
 		name: 'React',
 		slug: 'react',
-		iconName: 'react',
+		Icon: React,
 	},
 	{
 		name: 'Svelte',
 		slug: 'svelte',
-		iconName: 'svelte',
+		Icon: Svelte,
 	},
 ] as const;
 

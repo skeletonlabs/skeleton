@@ -2,9 +2,8 @@
 import BlueSkyFeed from '@/components/ui/bluesky-feed';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
-// Components
+import Bluesky from '@/images/social/bluesky.svg';
 import LayoutRoot from '@/components/layouts/root.astro';
-import { Icon } from 'astro-icon/components';
 
 const layoutProps = {
 	title: 'News',
@@ -21,7 +20,7 @@ const layoutProps = {
 		<header class="flex justify-between items-center">
 			<h2 class="h2">Latest News</h2>
 			<a class="btn preset-outlined-surface-200-800 hover:preset-tonal" href="https://bsky.app/profile/skeleton.dev" target="_blank">
-				<Icon name="bluesky" size={16} />
+				<!-- <Bluesky class="size-5" /> -->
 				<span>Feed</span>
 			</a>
 		</header>

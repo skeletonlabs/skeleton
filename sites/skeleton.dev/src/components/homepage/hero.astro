@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components';
+import SkeletonFull from '@/images/brand/skeleton-full.svg';
 import { ChevronRightIcon } from 'lucide-react';
 ---
 
@@ -7,7 +7,8 @@ import { ChevronRightIcon } from 'lucide-react';
 	<!-- Mascot -->
 	<div class="flex justify-center items-center">
 		<div class="relative size-48 md:size-64 aspect-square">
-			<Icon class="absolute top-0 left-0 z-[1] size-full aspect-square drop-shadow-md" name="skeleton-full" />
+			<SkeletonFull class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
+
 			<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl"></div>
 		</div>
 	</div>

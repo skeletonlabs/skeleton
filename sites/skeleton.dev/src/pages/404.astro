@@ -1,7 +1,7 @@
 ---
 import Header from '@/components/ui/header.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
-import { Icon } from 'astro-icon/components';
+import SkeletonFull from '@/images/brand/skeleton-full.svg';
 
 const layoutProps = {
 	title: 'Page Not Found',
@@ -17,7 +17,7 @@ const layoutProps = {
 	<main class="container mx-auto space-y-10 px-4">
 		<section class="mx-auto flex flex-col justify-center gap-4 text-center">
 			<div class="space-y-4">
-				<Icon name="skeleton-full" size={128} class="mx-auto" />
+				<!-- <SkeletonFull class="size-48 mx-auto" /> -->
 				<h2 class="h2">Page Not Found</h2>
 				<p class="opacity-60">Sorry, this page does not appear to exist.</p>
 			</div>
