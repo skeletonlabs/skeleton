@@ -83,10 +83,10 @@ export default function Search() {
 
 	return (
 		<Dialog.Provider value={dialog}>
-			<Dialog.Trigger className="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 w-full xl:w-auto opacity-50 gap-8 justify-between flex items-center">
+			<Dialog.Trigger className="btn preset-tonal ring ring-inset ring-transparent hover:ring-surface-500 w-full xl:w-auto opacity-50 gap-4 justify-between flex items-center">
 				<div className="flex items-center gap-2">
 					<SearchIcon className="w-5 h-5" />
-					<span>Search Docs...</span>
+					<span>Search...</span>
 				</div>
 				<div className="flex items-center gap-1 leading-4">
 					<kbd className="kbd text-xs">⌘</kbd>
