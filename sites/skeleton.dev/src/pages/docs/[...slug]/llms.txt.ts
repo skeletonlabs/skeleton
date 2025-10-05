@@ -1,4 +1,4 @@
-import { generateSinglePageDocumentation } from '@/lib/llms';
+import { generatePageText } from '@/lib/llms';
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection, getEntry } from 'astro:content';
 
@@ -21,10 +21,9 @@ export const GET: APIRoute = async ({ props }) => {
 	const hasMeta = ['components/', 'integrations/'].some((id) => page.id.startsWith(id));
 	const metaEntry = hasMeta ? await getEntry('docs', page.id.replace(/\/[^/]*$/, '/meta')) : undefined;
 
-	// Generate the documentation
-	const content = await generateSinglePageDocumentation(page, metaEntry);
+	const text = await generatePageText(page, metaEntry);
 
-	return new Response(content, {
+	return new Response(text, {
 		headers: { 'Content-Type': 'text/plain; charset=utf-8' },
 	});
 };

@@ -364,10 +364,7 @@ async function processIntegrations(framework: Framework): Promise<string> {
  * @param docEntry The document entry from the content collection.
  * @param metaEntry Optional meta entry for components/integrations.
  */
-export async function generateSinglePageDocumentation(
-	docEntry: CollectionEntry<'docs'>,
-	metaEntry?: CollectionEntry<'docs'>,
-): Promise<string> {
+export async function generatePageText(docEntry: CollectionEntry<'docs'>, metaEntry?: CollectionEntry<'docs'>): Promise<string> {
 	// Determine framework from slug if present
 	const slug = docEntry.id;
 	let framework: Framework | 'html' = 'html';
@@ -405,7 +402,7 @@ export async function generateSinglePageDocumentation(
  * Generates the complete documentation content.
  * @param framework The target framework ('svelte' or 'react').
  */
-export async function generateDocumentation(framework: Framework): Promise<string> {
+export async function generateFrameworkText(framework: Framework): Promise<string> {
 	let content = `<SYSTEM>This is the developer documentation for Skeleton, an adaptive design system powered by Tailwind CSS, featuring ${framework.replace(/^./, (c) => c.toUpperCase())} specific examples.</SYSTEM>\n`;
 
 	content += await processGetStarted();
