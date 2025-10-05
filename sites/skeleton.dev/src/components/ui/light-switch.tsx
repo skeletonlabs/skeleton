@@ -5,16 +5,18 @@ type Mode = 'dark' | 'light';
 
 const FALLBACK = 'light' as const;
 
-function getMode() {
-	if (typeof window === 'undefined') return FALLBACK;
-	const mode = localStorage.getItem('mode') as Mode | null;
-	return mode ? mode : FALLBACK;
-}
-
 export default function LightSwitch() {
-	const [mode, setMode] = useState<Mode>(getMode());
+	const [mode, setMode] = useState<Mode | null>(null);
 
 	useEffect(() => {
+		const stored = localStorage.getItem('mode') as Mode | null;
+		setMode(stored ?? FALLBACK);
+	}, []);
+
+	useEffect(() => {
+		if (!mode) {
+			return;
+		}
 		document.documentElement.setAttribute('data-mode', mode);
 		localStorage.setItem('mode', mode);
 	}, [mode]);
@@ -28,7 +30,7 @@ export default function LightSwitch() {
 			title="Toggle dark mode."
 			aria-label="Toggle dark mode."
 		>
-			{mode === 'dark' ? <SunIcon className="size-5" /> : <MoonIcon className="size-5" />}
+			{mode && (mode === 'dark' ? <SunIcon className="size-5" /> : <MoonIcon className="size-5" />)}
 		</button>
 	);
 }

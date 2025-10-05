@@ -19,7 +19,10 @@ function skeleton(): AstroIntegration {
 	return {
 		name: 'skeleton',
 		hooks: {
-			'astro:build:start': async (ctx) => {
+			'astro:config:setup': async (ctx) => {
+				if (ctx.command !== 'build') {
+					return;
+				}
 				ctx.logger.info('Generating type documentation...');
 				await generateTypeDocumentation();
 				ctx.logger.info('Type documentation generated.');

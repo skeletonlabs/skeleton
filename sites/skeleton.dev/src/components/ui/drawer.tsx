@@ -1,10 +1,7 @@
 import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
 import { XIcon, MenuIcon } from 'lucide-react';
-import type { PropsWithChildren } from 'react';
 
-export default function Drawer(props: PropsWithChildren) {
-	const { children } = props;
-
+export default function Drawer() {
 	return (
 		<Dialog>
 			<Dialog.Trigger className="xl:hidden btn-icon translate-x" title="Open drawer">
@@ -20,7 +17,9 @@ export default function Drawer(props: PropsWithChildren) {
 								<XIcon />
 							</Dialog.CloseTrigger>
 						</header>
-						<div className="p-4">{children}</div>
+						<div className="p-4">
+							<slot />
+						</div>
 					</Dialog.Content>
 				</Dialog.Positioner>
 			</Portal>
