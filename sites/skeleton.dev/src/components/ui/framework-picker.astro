@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { frameworks } from '@/lib/framework';
 
 function getPathAndFramework(pathname: string) {
@@ -22,9 +21,9 @@ const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30
 {
 	framework && (
 		<nav class="grid grid-cols-2">
-			{frameworks.map(({ name, slug, iconName }) => (
+			{frameworks.map(({ slug, name, Icon }) => (
 				<a data-framework={slug} href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
-					<Icon name={iconName} size={24} />
+					<Icon class="size-6 fill-current" />
 					<span>{name}</span>
 				</a>
 			))}

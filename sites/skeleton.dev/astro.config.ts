@@ -7,7 +7,6 @@ import tailwindcss from '@tailwindcss/vite';
 import type { AstroIntegration } from 'astro';
 import AutoImport from 'astro-auto-import';
 import expressiveCode from 'astro-expressive-code';
-import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -70,15 +69,9 @@ export default defineConfig({
 			defaultProps: { wrap: true },
 			themes: ['dark-plus', 'github-dark'],
 		}),
-		icon({
-			include: {
-				iconDir: ['src/icons'],
-			},
-		}),
 		AutoImport({
 			imports: [
 				{
-					'astro-icon/components': ['Icon'],
 					'astro-expressive-code/components': ['Code'],
 					'@/components/ui/api-table.astro': [['default', 'ApiTable']],
 					'@/components/ui/anatomy.astro': [['default', 'Anatomy']],

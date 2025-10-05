@@ -34,7 +34,6 @@ Navigate the app structure within the `/src` directory. This includes the follow
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `/components` | Contains our components.                                                                                                      |
 | `/content`    | Contains our MDX content managed with [Astro's content collections](https://docs.astro.build/en/guides/content-collections/). |
-| `/icons`      | Contains our SVG icons.                                                                                                       |
 | `/images`     | Contains our images.                                                                                                          |
 | `/lib`        | Contains our modules.                                                                                                         |
 | `/pages`      | Contains our pages.                                                                                                           |
@@ -145,22 +144,3 @@ When placed on a component documentation page, these will automatically fetch an
 ### Lucide
 
 This application implements the [React version](https://lucide.dev/guide/packages/lucide-react) of [Lucide](https://lucide.dev/) for most icons. View <a href="/docs/integrations/iconography/svelte" class="anchor">Iconography</a> details.
-
-### Astro Icons
-
-Additionally, this application implements [Astro-Icon](https://www.astroicon.dev/) for local custom SVGs and brand icon.
-
-```ts
-import { Icon } from 'astro-icon/components';
-```
-
-```tsx
-<Icon name="skeleton" size={24} />
-<Icon name="react" size={24} />
-<Icon name="svelte" size={24} />
-```
-
-- Each icon must be provided in a `.svg` format.
-- Icon assets can be located in `/src/icons`
-- The `name` attribute should match the icon filename.
-- You must restart the Astro server when inserting new icons.

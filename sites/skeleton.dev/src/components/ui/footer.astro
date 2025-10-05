@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { socialLinks } from '@/lib/social-links';
 
 const { classList = 'p-4' } = Astro.props;
@@ -17,9 +16,9 @@ const { classList = 'p-4' } = Astro.props;
 		<!-- Social -->
 		<nav class="flex items-center">
 			{
-				socialLinks.map((link) => (
-					<a class="btn-icon hover:preset-tonal" href={link.href} target="_blank" title={link.label} aria-label={link.label}>
-						<Icon name={link.icon} size={24} />
+				socialLinks.map(({ href, label, Icon }) => (
+					<a class="btn-icon hover:preset-tonal" href={href} target="_blank" title={label} aria-label={label}>
+						<Icon class="size-5" />
 					</a>
 				))
 			}

@@ -2,7 +2,7 @@
 import Drawer from '@/components/ui/drawer';
 import LightSwitch from '@/components/ui/light-switch';
 import Navigation from '@/components/ui/navigation';
-import { Icon } from 'astro-icon/components';
+import Skeleton from '@/images/brand/skeleton.svg';
 import { socialLinks } from '@/lib/social-links';
 import HeaderSponsors from '@/components/ui/header-sponsors';
 import HeaderThemes from '@/components/ui/header-themes';
@@ -44,7 +44,7 @@ const navigationGroups = [
 				<Navigation navigationGroups={navigationGroups} url={Astro.url} client:load />
 			</Drawer>
 			<a class="hidden xl:inline-block" href="/" title="Skeleton">
-				<Icon name="skeleton" size={32} />
+				<Skeleton class="size-6 fill-current" />
 			</a>
 			<div class="hidden xl:flex items-center">
 				<HeaderVersion client:load />
@@ -66,9 +66,9 @@ const navigationGroups = [
 			<span class="border-r border-surface-200-800"></span>
 			<nav class="flex items-center gap-1">
 				{
-					socialLinks.slice(0, 2).map((link) => (
-						<a class="btn-icon hover:preset-tonal" href={link.href} target="_blank" title={link.label} aria-label={link.label}>
-							<Icon name={link.icon} size={20} />
+					socialLinks.slice(0, 2).map(({ href, label, Icon }) => (
+						<a class="btn-icon hover:preset-tonal" href={href} target="_blank" title={label} aria-label={label}>
+							<Icon class="size-5" />
 						</a>
 					))
 				}
