@@ -4,14 +4,17 @@ import DefaultRaw from '@/components/examples/components/accordion/svelte/defaul
 import Controlled from '@/components/examples/components/accordion/svelte/controlled.svelte';
 import ControlledRaw from '@/components/examples/components/accordion/svelte/controlled.svelte?raw';
 
+import Indicator from '@/components/examples/components/accordion/svelte/indicator.svelte';
+import IndicatorRaw from '@/components/examples/components/accordion/svelte/indicator.svelte?raw';
+
 import Collapsible from '@/components/examples/components/accordion/svelte/collapsible.svelte';
 import CollapsibleRaw from '@/components/examples/components/accordion/svelte/collapsible.svelte?raw';
 
 import Multiple from '@/components/examples/components/accordion/svelte/multiple.svelte';
 import MultipleRaw from '@/components/examples/components/accordion/svelte/multiple.svelte?raw';
 
-import Columns from '@/components/examples/components/accordion/svelte/columns.svelte';
-import ColumnsRaw from '@/components/examples/components/accordion/svelte/columns.svelte?raw';
+import Orientation from '@/components/examples/components/accordion/svelte/orientation.svelte';
+import OrientationRaw from '@/components/examples/components/accordion/svelte/orientation.svelte?raw';
 
 import Dir from '@/components/examples/components/accordion/svelte/dir.svelte';
 import DirRaw from '@/components/examples/components/accordion/svelte/dir.svelte?raw';
@@ -35,6 +38,19 @@ Use `value` and `onValueChange` to control the value of the Accordion.
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ControlledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Indicator
+
+Add an indicator to the trigger with `Accordion.ItemIndicator`.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indicator client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndicatorRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -64,16 +80,16 @@ Adding `multiple` allows items to open independently.
 	</Fragment>
 </Preview>
 
-## Grid Columns
+## Orientation
 
-Use the [grid-cols-\*](https://tailwindcss.com/docs/grid-template-columns) utility to adjust the layout of the Trigger component.
+Use the `orientation` prop to change the layout direction of the Accordion.
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Columns client:visible />
+		<Orientation client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={ColumnsRaw} lang="svelte" />
+		<Code code={OrientationRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
