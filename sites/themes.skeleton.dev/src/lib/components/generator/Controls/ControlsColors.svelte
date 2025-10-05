@@ -1,18 +1,10 @@
 <script lang="ts">
-	// Constants
-	// Icons
 	import * as constants from '$lib/constants/generator';
 	import { globals, settingsColors } from '$lib/state/generator.svelte';
-	// Utils
 	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '$lib/utils/generator/colors';
-	import HiddenInput from '../../../../../../../packages/skeleton-svelte/dist/components/file-upload/anatomy/hidden-input.svelte';
-	import DicesIcon from '@lucide/svelte/icons/dices';
-	import ClearIcon from '@lucide/svelte/icons/eraser';
-	import PencilIcon from '@lucide/svelte/icons/pencil';
-	import SproutIcon from '@lucide/svelte/icons/sprout';
+	import { DicesIcon, PencilIcon, SproutIcon, EraserIcon } from '@lucide/svelte';
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
-	// Types
 	interface ColorSelection {
 		label: string;
 		description: string;
@@ -20,7 +12,6 @@
 		class: string;
 	}
 
-	// Local
 	const colorSelection: ColorSelection[] = [
 		{ label: 'Primary', description: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
 		{ label: 'Secondary', description: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
@@ -62,7 +53,7 @@
 <div class="space-y-4">
 	<p class="opacity-60">Define a palette per each available theme color.</p>
 	<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full" onclick={onClearPalette}>
-		<ClearIcon size={20} />
+		<EraserIcon size={20} />
 		<span>Clear All Palettes</span>
 	</button>
 	<Tabs value={globals.activeColor} onValueChange={(e) => (globals.activeColor = e.value)}>

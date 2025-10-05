@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FileIcon from '@lucide/svelte/icons/file';
+	import { FileIcon } from '@lucide/svelte';
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 

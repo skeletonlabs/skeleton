@@ -6,13 +6,7 @@
 	import ControlsEdges from './ControlsEdges.svelte';
 	import ControlsSpacing from './ControlsSpacing.svelte';
 	import ControlsTypography from './ControlsTypography.svelte';
-	import ALargeSmallIcon from '@lucide/svelte/icons/a-large-small';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
-	import LayersIcon from '@lucide/svelte/icons/layers';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import ScalingIcon from '@lucide/svelte/icons/scaling';
-	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
+	import { ALargeSmallIcon, ChevronDownIcon, ChevronUpIcon, LayersIcon, PaletteIcon, ScalingIcon, SquareDashedIcon } from '@lucide/svelte';
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
 	const items = [

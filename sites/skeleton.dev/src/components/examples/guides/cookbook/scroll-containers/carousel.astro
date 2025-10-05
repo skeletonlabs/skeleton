@@ -1,5 +1,5 @@
 ---
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 
 const generatedArray = Array.from({ length: 6 });
 ---
@@ -9,7 +9,7 @@ const generatedArray = Array.from({ length: 6 });
 	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
 		<button type="button" class="btn-icon preset-filled" data-carousel-left title="Previous slide" aria-label="Previous slide">
-			<ArrowLeft size={16} />
+			<ArrowLeftIcon size={16} />
 		</button>
 		<!-- Full Images -->
 		<div data-carousel class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
@@ -27,7 +27,7 @@ const generatedArray = Array.from({ length: 6 });
 		</div>
 		<!-- Button: Right -->
 		<button type="button" class="btn-icon preset-filled" data-carousel-right title="Next slide" aria-label="Next slide">
-			<ArrowRight size={16} />
+			<ArrowRightIcon size={16} />
 		</button>
 	</div>
 	<!-- Thumbnails -->

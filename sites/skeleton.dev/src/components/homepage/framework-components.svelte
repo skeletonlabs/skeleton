@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconChevron from '@lucide/svelte/icons/chevron-right';
+	import { ChevronRightIcon } from '@lucide/svelte';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 
 	let checked = $state(false);
@@ -16,7 +16,7 @@
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
 			<a href="/docs/tailwind/buttons" target="_blank" class="btn preset-filled scale-150 shadow-xl">
 				<span>Button</span>
-				<IconChevron className="size-4" />
+				<ChevronRightIcon className="size-4" />
 			</a>
 		</div>
 	</div>

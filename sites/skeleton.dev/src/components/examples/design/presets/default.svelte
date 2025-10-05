@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconBookmark from '@lucide/svelte/icons/bookmark';
+	import { BookmarkIcon } from '@lucide/svelte';
 
 	const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-center rounded-full';
 </script>
@@ -38,7 +38,7 @@
 	<!-- 7. Ghost (Icon) -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn hover:preset-tonal-primary">
-			<IconBookmark className="size-6" />
+			<BookmarkIcon className="size-6" />
 		</button>
 		<div class={diagramCircle}>7</div>
 	</div>
@@ -46,6 +46,7 @@
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-gradient">Gradient</button>
 		<div class={diagramCircle}>8</div>
+		``
 	</div>
 </div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { Switch } from '@skeletonlabs/skeleton-react';
-import { Moon, Sun } from 'lucide-react';
+import { MoonIcon, SunIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function LightSwitch() {
@@ -34,7 +34,11 @@ export default function LightSwitch() {
 					<Switch.Thumb>
 						<Switch.Context>
 							{(switch_) =>
-								switch_.checked ? <Sun className="size-4 stroke-surface-50-950" /> : <Moon className="size-4 stroke-surface-950-50" />
+								switch_.checked ? (
+									<SunIcon className="size-4 stroke-surface-50-950" />
+								) : (
+									<MoonIcon className="size-4 stroke-surface-950-50" />
+								)
 							}
 						</Switch.Context>
 					</Switch.Thumb>

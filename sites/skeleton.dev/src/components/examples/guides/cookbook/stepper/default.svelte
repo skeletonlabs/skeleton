@@ -1,6 +1,5 @@
 <script lang="ts">
-	import IconArrowLeft from '@lucide/svelte/icons/arrow-left';
-	import IconArrowRight from '@lucide/svelte/icons/arrow-right';
+	import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
 
 	// Source Data
 	const steps = [
@@ -74,13 +73,13 @@
 		<nav class="flex justify-between items-center gap-4">
 			<!-- Back Button -->
 			<button type="button" class="btn preset-tonal hover:preset-filled" onclick={prevStep} disabled={isFirstStep}>
-				<IconArrowLeft size={18} />
+				<ArrowLeftIcon size={18} />
 				<span>Previous</span>
 			</button>
 			<!-- Next Button -->
 			<button type="button" class="btn preset-tonal hover:preset-filled" onclick={nextStep} disabled={isLastStep}>
 				<span>Next</span>
-				<IconArrowRight size={18} />
+				<ArrowRightIcon size={18} />
 			</button>
 		</nav>
 	</div>

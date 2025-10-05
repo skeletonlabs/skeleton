@@ -1,5 +1,5 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
-import { Club as IconClub, Diamond as IconDiamond, Heart as IconHeart, Spade as IconSpade } from 'lucide-react';
+import { ClubIcon, DiamondIcon, HeartIcon, SpadeIcon } from 'lucide-react';
 
 export default function Columns() {
 	return (
@@ -8,7 +8,7 @@ export default function Columns() {
 				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[1fr_auto]">
 						<span>Club</span>
-						<IconClub />
+						<ClubIcon />
 					</Accordion.ItemTrigger>
 				</h3>
 				<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
@@ -18,7 +18,7 @@ export default function Columns() {
 				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[1fr_auto]">
 						<span>Diamond</span>
-						<IconDiamond />
+						<DiamondIcon />
 					</Accordion.ItemTrigger>
 				</h3>
 				<Accordion.ItemContent>Content for Item 2</Accordion.ItemContent>
@@ -28,7 +28,7 @@ export default function Columns() {
 				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[1fr_auto]">
 						<span>Heart</span>
-						<IconHeart />
+						<HeartIcon />
 					</Accordion.ItemTrigger>
 				</h3>
 				<Accordion.ItemContent>Content for Item 3</Accordion.ItemContent>
@@ -38,7 +38,7 @@ export default function Columns() {
 				<h3>
 					<Accordion.ItemTrigger className="grid grid-cols-[1fr_auto]">
 						<span>Spade</span>
-						<IconSpade />
+						<SpadeIcon />
 					</Accordion.ItemTrigger>
 				</h3>
 				<Accordion.ItemContent>Content for Item 4</Accordion.ItemContent>
