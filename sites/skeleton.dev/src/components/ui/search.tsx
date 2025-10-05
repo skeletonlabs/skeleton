@@ -94,14 +94,14 @@ export default function Search() {
 				</div>
 			</Dialog.Trigger>
 			<Portal>
-				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50 data-[state=open]:animate-[fade-in_150ms_ease-out]" />
+				<Dialog.Backdrop className="fixed inset-0 bg-surface-50-950/50 backdrop-blur-sm z-50 transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100" />
 				<Dialog.Positioner className="fixed inset-0 flex justify-center items-start md:py-[10dvh] md:px-[10dvw] z-50">
-					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[75dvh] md:max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto data-[state=open]:animate-[fly-in_150ms_ease-out]">
+					<Dialog.Content className="bg-surface-50-950 rounded-container top-[10%] w-full md:max-w-2xl lg:max-w-4xl max-h-[75dvh] md:max-h-[50dvh] space-y-8 p-8 shadow-xl overflow-y-auto transition transition-discrete opacity-0 translate-y-24 starting:data-[state=open]:opacity-0 starting:data-[state=open]:translate-y-24 data-[state=open]:opacity-100 data-[state=open]:translate-y-0">
 						<div className="input-group grid-cols-[auto_1fr_auto]">
 							<div className="ig-cell preset-tonal">
 								<SearchIcon className="size-4 opacity-50" />
 							</div>
-							<input className="ig-input" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} autoFocus />
+							<input className="ig-input" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} />
 						</div>
 						<article className="flex justify-center">
 							{searchState.status === 'idle' ? (
