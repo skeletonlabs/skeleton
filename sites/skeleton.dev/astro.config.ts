@@ -9,7 +9,6 @@ import AutoImport from 'astro-auto-import';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
-import { rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createIndex } from 'pagefind';
@@ -26,17 +25,6 @@ function skeleton(): AstroIntegration {
 				ctx.logger.info('Type documentation generated.');
 			},
 			'astro:build:done': async (ctx) => {
-				ctx.logger.info('Removing meta pages...');
-				for (const page of ctx.pages) {
-					if (!page.pathname.endsWith('/meta/')) {
-						continue;
-					}
-					await rm(fileURLToPath(new URL(page.pathname, ctx.dir).href), {
-						recursive: true,
-					});
-					ctx.logger.info(`Removed ${page.pathname}`);
-				}
-				ctx.logger.info('Meta pages removed.');
 				ctx.logger.info('Generating search index...');
 				const pagefind = await createIndex({
 					excludeSelectors: ['.expressive-code'],
