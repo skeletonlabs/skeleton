@@ -5,7 +5,7 @@ import { ChevronDownIcon, ArrowUpRightIcon } from 'lucide-react';
 export default function HeaderVersion() {
 	return (
 		<Popover positioning={{ placement: 'top-start' }}>
-			<Popover.Trigger className="btn hover:preset-tonal gap-1">
+			<Popover.Trigger className="btn hover:preset-tonal gap-1" title="Choose Version">
 				<span>v{packageJson.version}</span>
 				<ChevronDownIcon className="size-4 opacity-60" />
 			</Popover.Trigger>
