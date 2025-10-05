@@ -391,7 +391,7 @@ export async function generateSinglePageDocumentation(
 
 	content += bodyContent;
 
-	// Final cleanup
+	// Final cleanup, removing raw imports, extra new line characters, and comments
 	content = content.replace(/^(export\s+.*|import\s+.*)\r?\n/gm, '');
 	content = content.replace(/(\r?\n){3,}/g, '\n\n');
 	content = content.replace(/\{\/\*[\s\S]*?\*\/\}/g, '');
