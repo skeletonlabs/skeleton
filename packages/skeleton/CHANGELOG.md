@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0-next.25
+
 ## 4.0.0-next.24
 
 ### Patch Changes

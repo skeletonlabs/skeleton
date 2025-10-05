@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.25
+
+### Minor Changes
+
+- feat: listbox ([#3843](https://github.com/skeletonlabs/skeleton/pull/3843))
+
+### Patch Changes
+
+- Updated dependencies [[`e6ab4f7`](https://github.com/skeletonlabs/skeleton/commit/e6ab4f78a4e1aa9132c05da04d5a89b1a7dacece)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.25
+
 ## 4.0.0-next.24
 
 ### Patch Changes
