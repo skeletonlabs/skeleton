@@ -2,10 +2,13 @@ import type { MigrateOptions } from '../..';
 import { cli } from '../../../..';
 import type { FileMigration } from '../../../../utility/file-migration';
 import { installDependencies } from '../../../../utility/install-dependencies';
+import { transformModule } from './transformers/transform-module';
 import { transformPackageJson } from './transformers/transform-package.json';
 import { transformStylesheet } from './transformers/transform-stylesheet';
-import { log, spinner } from '@clack/prompts';
+import { transformSvelte } from './transformers/transform-svelte';
+import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import { readFile, writeFile } from 'fs/promises';
+import { extname } from 'path';
 import { glob } from 'tinyglobby';
 
 export default async function (options: MigrateOptions) {
@@ -17,13 +20,6 @@ export default async function (options: MigrateOptions) {
 		name: 'package.json',
 		paths: await glob('package.json', { cwd }),
 	};
-	const stylesheets = {
-		name: 'stylesheets',
-		paths: await glob('**/*.{css,scss,sass,less,styl,stylus}', {
-			cwd: cwd,
-			ignore: ['node_modules'],
-		}),
-	};
 
 	// Validate file existence
 	for (const file of [packageJson]) {
@@ -33,6 +29,22 @@ export default async function (options: MigrateOptions) {
 		if (file.paths.length > 1) {
 			cli.error(`Multiple "${file.name}" entries found in directory: "${cwd}", please ensure there is only one`);
 		}
+	}
+
+	const availableSourceFolders = await glob('*', {
+		cwd: cwd,
+		onlyDirectories: true,
+		ignore: ['node_modules'],
+	});
+	const sourceFolders = await multiselect({
+		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
+		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
+		initialValues: availableSourceFolders,
+	});
+
+	if (isCancel(sourceFolders)) {
+		cli.error('Migration canceled, nothing written to disk');
+		return;
 	}
 
 	// Migrate package.json
@@ -51,19 +63,51 @@ export default async function (options: MigrateOptions) {
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
-	// Migrate stylesheets
-	const stylesheetSpinner = spinner();
-	stylesheetSpinner.start(`Migrating ${stylesheets.name}...`);
-	for (const stylesheetPath of stylesheets.paths) {
-		const stylesheetCode = await readFile(stylesheetPath, 'utf-8');
-		const transformedStylesheet = transformStylesheet(stylesheetCode);
-		migrations.push({
-			path: stylesheetPath,
-			content: transformedStylesheet.code,
-		});
-		stylesheetSpinner.message(`Migrated stylesheet: ${stylesheetPath}`);
+	// Migrate source files
+	const sourceFiles = await glob(
+		sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
+		{
+			cwd: cwd,
+			ignore: ['node_modules'],
+		},
+	);
+	const sourceFilesSpinner = spinner();
+	sourceFilesSpinner.start(`Migrating source files...`);
+	for (const path of sourceFiles) {
+		const content = await readFile(path, 'utf-8');
+		switch (extname(path)) {
+			case '.svelte':
+				const transformedSvelte = transformSvelte(content);
+				migrations.push({
+					path: path,
+					content: transformedSvelte.code,
+				});
+				break;
+			case '.css':
+			case '.pcss':
+			case '.postcss':
+				const transformedStylesheet = transformStylesheet(content);
+				migrations.push({
+					path: path,
+					content: transformedStylesheet.code,
+				});
+			case '.js':
+			case '.mjs':
+			case '.cjs':
+			case '.ts':
+			case '.mts':
+			case '.jsx':
+			case '.tsx':
+				const transformedModule = transformModule(content);
+				migrations.push({
+					path: path,
+					content: transformedModule.code,
+				});
+				break;
+		}
+		sourceFilesSpinner.message(`Migrated source file: ${path}!`);
 	}
-	stylesheetSpinner.stop(`Successfully migrated ${stylesheets.name}!`);
+	sourceFilesSpinner.stop(`Successfully migrated ${sourceFiles.length} source files!`);
 
 	// Write all migrations to disk
 	const writeSpinner = spinner();
