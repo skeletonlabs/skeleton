@@ -19,7 +19,6 @@
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/chroma-js": "catalog:",
-		"autoprefixer": "catalog:",
 		"chroma-js": "catalog:",
 		"shiki": "catalog:",
 		"svelte": "catalog:",

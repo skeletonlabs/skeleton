@@ -1,41 +1,42 @@
 import { BookmarkIcon, FigmaIcon, HeartIcon, TriangleIcon, UserRoundIcon } from 'lucide-react';
 import { useState } from 'react';
 
-export const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'];
+const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'];
+
+const steps = [
+	{
+		label: 'The Figma UI Kit',
+		desc: 'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.',
+	},
+	{
+		label: 'Themes',
+		desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Tailwind. Register multiple themes and easily switch on demand.',
+	},
+	{
+		label: 'Colors',
+		desc: 'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.',
+	},
+	{
+		label: 'Presets',
+		desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.',
+	},
+	{
+		label: 'Typography',
+		desc: 'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.',
+	},
+	{
+		label: 'Spacing',
+		desc: 'Use the new Tailwind spacing system to dynamically scaling using a single theme-specified scale factor.',
+	},
+	{
+		label: 'Iconography',
+		desc: "Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project's aesthetic.",
+	},
+];
 
 export default function DesignSystem() {
 	const [active, activeStep] = useState(0);
 
-	const steps = [
-		{
-			label: 'The Figma UI Kit',
-			desc: 'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.',
-		},
-		{
-			label: 'Themes',
-			desc: 'Themes are empowered by CSS custom properties, enabling simple integration into Tailwind. Register multiple themes and easily switch on demand.',
-		},
-		{
-			label: 'Colors',
-			desc: 'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.',
-		},
-		{
-			label: 'Presets',
-			desc: 'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.',
-		},
-		{
-			label: 'Typography',
-			desc: 'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.',
-		},
-		{
-			label: 'Spacing',
-			desc: 'Use the new Tailwind spacing system to dynamically scaling using a single theme-specified scale factor.',
-		},
-		{
-			label: 'Iconography',
-			desc: "Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project's aesthetic.",
-		},
-	];
 	const btnActive = 'btn preset-filled';
 	const btnInactive = 'btn preset-outlined-surface-800-200 hover:preset-tonal';
 

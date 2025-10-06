@@ -72,7 +72,6 @@ export default defineConfig({
 				{
 					'astro-expressive-code/components': ['Code'],
 					'@/components/ui/api-table.astro': [['default', 'ApiTable']],
-					'@/components/ui/anatomy.astro': [['default', 'Anatomy']],
 					'@/components/ui/preview.tsx': [['default', 'Preview']],
 					'@/components/ui/framework-tabs.tsx': [['default', 'FrameworkTabs']],
 				},

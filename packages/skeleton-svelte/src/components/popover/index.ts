@@ -7,5 +7,7 @@ export type { PopoverRootContextProps } from './anatomy/root-context.svelte';
 export type { PopoverRootProviderProps } from './anatomy/root-provider.svelte';
 export type { PopoverTitleProps } from './anatomy/title.svelte';
 export type { PopoverTriggerProps } from './anatomy/trigger.svelte';
+export type { PopoverArrowProps } from './anatomy/arrow.svelte';
+export type { PopoverArrowTipProps } from './anatomy/arrow-tip.svelte';
 export { Popover } from './modules/anatomy';
 export { usePopover } from './modules/provider.svelte';

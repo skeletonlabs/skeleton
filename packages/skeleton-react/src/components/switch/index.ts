@@ -4,5 +4,6 @@ export type { SwitchLabelProps } from './anatomy/label';
 export type { SwitchRootContextProps } from './anatomy/root-context';
 export type { SwitchRootProviderProps } from './anatomy/root-provider';
 export type { SwitchThumbProps } from './anatomy/thumb';
+export type { SwitchRootProps } from './anatomy/root';
 export { Switch } from './modules/anatomy';
 export { useSwitch } from './modules/provider';

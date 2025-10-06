@@ -20,7 +20,7 @@ export function getColorKey(var1: string, var2: string): keyof typeof settingsCo
 	return `--color-${var1}-${var2}` as keyof typeof settingsColors;
 }
 
-export function genColorContrast(colorName: string, shade: string, targetShade: string) {
+function genColorContrast(colorName: string, shade: string, targetShade: string) {
 	const paletteShade = settingsColors[targetShade as keyof typeof settingsColors];
 	let contrastLight = settingsColors[getColorKey(colorName, 'contrast-light')];
 	let contrastDark = settingsColors[getColorKey(colorName, 'contrast-dark')];

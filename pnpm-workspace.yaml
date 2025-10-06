@@ -61,7 +61,6 @@ catalog:
   astro: 5.14.1
   astro-auto-import: 0.4.4
   astro-expressive-code: 0.41.3
-  autoprefixer: 10.4.21
   chroma-js: 3.1.2
   colorette: 2.0.20
   commander: 14.0.1
@@ -84,11 +83,8 @@ catalog:
   prettier: 3.6.2
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.4.0
-  prettier-plugin-tailwindcss: 0.6.14
-  publint: 0.3.13
   react: 19.2.0
   react-dom: 19.2.0
-  react-hot-toast: 2.6.0
   sass-embedded: 1.93.2
   semver: 7.7.2
   sharp: 0.34.4
@@ -99,8 +95,6 @@ catalog:
   tinyglobby: 0.2.15
   ts-morph: 27.0.0
   tsdown: 0.15.6
-  tslib: 2.8.1
-  tsx: 4.20.6
   type-fest: 5.0.1
   typescript: 5.9.3
   unplugin-macros: 0.18.2

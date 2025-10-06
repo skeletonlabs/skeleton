@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'astro/types';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
-export interface NavigationItem extends HTMLAttributes<'a'> {
+interface NavigationItem extends HTMLAttributes<'a'> {
 	title: string;
 	tag?: string;
 }
