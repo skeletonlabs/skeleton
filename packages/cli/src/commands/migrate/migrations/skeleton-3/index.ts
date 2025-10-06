@@ -180,5 +180,6 @@ export default async function (options: MigrateOptions) {
 		cli.error('Migration canceled');
 		return;
 	}
+
 	log.info('Migration complete! Visit https://skeleton.dev for more information.');
 }
