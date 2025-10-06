@@ -1,5 +1,15 @@
 # skeleton
 
+## 4.0.0-next.26
+
+### Minor Changes
+
+- feat: skeleton-4 migration ([#3872](https://github.com/skeletonlabs/skeleton/pull/3872))
+
+### Patch Changes
+
+- fix: add missing exports ([#3874](https://github.com/skeletonlabs/skeleton/pull/3874))
+
 ## 4.0.0-next.25
 
 ## 4.0.0-next.24

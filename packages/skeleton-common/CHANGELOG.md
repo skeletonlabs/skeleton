@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.26
+
 ## 4.0.0-next.25
 
 ### Minor Changes

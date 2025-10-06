@@ -13,6 +13,7 @@
 		"@skeletonlabs/themes.skeleton.dev": "0.0.1"
 	},
 	"changesets": [
+		"beige-jars-sip",
 		"better-shrimps-beam",
 		"calm-rooms-marry",
 		"chatty-kids-join",
@@ -22,6 +23,7 @@
 		"evil-hands-obey",
 		"five-snakes-love",
 		"forty-badgers-clap",
+		"giant-bushes-smash",
 		"giant-pans-prove",
 		"great-eagles-glow",
 		"hot-beers-think",
