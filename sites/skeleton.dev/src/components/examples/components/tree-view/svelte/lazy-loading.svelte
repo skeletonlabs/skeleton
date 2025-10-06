@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FileIcon, FolderIcon } from '@lucide/svelte';
+	import { FileIcon, FolderIcon, LoaderIcon } from '@lucide/svelte';
 	import { TreeView, createTreeViewCollection, type TreeViewRootProps } from '@skeletonlabs/skeleton-svelte';
 
 	interface Node {
@@ -79,7 +79,10 @@
 		{#if node.children || node.childrenCount}
 			<TreeView.Branch>
 				<TreeView.BranchControl>
-					<TreeView.BranchIndicator />
+					<TreeView.BranchIndicator class="data-loading:hidden" />
+					<TreeView.BranchIndicator class="hidden data-loading:inline animate-spin">
+						<LoaderIcon class="size-4" />
+					</TreeView.BranchIndicator>
 					<TreeView.BranchText>
 						<FolderIcon class="size-4" />
 						{node.name}

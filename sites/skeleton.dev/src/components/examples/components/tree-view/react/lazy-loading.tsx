@@ -1,5 +1,5 @@
 import { TreeView, createTreeViewCollection, type TreeViewRootProps } from '@skeletonlabs/skeleton-react';
-import { FileIcon, FolderIcon } from 'lucide-react';
+import { FileIcon, FolderIcon, LoaderIcon } from 'lucide-react';
 import { useState } from 'react';
 
 interface Node {
@@ -39,7 +39,10 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 			{props.node.children || props.node.childrenCount ? (
 				<TreeView.Branch>
 					<TreeView.BranchControl>
-						<TreeView.BranchIndicator />
+						<TreeView.BranchIndicator className="data-loading:hidden" />
+						<TreeView.BranchIndicator className="hidden data-loading:inline animate-spin">
+							<LoaderIcon className="size-4" />
+						</TreeView.BranchIndicator>
 						<TreeView.BranchText>
 							<FolderIcon className="size-4" />
 							{props.node.name}
