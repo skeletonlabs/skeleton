@@ -7,21 +7,21 @@ export const socialLinks = [
 	{
 		href: 'https://github.com/skeletonlabs/skeleton',
 		label: 'GitHub',
-		Icon: Github,
+		icon: Github,
 	},
 	{
 		href: 'https://discord.gg/EXqV7W8MtY',
 		label: 'Discord',
-		Icon: Discord,
+		icon: Discord,
 	},
 	{
 		href: 'https://bsky.app/profile/skeleton.dev',
 		label: 'Bluesky',
-		Icon: Bluesky,
+		icon: Bluesky,
 	},
 	{
 		href: 'https://www.youtube.com/@skeletonlabs',
 		label: 'YouTube',
-		Icon: Youtube,
+		icon: Youtube,
 	},
 ] as const;

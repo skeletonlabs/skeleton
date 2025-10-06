@@ -21,10 +21,10 @@ const cHover = 'hover:bg-gradient-to-t from-surface-100 dark:from-surface-900/30
 {
 	framework && (
 		<nav class="grid grid-cols-2">
-			{frameworks.map(({ slug, name, Icon }) => (
-				<a data-framework={slug} href={`/${path}/${slug}`} class:list={[cBtn, framework.slug === slug ? cActive : cHover]}>
-					<Icon class="size-6 fill-current" />
-					<span>{name}</span>
+			{frameworks.map((link) => (
+				<a data-framework={link.slug} href={`/${path}/${link.slug}`} class:list={[cBtn, framework.slug === link.slug ? cActive : cHover]}>
+					<link.icon class="size-6 fill-current" />
+					<span>{link.name}</span>
 				</a>
 			))}
 		</nav>
