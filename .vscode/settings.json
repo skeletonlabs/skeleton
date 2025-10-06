@@ -18,5 +18,6 @@
 		"javascript": "javascript",
 		"typescript": "javascript",
 		"css": "css"
-	}
+	},
+	"tailwindCSS.classFunctions": ["defineSkeletonClasses"]
 }

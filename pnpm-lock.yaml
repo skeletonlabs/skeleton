@@ -432,6 +432,9 @@ importers:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../skeleton
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.1.14
       tsdown:
         specifier: 'catalog:'
         version: 0.15.6(publint@0.3.13)(typescript@5.9.3)
