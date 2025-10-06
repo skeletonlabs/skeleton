@@ -1,0 +1,3 @@
+import { Segment } from '@skeletonlabs/skeleton-svelte';
+
+const Test = Segment;

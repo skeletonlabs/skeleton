@@ -1,6 +1,5 @@
 ---
-"skeleton": minor
+'skeleton': minor
 ---
 
 feat: support module transformations
-  

@@ -1,10 +1,14 @@
+import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-module.js';
 import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-package.json.js';
 import { transformStylesheet } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-stylesheet.js';
+import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-svelte.js';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
 
 const TRANSFORMER_MAP = {
+	svelte: transformSvelte,
+	module: transformModule,
 	stylesheet: transformStylesheet,
 	'package.json': transformPackageJson,
 };

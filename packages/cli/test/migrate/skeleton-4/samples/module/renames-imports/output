@@ -1,0 +1,3 @@
+import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+
+const Test = SegmentedControl;
