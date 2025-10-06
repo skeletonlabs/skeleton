@@ -1,0 +1,2 @@
+@import '@skeletonlabs/skeleton-react';
+@import '@skeletonlabs/skeleton-svelte';
