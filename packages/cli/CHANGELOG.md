@@ -1,5 +1,11 @@
 # skeleton
 
+## 4.0.0-next.27
+
+### Patch Changes
+
+- fix: updating -> installing ([`583742e`](https://github.com/skeletonlabs/skeleton/commit/583742ee0ea6f49b2a280ba37a48abf9c60c510f))
+
 ## 4.0.0-next.26
 
 ### Minor Changes

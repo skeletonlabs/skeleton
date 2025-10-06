@@ -13,6 +13,7 @@
 		"@skeletonlabs/themes.skeleton.dev": "0.0.1"
 	},
 	"changesets": [
+		"all-hands-attend",
 		"beige-jars-sip",
 		"better-shrimps-beam",
 		"calm-rooms-marry",

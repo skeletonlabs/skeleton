@@ -1,6 +1,5 @@
 ---
-"skeleton": patch
+'skeleton': patch
 ---
 
 fix: updating -> installing
-  

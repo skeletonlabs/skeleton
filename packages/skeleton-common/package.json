@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "4.0.0-next.26",
+	"version": "4.0.0-next.27",
 	"description": "The common package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
