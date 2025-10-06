@@ -91,9 +91,9 @@ export default function Search() {
 					<SearchIcon className="w-5 h-5" />
 					<span>Search...</span>
 				</div>
-				<div className="flex items-center gap-1 leading-4">
-					<kbd className="kbd text-xs">⌘</kbd>
-					<kbd className="kbd">K</kbd>
+				<div className="hidden md:flex items-center gap-1 leading-4">
+					<kbd className="kbd text-[10px]">⌘</kbd>
+					<kbd className="kbd text-[10px]">K</kbd>
 				</div>
 			</Dialog.Trigger>
 			<Portal>
