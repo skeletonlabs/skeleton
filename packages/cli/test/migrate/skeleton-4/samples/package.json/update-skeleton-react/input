@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@skeletonlabs/skeleton-react": "^3.0.0"
+	}
+}

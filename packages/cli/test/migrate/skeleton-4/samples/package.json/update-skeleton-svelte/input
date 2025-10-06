@@ -1,0 +1,5 @@
+{
+	"dependencies": {
+		"@skeletonlabs/skeleton-svelte": "^3.0.0"
+	}
+}
