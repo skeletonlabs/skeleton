@@ -62,10 +62,8 @@
 		"@testing-library/jest-dom": "catalog:",
 		"@testing-library/svelte": "catalog:",
 		"jsdom": "catalog:",
-		"publint": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
-		"tslib": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
 		"vitest": "catalog:"

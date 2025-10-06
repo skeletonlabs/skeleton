@@ -5,6 +5,7 @@ import Label from '../anatomy/label';
 import MonthSelect from '../anatomy/month-select';
 import NextTrigger from '../anatomy/next-trigger';
 import Positioner from '../anatomy/positioner';
+import PresetTrigger from '../anatomy/preset-trigger';
 import PrevTrigger from '../anatomy/prev-trigger';
 import RangeText from '../anatomy/range-text';
 import Root from '../anatomy/root';
@@ -28,6 +29,7 @@ export const DatePicker = Object.assign(Root, {
 	Context: RootContext,
 	Label: Label,
 	Control: Control,
+	PresetTrigger: PresetTrigger,
 	Input: Input,
 	Trigger: Trigger,
 	Positioner: Positioner,

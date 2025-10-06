@@ -29,6 +29,7 @@ export const DatePicker = Object.assign(Root, {
 	Context: RootContext,
 	Label: Label,
 	Control: Control,
+	PresetTrigger: PresetTrigger,
 	Input: Input,
 	Trigger: Trigger,
 	Positioner: Positioner,
@@ -48,5 +49,4 @@ export const DatePicker = Object.assign(Root, {
 	TableBody: TableBody,
 	TableCell: TableCell,
 	TableCellTrigger: TableCellTrigger,
-	PresetTrigger: PresetTrigger,
 });
