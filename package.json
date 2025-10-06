@@ -27,8 +27,7 @@
 		"oxlint-tsgolint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-astro": "catalog:",
-		"prettier-plugin-svelte": "catalog:",
-		"prettier-plugin-tailwindcss": "catalog:"
+		"prettier-plugin-svelte": "catalog:"
 	},
 	"engines": {
 		"node": ">=22.0.0",

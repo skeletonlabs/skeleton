@@ -6,6 +6,8 @@ export type { PopoverRootProps } from './anatomy/root';
 export type { PopoverRootContextProps } from './anatomy/root-context';
 export type { PopoverRootProviderProps } from './anatomy/root-provider';
 export type { PopoverTitleProps } from './anatomy/title';
+export type { PopoverArrowProps } from './anatomy/arrow';
+export type { PopoverArrowTipProps } from './anatomy/arrow-tip';
 export type { PopoverTriggerProps } from './anatomy/trigger';
 export { Popover } from './modules/anatomy';
 export { usePopover } from './modules/provider';

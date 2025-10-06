@@ -5,6 +5,8 @@ export type { ListboxItemProps } from './anatomy/item';
 export type { ListboxInputProps } from './anatomy/input';
 export type { ListboxItemIndicatorProps } from './anatomy/item-indicator';
 export type { ListboxItemTextProps } from './anatomy/item-text';
+export type { ListboxRootContextProps } from './anatomy/root-context';
+export type { ListboxRootProviderProps } from './anatomy/root-provider';
 export type { ListboxLabelProps } from './anatomy/label';
 export type { ListboxContentProps } from './anatomy/content';
 export { Listbox } from './modules/anatomy';
