@@ -4,6 +4,7 @@ export type { FileUploadItemProps } from './anatomy/item.svelte';
 export type { FileUploadItemDeleteTriggerProps } from './anatomy/item-delete-trigger.svelte';
 export type { FileUploadItemGroupProps } from './anatomy/item-group.svelte';
 export type { FileUploadItemNameProps } from './anatomy/item-name.svelte';
+export type { FileUploadItemSizeTextProps } from './anatomy/item-size-text.svelte';
 export type { FileUploadLabelProps } from './anatomy/label.svelte';
 export type { FileUploadRootProps } from './anatomy/root.svelte';
 export type { FileUploadRootContextProps } from './anatomy/root-context.svelte';
