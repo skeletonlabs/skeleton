@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.26
+
+### Patch Changes
+
+- fix: add missing exports ([#3874](https://github.com/skeletonlabs/skeleton/pull/3874))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.26
+
 ## 4.0.0-next.25
 
 ### Minor Changes
