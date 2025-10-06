@@ -8,12 +8,12 @@ export const frameworks = [
 	{
 		name: 'React',
 		slug: 'react',
-		Icon: React,
+		icon: React,
 	},
 	{
 		name: 'Svelte',
 		slug: 'svelte',
-		Icon: Svelte,
+		icon: Svelte,
 	},
 ] as const;
 

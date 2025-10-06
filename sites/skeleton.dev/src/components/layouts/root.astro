@@ -57,19 +57,21 @@ const meta = {
 		<meta name="twitter:description" content={meta.description} />
 		<meta name="twitter:image" content={meta.image} />
 		<!-- Theme and Mode -->
-		<script is:inline>
-			function applyTheme(document) {
+		<script>
+			function applyTheme(document: Document) {
 				const storedTheme = localStorage.getItem('theme');
 				const defaultTheme = 'cerberus';
 				const theme = storedTheme ?? defaultTheme;
 				document.documentElement.setAttribute('data-theme', theme);
+				localStorage.setItem('theme', theme);
 			}
 
-			function applyMode(document) {
+			function applyMode(document: Document) {
 				const storedMode = localStorage.getItem('mode');
 				const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 				const defaultMode = 'dark';
 				const mode = storedMode ?? preferredMode ?? defaultMode;
+				localStorage.setItem('mode', mode);
 				document.documentElement.setAttribute('data-mode', mode);
 			}
 
@@ -87,14 +89,12 @@ const meta = {
 		<script>
 			declare global {
 				interface Window {
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 					plausible: any;
 				}
 			}
 			window.plausible =
 				window.plausible ||
 				function () {
-					// eslint-disable-next-line prefer-rest-params
 					(window.plausible.q = window.plausible.q || []).push(arguments);
 				};
 		</script>

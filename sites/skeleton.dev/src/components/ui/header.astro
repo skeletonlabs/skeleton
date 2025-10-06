@@ -65,9 +65,9 @@ const navigationGroups = [
 			<span class="border-r border-surface-200-800"></span>
 			<nav class="flex items-center gap-1">
 				{
-					socialLinks.slice(0, 2).map(({ href, label, Icon }) => (
-						<a class="btn-icon hover:preset-tonal" href={href} target="_blank" title={label} aria-label={label}>
-							<Icon class="size-5" />
+					socialLinks.slice(0, 2).map((link) => (
+						<a class="btn-icon hover:preset-tonal" href={link.href} target="_blank" title={link.label} aria-label={link.label}>
+							<link.icon class="size-5" />
 						</a>
 					))
 				}

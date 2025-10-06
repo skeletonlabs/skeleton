@@ -37,7 +37,7 @@
 	"packageManager": "pnpm@10.18.0",
 	"pnpm": {
 		"overrides": {
-			"tsdown>rolldown": "1.0.0-beta.40"
+			"tsdown>rolldown": "1.0.0-beta.41"
 		}
 	}
 }
