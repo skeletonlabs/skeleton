@@ -78,12 +78,12 @@ export default async function (options: MigrateOptions) {
 
 	// Install dependencies
 	const installDependenciesSpinner = spinner();
-	installDependenciesSpinner.start('Updating dependencies...');
+	installDependenciesSpinner.start('Installing dependencies...');
 	try {
 		await installDependencies(cwd);
-		installDependenciesSpinner.stop('Successfully updated dependencies!');
+		installDependenciesSpinner.stop('Successfully installed dependencies!');
 	} catch (error) {
-		installDependenciesSpinner.stop(`Failed to update dependencies: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
+		installDependenciesSpinner.stop(`Failed to install dependencies: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
 		cli.error('Migration canceled');
 		return;
 	}
