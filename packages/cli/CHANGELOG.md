@@ -1,5 +1,11 @@
 # skeleton
 
+## 4.0.0-next.28
+
+### Minor Changes
+
+- feat: support module transformations ([#3878](https://github.com/skeletonlabs/skeleton/pull/3878))
+
 ## 4.0.0-next.27
 
 ### Patch Changes
