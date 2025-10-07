@@ -1,3 +1,1 @@
-import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
-
-const Test = SegmentedControl;
+import { Dialog, Progress, RatingGroup, SegmentedControl, Toast } from '@skeletonlabs/skeleton-svelte';
