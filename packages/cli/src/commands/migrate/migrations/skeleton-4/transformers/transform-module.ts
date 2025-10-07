@@ -21,11 +21,16 @@ function transformModule(code: string) {
 	});
 
 	file.forEachDescendant((node) => {
-		if (!node.wasForgotten() && Node.isIdentifier(node) && !Node.isImportSpecifier(node.getParent())) {
+		if (Node.isPropertyAccessExpression(node)) {
+			const fullName = `${node.getExpression().getText()}.${node.getName()}`;
+			const newName = IDENTIFIER_MAPPINGS[fullName];
+			if (newName) {
+				node.replaceWithText(newName);
+			}
+		} else if (Node.isIdentifier(node) && !Node.isImportSpecifier(node.getParent())) {
 			const newName = IDENTIFIER_MAPPINGS[node.getText()];
 			if (newName) {
-				console.log('Renaming', node.getText(), 'to', newName);
-				node.rename(newName);
+				node.replaceWithText(newName);
 			}
 		}
 	});
