@@ -1,6 +1,9 @@
 import Default from '@/components/examples/components/switch/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/switch/svelte/default.svelte?raw';
 
+import Colors from '@/components/examples/components/switch/svelte/colors.svelte';
+import ColorsRaw from '@/components/examples/components/switch/svelte/colors.svelte?raw';
+
 import List from '@/components/examples/components/switch/svelte/list.svelte';
 import ListRaw from '@/components/examples/components/switch/svelte/list.svelte?raw';
 
@@ -16,6 +19,19 @@ import DirRaw from '@/components/examples/components/switch/svelte/dir.svelte?ra
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## State Color
+
+Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the active state using `data-[state=checked]`
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Colors client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorsRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

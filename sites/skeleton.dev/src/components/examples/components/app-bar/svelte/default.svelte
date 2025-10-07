@@ -9,7 +9,7 @@
 			<button type="button" class="btn-icon btn-icon-lg hover:preset-tonal"><MenuIcon /></button>
 		</AppBar.Lead>
 		<AppBar.Headline>
-			<p class="text-2xl">Headline</p>
+			<p class="text-2xl">Skeleton</p>
 		</AppBar.Headline>
 		<AppBar.Trail>
 			<button type="button" class="btn-icon hover:preset-tonal"><SearchIcon class="size-6" /></button>

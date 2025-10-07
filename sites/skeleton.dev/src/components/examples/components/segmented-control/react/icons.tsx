@@ -8,19 +8,19 @@ export default function Icons() {
 				<SegmentedControl.Indicator />
 				<SegmentedControl.Item value="start">
 					<SegmentedControl.ItemText>
-						<AlignStartVerticalIcon />
+						<AlignStartVerticalIcon className="size-4" />
 					</SegmentedControl.ItemText>
 					<SegmentedControl.ItemHiddenInput />
 				</SegmentedControl.Item>
 				<SegmentedControl.Item value="center">
 					<SegmentedControl.ItemText>
-						<AlignCenterVerticalIcon />
+						<AlignCenterVerticalIcon className="size-4" />
 					</SegmentedControl.ItemText>
 					<SegmentedControl.ItemHiddenInput />
 				</SegmentedControl.Item>
 				<SegmentedControl.Item value="end">
 					<SegmentedControl.ItemText>
-						<AlignEndVerticalIcon />
+						<AlignEndVerticalIcon className="size-4" />
 					</SegmentedControl.ItemText>
 					<SegmentedControl.ItemHiddenInput />
 				</SegmentedControl.Item>

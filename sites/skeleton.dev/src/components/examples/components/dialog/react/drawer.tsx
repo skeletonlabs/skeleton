@@ -15,10 +15,7 @@ export default function Drawer() {
 								<XIcon />
 							</Dialog.CloseTrigger>
 						</header>
-						<p>
-							Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla, soluta optio assumenda nobis dignissimos minus doloremque in
-							aliquid amet laboriosam! Soluta recusandae facilis provident ratione a! Vitae expedita rerum magni.
-						</p>
+						<p>This is example content for the slide out drawer panel.</p>
 					</Dialog.Content>
 				</Dialog.Positioner>
 			</Portal>
