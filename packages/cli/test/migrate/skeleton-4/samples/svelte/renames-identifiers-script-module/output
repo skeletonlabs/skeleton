@@ -1,0 +1,11 @@
+<script module>
+    import { Dialog, Navigation, Progress, RatingGroup, SegmentedControl, Toast } from '@skeletonlabs/skeleton-svelte';
+
+    Dialog;
+    Navigation;
+    Navigation;
+    Progress;
+    RatingGroup;
+    SegmentedControl;
+    Toast.Group;
+</script>

@@ -19,5 +19,6 @@
 		"typescript": "javascript",
 		"css": "css"
 	},
-	"tailwindCSS.classFunctions": ["defineSkeletonClasses"]
+	"tailwindCSS.classFunctions": ["defineSkeletonClasses"],
+	"workbench.editor.languageDetection": false
 }

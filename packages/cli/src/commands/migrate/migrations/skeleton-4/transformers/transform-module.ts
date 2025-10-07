@@ -5,6 +5,7 @@ import { Node } from 'ts-morph';
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
+	const skeletonImports: string[] = [];
 
 	file.forEachDescendant((node) => {
 		if (
@@ -13,8 +14,10 @@ function transformModule(code: string) {
 				node.getImportDeclaration().getModuleSpecifier().getLiteralText(),
 			)
 		) {
-			const newName = IMPORT_MAPPINGS[node.getName()];
+			const name = node.getName();
+			const newName = IMPORT_MAPPINGS[name];
 			if (newName) {
+				skeletonImports.push(name);
 				node.setName(newName);
 			}
 		}
@@ -37,6 +40,9 @@ function transformModule(code: string) {
 
 	return {
 		code: file.getFullText(),
+		meta: {
+			skeletonImports: skeletonImports,
+		},
 	};
 }
 
