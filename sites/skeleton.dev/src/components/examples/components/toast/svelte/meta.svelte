@@ -6,7 +6,7 @@
 </script>
 
 {#snippet skull()}
-	<Skull class="size-8" />
+	<SkullIcon class="size-8" />
 {/snippet}
 
 <button

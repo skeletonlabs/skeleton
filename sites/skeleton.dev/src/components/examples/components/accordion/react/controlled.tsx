@@ -2,7 +2,7 @@ import { Accordion } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
 
 export default function Controlled() {
-	const [value, setValue] = useState(['item-1']);
+	const [value, setValue] = useState(['1']);
 
 	return (
 		<Accordion value={value} onValueChange={(details) => setValue(details.value)}>

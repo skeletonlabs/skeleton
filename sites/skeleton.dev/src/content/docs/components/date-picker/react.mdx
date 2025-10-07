@@ -1,10 +1,6 @@
 import Controlled from '@/components/examples/components/date-picker/react/controlled';
 import ControlledRaw from '@/components/examples/components/date-picker/react/controlled.tsx?raw';
 
----
-
-##
-
 import Default from '@/components/examples/components/date-picker/react/default';
 import DefaultRaw from '@/components/examples/components/date-picker/react/default.tsx?raw';
 
@@ -58,7 +54,7 @@ Disable the date picker to prevent user interaction.
 	</Fragment>
 </Preview>
 
-## Min and max dates
+## Minimum and Maximum
 
 Restrict date selection to a specific range using the `min` and `max` props with the `parseDate` helper function.
 
@@ -71,7 +67,7 @@ Restrict date selection to a specific range using the `min` and `max` props with
 	</Fragment>
 </Preview>
 
-## Range selection
+## Range Selection
 
 Enable range selection by setting `selectionMode="range"` on the root component. Use two input fields with `index={0}` and `index={1}` to represent the start and end dates.
 
@@ -97,7 +93,7 @@ Display the calendar inline without a popover by adding the `inline` prop to the
 	</Fragment>
 </Preview>
 
-## With month and year selects
+## Month and Year Selection
 
 Optionally add `<DatePicker.MonthSelect />` and `<DatePicker.YearSelect />` components to provide dropdown selectors for quickly changing the month and year.
 
@@ -132,7 +128,7 @@ The `<DatePicker.Context>` component provides access to the date picker API for 
 
 ### Parse Date
 
-Use the `parseDate` helper function to convert strings or Date objects to the appropriate date format. This function uses `@internationalized/date` under the hood.
+Use the `parseDate` helper function to convert strings or Date objects to the appropriate date format. Zag.js adjusts this using [@internationalized/date](https://github.com/adobe/react-spectrum/tree/main/packages/@internationalized/date) under the hood.
 
 ```tsx
 import { parseDate } from '@skeletonlabs/skeleton-react';

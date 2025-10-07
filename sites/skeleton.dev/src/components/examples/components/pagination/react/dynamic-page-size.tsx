@@ -12,7 +12,7 @@ const users = Array.from({ length: 500 }, (_, i) => ({
 
 export default function Default() {
 	const [page, setPage] = useState(1);
-	const [pageSize, setPageSize] = useState(10);
+	const [pageSize, setPageSize] = useState(5);
 
 	const start = (page - 1) * pageSize;
 	const end = start + pageSize;

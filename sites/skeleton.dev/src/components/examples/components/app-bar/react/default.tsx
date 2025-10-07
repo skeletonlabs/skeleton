@@ -14,7 +14,7 @@ export default function Default() {
 					</button>
 				</AppBar.Lead>
 				<AppBar.Headline>
-					<p className="text-2xl">Headline</p>
+					<p className="text-2xl">Skeleton</p>
 				</AppBar.Headline>
 				<AppBar.Trail>
 					<button type="button" className="btn-icon hover:preset-tonal">

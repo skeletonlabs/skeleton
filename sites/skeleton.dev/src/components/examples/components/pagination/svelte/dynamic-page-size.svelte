@@ -14,7 +14,7 @@
 	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 
 	let page = $state(1);
-	let pageSize = $state(10);
+	let pageSize = $state(5);
 
 	const start = $derived((page - 1) * pageSize);
 	const end = $derived(start + pageSize);

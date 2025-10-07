@@ -18,7 +18,7 @@ Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal 
 
 ## Prerequisites
 
-We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop and revert if something goes wrong.
+We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop and revert if anything goes wrong.
 
 ```console
 git checkout -b migration
@@ -26,13 +26,23 @@ git checkout -b migration
 
 Make sure you've accounted for the following:
 
-- Ensure each Skeleton package (core and framework) are updated to the latest v3.x release.
-- Update all critical dependencies to their latest version (optional but recommended)
+- Ensure both Skeleton packages (core and framework) are updated to the latest v3.x release.
+- Update all critical dependencies in your app to their latest version (optional but recommended)
 - Your app has been tested and is in a functional state.
 
 ---
 
-## Migrate to v4 RC
+## Automated Migration
+
+To begin, we will run a quick automated migration.
+
+```console
+npx skeleton@next migrate skeleton-4
+```
+
+This will handle the following package and stylesheet updates. Once complete, skip to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below, <u>which will are required for all migrations</u>.
+
+### Update NPM Packages
 
 For the Release Candidate, please update each Skeleton package to the early access `@next` version. Note that we will be updating these package frequently leading up to the full release.
 
@@ -50,13 +60,9 @@ npm remove @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
 npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
 ```
 
----
-
-## Migrating Your Global Stylesheet
+### Update Stylesheet Imports
 
 The following migration steps apply to your global stylesheet (ex: `app.css`).
-
-### Replace Source Rules
 
 The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
 
@@ -65,9 +71,7 @@ The `@source` rules for sourcing component styles have been replaced with simple
 + @import '@skeletonlabs/skeleton-{framework}';
 ```
 
-### Remove Optional Preset Import
-
-The optional preset import is no longer required as these styles are now part of the core package.
+In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to keep them opt-in. However, due to popular demand, these have now been rolled back into the core package. If this import is present, please remove it:
 
 ```diff
 - @import '@skeletonlabs/skeleton/optional/presets';
@@ -75,9 +79,13 @@ The optional preset import is no longer required as these styles are now part of
 
 ---
 
-## Migrating Components
+## Manual Migration
 
-Per the Skeleton v4 RC, we do not yet have an automated migration CLI. For now, you will need to manually migrate each component in your project to the new format. Please consult the code snippets found on each respective component's documentation page for reference. Below an example of that process using the Avatar component.
+Assuming all above steps have been complete, you will now be required to handle the manual portion of the migration. The steps below are not optional and must be completed to migrate to Skeleton v4.
+
+### Migrating Components
+
+To begin migrating components, please consult the code snippets found on each respective component's documentation page for reference. Below an example of that process specifically for the Avatar component.
 
 **Was (v3)**
 
@@ -122,6 +130,6 @@ As part of this update, select components have been renamed. Most now follow [Za
 
 For the duration of this early access preview, we ask that you please test the new component structure, styling, and markup features in your real-world projects. We encourage you to share your experience and report issues on either Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). Your feedback will be invaluable to guide any last minutes changes and determine when the final release is ready. We appreciate your input!
 
-## Component Guidelines
-
-If you would like a deeper understanding of how components operate in Skeleton v4, we recommend browsing the [Contribution Guidelines](https://next.skeleton.dev/docs/resources/contribute/components). Use this to update your custom components to the latest standards for Skeleton.
+{/* NOTE: Swap the support block to this during the full release. */}
+{/* ## Component Guidelines */}
+{/* If you would like a deeper understanding of how components operate in Skeleton v4, we recommend browsing the [Contribution Guidelines](https://next.skeleton.dev/docs/resources/contribute/components). Use this to update your custom components to the latest standards for Skeleton. */}

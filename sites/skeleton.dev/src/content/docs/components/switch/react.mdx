@@ -1,6 +1,9 @@
 import Default from '@/components/examples/components/switch/react/default';
 import DefaultRaw from '@/components/examples/components/switch/react/default?raw';
 
+import Colors from '@/components/examples/components/switch/react/colors';
+import ColorsRaw from '@/components/examples/components/switch/react/colors?raw';
+
 import List from '@/components/examples/components/switch/react/list';
 import ListRaw from '@/components/examples/components/switch/react/list?raw';
 
@@ -16,6 +19,19 @@ import DirRaw from '@/components/examples/components/switch/react/dir?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Checked Color
+
+Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the active state using `data-[state=checked]`
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Colors client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorsRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

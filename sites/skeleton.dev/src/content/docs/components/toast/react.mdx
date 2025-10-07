@@ -30,7 +30,7 @@ import PromiseRaw from '@/components/examples/components/toast/react/promise?raw
 
 ## Usage
 
-This component can act as a Singleton - meaning you you only implement a single instance (typically at the root scope of your app) and then reused it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app, and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
+This component acts as a Singleton - meaning you only implement a single instance (typically at the root scope of your app) and then reused it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app, and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
 
 ## Type
 
@@ -99,6 +99,8 @@ Use the `meta` key to provide arbitrary data. Then use this to modify your Toast
 </Preview>
 
 ## Promise
+
+Use promises for asynchronous triggers.
 
 <Preview client:load>
 	<Fragment slot="preview">
