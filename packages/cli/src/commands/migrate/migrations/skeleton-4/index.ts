@@ -91,6 +91,7 @@ export default async function (options: MigrateOptions) {
 					path: path,
 					content: transformedStylesheet.code,
 				});
+				break;
 			case '.js':
 			case '.mjs':
 			case '.cjs':
