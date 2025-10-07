@@ -7,6 +7,9 @@ import CustomIconRaw from '@/components/examples/components/tags-input/svelte/cu
 import Color from '@/components/examples/components/tags-input/svelte/color.svelte';
 import ColorRaw from '@/components/examples/components/tags-input/svelte/color.svelte?raw';
 
+import Provider from '@/components/examples/components/tags-input/svelte/provider.svelte';
+import ProviderRaw from '@/components/examples/components/tags-input/svelte/provider.svelte?raw';
+
 import Dir from '@/components/examples/components/tags-input/svelte/dir.svelte';
 import DirRaw from '@/components/examples/components/tags-input/svelte/dir.svelte?raw';
 
@@ -38,6 +41,19 @@ import DirRaw from '@/components/examples/components/tags-input/svelte/dir.svelt
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ColorRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to gain access to the the inner component APIs.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Provider client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ProviderRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 

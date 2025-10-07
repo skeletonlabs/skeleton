@@ -2,4 +2,4 @@
 '@skeletonlabs/skeleton-common': patch
 ---
 
-chore: Minor updates to Pagination styles
+chore: Style updates for Pagination and TagsInput components
