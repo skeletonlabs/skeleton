@@ -27,7 +27,9 @@
 <Accordion>
 	{#each content as item (item)}
 		<Accordion.Item value={item.id}>
-			<Accordion.ItemTrigger class="font-bold">{item.title}</Accordion.ItemTrigger>
+			<h3>
+				<Accordion.ItemTrigger class="font-bold">{item.title}</Accordion.ItemTrigger>
+			</h3>
 			<Accordion.ItemContent>{item.description}</Accordion.ItemContent>
 		</Accordion.Item>
 	{/each}

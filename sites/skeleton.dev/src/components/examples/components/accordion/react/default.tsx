@@ -27,7 +27,9 @@ export default function Default() {
 		<Accordion>
 			{content.map((item) => (
 				<Accordion.Item key={item.id} value={item.id}>
-					<Accordion.ItemTrigger className="font-bold">{item.title}</Accordion.ItemTrigger>
+					<h3>
+						<Accordion.ItemTrigger className="font-bold">{item.title}</Accordion.ItemTrigger>
+					</h3>
 					<Accordion.ItemContent>{item.description}</Accordion.ItemContent>
 				</Accordion.Item>
 			))}
