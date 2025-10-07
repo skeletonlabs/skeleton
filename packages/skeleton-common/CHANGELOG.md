@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.29
+
+### Patch Changes
+
+- chore: Style updates for Pagination and TagsInput components ([#3879](https://github.com/skeletonlabs/skeleton/pull/3879))
+
 ## 4.0.0-next.28
 
 ## 4.0.0-next.27
