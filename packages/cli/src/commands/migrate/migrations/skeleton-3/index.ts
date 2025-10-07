@@ -6,7 +6,7 @@ import { transformAppCss } from './transformers/transform-app.css';
 import { transformAppHtml } from './transformers/transform-app.html';
 import { transformModule } from './transformers/transform-module';
 import { transformPackageJson } from './transformers/transform-package.json';
-import { transformStyleSheet } from './transformers/transform-stylesheet';
+import { transformStylesheet } from './transformers/transform-stylesheet';
 import { transformSvelte } from './transformers/transform-svelte';
 import { FALLBACK_THEME } from './utility/constants';
 import { THEME_MAPPINGS } from './utility/theme-mappings';
@@ -66,7 +66,7 @@ export default async function (options: MigrateOptions) {
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${packageJson.name}...`);
 	try {
-		const packageJsonCode = await readFile(packageJson.paths.at(0)!, 'utf8');
+		const packageJsonCode = await readFile(packageJson.paths.at(0)!, 'utf-8');
 		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
 		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
 		const transformedPackageJson = transformPackageJson(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
@@ -82,7 +82,7 @@ export default async function (options: MigrateOptions) {
 	const appHtmlSpinner = spinner();
 	appHtmlSpinner.start(`Migrating ${appHtml.name}...`);
 	try {
-		const appHtmlCode = await readFile(appHtml.paths.at(0)!, 'utf8');
+		const appHtmlCode = await readFile(appHtml.paths.at(0)!, 'utf-8');
 		const transformedAppHtml = transformAppHtml(appHtmlCode);
 		if (transformedAppHtml.meta.theme && Object.hasOwn(THEME_MAPPINGS, transformedAppHtml.meta.theme.value)) {
 			theme = THEME_MAPPINGS[transformedAppHtml.meta.theme.value];
@@ -102,7 +102,7 @@ export default async function (options: MigrateOptions) {
 	const appCssSpinner = spinner();
 	appCssSpinner.start(`Migrating ${appCss.name}...`);
 	try {
-		const appCssCode = await readFile(appCss.paths.at(0)!, 'utf8');
+		const appCssCode = await readFile(appCss.paths.at(0)!, 'utf-8');
 		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
 		migrations.push({ path: appCss.paths.at(0)!, content: transformedAppCss.code });
 		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
@@ -126,7 +126,7 @@ export default async function (options: MigrateOptions) {
 			sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
 			const extension = extname(sourceFile);
 			try {
-				const code = await readFile(sourceFile, 'utf8');
+				const code = await readFile(sourceFile, 'utf-8');
 				switch (extension) {
 					case '.svelte': {
 						const transformedSvelte = transformSvelte(code);
@@ -144,7 +144,7 @@ export default async function (options: MigrateOptions) {
 					case '.css':
 					case '.pcss':
 					case '.postcss': {
-						const transformedStyleSheet = transformStyleSheet(code);
+						const transformedStyleSheet = transformStylesheet(code);
 						migrations.push({ path: sourceFile, content: transformedStyleSheet.code });
 						break;
 					}
@@ -155,7 +155,7 @@ export default async function (options: MigrateOptions) {
 				cli.error('Migration canceled, nothing written to disk');
 			}
 		}
-		sourceFilesSpinner.stop('Successfully migrated all source files!');
+		sourceFilesSpinner.stop(`Successfully migrated ${sourceFiles.length} source files!`);
 	}
 
 	// Write all migrations to disk

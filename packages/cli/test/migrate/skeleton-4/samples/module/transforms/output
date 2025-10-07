@@ -1,0 +1,1 @@
+import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';

@@ -1,7 +1,7 @@
 import { transformClasses } from './transform-classes';
 import { parse } from 'postcss';
 
-function transformStyleSheet(code: string) {
+function transformStylesheet(code: string) {
 	const parsed = parse(code);
 	parsed.walkAtRules('apply', (atRule) => {
 		atRule.params = transformClasses(atRule.params).code;
@@ -12,4 +12,4 @@ function transformStyleSheet(code: string) {
 	};
 }
 
-export { transformStyleSheet };
+export { transformStylesheet };

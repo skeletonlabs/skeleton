@@ -1,10 +1,14 @@
+import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-module.js';
 import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-package.json.js';
 import { transformStylesheet } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-stylesheet.js';
+import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-svelte.js';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath, resolve } from 'node:url';
 import { describe, expect, test } from 'vitest';
 
 const TRANSFORMER_MAP = {
+	svelte: transformSvelte,
+	module: transformModule,
 	stylesheet: transformStylesheet,
 	'package.json': transformPackageJson,
 };
@@ -46,9 +50,9 @@ describe('samples', () => {
 					continue;
 				}
 				test(testName, async () => {
-					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf8');
+					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
 					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
-					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf8');
+					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf-8');
 					expect(clean(actual)).toBe(clean(expected));
 				});
 			}
