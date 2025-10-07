@@ -6,7 +6,7 @@ import { transformAppCss } from './transformers/transform-app.css';
 import { transformAppHtml } from './transformers/transform-app.html';
 import { transformModule } from './transformers/transform-module';
 import { transformPackageJson } from './transformers/transform-package.json';
-import { transformStyleSheet } from './transformers/transform-stylesheet';
+import { transformStylesheet } from './transformers/transform-stylesheet';
 import { transformSvelte } from './transformers/transform-svelte';
 import { FALLBACK_THEME } from './utility/constants';
 import { THEME_MAPPINGS } from './utility/theme-mappings';
@@ -144,7 +144,7 @@ export default async function (options: MigrateOptions) {
 					case '.css':
 					case '.pcss':
 					case '.postcss': {
-						const transformedStyleSheet = transformStyleSheet(code);
+						const transformedStyleSheet = transformStylesheet(code);
 						migrations.push({ path: sourceFile, content: transformedStyleSheet.code });
 						break;
 					}

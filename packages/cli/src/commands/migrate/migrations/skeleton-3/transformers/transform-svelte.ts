@@ -1,23 +1,13 @@
+import { hasRange } from '../../../../../utility/svelte/has-range';
+import { renameComponent } from '../../../../../utility/svelte/rename-component';
 import { EXPORT_MAPPINGS } from '../utility/export-mappings';
 import { transformClasses } from './transform-classes';
 import { transformModule } from './transform-module';
-import { transformStyleSheet } from './transform-stylesheet';
-import type { Node } from 'estree';
+import { transformStylesheet } from './transform-stylesheet';
 import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
 import { walk } from 'zimmerframe';
-
-function renameComponent(s: MagicString, node: AST.Component, name: string) {
-	const adjustedStart = node.start + 1;
-	s.update(adjustedStart, adjustedStart + node.name.length, name);
-	const componentString = s.original.slice(node.start, node.end);
-	const indexOfNonSelfClosingTag = componentString.lastIndexOf('</');
-	if (indexOfNonSelfClosingTag === -1 || node.start + indexOfNonSelfClosingTag > node.end) {
-		return;
-	}
-	s.update(node.start + indexOfNonSelfClosingTag + 2, node.start + indexOfNonSelfClosingTag + 2 + node.name.length, name);
-}
 
 function transformScript(s: MagicString, script: AST.Script | null) {
 	if (
@@ -47,12 +37,8 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
 	if (!css) {
 		return;
 	}
-	const transformed = transformStyleSheet(s.original.slice(css.content.start, css.content.end));
+	const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
 	s.overwrite(css.content.start, css.content.end, transformed.code);
-}
-
-function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
-	return 'start' in node && 'end' in node && typeof node.start === 'number' && typeof node.end === 'number';
 }
 
 function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {

@@ -1,18 +1,54 @@
+import { hasRange } from '../../../../../utility/svelte/has-range';
+import { renameComponent } from '../../../../../utility/svelte/rename-component';
+import { IDENTIFIER_MAPPINGS } from '../utility/identifier-mappings';
+import { IMPORT_MAPPINGS } from '../utility/import-mappings';
+import { transformModule } from './transform-module';
+import { transformStylesheet } from './transform-stylesheet';
 import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
+import { walk } from 'zimmerframe';
 
-// oxlint-disable-next-line no-unused-vars
-// oxlint-disable-next-line no-unused-vars
-function transformScript(s: MagicString, script: AST.Script | null) {}
+function transformScript(s: MagicString, script: AST.Script | null) {
+	if (
+		!script ||
+		!(
+			'start' in script.content &&
+			typeof script.content.start === 'number' &&
+			'end' in script.content &&
+			typeof script.content.end === 'number'
+		)
+	) {
+		return;
+	}
+	const content = s.original.slice(script.content.start, script.content.end);
+	const transformed = transformModule(content);
+	s.overwrite(script.content.start, script.content.end, transformed.code);
+}
 
-// oxlint-disable-next-line no-unused-vars
-// oxlint-disable-next-line no-unused-vars
-function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {}
+function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
+	if (!css) {
+		return;
+	}
+	const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
+	s.overwrite(css.content.start, css.content.end, transformed.code);
+}
 
-// oxlint-disable-next-line no-unused-vars
-// oxlint-disable-next-line no-unused-vars
-function transformFragment(s: MagicString, fragment: AST.Fragment) {}
+function transformFragment(s: MagicString, fragment: AST.Fragment) {
+	walk(
+		fragment as AST.SvelteNode,
+		{},
+		{
+			Component(node, ctx) {
+				const renamed = IMPORT_MAPPINGS[node.name];
+				if (renamed && hasRange(node)) {
+					renameComponent(s, node, renamed);
+				}
+				ctx.next();
+			},
+		},
+	);
+}
 
 function transformSvelte(code: string) {
 	const s = new MagicString(code);
