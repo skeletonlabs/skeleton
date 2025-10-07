@@ -16,7 +16,7 @@ function transformPackageJson(code: string) {
 			const coerced = coerce(pkg[field][dep]);
 			if (coerced && lt(coerced.version, '4.0.0')) {
 				delete pkg[field][dep];
-				pkg[field][dep] = `^4.0.0`;
+				pkg[field][dep] = 'next';
 			}
 		}
 		pkg[field] = sortPropertiesAlphabetically(pkg[field] as Record<string, string>);

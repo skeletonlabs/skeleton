@@ -1,0 +1,11 @@
+<script>
+    import { Modal, Navigation, ProgressRing, Ratings, Segment, Toaster } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Modal></Modal>
+<Navigation.Bar></Navigation.Bar>
+<Navigation.Rail></Navigation.Rail>
+<ProgressRing></ProgressRing>
+<Ratings></Ratings>
+<Segment></Segment>
+<Toaster></Toaster>

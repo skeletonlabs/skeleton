@@ -133,7 +133,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 		try {
 			if (hasExtension) {
 				// Path already has extension, read directly
-				fileContent = await readFile(resolve(resolvedPath), 'utf8');
+				fileContent = await readFile(resolve(resolvedPath), 'utf-8');
 			} else {
 				// No extension, use glob to find the file with any extension
 				const globPattern = `${resolvedPath}.*`;
@@ -144,7 +144,7 @@ async function processPreviewBlocks(content: string, language: string): Promise<
 				if (matches.length > 0) {
 					// Pick the first match
 					const filePath = matches[0];
-					fileContent = await readFile(resolve(filePath), 'utf8');
+					fileContent = await readFile(resolve(filePath), 'utf-8');
 				} else {
 					console.error('No file found matching pattern:', globPattern);
 					fileContent = '// Error loading file, please report this issue.';

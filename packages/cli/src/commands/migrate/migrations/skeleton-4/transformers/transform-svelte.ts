@@ -1,7 +1,6 @@
 import { hasRange } from '../../../../../utility/svelte/has-range';
 import { renameComponent } from '../../../../../utility/svelte/rename-component';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
-import { transformClasses } from './transform-classes';
+import { IDENTIFIER_MAPPINGS } from '../utility/identifier-mappings';
 import { transformModule } from './transform-module';
 import { transformStylesheet } from './transform-stylesheet';
 import MagicString from 'magic-string';
@@ -28,9 +27,7 @@ function transformScript(s: MagicString, script: AST.Script | null) {
 	const content = s.original.slice(script.content.start, script.content.end);
 	const transformed = transformModule(content);
 	s.overwrite(script.content.start, script.content.end, transformed.code);
-	return {
-		meta: transformed.meta,
-	};
+	return transformed;
 }
 
 function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
@@ -46,43 +43,15 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 		fragment as AST.SvelteNode,
 		{},
 		{
-			Literal(node, ctx) {
-				const parent = ctx.path.at(-1);
-				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
-					s.update(node.start, node.end, transformClasses(node.raw).code);
-				}
-				ctx.next();
-			},
-			Text(node, ctx) {
-				if (node.data !== '' && hasRange(node)) {
-					s.update(node.start, node.end, transformClasses(node.data).code);
-				}
-				ctx.next();
-			},
-			ClassDirective(node, ctx) {
-				if (
-					!(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) &&
-					hasRange(node)
-				) {
-					const adjustedStart = node.start + 'class:'.length;
-					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
-				}
-				ctx.next();
-			},
 			Component(node, ctx) {
-				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
-					const exportMapping = EXPORT_MAPPINGS[node.name];
-					if (exportMapping?.identifier.type === 'renamed' && hasRange(node)) {
-						renameComponent(s, node, exportMapping.identifier.value);
-					}
+				const newName = IDENTIFIER_MAPPINGS[node.name];
+				if (newName && hasRange(node) && skeletonImports.includes(node.name.split('.').at(0) || '')) {
+					renameComponent(s, node, newName);
 				}
 				ctx.next();
 			},
 		},
 	);
-	return {
-		code: s.toString(),
-	};
 }
 
 function transformSvelte(code: string) {

@@ -1,0 +1,3 @@
+<script>
+    import { Modal, Navigation, ProgressRing, Ratings, Segment, Toaster } from '@skeletonlabs/skeleton-svelte';
+</script>
