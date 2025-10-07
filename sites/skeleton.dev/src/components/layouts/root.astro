@@ -58,7 +58,7 @@ const meta = {
 		<meta name="twitter:image" content={meta.image} />
 		<!-- Theme and Mode -->
 		<script is:inline>
-			function applyTheme() {
+			function applyTheme(document = window.document) {
 				const storedTheme = localStorage.getItem('theme');
 				const defaultTheme = 'cerberus';
 				const theme = storedTheme ?? defaultTheme;
@@ -66,7 +66,7 @@ const meta = {
 				localStorage.setItem('theme', theme);
 			}
 
-			function applyMode() {
+			function applyMode(document = window.document) {
 				const storedMode = localStorage.getItem('mode');
 				const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 				const defaultMode = 'dark';
@@ -78,9 +78,9 @@ const meta = {
 			applyTheme();
 			applyMode();
 
-			document.addEventListener('astro:before-swap', () => {
-				applyTheme();
-				applyMode();
+			document.addEventListener('astro:before-swap', (event) => {
+				applyTheme(event.newDocument);
+				applyMode(event.newDocument);
 			});
 		</script>
 		<!-- Analytics -->
