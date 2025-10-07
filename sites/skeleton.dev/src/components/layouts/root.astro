@@ -57,8 +57,8 @@ const meta = {
 		<meta name="twitter:description" content={meta.description} />
 		<meta name="twitter:image" content={meta.image} />
 		<!-- Theme and Mode -->
-		<script>
-			function applyTheme(document: Document) {
+		<script is:inline>
+			function applyTheme(document = window.document) {
 				const storedTheme = localStorage.getItem('theme');
 				const defaultTheme = 'cerberus';
 				const theme = storedTheme ?? defaultTheme;
@@ -66,7 +66,7 @@ const meta = {
 				localStorage.setItem('theme', theme);
 			}
 
-			function applyMode(document: Document) {
+			function applyMode(document = window.document) {
 				const storedMode = localStorage.getItem('mode');
 				const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 				const defaultMode = 'dark';
@@ -75,8 +75,8 @@ const meta = {
 				document.documentElement.setAttribute('data-mode', mode);
 			}
 
-			applyTheme(document);
-			applyMode(document);
+			applyTheme();
+			applyMode();
 
 			document.addEventListener('astro:before-swap', (event) => {
 				applyTheme(event.newDocument);
@@ -84,8 +84,6 @@ const meta = {
 			});
 		</script>
 		<!-- Analytics -->
-		<script type="text/partytown" defer data-domain="skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js" is:inline
-		></script>
 		<script>
 			declare global {
 				interface Window {
@@ -98,6 +96,8 @@ const meta = {
 					(window.plausible.q = window.plausible.q || []).push(arguments);
 				};
 		</script>
+		<script type="text/partytown" defer data-domain="skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js" is:inline
+		></script>
 		<!-- Astro -->
 		<ClientRouter />
 	</head>

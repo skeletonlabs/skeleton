@@ -1,5 +1,5 @@
 import type { Theme } from '../utility/types';
-import { transformStyleSheet } from './transform-stylesheet';
+import { transformStylesheet } from './transform-stylesheet';
 import { atRule, comment, parse } from 'postcss';
 import type { AtRule, Node, Root } from 'postcss';
 
@@ -14,7 +14,7 @@ function getTailwindImport(root: Root) {
 }
 
 function transformAppCss(code: string, theme: Theme) {
-	code = transformStyleSheet(code).code;
+	code = transformStylesheet(code).code;
 	const root = parse(code);
 	const nodes: Node[] = [];
 	nodes.push(

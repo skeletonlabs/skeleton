@@ -1,5 +1,5 @@
 {
 	"dependencies": {
-		"@skeletonlabs/skeleton-react": "^4.0.0"
+		"@skeletonlabs/skeleton-react": "next"
 	}
 }
