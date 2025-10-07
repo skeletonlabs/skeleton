@@ -1,6 +1,5 @@
 ---
-"@skeletonlabs/skeleton-common": patch
+'@skeletonlabs/skeleton-common': patch
 ---
 
 chore: Minor updates to Pagination styles
-  
