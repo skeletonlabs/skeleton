@@ -27,6 +27,7 @@
 	"sideEffects": false,
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
+		"tailwindcss": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
 		"unplugin-macros": "catalog:",
