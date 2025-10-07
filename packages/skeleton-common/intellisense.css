@@ -1,7 +1,5 @@
-/* 
-    This file is used to provide intellisense for Tailwind CSS in IDEs like VSCode, do not remove it even though it appears to be unused.
-    See: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
-*/
+/* NOTE: This file should not be edited */
+/* see https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss for more information */
 
 @import 'tailwindcss';
 @import '@skeletonlabs/skeleton';
