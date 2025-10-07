@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.28
+
+### Minor Changes
+
+- feat: expose `DateValue` type ([#3883](https://github.com/skeletonlabs/skeleton/pull/3883))
+
+### Patch Changes
+
+- fix: add missing export ([#3880](https://github.com/skeletonlabs/skeleton/pull/3880))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.28
+
 ## 4.0.0-next.27
 
 ### Patch Changes

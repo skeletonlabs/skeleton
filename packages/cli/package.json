@@ -1,7 +1,7 @@
 {
 	"name": "skeleton",
 	"description": "The CLI for Skeleton related tooling.",
-	"version": "4.0.0-next.27",
+	"version": "4.0.0-next.28",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
