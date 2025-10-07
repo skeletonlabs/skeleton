@@ -1,3 +1,4 @@
+import type { Node } from 'estree';
 import type { AST } from 'svelte/compiler';
 
 function hasRange(node: Node | AST.SvelteNode): node is (Node | AST.SvelteNode) & { start: number; end: number } {
