@@ -31,10 +31,12 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
+  '@types/mdast': 4.0.4
   '@types/node': 24.6.2
   '@types/react': 19.2.0
   '@types/react-dom': 19.2.0
   '@types/semver': 7.7.1
+  '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.0.4
   '@zag-js/accordion': 1.25.0
   '@zag-js/avatar': 1.25.0
@@ -70,6 +72,11 @@ catalog:
   latest-version: 9.0.0
   lucide-react: 0.544.0
   magic-string: 0.30.19
+  mdast-util-from-markdown: 2.0.2
+  mdast-util-mdx: 3.0.0
+  mdast-util-mdx-jsx: 3.2.0
+  micromark: 4.0.2
+  micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   nanostores: 1.0.1
   next: 15.5.4
@@ -85,6 +92,9 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
+  remark-gfm: 4.0.1
+  remark-mdx: 3.1.1
+  remark-stringify: 11.0.0
   sass-embedded: 1.93.2
   semver: 7.7.2
   sharp: 0.34.4
@@ -97,6 +107,8 @@ catalog:
   tsdown: 0.15.6
   type-fest: 5.0.1
   typescript: 5.9.3
+  unified: 11.0.5
+  unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
   vite: 7.1.9
