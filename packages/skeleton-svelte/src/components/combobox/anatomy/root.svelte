@@ -22,8 +22,8 @@
 
 	const id = $props.id();
 	const combobox = useCombobox(() => ({
-		id: id,
 		...comboboxProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

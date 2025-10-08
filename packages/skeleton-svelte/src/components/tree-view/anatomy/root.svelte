@@ -19,8 +19,8 @@
 
 	const id = $props.id();
 	const treeView = useTreeView(() => ({
-		id: id,
 		...treeViewProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

@@ -15,13 +15,13 @@
 
 	const props: FileUploadRootProps = $props();
 
-	const [machineProps, componentProps] = $derived(splitProps(props));
+	const [fileUploadProps, componentProps] = $derived(splitProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
 	const fileUpload = useFileUpload(() => ({
+		...fileUploadProps,
 		id: id,
-		...machineProps,
 	}));
 
 	const attributes = $derived(

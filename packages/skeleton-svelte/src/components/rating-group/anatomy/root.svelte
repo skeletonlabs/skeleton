@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const ratingGroup = useRatingGroup(() => ({
-		id: id,
 		...ratingGroupProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

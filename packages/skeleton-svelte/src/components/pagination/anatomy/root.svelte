@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const pagination = usePagination(() => ({
-		id: id,
 		...paginationProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

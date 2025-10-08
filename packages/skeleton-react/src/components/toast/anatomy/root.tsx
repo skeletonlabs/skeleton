@@ -18,9 +18,9 @@ export default function Root(props: ToastRootProps) {
 	const { element, children, toast: toastProps, ...rest } = props;
 
 	const service = useMachine(machine, {
+		...toastProps,
 		id: useId(),
 		parent: group,
-		...toastProps,
 	});
 	const toast = connect(service, normalizeProps);
 

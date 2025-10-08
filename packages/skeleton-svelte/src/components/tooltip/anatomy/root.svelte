@@ -17,8 +17,8 @@
 
 	const id = $props.id();
 	const tooltip = useTooltip(() => ({
-		id: id,
 		...tooltipProps,
+		id: id,
 	}));
 
 	RootContext.provide(() => tooltip());

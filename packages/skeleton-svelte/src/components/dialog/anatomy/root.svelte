@@ -12,13 +12,13 @@
 
 	const props: DialogRootProps = $props();
 
-	const [machineProps, componentProps] = $derived(splitProps(props));
+	const [dialogProps, componentProps] = $derived(splitProps(props));
 	const { children } = $derived(componentProps);
 
 	const id = $props.id();
 	const dialog = useDialog(() => ({
+		...dialogProps,
 		id: id,
-		...machineProps,
 	}));
 
 	RootContext.provide(() => dialog());

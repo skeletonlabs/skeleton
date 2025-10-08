@@ -23,8 +23,8 @@
 
 	const id = $props.id();
 	const datePicker = useDatePicker(() => ({
-		id: id,
 		...datePickerProps,
+		id: id,
 	}));
 
 	const attributes = $derived(
