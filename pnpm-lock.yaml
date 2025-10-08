@@ -87,6 +87,9 @@ catalogs:
     '@types/estree':
       specifier: 1.0.8
       version: 1.0.8
+    '@types/mdast':
+      specifier: 4.0.4
+      version: 4.0.4
     '@types/node':
       specifier: 24.6.2
       version: 24.6.2
@@ -99,6 +102,9 @@ catalogs:
     '@types/semver':
       specifier: 7.7.1
       version: 7.7.1
+    '@types/unist':
+      specifier: 3.0.3
+      version: 3.0.3
     '@vitejs/plugin-react':
       specifier: 5.0.4
       version: 5.0.4
@@ -204,6 +210,21 @@ catalogs:
     magic-string:
       specifier: 0.30.19
       version: 0.30.19
+    mdast-util-from-markdown:
+      specifier: 2.0.2
+      version: 2.0.2
+    mdast-util-mdx:
+      specifier: 3.0.0
+      version: 3.0.0
+    mdast-util-mdx-jsx:
+      specifier: 3.2.0
+      version: 3.2.0
+    micromark:
+      specifier: 4.0.2
+      version: 4.0.2
+    micromark-extension-mdxjs:
+      specifier: 3.0.0
+      version: 3.0.0
     nanoid:
       specifier: 5.1.6
       version: 5.1.6
@@ -249,6 +270,15 @@ catalogs:
     react-dom:
       specifier: 19.2.0
       version: 19.2.0
+    remark-gfm:
+      specifier: 4.0.1
+      version: 4.0.1
+    remark-mdx:
+      specifier: 3.1.1
+      version: 3.1.1
+    remark-stringify:
+      specifier: 11.0.0
+      version: 11.0.0
     sass-embedded:
       specifier: 1.93.2
       version: 1.93.2
@@ -285,6 +315,12 @@ catalogs:
     typescript:
       specifier: 5.9.3
       version: 5.9.3
+    unified:
+      specifier: 11.0.5
+      version: 11.0.5
+    unist-util-visit:
+      specifier: 5.0.0
+      version: 5.0.0
     unplugin-macros:
       specifier: 0.18.2
       version: 0.18.2
@@ -798,12 +834,18 @@ importers:
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.1.14(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      '@types/mdast':
+        specifier: 'catalog:'
+        version: 4.0.4
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.0
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.2.0(@types/react@19.2.0)
+      '@types/unist':
+        specifier: 'catalog:'
+        version: 3.0.3
       astro:
         specifier: 'catalog:'
         version: 5.14.1(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
@@ -819,6 +861,21 @@ importers:
       lucide-react:
         specifier: 'catalog:'
         version: 0.544.0(react@19.2.0)
+      mdast-util-from-markdown:
+        specifier: 'catalog:'
+        version: 2.0.2
+      mdast-util-mdx:
+        specifier: 'catalog:'
+        version: 3.0.0
+      mdast-util-mdx-jsx:
+        specifier: 'catalog:'
+        version: 3.2.0
+      micromark:
+        specifier: 'catalog:'
+        version: 4.0.2
+      micromark-extension-mdxjs:
+        specifier: 'catalog:'
+        version: 3.0.0
       nanostores:
         specifier: 'catalog:'
         version: 1.0.1
@@ -834,6 +891,15 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.0(react@19.2.0)
+      remark-gfm:
+        specifier: 'catalog:'
+        version: 4.0.1
+      remark-mdx:
+        specifier: 'catalog:'
+        version: 3.1.1
+      remark-stringify:
+        specifier: 'catalog:'
+        version: 11.0.0
       sharp:
         specifier: 'catalog:'
         version: 0.34.4
@@ -855,6 +921,12 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+      unified:
+        specifier: 'catalog:'
+        version: 11.0.5
+      unist-util-visit:
+        specifier: 'catalog:'
+        version: 5.0.0
       vite-plugin-pagefind:
         specifier: 'catalog:'
         version: 1.0.7(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
@@ -7051,12 +7123,12 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.39.8)(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.39.8)(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       debug: 4.4.3
       svelte: 5.39.8
-      vite: 6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -7071,14 +7143,14 @@ snapshots:
 
   '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.39.8)(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.39.8)(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.39.8)(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.19
       svelte: 5.39.8
       vite: 7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@6.3.6(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      vitefu: 1.1.1(vite@7.1.9(@types/node@24.6.2)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
     transitivePeerDependencies:
       - supports-color
 
