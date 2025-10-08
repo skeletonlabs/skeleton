@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const avatar = useAvatar(() => ({
-		id: id,
 		...avatarProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

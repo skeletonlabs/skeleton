@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const switch_ = useSwitch(() => ({
-		id: id,
 		...switchProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

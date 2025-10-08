@@ -12,13 +12,13 @@
 
 	const props: PopoverRootProps = $props();
 
-	const [machineProps, componentProps] = $derived(splitProps(props));
+	const [popoverProps, componentProps] = $derived(splitProps(props));
 	const { children } = $derived(componentProps);
 
 	const id = $props.id();
 	const popover = usePopover(() => ({
+		...popoverProps,
 		id: id,
-		...machineProps,
 	}));
 
 	PopoverRootContext.provide(() => popover());

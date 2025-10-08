@@ -14,17 +14,14 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxRootProps = $props();
-	const [listboxProps, componentProps] = $derived(splitProps(props));
+	const [listboxProps, componentProps] = $derived(splitProps(props as ListboxRootProps & Pick<Props, 'id'>));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const id = $props.id();
-	const listbox = useListbox(
-		() =>
-			({
-				id: id,
-				...listboxProps,
-			}) as Props,
-	);
+	const listbox = useListbox(() => ({
+		...listboxProps,
+		id: id,
+	}));
 
 	const attributes = $derived(
 		mergeProps(

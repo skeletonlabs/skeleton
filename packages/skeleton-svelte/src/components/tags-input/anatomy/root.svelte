@@ -19,8 +19,8 @@
 
 	const id = $props.id();
 	const tagsInput = useTagsInput(() => ({
-		id: id,
 		...tagsInputProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

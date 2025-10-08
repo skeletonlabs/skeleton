@@ -23,8 +23,8 @@
 
 	const id = $props.id();
 	const slider = useSlider(() => ({
-		id: id,
 		...sliderProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

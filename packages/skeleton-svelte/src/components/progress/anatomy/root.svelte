@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const avatar = useProgress(() => ({
-		id,
 		...progressProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

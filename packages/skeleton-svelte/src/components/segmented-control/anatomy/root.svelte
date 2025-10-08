@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const segmentedControl = useSegmentedControl(() => ({
-		id: id,
 		...segmentedControlProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

@@ -19,8 +19,8 @@
 
 	const id = $props.id();
 	const tabs = useTabs(() => ({
-		id: id,
 		...tabsProps,
+		id: id,
 	}));
 
 	const attributes = $derived(

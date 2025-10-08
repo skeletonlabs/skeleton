@@ -20,8 +20,8 @@
 
 	const id = $props.id();
 	const accordion = useAccordion(() => ({
-		id: id,
 		...accordionProps,
+		id: id,
 	}));
 
 	const attributes = $derived(
