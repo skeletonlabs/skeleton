@@ -1,8 +1,8 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import type { Root, TableRow } from 'mdast';
+import type { Root } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { mdxFromMarkdown } from 'mdast-util-mdx';
-import type { MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
+import type { MdxJsxAttribute, MdxJsxExpressionAttribute, MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
 import { mdxjs } from 'micromark-extension-mdxjs';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
@@ -26,27 +26,6 @@ function print(ast: Root): string {
 }
 
 function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
-	const bodyRows: TableRow[] = [];
-	for (const type of schema.types ?? []) {
-		for (const prop of type.props ?? []) {
-			const defaultValue = prop.JSDoc?.tags?.find((t) => t.name === 'default')?.value ?? '-';
-			const description = prop.JSDoc?.description ?? '';
-			bodyRows.push({
-				type: 'tableRow',
-				children: [
-					{ type: 'tableCell', children: [{ type: 'text', value: prop.name }] },
-					{ type: 'tableCell', children: [{ type: 'text', value: defaultValue }] },
-					{
-						type: 'tableCell',
-						children: [
-							{ type: 'text', value: prop.type },
-							{ type: 'text', value: description ? ` — ${description}` : '' },
-						],
-					},
-				],
-			});
-		}
-	}
 	return {
 		type: 'table',
 		align: [],
@@ -58,7 +37,26 @@ function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
 					children: [{ type: 'text', value: val }],
 				})),
 			},
-			...bodyRows,
+			...schema.types.flatMap((type) =>
+				type.props.map((prop) => {
+					const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
+					const description = prop.JSDoc.description ?? '';
+					return {
+						type: 'tableRow',
+						children: [
+							{ type: 'tableCell', children: [{ type: 'text', value: prop.name }] },
+							{ type: 'tableCell', children: [{ type: 'text', value: defaultValue }] },
+							{
+								type: 'tableCell',
+								children: [
+									{ type: 'text', value: prop.type },
+									{ type: 'text', value: description ? ` — ${description}` : '' },
+								],
+							},
+						],
+					};
+				}),
+			),
 		],
 	};
 }
@@ -66,44 +64,33 @@ function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
 async function processApiTable(node: MdxJsxFlowElement, index: number, parent: Parent, entry: CollectionEntry<'docs'>) {
 	const frameworkAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'framework');
 	const componentAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'component');
-
 	const framework = frameworkAttribute?.value ? (frameworkAttribute.value as string) : entry.id.split('/').at(-1);
 	const component = componentAttribute?.value ? (componentAttribute.value as string) : entry.id.split('/').at(-2);
-
 	if (!framework || !component) {
 		return;
 	}
-
 	const typesEntry = await getEntry('types', `${framework}/${component}`);
-
 	if (!typesEntry) {
 		return;
 	}
-
-	const tableNode = generateTableFromSchema(typesEntry.data);
-
-	parent.children.splice(index, 1, tableNode);
+	parent.children.splice(index, 1, generateTableFromSchema(typesEntry.data));
 }
 
 async function loadRawFile(importPath: string) {
 	const pathWithoutRaw = importPath.replace(/\?raw$/, '');
-
-	const hasExt = extname(pathWithoutRaw) !== '';
-	if (hasExt) {
+	const hasExtension = extname(pathWithoutRaw) !== '';
+	if (hasExtension) {
 		return readFile(resolve(pathWithoutRaw), 'utf-8');
 	}
-
 	const matches = await glob(`${pathWithoutRaw}.*`);
 	if (matches.length > 0) {
 		return readFile(resolve(matches[0]), 'utf-8');
 	}
-
 	return '// Error loading file';
 }
 
 function resolveAlias(importPath: string) {
-	if (importPath.startsWith('@/')) return importPath.replace('@/', './src/');
-	return importPath;
+	return importPath.replace('@/', './src/');
 }
 
 function buildImportMap(ast: Root): Record<string, string> {
@@ -121,50 +108,52 @@ function buildImportMap(ast: Root): Record<string, string> {
 	return map;
 }
 
-export async function processPreview(node: MdxJsxFlowElement, index: number, parent: Parent, importMap: Record<string, string>) {
-	let codeNode: { type: 'code'; lang: string; value: string } | undefined = undefined;
-
-	for (const child of node.children ?? []) {
-		if (
-			child.type === 'mdxJsxFlowElement' &&
-			child.name === 'Fragment' &&
-			child.attributes?.some((a: any) => a.type === 'mdxJsxAttribute' && a.name === 'slot' && a.value === 'code')
-		) {
-			const codeChild = child.children?.find((c: any) => c.type === 'mdxJsxFlowElement' && c.name === 'Code') as
-				| MdxJsxFlowElement
-				| undefined;
-
-			if (!codeChild) {
-				continue;
-			}
-
-			const codeAttribute = codeChild.attributes?.find((a: any) => a.type === 'mdxJsxAttribute' && a.name === 'code');
-			const langAttribute = codeChild.attributes?.find((a: any) => a.type === 'mdxJsxAttribute' && a.name === 'lang');
-
-			if (codeAttribute?.value && typeof codeAttribute.value === 'object') {
-				let codeId = codeAttribute.value.value ?? '';
-				codeId = codeId.replace(/^\{?|\}?$/g, '').trim();
-
-				const importPath = importMap[codeId];
-
-				if (!importPath) {
-					continue;
-				}
-
-				const resolved = resolveAlias(importPath);
-				const fileContent = await loadRawFile(resolved);
-
-				codeNode = {
-					type: 'code',
-					lang: (langAttribute?.value as string | undefined) ?? '',
-					value: fileContent,
-				};
-			}
-		}
+async function processPreview(node: MdxJsxFlowElement, index: number, parent: Parent, importMap: Record<string, string>) {
+	function findAttribute(attributes: (MdxJsxAttribute | MdxJsxExpressionAttribute)[], name: string) {
+		return attributes.find((a) => a.type === 'mdxJsxAttribute' && a.name === name)?.value;
 	}
 
-	if (codeNode) {
+	for (const child of node.children) {
+		if (child.type !== 'mdxJsxFlowElement' || child.name !== 'Fragment') {
+			continue;
+		}
+
+		const slot = findAttribute(child.attributes, 'slot');
+
+		if (slot !== 'code') {
+			continue;
+		}
+
+		const codeChild = child.children?.find((c): c is MdxJsxFlowElement => c.type === 'mdxJsxFlowElement' && c.name === 'Code');
+		if (!codeChild) {
+			continue;
+		}
+
+		const codeAttr = findAttribute(codeChild.attributes, 'code');
+		const langAttr = findAttribute(codeChild.attributes, 'lang') as string | undefined;
+
+		if (!codeAttr || typeof codeAttr !== 'object') continue;
+
+		const codeId = (codeAttr.value ?? '')
+			.toString()
+			.replace(/^\{?|\}?$/g, '')
+			.trim();
+
+		if (!importMap[codeId]) {
+			continue;
+		}
+
+		const resolved = resolveAlias(importMap[codeId]);
+		const fileContent = await loadRawFile(resolved);
+
+		const codeNode = {
+			type: 'code',
+			lang: langAttr ?? '',
+			value: fileContent,
+		};
+
 		parent.children.splice(index, 1, codeNode);
+		return;
 	}
 }
 
