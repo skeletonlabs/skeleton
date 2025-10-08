@@ -1,0 +1,37 @@
+---
+import { InfoIcon, TriangleAlertIcon } from 'lucide-react';
+
+interface Props {
+	type: 'info' | 'warning';
+}
+
+const { type } = Astro.props;
+---
+
+{
+	type === 'info' && (
+		<div class={`card preset-outlined p-4 flex items-center gap-4`}>
+			<InfoIcon />
+			<div>
+				<p class="font-bold">Info</p>
+				<div class="text-xs opacity-80">
+					<slot />
+				</div>
+			</div>
+		</div>
+	)
+}
+
+{
+	type === 'warning' && (
+		<div class="card preset-outlined-warning-500 p-4 flex items-center gap-4">
+			<TriangleAlertIcon />
+			<div>
+				<p class="font-bold">Warning</p>
+				<div class="text-xs opacity-80">
+					<slot />
+				</div>
+			</div>
+		</div>
+	)
+}

@@ -9,7 +9,7 @@ import TableOfContents from '@/components/ui/table-of-contents.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
 import type { InferEntrySchema } from 'astro:content';
 import { commonNavigationGroups } from '@/lib/navigation';
-import Card from '../mdx/card.astro';
+import Alert from '@/components/mdx/alert.astro';
 
 interface PageHeading {
 	depth: number;
@@ -66,10 +66,10 @@ const urls = {
 
 			{
 				frontmatter.stability && frontmatter.stability !== 'stable' && (
-					<Card type="warning">
+					<Alert type="warning">
 						This feature is currently in a {frontmatter.stability} status and not intended for production use. It may receive breaking
 						changes before its stable release.
-					</Card>
+					</Alert>
 				)
 			}
 			<!-- Framework Tabs -->
