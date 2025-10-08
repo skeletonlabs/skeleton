@@ -334,8 +334,8 @@ catalogs:
       specifier: 1.0.7
       version: 1.0.7
     vite-plugin-transform-lucide-imports:
-      specifier: 0.2.0
-      version: 0.2.0
+      specifier: 0.3.0
+      version: 0.3.0
     vitest:
       specifier: 3.2.4
       version: 3.2.4
@@ -451,7 +451,7 @@ importers:
     dependencies:
       tailwindcss:
         specifier: ^4.0.0
-        version: 4.1.13
+        version: 4.1.14
     devDependencies:
       sass-embedded:
         specifier: 'catalog:'
@@ -782,7 +782,7 @@ importers:
         version: 7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
       vite-plugin-transform-lucide-imports:
         specifier: 'catalog:'
-        version: 0.2.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+        version: 0.3.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
   sites/skeleton.dev:
     dependencies:
@@ -932,7 +932,7 @@ importers:
         version: 1.0.7(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       vite-plugin-transform-lucide-imports:
         specifier: 'catalog:'
-        version: 0.2.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+        version: 0.3.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
   sites/themes.skeleton.dev:
     devDependencies:
@@ -989,7 +989,7 @@ importers:
         version: 7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
       vite-plugin-transform-lucide-imports:
         specifier: 'catalog:'
-        version: 0.2.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+        version: 0.3.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
 
 packages:
   '@adobe/css-tools@4.4.4':
@@ -4808,6 +4808,11 @@ packages:
     engines: { node: '>=10' }
     hasBin: true
 
+  semver@7.7.3:
+    resolution: { integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q== }
+    engines: { node: '>=10' }
+    hasBin: true
+
   set-cookie-parser@2.7.1:
     resolution: { integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ== }
 
@@ -4967,9 +4972,6 @@ packages:
   tagged-tag@1.0.0:
     resolution: { integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng== }
     engines: { node: '>=20' }
-
-  tailwindcss@4.1.13:
-    resolution: { integrity: sha512-i+zidfmTqtwquj4hMEwdjshYYgMbOrPzb9a0M3ZgNa0JMoZeFC6bxZvO8yr8ozS6ix2SDz0+mvryPeBs2TFE+w== }
 
   tailwindcss@4.1.14:
     resolution: { integrity: sha512-b7pCxjGO98LnxVkKjaZSDeNuljC4ueKUddjENJOADtubtdo8llTaJy7HwBMeLNSSo2N5QIAgklslK1+Ir8r6CA== }
@@ -5307,8 +5309,8 @@ packages:
     peerDependencies:
       vite: '>=4.0.0'
 
-  vite-plugin-transform-lucide-imports@0.2.0:
-    resolution: { integrity: sha512-/pJ+wmjcEgMZ8D3GhD9sYd1Cqwo+YQQn/eq5HIbkkZoDbnK3DSmvYKvNw/I3EOWRpoERJDixfrYp4KHWDaukAQ== }
+  vite-plugin-transform-lucide-imports@0.3.0:
+    resolution: { integrity: sha512-/zIVzj7SqIvQ2kLAerVUJTTcQvMe+jyqfvzU/D5jJvf5f4z4CmlT+ui3LfhhVOPbY49dcsxLULfbFDRNxdSXhg== }
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0
 
@@ -6032,7 +6034,7 @@ snapshots:
       outdent: 0.5.0
       prettier: 2.8.8
       resolve-from: 5.0.0
-      semver: 7.7.2
+      semver: 7.7.3
 
   '@changesets/assemble-release-plan@6.0.9':
     dependencies:
@@ -6041,7 +6043,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
-      semver: 7.7.2
+      semver: 7.7.3
 
   '@changesets/changelog-git@0.2.1':
     dependencies:
@@ -6074,7 +6076,7 @@ snapshots:
       package-manager-detector: 0.2.11
       picocolors: 1.1.1
       resolve-from: 5.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       spawndamnit: 3.0.1
       term-size: 2.2.1
     transitivePeerDependencies:
@@ -6099,7 +6101,7 @@ snapshots:
       '@changesets/types': 6.1.0
       '@manypkg/get-packages': 1.1.3
       picocolors: 1.1.1
-      semver: 7.7.2
+      semver: 7.7.3
 
   '@changesets/get-github-info@0.6.0':
     dependencies:
@@ -6525,7 +6527,7 @@ snapshots:
       https-proxy-agent: 7.0.6
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.7.2
+      semver: 7.7.3
       tar: 7.5.1
     transitivePeerDependencies:
       - encoding
@@ -7117,7 +7119,7 @@ snapshots:
       chokidar: 4.0.3
       kleur: 4.1.5
       sade: 1.8.1
-      semver: 7.7.2
+      semver: 7.7.3
       svelte: 5.39.9
       svelte2tsx: 0.7.44(svelte@5.39.9)(typescript@5.9.3)
     transitivePeerDependencies:
@@ -7957,7 +7959,7 @@ snapshots:
       picomatch: 4.0.3
       prompts: 2.4.2
       rehype: 13.0.2
-      semver: 7.7.2
+      semver: 7.7.3
       shiki: 3.13.0
       smol-toml: 1.4.2
       tinyexec: 0.3.2
@@ -10176,13 +10178,15 @@ snapshots:
 
   semver@7.7.2: {}
 
+  semver@7.7.3: {}
+
   set-cookie-parser@2.7.1: {}
 
   sharp@0.34.4:
     dependencies:
       '@img/colour': 1.0.0
       detect-libc: 2.1.2
-      semver: 7.7.2
+      semver: 7.7.3
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.4
       '@img/sharp-darwin-x64': 0.34.4
@@ -10367,8 +10371,6 @@ snapshots:
 
   tagged-tag@1.0.0: {}
 
-  tailwindcss@4.1.13: {}
-
   tailwindcss@4.1.14: {}
 
   tapable@2.3.0: {}
@@ -10489,7 +10491,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.6:
     dependencies:
-      semver: 7.7.2
+      semver: 7.7.3
 
   typescript@5.9.3: {}
 
@@ -10695,7 +10697,7 @@ snapshots:
       package-manager-detector: 0.2.11
       vite: 7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
 
-  vite-plugin-transform-lucide-imports@0.2.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-plugin-transform-lucide-imports@0.3.0(vite@7.1.9(@types/node@24.7.0)(jiti@2.6.1)(lightningcss@1.30.1)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
       acorn: 8.15.0
@@ -10831,7 +10833,7 @@ snapshots:
   volar-service-typescript@0.0.62(@volar/language-service@2.4.23):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.7.2
+      semver: 7.7.3
       typescript-auto-import-cache: 0.3.6
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
