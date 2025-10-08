@@ -224,15 +224,12 @@ export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Pro
 	if (!entry.body) {
 		throw new Error('Entry has no body');
 	}
-	const hasMeta = ['components/', 'integrations/'].some((id) => entry.id.startsWith(id));
-	if (hasMeta) {
-		const metaEntry = await getEntry('docs', entry.id.replace(/\/[^/]*$/, '/meta'));
-		if (metaEntry) {
-			entry.data = {
-				...entry.data,
-				...metaEntry.data,
-			};
-		}
+	const hasMetaEntry = ['components/', 'integrations/'].some((id) => entry.id.startsWith(id));
+	if (hasMetaEntry) {
+		entry.data = {
+			...entry.data,
+			...(await getEntry('docs', entry.id.replace(/\/[^/]*$/, '/meta')))?.data,
+		};
 	}
 	const ast = parse(entry.body);
 	const importMap = buildImportMap(ast);
@@ -252,8 +249,8 @@ async function getEntriesFromFramework(framework: string) {
 		if (entry.id.endsWith('/meta')) {
 			return false;
 		}
-		const hasMeta = ['components/', 'integrations/'].some((id) => entry.id.startsWith(id));
-		if (hasMeta) {
+		const hasMetaEntry = ['components/', 'integrations/'].some((id) => entry.id.startsWith(id));
+		if (hasMetaEntry) {
 			return entry.id.endsWith(`/${framework}`);
 		}
 		return true;
