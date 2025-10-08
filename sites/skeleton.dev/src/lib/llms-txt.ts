@@ -14,18 +14,29 @@ import { unified } from 'unified';
 import type { Parent } from 'unist';
 import { visit } from 'unist-util-visit';
 
-function parse(content: string): Root {
+function parse(content: string) {
 	return fromMarkdown(content, {
 		extensions: [mdxjs()],
 		mdastExtensions: [mdxFromMarkdown()],
 	});
 }
 
-function print(ast: Root): string {
-	return unified().use(remarkMdx).use(remarkGfm).use(remarkStringify, { fences: true }).stringify(ast);
+function print(ast: Root) {
+	return unified().use(remarkMdx).use(remarkGfm).use(remarkStringify).stringify(ast);
 }
 
 function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
+	function createCell(value: string) {
+		return {
+			type: 'tableCell',
+			children: [
+				{
+					type: 'text',
+					value,
+				},
+			],
+		};
+	}
 	return {
 		type: 'table',
 		align: [],
@@ -40,20 +51,10 @@ function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
 			...schema.types.flatMap((type) =>
 				type.props.map((prop) => {
 					const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
-					const description = prop.JSDoc.description ?? '';
+					const description = prop.JSDoc.description ? ` — ${prop.JSDoc.description}` : '';
 					return {
 						type: 'tableRow',
-						children: [
-							{ type: 'tableCell', children: [{ type: 'text', value: prop.name }] },
-							{ type: 'tableCell', children: [{ type: 'text', value: defaultValue }] },
-							{
-								type: 'tableCell',
-								children: [
-									{ type: 'text', value: prop.type },
-									{ type: 'text', value: description ? ` — ${description}` : '' },
-								],
-							},
-						],
+						children: [createCell(prop.name), createCell(defaultValue), createCell(`${prop.type}${description}`)],
 					};
 				}),
 			),
@@ -76,7 +77,7 @@ async function processApiTable(node: MdxJsxFlowElement, index: number, parent: P
 	parent.children.splice(index, 1, generateTableFromSchema(typesEntry.data));
 }
 
-async function loadRawFile(importPath: string) {
+async function loadFileContent(importPath: string) {
 	const pathWithoutRaw = importPath.replace(/\?raw$/, '');
 	const hasExtension = extname(pathWithoutRaw) !== '';
 	if (hasExtension) {
@@ -89,11 +90,7 @@ async function loadRawFile(importPath: string) {
 	return '// Error loading file';
 }
 
-function resolveAlias(importPath: string) {
-	return importPath.replace('@/', './src/');
-}
-
-function buildImportMap(ast: Root): Record<string, string> {
+function buildImportMap(ast: Root) {
 	const map: Record<string, string> = {};
 	visit(ast, (node: any) => {
 		if (node.type === 'mdxjsEsm') {
@@ -143,34 +140,17 @@ async function processPreview(node: MdxJsxFlowElement, index: number, parent: Pa
 			continue;
 		}
 
-		const resolved = resolveAlias(importMap[codeId]);
-		const fileContent = await loadRawFile(resolved);
+		const content = await loadFileContent(importMap[codeId].replace('@/', './src/'));
 
 		const codeNode = {
 			type: 'code',
 			lang: langAttr ?? '',
-			value: fileContent,
+			value: content,
 		};
 
 		parent.children.splice(index, 1, codeNode);
 		return;
 	}
-}
-
-function removeMdxNodes(ast: Root) {
-	visit(ast, (node, index, parent) => {
-		if (!parent || typeof index !== 'number') {
-			return;
-		}
-		if (node.type === 'mdxjsEsm') {
-			parent.children.splice(index, 1);
-			return;
-		}
-		if (node.type === 'mdxJsxFlowElement' || node.type === 'mdxJsxTextElement') {
-			parent.children.splice(index, 1);
-			return;
-		}
-	});
 }
 
 function prependData(ast: Root, data: CollectionEntry<'docs'>['data']) {
@@ -209,7 +189,8 @@ async function processApiTables(ast: Root, entry: CollectionEntry<'docs'>) {
 	await Promise.all(promises);
 }
 
-async function processPreviews(ast: Root, importMap: Record<string, string>) {
+async function processPreviews(ast: Root) {
+	const importMap = buildImportMap(ast);
 	const promises: Promise<void>[] = [];
 	visit(ast, (node, index, parent) => {
 		if (!parent || typeof index !== 'number') return;
@@ -232,10 +213,9 @@ export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Pro
 		};
 	}
 	const ast = parse(entry.body);
-	const importMap = buildImportMap(ast);
 	await processApiTables(ast, entry);
-	await processPreviews(ast, importMap);
-	removeMdxNodes(ast);
+	await processPreviews(ast);
+	ast.children = ast.children.filter((node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement'].includes(node.type));
 	prependData(ast, entry.data);
 	return print(ast);
 }
