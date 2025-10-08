@@ -235,7 +235,17 @@ async function getEntriesFromFramework(framework: string) {
 		}
 		return true;
 	});
-	return entries.toSorted((a, b) => a.data.order - b.data.order);
+	const order = ['get-started', 'guides', 'design', 'tailwind', 'components', 'headless', 'integrations', 'resources'];
+	const grouped: Record<string, typeof entries> = {};
+	for (const entry of entries) {
+		const group = order.find((o) => entry.id.startsWith(o)) ?? 'other';
+		if (!grouped[group]) grouped[group] = [];
+		grouped[group].push(entry);
+	}
+	for (const group of Object.keys(grouped)) {
+		grouped[group].sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+	}
+	return order.flatMap((group) => grouped[group] ?? []);
 }
 
 export async function generateTextFromFramework(framework: string) {
