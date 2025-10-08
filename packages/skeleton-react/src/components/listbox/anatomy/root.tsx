@@ -12,7 +12,7 @@ export interface ListboxRootProps
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {}
 
 export default function Root(props: ListboxRootProps) {
-	const [listboxProps, componentProps] = splitProps(props) as unknown as [Omit<Props, 'id'>, Omit<ListboxRootProps, keyof Props>];
+	const [listboxProps, componentProps] = splitProps(props as ListboxRootProps & Pick<Props, 'id'>);
 	const { element, children, ...rest } = componentProps;
 
 	const listbox = useListbox(listboxProps);
