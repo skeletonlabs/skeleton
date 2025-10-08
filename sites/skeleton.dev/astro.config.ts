@@ -91,7 +91,14 @@ export default defineConfig({
 				outputDirectory: 'dist',
 			}),
 			// @ts-expect-error - vite version mismatch
-			transformLucideImports(),
+			transformLucideImports({
+				onwarn(warning, defaultHandler) {
+					if (warning.message.match(/Skipping optimization of (\S+) because \1 is already a tree shaken package/)) {
+						return;
+					}
+					defaultHandler(warning.message);
+				},
+			}),
 		],
 	},
 });
