@@ -1,7 +1,7 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 
-export default function Default() {
+export default function Indicator() {
 	return (
 		<Accordion>
 			{['1', '2', '3'].map((item) => (
@@ -9,10 +9,9 @@ export default function Default() {
 					<h3>
 						<Accordion.ItemTrigger className="flex justify-between items-center">
 							Item {item}
-							<Accordion.ItemIndicator>
-								<Accordion.Context>
-									{(accordion) => (accordion.value.includes(item) ? <MinusIcon className="size-4" /> : <PlusIcon className="size-4" />)}
-								</Accordion.Context>
+							<Accordion.ItemIndicator className="group">
+								<MinusIcon className="size-4 group-data-[state=open]:block hidden" />
+								<PlusIcon className="size-4 group-data-[state=open]:hidden block" />
 							</Accordion.ItemIndicator>
 						</Accordion.ItemTrigger>
 					</h3>

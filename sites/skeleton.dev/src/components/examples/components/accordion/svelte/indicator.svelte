@@ -9,16 +9,9 @@
 			<h3>
 				<Accordion.ItemTrigger class="flex justify-between items-center">
 					Item {item}
-					<Accordion.ItemIndicator>
-						<Accordion.Context>
-							{#snippet children(accordion)}
-								{#if accordion().value.includes(item)}
-									<MinusIcon class="size-4" />
-								{:else}
-									<PlusIcon class="size-4" />
-								{/if}
-							{/snippet}
-						</Accordion.Context>
+					<Accordion.ItemIndicator class="group">
+						<MinusIcon class="size-4 group-data-[state=open]:block hidden" />
+						<PlusIcon class="size-4 group-data-[state=open]:hidden block" />
 					</Accordion.ItemIndicator>
 				</Accordion.ItemTrigger>
 			</h3>
