@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.30
+
+### Patch Changes
+
+- chore: bump zag ([#3888](https://github.com/skeletonlabs/skeleton/pull/3888))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.30
+
 ## 4.0.0-next.29
 
 ### Patch Changes
