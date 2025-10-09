@@ -25,7 +25,12 @@
 		"!dist/**/*.map"
 	],
 	"sideEffects": false,
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "catalog:",
+		"zod": "catalog:"
+	},
 	"devDependencies": {
+		"@types/node": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:"
 	},
