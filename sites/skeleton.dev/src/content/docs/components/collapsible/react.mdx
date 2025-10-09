@@ -1,12 +1,26 @@
 import Default from '@/components/examples/components/collapsible/react/default';
 import DefaultRaw from '@/components/examples/components/collapsible/react/default?raw';
 
+import Disabled from '@/components/examples/components/collapsible/react/disabled';
+import DisabledRaw from '@/components/examples/components/collapsible/react/disabled?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

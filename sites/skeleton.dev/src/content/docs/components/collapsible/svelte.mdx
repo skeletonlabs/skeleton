@@ -1,12 +1,26 @@
 import Default from '@/components/examples/components/collapsible/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/collapsible/svelte/default.svelte?raw';
 
+import Disabled from '@/components/examples/components/collapsible/svelte/disabled.svelte';
+import DisabledRaw from '@/components/examples/components/collapsible/svelte/disabled.svelte?raw';
+
 <Preview client:load>
 	<Fragment slot="preview">
 		<Default client:visible />
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
