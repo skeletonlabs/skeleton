@@ -21,6 +21,9 @@ export default function RootLayout({
 		});
 	return (
 		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
+			<head>
+				<link rel="icon" href="favicon.png" />
+			</head>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">
