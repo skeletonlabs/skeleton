@@ -5,14 +5,9 @@ showDocsUrl: false
 order: 8888
 ---
 
-{
+import Alert from '@/components/mdx/alert.astro';
 
-<div class="card p-4 preset-tonal-warning space-y-2">
-	<h2 class="h3">Release Candidate</h2>
-	<p>The Skeleton v4 Release Candidate is an early access preview and not yet intended for production use.</p>
-</div>
-
-}
+<Alert type="warning">The Skeleton v4 Release Candidate is an early access preview and not yet intended for production use.</Alert>
 
 Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabalized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time.
 

@@ -9,6 +9,7 @@ import TableOfContents from '@/components/ui/table-of-contents.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
 import type { InferEntrySchema } from 'astro:content';
 import { commonNavigationGroups } from '@/lib/navigation';
+import Alert from '@/components/mdx/alert.astro';
 
 interface PageHeading {
 	depth: number;
@@ -62,17 +63,13 @@ const urls = {
 			<!-- Chips -->
 			<ChipsBar {frontmatter} {urls} />
 			<!-- Stability Warning -->
+
 			{
 				frontmatter.stability && frontmatter.stability !== 'stable' && (
-					<div class="preset-tonal-warning border border-warning-500 p-4 rounded grid gap-2">
-						<span class="h2">
-							<span class="capitalize">{frontmatter.stability}</span> Feature
-						</span>
-						<p>
-							This feature is currently in a {frontmatter.stability} status and not intended for production use. It may receive breaking
-							changes before its stable release.
-						</p>
-					</div>
+					<Alert type="warning">
+						This feature is currently in a {frontmatter.stability} status and not intended for production use. It may receive breaking
+						changes before its stable release.
+					</Alert>
 				)
 			}
 			<!-- Framework Tabs -->
