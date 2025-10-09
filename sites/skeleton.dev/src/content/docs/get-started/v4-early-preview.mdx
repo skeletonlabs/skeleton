@@ -14,26 +14,26 @@ As we prepare for the upcoming release of Skeleton v4, we will introduce new com
 
 ### Composed Pattern
 
-The component structure will now be much more explicit and granular. While a bit more verbose, this offers direct access to all children within the component tree. Allowing you to pass pass arbitrary props and attributes directly to the the HTML template within. Including: `required`, `data-*`, `style`, `class`, and many others.
+The component structure will now be much more explicit and granular. While a bit more verbose, this offers direct access to all children within the component tree. Allowing you to pass pass arbitrary props and attributes directly to the HTML template within. Including: `required`, `data-*`, `style`, `class`, and many others.
 
 ```svelte
 <Accordion>
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 	</Accordion.Item>
 	<Accordion.Item value="item-2">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 2</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 2</Accordion.ItemContent>
 	</Accordion.Item>
 	<Accordion.Item value="item-3">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 3</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 3</Accordion.ItemContent>
 	</Accordion.Item>
 </Accordion>
@@ -90,9 +90,9 @@ export default function () {
 		<Accordion>
 			{/* ... */}
 			<Accordion.Item value="item-1">
-				<Accordion.ItemHeading>
+				<h3>
 					<Accordion.ItemTrigger element={(attributes) => <button {...attributes}>My Own Button</button>} />
-				</Accordion.ItemHeading>
+				</h3>
 				<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 			</Accordion.Item>
 			{/* ... */}
@@ -107,20 +107,20 @@ export default function () {
 <Accordion>
 	<!-- ... -->
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>
 				{#snippet element(attributes)}
 					<button {...attributes}>My Own Button</button>
 				{/snippet}
 			</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 	</Accordion.Item>
 	<!-- ... -->
 </Accordion>
 ```
 
-By exposing the the the internal `attributes`, this enables you to take control and modify the template implementation.
+By exposing the internal `attributes`, this enables you to take control and modify the template implementation.
 
 ### Custom Animations
 
@@ -134,9 +134,9 @@ import { slide } from 'svelte/transition';
 <Accordion>
 	<!-- ... -->
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
-		</Accordion.ItemHeading>
+		</h3>
 		<Accordion.ItemContent>
 			{#snippet element(attributes)}
 				{#if !attributes.hidden}
@@ -169,10 +169,10 @@ import AccordionContentAnimated from 'my/local/lib/AccordionContentAnimated.svel
 <Accordion>
 	<!-- ... -->
 	<Accordion.Item value="item-1">
-		<Accordion.ItemHeading>
+		<h3>
 			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
-			<AccordionContentAnimated>Content for Item 1</AccordionContentAnimated>
-		</Accordion.ItemHeading>
+		</h3>
+		<AccordionContentAnimated>Content for Item 1</AccordionContentAnimated>
 	</Accordion.Item>
 	<!-- ... -->
 </Accordion>
