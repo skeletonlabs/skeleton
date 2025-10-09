@@ -24,7 +24,8 @@
 		}
 	},
 	"files": [
-		"dist"
+		"dist",
+		"!dist/**/*.map"
 	],
 	"sideEffects": false,
 	"dependencies": {
