@@ -26,7 +26,6 @@ function print(ast: Root) {
 }
 
 async function processAlerts(ast: Root) {
-	const promises: Promise<void>[] = [];
 	visit(ast, (node, index, parent) => {
 		if (!parent || typeof index !== 'number') return;
 		if (node.type === 'mdxJsxFlowElement' && node.name === 'Alert') {
@@ -36,7 +35,6 @@ async function processAlerts(ast: Root) {
 			} as Paragraph);
 		}
 	});
-	await Promise.all(promises);
 }
 
 async function loadFileContent(importPath: string) {
