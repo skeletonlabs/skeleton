@@ -5,18 +5,18 @@ import { MoonIcon, SunIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function LightSwitch() {
-	const [checked, setChecked] = useState(false);
+	const [mode, setMode] = useState<'dark' | 'light' | null>(null);
 
 	useEffect(() => {
 		const mode = localStorage.getItem('mode') || 'light';
-		setChecked(mode === 'dark');
+		setMode(mode === 'dark' ? 'dark' : 'light');
 	}, []);
 
 	const onCheckedChange = (event: { checked: boolean }) => {
 		const mode = event.checked ? 'dark' : 'light';
+		setMode(mode);
 		document.documentElement.setAttribute('data-mode', mode);
 		localStorage.setItem('mode', mode);
-		setChecked(event.checked);
 	};
 
 	return (
@@ -24,12 +24,12 @@ export default function LightSwitch() {
 			<script
 				dangerouslySetInnerHTML={{
 					__html: `
-		const mode = localStorage.getItem('mode') || 'light';
-		document.documentElement.setAttribute('data-mode', mode);
-          `,
+						const mode = localStorage.getItem('mode') || 'light';
+						document.documentElement.setAttribute('data-mode', mode);
+          			`,
 				}}
 			/>
-			<Switch checked={checked} onCheckedChange={onCheckedChange}>
+			<Switch checked={mode === 'dark'} onCheckedChange={onCheckedChange}>
 				<Switch.Control>
 					<Switch.Thumb>
 						<Switch.Context>

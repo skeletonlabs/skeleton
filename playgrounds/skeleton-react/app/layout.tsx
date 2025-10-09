@@ -1,7 +1,8 @@
-import './globals.css';
+import './app.css';
 import LightSwitch from './light-switch';
 import { globSync } from 'node:fs';
 import { sep, relative, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export default function RootLayout({
 	children,
@@ -12,7 +13,9 @@ export default function RootLayout({
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}
 
-	const components = globSync('./**/components/*/page.tsx')
+	const components = globSync('./components/*/page.tsx', {
+		cwd: dirname(fileURLToPath(import.meta.url)),
+	})
 		.toSorted((a, b) => a.localeCompare(b))
 		.map((route) => {
 			const href = '/' + relative('src/app', dirname(route)).split(sep).join('/');
@@ -21,6 +24,9 @@ export default function RootLayout({
 		});
 	return (
 		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
+			<head>
+				<link rel="icon" href="favicon.png" />
+			</head>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,_1fr)]">
 					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">
