@@ -1,0 +1,15 @@
+import Default from '@/components/examples/components/collapsible/svelte/default.svelte';
+import DefaultRaw from '@/components/examples/components/collapsible/svelte/default.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />
