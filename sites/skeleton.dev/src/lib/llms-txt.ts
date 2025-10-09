@@ -1,5 +1,5 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import type { Paragraph, Root } from 'mdast';
+import type { Paragraph, Root, Heading, Table, TableRow, TableCell } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { mdxFromMarkdown } from 'mdast-util-mdx';
 import type { MdxJsxAttribute, MdxJsxExpressionAttribute, MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
@@ -127,41 +127,48 @@ async function processPreviews(ast: Root) {
 	await Promise.all(promises);
 }
 
-function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
-	function createCell(value: string) {
+function generateTablesFromSchema(schema: CollectionEntry<'types'>['data']) {
+	function createCell(value: string): TableCell {
 		return {
 			type: 'tableCell',
-			children: [
-				{
-					type: 'text',
-					value,
-				},
-			],
+			children: [{ type: 'text', value }],
 		};
 	}
-	return {
-		type: 'table',
-		align: [],
-		children: [
-			{
+	const tables: (Heading | Table)[] = [];
+	for (const type of schema.types) {
+		tables.push({
+			type: 'heading',
+			depth: 3,
+			children: [{ type: 'text', value: type.name }],
+		} satisfies Heading);
+		const headerRow = {
+			type: 'tableRow',
+			children: ['Property', 'Default', 'Type', 'Description'].map((val) => ({
+				type: 'tableCell',
+				children: [{ type: 'text', value: val }],
+			})),
+		} satisfies TableRow;
+		const bodyRows: TableRow[] = type.props.map((prop) => {
+			const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
+			const description = prop.JSDoc.description ?? '-';
+			return {
 				type: 'tableRow',
-				children: ['Property', 'Default', 'Type'].map((val) => ({
-					type: 'tableCell',
-					children: [{ type: 'text', value: val }],
-				})),
-			},
-			...schema.types.flatMap((type) =>
-				type.props.map((prop) => {
-					const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
-					const description = prop.JSDoc.description ? ` — ${prop.JSDoc.description}` : '';
-					return {
-						type: 'tableRow',
-						children: [createCell(prop.name), createCell(defaultValue), createCell(`${prop.type}${description}`)],
-					};
-				}),
-			),
-		],
-	};
+				children: [
+					createCell(prop.name + (prop.optional ? '?' : '')),
+					createCell(defaultValue),
+					createCell(prop.type),
+					createCell(description),
+				],
+			};
+		});
+		const table: Table = {
+			type: 'table',
+			align: [],
+			children: [headerRow, ...bodyRows],
+		};
+		tables.push(table);
+	}
+	return tables;
 }
 
 async function processApiTable(node: MdxJsxFlowElement, index: number, parent: Parent, entry: CollectionEntry<'docs'>) {
@@ -176,7 +183,7 @@ async function processApiTable(node: MdxJsxFlowElement, index: number, parent: P
 	if (!typesEntry) {
 		return;
 	}
-	parent.children.splice(index, 1, generateTableFromSchema(typesEntry.data));
+	parent.children.splice(index, 1, ...generateTablesFromSchema(typesEntry.data));
 }
 
 async function processApiTables(ast: Root, entry: CollectionEntry<'docs'>) {
