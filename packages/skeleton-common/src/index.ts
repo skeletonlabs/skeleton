@@ -2,6 +2,7 @@ export * from './classes/accordion';
 export * from './classes/app-bar';
 export * from './classes/avatar';
 export * from './classes/combobox';
+export * from './classes/collapsible';
 export * from './classes/date-picker';
 export * from './classes/dialog';
 export * from './classes/file-upload';
