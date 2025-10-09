@@ -7,6 +7,7 @@ server.registerTool(
 		description: 'Lists all components available in Skeleton',
 	},
 	async () => {
+		// TODO: Implement actual logic to list components
 		return {
 			content: [],
 		};
