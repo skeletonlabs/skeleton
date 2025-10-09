@@ -5,6 +5,7 @@
 		"skeleton": "1.0.0",
 		"@skeletonlabs/skeleton": "3.2.0",
 		"@skeletonlabs/skeleton-common": "0.0.1",
+		"@skeletonlabs/skeleton-mcp": "0.0.1",
 		"@skeletonlabs/skeleton-react": "1.4.0",
 		"@skeletonlabs/skeleton-svelte": "1.5.1",
 		"@skeletonlabs/playground-skeleton-react": "0.0.1",
