@@ -4,7 +4,7 @@ import { ArrowUpRightIcon, ChevronDownIcon, HeartIcon } from 'lucide-react';
 export default function HeaderSponsors() {
 	return (
 		<Popover positioning={{ placement: 'top-end' }}>
-			<Popover.Trigger className="hidden xl:flex btn hover:preset-tonal gap-1" title="Sponsor Us">
+			<Popover.Trigger className="hidden xl:flex btn gap-1 hover:preset-tonal data-[state=open]:preset-tonal" title="Sponsor Us">
 				<HeartIcon className="size-5" />
 				<ChevronDownIcon className="size-4 opacity-60" />
 			</Popover.Trigger>

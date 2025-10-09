@@ -20,7 +20,7 @@ export default function HeaderThemes() {
 
 	return (
 		<Popover positioning={{ placement: 'top-end' }}>
-			<Popover.Trigger className="btn hover:preset-tonal gap-1" title="Choose Theme">
+			<Popover.Trigger className="btn gap-1 hover:preset-tonal data-[state=open]:preset-tonal " title="Choose Theme">
 				<SwatchBookIcon className="xl:hidden size-5" />
 				<span className="hidden xl:inline">Theme</span>
 				<ChevronDownIcon className="size-4 opacity-60" />
