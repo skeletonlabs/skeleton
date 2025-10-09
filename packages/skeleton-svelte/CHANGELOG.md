@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0-next.31
+
+### Patch Changes
+
+- fix: exclude .map files from being published ([`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304))
+
+- Updated dependencies [[`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.31
+
 ## 4.0.0-next.30
 
 ### Patch Changes

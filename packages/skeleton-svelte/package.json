@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "4.0.0-next.30",
+	"version": "4.0.0-next.31",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
