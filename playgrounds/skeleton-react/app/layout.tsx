@@ -1,4 +1,4 @@
-import './globals.css';
+import './app.css';
 import LightSwitch from './light-switch';
 import { globSync } from 'node:fs';
 import { sep, relative, dirname } from 'node:path';
