@@ -26,7 +26,7 @@ export async function generateShowcaseThumbnails() {
 		}),
 	);
 
-	await rm(join(OUTPUT_DIRECTORY), { recursive: true });
+	await rm(join(OUTPUT_DIRECTORY), { recursive: true, force: true });
 	await mkdir(OUTPUT_DIRECTORY, { recursive: true });
 
 	await Promise.all(
