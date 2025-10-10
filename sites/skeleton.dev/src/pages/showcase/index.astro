@@ -1,0 +1,77 @@
+---
+// Layout
+import LayoutRoot from '@/components/layouts/root.astro';
+// Components
+import Header from '@/components/ui/header.astro';
+import Footer from '@/components/ui/footer.astro';
+
+const layoutProps = {
+	title: 'Showcase',
+	description: 'Check out the showcase of amazing projects built by the Skeleton community.',
+};
+const projects = [
+	{
+		name: 'Superforms',
+		url: 'https://superforms.rocks/',
+		thumbnail: 'https://i.imgur.com/58G75SI.png',
+		description: 'Form library for Sveltekit',
+	},
+	{ name: 'Mermaid Chart', url: 'https://www.mermaidchart.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Andrea Cerasoni', url: 'https://andreacerasoni.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Equimake', url: 'https://equimake.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Svelte Sirens', url: 'https://sveltesirens.dev/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Minnestay', url: 'https://minnestay.humblegood.ai/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Hoorai', url: 'https://www.hoorai.io/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Texpile', url: 'https://texpile.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Sveltey', url: 'https://www.sveltey.dev/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Temperature Blanket', url: 'https://temperature-blanket.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{
+		name: '5 Letter Rogue',
+		url: 'https://oatmealproblem.itch.io/5-letter-rogue',
+		thumbnail: 'https://picsum.photos/320/240',
+		description: '',
+	},
+	{ name: 'Bark Acedemy', url: 'https://barkacedemy.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Endigo Design', url: 'https://endigodesign.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+	{ name: 'Skeleton Labs', url: 'https://www.skeletonlabs.co/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
+];
+---
+
+<LayoutRoot {...layoutProps}>
+	<!-- Header -->
+	<Header />
+	<!-- Main -->
+	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
+		<!-- Hero -->
+		<section class="text-center space-y-2">
+			<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">Build anything with Skeleton.</h1>
+			<p class="xl:text-balance">Check out the showcase of amazing projects built by the Skeleton community.</p>
+		</section>
+		<!-- Project Grid -->
+		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{
+				projects.map((project) => {
+					return (
+						<a href={project.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
+							<img
+								src={project.thumbnail}
+								alt={`View ${project.name}.`}
+								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow"
+							/>
+							<strong>{project.name}</strong>
+							<p class="text-xs opacity-60">{project.description}</p>
+						</a>
+					);
+				})
+			}
+		</section>
+		<!-- CTA -->
+		<section class="text-center space-y-4">
+			<p>Have an interesting project you wish to share? Submit it here.</p>
+			<!-- TODO: create a GitHub Discussions thread for submission. -->
+			<a href="/" target="_blank" class="btn btn-lg preset-filled">Submit Project</a>
+		</section>
+	</main>
+	<!-- Footer -->
+	<Footer />
+</LayoutRoot>
