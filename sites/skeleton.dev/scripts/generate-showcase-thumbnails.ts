@@ -2,7 +2,7 @@ import chromium from '@sparticuz/chromium';
 import { mkdir, readFile, rm } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium as playwright } from 'playwright';
+import { chromium as playwright } from 'playwright-core';
 import { glob } from 'tinyglobby';
 
 const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
