@@ -1,8 +1,14 @@
 import Default from '@/components/examples/components/collapsible/react/default';
 import DefaultRaw from '@/components/examples/components/collapsible/react/default?raw';
 
+import Indicator from '@/components/examples/components/collapsible/react/indicator';
+import IndicatorRaw from '@/components/examples/components/collapsible/react/indicator?raw';
+
 import Disabled from '@/components/examples/components/collapsible/react/disabled';
 import DisabledRaw from '@/components/examples/components/collapsible/react/disabled?raw';
+
+import Dir from '@/components/examples/components/collapsible/react/dir';
+import DirRaw from '@/components/examples/components/collapsible/react/dir?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -10,6 +16,17 @@ import DisabledRaw from '@/components/examples/components/collapsible/react/disa
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Indicator
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indicator client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndicatorRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -21,6 +38,17 @@ import DisabledRaw from '@/components/examples/components/collapsible/react/disa
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

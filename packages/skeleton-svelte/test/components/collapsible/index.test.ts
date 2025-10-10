@@ -17,6 +17,13 @@ describe('Collapsible', () => {
 		});
 	});
 
+	describe('Indicator', () => {
+		it('renders', () => {
+			render(Test);
+			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+		});
+	});
+
 	describe('Content', () => {
 		it('renders', () => {
 			render(Test);

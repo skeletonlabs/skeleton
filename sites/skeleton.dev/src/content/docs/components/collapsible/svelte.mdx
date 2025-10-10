@@ -1,8 +1,14 @@
 import Default from '@/components/examples/components/collapsible/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/collapsible/svelte/default.svelte?raw';
 
+import Indicator from '@/components/examples/components/collapsible/svelte/indicator.svelte';
+import IndicatorRaw from '@/components/examples/components/collapsible/svelte/indicator.svelte?raw';
+
 import Disabled from '@/components/examples/components/collapsible/svelte/disabled.svelte';
 import DisabledRaw from '@/components/examples/components/collapsible/svelte/disabled.svelte?raw';
+
+import Dir from '@/components/examples/components/collapsible/svelte/dir.svelte';
+import DirRaw from '@/components/examples/components/collapsible/svelte/dir.svelte?raw';
 
 <Preview client:load>
 	<Fragment slot="preview">
@@ -10,6 +16,17 @@ import DisabledRaw from '@/components/examples/components/collapsible/svelte/dis
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Indicator
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indicator client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndicatorRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -21,6 +38,17 @@ import DisabledRaw from '@/components/examples/components/collapsible/svelte/dis
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DisabledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
