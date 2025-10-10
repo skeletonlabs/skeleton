@@ -29,16 +29,14 @@ const layoutProps = {
 	title: frontmatter.title,
 	classList: 'grid grid-rows-[auto_1fr]',
 };
-// GitHub Settings
-const branch = 'main';
-const site = 'skeleton.dev';
-// URLs
+
+const prefix = 'https://github.com/skeletonlabs/skeleton/tree/main/';
 const urls = {
-	githubDocsUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/sites/${site}/src/content`,
-	githubSkeletonCommon: `https://github.com/skeletonlabs/skeleton/blob/${branch}/packages/skeleton-common/`,
-	githubSkeletonUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton/src`,
-	githubSvelteUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-svelte`,
-	githubReactUrl: `https://github.com/skeletonlabs/skeleton/tree/${branch}/packages/skeleton-react`,
+	githubDocsUrl: `${prefix}/sites/skeleton.dev/src/content`,
+	githubSkeletonCommon: `${prefix}/packages/skeleton-common`,
+	githubSkeletonUrl: `${prefix}/packages/skeleton/src`,
+	githubSvelteUrl: `${prefix}/packages/skeleton-svelte`,
+	githubReactUrl: `${prefix}/packages/skeleton-react`,
 };
 ---
 
