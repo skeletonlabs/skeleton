@@ -6,7 +6,7 @@
 [![Chat](https://img.shields.io/discord/1003691521280856084?label=chat&logo=discord&color=7289da)](https://discord.gg/EXqV7W8MtY)
 [![license](https://img.shields.io/badge/license-MIT-%23bada55)](https://github.com/skeletonlabs/skeleton/blob/master/LICENSE)
 
-Skeleton is an adaptive design system aimed at extending [Tailwind](https://tailwindcss.com/). Providing an opinionated solution for themes, colors, typography, and more. Including easy to use components for your favorite web frameworks.
+Skeleton is an adaptive design system powered by [Tailwind CSS](https://tailwindcss.com/). Providing opinionated solutions for themes, colors, typography, and more. Including easy to use components for your favorite web frameworks.
 
 - [Documentation](https://skeleton.dev/)
 - [Theme Generator](https://themes.skeleton.dev/themes/create)
@@ -22,7 +22,6 @@ Skeleton is an adaptive design system aimed at extending [Tailwind](https://tail
 
 - [GitHub Sponsors](https://github.com/sponsors/skeletonlabs)
 - [Ko-Fi](https://ko-fi.com/skeletonlabs)
-- [Patreon](https://patreon.com/user?u=83786276)
 
 ## 🤝 Get Support
 
@@ -32,8 +31,10 @@ Skeleton is an adaptive design system aimed at extending [Tailwind](https://tail
 
 ## 🛠️ Contribute
 
-We have provided a detailed [contribution guide](https://www.skeleton.dev/docs/resources/contribute) to help you get started.
+Browse the [contribution guidelines](https://www.skeleton.dev/docs/resources/contribute) to help you get started.
 
 ## Maintainers
 
-Skeleton was created by [Chris Simmons](https://github.com/endigo9740) (@endigo9740) and is maintained by [Skeleton Labs](https://www.skeletonlabs.co/) and the [open source community](https://github.com/skeletonlabs/skeleton/graphs/contributors).
+Creator and Core Maintainer: [Chris Simmons](https://endigodesign.com/) ([@endigo9740](https://github.com/endigo9740))
+
+With contribution from [Skeleton Labs](https://www.skeletonlabs.co/) and the [open source community](https://github.com/skeletonlabs/skeleton/graphs/contributors).
