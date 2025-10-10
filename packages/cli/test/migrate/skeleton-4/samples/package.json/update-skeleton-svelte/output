@@ -1,5 +1,5 @@
 {
 	"dependencies": {
-		"@skeletonlabs/skeleton-svelte": "next"
+		"@skeletonlabs/skeleton-svelte": "^4.0.0"
 	}
 }
