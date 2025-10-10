@@ -12,17 +12,19 @@ const layoutProps = {
 };
 
 const images = import.meta.glob<{ default: ImageMetadata }>('src/images/showcase-project-thumbnails/*.png');
-const projects = (await getCollection('showcase-projects')).map((project) => {
-	const light = images[`/src/images/showcase-project-thumbnails/${project.id}-light.png`]();
-	const dark = images[`/src/images/showcase-project-thumbnails/${project.id}-dark.png`]();
-	return {
-		...project,
-		images: {
-			light: light,
-			dark: dark,
-		},
-	};
-});
+const projects = (await getCollection('showcase-projects'))
+	.map((project) => {
+		const light = images[`/src/images/showcase-project-thumbnails/${project.id}-light.png`]();
+		const dark = images[`/src/images/showcase-project-thumbnails/${project.id}-dark.png`]();
+		return {
+			...project,
+			images: {
+				light: light,
+				dark: dark,
+			},
+		};
+	})
+	.sort(() => 0.5 - Math.random());
 ---
 
 <LayoutRoot {...layoutProps}>
