@@ -8,7 +8,7 @@ const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SHOWCASE_PROJECTS_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'content', 'showcase-projects');
 const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'images', 'showcase-projects');
 
-export async function generateShowcaseThumbnails() {
+async function generateShowcaseThumbnails() {
 	const browser = await chromium.launch();
 
 	const projects = await Promise.all(
@@ -32,8 +32,8 @@ export async function generateShowcaseThumbnails() {
 				viewport: { width: 1920, height: 1080 },
 			});
 			await page.goto(project.url, {
-                waitUntil: 'networkidle',
-            });
+				waitUntil: 'networkidle',
+			});
 			for (const instruction of project.playwright?.instructions ?? []) {
 				const fn = new Function('page', `return (async () => { ${instruction} })()`);
 				await fn(page);

@@ -1,4 +1,3 @@
-import { generateShowcaseThumbnails } from './scripts/generate-showcase-thumbnails';
 import { generateTypeDocumentation } from './scripts/generate-type-documentation';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
@@ -23,18 +22,9 @@ function skeleton(): AstroIntegration {
 				if (ctx.command !== 'build') {
 					return;
 				}
-				await Promise.all([
-					(async () => {
-						ctx.logger.info('Generating type documentation...');
-						await generateTypeDocumentation();
-						ctx.logger.info('Type documentation generated.');
-					})(),
-					(async () => {
-						ctx.logger.info('Generating showcase thumbnails...');
-						await generateShowcaseThumbnails();
-						ctx.logger.info('Showcase thumbnails generated.');
-					})(),
-				]);
+				ctx.logger.info('Generating type documentation...');
+				await generateTypeDocumentation();
+				ctx.logger.info('Type documentation generated.');
 			},
 			'astro:build:done': async (ctx) => {
 				ctx.logger.info('Generating search index...');
