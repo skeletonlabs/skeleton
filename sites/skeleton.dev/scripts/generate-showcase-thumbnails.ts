@@ -34,7 +34,9 @@ export async function generateShowcaseThumbnails() {
 			const page = await browser.newPage({
 				viewport: { width: 1920, height: 1080 },
 			});
-			await page.goto(project.url);
+			await page.goto(project.url, {
+				timeout: 10_000,
+			});
 			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}.png`) });
 		}),
 	);
