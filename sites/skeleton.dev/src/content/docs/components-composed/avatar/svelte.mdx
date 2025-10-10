@@ -1,0 +1,47 @@
+---
+layout: '@layouts/LayoutDoc.astro'
+---
+
+export const components = componentSet;
+
+import Example from '@examples/components/composed/avatar/svelte/default.svelte';
+import ExampleRaw from '@examples/components/composed/avatar/svelte/default.svelte?raw';
+import ExampleFallback from '@examples/components/composed/avatar/svelte/fallback.svelte';
+import ExampleFallbackRaw from '@examples/components/composed/avatar/svelte/fallback.svelte?raw';
+import ExampleFilter from '@examples/components/composed/avatar/svelte/filter.svelte';
+import ExampleFilterRaw from '@examples/components/composed/avatar/svelte/filter.svelte?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Example client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Fallback
+
+Use `<Avatar.Fallback>` to provide initials, icons, or a framework-specific image component.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFallback client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFallbackRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Filter
+
+Avatars can implement [SVG Filters](/docs/guides/cookbook/svg-filters) using the image `class` attribute.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ExampleFilter client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ExampleFilterRaw} lang="svelte" />
+	</Fragment>
+</Preview>
