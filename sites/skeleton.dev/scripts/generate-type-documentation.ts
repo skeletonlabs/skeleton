@@ -209,11 +209,9 @@ function getComponentPartNameFromPath(path: string): string {
 
 export async function generateTypeDocumentation() {
 	const OUTPUT_DIRECTORY = join(SITE_DIRECTORY('skeleton.dev'), 'src', 'content', 'types');
-
+	await rm(OUTPUT_DIRECTORY, { recursive: true, force: true });
+	await mkdir(OUTPUT_DIRECTORY, { recursive: true });
 	for (const framework of ['svelte', 'react'] as const) {
-		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
-		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
-
 		const paths = await glob(`**/anatomy/*.d.ts`, {
 			cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components'),
 			absolute: true,

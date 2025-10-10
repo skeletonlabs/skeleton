@@ -59,5 +59,8 @@
 		"unist-util-visit": "catalog:",
 		"vite-plugin-pagefind": "catalog:",
 		"vite-plugin-transform-lucide-imports": "catalog:"
+	},
+	"devDependencies": {
+		"playwright": "catalog:"
 	}
 }

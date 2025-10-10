@@ -1,40 +1,24 @@
 ---
-// Layout
 import LayoutRoot from '@/components/layouts/root.astro';
-// Components
+import { Image } from 'astro:assets';
 import Header from '@/components/ui/header.astro';
 import Footer from '@/components/ui/footer.astro';
+import { getCollection } from 'astro:content';
 
 const layoutProps = {
 	title: 'Showcase',
 	description: 'Check out the showcase of amazing projects built by the Skeleton community.',
 };
-const projects = [
-	{
-		name: 'Superforms',
-		url: 'https://superforms.rocks/',
-		thumbnail: 'https://i.imgur.com/58G75SI.png',
-		description: 'Form library for Sveltekit',
-	},
-	{ name: 'Mermaid Chart', url: 'https://www.mermaidchart.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Andrea Cerasoni', url: 'https://andreacerasoni.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Equimake', url: 'https://equimake.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Svelte Sirens', url: 'https://sveltesirens.dev/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Minnestay', url: 'https://minnestay.humblegood.ai/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Hoorai', url: 'https://www.hoorai.io/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Texpile', url: 'https://texpile.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Sveltey', url: 'https://www.sveltey.dev/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Temperature Blanket', url: 'https://temperature-blanket.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{
-		name: '5 Letter Rogue',
-		url: 'https://oatmealproblem.itch.io/5-letter-rogue',
-		thumbnail: 'https://picsum.photos/320/240',
-		description: '',
-	},
-	{ name: 'Bark Acedemy', url: 'https://barkacedemy.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Endigo Design', url: 'https://endigodesign.com/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-	{ name: 'Skeleton Labs', url: 'https://www.skeletonlabs.co/', thumbnail: 'https://picsum.photos/320/240', description: '...' },
-];
+
+const projects = await Promise.all(
+	(await getCollection('showcase-projects')).map(async (project) => {
+		const thumbnail = await import(`@/images/showcase-thumbnails/${project.id}.png`);
+		return {
+			...project,
+			thumbnail,
+		};
+	}),
+);
 ---
 
 <LayoutRoot {...layoutProps}>
@@ -52,14 +36,14 @@ const projects = [
 			{
 				projects.map((project) => {
 					return (
-						<a href={project.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
-							<img
+						<a href={project.data.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
+							<Image
 								src={project.thumbnail}
-								alt={`View ${project.name}.`}
+								alt={`Thumbnail of ${project.data.name}`}
 								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow"
 							/>
-							<strong>{project.name}</strong>
-							<p class="text-xs opacity-60">{project.description}</p>
+							<strong>{project.data.name}</strong>
+							<p class="text-xs opacity-60">{project.data.description}</p>
 						</a>
 					);
 				})
