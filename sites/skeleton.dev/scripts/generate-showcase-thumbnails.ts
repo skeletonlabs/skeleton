@@ -35,7 +35,7 @@ export async function generateShowcaseThumbnails() {
 				viewport: { width: 1920, height: 1080 },
 			});
 			await page.goto(project.url, {
-				waitUntil: 'networkidle',
+				waitUntil: 'domcontentloaded',
 			});
 			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}.png`) });
 		}),
