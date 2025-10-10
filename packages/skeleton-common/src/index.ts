@@ -1,6 +1,7 @@
 export * from './classes/accordion';
 export * from './classes/app-bar';
 export * from './classes/avatar';
+export * from './classes/collapsible';
 export * from './classes/combobox';
 export * from './classes/date-picker';
 export * from './classes/dialog';

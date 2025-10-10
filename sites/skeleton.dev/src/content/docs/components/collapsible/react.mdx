@@ -1,0 +1,87 @@
+import Default from '@/components/examples/components/collapsible/react/default';
+import DefaultRaw from '@/components/examples/components/collapsible/react/default?raw';
+
+import Controlled from '@/components/examples/components/collapsible/react/controlled';
+import ControlledRaw from '@/components/examples/components/collapsible/react/controlled?raw';
+
+import Indicator from '@/components/examples/components/collapsible/react/indicator';
+import IndicatorRaw from '@/components/examples/components/collapsible/react/indicator?raw';
+
+import Disabled from '@/components/examples/components/collapsible/react/disabled';
+import DisabledRaw from '@/components/examples/components/collapsible/react/disabled?raw';
+
+import Alignment from '@/components/examples/components/collapsible/react/alignment';
+import AlignmentRaw from '@/components/examples/components/collapsible/react/alignment?raw';
+
+import Dir from '@/components/examples/components/collapsible/react/dir';
+import DirRaw from '@/components/examples/components/collapsible/react/dir?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Indicator
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Indicator client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={IndicatorRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Alignment
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Alignment client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AlignmentRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+{/* TODO: Uncomment once Zag >=1.26.2 is released and used by Skeleton */}
+
+{/* ## Direction */}
+
+{/* <Preview client:load> */}
+{/* <Fragment slot="preview"> */}
+{/* <Dir client:visible /> */}
+{/* </Fragment> */}
+{/* <Fragment slot="code"> */}
+{/* <Code code={DirRaw} lang="tsx" /> */}
+{/* </Fragment> */}
+{/* </Preview> */}
+
+## API Reference
+
+<ApiTable />

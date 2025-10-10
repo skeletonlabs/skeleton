@@ -114,6 +114,9 @@ catalogs:
     '@zag-js/avatar':
       specifier: 1.26.0
       version: 1.26.0
+    '@zag-js/collapsible':
+      specifier: 1.26.0
+      version: 1.26.0
     '@zag-js/collection':
       specifier: 1.26.0
       version: 1.26.0
@@ -495,6 +498,9 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.26.0
+      '@zag-js/collapsible':
+        specifier: 'catalog:'
+        version: 1.26.0
       '@zag-js/collection':
         specifier: 'catalog:'
         version: 1.26.0
@@ -599,6 +605,9 @@ importers:
         specifier: 'catalog:'
         version: 1.26.0
       '@zag-js/avatar':
+        specifier: 'catalog:'
+        version: 1.26.0
+      '@zag-js/collapsible':
         specifier: 'catalog:'
         version: 1.26.0
       '@zag-js/collection':
@@ -2771,6 +2780,9 @@ packages:
 
   '@zag-js/avatar@1.26.0':
     resolution: { integrity: sha512-7pyoMq/+4wqrFGX5LlhDlNNOigVHjdvmzUBcnSpDPTT+4vpy8La4TKX7JAHHEKa22DZWqptiC+mf3vZ17+ZaSw== }
+
+  '@zag-js/collapsible@1.26.0':
+    resolution: { integrity: sha512-NezD2paxOpLGv7p/AmjA3oGkEbYaU2fZit1X3BMKy0ZZtRFDImCAo5VjYl9DUDoq2jOA8MzuAGoTYvW/D6vZ1w== }
 
   '@zag-js/collection@1.26.0':
     resolution: { integrity: sha512-crynTfNJhTnhun6NgAQL+BcDU8ggWQnAS9uDkpFrf0MbamH3BM9KKGKF1VbJTIjnDeB1lA4RQ+w9GkGdvy/rKg== }
@@ -7576,6 +7588,14 @@ snapshots:
       '@zag-js/dom-query': 1.26.0
 
   '@zag-js/avatar@1.26.0':
+    dependencies:
+      '@zag-js/anatomy': 1.26.0
+      '@zag-js/core': 1.26.0
+      '@zag-js/dom-query': 1.26.0
+      '@zag-js/types': 1.26.0
+      '@zag-js/utils': 1.26.0
+
+  '@zag-js/collapsible@1.26.0':
     dependencies:
       '@zag-js/anatomy': 1.26.0
       '@zag-js/core': 1.26.0
