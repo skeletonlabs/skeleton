@@ -32,6 +32,11 @@ export const collections = {
 			name: z.string(),
 			description: z.string(),
 			url: z.string(),
+			playwright: z
+				.object({
+					instructions: z.array(z.string()),
+				})
+				.optional(),
 		}),
 	}),
 	types: defineCollection({

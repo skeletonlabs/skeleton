@@ -7,7 +7,8 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check --noSync",
-		"sync": "astro sync"
+		"sync": "astro sync",
+		"generate-showcase-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-thumbnails.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "catalog:",
@@ -24,7 +25,6 @@
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sparticuz/chromium": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/mdast": "catalog:",
@@ -44,7 +44,7 @@
 		"nanostores": "catalog:",
 		"octokit": "catalog:",
 		"pagefind": "catalog:",
-		"playwright-core": "catalog:",
+		"playwright": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"remark-gfm": "catalog:",

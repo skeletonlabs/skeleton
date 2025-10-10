@@ -1,5 +1,8 @@
 {
 	"name": "5 Letter Rogue",
-	"url": "https://oatmealproblem.itch.io/5-letter-rogue",
-	"description": "..."
+	"url": "https://html-classic.itch.zone/html/13453510/build/index.html#/game",
+	"description": "...",
+	"playwright": {
+		"instructions": ["await page.keyboard.press('Enter')"]
+	}
 }
