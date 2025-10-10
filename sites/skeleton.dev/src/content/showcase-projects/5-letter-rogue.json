@@ -1,7 +1,7 @@
 {
 	"name": "5 Letter Rogue",
 	"url": "https://html-classic.itch.zone/html/13453510/build/index.html#/game",
-	"description": "5 Letter Rogue",
+	"description": "A web powered video game",
 	"playwright": {
 		"instructions": ["await page.keyboard.press('Enter')"]
 	}
