@@ -28,19 +28,20 @@ async function generateShowcaseProjectThumbnails() {
 
 	await Promise.all(
 		projects.map(async (project) => {
-			const page = await browser.newPage({
-				viewport: { width: 1920, height: 1080 },
-			});
-			await page.goto(project.url, { waitUntil: 'networkidle' });
-			for (const instruction of project.playwright?.instructions ?? []) {
-				// oxlint-disable-next-line no-implied-eval
-				const fn = new Function('page', `return (async () => { ${instruction} })()`);
-				await fn(page);
+			for (const colorScheme of ['light', 'dark'] as const) {
+				const page = await browser.newPage({
+					viewport: { width: 1920, height: 1080 },
+				});
+				await page.emulateMedia({ colorScheme });
+				await page.goto(project.url, { waitUntil: 'networkidle' });
+				for (const instruction of project.playwright?.instructions ?? []) {
+					// oxlint-disable-next-line no-implied-eval
+					const fn = new Function('page', `return (async () => { ${instruction} })()`);
+					await fn(page);
+				}
+				await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}-${colorScheme}.png`) });
+				await page.close();
 			}
-			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}-light.png`) });
-			await page.emulateMedia({ colorScheme: 'dark' });
-			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}-dark.png`) });
-			await page.close();
 		}),
 	);
 
