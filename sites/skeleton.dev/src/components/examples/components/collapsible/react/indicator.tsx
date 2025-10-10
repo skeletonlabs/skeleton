@@ -4,8 +4,8 @@ import { MinusIcon, PlusIcon } from 'lucide-react';
 export default function Default() {
 	return (
 		<Collapsible>
-			<Collapsible.Trigger>
-				Toggle
+			<Collapsible.Trigger className="btn preset-filled">
+				<span>Toggle</span>
 				<Collapsible.Indicator className="group">
 					<MinusIcon className="size-4 group-data-[state=open]:block hidden" />
 					<PlusIcon className="size-4 group-data-[state=open]:hidden block" />

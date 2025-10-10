@@ -4,8 +4,8 @@
 </script>
 
 <Collapsible>
-	<Collapsible.Trigger>
-		Toggle
+	<Collapsible.Trigger class="btn preset-filled">
+		<span>Toggle</span>
 		<Collapsible.Indicator class="group">
 			<MinusIcon class="size-4 group-data-[state=open]:block hidden" />
 			<PlusIcon class="size-4 group-data-[state=open]:hidden block" />
