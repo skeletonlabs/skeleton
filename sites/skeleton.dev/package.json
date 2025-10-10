@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
-		"prebuild": "playwright install chromium",
+		"prebuild": "playwright install chromium --with-deps",
 		"build": "astro build",
 		"check": "astro check --noSync",
 		"sync": "astro sync"
