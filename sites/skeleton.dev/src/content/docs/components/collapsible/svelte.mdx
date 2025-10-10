@@ -1,11 +1,17 @@
 import Default from '@/components/examples/components/collapsible/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/collapsible/svelte/default.svelte?raw';
 
+import Controlled from '@/components/examples/components/collapsible/svelte/controlled.svelte';
+import ControlledRaw from '@/components/examples/components/collapsible/svelte/controlled.svelte?raw';
+
 import Indicator from '@/components/examples/components/collapsible/svelte/indicator.svelte';
 import IndicatorRaw from '@/components/examples/components/collapsible/svelte/indicator.svelte?raw';
 
 import Disabled from '@/components/examples/components/collapsible/svelte/disabled.svelte';
 import DisabledRaw from '@/components/examples/components/collapsible/svelte/disabled.svelte?raw';
+
+import Aligment from '@/components/examples/components/collapsible/svelte/alignment.svelte';
+import AligmentRaw from '@/components/examples/components/collapsible/svelte/alignment.svelte?raw';
 
 import Dir from '@/components/examples/components/collapsible/svelte/dir.svelte';
 import DirRaw from '@/components/examples/components/collapsible/svelte/dir.svelte?raw';
@@ -16,6 +22,17 @@ import DirRaw from '@/components/examples/components/collapsible/svelte/dir.svel
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
@@ -41,16 +58,29 @@ import DirRaw from '@/components/examples/components/collapsible/svelte/dir.svel
 	</Fragment>
 </Preview>
 
-## Direction
+## Alignment
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Dir client:visible />
+		<Aligment client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={DirRaw} lang="svelte" />
+		<Code code={AligmentRaw} lang="svelte" />
 	</Fragment>
 </Preview>
+
+{/* TODO: Uncomment once Zag >=1.26.2 is released */}
+
+{/* ## Direction */}
+
+{/* <Preview client:load> */}
+{/* <Fragment slot="preview"> */}
+{/* <Dir client:visible /> */}
+{/* </Fragment> */}
+{/* <Fragment slot="code"> */}
+{/* <Code code={DirRaw} lang="svelte" /> */}
+{/* </Fragment> */}
+{/* </Preview> */}
 
 ## API Reference
 

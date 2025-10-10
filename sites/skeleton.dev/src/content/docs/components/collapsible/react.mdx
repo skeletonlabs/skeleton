@@ -1,11 +1,17 @@
 import Default from '@/components/examples/components/collapsible/react/default';
 import DefaultRaw from '@/components/examples/components/collapsible/react/default?raw';
 
+import Controlled from '@/components/examples/components/collapsible/react/controlled';
+import ControlledRaw from '@/components/examples/components/collapsible/react/controlled?raw';
+
 import Indicator from '@/components/examples/components/collapsible/react/indicator';
 import IndicatorRaw from '@/components/examples/components/collapsible/react/indicator?raw';
 
 import Disabled from '@/components/examples/components/collapsible/react/disabled';
 import DisabledRaw from '@/components/examples/components/collapsible/react/disabled?raw';
+
+import Aligment from '@/components/examples/components/collapsible/react/alignment';
+import AligmentRaw from '@/components/examples/components/collapsible/react/alignment?raw';
 
 import Dir from '@/components/examples/components/collapsible/react/dir';
 import DirRaw from '@/components/examples/components/collapsible/react/dir?raw';
@@ -16,6 +22,17 @@ import DirRaw from '@/components/examples/components/collapsible/react/dir?raw';
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 
@@ -41,16 +58,29 @@ import DirRaw from '@/components/examples/components/collapsible/react/dir?raw';
 	</Fragment>
 </Preview>
 
-## Direction
+## Alignment
 
 <Preview client:load>
 	<Fragment slot="preview">
-		<Dir client:visible />
+		<Aligment client:visible />
 	</Fragment>
 	<Fragment slot="code">
-		<Code code={DirRaw} lang="tsx" />
+		<Code code={AligmentRaw} lang="tsx" />
 	</Fragment>
 </Preview>
+
+{/* TODO: Uncomment once Zag >=1.26.2 is released */}
+
+{/* ## Direction */}
+
+{/* <Preview client:load> */}
+{/* <Fragment slot="preview"> */}
+{/* <Dir client:visible /> */}
+{/* </Fragment> */}
+{/* <Fragment slot="code"> */}
+{/* <Code code={DirRaw} lang="tsx" /> */}
+{/* </Fragment> */}
+{/* </Preview> */}
 
 ## API Reference
 
