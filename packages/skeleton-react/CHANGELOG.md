@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.0.0-next.32
+
+### Minor Changes
+
+- feat: collapsible ([#3895](https://github.com/skeletonlabs/skeleton/pull/3895))
+
+### Patch Changes
+
+- Updated dependencies [[`e8f4bb0`](https://github.com/skeletonlabs/skeleton/commit/e8f4bb05f6d3cf29de778e58c2a27d941d02128c)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.32
+
 ## 4.0.0-next.31
 
 ### Patch Changes
