@@ -1,7 +1,8 @@
+import chromium from '@sparticuz/chromium';
 import { mkdir, readFile, rm } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { chromium as playwright } from 'playwright';
 import { glob } from 'tinyglobby';
 
 const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -9,7 +10,10 @@ const SHOWCASE_PROJECTS_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'content', 'show
 const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'images', 'showcase-projects');
 
 export async function generateShowcaseThumbnails() {
-	const browser = await chromium.launch();
+	const browser = await playwright.launch({
+		args: chromium.args,
+		executablePath: await chromium.executablePath(),
+	});
 
 	const projects = await Promise.all(
 		(await glob('*.json', { cwd: SHOWCASE_PROJECTS_DIRECTORY })).map(async (file) => {

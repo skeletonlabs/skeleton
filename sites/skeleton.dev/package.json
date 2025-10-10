@@ -5,7 +5,6 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
-		"prebuild": "playwright install --with-deps chromium",
 		"build": "astro build",
 		"check": "astro check --noSync",
 		"sync": "astro sync"
@@ -25,6 +24,7 @@
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
+		"@sparticuz/chromium": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/mdast": "catalog:",
@@ -44,6 +44,7 @@
 		"nanostores": "catalog:",
 		"octokit": "catalog:",
 		"pagefind": "catalog:",
+		"playwright-core": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"remark-gfm": "catalog:",
@@ -55,7 +56,6 @@
 		"tailwindcss": "catalog:",
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
-		"playwright": "catalog:",
 		"typescript": "catalog:",
 		"unified": "catalog:",
 		"unist-util-visit": "catalog:",
