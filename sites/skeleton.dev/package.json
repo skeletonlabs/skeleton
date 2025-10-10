@@ -5,6 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
+		"prebuild": "pnpm dlx playwright install chromium",
 		"build": "astro build",
 		"check": "astro check --noSync",
 		"sync": "astro sync"
@@ -54,13 +55,11 @@
 		"tailwindcss": "catalog:",
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
+		"playwright": "catalog:",
 		"typescript": "catalog:",
 		"unified": "catalog:",
 		"unist-util-visit": "catalog:",
 		"vite-plugin-pagefind": "catalog:",
 		"vite-plugin-transform-lucide-imports": "catalog:"
-	},
-	"devDependencies": {
-		"playwright": "catalog:"
 	}
 }
