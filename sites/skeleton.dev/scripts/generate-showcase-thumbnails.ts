@@ -35,6 +35,7 @@ async function generateShowcaseThumbnails() {
 				waitUntil: 'networkidle',
 			});
 			for (const instruction of project.playwright?.instructions ?? []) {
+				// oxlint-disable-next-line typescript-eslint(no-implied-eval)
 				const fn = new Function('page', `return (async () => { ${instruction} })()`);
 				await fn(page);
 			}
