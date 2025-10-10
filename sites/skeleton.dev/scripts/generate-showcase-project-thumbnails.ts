@@ -6,9 +6,9 @@ import { glob } from 'tinyglobby';
 
 const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SHOWCASE_PROJECTS_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'content', 'showcase-projects');
-const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'images', 'showcase-projects');
+const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'images', 'showcase-project-thumbnails');
 
-async function generateShowcaseThumbnails() {
+async function generateShowcaseProjectThumbnails() {
 	const browser = await chromium.launch();
 
 	const projects = await Promise.all(
@@ -31,22 +31,23 @@ async function generateShowcaseThumbnails() {
 			const page = await browser.newPage({
 				viewport: { width: 1920, height: 1080 },
 			});
-			await page.goto(project.url, {
-				waitUntil: 'networkidle',
-			});
+			await page.goto(project.url, { waitUntil: 'networkidle' });
 			for (const instruction of project.playwright?.instructions ?? []) {
 				// oxlint-disable-next-line no-implied-eval
 				const fn = new Function('page', `return (async () => { ${instruction} })()`);
 				await fn(page);
 			}
-			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}.png`) });
+			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}-light.png`) });
+			await page.emulateMedia({ colorScheme: 'dark' });
+			await page.screenshot({ path: join(OUTPUT_DIRECTORY, `${project.slug}-dark.png`) });
+			await page.close();
 		}),
 	);
 
 	await browser.close();
 }
 
-generateShowcaseThumbnails().catch((error) => {
+generateShowcaseProjectThumbnails().catch((error) => {
 	console.error(error);
 	process.exit(1);
 });
