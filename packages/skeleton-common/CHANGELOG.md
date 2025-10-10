@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.0.0-next.32
+
+### Minor Changes
+
+- feat: collapsible ([#3895](https://github.com/skeletonlabs/skeleton/pull/3895))
+
 ## 4.0.0-next.31
 
 ### Patch Changes
