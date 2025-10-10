@@ -1,7 +1,7 @@
 {
 	"name": "Hoorai",
 	"url": "https://www.hoorai.io/",
-	"description": "...",
+	"description": "A platform that builds high-performing teams through personality insights",
 	"playwright": {
 		"instructions": [
 			"await page.locator('#onetrust-reject-all-handler').click();",
