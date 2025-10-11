@@ -1,5 +1,11 @@
 # skeleton
 
+## 4.0.0-next.33
+
+### Patch Changes
+
+- fix: migrate skeleton-4 replacing object properties like .toString() ([#3913](https://github.com/skeletonlabs/skeleton/pull/3913))
+
 ## 4.0.0-next.32
 
 ## 4.0.0-next.31
