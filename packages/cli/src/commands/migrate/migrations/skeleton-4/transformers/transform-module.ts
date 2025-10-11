@@ -15,10 +15,9 @@ function transformModule(code: string) {
 			)
 		) {
 			const name = node.getName();
-			const newName = IMPORT_MAPPINGS[name];
-			if (newName) {
+			if (Object.hasOwn(IMPORT_MAPPINGS, name)) {
 				skeletonImports.push(name);
-				node.setName(newName);
+				node.setName(IMPORT_MAPPINGS[name]!);
 			}
 		}
 	});
@@ -26,14 +25,12 @@ function transformModule(code: string) {
 	file.forEachDescendant((node) => {
 		if (Node.isPropertyAccessExpression(node)) {
 			const fullName = `${node.getExpression().getText()}.${node.getName()}`;
-			const newName = IDENTIFIER_MAPPINGS[fullName];
-			if (newName) {
-				node.replaceWithText(newName);
+			if (Object.hasOwn(IDENTIFIER_MAPPINGS, fullName)) {
+				node.replaceWithText(IDENTIFIER_MAPPINGS[fullName]!);
 			}
 		} else if (Node.isIdentifier(node) && !Node.isImportSpecifier(node.getParent())) {
-			const newName = IDENTIFIER_MAPPINGS[node.getText()];
-			if (newName) {
-				node.replaceWithText(newName);
+			if (Object.hasOwn(IDENTIFIER_MAPPINGS, node.getText())) {
+				node.replaceWithText(IDENTIFIER_MAPPINGS[node.getText()]!);
 			}
 		}
 	});

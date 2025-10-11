@@ -44,9 +44,8 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 		{},
 		{
 			Component(node, ctx) {
-				const newName = IDENTIFIER_MAPPINGS[node.name];
-				if (newName && hasRange(node) && skeletonImports.includes(node.name.split('.').at(0) || '')) {
-					renameComponent(s, node, newName);
+				if (Object.hasOwn(IDENTIFIER_MAPPINGS, node.name) && hasRange(node) && skeletonImports.includes(node.name.split('.').at(0) || '')) {
+					renameComponent(s, node, IDENTIFIER_MAPPINGS[node.name]!);
 				}
 				ctx.next();
 			},
