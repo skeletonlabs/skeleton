@@ -1,0 +1,11 @@
+{
+	"name": "Hoorai",
+	"url": "https://www.hoorai.io/",
+	"description": "Platform for talent identification and team dynamics",
+	"playwright": {
+		"instructions": [
+			"await page.locator('#onetrust-reject-all-handler').click();",
+			"await page.locator('.onetrust-pc-dark-filter.ot-fade-in').waitFor({ state: 'hidden' });"
+		]
+	}
+}

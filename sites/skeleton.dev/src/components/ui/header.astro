@@ -12,6 +12,7 @@ import { commonNavigationGroups } from '@/lib/navigation';
 const coreLinks = [
 	{ href: '/docs/get-started/introduction', title: 'Docs' },
 	{ href: '/news', title: 'News' },
+	{ href: '/showcase', title: 'Showcase' },
 	{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
 	{ href: '/figma', title: 'Figma' },
 ];
@@ -36,7 +37,7 @@ const navigationGroups = [
 
 <header class="sticky top-0 z-50 border border-surface-100-900/30 bg-surface-50-950/75 backdrop-blur-lg w-full h-[70px] flex items-center">
 	<div
-		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 xl:px-10"
+		class="container mx-auto grid max-w-screen-2xl grid-cols-[auto_1fr_auto] xl:grid-cols-[1fr_auto_auto] items-center gap-4 px-4 xl:px-10"
 	>
 		<div class="flex items-stretch justify-start gap-4">
 			<Drawer navigationGroups={navigationGroups} url={Astro.url} client:load />
@@ -48,7 +49,7 @@ const navigationGroups = [
 				<HeaderVersion client:load />
 				{
 					coreLinks.map((link) => (
-						<a class="btn hover:preset-tonal" href={link.href} target={link.target}>
+						<a class="btn btn-sm hover:preset-tonal text-sm" href={link.href} target={link.target}>
 							{link.title}
 						</a>
 					))
