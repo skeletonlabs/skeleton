@@ -32,7 +32,7 @@ Make sure you've accounted for the following:
 To begin, we will run a quick automated migration.
 
 ```console
-npx skeleton@next migrate skeleton-4
+npx skeleton migrate skeleton-4
 ```
 
 This will handle the following package and stylesheet updates. Once complete, skip to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below, <u>which are required for all migrations</u>.
@@ -44,15 +44,13 @@ For the Release Candidate, please update each Skeleton package to the early acce
 **React**
 
 ```console
-npm remove @skeletonlabs/skeleton @skeletonlabs/skeleton-react
-npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-react@next
+npm install @skeletonlabs/skeleton@latest @skeletonlabs/skeleton-react@latest
 ```
 
 **Svelte**
 
 ```console
-npm remove @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
-npm i -D @skeletonlabs/skeleton@next @skeletonlabs/skeleton-svelte@next
+npm install @skeletonlabs/skeleton@latest @skeletonlabs/skeleton-svelte@latest
 ```
 
 ### Update Stylesheet Imports
