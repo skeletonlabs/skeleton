@@ -7,7 +7,6 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context';
 	import { RootContext } from '../modules/root-context';
 	import { classesToggleGroup } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
@@ -29,8 +28,6 @@
 			rest,
 		),
 	);
-
-	ItemContext.provide(() => itemProps);
 </script>
 
 {#if element}
