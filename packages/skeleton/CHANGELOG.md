@@ -1,5 +1,35 @@
 # @skeletonlabs/skeleton
 
+## 4.0.0
+
+### Major Changes
+
+- feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
+
+### Minor Changes
+
+- feat: Add framework package `@source` rules to remove the need for users to explicitely add these ([#3656](https://github.com/skeletonlabs/skeleton/pull/3656))
+
+- feat: merge optional `preset` styles into core ([#3714](https://github.com/skeletonlabs/skeleton/pull/3714))
+
+- feat: progress circular ([#3779](https://github.com/skeletonlabs/skeleton/pull/3779))
+
+### Patch Changes
+
+- feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
+
+- fix: replace `all` with dedicated transition properties on `btn` utility ([#3773](https://github.com/skeletonlabs/skeleton/pull/3773))
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
+- fix: changeset link ([#3863](https://github.com/skeletonlabs/skeleton/pull/3863))
+
+- fix: disable hover styles for `btn` when `disabled` ([#3757](https://github.com/skeletonlabs/skeleton/pull/3757))
+
+- chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
+
 ## 4.0.0-next.33
 
 ## 4.0.0-next.32
