@@ -20,15 +20,12 @@ export default defineConfig({
 				},
 			},
 		}),
-		mdx({
-			optimize: true,
-		}),
+		mdx(),
 		sitemap(),
 		partytown(),
 		pagefind(),
 	],
 	vite: {
-		// @ts-expect-error Vite version mismatch
 		plugins: [tailwindcss()],
 	},
 });
