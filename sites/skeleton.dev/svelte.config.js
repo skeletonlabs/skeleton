@@ -19,7 +19,9 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: adapter()
+		adapter: adapter({
+			runtime: 'nodejs20.x'
+		})
 		// https://kit.svelte.dev/docs/configuration#alias
 	}
 };
