@@ -3,7 +3,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 export const classesToggleGroup = defineSkeletonClasses({
 	root: [
 		'inline-flex preset-outlined-surface-200-800 p-2 gap-2 rounded',
-		'group-data-[orientation=horizontal]:flex-row group-data-[orientation=vertical]:flex-col',
+		'data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col',
 	],
 	item: [
 		'btn cursor-pointer z-10 flex-1',
