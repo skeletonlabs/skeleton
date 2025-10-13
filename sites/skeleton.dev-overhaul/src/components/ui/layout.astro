@@ -10,8 +10,10 @@ interface Props {
 	description?: string;
 }
 
-const { title = 'Skeleton', description = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.' } =
-	Astro.props;
+const DEFAULT_TITLE = 'Skeleton';
+const DEFAULT_DESCRIPTION = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.';
+
+const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
 
 <html lang="en" transition:animate="none">
