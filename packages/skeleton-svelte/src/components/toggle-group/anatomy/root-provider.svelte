@@ -1,9 +1,10 @@
 <script lang="ts" module>
+	import type { useToggleGroup } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '@/internal/html-attributes';
 	import type { PropsWithElement } from '@/internal/props-with-element';
 
 	export interface ToggleGroupRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		value: any;
+		value: ReturnType<typeof useToggleGroup>;
 	}
 </script>
 

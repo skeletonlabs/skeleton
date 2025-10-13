@@ -3,7 +3,6 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/toggle-group';
 
-	// Omit keys that overlap between ItemProps and native button attributes to avoid type conflicts
 	export interface ToggleGroupItemProps extends ItemProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'disabled' | 'value'> {}
 </script>
 
