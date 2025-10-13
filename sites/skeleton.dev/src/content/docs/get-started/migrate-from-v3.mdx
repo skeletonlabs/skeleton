@@ -9,7 +9,7 @@ import Alert from '@/components/mdx/alert.astro';
 
 <Alert type="warning">The Skeleton v4 Release Candidate is an early access preview and not yet intended for production use.</Alert>
 
-Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabalized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time.
+Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabilized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time. It also aims to make Skeleton's components as simple and intuitive to use as possible for new users.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Make sure you've accounted for the following:
 
 - Ensure both Skeleton packages (core and framework) are updated to the latest v3.x release.
 - Update all critical dependencies in your app to their latest version (optional but recommended)
-- Your app has been tested and is in a functional state.
+- Make sure your app has been tested and is in a functional state.
 
 ---
 
@@ -35,7 +35,7 @@ To begin, we will run a quick automated migration.
 npx skeleton migrate skeleton-4
 ```
 
-This will handle the following package and stylesheet updates. Once complete, skip to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below, <u>which are required for all migrations</u>.
+This will handle the package and stylesheet updates in the next couple steps. If you opt for the CLI, feel free to skip down to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below. Note the manual steps are required for all migrations.
 
 ### Update NPM Packages
 
@@ -64,7 +64,7 @@ The `@source` rules for sourcing component styles have been replaced with simple
 + @import '@skeletonlabs/skeleton-{framework}';
 ```
 
-In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to keep them opt-in. However, due to popular demand, these have now been rolled back into the core package. If this import is present, please remove it:
+In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
 
 ```diff
 - @import '@skeletonlabs/skeleton/optional/presets';
@@ -74,38 +74,38 @@ In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an option
 
 ## Manual Migration
 
-Assuming all above steps have been complete, you will now be required to handle the manual portion of the migration. The steps below are not optional and must be completed to migrate to Skeleton v4.
+Assuming all above steps have been completed in full, you will now be required to handle the manual portion of the migration. The steps below are not optional and must be completed to finalize your migration to Skeleton v4.
 
 ### Migrating Components
 
-To begin migrating components, please consult the code snippets found on each respective component's documentation page for reference. Below an example of that process specifically for the Avatar component.
+Below is an example of that process specifically tailored for the Avatar component.
 
 **Was (v3)**
 
 ```svelte
-<Avatar src="https://i.pravatar.cc/150?img=48" name="skeleton" />
+<Avatar src="https://i.pravatar.cc/150?img=48" name="Jane Doe" />
 ```
 
 **Now (v4 RC)**
 
 ```svelte
 <Avatar>
-	<Avatar.Image src="https://i.pravatar.cc/150?img=48" />
+	<Avatar.Image src="https://i.pravatar.cc/150?img=48" alt="Jane Doe" />
 	<Avatar.Fallback>SK</Avatar.Fallback>
 </Avatar>
 ```
 
 1. Consult the Avatar documentation for [React](/docs/components/avatar/react) or [Svelte](/docs/components/avatar/svelte).
 2. Keep the import as is; no changes are required for this component.
-3. The root component `<Avatar>` remains; remove the `src` or `name` props.
-4. Implement the new `<Avatar.Image>` child and pass the `src` path.
+3. The root component `<Avatar>` remains; remove the `src`, `alt`, and or `name` props.
+4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
 5. Initials are no longer generated via the `name`; instead specify a fallback with `<Avatar.Fallback>`
 
-> TIP: To locate components, search your project by the v3 component name, such `<Avat...` for Avatar.
+> TIP: To locate components, search your project by the v3 component name, such `<Avat...` for Avatar. We recommend commenting out each Skeleton component instance, then enabling them one-by-one as you migrate to the new format.
 
 ### Rename Components
 
-As part of this update, select components have been renamed. Most now follow [Zag.js](https://zagjs.com/) naming conventions.
+As part of this update, select components have been renamed. We now aim to follow the [Zag.js](https://zagjs.com/) naming conventions.
 
 | Was (v3)            | Now (v4)                     | v4 Docs                                                                                                 |
 | ------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -121,8 +121,4 @@ As part of this update, select components have been renamed. Most now follow [Za
 
 ## Support and Feedback
 
-For the duration of this early access preview, we ask that you please test the new component structure, styling, and markup features in your real-world projects. We encourage you to share your experience and report issues on either Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). Your feedback will be invaluable to guide any last minutes changes and determine when the final release is ready. We appreciate your input!
-
-{/* NOTE: Swap the support block to this during the full release. */}
-{/* ## Component Guidelines */}
-{/* If you would like a deeper understanding of how components operate in Skeleton v4, we recommend browsing the [Contribution Guidelines](https://next.skeleton.dev/docs/resources/contribute/components). Use this to update your custom components to the latest standards for Skeleton. */}
+If you have any questions or issues about the migration process, please contact us on Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!

@@ -45,7 +45,7 @@ Tailwind components that act as primitives for creating complex interfaces. Prov
 
 ## Functional Components
 
-Skeleton also offers optional component packages for a number of select component frameworks. Each component automatically adapt to Skeleton's design system.
+Skeleton also offers optional component packages for select component frameworks. Each component automatically adapts to Skeleton's design system. While still allowing a high level of customization.
 
 | Framework | NPM Package                     | Description                     |
 | --------- | ------------------------------- | ------------------------------- |
@@ -89,7 +89,7 @@ Skeleton components are granular. This offers direct access to all children with
 
 ### Styling Components
 
-Skeleton components implement a universal convention for accepting CSS utility classes via the `class` attribute. Use this to pass any Tailwind or Skeleton utility class.
+Skeleton components implement a universal convention for accepting CSS utility classes via the `class` attribute. Use this to pass any CSS utility class.
 
 ```svelte
 <Avatar class="rounded-2xl">
@@ -98,7 +98,7 @@ Skeleton components implement a universal convention for accepting CSS utility c
 </Avatar>
 ```
 
-By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures any classes you pass through the `class` attribute are automatically given precedence.
+By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures any classes you pass through the `class` attribute are automatically given precedence. No mental overhead, it just works.
 
 ```css
 @custom-variant skb {
@@ -110,7 +110,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 
 ### Extensible Markup
 
-Skeleton components provide a mechasism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
+Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and show not be needed for normal usage.
 
 **React:**
 
@@ -152,7 +152,7 @@ export default function () {
 
 ### Custom Animations
 
-Using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
+However, using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
 
 ```ts
 import { slide } from 'svelte/transition';
@@ -185,7 +185,7 @@ import { slide } from 'svelte/transition';
 
 ### Provider Pattern
 
-Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root, and provides access to the inner component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
+Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root and provides access to the inner component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
 
 ```svelte
 <script lang="ts">
