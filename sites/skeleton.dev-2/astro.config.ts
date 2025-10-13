@@ -9,7 +9,7 @@ import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	site: `https://${process.env.VERCEL_URL}`,
+	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
 	adapter: vercel(),
 	integrations: [
 		react(),
