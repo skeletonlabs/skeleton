@@ -1,0 +1,13 @@
+# generated files
+dist/
+.astro/
+.vercel
+
+# dependencies
+node_modules/
+
+# logs
+pnpm-debug.log*
+
+# macOS-specific files
+.DS_Store

@@ -1,0 +1,141 @@
+---
+title: Accordion
+description: Accordion component documentation page.
+---
+
+import { Code } from 'astro:components';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+import DefaultSvelte from '@/components/examples/accordion/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/accordion/svelte/default.svelte?raw';
+import DefaultReact from '@/components/examples/accordion/react/default';
+import DefaultReactRaw from '@/components/examples/accordion/react/default?raw';
+import ControlledSvelte from '@/components/examples/accordion/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/accordion/svelte/controlled.svelte?raw';
+import ControlledReact from '@/components/examples/accordion/react/controlled';
+import ControlledReactRaw from '@/components/examples/accordion/react/controlled?raw';
+import MultipleSvelte from '@/components/examples/accordion/svelte/multiple.svelte';
+import MultipleSvelteRaw from '@/components/examples/accordion/svelte/multiple.svelte?raw';
+import MultipleReact from '@/components/examples/accordion/react/multiple';
+import MultipleReactRaw from '@/components/examples/accordion/react/multiple?raw';
+import CollapsibleSvelte from '@/components/examples/accordion/svelte/collapsible.svelte';
+import CollapsibleSvelteRaw from '@/components/examples/accordion/svelte/collapsible.svelte?raw';
+import CollapsibleReact from '@/components/examples/accordion/react/collapsible';
+import CollapsibleReactRaw from '@/components/examples/accordion/react/collapsible?raw';
+import IndicatorSvelte from '@/components/examples/accordion/svelte/indicator.svelte';
+import IndicatorSvelteRaw from '@/components/examples/accordion/svelte/indicator.svelte?raw';
+import IndicatorReact from '@/components/examples/accordion/react/indicator';
+import IndicatorReactRaw from '@/components/examples/accordion/react/indicator?raw';
+import OrientationSvelte from '@/components/examples/accordion/svelte/orientation.svelte';
+import OrientationSvelteRaw from '@/components/examples/accordion/svelte/orientation.svelte?raw';
+import OrientationReact from '@/components/examples/accordion/react/orientation';
+import OrientationReactRaw from '@/components/examples/accordion/react/orientation?raw';
+import DirSvelte from '@/components/examples/accordion/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/accordion/svelte/dir.svelte?raw';
+import DirReact from '@/components/examples/accordion/react/dir';
+import DirReactRaw from '@/components/examples/accordion/react/dir?raw';
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <DefaultSvelte slot="preview" client:visible />
+        <Code slot="code" code={DefaultSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <DefaultReact slot="preview" client:visible />
+        <Code slot="code" code={DefaultReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Controlled
+
+Use the `open` and `onOpenChange` props to control the state.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <ControlledSvelte slot="preview" client:visible />
+        <Code slot="code" code={ControlledSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <ControlledReact slot="preview" client:visible />
+        <Code slot="code" code={ControlledReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Multiple
+
+Allow multiple accordion items to stay open at once using the `multiple` prop.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <MultipleSvelte slot="preview" client:visible />
+        <Code slot="code" code={MultipleSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <MultipleReact slot="preview" client:visible />
+        <Code slot="code" code={MultipleReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Collapsible
+
+Allow closing all items when one is open using the `collapsible` prop.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <CollapsibleSvelte slot="preview" client:visible />
+        <Code slot="code" code={CollapsibleSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <CollapsibleReact slot="preview" client:visible />
+        <Code slot="code" code={CollapsibleReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Indicator
+
+Add a custom indicator to accordion triggers.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <IndicatorSvelte slot="preview" client:visible />
+        <Code slot="code" code={IndicatorSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <IndicatorReact slot="preview" client:visible />
+        <Code slot="code" code={IndicatorReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Orientation
+
+Render the accordion vertically or horizontally using the `orientation` prop.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <OrientationSvelte slot="preview" client:visible />
+        <Code slot="code" code={OrientationSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <OrientationReact slot="preview" client:visible />
+        <Code slot="code" code={OrientationReactRaw} lang="tsx" />
+    </Preview>
+</Framework>
+
+## Dir
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework>
+    <Preview slot="svelte" client:load>
+        <DirSvelte slot="preview" client:visible />
+        <Code slot="code" code={DirSvelteRaw} lang="svelte" />
+    </Preview>
+    <Preview slot="react" client:load>
+        <DirReact slot="preview" client:visible />
+        <Code slot="code" code={DirReactRaw} lang="tsx" />
+    </Preview>
+</Framework>

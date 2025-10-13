@@ -8,7 +8,9 @@ catalog:
   '@astrojs/mdx': 4.3.6
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
+  '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.0
+  '@astrojs/vercel': 8.2.9
   '@atproto/api': 0.17.1
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
@@ -64,6 +66,8 @@ catalog:
   astro: 5.14.1
   astro-auto-import: 0.4.5
   astro-expressive-code: 0.41.3
+  astro-pagefind: 1.8.5
+  astro-seo: 0.8.4
   chroma-js: 3.1.2
   colorette: 2.0.20
   commander: 14.0.1
