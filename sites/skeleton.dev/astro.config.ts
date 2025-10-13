@@ -80,7 +80,9 @@ export default defineConfig({
 		/**
 		 * Note: Keep this as the last integration so that framework components are available in MDX.
 		 */
-		mdx(),
+		mdx({
+			optimize: true,
+		}),
 	],
 	vite: {
 		plugins: [
