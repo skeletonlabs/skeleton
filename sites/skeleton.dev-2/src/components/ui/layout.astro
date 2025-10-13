@@ -73,30 +73,23 @@ const { title = 'Skeleton', description = 'Documentation for Skeleton, the UI to
 				],
 			}}
 		/>
-		<script defer is:inline>
-			const DEFAULT_MODE = 'dark';
-			const DEFAULT_THEME = 'cerberus';
-
-			function applyTheme(document = window.document) {
-				const storedTheme = localStorage.getItem('theme');
-				const theme = storedTheme ?? DEFAULT_THEME;
-				document.documentElement.setAttribute('data-theme', theme);
-			}
-
-			function applyMode(document = window.document) {
+		<script defer is:inline data-astro-rerun>
+			function initializeMode() {
+				const DEFAULT_MODE = 'dark';
 				const storedMode = localStorage.getItem('mode');
 				const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 				const mode = storedMode ?? preferredMode ?? DEFAULT_MODE;
 				document.documentElement.setAttribute('data-mode', mode);
 			}
+			function initializeTheme() {
+				const DEFAULT_THEME = 'cerberus';
+				const storedTheme = localStorage.getItem('theme');
+				const theme = storedTheme ?? DEFAULT_THEME;
+				document.documentElement.setAttribute('data-theme', theme);
+			}
 
-			applyTheme();
-			applyMode();
-
-			document.addEventListener('astro:before-swap', (event) => {
-				applyTheme(event.newDocument);
-				applyMode(event.newDocument);
-			});
+			initializeMode();
+			initializeTheme();
 		</script>
 		<ClientRouter />
 	</head>
