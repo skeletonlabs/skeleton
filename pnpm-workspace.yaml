@@ -59,6 +59,7 @@ catalog:
   '@zag-js/tabs': 1.26.1
   '@zag-js/tags-input': 1.26.1
   '@zag-js/toast': 1.26.1
+  '@zag-js/toggle-group': 1.26.1
   '@zag-js/tooltip': 1.26.1
   '@zag-js/tree-view': 1.26.1
   astro: 5.14.4

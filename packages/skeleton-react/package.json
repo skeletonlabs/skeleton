@@ -49,6 +49,7 @@
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
 		"@zag-js/toast": "catalog:",
+		"@zag-js/toggle-group": "catalog:",
 		"@zag-js/tooltip": "catalog:",
 		"@zag-js/tree-view": "catalog:"
 	},
