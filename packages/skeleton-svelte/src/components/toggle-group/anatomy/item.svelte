@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ItemProps } from '@zag-js/toggle-group';
 
-	export interface ToggleGroupItemProps extends ItemProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'disabled' | 'value'> {}
+	export interface ToggleGroupItemProps extends ItemProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
 </script>
 
 <script lang="ts">
