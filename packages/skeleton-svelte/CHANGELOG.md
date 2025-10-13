@@ -1,5 +1,106 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.0
+
+### Major Changes
+
+- feat: v4 preperation ([#3662](https://github.com/skeletonlabs/skeleton/pull/3662))
+
+### Minor Changes
+
+- feat: tooltip ([#3697](https://github.com/skeletonlabs/skeleton/pull/3697))
+
+- feat: dialog ([#3700](https://github.com/skeletonlabs/skeleton/pull/3700))
+
+- feat: toast ([#3704](https://github.com/skeletonlabs/skeleton/pull/3704))
+
+- feat: tabs ([#3679](https://github.com/skeletonlabs/skeleton/pull/3679))
+
+- feat: portal ([#3812](https://github.com/skeletonlabs/skeleton/pull/3812))
+
+- feat: progress-linear ([#3694](https://github.com/skeletonlabs/skeleton/pull/3694))
+
+- feat: combobox ([#3702](https://github.com/skeletonlabs/skeleton/pull/3702))
+
+- feat: Use classes inside `@skeletonlabs/skeleton-common` to dedupe tailwind classes ([#3656](https://github.com/skeletonlabs/skeleton/pull/3656))
+
+- feat: date picker ([#3835](https://github.com/skeletonlabs/skeleton/pull/3835))
+
+- feat: tags input ([#3740](https://github.com/skeletonlabs/skeleton/pull/3740))
+
+- feat: switch ([#3695](https://github.com/skeletonlabs/skeleton/pull/3695))
+
+- feat: rating-group ([#3681](https://github.com/skeletonlabs/skeleton/pull/3681))
+
+- feat: popover ([#3696](https://github.com/skeletonlabs/skeleton/pull/3696))
+
+- feat: slider ([#3771](https://github.com/skeletonlabs/skeleton/pull/3771))
+
+- feat: pagination ([#3780](https://github.com/skeletonlabs/skeleton/pull/3780))
+
+- feat: progress circular ([#3779](https://github.com/skeletonlabs/skeleton/pull/3779))
+
+- feat: app-bar ([#3783](https://github.com/skeletonlabs/skeleton/pull/3783))
+
+- feat: segmented control ([#3758](https://github.com/skeletonlabs/skeleton/pull/3758))
+
+- feat: listbox ([#3843](https://github.com/skeletonlabs/skeleton/pull/3843))
+
+- feat: file-upload ([#3693](https://github.com/skeletonlabs/skeleton/pull/3693))
+
+- feat: navigation ([#3800](https://github.com/skeletonlabs/skeleton/pull/3800))
+
+- feat: expose `DateValue` type ([#3883](https://github.com/skeletonlabs/skeleton/pull/3883))
+
+- feat: collapsible ([#3895](https://github.com/skeletonlabs/skeleton/pull/3895))
+
+### Patch Changes
+
+- fix: add missing exports ([#3874](https://github.com/skeletonlabs/skeleton/pull/3874))
+
+- chore: Add missing `Label` and `Control` components to `SegmentedControl` ([#3817](https://github.com/skeletonlabs/skeleton/pull/3817))
+
+- chore: bump zag ([#3888](https://github.com/skeletonlabs/skeleton/pull/3888))
+
+- fix: exclude .map files from being published ([`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304))
+
+- fix: override skeleton specific attributes ([#3803](https://github.com/skeletonlabs/skeleton/pull/3803))
+
+- fix: add missing export ([#3880](https://github.com/skeletonlabs/skeleton/pull/3880))
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
+- chore: update zag ([#3836](https://github.com/skeletonlabs/skeleton/pull/3836))
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
+- chore: remove Accordion.ItemHeading in favor of having users provide a <h3> themselves ([#3850](https://github.com/skeletonlabs/skeleton/pull/3850))
+
+- fix: dependency range ([#3742](https://github.com/skeletonlabs/skeleton/pull/3742))
+
+- chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
+
+- Updated dependencies [[`997c17f`](https://github.com/skeletonlabs/skeleton/commit/997c17ff6dd29328753f9381154e80853792ec3e), [`890c826`](https://github.com/skeletonlabs/skeleton/commit/890c8260f4d561a99e07440cfce3ef7a9b88e0ed), [`69cf72e`](https://github.com/skeletonlabs/skeleton/commit/69cf72efdad48e3087852e63d7143628de1d7428), [`dff68d8`](https://github.com/skeletonlabs/skeleton/commit/dff68d8f824ddb1aef820e75ab3bdebe06546e07), [`f272f42`](https://github.com/skeletonlabs/skeleton/commit/f272f42ae2a92648d275618089a5c41aaf4efe13), [`a9c651a`](https://github.com/skeletonlabs/skeleton/commit/a9c651adac035dc4613f0118bca05f0cfb0b22b5), [`09bf2b2`](https://github.com/skeletonlabs/skeleton/commit/09bf2b20dbbfed53af7c31281da21cc5790d87c9), [`5dcc4bb`](https://github.com/skeletonlabs/skeleton/commit/5dcc4bb6ce3d7de181956932521b5fec10a581f2), [`19bd792`](https://github.com/skeletonlabs/skeleton/commit/19bd79224a599cc05df7122b9279d88736c8e4c4), [`3776570`](https://github.com/skeletonlabs/skeleton/commit/3776570c21d060a653bdde8a164e95e8aecdbaab), [`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304), [`770431d`](https://github.com/skeletonlabs/skeleton/commit/770431da15a354c66ef69cc0df5049e893147e2f), [`5d517a8`](https://github.com/skeletonlabs/skeleton/commit/5d517a840ac27bea4d5fd2fd2b150abf779075b0), [`b599260`](https://github.com/skeletonlabs/skeleton/commit/b599260c41276aa88ca0c71d6ec3c77c281d0bcc), [`247fe15`](https://github.com/skeletonlabs/skeleton/commit/247fe154b55ec86b37b12b10771ba0403b488053), [`fc27770`](https://github.com/skeletonlabs/skeleton/commit/fc27770b37fc2b224444b220020c2141f9fe2da0), [`c4df8e6`](https://github.com/skeletonlabs/skeleton/commit/c4df8e6de82253838f5812af7cce586dd4076477), [`3c28f1a`](https://github.com/skeletonlabs/skeleton/commit/3c28f1a37cc559e2ba33d69301a0154e30750ca0), [`24526af`](https://github.com/skeletonlabs/skeleton/commit/24526affc00c70b08af0ba1299c82ba64ec9d58a), [`aa6392e`](https://github.com/skeletonlabs/skeleton/commit/aa6392efb829ea01b1466b5c6a623adf05f96f4e), [`e6ab4f7`](https://github.com/skeletonlabs/skeleton/commit/e6ab4f78a4e1aa9132c05da04d5a89b1a7dacece), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`6972031`](https://github.com/skeletonlabs/skeleton/commit/69720310c6510eaf430f9bacda2b456dae8993ff), [`1d8a151`](https://github.com/skeletonlabs/skeleton/commit/1d8a15137c79c293674fd70794f69a2fe6cd18a4), [`d65abd7`](https://github.com/skeletonlabs/skeleton/commit/d65abd7c5bd9e694aeeaa3b54310971e63e8de50), [`6e68a49`](https://github.com/skeletonlabs/skeleton/commit/6e68a493da7aaf9b416b0e3c5d4b2570cf0039c4), [`91c9bb5`](https://github.com/skeletonlabs/skeleton/commit/91c9bb5908c6c132f7b0bdeff928adf88094e952), [`867170c`](https://github.com/skeletonlabs/skeleton/commit/867170cc7f5aa8def2ebf4d9569bbde42492d133), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`f818b24`](https://github.com/skeletonlabs/skeleton/commit/f818b2478f9ee0b5f64f119fd69d1a27a58c1d07), [`e8f4bb0`](https://github.com/skeletonlabs/skeleton/commit/e8f4bb05f6d3cf29de778e58c2a27d941d02128c)]:
+  - @skeletonlabs/skeleton-common@4.0.0
+
+## 4.0.0-next.33
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.0-next.33
+
+## 4.0.0-next.32
+
+### Minor Changes
+
+- feat: collapsible ([#3895](https://github.com/skeletonlabs/skeleton/pull/3895))
+
+### Patch Changes
+
+- Updated dependencies [[`e8f4bb0`](https://github.com/skeletonlabs/skeleton/commit/e8f4bb05f6d3cf29de778e58c2a27d941d02128c)]:
+  - @skeletonlabs/skeleton-common@4.0.0-next.32
+
 ## 4.0.0-next.31
 
 ### Patch Changes

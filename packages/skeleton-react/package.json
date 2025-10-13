@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "4.0.0-next.31",
+	"version": "4.0.0",
 	"description": "The React package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -31,6 +31,7 @@
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
+		"@zag-js/collapsible": "catalog:",
 		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
 		"@zag-js/date-picker": "catalog:",

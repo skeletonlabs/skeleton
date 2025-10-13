@@ -7,7 +7,8 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check --noSync",
-		"sync": "astro sync"
+		"sync": "astro sync",
+		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
 	},
 	"dependencies": {
 		"@astrojs/check": "catalog:",
@@ -43,6 +44,7 @@
 		"nanostores": "catalog:",
 		"octokit": "catalog:",
 		"pagefind": "catalog:",
+		"playwright": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"remark-gfm": "catalog:",

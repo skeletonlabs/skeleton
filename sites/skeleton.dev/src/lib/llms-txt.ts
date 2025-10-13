@@ -1,5 +1,5 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import type { Root } from 'mdast';
+import type { Paragraph, Root, Heading, Table, TableRow, TableCell } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { mdxFromMarkdown } from 'mdast-util-mdx';
 import type { MdxJsxAttribute, MdxJsxExpressionAttribute, MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
@@ -25,56 +25,16 @@ function print(ast: Root) {
 	return unified().use(remarkMdx).use(remarkGfm).use(remarkStringify).stringify(ast);
 }
 
-function generateTableFromSchema(schema: CollectionEntry<'types'>['data']) {
-	function createCell(value: string) {
-		return {
-			type: 'tableCell',
-			children: [
-				{
-					type: 'text',
-					value,
-				},
-			],
-		};
-	}
-	return {
-		type: 'table',
-		align: [],
-		children: [
-			{
-				type: 'tableRow',
-				children: ['Property', 'Default', 'Type'].map((val) => ({
-					type: 'tableCell',
-					children: [{ type: 'text', value: val }],
-				})),
-			},
-			...schema.types.flatMap((type) =>
-				type.props.map((prop) => {
-					const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
-					const description = prop.JSDoc.description ? ` — ${prop.JSDoc.description}` : '';
-					return {
-						type: 'tableRow',
-						children: [createCell(prop.name), createCell(defaultValue), createCell(`${prop.type}${description}`)],
-					};
-				}),
-			),
-		],
-	};
-}
-
-async function processApiTable(node: MdxJsxFlowElement, index: number, parent: Parent, entry: CollectionEntry<'docs'>) {
-	const frameworkAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'framework');
-	const componentAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'component');
-	const framework = frameworkAttribute?.value ? (frameworkAttribute.value as string) : entry.id.split('/').at(-1);
-	const component = componentAttribute?.value ? (componentAttribute.value as string) : entry.id.split('/').at(-2);
-	if (!framework || !component) {
-		return;
-	}
-	const typesEntry = await getEntry('types', `${framework}/${component}`);
-	if (!typesEntry) {
-		return;
-	}
-	parent.children.splice(index, 1, generateTableFromSchema(typesEntry.data));
+async function processAlerts(ast: Root) {
+	visit(ast, (node, index, parent) => {
+		if (!parent || typeof index !== 'number') return;
+		if (node.type === 'mdxJsxFlowElement' && node.name === 'Alert') {
+			parent.children.splice(index, 1, {
+				type: 'paragraph',
+				children: node.children,
+			} as Paragraph);
+		}
+	});
 }
 
 async function loadFileContent(importPath: string) {
@@ -153,6 +113,88 @@ async function processPreview(node: MdxJsxFlowElement, index: number, parent: Pa
 	}
 }
 
+async function processPreviews(ast: Root) {
+	const importMap = buildImportMap(ast);
+	const promises: Promise<void>[] = [];
+	visit(ast, (node, index, parent) => {
+		if (!parent || typeof index !== 'number') return;
+		if (node.type === 'mdxJsxFlowElement' && node.name === 'Preview') {
+			promises.push(processPreview(node, index, parent, importMap));
+		}
+	});
+	await Promise.all(promises);
+}
+
+function generateTablesFromSchema(schema: CollectionEntry<'types'>['data']) {
+	function createCell(value: string): TableCell {
+		return {
+			type: 'tableCell',
+			children: [{ type: 'text', value }],
+		};
+	}
+	const tables: (Heading | Table)[] = [];
+	for (const type of schema.types) {
+		tables.push({
+			type: 'heading',
+			depth: 3,
+			children: [{ type: 'text', value: type.name }],
+		} satisfies Heading);
+		const headerRow = {
+			type: 'tableRow',
+			children: ['Property', 'Default', 'Type', 'Description'].map((val) => ({
+				type: 'tableCell',
+				children: [{ type: 'text', value: val }],
+			})),
+		} satisfies TableRow;
+		const bodyRows: TableRow[] = type.props.map((prop) => {
+			const defaultValue = prop.JSDoc.tags.find((t) => t.name === 'default')?.value ?? '-';
+			const description = prop.JSDoc.description ?? '-';
+			return {
+				type: 'tableRow',
+				children: [
+					createCell(prop.name + (prop.optional ? '?' : '')),
+					createCell(defaultValue),
+					createCell(prop.type),
+					createCell(description),
+				],
+			};
+		});
+		const table: Table = {
+			type: 'table',
+			align: [],
+			children: [headerRow, ...bodyRows],
+		};
+		tables.push(table);
+	}
+	return tables;
+}
+
+async function processApiTable(node: MdxJsxFlowElement, index: number, parent: Parent, entry: CollectionEntry<'docs'>) {
+	const frameworkAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'framework');
+	const componentAttribute = node.attributes?.find((a) => a.type === 'mdxJsxAttribute' && a.name === 'component');
+	const framework = frameworkAttribute?.value ? (frameworkAttribute.value as string) : entry.id.split('/').at(-1);
+	const component = componentAttribute?.value ? (componentAttribute.value as string) : entry.id.split('/').at(-2);
+	if (!framework || !component) {
+		return;
+	}
+	const typesEntry = await getEntry('types', `${framework}/${component}`);
+	if (!typesEntry) {
+		return;
+	}
+	parent.children.splice(index, 1, ...generateTablesFromSchema(typesEntry.data));
+}
+
+async function processApiTables(ast: Root, entry: CollectionEntry<'docs'>) {
+	const promises: Promise<void>[] = [];
+	visit(ast, (node, index, parent) => {
+		if (!parent || typeof index !== 'number') return;
+		if (node.type === 'mdxJsxFlowElement' && node.name === 'ApiTable') {
+			promises.push(processApiTable(node, index, parent, entry));
+		}
+	});
+	await Promise.all(promises);
+}
+
 function prependData(ast: Root, data: CollectionEntry<'docs'>['data']) {
 	ast.children = [
 		{
@@ -178,29 +220,6 @@ function prependData(ast: Root, data: CollectionEntry<'docs'>['data']) {
 	];
 }
 
-async function processApiTables(ast: Root, entry: CollectionEntry<'docs'>) {
-	const promises: Promise<void>[] = [];
-	visit(ast, (node, index, parent) => {
-		if (!parent || typeof index !== 'number') return;
-		if (node.type === 'mdxJsxFlowElement' && node.name === 'ApiTable') {
-			promises.push(processApiTable(node, index, parent, entry));
-		}
-	});
-	await Promise.all(promises);
-}
-
-async function processPreviews(ast: Root) {
-	const importMap = buildImportMap(ast);
-	const promises: Promise<void>[] = [];
-	visit(ast, (node, index, parent) => {
-		if (!parent || typeof index !== 'number') return;
-		if (node.type === 'mdxJsxFlowElement' && node.name === 'Preview') {
-			promises.push(processPreview(node, index, parent, importMap));
-		}
-	});
-	await Promise.all(promises);
-}
-
 export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Promise<string> {
 	if (!entry.body) {
 		throw new Error('Entry has no body');
@@ -213,8 +232,9 @@ export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Pro
 		};
 	}
 	const ast = parse(entry.body);
-	await processApiTables(ast, entry);
+	await processAlerts(ast);
 	await processPreviews(ast);
+	await processApiTables(ast, entry);
 	ast.children = ast.children.filter((node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement'].includes(node.type));
 	prependData(ast, entry.data);
 	return print(ast);

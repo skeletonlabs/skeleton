@@ -1,6 +1,7 @@
 export * from './components/accordion/index';
 export * from './components/app-bar/index';
 export * from './components/avatar/index';
+export * from './components/collapsible/index';
 export * from './components/combobox/index';
 export * from './components/date-picker/index';
 export * from './components/dialog/index';
