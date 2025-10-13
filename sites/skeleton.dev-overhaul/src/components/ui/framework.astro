@@ -11,12 +11,3 @@ const frameworks = await getCollection('frameworks');
 		</div>
 	))
 }
-
-<!-- {
-  frameworks.map(
-    (framework) =>
-      framework.id === Astro.params.framework && (
-        <Fragment set:html={Astro.slots.render(framework.id)} />
-      )
-  )
-} -->
