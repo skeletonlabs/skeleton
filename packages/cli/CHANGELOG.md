@@ -1,5 +1,31 @@
 # skeleton
 
+## 4.0.0
+
+### Minor Changes
+
+- feat: skeleton-4 migration ([#3872](https://github.com/skeletonlabs/skeleton/pull/3872))
+
+- feat: support module transformations ([#3878](https://github.com/skeletonlabs/skeleton/pull/3878))
+
+### Patch Changes
+
+- fix: updating -> installing ([`583742e`](https://github.com/skeletonlabs/skeleton/commit/583742ee0ea6f49b2a280ba37a48abf9c60c510f))
+
+- fix: add missing exports ([#3874](https://github.com/skeletonlabs/skeleton/pull/3874))
+
+- fix: exclude .map files from being published ([`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304))
+
+- perf: Reduce overhead in v3 module migrations ([#3777](https://github.com/skeletonlabs/skeleton/pull/3777))
+
+- fix: migrate skeleton-4 replacing object properties like .toString() ([#3913](https://github.com/skeletonlabs/skeleton/pull/3913))
+
+- chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
+
+- chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
+
+- chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
+
 ## 4.0.0-next.33
 
 ### Patch Changes
