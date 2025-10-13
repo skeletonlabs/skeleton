@@ -1,13 +1,13 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const frameworks = await getCollection("frameworks");
-  return frameworks.map((framework) => ({
-    params: {
-      framework: framework.id,
-    },
-  }));
+	const frameworks = await getCollection('frameworks');
+	return frameworks.map((framework) => ({
+		params: {
+			framework: framework.id,
+		},
+	}));
 }
 
 return Astro.rewrite('/404');

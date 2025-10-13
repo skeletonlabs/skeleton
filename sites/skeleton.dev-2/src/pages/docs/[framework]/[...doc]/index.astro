@@ -1,39 +1,35 @@
 ---
-import { render } from "astro:content";
-import Layout from "@/components/ui/layout.astro";
-import { getCollection } from "astro:content";
-import { components } from "@/components/mdx";
+import { render } from 'astro:content';
+import Layout from '@/components/ui/layout.astro';
+import { getCollection } from 'astro:content';
+import { components } from '@/components/mdx';
 
 export async function getStaticPaths() {
-  const frameworks = await getCollection("frameworks");
-  const docs = await getCollection("docs");
-  return frameworks.flatMap((framework) =>
-    docs.map((doc) => ({
-      params: {
-        framework: framework.id,
-        doc: doc.id,
-      },
-      props: {
-        doc: doc
-      }
-    }))
-  );
+	const frameworks = await getCollection('frameworks');
+	const docs = await getCollection('docs');
+	return frameworks.flatMap((framework) =>
+		docs.map((doc) => ({
+			params: {
+				framework: framework.id,
+				doc: doc.id,
+			},
+			props: {
+				doc: doc,
+			},
+		})),
+	);
 }
 
 const { doc } = Astro.props;
 
 const { Content } = await render(doc);
 
-const frameworks = await getCollection("frameworks");
+const frameworks = await getCollection('frameworks');
 ---
 
 <Layout title={doc.data.title} description={doc.data.description}>
-  <nav>
-    {
-      frameworks.map((framework) => (
-        <a href={`/docs/${framework.id}/${doc.id}`}>{framework.data.name}</a>
-      ))
-    }
-  </nav>
-  <Content components={components} />
+	<nav>
+		{frameworks.map((framework) => <a href={`/docs/${framework.id}/${doc.id}`}>{framework.data.name}</a>)}
+	</nav>
+	<Content components={components} />
 </Layout>

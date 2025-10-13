@@ -1,17 +1,15 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 
-const frameworks = await getCollection("frameworks");
+const frameworks = await getCollection('frameworks');
 ---
 
 {
-  frameworks.map((framework) => (
-    <div
-      class={framework.id === Astro.params.framework ? "contents" : "hidden"}
-    >
-      <Fragment set:html={Astro.slots.render(framework.id)} />
-    </div>
-  ))
+	frameworks.map((framework) => (
+		<div class={framework.id === Astro.params.framework ? 'contents' : 'hidden'}>
+			<Fragment set:html={Astro.slots.render(framework.id)} />
+		</div>
+	))
 }
 
 <!-- {

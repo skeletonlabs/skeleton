@@ -1,7 +1,7 @@
-@import "tailwindcss";
-@import "@skeletonlabs/skeleton";
-@import "@skeletonlabs/skeleton-svelte";
-@import "@skeletonlabs/skeleton-react";
-@import "@skeletonlabs/skeleton/themes/cerberus";
+@import 'tailwindcss';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
+@import '@skeletonlabs/skeleton-react';
+@import '@skeletonlabs/skeleton/themes/cerberus';
 
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
