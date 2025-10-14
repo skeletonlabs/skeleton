@@ -19,7 +19,7 @@ catalog:
   '@nanostores/persistent': 1.1.0
   '@sveltejs/adapter-auto': 6.1.1
   '@sveltejs/adapter-vercel': 5.10.3
-  '@sveltejs/kit': 2.46.4
+  '@sveltejs/kit': 2.46.5
   '@sveltejs/package': 2.5.4
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
@@ -35,7 +35,7 @@ catalog:
   '@types/mdast': 4.0.4
   '@types/node': 24.7.2
   '@types/react': 19.2.2
-  '@types/react-dom': 19.2.1
+  '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
   '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.0.4
@@ -81,10 +81,10 @@ catalog:
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   nanostores: 1.0.1
-  next: 15.5.4
+  next: 15.5.5
   node-html-parser: 7.0.1
   octokit: 5.0.3
-  oxlint: 1.22.0
+  oxlint: 1.23.0
   oxlint-tsgolint: 0.2.0
   package-manager-detector: 1.4.0
   pagefind: 1.4.0
@@ -105,7 +105,7 @@ catalog:
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
   tsdown: 0.15.6
-  type-fest: 5.0.1
+  type-fest: 5.1.0
   typescript: 5.9.3
   unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
