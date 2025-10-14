@@ -41,7 +41,6 @@ export const collections = {
 		}),
 	}),
 	contributors: defineCollection({
-		// @ts-expect-error type narrowing not applying to filter, loader expects id to be defined
 		loader: async () => {
 			if (process.env.VERCEL_ENV !== 'production') {
 				return Array.from({ length: 100 }).map((_, index) => ({
