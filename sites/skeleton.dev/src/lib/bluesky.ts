@@ -1,5 +1,5 @@
 import { AtpAgent } from '@atproto/api';
 
-export const blueSkyAgent = new AtpAgent({
+export const bluesky = new AtpAgent({
 	service: 'https://api.bsky.app',
 });
