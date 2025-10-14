@@ -16,6 +16,7 @@
 		"@astrojs/partytown": "catalog:",
 		"@astrojs/react": "catalog:",
 		"@astrojs/svelte": "catalog:",
+		"@astrojs/vercel": "catalog:",
 		"@atproto/api": "catalog:",
 		"@faker-js/faker": "catalog:",
 		"@floating-ui/dom": "catalog:",
