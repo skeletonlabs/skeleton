@@ -3,22 +3,21 @@ import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
 import { blueSkyAgent } from '@/lib/bluesky';
+import BlueSky from '@/images/brand/bluesky.svg';
 
 export const prerender = false;
 
-const posts = await blueSkyAgent
-	.getAuthorFeed({
-		actor: 'skeleton.dev',
-		limit: 15,
+const response = await blueSkyAgent.getAuthorFeed({
+	actor: 'skeleton.dev',
+	filter: 'posts_no_replies',
+	limit: 15,
+});
+
+const posts = response.data.feed
+	.filter((item) => {
+		return item.post.author.handle === 'skeleton.dev';
 	})
-	.then((result) =>
-		result.data.feed
-			.filter((item) => {
-				return item.post.author.handle === 'skeleton.dev';
-			})
-			// TODO: Investigate why item.posst.record is not typed correctly
-			.map((item) => item.post as unknown as Record<string, any>),
-	);
+	.map((item) => item.post);
 ---
 
 <LayoutRoot title="News" description="Stay up to date with the latest news about Skeleton.">
@@ -29,7 +28,7 @@ const posts = await blueSkyAgent
 		<header class="flex justify-between items-center">
 			<h2 class="h2">Latest News</h2>
 			<a class="btn preset-outlined-surface-200-800 hover:preset-tonal" href="https://bsky.app/profile/skeleton.dev" target="_blank">
-				<!-- <Bluesky class="size-5" /> -->
+				<BlueSky class="size-5" />
 				<span>Feed</span>
 			</a>
 		</header>
@@ -49,12 +48,12 @@ const posts = await blueSkyAgent
 									src="https://avatars.githubusercontent.com/u/118298875?s=400&u=66ff2a8ff80de0400757270d5a4eb90d61c867f1&v=4"
 									alt="avatar"
 								/>
-								<small class="opacity-60">{new Date(post.record.createdAt).toLocaleString()}</small>
+								<small class="opacity-60">{new Date(String(post.record.createdAt)).toLocaleString()}</small>
 							</header>
-							<p class="xl:text-lg">{post.record.text as string}</p>
+							<p class="xl:text-lg">{post.record.text}</p>
 							<footer class="space-y-4">
 								{post.embed &&
-									(post.embed.$type.includes('external') ? (
+									('external' in post.embed && typeof post.embed['external'] === 'object' ? (
 										<div class="block">
 											{post.embed.external.thumb ? (
 												<img
@@ -66,8 +65,8 @@ const posts = await blueSkyAgent
 												<div class="card preset-outlined-surface-200-800 p-4 text-surface-800-200">{post.embed.external.title}</div>
 											)}
 										</div>
-									) : post.embed.$type.includes('images') ? (
-										post.embed.images.map((image: any, idx: number) => (
+									) : 'images' in post.embed && Array.isArray(post.embed.images) ? (
+										post.embed.images.map((image) => (
 											<img
 												class="w-full bg-surface-500/10 p-1 rounded-container overflow-hidden shadow"
 												src={image.thumb}
