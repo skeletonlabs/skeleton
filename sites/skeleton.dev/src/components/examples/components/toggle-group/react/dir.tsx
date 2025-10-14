@@ -1,9 +1,9 @@
 import { ToggleGroup } from '@skeletonlabs/skeleton-react';
 import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react';
 
-export default function Default() {
+export default function Dir() {
 	return (
-		<ToggleGroup defaultValue={['bold']} multiple>
+		<ToggleGroup defaultValue={['bold']} multiple dir="rtl">
 			<ToggleGroup.Item value="bold">
 				<BoldIcon />
 			</ToggleGroup.Item>

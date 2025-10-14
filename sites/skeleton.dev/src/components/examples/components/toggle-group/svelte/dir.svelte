@@ -3,7 +3,7 @@
 	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<ToggleGroup defaultValue={['bold']} multiple>
+<ToggleGroup defaultValue={['bold']} multiple dir="rtl">
 	<ToggleGroup.Item value="bold">
 		<BoldIcon />
 	</ToggleGroup.Item>
