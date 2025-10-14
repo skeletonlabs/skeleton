@@ -60,8 +60,8 @@ export const collections = {
 			return response.data
 				.filter((contributor) => !!contributor.id)
 				.map((contributor) => ({
-					id: String(contributor.id),
 					...contributor,
+					id: String(contributor.id),
 				}));
 		},
 		schema: z.object({
