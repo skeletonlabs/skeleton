@@ -9,8 +9,7 @@
 	"packageRules": [
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin"],
-			"groupName": "all non-major dependencies",
-			"automerge": true
+			"groupName": "all non-major dependencies"
 		},
 		{
 			"matchPackageNames": [
