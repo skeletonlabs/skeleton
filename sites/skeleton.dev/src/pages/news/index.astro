@@ -3,7 +3,7 @@ import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
 import { blueSkyAgent } from '@/lib/bluesky';
-import BlueSky from '@/images/brand/bluesky.svg';
+import Bluesky from '@/images/brand/bluesky.svg';
 
 export const prerender = false;
 
@@ -28,7 +28,7 @@ const posts = response.data.feed
 		<header class="flex justify-between items-center">
 			<h2 class="h2">Latest News</h2>
 			<a class="btn preset-outlined-surface-200-800 hover:preset-tonal" href="https://bsky.app/profile/skeleton.dev" target="_blank">
-				<BlueSky class="size-5" />
+				<Bluesky class="size-5" />
 				<span>Feed</span>
 			</a>
 		</header>
