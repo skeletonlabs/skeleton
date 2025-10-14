@@ -1,6 +1,6 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base", ":semanticCommitTypeAll(chore)", "schedule:earlyMondays"],
+	"extends": ["config:recommended"],
 	"labels": ["dependencies"],
 	"dependencyDashboard": false,
 	"packageRules": [
@@ -18,8 +18,7 @@
 				"@skeletonlabs/skeleton-svelte"
 			],
 			"matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
-			"groupName": "skeleton packages",
-			"automerge": false
+			"groupName": "skeleton packages"
 		}
 	]
 }
