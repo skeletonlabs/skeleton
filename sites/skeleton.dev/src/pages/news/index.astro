@@ -2,12 +2,12 @@
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import LayoutRoot from '@/components/layouts/root.astro';
-import { blueSkyAgent } from '@/lib/bluesky';
+import { bluesky } from '@/lib/bluesky';
 import Bluesky from '@/images/brand/bluesky.svg';
 
 export const prerender = false;
 
-const response = await blueSkyAgent.getAuthorFeed({
+const response = await bluesky.getAuthorFeed({
 	actor: 'skeleton.dev',
 	filter: 'posts_no_replies',
 	limit: 15,
