@@ -16,7 +16,7 @@ const posts = await blueSkyAgent
 			.filter((item) => {
 				return item.post.author.handle === 'skeleton.dev';
 			})
-			// TODO: Investigate why item.posst.record is not typed correctly
+			// TODO: Investigate why item.post.record is not typed correctly
 			.map((item) => item.post as unknown as Record<string, any>),
 	);
 ---
