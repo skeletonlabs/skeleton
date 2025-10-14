@@ -3,6 +3,9 @@
 	"extends": ["config:recommended"],
 	"labels": ["dependencies"],
 	"dependencyDashboard": false,
+	"npm": {
+		"minimumReleaseAge": "24 hours"
+	},
 	"packageRules": [
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin"],
