@@ -13,7 +13,7 @@
 		"build": "svelte-package --input src --output dist",
 		"test": "vitest run",
 		"check": "svelte-check",
-		"sync": "svelte-kit sync && pnpm build"
+		"sync": "pnpm build"
 	},
 	"exports": {
 		".": {
@@ -58,7 +58,6 @@
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
-		"@sveltejs/kit": "catalog:",
 		"@sveltejs/package": "catalog:",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@testing-library/jest-dom": "catalog:",
