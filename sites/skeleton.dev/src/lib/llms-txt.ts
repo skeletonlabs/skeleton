@@ -235,7 +235,9 @@ export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Pro
 	await processAlerts(ast);
 	await processPreviews(ast);
 	await processApiTables(ast, entry);
-	ast.children = ast.children.filter((node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement'].includes(node.type));
+	ast.children = ast.children.filter(
+		(node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxFlowExpression', 'mdxTextExpression'].includes(node.type),
+	);
 	prependData(ast, entry.data);
 	return print(ast);
 }
