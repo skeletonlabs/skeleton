@@ -216,15 +216,15 @@ catalogs:
     mdast-util-from-markdown:
       specifier: 2.0.2
       version: 2.0.2
+    mdast-util-gfm:
+      specifier: 3.1.0
+      version: 3.1.0
     mdast-util-mdx:
       specifier: 3.0.0
       version: 3.0.0
-    mdast-util-mdx-jsx:
-      specifier: 3.2.0
-      version: 3.2.0
-    micromark:
-      specifier: 4.0.2
-      version: 4.0.2
+    mdast-util-to-markdown:
+      specifier: 2.1.2
+      version: 2.1.2
     micromark-extension-mdxjs:
       specifier: 3.0.0
       version: 3.0.0
@@ -276,15 +276,6 @@ catalogs:
     react-dom:
       specifier: 19.2.0
       version: 19.2.0
-    remark-gfm:
-      specifier: 4.0.1
-      version: 4.0.1
-    remark-mdx:
-      specifier: 3.1.1
-      version: 3.1.1
-    remark-stringify:
-      specifier: 11.0.0
-      version: 11.0.0
     sass-embedded:
       specifier: 1.93.2
       version: 1.93.2
@@ -321,9 +312,6 @@ catalogs:
     typescript:
       specifier: 5.9.3
       version: 5.9.3
-    unified:
-      specifier: 11.0.5
-      version: 11.0.5
     unist-util-visit:
       specifier: 5.0.0
       version: 5.0.0
@@ -876,15 +864,15 @@ importers:
       mdast-util-from-markdown:
         specifier: 'catalog:'
         version: 2.0.2
+      mdast-util-gfm:
+        specifier: 'catalog:'
+        version: 3.1.0
       mdast-util-mdx:
         specifier: 'catalog:'
         version: 3.0.0
-      mdast-util-mdx-jsx:
+      mdast-util-to-markdown:
         specifier: 'catalog:'
-        version: 3.2.0
-      micromark:
-        specifier: 'catalog:'
-        version: 4.0.2
+        version: 2.1.2
       micromark-extension-mdxjs:
         specifier: 'catalog:'
         version: 3.0.0
@@ -906,15 +894,6 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.0(react@19.2.0)
-      remark-gfm:
-        specifier: 'catalog:'
-        version: 4.0.1
-      remark-mdx:
-        specifier: 'catalog:'
-        version: 3.1.1
-      remark-stringify:
-        specifier: 'catalog:'
-        version: 11.0.0
       sharp:
         specifier: 'catalog:'
         version: 0.34.4
@@ -936,9 +915,6 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
-      unified:
-        specifier: 'catalog:'
-        version: 11.0.5
       unist-util-visit:
         specifier: 'catalog:'
         version: 5.0.0

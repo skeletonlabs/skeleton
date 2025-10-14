@@ -74,9 +74,9 @@ catalog:
   lucide-react: 0.545.0
   magic-string: 0.30.19
   mdast-util-from-markdown: 2.0.2
+  mdast-util-gfm: 3.1.0
   mdast-util-mdx: 3.0.0
-  mdast-util-mdx-jsx: 3.2.0
-  micromark: 4.0.2
+  mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   nanostores: 1.0.1
@@ -94,9 +94,6 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
-  remark-gfm: 4.0.1
-  remark-mdx: 3.1.1
-  remark-stringify: 11.0.0
   sass-embedded: 1.93.2
   semver: 7.7.3
   sharp: 0.34.4
@@ -109,7 +106,6 @@ catalog:
   tsdown: 0.15.6
   type-fest: 5.0.1
   typescript: 5.9.3
-  unified: 11.0.5
   unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
