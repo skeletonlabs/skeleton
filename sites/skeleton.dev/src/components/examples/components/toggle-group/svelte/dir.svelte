@@ -5,12 +5,12 @@
 
 <ToggleGroup defaultValue={['bold']} multiple dir="rtl">
 	<ToggleGroup.Item value="bold">
-		<BoldIcon />
+		<BoldIcon className="size-4" />
 	</ToggleGroup.Item>
 	<ToggleGroup.Item value="italic">
-		<ItalicIcon />
+		<ItalicIcon className="size-4" />
 	</ToggleGroup.Item>
 	<ToggleGroup.Item value="underline">
-		<UnderlineIcon />
+		<UnderlineIcon className="size-4" />
 	</ToggleGroup.Item>
 </ToggleGroup>

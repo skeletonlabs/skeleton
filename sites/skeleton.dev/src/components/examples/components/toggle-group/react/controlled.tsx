@@ -9,13 +9,13 @@ export default function Controlled() {
 		<div className="flex flex-col items-center gap-4">
 			<ToggleGroup value={value} onValueChange={(details) => setValue(details.value)} multiple>
 				<ToggleGroup.Item value="bold">
-					<BoldIcon />
+					<BoldIcon className='size-4' />
 				</ToggleGroup.Item>
 				<ToggleGroup.Item value="italic">
-					<ItalicIcon />
+					<ItalicIcon className='size-4' />
 				</ToggleGroup.Item>
 				<ToggleGroup.Item value="underline">
-					<UnderlineIcon />
+					<UnderlineIcon className='size-4' />
 				</ToggleGroup.Item>
 			</ToggleGroup>
 			<pre className="pre">{JSON.stringify(value)}</pre>
