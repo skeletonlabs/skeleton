@@ -6,9 +6,8 @@
 	"packageRules": [
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin"],
-			"automerge": true,
 			"groupName": "all non-major dependencies",
-			"groupSlug": "all-minor-patch"
+			"automerge": true
 		},
 		{
 			"matchPackageNames": [
@@ -19,7 +18,8 @@
 				"@skeletonlabs/skeleton-svelte"
 			],
 			"matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
-			"enabled": false
+			"groupName": "skeleton packages",
+			"automerge": false
 		}
 	]
 }
