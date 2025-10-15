@@ -13,7 +13,7 @@ const frameworks = await getCollection('frameworks');
 					class={`btn preset-outlined aria-[current=page]:preset-filled`}
 					aria-current={Astro.params.framework === framework.id ? 'page' : undefined}
 				>
-					{framework.data.name}
+					<img src={framework.data.logo} alt={`${framework.data.name} Logo`} class="size-6" />
 				</a>
 			))
 		}
