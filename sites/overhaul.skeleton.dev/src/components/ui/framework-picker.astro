@@ -14,8 +14,9 @@ const frameworks = await getCollection('frameworks');
 						href={Astro.params.framework ? Astro.url.pathname.replace(Astro.params.framework, framework.id) : Astro.url.pathname}
 						class={`btn preset-outlined aria-[current=page]:preset-filled`}
 						aria-current={Astro.params.framework === framework.id ? 'page' : undefined}
+						aria-label={`Switch to ${framework.data.name} docs`}
 					>
-						<img src={framework.data.logo} alt={`${framework.data.name} Logo`} class="size-6" />
+						<img src={framework.data.logo} alt="" aria-hidden="true" class="size-6" />
 					</a>
 				))}
 			</nav>
