@@ -1,0 +1,71 @@
+---
+title: Avatar
+description: Avatar component documentation page.
+---
+
+import DefaultReact from '@/components/examples/framework-components/avatar/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/avatar/react/default?raw';
+import FallbackReact from '@/components/examples/framework-components/avatar/react/fallback';
+import FallbackReactRaw from '@/components/examples/framework-components/avatar/react/fallback?raw';
+import FilterReact from '@/components/examples/framework-components/avatar/react/filter';
+import FilterReactRaw from '@/components/examples/framework-components/avatar/react/filter?raw';
+import DefaultSvelte from '@/components/examples/framework-components/avatar/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/avatar/svelte/default.svelte?raw';
+import FallbackSvelte from '@/components/examples/framework-components/avatar/svelte/fallback.svelte';
+import FallbackSvelteRaw from '@/components/examples/framework-components/avatar/svelte/fallback.svelte?raw';
+import FilterSvelte from '@/components/examples/framework-components/avatar/svelte/filter.svelte';
+import FilterSvelteRaw from '@/components/examples/framework-components/avatar/svelte/filter.svelte?raw';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+import { Code } from 'astro:components';
+
+# {frontmatter.title}
+
+{frontmatter.description}
+
+<Framework id="svelte">
+	<Preview client:visible>
+		<DefaultSvelte slot="preview" client:visible />
+		<Code slot="code" code={DefaultSvelteRaw} lang="svelte" />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
+		<DefaultReact slot="preview" client:visible />
+		<Code slot="code" code={DefaultReactRaw} lang="tsx" />
+	</Preview>
+</Framework>
+
+## Fallback
+
+Use a fallback when an image fails to load or is unavailable.
+
+<Framework id="svelte">
+	<Preview client:visible>
+		<FallbackSvelte slot="preview" client:visible />
+		<Code slot="code" code={FallbackSvelteRaw} lang="svelte" />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
+		<FallbackReact slot="preview" client:visible />
+		<Code slot="code" code={FallbackReactRaw} lang="tsx" />
+	</Preview>
+</Framework>
+
+## Filter
+
+Apply custom filters or effects to avatar images.
+
+<Framework id="svelte">
+	<Preview client:visible>
+		<FilterSvelte slot="preview" client:visible />
+		<Code slot="code" code={FilterSvelteRaw} lang="svelte" />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
+		<FilterReact slot="preview" client:visible />
+		<Code slot="code" code={FilterReactRaw} lang="tsx" />
+	</Preview>
+</Framework>

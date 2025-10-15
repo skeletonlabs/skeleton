@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	framework: CollectionEntry<'frameworks'>['id'];
+	code: string;
+}
+---
+
+<button id="open-in-stackblitz" data-framework={Astro.props.framework} data-code={Astro.props.code} class="btn preset-filled">
+	Open in Stackblitz
+</button>
+
+<script>
+	import { openStackblitzProject } from '@/modules/stackblitz/stackblitz';
+
+	const button = document.getElementById('open-in-stackblitz');
+
+	if (!button) {
+		throw new Error('Button not found');
+	}
+
+	button.addEventListener('click', () => {
+		const code = button.getAttribute('data-code');
+		const framework = button.getAttribute('data-framework');
+		if (code === null || framework === null) {
+			console.error('Missing data-code or data-framework attribute on button.');
+			return;
+		}
+		openStackblitzProject(code, framework);
+	});
+</script>

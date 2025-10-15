@@ -1,0 +1,35 @@
+{
+	"name": "skeleton.dev",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "catalog:",
+		"@astrojs/partytown": "catalog:",
+		"@astrojs/react": "catalog:",
+		"@astrojs/sitemap": "catalog:",
+		"@astrojs/svelte": "catalog:",
+		"@astrojs/vercel": "catalog:",
+		"@lucide/svelte": "catalog:",
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
+		"@stackblitz/sdk": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"astro": "catalog:",
+		"astro-pagefind": "catalog:",
+		"astro-seo": "catalog:",
+		"lucide-react": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"svelte": "catalog:",
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:"
+	},
+	"type": "module"
+}

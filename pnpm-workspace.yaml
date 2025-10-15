@@ -8,8 +8,9 @@ catalog:
   '@astrojs/mdx': 4.3.7
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
+  '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.0
-  '@astrojs/vercel': ^8.2.9
+  '@astrojs/vercel': 8.2.9
   '@atproto/api': 0.17.2
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
@@ -17,6 +18,7 @@ catalog:
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.545.0
   '@nanostores/persistent': 1.1.0
+  '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 6.1.1
   '@sveltejs/adapter-vercel': 5.10.3
   '@sveltejs/kit': 2.46.5
@@ -65,6 +67,8 @@ catalog:
   astro: 5.14.4
   astro-auto-import: 0.4.5
   astro-expressive-code: 0.41.3
+  astro-pagefind: 1.8.5
+  astro-seo: 0.8.4
   chroma-js: 3.1.2
   colorette: 2.0.20
   commander: 14.0.1

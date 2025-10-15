@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	id: CollectionEntry<'frameworks'>['id'];
+}
+
+const { id } = Astro.props;
+---
+
+<div class={Astro.params.framework === id ? 'contents' : 'hidden'}>
+	<slot />
+</div>
