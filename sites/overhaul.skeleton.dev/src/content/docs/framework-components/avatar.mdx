@@ -23,12 +23,14 @@ import { Code } from 'astro:components';
 
 {frontmatter.description}
 
-<Framework>
-	<Preview slot="svelte" client:visible>
+<Framework id="svelte">
+	<Preview client:visible>
 		<DefaultSvelte slot="preview" client:visible />
 		<Code slot="code" code={DefaultSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:visible>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
 		<DefaultReact slot="preview" client:visible />
 		<Code slot="code" code={DefaultReactRaw} lang="tsx" />
 	</Preview>
@@ -38,12 +40,14 @@ import { Code } from 'astro:components';
 
 Use a fallback when an image fails to load or is unavailable.
 
-<Framework>
-	<Preview slot="svelte" client:visible>
+<Framework id="svelte">
+	<Preview client:visible>
 		<FallbackSvelte slot="preview" client:visible />
 		<Code slot="code" code={FallbackSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:visible>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
 		<FallbackReact slot="preview" client:visible />
 		<Code slot="code" code={FallbackReactRaw} lang="tsx" />
 	</Preview>
@@ -53,12 +57,14 @@ Use a fallback when an image fails to load or is unavailable.
 
 Apply custom filters or effects to avatar images.
 
-<Framework>
-	<Preview slot="svelte" client:visible>
+<Framework id="svelte">
+	<Preview client:visible>
 		<FilterSvelte slot="preview" client:visible />
 		<Code slot="code" code={FilterSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:visible>
+</Framework>
+<Framework id="react">
+	<Preview client:visible>
 		<FilterReact slot="preview" client:visible />
 		<Code slot="code" code={FilterReactRaw} lang="tsx" />
 	</Preview>

@@ -40,12 +40,14 @@ import { Code } from 'astro:components';
 
 {frontmatter.description}
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<DefaultSvelte slot="preview" client:visible />
 		<Code slot="code" code={DefaultSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<DefaultReact slot="preview" client:visible />
 		<Code slot="code" code={DefaultReactRaw} lang="tsx" />
 	</Preview>
@@ -55,12 +57,14 @@ import { Code } from 'astro:components';
 
 Use the `open` and `onOpenChange` props to control the state.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<ControlledSvelte slot="preview" client:visible />
 		<Code slot="code" code={ControlledSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<ControlledReact slot="preview" client:visible />
 		<Code slot="code" code={ControlledReactRaw} lang="tsx" />
 	</Preview>
@@ -70,12 +74,14 @@ Use the `open` and `onOpenChange` props to control the state.
 
 Allow multiple accordion items to stay open at once using the `multiple` prop.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<MultipleSvelte slot="preview" client:visible />
 		<Code slot="code" code={MultipleSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<MultipleReact slot="preview" client:visible />
 		<Code slot="code" code={MultipleReactRaw} lang="tsx" />
 	</Preview>
@@ -85,12 +91,14 @@ Allow multiple accordion items to stay open at once using the `multiple` prop.
 
 Allow closing all items when one is open using the `collapsible` prop.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<CollapsibleSvelte slot="preview" client:visible />
 		<Code slot="code" code={CollapsibleSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<CollapsibleReact slot="preview" client:visible />
 		<Code slot="code" code={CollapsibleReactRaw} lang="tsx" />
 	</Preview>
@@ -100,12 +108,14 @@ Allow closing all items when one is open using the `collapsible` prop.
 
 Add a custom indicator to accordion triggers.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<IndicatorSvelte slot="preview" client:visible />
 		<Code slot="code" code={IndicatorSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<IndicatorReact slot="preview" client:visible />
 		<Code slot="code" code={IndicatorReactRaw} lang="tsx" />
 	</Preview>
@@ -115,12 +125,14 @@ Add a custom indicator to accordion triggers.
 
 Render the accordion vertically or horizontally using the `orientation` prop.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<OrientationSvelte slot="preview" client:visible />
 		<Code slot="code" code={OrientationSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<OrientationReact slot="preview" client:visible />
 		<Code slot="code" code={OrientationReactRaw} lang="tsx" />
 	</Preview>
@@ -130,12 +142,14 @@ Render the accordion vertically or horizontally using the `orientation` prop.
 
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
-<Framework>
-	<Preview slot="svelte" client:load>
+<Framework id="svelte">
+	<Preview client:load>
 		<DirSvelte slot="preview" client:visible />
 		<Code slot="code" code={DirSvelteRaw} lang="svelte" />
 	</Preview>
-	<Preview slot="react" client:load>
+</Framework>
+<Framework id="react">
+	<Preview client:load>
 		<DirReact slot="preview" client:visible />
 		<Code slot="code" code={DirReactRaw} lang="tsx" />
 	</Preview>
