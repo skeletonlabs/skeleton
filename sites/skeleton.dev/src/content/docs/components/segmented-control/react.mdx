@@ -1,6 +1,9 @@
 import Default from '@/components/examples/components/segmented-control/react/default';
 import DefaultRaw from '@/components/examples/components/segmented-control/react/default?raw';
 
+import Controlled from '@/components/examples/components/segmented-control/react/controlled';
+import ControlledRaw from '@/components/examples/components/segmented-control/react/controlled?raw';
+
 import Icons from '@/components/examples/components/segmented-control/react/icons';
 import IconsRaw from '@/components/examples/components/segmented-control/react/icons?raw';
 
@@ -25,6 +28,17 @@ import DirRaw from '@/components/examples/components/segmented-control/react/dir
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="tsx" />
 	</Fragment>
 </Preview>
 

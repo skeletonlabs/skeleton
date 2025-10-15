@@ -1,6 +1,9 @@
 import Default from '@/components/examples/components/segmented-control/svelte/default.svelte';
 import DefaultRaw from '@/components/examples/components/segmented-control/svelte/default.svelte?raw';
 
+import Controlled from '@/components/examples/components/segmented-control/svelte/controlled.svelte';
+import ControlledRaw from '@/components/examples/components/segmented-control/svelte/controlled.svelte?raw';
+
 import Icons from '@/components/examples/components/segmented-control/svelte/icons.svelte';
 import IconsRaw from '@/components/examples/components/segmented-control/svelte/icons.svelte?raw';
 
@@ -25,6 +28,17 @@ import DirRaw from '@/components/examples/components/segmented-control/svelte/di
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={DefaultRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
