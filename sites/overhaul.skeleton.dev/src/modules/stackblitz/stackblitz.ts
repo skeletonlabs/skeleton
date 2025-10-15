@@ -9,6 +9,6 @@ export function openStackblitzProject(code: string, framework: CollectionEntry<'
 		case 'svelte':
 			return openSvelteStackblitzProject(code);
 		default:
-			throw new Error(`Unsupported framework: ${framework}`);
+			throw new Error(`Unsupported framework: ${framework}. Supported frameworks are: react, svelte`);
 	}
 }
