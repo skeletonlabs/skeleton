@@ -5,7 +5,8 @@ const frameworks = await getCollection('frameworks');
 ---
 
 <div class="label">
-	<nav class="btn-group preset-outlined-surface-200-800" aria-label="Framework picker">
+	<span class="label-text">Framework:</span>
+	<nav class="btn-group preset-outlined-surface-200-800">
 		{
 			frameworks.map((framework) => (
 				<a
