@@ -21,7 +21,6 @@ interface Props {
 	}
 
 	button.addEventListener('click', () => {
-		openStackblitzProject(button.getAttribute('data-code')!, button.getAttribute('data-framework')!);
 		const code = button.getAttribute('data-code');
 		const framework = button.getAttribute('data-framework');
 		if (code === null || framework === null) {
@@ -29,4 +28,5 @@ interface Props {
 			return;
 		}
 		openStackblitzProject(code, framework);
+	});
 </script>
