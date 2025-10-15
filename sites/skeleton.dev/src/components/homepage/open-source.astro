@@ -1,19 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import { ChevronRightIcon } from 'lucide-react';
-import { Octokit } from 'octokit';
 
-const octokit = new Octokit();
-
-async function getContributors() {
-	const response = await octokit.rest.repos.listContributors({
-		owner: 'skeletonlabs',
-		repo: 'skeleton',
-		per_page: 100,
-	});
-	return response.data;
-}
-
-const contributors = process.env.VERCEL_ENV === 'production' ? await getContributors() : [];
+const contributors = await getCollection('contributors');
 ---
 
 <div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] items-start gap-10">
@@ -22,8 +11,8 @@ const contributors = process.env.VERCEL_ENV === 'production' ? await getContribu
 		{
 			contributors.map((contributor) => {
 				return (
-					<a class="hover:scale-125" href={contributor.html_url} target="_blank" title={contributor.login}>
-						<img class="bg-surface-500 rounded-full" src={contributor.avatar_url} alt={contributor.login} />
+					<a class="hover:scale-125" href={contributor.data.html_url} target="_blank" title={contributor.data.login}>
+						<img class="bg-surface-500 rounded-full" src={contributor.data.avatar_url} alt={contributor.data.login} />
 					</a>
 				);
 			})

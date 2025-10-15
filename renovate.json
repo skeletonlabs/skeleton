@@ -1,0 +1,26 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", "schedule:earlyMondays", ":semanticCommitTypeAll(chore)"],
+	"labels": ["dependencies"],
+	"dependencyDashboard": false,
+	"npm": {
+		"minimumReleaseAge": "24 hours"
+	},
+	"packageRules": [
+		{
+			"matchUpdateTypes": ["minor", "patch", "pin"],
+			"groupName": "all non-major dependencies"
+		},
+		{
+			"matchPackageNames": [
+				"skeleton",
+				"@skeletonlabs/skeleton",
+				"@skeletonlabs/skeleton-common",
+				"@skeletonlabs/skeleton-react",
+				"@skeletonlabs/skeleton-svelte"
+			],
+			"matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
+			"groupName": "skeleton packages"
+		}
+	]
+}

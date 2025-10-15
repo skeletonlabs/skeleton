@@ -1,16 +1,19 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import type { Paragraph, Root, Heading, Table, TableRow, TableCell } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
-import { mdxFromMarkdown } from 'mdast-util-mdx';
-import type { MdxJsxAttribute, MdxJsxExpressionAttribute, MdxJsxFlowElement } from 'mdast-util-mdx-jsx';
+import { gfmToMarkdown } from 'mdast-util-gfm';
+import {
+	mdxFromMarkdown,
+	mdxToMarkdown,
+	type MdxJsxAttribute,
+	type MdxJsxExpressionAttribute,
+	type MdxJsxFlowElement,
+} from 'mdast-util-mdx';
+import { toMarkdown } from 'mdast-util-to-markdown';
 import { mdxjs } from 'micromark-extension-mdxjs';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
-import remarkGfm from 'remark-gfm';
-import remarkMdx from 'remark-mdx';
-import remarkStringify from 'remark-stringify';
 import { glob } from 'tinyglobby';
-import { unified } from 'unified';
 import type { Parent } from 'unist';
 import { visit } from 'unist-util-visit';
 
@@ -20,9 +23,10 @@ function parse(content: string) {
 		mdastExtensions: [mdxFromMarkdown()],
 	});
 }
-
-function print(ast: Root) {
-	return unified().use(remarkMdx).use(remarkGfm).use(remarkStringify).stringify(ast);
+export function print(ast: Root) {
+	return toMarkdown(ast, {
+		extensions: [mdxToMarkdown(), gfmToMarkdown()],
+	});
 }
 
 async function processAlerts(ast: Root) {
@@ -235,7 +239,9 @@ export async function generateTextFromEntry(entry: CollectionEntry<'docs'>): Pro
 	await processAlerts(ast);
 	await processPreviews(ast);
 	await processApiTables(ast, entry);
-	ast.children = ast.children.filter((node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement'].includes(node.type));
+	ast.children = ast.children.filter(
+		(node) => !['mdxjsEsm', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxFlowExpression', 'mdxTextExpression'].includes(node.type),
+	);
 	prependData(ast, entry.data);
 	return print(ast);
 }

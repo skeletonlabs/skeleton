@@ -15,7 +15,7 @@
 		"lint:check": "oxlint . --type-aware",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm format",
-		"postinstall": "pnpm --silent --recursive --parallel sync"
+		"postinstall": "pnpm --recursive --parallel sync"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
@@ -31,10 +31,10 @@
 		"node": ">=22.0.0",
 		"pnpm": ">=10.15.0"
 	},
-	"packageManager": "pnpm@10.18.1",
+	"packageManager": "pnpm@10.18.2",
 	"pnpm": {
 		"overrides": {
-			"tsdown>rolldown": "1.0.0-beta.41"
+			"tsdown>rolldown": "1.0.0-beta.43"
 		}
 	}
 }

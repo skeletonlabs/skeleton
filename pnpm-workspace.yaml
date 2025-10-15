@@ -21,7 +21,7 @@ catalog:
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 6.1.1
   '@sveltejs/adapter-vercel': 5.10.3
-  '@sveltejs/kit': 2.46.4
+  '@sveltejs/kit': 2.46.5
   '@sveltejs/package': 2.5.4
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
@@ -37,7 +37,7 @@ catalog:
   '@types/mdast': 4.0.4
   '@types/node': 24.7.2
   '@types/react': 19.2.2
-  '@types/react-dom': 19.2.1
+  '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
   '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.0.4
@@ -79,16 +79,16 @@ catalog:
   lucide-react: 0.545.0
   magic-string: 0.30.19
   mdast-util-from-markdown: 2.0.2
+  mdast-util-gfm: 3.1.0
   mdast-util-mdx: 3.0.0
-  mdast-util-mdx-jsx: 3.2.0
-  micromark: 4.0.2
+  mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   nanostores: 1.0.1
-  next: 15.5.4
+  next: 15.5.5
   node-html-parser: 7.0.1
   octokit: 5.0.3
-  oxlint: 1.22.0
+  oxlint: 1.23.0
   oxlint-tsgolint: 0.2.0
   package-manager-detector: 1.4.0
   pagefind: 1.4.0
@@ -99,22 +99,18 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
-  remark-gfm: 4.0.1
-  remark-mdx: 3.1.1
-  remark-stringify: 11.0.0
   sass-embedded: 1.93.2
   semver: 7.7.3
   sharp: 0.34.4
   shiki: 3.13.0
-  svelte: 5.39.11
+  svelte: 5.39.12
   svelte-check: 4.3.3
   tailwindcss: 4.1.14
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
   tsdown: 0.15.6
-  type-fest: 5.0.1
+  type-fest: 5.1.0
   typescript: 5.9.3
-  unified: 11.0.5
   unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3

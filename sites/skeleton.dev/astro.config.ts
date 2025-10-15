@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import svelte, { vitePreprocess } from '@astrojs/svelte';
+import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import type { AstroIntegration } from 'astro';
 import AutoImport from 'astro-auto-import';
@@ -82,6 +83,7 @@ export default defineConfig({
 		 */
 		mdx(),
 	],
+
 	vite: {
 		plugins: [
 			// @ts-expect-error - vite version mismatch
@@ -101,4 +103,6 @@ export default defineConfig({
 			}),
 		],
 	},
+
+	adapter: vercel(),
 });

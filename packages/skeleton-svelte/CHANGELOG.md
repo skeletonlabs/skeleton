@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.0.2
+
+### Patch Changes
+
+- fix: SegmentedControl props not reactive ([#3974](https://github.com/skeletonlabs/skeleton/pull/3974))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.2
+
+## 4.0.1
+
+### Patch Changes
+
+- chore: bump zag ([#3923](https://github.com/skeletonlabs/skeleton/pull/3923))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.1
+
 ## 4.0.0
 
 ### Major Changes
