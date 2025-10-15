@@ -11,7 +11,7 @@ const frameworks = await getCollection('frameworks');
 			<nav class="btn-group preset-outlined-surface-200-800">
 				{frameworks.map((framework) => (
 					<a
-						href={Astro.params.framework ? Astro.url.pathname.replace(Astro.params.framework, framework.id) : Astro.url.pathname}
+						href={Astro.url.pathname.replace(Astro.params.framework!, framework.id)}
 						class={`btn preset-outlined aria-[current=page]:preset-filled`}
 						aria-current={Astro.params.framework === framework.id ? 'page' : undefined}
 						aria-label={`Switch to ${framework.data.name} docs`}
