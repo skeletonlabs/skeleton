@@ -2,7 +2,19 @@
 import { render } from 'astro:content';
 import Layout from '@/components/ui/layout.astro';
 import { getCollection } from 'astro:content';
-import { components } from '@/components/mdx';
+import a from '@/components/typography/a.astro';
+import blockquote from '@/components/typography/blockquote.astro';
+import code from '@/components/typography/code.astro';
+import h1 from '@/components/typography/h1.astro';
+import h2 from '@/components/typography/h2.astro';
+import h3 from '@/components/typography/h3.astro';
+import h4 from '@/components/typography/h4.astro';
+import h5 from '@/components/typography/h5.astro';
+import h6 from '@/components/typography/h6.astro';
+import hr from '@/components/typography/hr.astro';
+import ol from '@/components/typography/ol.astro';
+import table from '@/components/typography/table.astro';
+import ul from '@/components/typography/ul.astro';
 
 export async function getStaticPaths() {
 	const frameworks = await getCollection('frameworks');
@@ -26,5 +38,21 @@ const { Content } = await render(doc);
 ---
 
 <Layout title={doc.data.title} description={doc.data.description}>
-	<Content components={components} />
+	<Content
+		components={{
+			a,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			hr,
+			ol,
+			ul,
+			code,
+			table,
+			blockquote,
+		}}
+	/>
 </Layout>
