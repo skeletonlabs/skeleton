@@ -5,15 +5,15 @@ export const collections = {
 	frameworks: defineCollection({
 		loader: glob({ pattern: '*.json', base: './src/content/frameworks' }),
 		schema: z.object({
-			name: z.string(),
-			logo: z.string(),
+			name: z.string().nonempty(),
+			logo: z.string().nonempty(),
 		}),
 	}),
 	docs: defineCollection({
 		loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/docs' }),
 		schema: z.object({
-			title: z.string(),
-			description: z.string(),
+			title: z.string().nonempty(),
+			description: z.string().nonempty(),
 		}),
 	}),
 };
