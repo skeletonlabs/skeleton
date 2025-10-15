@@ -3,7 +3,7 @@ import sdk from '@stackblitz/sdk';
 const appCss = `
 @import "tailwindcss";
 @import "@skeletonlabs/skeleton";
-@import "@skeletonlabs/skeleton-svelte";
+@import "@skeletonlabs/skeleton-react";
 @import "@skeletonlabs/skeleton/themes/cerberus";
 `.trim();
 
@@ -46,7 +46,7 @@ const packageJson = JSON.stringify(
 		},
 		devDependencies: {
 			'@skeletonlabs/skeleton': '^4',
-			'@skeletonlabs/skeleton-svelte': '^4',
+			'@skeletonlabs/skeleton-react': '^4',
 			'@tailwindcss/vite': '^4',
 			'@types/node': '^24',
 			'@types/react': '^19',
@@ -102,7 +102,7 @@ export function openReactStackblitzProject(code: string) {
 			files: {
 				'src/app.css': appCss,
 				'src/app.tsx': code,
-				'src/main.ts': mainTsx,
+				'src/main.tsx': mainTsx,
 				'index.html': indexHtml,
 				'package.json': packageJson,
 				'tsconfig.json': tsconfigJson,
