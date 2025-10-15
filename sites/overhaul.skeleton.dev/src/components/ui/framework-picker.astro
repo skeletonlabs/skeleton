@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+
+const frameworks = await getCollection('frameworks');
+---
+
+<div class="label">
+	<nav class="btn-group preset-outlined-surface-200-800">
+		{
+			frameworks.map((framework) => (
+				<a
+					href={Astro.params.framework ? Astro.url.pathname.replace(Astro.params.framework, framework.id) : Astro.url.pathname}
+					class={`btn preset-outlined aria-[current=page]:preset-filled`}
+					aria-current={Astro.params.framework === framework.id ? 'page' : undefined}
+				>
+					{framework.data.name}
+				</a>
+			))
+		}
+	</nav>
+</div>
