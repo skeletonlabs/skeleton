@@ -32,7 +32,7 @@
 		</ToggleGroup>
 	</section>
 	<section class="space-y-4">
-		<h3 class="h3">Noramlized</h3>
+		<h3 class="h3">Normalized</h3>
 		<div class="grid grid-cols-[auto_auto_1fr] items-center gap-4">
 			<button type="button" class="btn preset-filled-primary-500">Button</button>
 			<ToggleGroup defaultValue={['center']} multiple>
