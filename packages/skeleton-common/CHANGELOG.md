@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.1.0
+
+### Minor Changes
+
+- feat: toggle group ([#3929](https://github.com/skeletonlabs/skeleton/pull/3929))
+
 ## 4.0.2
 
 ## 4.0.1
