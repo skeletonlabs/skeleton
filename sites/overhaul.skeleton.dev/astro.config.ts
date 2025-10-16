@@ -9,6 +9,7 @@ import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
+	prefetch: true,
 	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
 	adapter: vercel(),
 	integrations: [
@@ -26,6 +27,7 @@ export default defineConfig({
 		pagefind(),
 	],
 	vite: {
+		/* @ts-expect-error vite version mistmatch */
 		plugins: [tailwindcss()],
 	},
 });
