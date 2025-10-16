@@ -180,6 +180,9 @@ catalogs:
     '@zag-js/toast':
       specifier: 1.26.1
       version: 1.26.1
+    '@zag-js/toggle-group':
+      specifier: 1.26.1
+      version: 1.26.1
     '@zag-js/tooltip':
       specifier: 1.26.1
       version: 1.26.1
@@ -559,6 +562,9 @@ importers:
       '@zag-js/toast':
         specifier: 'catalog:'
         version: 1.26.1
+      '@zag-js/toggle-group':
+        specifier: 'catalog:'
+        version: 1.26.1
       '@zag-js/tooltip':
         specifier: 'catalog:'
         version: 1.26.1
@@ -666,6 +672,9 @@ importers:
         specifier: 'catalog:'
         version: 1.26.1
       '@zag-js/toast':
+        specifier: 'catalog:'
+        version: 1.26.1
+      '@zag-js/toggle-group':
         specifier: 'catalog:'
         version: 1.26.1
       '@zag-js/tooltip':
@@ -3028,6 +3037,9 @@ packages:
 
   '@zag-js/toast@1.26.1':
     resolution: {integrity: sha512-TLcN9Bd17fI0069VOV7Ug1kGk5feUK38YKJys8/1cujG+Cu4d5iUif/GUJDrRjcI/P6dPVTzrZ9ag+pCzxkWOA==}
+
+  '@zag-js/toggle-group@1.26.1':
+    resolution: { integrity: sha512-0YXWmK59E+PPxpxj/YYbRY/gP1rVRnJ/hR57XNQykLrl+uYWy16lM3CD9tke3mmLwevdMpC3JwpdPAF9AGVBVw== }
 
   '@zag-js/tooltip@1.26.1':
     resolution: {integrity: sha512-ezBF4DZYo7E+AjVvpOoXnoPwhSnbS3y6Fp9BMvzQRSn5qElZbdQOEZSI9R6MZBTfEo6syXE68MYyCMzKFpkQFg==}
@@ -8147,6 +8159,14 @@ snapshots:
       '@zag-js/anatomy': 1.26.1
       '@zag-js/core': 1.26.1
       '@zag-js/dismissable': 1.26.1
+      '@zag-js/dom-query': 1.26.1
+      '@zag-js/types': 1.26.1
+      '@zag-js/utils': 1.26.1
+
+  '@zag-js/toggle-group@1.26.1':
+    dependencies:
+      '@zag-js/anatomy': 1.26.1
+      '@zag-js/core': 1.26.1
       '@zag-js/dom-query': 1.26.1
       '@zag-js/types': 1.26.1
       '@zag-js/utils': 1.26.1
