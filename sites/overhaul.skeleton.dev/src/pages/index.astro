@@ -5,6 +5,7 @@ import RootLayout from '@/components/ui/root-layout.astro';
 import Skeleton from '@/assets/branding/skeleton.svg';
 import { ChevronRightIcon } from '@lucide/svelte';
 import ComponentGrid from '@/components/ui/component-grid.svelte';
+import LiveDemos from '@/components/ui/live-demos.astro';
 ---
 
 <RootLayout>
@@ -53,10 +54,12 @@ import ComponentGrid from '@/components/ui/component-grid.svelte';
 				</div>
 			</section>
 
-			<section class="hidden 2xl:block">
-				<div class="container mx-auto p-10 py-20">
-					<ComponentGrid client:load />
-				</div>
+			<section class="hidden 2xl:block container mx-auto p-10 py-20">
+				<ComponentGrid client:load />
+			</section>
+
+			<section class="hidden md:block container mx-auto p-10 py-20">
+				<LiveDemos />
 			</section>
 		</div>
 	</main>
