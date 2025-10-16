@@ -27,7 +27,7 @@ export default defineConfig({
 	],
 	vite: {
 		/* @ts-expect-error vite version mistmatch */
-		plugins: [tailwindcss()],
+		/* @ts-expect-error vite version mismatch */
 	},
 	adapter: vercel(),
 });
