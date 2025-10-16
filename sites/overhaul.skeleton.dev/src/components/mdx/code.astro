@@ -3,9 +3,14 @@ import { unescape } from 'html-escaper';
 import Code from '@/components/ui/code.svelte';
 
 const { class: class_ } = Astro.props;
-
-const code = unescape(await Astro.slots.render('default'));
-const lang = class_ ? class_.split('-').pop() : 'plaintext';
 ---
 
-<Code code={code} lang={lang} client:visible />
+{
+	class_ ? (
+		<Code code={unescape(await Astro.slots.render('default'))} lang={class_.split('-').pop()} client:visible />
+	) : (
+		<code class="code">
+			<slot />
+		</code>
+	)
+}
