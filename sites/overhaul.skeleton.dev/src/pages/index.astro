@@ -4,12 +4,13 @@ import Header from '@/components/ui/header.astro';
 import RootLayout from '@/components/ui/root-layout.astro';
 import Skeleton from '@/assets/branding/skeleton.svg';
 import { ChevronRightIcon } from '@lucide/svelte';
+import ComponentGrid from '@/components/ui/component-grid.svelte';
 ---
 
 <RootLayout>
 	<Header />
 	<main>
-		<div>
+		<div class="gradient-homepage-one">
 			<section>
 				<div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
 					<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
@@ -29,7 +30,7 @@ import { ChevronRightIcon } from '@lucide/svelte';
 							>
 								<span>🎉</span>
 								<span>Skeleton v4.0 has launched!</span>
-								<ChevronRightIcon className="size-4" />
+								<ChevronRightIcon class="size-4" />
 							</a>
 							<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
 								An adaptive design system powered by Tailwind CSS.
@@ -41,7 +42,7 @@ import { ChevronRightIcon } from '@lucide/svelte';
 							<nav class="flex gap-4">
 								<a href="/docs/react/get-started/installation" class="btn preset-filled">
 									<span>Get Started</span>
-									<ChevronRightIcon className="size-4" />
+									<ChevronRightIcon class="size-4" />
 								</a>
 								<a href="/docs/react/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
 									<span>Learn More</span>
@@ -49,6 +50,12 @@ import { ChevronRightIcon } from '@lucide/svelte';
 							</nav>
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section class="hidden 2xl:block">
+				<div class="container mx-auto p-10 py-20">
+					<ComponentGrid client:load />
 				</div>
 			</section>
 		</div>
