@@ -94,8 +94,8 @@ export default defineConfig({
 })
 `.trim();
 
-export function openSvelteStackblitzProject(code: string, files?: Record<string, string>) {
-	const srcFiles = Object.fromEntries(Object.entries(files ?? {}).map(([key, value]) => [`src/${key}`, value]));
+export function openSvelteStackblitzProject(files: Record<string, string>) {
+	const srcFiles = Object.fromEntries(Object.entries(files).map(([key, value]) => [`src/${key}`, value]));
 
 	sdk.openProject(
 		{
@@ -104,7 +104,6 @@ export function openSvelteStackblitzProject(code: string, files?: Record<string,
 			files: {
 				'src/app.css': appCss,
 				'src/main.ts': mainTs,
-				'src/app.svelte': code,
 				...srcFiles,
 				'index.html': indexHtml,
 				'package.json': packageJson,

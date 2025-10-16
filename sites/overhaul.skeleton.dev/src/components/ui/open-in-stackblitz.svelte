@@ -5,15 +5,14 @@
 
 	interface Props extends HTMLButtonAttributes {
 		framework: CollectionEntry<'frameworks'>['id'];
-		code: string;
-		files?: Record<string, string>;
+		files: Record<string, string>;
 	}
 
 	const props: Props = $props();
-	const { framework, code, files, ...rest } = $derived(props);
+	const { framework, files, ...rest } = $derived(props);
 
 	function openInStackblitz() {
-		openStackblitzProject(framework, code, files);
+		openStackblitzProject(framework, files);
 	}
 </script>
 

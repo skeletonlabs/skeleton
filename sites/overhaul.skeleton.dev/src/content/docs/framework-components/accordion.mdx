@@ -40,13 +40,13 @@ import { Code } from 'astro:components';
 {frontmatter.description}
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={DefaultSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:load>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 
 <Framework id="react">
-	<Preview framework="react" code={DefaultReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:load>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -56,12 +56,12 @@ import { Code } from 'astro:components';
 Use the `open` and `onOpenChange` props to control the state.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={ControlledSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:load>
 		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={ControlledReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:load>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
@@ -71,12 +71,12 @@ Use the `open` and `onOpenChange` props to control the state.
 Allow multiple accordion items to stay open at once using the `multiple` prop.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={MultipleSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:load>
 		<MultipleSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={MultipleReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': MultipleReactRaw }} client:load>
 		<MultipleReact client:visible />
 	</Preview>
 </Framework>
@@ -86,12 +86,12 @@ Allow multiple accordion items to stay open at once using the `multiple` prop.
 Allow closing all items when one is open using the `collapsible` prop.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={CollapsibleSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': CollapsibleSvelteRaw }} client:load>
 		<CollapsibleSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={CollapsibleReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': CollapsibleReactRaw }} client:load>
 		<CollapsibleReact client:visible />
 	</Preview>
 </Framework>
@@ -101,12 +101,12 @@ Allow closing all items when one is open using the `collapsible` prop.
 Add a custom indicator to accordion triggers.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={IndicatorSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': IndicatorSvelteRaw }} client:load>
 		<IndicatorSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={IndicatorReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': IndicatorReactRaw }} client:load>
 		<IndicatorReact client:visible />
 	</Preview>
 </Framework>
@@ -116,12 +116,12 @@ Add a custom indicator to accordion triggers.
 Render the accordion vertically or horizontally using the `orientation` prop.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={OrientationSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:load>
 		<OrientationSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={OrientationReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:load>
 		<OrientationReact client:visible />
 	</Preview>
 </Framework>
@@ -131,12 +131,12 @@ Render the accordion vertically or horizontally using the `orientation` prop.
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="svelte">
-	<Preview framework="svelte" code={DirSvelteRaw} client:load>
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:load>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" code={DirReactRaw} client:load>
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:load>
 		<DirReact client:visible />
 	</Preview>
 </Framework>

@@ -94,8 +94,8 @@ export default defineConfig({
 })
 `.trim();
 
-export function openReactStackblitzProject(code: string, files?: Record<string, string>) {
-	const srcFiles = Object.fromEntries(Object.entries(files ?? {}).map(([key, value]) => [`src/${key}`, value]));
+export function openReactStackblitzProject(files: Record<string, string>) {
+	const srcFiles = Object.fromEntries(Object.entries(files).map(([key, value]) => [`src/${key}`, value]));
 
 	sdk.openProject(
 		{
@@ -104,7 +104,6 @@ export function openReactStackblitzProject(code: string, files?: Record<string, 
 			files: {
 				'src/app.css': appCss,
 				'src/main.tsx': mainTsx,
-				'src/app.tsx': code,
 				...srcFiles,
 				'index.html': indexHtml,
 				'package.json': packageJson,
