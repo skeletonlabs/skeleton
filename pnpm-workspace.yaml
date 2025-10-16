@@ -36,6 +36,7 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
+  '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
   '@types/node': 24.7.2
   '@types/react': 19.2.2

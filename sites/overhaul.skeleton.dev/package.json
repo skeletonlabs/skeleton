@@ -21,6 +21,7 @@
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@stackblitz/sdk": "catalog:",
 		"@tailwindcss/vite": "catalog:",
+		"@types/html-escaper": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"astro": "catalog:",
