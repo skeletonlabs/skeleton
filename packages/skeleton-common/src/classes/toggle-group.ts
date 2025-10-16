@@ -2,7 +2,8 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 
 export const classesToggleGroup = defineSkeletonClasses({
 	root: [
-		'preset-outlined-surface-200-800 divide-x-[1px] divide-surface-200-800 overflow-hidden rounded-base',
+		'preset-outlined-surface-200-800 divide-surface-200-800 overflow-hidden rounded-base',
+		'data-[orientation=horizontal]:divide-x-[1px] data-[orientation=vertical]:divide-y-[1px]',
 		'inline-flex',
 		'data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col',
 	],
