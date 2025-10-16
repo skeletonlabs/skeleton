@@ -2,14 +2,16 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with
 
 export const classesToggleGroup = defineSkeletonClasses({
 	root: [
-		'inline-flex preset-outlined-surface-200-800 p-2 gap-2 rounded',
+		// preset-outlined-surface-200-800 p-2 gap-2 rounded
+		'preset-outlined-surface-200-800 divide-x-[1px] divide-surface-200-800 overflow-hidden rounded-base',
+		'inline-flex',
 		'data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col',
 	],
 	item: [
-		'btn cursor-pointer z-10 flex-1',
+		// btn cursor-pointer z-10 flex-1 data-[state=on]:preset-filled
+		'flex justify-center items-center w-9 aspect-square hover:preset-tonal data-[state=on]:preset-filled',
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
 		'data-readonly:pointer-events-none',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
-		'data-[state=on]:preset-filled',
 	],
 });
