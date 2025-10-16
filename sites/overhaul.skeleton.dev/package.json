@@ -14,6 +14,8 @@
 		"@astrojs/svelte": "catalog:",
 		"@astrojs/vercel": "catalog:",
 		"@lucide/svelte": "catalog:",
+		"@shikijs/langs": "catalog:",
+		"@shikijs/themes": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
@@ -27,6 +29,7 @@
 		"lucide-react": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
+		"shiki": "catalog:",
 		"svelte": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:"

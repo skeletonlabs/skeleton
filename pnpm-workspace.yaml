@@ -18,6 +18,8 @@ catalog:
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.545.0
   '@nanostores/persistent': 1.1.0
+  '@shikijs/langs': 3.13.0
+  '@shikijs/themes': 3.13.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 6.1.1
   '@sveltejs/adapter-vercel': 5.10.3

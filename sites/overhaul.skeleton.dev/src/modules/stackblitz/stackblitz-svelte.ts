@@ -94,15 +94,18 @@ export default defineConfig({
 })
 `.trim();
 
-export function openSvelteStackblitzProject(code: string) {
+export function openSvelteStackblitzProject(code: string, files?: Record<string, string>) {
+	const srcFiles = Object.fromEntries(Object.entries(files ?? {}).map(([key, value]) => [`src/${key}`, value]));
+
 	sdk.openProject(
 		{
 			title: 'Skeleton Svelte',
 			template: 'node',
 			files: {
 				'src/app.css': appCss,
-				'src/app.svelte': code,
 				'src/main.ts': mainTs,
+				'src/app.svelte': code,
+				...srcFiles,
 				'index.html': indexHtml,
 				'package.json': packageJson,
 				'svelte.config.js': svelteConfigJs,
