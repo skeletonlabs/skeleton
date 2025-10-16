@@ -4,7 +4,7 @@
 
 	const highlighter = await createHighlighterCore({
 		themes: [import('@shikijs/themes/dark-plus')],
-		langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/tsx'), import('@shikijs/langs/svelte'), import('@shikijs/langs/plaintext')],
+		langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/tsx'), import('@shikijs/langs/svelte')],
 		engine: createOnigurumaEngine(import('shiki/wasm')),
 	});
 </script>
