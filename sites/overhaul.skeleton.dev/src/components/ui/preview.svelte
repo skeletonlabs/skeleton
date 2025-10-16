@@ -21,7 +21,7 @@
 	const frameworkExtension = $derived(getExtensionFromFramework(framework));
 </script>
 
-<Tabs defaultValue="preview" class="max-w-4xl w-full mx-auto">
+<Tabs defaultValue="preview">
 	<Tabs.List>
 		<Tabs.Trigger value="preview">
 			<EyeIcon class="size-5" />

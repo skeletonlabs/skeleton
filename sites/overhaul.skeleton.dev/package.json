@@ -26,6 +26,7 @@
 		"astro": "catalog:",
 		"astro-pagefind": "catalog:",
 		"astro-seo": "catalog:",
+		"html-escaper": "catalog:",
 		"lucide-react": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",

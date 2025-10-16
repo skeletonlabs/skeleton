@@ -1,14 +1,11 @@
 <script lang="ts" module>
-	import js from '@shikijs/langs/javascript';
-	import svelte from '@shikijs/langs/svelte';
-	import nord from '@shikijs/themes/nord';
-	import { createHighlighterCoreSync } from 'shiki/core';
-	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+	import { createHighlighterCore } from 'shiki/core';
+	import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 
-	const shiki = createHighlighterCoreSync({
-		themes: [nord],
-		langs: [js, svelte],
-		engine: createJavaScriptRegexEngine(),
+	const highligher = await createHighlighterCore({
+		themes: [import('@shikijs/themes/dark-plus')],
+		langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/tsx'), import('@shikijs/langs/svelte')],
+		engine: createOnigurumaEngine(import('shiki/wasm')),
 	});
 </script>
 
@@ -20,7 +17,7 @@
 
 	const props: Props = $props();
 	const { code, lang } = $derived(props);
-	const html = $derived(shiki.codeToHtml(code, { lang, theme: 'nord' }));
+	const html = $derived(highligher.codeToHtml(code, { lang, theme: 'dark-plus' }));
 </script>
 
 {@html html}

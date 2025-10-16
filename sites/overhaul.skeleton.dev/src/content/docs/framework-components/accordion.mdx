@@ -39,6 +39,10 @@ import { Code } from 'astro:components';
 
 {frontmatter.description}
 
+```css
+@import 'tailwindcss';
+```
+
 <Framework id="svelte">
 	<Preview framework="svelte" code={DefaultSvelteRaw} client:load>
 		<DefaultSvelte client:visible />
@@ -46,27 +50,23 @@ import { Code } from 'astro:components';
 </Framework>
 
 <Framework id="react">
-	<Preview framework="react" code={DefaultReactRaw} files={{ 'additional-file.ts': 'const additionalVariable = 42;' }} client:load>
+	<Preview framework="react" code={DefaultReactRaw} client:load>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
-
-{/*
 
 ## Controlled
 
 Use the `open` and `onOpenChange` props to control the state.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<ControlledSvelte slot="preview" client:visible />
-		<Code slot="code" code={ControlledSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={ControlledSvelteRaw} client:load>
+		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<ControlledReact slot="preview" client:visible />
-		<Code slot="code" code={ControlledReactRaw} lang="tsx" />
+	<Preview framework="react" code={ControlledReactRaw} client:load>
+		<ControlledReact client:visible />
 	</Preview>
 </Framework>
 
@@ -75,15 +75,13 @@ Use the `open` and `onOpenChange` props to control the state.
 Allow multiple accordion items to stay open at once using the `multiple` prop.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<MultipleSvelte slot="preview" client:visible />
-		<Code slot="code" code={MultipleSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={MultipleSvelteRaw} client:load>
+		<MultipleSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<MultipleReact slot="preview" client:visible />
-		<Code slot="code" code={MultipleReactRaw} lang="tsx" />
+	<Preview framework="react" code={MultipleReactRaw} client:load>
+		<MultipleReact client:visible />
 	</Preview>
 </Framework>
 
@@ -92,15 +90,13 @@ Allow multiple accordion items to stay open at once using the `multiple` prop.
 Allow closing all items when one is open using the `collapsible` prop.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<CollapsibleSvelte slot="preview" client:visible />
-		<Code slot="code" code={CollapsibleSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={CollapsibleSvelteRaw} client:load>
+		<CollapsibleSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<CollapsibleReact slot="preview" client:visible />
-		<Code slot="code" code={CollapsibleReactRaw} lang="tsx" />
+	<Preview framework="react" code={CollapsibleReactRaw} client:load>
+		<CollapsibleReact client:visible />
 	</Preview>
 </Framework>
 
@@ -109,15 +105,13 @@ Allow closing all items when one is open using the `collapsible` prop.
 Add a custom indicator to accordion triggers.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<IndicatorSvelte slot="preview" client:visible />
-		<Code slot="code" code={IndicatorSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={IndicatorSvelteRaw} client:load>
+		<IndicatorSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<IndicatorReact slot="preview" client:visible />
-		<Code slot="code" code={IndicatorReactRaw} lang="tsx" />
+	<Preview framework="react" code={IndicatorReactRaw} client:load>
+		<IndicatorReact client:visible />
 	</Preview>
 </Framework>
 
@@ -126,15 +120,13 @@ Add a custom indicator to accordion triggers.
 Render the accordion vertically or horizontally using the `orientation` prop.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<OrientationSvelte slot="preview" client:visible />
-		<Code slot="code" code={OrientationSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={OrientationSvelteRaw} client:load>
+		<OrientationSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<OrientationReact slot="preview" client:visible />
-		<Code slot="code" code={OrientationReactRaw} lang="tsx" />
+	<Preview framework="react" code={OrientationReactRaw} client:load>
+		<OrientationReact client:visible />
 	</Preview>
 </Framework>
 
@@ -143,15 +135,12 @@ Render the accordion vertically or horizontally using the `orientation` prop.
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="svelte">
-	<Preview client:load>
-		<DirSvelte slot="preview" client:visible />
-		<Code slot="code" code={DirSvelteRaw} lang="svelte" />
+	<Preview framework="svelte" code={DirSvelteRaw} client:load>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview client:load>
-		<DirReact slot="preview" client:visible />
-		<Code slot="code" code={DirReactRaw} lang="tsx" />
+	<Preview framework="react" code={DirReactRaw} client:load>
+		<DirReact client:visible />
 	</Preview>
 </Framework>
-*/}
