@@ -26,8 +26,8 @@ export default defineConfig({
 		pagefind(),
 	],
 	vite: {
-		/* @ts-expect-error vite version mistmatch */
 		/* @ts-expect-error vite version mismatch */
+		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
 });
