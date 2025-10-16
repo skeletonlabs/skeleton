@@ -4,6 +4,9 @@ import DefaultRaw from '@/components/examples/components/toggle-group/svelte/def
 import Controlled from '@/components/examples/components/toggle-group/svelte/controlled.svelte';
 import ControlledRaw from '@/components/examples/components/toggle-group/svelte/controlled.svelte?raw';
 
+import Orientation from '@/components/examples/components/toggle-group/svelte/orientation.svelte';
+import OrientationRaw from '@/components/examples/components/toggle-group/svelte/orientation.svelte?raw';
+
 import Dir from '@/components/examples/components/toggle-group/svelte/dir.svelte';
 import DirRaw from '@/components/examples/components/toggle-group/svelte/dir.svelte?raw';
 
@@ -24,6 +27,19 @@ import DirRaw from '@/components/examples/components/toggle-group/svelte/dir.sve
 	</Fragment>
 	<Fragment slot="code">
 		<Code code={ControlledRaw} lang="svelte" />
+	</Fragment>
+</Preview>
+
+## Orientation
+
+Use the `orientation` prop to change the layout direction of the Toggle Group.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Orientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={OrientationRaw} lang="svelte" />
 	</Fragment>
 </Preview>
 
