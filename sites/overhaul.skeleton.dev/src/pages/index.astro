@@ -1,7 +1,57 @@
 ---
+import Footer from '@/components/ui/footer.astro';
+import Header from '@/components/ui/header.astro';
 import RootLayout from '@/components/ui/root-layout.astro';
+import Skeleton from '@/assets/branding/skeleton.svg';
+import { ChevronRightIcon } from '@lucide/svelte';
 ---
 
-<RootLayout> 
-    Skeleton 
+<RootLayout>
+	<Header />
+	<main>
+		<div>
+			<section>
+				<div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
+					<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
+						<div class="flex justify-center items-center">
+							<div class="relative size-48 md:size-64 aspect-square">
+								<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
+
+								<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
+								</div>
+							</div>
+						</div>
+						<div class="self-center space-y-4">
+							<a
+								href="https://github.com/skeletonlabs/skeleton/discussions/3920"
+								target="_blank"
+								class="btn btn-sm preset-filled-primary-500 gap-2 shadow"
+							>
+								<span>🎉</span>
+								<span>Skeleton v4.0 has launched!</span>
+								<ChevronRightIcon className="size-4" />
+							</a>
+							<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
+								An adaptive design system powered by Tailwind CSS.
+							</h1>
+							<p class="xl:text-balance">
+								Skeleton integrates with <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide an opinionated
+								solution for generating adaptive design systems. Including a turnkey component library for your favorite web frameworks.
+							</p>
+							<nav class="flex gap-4">
+								<a href="/docs/get-started/installation" class="btn preset-filled">
+									<span>Get Started</span>
+									<ChevronRightIcon className="size-4" />
+								</a>
+								<a href="/docs/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+									<span>Learn More</span>
+								</a>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+	<Footer />
 </RootLayout>
