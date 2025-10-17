@@ -1,7 +1,6 @@
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
@@ -24,11 +23,12 @@ export default defineConfig({
 			},
 		}),
 		mdx(),
-		sitemap(),
 		partytown(),
 	],
 	vite: {
 		plugins: [
+			/* @ts-expect-error vite version mismatch */
+			tailwindcss(),
 			/* @ts-expect-error vite version mismatch */
 			transformLucideImports({
 				onwarn(warning, defaultHandler) {
@@ -38,8 +38,6 @@ export default defineConfig({
 					defaultHandler(warning.message);
 				},
 			}),
-			/* @ts-expect-error vite version mismatch */
-			tailwindcss(),
 		],
 	},
 	adapter: vercel(),

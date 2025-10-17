@@ -6,17 +6,16 @@ export interface Section {
 }
 
 async function getSection(prefix: string) {
-	return (
-		await getCollection('docs', (entry) => {
-			if (!entry.id.startsWith(prefix)) {
-				return false;
-			}
-			if (entry.id.split('/').length > 2) {
-				return false;
-			}
-			return true;
-		})
-	).toSorted((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.data.order - b.data.order);
+	const docs = await getCollection('docs', (entry) => {
+		if (!entry.id.startsWith(prefix)) {
+			return false;
+		}
+		if (entry.id.split('/').length > 2) {
+			return false;
+		}
+		return true;
+	});
+	return docs.toSorted((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.data.order - b.data.order);
 }
 
 export const commonSections: Section[] = [

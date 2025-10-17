@@ -1,0 +1,15 @@
+---
+import Code from 'astro/components/Code.astro';
+
+const exampleConsole = `npx sv create my-skeleton-app`;
+const exampleHtml = `<div class="bg-green-500">Hello World</div>`;
+const exampleCss = `.foobar { background: green; }`;
+const exampleJavascript = `const foo = 'bar';`;
+---
+
+<div class="w-full space-y-4">
+	<Code code={exampleConsole} lang="console" />
+	<Code code={exampleHtml} lang="html" />
+	<Code code={exampleCss} lang="css" />
+	<Code code={exampleJavascript} lang="js" />
+</div>

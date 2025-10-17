@@ -8,7 +8,6 @@ catalog:
   '@astrojs/mdx': 4.3.7
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
-  '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.0
   '@astrojs/vercel': 8.2.9
   '@atproto/api': 0.17.2

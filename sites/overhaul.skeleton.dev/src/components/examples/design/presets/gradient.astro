@@ -1,0 +1,28 @@
+<div class="w-full space-y-4">
+	<div class="grid grid-cols-3 gap-4">
+		<button class="btn preset-gradient-one">Button</button>
+		<button class="btn preset-gradient-two">Button</button>
+		<button class="btn preset-gradient-three">Button</button>
+	</div>
+	<div class="grid grid-cols-3 gap-4 text-center">
+		<div class="card p-4 preset-gradient-one">Card</div>
+		<div class="card p-4 preset-gradient-two">Card</div>
+		<div class="card p-4 preset-gradient-three">Card</div>
+	</div>
+</div>
+
+<style>
+	/* Create a custom preset in your global stylesheet */
+	.preset-gradient-one {
+		background-image: linear-gradient(45deg, var(--color-primary-500), var(--color-tertiary-500));
+		color: var(--color-primary-contrast-500);
+	}
+	.preset-gradient-two {
+		background-image: linear-gradient(45deg, var(--color-error-500), var(--color-warning-500));
+		color: var(--color-error-contrast-500);
+	}
+	.preset-gradient-three {
+		background-image: linear-gradient(45deg, var(--color-success-500), var(--color-warning-500));
+		color: var(--color-success-contrast-500);
+	}
+</style>
