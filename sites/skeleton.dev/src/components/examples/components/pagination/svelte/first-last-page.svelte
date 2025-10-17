@@ -57,7 +57,7 @@
 				<ArrowLeftIcon class="size-4" />
 			</Pagination.PrevTrigger>
          <Pagination.FirstTrigger>
-            <ArrowRightToLineIcon class="size-4" />
+            <ArrowLeftToLineIcon class="size-4" />
          </Pagination.FirstTrigger>
 			<Pagination.Context>
 				{#snippet children(pagination)}
