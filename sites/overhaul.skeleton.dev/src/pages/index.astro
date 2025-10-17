@@ -24,7 +24,6 @@ import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleto
 					<div class="flex justify-center items-center">
 						<div class="relative size-48 md:size-64 aspect-square">
 							<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
-
 							<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
 							</div>
 						</div>
@@ -58,45 +57,36 @@ import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleto
 					</div>
 				</div>
 			</section>
-
 			<section class="hidden 2xl:block container mx-auto p-10 py-20">
 				<ComponentGrid client:load />
 			</section>
-
 			<section class="hidden md:block container mx-auto p-10 py-20">
 				<LiveDemos />
 			</section>
 		</div>
-
 		<div class="gradient-homepage-two">
 			<section class="container mx-auto p-10 py-20">
 				<DesignSystem client:load />
 			</section>
-
 			<section class="container mx-auto p-10 py-20">
 				<TailwindAndFrameworkComponents client:load />
 			</section>
-
 			<section class="container mx-auto p-10 py-20">
 				<AdditionalFeatures />
 			</section>
-
 			<section class="container mx-auto p-10 py-20">
 				<OpenSource />
 			</section>
-
 			<section class="container mx-auto p-10 py-20">
 				<Metrics />
 			</section>
 		</div>
-
 		<section class="container mx-auto p-10 py-20">
 			<Sponsors />
 		</section>
-
 		<section class="container mx-auto p-10 py-20">
 			<BuildWithSkeletonToday />
 		</section>
 	</main>
+	<Footer />
 </RootLayout>
-<Footer />
