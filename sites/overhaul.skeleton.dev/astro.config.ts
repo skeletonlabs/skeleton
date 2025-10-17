@@ -11,6 +11,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	prefetch: true,
 	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
+	markdown: {
+		syntaxHighlight: false,
+	},
 	integrations: [
 		react(),
 		svelte({

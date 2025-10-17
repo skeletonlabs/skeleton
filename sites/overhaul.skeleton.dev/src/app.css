@@ -20,3 +20,7 @@
 		radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
 		radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
 }
+
+.shiki {
+	white-space: pre-wrap;
+}

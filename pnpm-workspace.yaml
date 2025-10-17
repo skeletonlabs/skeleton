@@ -18,6 +18,8 @@ catalog:
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.545.0
   '@nanostores/persistent': 1.1.0
+  '@shikijs/langs': 3.13.0
+  '@shikijs/themes': 3.13.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 6.1.1
   '@sveltejs/adapter-vercel': 5.10.3
@@ -34,6 +36,7 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
+  '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
   '@types/node': 24.7.2
   '@types/react': 19.2.2
@@ -75,6 +78,7 @@ catalog:
   commander: 14.0.1
   detect-indent: 7.0.2
   fuse.js: 7.1.0
+  html-escaper: 3.0.3
   jsdom: 27.0.0
   latest-version: 9.0.0
   lucide-react: 0.545.0

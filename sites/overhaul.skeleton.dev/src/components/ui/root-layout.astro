@@ -4,6 +4,7 @@ import { SEO } from 'astro-seo';
 import Favicon from '@/assets/favicon.png';
 import Skeleton from '@/assets/branding/skeleton.png';
 import { ClientRouter } from 'astro:transitions';
+import FrameworkPicker from '@/components/ui/framework-picker.astro';
 
 interface Props {
 	title?: string;
@@ -96,6 +97,8 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 		<ClientRouter />
 	</head>
 	<body>
-		<slot />
+		<main>
+			<slot />
+		</main>
 	</body>
 </html>
