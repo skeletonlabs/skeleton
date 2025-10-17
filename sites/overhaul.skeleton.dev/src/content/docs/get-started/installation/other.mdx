@@ -1,0 +1,69 @@
+---
+title: Other Frameworks
+description: Install Skeleton for other frameworks.
+order: 1000
+---
+
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
+
+{/* --- */}
+
+## Requirements
+
+Skeleton's [Core Package](/docs/get-started/core-api) is framework agnostic, meaning many of the Design System and Tailwind-centric features can used on any number of frameworks. This includes everything _except_ components. In order to install Skeleton for additional framework, your app must be able to support the following:
+
+| Tooling                              | Minimum Supported     |
+| ------------------------------------ | --------------------- |
+| Package Management                   | NPM, PNPM, Yarn, etc. |
+| [Tailwind](https://tailwindcss.com/) | 4                     |
+
+The exact instructions for installing Skeleton will differ per framework, however we've provided a general guidance below. Use this as a foundation for getting started in any number of unofficially supported frameworks.
+
+## Installation
+
+<Process>
+    <ProcessStep step="1">
+        ### Create a Project
+        Scaffold your web-based application using any framework (such as [Nuxt](https://nuxt.com/), [SolidStart](https://start.solidjs.com/), [Laravel](https://laravel.com/), etc.)
+    </ProcessStep>
+    <ProcessStep step="2">
+        ### Install Tailwind
+		Refer to the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) for installing Tailwind on your framework of choice.
+    </ProcessStep>
+    <ProcessStep step="3">
+        ### Install Skeleton
+        Install the Skeleton core package to gain access to most features - excluding Components.
+        ```console
+        npm i -D @skeletonlabs/skeleton
+        ```
+    </ProcessStep>
+    <ProcessStep step="4">
+        ### Configure Tailwind
+        Locate your global stylesheet and append the following at the top of the file.
+        ```css {3-5}
+        @import 'tailwindcss';
+
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
+        ```
+    </ProcessStep>
+    <ProcessStep step="6">
+        ### Set Active Theme
+        Open the file containing the `<html>` tag for your project and set the `data-theme` attribute as follows.
+        ```html "data-theme="cerberus""
+        <html data-theme="cerberus">
+            ...
+        </html>
+        ```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ### Run the Project
+        Start the dev server for your framework of choice.
+    </ProcessStep>
+
+</Process>
+
+## Support
+
+While we officially limit support for Skeleton to React, Svelte, and Astro for now, Skeleton has an active community of users on [GitHub](https://github.com/skeletonlabs/skeleton/discussions) and [Discord](https://discord.gg/EXqV7W8MtY). If you need support (directly related to Skeleton) considering reaching out in these spaces. Other members of the community may be able to assist you.

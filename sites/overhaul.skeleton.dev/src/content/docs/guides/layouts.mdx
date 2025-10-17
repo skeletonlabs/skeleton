@@ -1,0 +1,205 @@
+---
+title: Layouts
+description: Learn best practices for creating responsive layouts using semantic HTML and Tailwind.
+order: 50
+---
+
+import ColOne from '@/components/examples/guides/cookbook/layouts/col-one.astro';
+import ColThree from '@/components/examples/guides/cookbook/layouts/col-three.astro';
+import ColTwo from '@/components/examples/guides/cookbook/layouts/col-two.astro';
+import StickyHeader from '@/components/examples/guides/cookbook/layouts/sticky-header.astro';
+
+<p class="text-xl">
+	Skeleton supports a variety of web-based frameworks and meta-frameworks, and this guide serves as a universal reference when implementing
+	page layouts. These techniques utilize native HTML and Tailwind, meaning Skeleton is supported but not required. The only prerequisite is
+	Tailwind itself.
+</p>
+
+## Real World Example
+
+See our real world three column example, which implements many of the concepts introduced below.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/zP9RcoacIS" target="_blank">
+		View Real World Example
+	</a>
+</figure>
+
+## Semantic Markup
+
+When creating custom layouts, it's recommended to use semantic HTML to denote each region of the page.
+
+| Element     | Description                                                                                                                                                                                                                                                                                                                                                                       | Source                                                                   |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `<header>`  | Represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.                                                                                                                                                                                 | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header)  |
+| `<main>`    | Represents the dominant content within the document `<body>`. The main content area consists of content that is directly related to or expands upon the central topic of a document, or the central functionality of an application.                                                                                                                                              | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main)    |
+| `<footer>`  | Represents a footer for its nearest ancestor sectioning content or sectioning root element. Typically contains information about the author of the section, copyright data or links to related documents.                                                                                                                                                                         | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer)  |
+| `<aside>`   | Represents a portion of a document whose content is only indirectly related to the document's main content. Asides are frequently presented as sidebars or call-out boxes.                                                                                                                                                                                                        | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside)   |
+| `<article>` | Represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable (e.g., in syndication). Examples include: a forum post, a magazine or newspaper article, or a blog entry, a product card, a user-submitted comment, an interactive widget or gadget, or any other independent item of content. | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) |
+
+## Using Body Scroll
+
+Prioritize the `<body>` element as the scrollable page element over child elements. Otherwise you risk the following pitfalls:
+
+1. Mobile browser's "pull to refresh" feature will not work as expected.
+2. The Mobile Safari's browser interface will not auto-hide when scrolling vertically.
+3. CSS print styles may not work as expected.
+4. Accessibility may be adversely affected, especially on touch screen devices.
+5. May introduce inconsistent behavior between your app framework's layout solution.
+
+## Tailwind Utilities
+
+Tailwind provides several utility classes that may be helpful when generating custom layouts.
+
+### Grid
+
+Learn more about [CSS grid](https://css-tricks.com/snippets/css/complete-guide-grid/).
+
+| Utility                                                        | Description                                                                      |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [Columns](https://tailwindcss.com/docs/grid-template-columns)  | Utilities for specifying the columns in a grid layout.                           |
+| [Column Start/End](https://tailwindcss.com/docs/grid-column)   | Utilities for controlling how elements are sized and placed across grid columns. |
+| [Rows](https://tailwindcss.com/docs/grid-template-rows)        | Utilities for specifying the rows in a grid layout.                              |
+| [Row Start/End](https://tailwindcss.com/docs/grid-row)         | Utilities for controlling how elements are sized and placed across grid rows.    |
+| [Auto Flow](https://tailwindcss.com/docs/grid-auto-flow)       | Utilities for controlling how elements in a grid are auto-placed.                |
+| [Auto Columns](https://tailwindcss.com/docs/grid-auto-columns) | Utilities for controlling the size of implicitly-created grid columns.           |
+| [Auto Rows](https://tailwindcss.com/docs/grid-auto-rows)       | Utilities for controlling the size of implicitly-created grid rows.              |
+| [Gap](https://tailwindcss.com/docs/gap)                        | Utilities for controlling gutters between grid and flexbox items.                |
+
+### Alignment
+
+The following options are available for both [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) styles.
+
+| Utility                                                         | Description                                                                                                   |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [Justify Content](https://tailwindcss.com/docs/justify-content) | Utilities for controlling how flex and grid items are positioned along a container's main axis.               |
+| [Justify Items](https://tailwindcss.com/docs/justify-items)     | Utilities for controlling how grid items are aligned along their inline axis.                                 |
+| [Justify Self](https://tailwindcss.com/docs/justify-self)       | Utilities for controlling how an individual grid item is aligned along its inline axis.                       |
+| [Align Content](https://tailwindcss.com/docs/align-content)     | Utilities for controlling how rows are positioned in multi-row flex and grid containers.                      |
+| [Align Items](https://tailwindcss.com/docs/align-items)         | Utilities for controlling how flex and grid items are positioned along a container's cross axis.              |
+| [Align Self](https://tailwindcss.com/docs/align-self)           | Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis. |
+| [Place Content](https://tailwindcss.com/docs/place-content)     | Utilities for controlling how content is justified and aligned at the same time.                              |
+| [Place Items](https://tailwindcss.com/docs/place-items)         | Utilities for controlling how items are justified and aligned at the same time.                               |
+| [Place Self](https://tailwindcss.com/docs/place-self)           | Utilities for controlling how an individual item is justified and aligned at the same time.                   |
+
+### Responsive Design
+
+We recommend you utilize Tailwind's built-in [responsive breakpoints](https://tailwindcss.com/docs/responsive-design) for handling responsive design.
+
+```html
+<!-- Use a single column on small screens; show multiple columns at the medium breakpoint or wider -->
+<div class="grid grid-cols-1 md:grid-cols-[auto_1fr]">
+	<!-- Hide the sidebar on small screens; show at the medium breakpoint or wider -->
+	<aside class="hidden md:block">(sidebar)</aside>
+	<!-- Remains visible at all breakpoints -->
+	<main>(main)</main>
+</div>
+```
+
+By default, your `<html>` and `<body>` may collapse vertically and not extend to full height of the viewport. Consider a reset:
+
+```css
+html,
+body {
+	@apply h-full;
+}
+```
+
+## The Basics
+
+Let's start by creating traditional layouts using a combination of semantic HTML and Tailwind utility classes.
+
+### One Column
+
+<ColOne />
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/3ayrvPnIC4" target="_blank">
+		Preview and Source
+	</a>
+</figure>
+
+### Two Column
+
+<ColTwo />
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/yCv0ZOICSx" target="_blank">
+		Preview and Source
+	</a>
+</figure>
+
+### Three Column
+
+<ColThree />
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/BH0iosKxix" target="_blank">
+		Preview and Source
+	</a>
+</figure>
+
+## Sticky Positioning
+
+If you wish for your header or sidebar to remain fixed while scrolling, try the following techniques.
+
+### Sticky Header
+
+For `<header>`, we'll implement a few specific utility classes:
+
+- [sticky](https://tailwindcss.com/docs/position#sticky-positioning-elements) - Sets the CSS display to a value of sticky.
+- [top-0](https://tailwindcss.com/docs/top-right-bottom-left) - Sets the top offset to a value of 0px.
+- [z-10](https://tailwindcss.com/docs/z-index) - Sets the z-index stacking to a value of 10.
+
+> TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce the hazy glass-like effect for overlapped semi-transparent elements.
+
+<StickyHeader />
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/g7ory5pA4K" target="_blank">
+		Preview and Source
+	</a>
+</figure>
+
+### Sticky Sidebar
+
+For `<aside>`, we introduce two addition utility classes:
+
+- [col-span-1](https://tailwindcss.com/docs/grid-column) - we must define our columns explicitly to ensure all styles are display as expected.
+- [h-screen](https://tailwindcss.com/docs/height#viewport-height) - ensures our sidebar matches the viewport height. See Calculate Offsets below for more complex layouts.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://play.tailwindcss.com/aSzgim96nc" target="_blank">
+		Preview and Source
+	</a>
+</figure>
+
+## Advanced Techniques
+
+### Calculate Offsets
+
+You may use the [calc](https://developer.mozilla.org/en-US/docs/Web/CSS/calc) property to calculate numeric amounts, which can be handy when you have multiple sticky elements.
+
+```html
+<aside class="... sticky top-0 h-[calc(100vh-100px)]">(sidebar)</aside>
+```
+
+1. Sets the `height` value using an arbitrary syntax
+2. The initial value is set to 100vh (100% of the viewport height)
+3. Finally we subtract the offset for our header (ex: 100px)
+
+### Smart Grid Rows
+
+Combine the grid arbitrary syntax with [minmax](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax) to dynamically set a min and max range for your columns or rows. This is useful when creating a three column layout that need to adhere to a max container width.
+
+```html
+<div class="container mx-auto grid grid-cols-[200px_minmax(0px,_1fr)_300px]">
+	<aside>(sidebar)</aside>
+	<main>(main)</main>
+	<aside>(sidebar)</aside>
+</div>
+```
+
+### Grid Template
+
+If you wish to go beyond Tailwind, native CSS also offers [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template). This provides a declarative shorthand for defining grid columns, rows, and areas. Take care to match your [media query breakpoints](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries) configured by Tailwind by default, or extended within your application's [Tailwind configuration](https://tailwindcss.com/docs/responsive-design).

@@ -1,0 +1,198 @@
+---
+title: Markdown
+description: An MDX kitchen sink to test parsing and styles.
+---
+
+{/* --- This is a Comment --- */}
+
+<FrameworkTabs client:load>
+	<Fragment slot="react">This is the `React` panel!</Fragment>
+	<Fragment slot="svelte">This is the `Svelte` panel!</Fragment>
+	{/* <Fragment slot="vue">This is the Vue panel!</Fragment> */}
+</FrameworkTabs>
+
+## Tailwind
+
+<button type="button" class="btn preset-filled">
+	Button
+</button>
+
+## Text
+
+Text can be **bold**, _italic_, or ~~strikethrough~~.
+
+[Link to another page](https://github.com/)
+
+There should be whitespace between paragraphs.
+
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+## Blockquotes
+
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
+
+## Fenced Code Blocks
+
+```ts title="my-test-file.js"
+const toggleDarkMode = document.querySelector('.preset-filled');
+
+jtd.addEvent(toggleDarkMode, 'click', function () {
+	if (jtd.getTheme() === 'dark') {
+		jtd.setTheme('light');
+		toggleDarkMode.textContent = 'Preview dark color scheme';
+	} else {
+		jtd.setTheme('dark');
+		toggleDarkMode.textContent = 'Return to the light side';
+	}
+});
+```
+
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+	dateformat.i18n = require('./lang/' + l);
+	return true;
+};
+```
+
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
+
+## Inline Code elements
+
+`inline code element`
+
+## Tables
+
+| head1        | head two          | three |
+| :----------- | :---------------- | :---- |
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+### There's are horizontal rules below this.
+
+---
+
+---
+
+## Unordered list
+
+- This is an unordered list following a header.
+- This is an unordered list following a header.
+- This is an unordered list following a header.
+
+## Ordered List
+
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And an ordered list, continued:
+
+1.  Item one
+1.  Item two
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Nesting an ol in ul in an ol
+
+- level 1 item (ul)
+  1. level 2 item (ol)
+  1. level 2 item (ol)
+  - level 3 item (ul)
+  - level 3 item (ul)
+- level 1 item (ul)
+  1. level 2 item (ol)
+  1. level 2 item (ol)
+  - level 3 item (ul)
+  - level 3 item (ul)
+  1. level 4 item (ol)
+  1. level 4 item (ol)
+  - level 3 item (ul)
+  - level 3 item (ul)
+- level 1 item (ul)
+
+### And a task list
+
+- [ ] Hello, this is a TODO item
+- [ ] Hello, this is another TODO item
+- [x] Goodbye, this item is done
+
+### Nesting task lists
+
+- [ ] level 1 item (task)
+  - [ ] level 2 item (task)
+  - [ ] level 2 item (task)
+- [ ] level 1 item (task)
+- [ ] level 1 item (task)
+
+### Nesting a ul in a task list
+
+- [ ] level 1 item (task)
+  - level 2 item (ul)
+  - level 2 item (ul)
+- [ ] level 1 item (task)
+- [ ] level 1 item (task)
+
+### Nesting a task list in a ul
+
+- level 1 item (ul)
+  - [ ] level 2 item (task)
+  - [ ] level 2 item (task)
+- level 1 item (ul)
+- level 1 item (ul) \*/}
+
+### Image
+
+![](https://images.unsplash.com/photo-1578170222009-c7893aa20afd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+
+### Text Styles
+
+**bold**
+
+_italic_
+
+**_bold + italic_**

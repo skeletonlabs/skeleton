@@ -1,0 +1,214 @@
+---
+title: Fundamentals
+description: An introduction to the core concepts of Skeleton.
+order: 20
+---
+
+import NavGrid from '@/components/ui/nav-grid.astro';
+
+{
+
+<p className="text-xl">
+	Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific
+	components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
+</p>
+
+}
+
+---
+
+## Design System
+
+### Figma UI Kit
+
+A fully featured [Figma UI Kit](/figma) is available to designers, allowing them to quickly draft visual concept of your project.
+
+### Iconography
+
+Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, we highly recommend [Lucide](https://lucide.dev/) and utilize it for all examples in our documentation. Refer to our integration guides for [React](/docs/integrations/iconography/react) and [Svelte](/docs/integrations/iconography/svelte).
+
+### Core Features
+
+The following features fall under the umbrella of our design system. Provided via the Skeleton core.
+
+<NavGrid collection="docs" path="design/" classes="md:grid-cols-2" />
+
+---
+
+## Tailwind Components
+
+Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
+
+<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+
+---
+
+## Functional Components
+
+Skeleton also offers optional component packages for select component frameworks. Each component automatically adapts to Skeleton's design system. While still allowing a high level of customization.
+
+| Framework | NPM Package                     | Description                     |
+| --------- | ------------------------------- | ------------------------------- |
+| React     | `@skeletonlabs/skeleton-react`  | Contains all React components.  |
+| Svelte    | `@skeletonlabs/skeleton-svelte` | Contains all Svelte components. |
+
+### Powered by Zag.js
+
+Skeleton's components are built on **Zag.js**, which provides a collection of framework-agnostic UI component patterns to manage logic and state. Zag is actively maintained by industry veterans, such as [Segun Adebayo](https://github.com/segunadebayo) - the creator and core maintainer for [Chakra UI](https://www.chakra-ui.com/), [Ark UI](https://ark-ui.com/), and [PandaCSS](https://panda-css.com/).
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://zagjs.com/" target="_blank">
+		View Zag.js
+	</a>
+</figure>
+
+### Importing Components
+
+You may import components per each Skeleton framework as follows.
+
+```ts
+import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
+```
+
+This also includes access to the component prop types.
+
+```ts
+import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-{react|svelte}';
+```
+
+### Composed Pattern
+
+Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-*`, `style`, `class`, and more.
+
+```svelte
+<Avatar>
+	<Avatar.Image src="https://i.pravatar.cc/150?img=48" />
+	<Avatar.Fallback>SK</Avatar.Fallback>
+</Avatar>
+```
+
+### Styling Components
+
+Skeleton components implement a universal convention for accepting CSS utility classes via the `class` attribute. Use this to pass any CSS utility class.
+
+```svelte
+<Avatar class="rounded-2xl">
+	<Avatar.Image src="https://i.pravatar.cc/150?img=48" class="greyscale" />
+	<Avatar.Fallback>SK</Avatar.Fallback>
+</Avatar>
+```
+
+By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures any classes you pass through the `class` attribute are automatically given precedence. No mental overhead, it just works.
+
+```css
+@custom-variant skb {
+	@layer base {
+		@slot;
+	}
+}
+```
+
+### Extensible Markup
+
+Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and show not be needed for normal usage.
+
+**React:**
+
+```tsx
+export default function () {
+	return (
+		<Accordion>
+			{/* ... */}
+			<Accordion.Item value="item-1">
+				<h3>
+					<Accordion.ItemTrigger element={(attributes) => <button {...attributes}>My Own Button</button>} />
+				</h3>
+				<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
+			</Accordion.Item>
+			{/* ... */}
+		</Accordion>
+	);
+}
+```
+
+**Svelte:**
+
+```svelte
+<Accordion>
+	<!-- ... -->
+	<Accordion.Item value="item-1">
+		<h3>
+			<Accordion.ItemTrigger>
+				{#snippet element({ attributes })}
+					<button {...attributes}>My Own Button</button>
+				{/snippet}
+			</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
+	</Accordion.Item>
+	<!-- ... -->
+</Accordion>
+```
+
+### Custom Animations
+
+However, using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
+
+```ts
+import { slide } from 'svelte/transition';
+```
+
+```svelte
+<Accordion>
+	<!-- ... -->
+	<Accordion.Item value="item-1">
+		<h3>
+			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
+		</h3>
+		<Accordion.ItemContent>
+			{#snippet element(attributes)}
+				{#if !attributes.hidden}
+					<div {...attributes} hidden={false} transition:slide>Content 1</div>
+				{/if}
+			{/snippet}
+		</Accordion.ItemContent>
+	</Accordion.Item>
+	<!-- ... -->
+</Accordion>
+```
+
+1. Implement the `element` snippet to gain access to the `attributes`.
+2. Spread the `attributes` to the custom element, a `<div>` in this example.
+3. Override the `hidden` attribute to `false` to prevent it from showing/hiding the element too soon.
+4. Add the `transition:slide` and configure your preferred options.
+5. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
+
+### Provider Pattern
+
+Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root and provides access to the inner component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
+
+```svelte
+<script lang="ts">
+	import { Portal, Tooltip, useTooltip } from '@skeletonlabs/skeleton-svelte';
+
+	const id = $props.id();
+	const tooltip = useTooltip({ id });
+</script>
+
+<!-- External trigger using the Zag.js `open` state and `setOpen()` method -->
+<button type="button" onclick={() => tooltip().setOpen(!tooltip().open)}>Trigger</button>
+
+<!-- Tooltip provider and reference value -->
+<Tooltip.Provider value={tooltip}>
+	<Tooltip.Trigger>Anchor</Tooltip.Trigger>
+	<Portal>
+		<Tooltip.Positioner>
+			<Tooltip.Content>Content</Tooltip.Content>
+		</Tooltip.Positioner>
+	</Portal>
+</Tooltip.Provider>
+```
+
+### Learn More
+
+For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/resources/contribute/components).

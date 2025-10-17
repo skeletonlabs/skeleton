@@ -1,0 +1,40 @@
+---
+title: Spacing
+description: Set a dynamic scale for application whitespace.
+order: 40
+---
+
+import Default from '@/components/examples/design/spacing/default.svelte';
+
+This is enabled by the [Tailwind spacing system](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+			```css
+			[data-theme='cerberus'] {
+				--spacing: 0.25rem;
+			}
+			```
+		</div>
+	</Fragment>
+</Preview>
+
+This affects the following utilities.
+
+- `padding`
+- `margin`
+- `width`
+- `minWidth`
+- `maxWidth`
+- `height`
+- `minHeight`
+- `maxHeight`
+- `gap`
+- `inset`
+- `space`
+- `translate`

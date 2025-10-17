@@ -1,0 +1,74 @@
+---
+title: Buttons
+description: Provide a variety of button, including customizable sizes and types.
+srcCore: '/utilities/buttons.css'
+showDocsUrl: true
+---
+
+import Default from '@/components/examples/tailwind/buttons/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/buttons/default.astro?raw';
+import Disabled from '@/components/examples/tailwind/buttons/disabled.astro';
+import DisabledRaw from '@/components/examples/tailwind/buttons/disabled.astro?raw';
+import Group from '@/components/examples/tailwind/buttons/group.astro';
+import GroupRaw from '@/components/examples/tailwind/buttons/group.astro?raw';
+import Presets from '@/components/examples/tailwind/buttons/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind/buttons/presets.astro?raw';
+import Sizes from '@/components/examples/tailwind/buttons/sizes.astro';
+import SizesRaw from '@/components/examples/tailwind/buttons/sizes.astro?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Presets
+
+Provides full support of [Presets](/docs/design/presets).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Presets />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={PresetsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Sizes
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Sizes />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SizesRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Disabled
+
+When applied to a `<button>` element, you can use the `disabled` attribute.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Disabled />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DisabledRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Group
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Group />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={GroupRaw} lang="astro" />
+	</Fragment>
+</Preview>

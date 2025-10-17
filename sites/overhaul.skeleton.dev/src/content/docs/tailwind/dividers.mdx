@@ -1,0 +1,78 @@
+---
+title: Dividers
+description: Horizontal and vertical rule styling.
+srcCore: '/utilities/dividers.css'
+showDocsUrl: true
+---
+
+import Colors from '@/components/examples/tailwind/dividers/colors.astro';
+import ColorsRaw from '@/components/examples/tailwind/dividers/colors.astro?raw';
+import Default from '@/components/examples/tailwind/dividers/default.astro';
+import DefaultRaw from '@/components/examples/tailwind/dividers/default.astro?raw';
+import Size from '@/components/examples/tailwind/dividers/size.astro';
+import SizeRaw from '@/components/examples/tailwind/dividers/size.astro?raw';
+import Style from '@/components/examples/tailwind/dividers/style.astro';
+import StyleRaw from '@/components/examples/tailwind/dividers/style.astro?raw';
+import Vert from '@/components/examples/tailwind/dividers/vert.astro';
+import VertRaw from '@/components/examples/tailwind/dividers/vert.astro?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Size
+
+Use Tailwind's [border width](https://tailwindcss.com/docs/border-width) utilities to adjust thickness.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Size />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SizeRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Style
+
+Use Tailwind's [border style](https://tailwindcss.com/docs/border-style) utilities to adjust visual style.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Style />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={StyleRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Colors
+
+Use any Tailwind or Skeleton [colors or pairing](/docs/design/colors).
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Colors />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ColorsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Vertical
+
+Use `vr` for a vertical rule, which supports all above styles. Make sure to set the height.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Vert />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={VertRaw} lang="astro" />
+	</Fragment>
+</Preview>

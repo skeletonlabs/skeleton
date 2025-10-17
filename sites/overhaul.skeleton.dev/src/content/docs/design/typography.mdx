@@ -1,0 +1,261 @@
+---
+title: Typography
+description: The Skeleton typography system.
+srcCore: '/utilities/typography.css'
+order: 30
+---
+
+import Typescale from '@/components/examples/design/typography/typescale.svelte';
+import TypescaleRaw from '@/components/examples/design/typography/typescale.svelte?raw';
+
+import Anchors from '@/components/examples/design/typography/anchors.astro';
+import AnchorsRaw from '@/components/examples/design/typography/anchors.astro?raw';
+import Blockquotes from '@/components/examples/design/typography/blockquotes.astro';
+import BlockquotesRaw from '@/components/examples/design/typography/blockquotes.astro?raw';
+import CodeTag from '@/components/examples/design/typography/code-tag.astro';
+import CodeTagRaw from '@/components/examples/design/typography/code-tag.astro?raw';
+import Headings from '@/components/examples/design/typography/headings.astro';
+import HeadingsRaw from '@/components/examples/design/typography/headings.astro?raw';
+import InsDel from '@/components/examples/design/typography/ins-del.astro';
+import InsDelRaw from '@/components/examples/design/typography/ins-del.astro?raw';
+import Keyboard from '@/components/examples/design/typography/keyboard.astro';
+import KeyboardRaw from '@/components/examples/design/typography/keyboard.astro?raw';
+import Mark from '@/components/examples/design/typography/mark.astro';
+import MarkRaw from '@/components/examples/design/typography/mark.astro?raw';
+import Paragraphs from '@/components/examples/design/typography/paragraphs.astro';
+import ParagraphsRaw from '@/components/examples/design/typography/paragraphs.astro?raw';
+import Pre from '@/components/examples/design/typography/pre.astro';
+import PreRaw from '@/components/examples/design/typography/pre.astro?raw';
+
+import ListBasic from '@/components/examples/design/typography/list-basic.astro';
+import ListBasicRaw from '@/components/examples/design/typography/list-basic.astro?raw';
+import ListDesc from '@/components/examples/design/typography/list-desc.astro';
+import ListDescRaw from '@/components/examples/design/typography/list-desc.astro?raw';
+import ListNav from '@/components/examples/design/typography/list-nav.astro';
+import ListNavRaw from '@/components/examples/design/typography/list-nav.astro?raw';
+import ListOrdered from '@/components/examples/design/typography/list-ordered.astro';
+import ListOrderedRaw from '@/components/examples/design/typography/list-ordered.astro?raw';
+import ListUnordered from '@/components/examples/design/typography/list-unordered.astro';
+import ListUnorderedRaw from '@/components/examples/design/typography/list-unordered.astro?raw';
+
+import Semantic from '@/components/examples/design/typography/semantic.svelte';
+import SemanticRaw from '@/components/examples/design/typography/semantic.svelte?raw';
+
+{
+
+<p class="text-xl">
+	Skeleton provides an array of opt-in utility classes for common typographic elements, with a fully functional typography scale based on
+	your theme settings. As well as a number of primitives for generating a semantic typography set for your project's individual needs.
+</p>
+
+}
+
+## Typographic Scale
+
+Skeleton introduces customizable [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Typescale client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<div class="space-y-4">
+			Scaling can be adjusted by modifying the [type scale](/docs/get-started/core-api#typography) theme property.
+			```css
+			[data-theme='cerberus'] {
+				--text-scaling: 1.067;
+			}
+			```
+			This affects the following text sizes.
+			```html
+			<h1 class="text-xs">text-xs</h1>
+			<h2 class="text-sm">text-sm</h2>
+			<h3 class="text-base">text-base</h3>
+			<h4 class="text-lg">text-lg</h4>
+			<h5 class="text-xl">text-xl</h5>
+			<h6 class="text2-2xl">text-2xl</h6>
+			<h6 class="text3-3xl">text-3xl</h6>
+			<h6 class="text4-4xl">text-4xl</h6>
+			<h6 class="text5-5xl">text-5xl</h6>
+			<h6 class="text6-6xl">text-6xl</h6>
+			<h6 class="text7-7xl">text-7xl</h6>
+			<h6 class="text8-8xl">text-8xl</h6>
+			<h6 class="text9-9xl">text-9xl</h6>
+			```
+		</div>
+	</Fragment>
+</Preview>
+
+## Utility Classes
+
+Use the following utility classes to quickly style semantic HTML elements. These classes are opt-in by default, providing a simple escape hatch when you need to break from convention.
+
+### Headings
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Headings />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={HeadingsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Paragraphs
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Paragraphs />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ParagraphsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Blockquotes
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Blockquotes />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={BlockquotesRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Anchor
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Anchors />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={AnchorsRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Pre-Formatted
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Pre />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={PreRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Code
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<CodeTag />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CodeTagRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Keyboard
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Keyboard />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={KeyboardRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Insert & Delete
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<InsDel />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={InsDelRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Mark
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Mark />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MarkRaw} lang="astro" />
+	</Fragment>
+</Preview>
+## Lists
+
+Skeleton defers to Tailwind's built-in utility classes for common list styles.
+
+### Unordered
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListUnordered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListUnorderedRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Ordered
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListOrdered />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListOrderedRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Basic
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListBasic />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListBasicRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Description
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListDesc />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListDescRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+### Navigation
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<ListNav />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ListNavRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Semantic Typography
+
+When working with your designers, they may craft a semantic typography set for your project. To handle this, we recommend implementing [custom presets](/docs/design/presets#custom-presets) that mix CSS primitives with semantic HTML elements to replicate all desired styles. Feel free to use the boilerplate below, adding each style to your global stylesheet.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Semantic client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={SemanticRaw} lang="svelte" />
+	</Fragment>
+</Preview>
