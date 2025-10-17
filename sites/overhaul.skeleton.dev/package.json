@@ -35,7 +35,8 @@
 		"shiki": "catalog:",
 		"svelte": "catalog:",
 		"tailwindcss": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"vite-plugin-transform-lucide-imports": "catalog:"
 	},
 	"type": "module"
 }

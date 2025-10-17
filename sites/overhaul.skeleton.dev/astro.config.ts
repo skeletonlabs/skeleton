@@ -7,6 +7,7 @@ import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
+import transformLucideImports from 'vite-plugin-transform-lucide-imports';
 
 export default defineConfig({
 	prefetch: true,
@@ -29,8 +30,19 @@ export default defineConfig({
 		pagefind(),
 	],
 	vite: {
-		/* @ts-expect-error vite version mismatch */
-		plugins: [tailwindcss()],
+		plugins: [
+			/* @ts-expect-error vite version mismatch */
+			transformLucideImports({
+				onwarn(warning, defaultHandler) {
+					if (warning.message.match(/Skipping optimization of (\S+) because \1 is already a tree shaken package/)) {
+						return;
+					}
+					defaultHandler(warning.message);
+				},
+			}),
+			/* @ts-expect-error vite version mismatch */
+			tailwindcss(),
+		],
 	},
 	adapter: vercel(),
 });
