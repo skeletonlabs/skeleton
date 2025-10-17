@@ -5,12 +5,12 @@ import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
-import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 import transformLucideImports from 'vite-plugin-transform-lucide-imports';
 
 export default defineConfig({
 	prefetch: true,
+	output: 'server',
 	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
 	markdown: {
 		syntaxHighlight: false,
@@ -27,7 +27,6 @@ export default defineConfig({
 		mdx(),
 		sitemap(),
 		partytown(),
-		pagefind(),
 	],
 	vite: {
 		plugins: [

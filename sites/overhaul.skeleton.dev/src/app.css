@@ -4,7 +4,17 @@
 @import '@skeletonlabs/skeleton-react';
 @import '@skeletonlabs/skeleton/themes/cerberus';
 
-@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+@custom-variant dark {
+	&:where([data-mode='dark'], [data-mode='dark'] *) {
+		@slot;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		&:where([data-mode='system'], [data-mode='system'] *) {
+			@slot;
+		}
+	}
+}
 
 .gradient-homepage-one {
 	background-size: cover;

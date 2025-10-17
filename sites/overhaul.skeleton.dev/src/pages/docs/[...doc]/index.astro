@@ -1,28 +1,19 @@
 ---
-import { render } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import RootLayout from '@/components/layouts/root-layout.astro';
 import DocsLayout from '@/components/layouts/docs-layout.astro';
-import { getCollection } from 'astro:content';
 import { components } from '@/components/typography';
 import H1 from '@/components/typography/h1.astro';
 
-export async function getStaticPaths() {
-	const frameworks = await getCollection('frameworks');
-	const docs = await getCollection('docs');
-	return frameworks.flatMap((framework) =>
-		docs.map((doc) => ({
-			params: {
-				framework: framework.id,
-				doc: doc.id,
-			},
-			props: {
-				doc: doc,
-			},
-		})),
-	);
+if (!Astro.params.doc) {
+	return Astro.redirect('/404');
 }
 
-const { doc } = Astro.props;
+const doc = await getEntry('docs', Astro.params.doc);
+
+if (!doc) {
+	return Astro.redirect('/404');
+}
 
 const { Content } = await render(doc);
 ---
