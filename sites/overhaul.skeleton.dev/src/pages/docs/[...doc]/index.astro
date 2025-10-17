@@ -21,7 +21,7 @@ const { Content } = await render(doc);
 <RootLayout title={doc.data.title} description={doc.data.description}>
 	<DocsLayout>
 		<H1>{doc.data.title}</H1>
-		<p>{doc.data.description}</p>
+		<p class="text-lg opacity-60">{doc.data.description}</p>
 		<Content components={components} />
 	</DocsLayout>
 </RootLayout>

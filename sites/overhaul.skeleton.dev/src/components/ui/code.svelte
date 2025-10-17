@@ -4,7 +4,14 @@
 
 	const highlighter = await createHighlighterCore({
 		themes: [import('@shikijs/themes/dark-plus')],
-		langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/tsx'), import('@shikijs/langs/svelte')],
+		langs: [
+			import('@shikijs/langs/typescript'),
+			import('@shikijs/langs/tsx'),
+			import('@shikijs/langs/svelte'),
+			import('@shikijs/langs/astro'),
+			import('@shikijs/langs/html'),
+			import('@shikijs/langs/bash'),
+		],
 		engine: createOnigurumaEngine(import('shiki/wasm')),
 	});
 </script>
@@ -12,7 +19,7 @@
 <script lang="ts">
 	interface Props {
 		code: string;
-		lang: string;
+		lang: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
 	}
 
 	const props: Props = $props();

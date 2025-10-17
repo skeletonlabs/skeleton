@@ -6,7 +6,7 @@ const frameworks = await getCollection('frameworks');
 const activeFramework = await getActiveFramework(Astro.cookies);
 ---
 
-<select id="framework-select" class="select" value={activeFramework.id}>
+<select id="framework-select" class="select w-fit" value={activeFramework.id} aria-label="Select Framework" title="Select Framework">
 	{
 		frameworks.map((framework) => (
 			<option value={framework.id} selected={activeFramework.id === framework.id}>

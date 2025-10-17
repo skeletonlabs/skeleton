@@ -4,11 +4,9 @@ description: Learn how to install and setup Skeleton for your project.
 order: 10
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
-{/* --- */}
-
-<NavGrid collection="docs" path="installation/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(item) => item.id.includes('installation/')} class="md:grid-cols-2" />
 
 ## Mixing UI Libraries
 
@@ -17,3 +15,4 @@ Skeleton's design system is perfect for complementing headless component librari
 ### Unsupported Libraries
 
 Unfortunately, Skeleton cannot integrate with [Flowbite React](https://flowbite-react.com/), [Flowbite Svelte](https://flowbite-svelte.com/), or [Daisy UI](https://daisyui.com/) at this time. Similar to Skeleton, these libraries make changes to Tailwind that directly overlaps with many of our core features, including class names and color values.
+    

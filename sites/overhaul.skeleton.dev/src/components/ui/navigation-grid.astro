@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+	filter?: Parameters<typeof getCollection>[1];
+}
+
+const { filter } = Astro.props;
+
+const docs = await getCollection('docs', filter);
+---
+
+<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
+	{
+		docs.map((doc) => (
+			<a
+				href={`/docs/${doc.id}`}
+				class="card block bg-surface-50-950 border-[1px] border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
+			>
+				<h3 class="h5">{doc.data.title}</h3>
+				<p class="opacity-60">{doc.data.description}</p>
+			</a>
+		))
+	}
+</nav>
