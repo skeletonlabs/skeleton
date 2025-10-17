@@ -1,0 +1,36 @@
+---
+import type { Section } from '@/modules/navigation';
+
+interface Props {
+	sections: Section[];
+}
+
+const { sections } = Astro.props;
+---
+
+<aside class="text-sm grid gap-10">
+	{
+		sections.map((section) => (
+			<nav class="flex flex-col gap-2">
+				<span class="text-sm font-bold ml-2">{section.label}</span>
+				<ul class="flex flex-col gap-1">
+					{section.items.map((item) => (
+						<li>
+							<a href={String(item.body)} title={item.data.title} class="flex justify-between items-center">
+								<span
+									aria-current={Astro.url.pathname === item.id ? 'page' : 'false'}
+									class="grow px-2 py-1 rounded-base aria-[current=false]:anchor aria-[current=page]:preset-tonal"
+								>
+									{item.data.title}
+								</span>
+								{item.data.stability !== 'stable' && (
+									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{item.data.stability}</span>
+								)}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		))
+	}
+</aside>

@@ -1,9 +1,15 @@
 ---
 import { getEntry, render } from 'astro:content';
-import RootLayout from '@/components/layouts/root-layout.astro';
-import DocsLayout from '@/components/layouts/docs-layout.astro';
+import Layout from '@/components/ui/layout.astro';
 import { components } from '@/components/typography';
 import H1 from '@/components/typography/h1.astro';
+import Header from '@/components/ui/header.astro';
+import Footer from '@/components/ui/footer.astro';
+import Navigation from '@/components/ui/navigation.astro';
+import Alert from '@/components/ui/alert.astro';
+import TableOfContents from '@/components/ui/table-of-contents.astro';
+import Advertisement from '@/components/ui/advertisement.astro';
+import { commonSections } from '@/modules/navigation';
 
 if (!Astro.params.doc) {
 	return Astro.redirect('/404');
@@ -15,13 +21,37 @@ if (!doc) {
 	return Astro.redirect('/404');
 }
 
-const { Content } = await render(doc);
+const { Content, headings } = await render(doc);
 ---
 
-<RootLayout title={doc.data.title} description={doc.data.description}>
-	<DocsLayout>
-		<H1>{doc.data.title}</H1>
-		<p class="text-lg opacity-60">{doc.data.description}</p>
-		<Content components={components} />
-	</DocsLayout>
-</RootLayout>
+<Layout title={doc.data.title} description={doc.data.description}>
+	<Header />
+	<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_minmax(0px,_1fr)_280px] px-4 xl:px-10">
+		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 overflow-y-auto pr-10" data-navigation>
+			<Navigation sections={commonSections} />
+		</aside>
+		<main class="px-4 xl:px-10 py-10 space-y-8">
+			<header class="scroll-header space-y-4" data-pagefind-body id="_top">
+				<!-- <Breadcrumbs /> -->
+				<H1>{doc.data.title}</H1>
+				<p class="text-lg opacity-60">{doc.data.description}</p>
+			</header>
+			{
+				doc.data.stability !== 'stable' && (
+					<Alert type="warning">
+						This feature is currently marked as {doc.data.stability} and not intended for production use. It may receive breaking changes
+						before its stable release.
+					</Alert>
+				)
+			}
+			<article class="space-y-8">
+				<Content components={components} />
+			</article>
+		</main>
+		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">
+			<Advertisement />
+			<TableOfContents {headings} />
+		</aside>
+	</div>
+	<Footer />
+</Layout>

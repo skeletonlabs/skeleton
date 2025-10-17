@@ -15,6 +15,8 @@ export const collections = {
 		schema: z.object({
 			title: z.string().nonempty(),
 			description: z.string().nonempty(),
+			stability: z.enum(['alpha', 'beta', 'stable']).default('stable'),
+			order: z.number().positive().default(0),
 		}),
 	}),
 	contributors: defineCollection({

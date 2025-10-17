@@ -1,0 +1,55 @@
+import { type CollectionEntry, getCollection } from 'astro:content';
+
+export interface Section {
+	label: string;
+	items: CollectionEntry<'docs'>[];
+}
+
+async function getSection(prefix: string) {
+	return (
+		await getCollection('docs', (entry) => {
+			if (!entry.id.startsWith(prefix)) {
+				return false;
+			}
+			if (entry.id.split('/').length > 2) {
+				return false;
+			}
+			return true;
+		})
+	).toSorted((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.data.order - b.data.order);
+}
+
+export const commonSections: Section[] = [
+	{
+		label: 'Get Started',
+		items: await getSection('get-started/'),
+	},
+	{
+		label: 'Guides',
+		items: await getSection('guides/'),
+	},
+	{
+		label: 'Design System',
+		items: await getSection('design/'),
+	},
+	{
+		label: 'Tailwind Components',
+		items: await getSection('tailwind-components/'),
+	},
+	{
+		label: 'Framework Components',
+		items: await getSection('framework-components/'),
+	},
+	{
+		label: 'Headless Components',
+		items: await getSection('headless/'),
+	},
+	{
+		label: 'Integrations',
+		items: await getSection('integrations/'),
+	},
+	{
+		label: 'Resources',
+		items: await getSection('resources/'),
+	},
+];
