@@ -1,8 +1,9 @@
 ---
 import Skeleton from '@/assets/branding/skeleton.svg';
+import FrameworkSelect from '@/components/ui/framework-select.astro';
 
-const coreLinks = [
-	{ href: '/docs/svelte/get-started/introduction', title: 'Docs' },
+const links = [
+	{ href: '/docs/get-started/introduction', title: 'Docs' },
 	{ href: '/news', title: 'News' },
 	{ href: '/showcase', title: 'Showcase' },
 	{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
@@ -17,12 +18,13 @@ const coreLinks = [
 		</a>
 		<div class="hidden xl:flex items-center">
 			{
-				coreLinks.map((link) => (
+				links.map((link) => (
 					<a class="btn btn-sm hover:preset-tonal text-sm" href={link.href} target={link.target}>
 						{link.title}
 					</a>
 				))
 			}
 		</div>
+		<FrameworkSelect />
 	</div>
 </header>

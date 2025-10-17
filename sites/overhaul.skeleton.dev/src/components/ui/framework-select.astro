@@ -1,0 +1,31 @@
+---
+import { getActiveFramework } from '@/modules/get-active-framework';
+import { getCollection } from 'astro:content';
+import { actions } from 'astro:actions';
+
+const frameworks = await getCollection('frameworks');
+const activeFramework = await getActiveFramework(Astro.cookies);
+---
+
+<form method="post" action={actions.setFramework}>
+	<select class="select" name="framework" value={activeFramework.id}>
+		{
+			frameworks.map((framework) => (
+				<option value={framework.id} selected={activeFramework.id === framework.id}>
+					{framework.data.name}
+				</option>
+			))
+		}
+	</select>
+</form>
+
+<script>
+	document.addEventListener('astro:page-load', () => {
+		const select = document.querySelector<HTMLSelectElement>('select[name="framework"]');
+
+		select?.addEventListener('change', async () => {
+			console.log('CHANGE!');
+			select.form?.requestSubmit();
+		});
+	});
+</script>
