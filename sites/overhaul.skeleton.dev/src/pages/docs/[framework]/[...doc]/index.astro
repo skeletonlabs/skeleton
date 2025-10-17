@@ -1,11 +1,9 @@
 ---
 import { render } from 'astro:content';
-import RootLayout from '@/components/ui/root-layout.astro';
-import DocsLayout from '@/components/ui/docs-layout.astro';
+import RootLayout from '@/components/layouts/root-layout.astro';
+import DocsLayout from '@/components/layouts/docs-layout.astro';
 import { getCollection } from 'astro:content';
 import { components } from '@/components/typography';
-import Header from '@/components/ui/header.astro';
-import Footer from '@/components/ui/footer.astro';
 import H1 from '@/components/typography/h1.astro';
 
 export async function getStaticPaths() {
