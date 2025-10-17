@@ -1,0 +1,59 @@
+import Default from '@/components/examples/components/toggle-group/react/default';
+import DefaultRaw from '@/components/examples/components/toggle-group/react/default?raw';
+
+import Controlled from '@/components/examples/components/toggle-group/react/controlled';
+import ControlledRaw from '@/components/examples/components/toggle-group/react/controlled?raw';
+
+import Orientation from '@/components/examples/components/toggle-group/react/orientation';
+import OrientationRaw from '@/components/examples/components/toggle-group/react/orientation?raw';
+
+import Dir from '@/components/examples/components/toggle-group/react/dir';
+import DirRaw from '@/components/examples/components/toggle-group/react/dir?raw';
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Default client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Controlled
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Controlled client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={ControlledRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Orientation
+
+Use the `orientation` prop to change the layout direction of the Toggle Group.
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Orientation client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={OrientationRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## Direction
+
+<Preview client:load>
+	<Fragment slot="preview">
+		<Dir client:visible />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DirRaw} lang="tsx" />
+	</Fragment>
+</Preview>
+
+## API Reference
+
+<ApiTable />

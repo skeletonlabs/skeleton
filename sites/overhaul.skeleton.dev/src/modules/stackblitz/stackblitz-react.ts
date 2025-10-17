@@ -94,15 +94,17 @@ export default defineConfig({
 })
 `.trim();
 
-export function openReactStackblitzProject(code: string) {
+export function openReactStackblitzProject(files: Record<string, string>) {
+	const srcFiles = Object.fromEntries(Object.entries(files).map(([key, value]) => [`src/${key}`, value]));
+
 	sdk.openProject(
 		{
 			title: 'Skeleton React',
 			template: 'node',
 			files: {
 				'src/app.css': appCss,
-				'src/app.tsx': code,
 				'src/main.tsx': mainTsx,
+				...srcFiles,
 				'index.html': indexHtml,
 				'package.json': packageJson,
 				'tsconfig.json': tsconfigJson,
