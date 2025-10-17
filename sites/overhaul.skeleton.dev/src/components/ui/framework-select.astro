@@ -1,31 +1,32 @@
 ---
 import { getActiveFramework } from '@/modules/get-active-framework';
 import { getCollection } from 'astro:content';
-import { actions } from 'astro:actions';
 
 const frameworks = await getCollection('frameworks');
 const activeFramework = await getActiveFramework(Astro.cookies);
 ---
 
-<form method="post" action={actions.setFramework}>
-	<select class="select" name="framework" value={activeFramework.id}>
-		{
-			frameworks.map((framework) => (
-				<option value={framework.id} selected={activeFramework.id === framework.id}>
-					{framework.data.name}
-				</option>
-			))
-		}
-	</select>
-</form>
+<select id="framework-select" class="select" value={activeFramework.id}>
+	{
+		frameworks.map((framework) => (
+			<option value={framework.id} selected={activeFramework.id === framework.id}>
+				{framework.data.name}
+				{framework.data.logo && <img src={framework.data.logo} alt={`${framework.data.name} icon`} class="inline size-4 ml-2" />}
+			</option>
+		))
+	}
+</select>
 
 <script>
-	document.addEventListener('astro:page-load', () => {
-		const select = document.querySelector<HTMLSelectElement>('select[name="framework"]');
+	import { actions } from 'astro:actions';
+	import { navigate } from 'astro:transitions/client';
 
+	document.addEventListener('astro:page-load', () => {
+		const select = document.querySelector<HTMLSelectElement>('#framework-select');
 		select?.addEventListener('change', async () => {
-			console.log('CHANGE!');
-			select.form?.requestSubmit();
+			select.disabled = true;
+			await actions.setFramework(select.value);
+			await navigate(window.location.pathname);
 		});
 	});
 </script>

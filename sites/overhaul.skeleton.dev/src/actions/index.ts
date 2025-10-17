@@ -6,14 +6,11 @@ const frameworks = await getCollection('frameworks');
 
 export const server = {
 	setFramework: defineAction({
-		accept: 'form',
-		input: z.object({
-			framework: z.enum(frameworks.map((framework) => framework.id) as [string, ...string[]]),
-		}),
-		handler: async (data, context) => {
-			context.cookies.set('framework', data.framework, {
+		input: z.enum(frameworks.map((framework) => framework.id) as [string, ...string[]]),
+		handler: async (framework, context) => {
+			context.cookies.set('framework', framework, {
 				path: '/',
-				expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 365),
+				expires: new Date('9999-12-31'),
 			});
 		},
 	}),
