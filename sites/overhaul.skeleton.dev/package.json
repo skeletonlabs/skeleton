@@ -25,6 +25,7 @@
 		"astro-pagefind": "catalog:",
 		"astro-seo": "catalog:",
 		"lucide-react": "catalog:",
+		"octokit": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"svelte": "catalog:",

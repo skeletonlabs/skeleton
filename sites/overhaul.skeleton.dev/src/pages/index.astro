@@ -1,55 +1,60 @@
 ---
+import { ChevronRightIcon } from '@lucide/svelte';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import RootLayout from '@/components/ui/root-layout.astro';
 import Skeleton from '@/assets/branding/skeleton.svg';
-import { ChevronRightIcon } from '@lucide/svelte';
-import ComponentGrid from '@/components/ui/component-grid.svelte';
-import LiveDemos from '@/components/ui/live-demos.astro';
+import ComponentGrid from '@/components/landing-page/component-grid.svelte';
+import LiveDemos from '@/components/landing-page/live-demos.astro';
+import DesignSystem from '@/components/landing-page/design-system.svelte';
+import TailwindAndFrameworkComponents from '@/components/landing-page/tailwind-and-framework-components.svelte';
+import AdditionalFeatures from '@/components/landing-page/additional-features.astro';
+import OpenSource from '@/components/landing-page/open-source.astro';
+import Metrics from '@/components/landing-page/metrics.astro';
+import Sponsors from '@/components/landing-page/sponsors.astro';
+import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleton-today.astro';
 ---
 
 <RootLayout>
 	<Header />
 	<main>
 		<div class="gradient-homepage-one">
-			<section>
-				<div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
-					<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
-						<div class="flex justify-center items-center">
-							<div class="relative size-48 md:size-64 aspect-square">
-								<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
+			<section class="container mx-auto flex justify-center p-10 pt-20 pb-5">
+				<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
+					<div class="flex justify-center items-center">
+						<div class="relative size-48 md:size-64 aspect-square">
+							<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
 
-								<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
-								</div>
+							<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
 							</div>
 						</div>
-						<div class="self-center space-y-4">
-							<a
-								href="https://github.com/skeletonlabs/skeleton/discussions/3920"
-								target="_blank"
-								class="btn btn-sm preset-filled-primary-500 gap-2 shadow"
-							>
-								<span>🎉</span>
-								<span>Skeleton v4.0 has launched!</span>
+					</div>
+					<div class="self-center space-y-4">
+						<a
+							href="https://github.com/skeletonlabs/skeleton/discussions/3920"
+							target="_blank"
+							class="btn btn-sm preset-filled-primary-500 gap-2 shadow"
+						>
+							<span>🎉</span>
+							<span>Skeleton v4.0 has launched!</span>
+							<ChevronRightIcon class="size-4" />
+						</a>
+						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
+							An adaptive design system powered by Tailwind CSS.
+						</h1>
+						<p class="xl:text-balance">
+							Skeleton integrates with <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide an opinionated
+							solution for generating adaptive design systems. Including a turnkey component library for your favorite web frameworks.
+						</p>
+						<nav class="flex gap-4">
+							<a href="/docs/react/get-started/installation" class="btn preset-filled">
+								<span>Get Started</span>
 								<ChevronRightIcon class="size-4" />
 							</a>
-							<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
-								An adaptive design system powered by Tailwind CSS.
-							</h1>
-							<p class="xl:text-balance">
-								Skeleton integrates with <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide an opinionated
-								solution for generating adaptive design systems. Including a turnkey component library for your favorite web frameworks.
-							</p>
-							<nav class="flex gap-4">
-								<a href="/docs/react/get-started/installation" class="btn preset-filled">
-									<span>Get Started</span>
-									<ChevronRightIcon class="size-4" />
-								</a>
-								<a href="/docs/react/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
-									<span>Learn More</span>
-								</a>
-							</nav>
-						</div>
+							<a href="/docs/react/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+								<span>Learn More</span>
+							</a>
+						</nav>
 					</div>
 				</div>
 			</section>
@@ -62,6 +67,36 @@ import LiveDemos from '@/components/ui/live-demos.astro';
 				<LiveDemos />
 			</section>
 		</div>
+
+		<div class="gradient-homepage-two">
+			<section class="container mx-auto p-10 py-20">
+				<DesignSystem client:load />
+			</section>
+
+			<section class="container mx-auto p-10 py-20">
+				<TailwindAndFrameworkComponents client:load />
+			</section>
+
+			<section class="container mx-auto p-10 py-20">
+				<AdditionalFeatures />
+			</section>
+
+			<section class="container mx-auto p-10 py-20">
+				<OpenSource />
+			</section>
+
+			<section class="container mx-auto p-10 py-20">
+				<Metrics />
+			</section>
+		</div>
+
+		<section class="container mx-auto p-10 py-20">
+			<Sponsors />
+		</section>
+
+		<section class="container mx-auto p-10 py-20">
+			<BuildWithSkeletonToday />
+		</section>
 	</main>
-	<Footer />
 </RootLayout>
+<Footer />
