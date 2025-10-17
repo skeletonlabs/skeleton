@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import { components } from '@/components/typography';
 import Header from '@/components/ui/header.astro';
 import Footer from '@/components/ui/footer.astro';
+import H1 from '@/components/typography/h1.astro';
 
 export async function getStaticPaths() {
 	const frameworks = await getCollection('frameworks');
@@ -30,6 +31,8 @@ const { Content } = await render(doc);
 
 <RootLayout title={doc.data.title} description={doc.data.description}>
 	<DocsLayout>
+		<H1>{doc.data.title}</H1>
+		<p>{doc.data.description}</p>
 		<Content components={components} />
 	</DocsLayout>
 </RootLayout>
