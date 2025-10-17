@@ -5,3 +5,7 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
+.shiki {
+	white-space: pre-wrap;
+}

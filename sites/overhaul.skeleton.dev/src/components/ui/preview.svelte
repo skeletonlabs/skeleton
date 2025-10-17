@@ -1,22 +1,44 @@
 <script lang="ts">
+	import Code from './code.svelte';
+	import OpenInStackblitz from './open-in-stackblitz.svelte';
+	import { getLangFromExtension } from '@/modules/get-lang-from-extension';
+	import { EyeIcon } from '@lucide/svelte';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import type { CollectionEntry } from 'astro:content';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
-		preview: Snippet;
-		code: Snippet;
+		children: Snippet;
+		framework: CollectionEntry<'frameworks'>['id'];
+		files: Record<string, string>;
 	}
 
 	const props: Props = $props();
-	const { preview, code } = $derived(props);
+	const { children, framework, files } = $derived(props);
 </script>
 
 <Tabs defaultValue="preview">
 	<Tabs.List>
-		<Tabs.Trigger value="preview">Preview</Tabs.Trigger>
-		<Tabs.Trigger value="code">Code</Tabs.Trigger>
+		<Tabs.Trigger value="preview">
+			<EyeIcon class="size-5" />
+			<span class="sr-only">Preview</span>
+		</Tabs.Trigger>
+		{#if files}
+			{#each Object.keys(files) as file (file)}
+				<Tabs.Trigger value={file}>{file}</Tabs.Trigger>
+			{/each}
+		{/if}
+		<OpenInStackblitz class="ml-auto" {framework} {files} />
 		<Tabs.Indicator />
 	</Tabs.List>
-	<Tabs.Content value="preview">{@render preview()}</Tabs.Content>
-	<Tabs.Content value="code">{@render code()}</Tabs.Content>
+	<Tabs.Content value="preview">
+		{@render children()}
+	</Tabs.Content>
+	{#if files}
+		{#each Object.entries(files) as [file, content] (file)}
+			<Tabs.Content value={file}>
+				<Code code={content} lang={getLangFromExtension(file.split('.').pop())} />
+			</Tabs.Content>
+		{/each}
+	{/if}
 </Tabs>

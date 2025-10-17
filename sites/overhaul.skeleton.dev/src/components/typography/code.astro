@@ -1,7 +1,14 @@
 ---
-const props = Astro.props;
+import { unescape } from 'html-escaper';
+import Code_ from '@/components/ui/code.svelte';
 ---
 
-<code class="code" {...props}>
-	<slot />
-</code>
+{
+	Astro.props.class ? (
+		<Code_ code={unescape(await Astro.slots.render('default'))} lang={Astro.props.class.split('-').pop()} client:visible />
+	) : (
+		<code class="code">
+			<slot />
+		</code>
+	)
+}
