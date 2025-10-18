@@ -1,10 +1,13 @@
 {
-	"name": "skeleton.dev",
+	"name": "overhaul.skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build"
+		"build": "astro build",
+		"check": "astro check --noSync",
+		"sync": "astro sync",
+		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "catalog:",
@@ -31,11 +34,14 @@
 		"html-escaper": "catalog:",
 		"lucide-react": "catalog:",
 		"octokit": "catalog:",
+		"playwright": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"shiki": "catalog:",
 		"svelte": "catalog:",
 		"tailwindcss": "catalog:",
+		"tinyglobby": "catalog:",
+		"ts-morph": "catalog:",
 		"typescript": "catalog:",
 		"vite-plugin-transform-lucide-imports": "catalog:"
 	},

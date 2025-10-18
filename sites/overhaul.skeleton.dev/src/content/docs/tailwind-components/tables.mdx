@@ -12,24 +12,24 @@ import FullRaw from '@/components/examples/tailwind-components/tables/full.astro
 import Nav from '@/components/examples/tailwind-components/tables/nav.astro';
 import NavRaw from '@/components/examples/tailwind-components/tables/nav.astro?raw';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:load>
-	<Default client:load />
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default client:visible />
 </Preview>
 
 ## Extras
 
 Optionally add a header, footer, and caption.
 
-<Preview files={{ 'app.astro': FullRaw }} client:load>
-	<Full client:load />
+<Preview files={{ 'app.astro': FullRaw }} client:visible>
+	<Full client:visible />
 </Preview>
 
 ## Navigation
 
 Native HTML tables do not support interaction. For accessibility, use anchors or buttons within the last cell.
 
-<Preview files={{ 'app.astro': NavRaw }} client:load>
-	<Nav client:load />
+<Preview files={{ 'app.astro': NavRaw }} client:visible>
+	<Nav client:visible />
 </Preview>
 
 ## Layout

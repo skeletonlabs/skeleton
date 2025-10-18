@@ -1,0 +1,76 @@
+---
+import { getEntry } from 'astro:content';
+import Code from '@/components/typography/code.astro';
+import { getActiveFramework } from '@/modules/get-active-framework';
+
+interface Props {
+	component: string;
+	framework: string;
+}
+
+const framework = Astro.props.framework ?? (await getActiveFramework(Astro.cookies)).id;
+const component = Astro.props.component ?? Astro.params.doc?.split('/').at(-1);
+
+const types = await getEntry('types', `${framework}/${component}`);
+
+function kebabToPascal(str: string) {
+	return str
+		.split('-')
+		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+		.join('');
+}
+
+if (!types && process.env.NODE_ENV === 'production') {
+	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
+}
+---
+
+<div class="grid gap-8">
+	{
+		!types ? (
+			<p class="italic text-sm opacity-50">
+				Unable to load auto detect types for {framework}/{component}
+			</p>
+		) : (
+			<section class="grid gap-4">
+				{types.data.types.map((type) => (
+					<>
+						<h3 class="h3">{type.name.replace(kebabToPascal(component), '').replace('Props', '')}</h3>
+						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Property</th>
+									<th>Default</th>
+									<th>Type</th>
+								</tr>
+							</thead>
+							<tbody class="[&>tr]:hover:preset-tonal">
+								{type.props.map((property) => (
+									<tr class="align-top">
+										<td>
+											<code class="code">{property.name}</code>
+										</td>
+										<td>
+											{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+												<span>{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
+											) : (
+												<span class="opacity-50">-</span>
+											)}
+										</td>
+										<td class="grid gap-2">
+											{/* This pre tag will otherwise include the line breaks prettier adds */}
+											{/* prettier-ignore */}
+											<pre class="pre max-w-[400px] !bg-surface-950 border border-surface-800 !p-1.5">{property.type}</pre>
+											<span>{property.JSDoc.description}</span>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</>
+				))}
+			</section>
+		)
+	}
+</div>

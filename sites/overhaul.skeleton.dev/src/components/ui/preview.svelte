@@ -33,7 +33,10 @@
 		{/if}
 		<Tabs.Indicator />
 	</Tabs.List>
-	<Tabs.Content value="preview">
+	<Tabs.Content
+		value="preview"
+		class="card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8"
+	>
 		{@render children()}
 	</Tabs.Content>
 	{#if files}

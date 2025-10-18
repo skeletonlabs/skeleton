@@ -56,7 +56,7 @@ import SemanticRaw from '@/components/examples/design/typography/semantic.svelte
 
 Skeleton introduces customizable [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
 
-<Preview client:load>
+<Preview client:visible>
 	<Typescale client:visible />
 </Preview>
 
@@ -66,56 +66,56 @@ Use the following utility classes to quickly style semantic HTML elements. These
 
 ### Headings
 
-<Preview files={{ 'app.astro': HeadingsRaw }} client:load>
-	<Headings client:load />
+<Preview files={{ 'app.astro': HeadingsRaw }} client:visible>
+	<Headings client:visible />
 </Preview>
 
 ### Paragraphs
 
-<Preview files={{ 'app.astro': ParagraphsRaw }} client:load>
-	<Paragraphs client:load />
+<Preview files={{ 'app.astro': ParagraphsRaw }} client:visible>
+	<Paragraphs client:visible />
 </Preview>
 
 ### Blockquotes
 
-<Preview files={{ 'app.astro': BlockquotesRaw }} client:load>
-	<Blockquotes client:load />
+<Preview files={{ 'app.astro': BlockquotesRaw }} client:visible>
+	<Blockquotes client:visible />
 </Preview>
 
 ### Anchor
 
-<Preview files={{ 'app.astro': AnchorsRaw }} client:load>
-	<Anchors client:load />
+<Preview files={{ 'app.astro': AnchorsRaw }} client:visible>
+	<Anchors client:visible />
 </Preview>
 
 ### Pre-Formatted
 
-<Preview files={{ 'app.astro': PreRaw }} client:load>
-	<Pre client:load />
+<Preview files={{ 'app.astro': PreRaw }} client:visible>
+	<Pre client:visible />
 </Preview>
 
 ### Code
 
-<Preview files={{ 'app.astro': CodeTagRaw }} client:load>
-	<CodeTag client:load />
+<Preview files={{ 'app.astro': CodeTagRaw }} client:visible>
+	<CodeTag client:visible />
 </Preview>
 
 ### Keyboard
 
-<Preview files={{ 'app.astro': KeyboardRaw }} client:load>
-	<Keyboard client:load />
+<Preview files={{ 'app.astro': KeyboardRaw }} client:visible>
+	<Keyboard client:visible />
 </Preview>
 
 ### Insert & Delete
 
-<Preview files={{ 'app.astro': InsDelRaw }} client:load>
-	<InsDel client:load />
+<Preview files={{ 'app.astro': InsDelRaw }} client:visible>
+	<InsDel client:visible />
 </Preview>
 
 ### Mark
 
-<Preview files={{ 'app.astro': MarkRaw }} client:load>
-	<Mark client:load />
+<Preview files={{ 'app.astro': MarkRaw }} client:visible>
+	<Mark client:visible />
 </Preview>
 ## Lists
 
@@ -123,38 +123,38 @@ Skeleton defers to Tailwind's built-in utility classes for common list styles.
 
 ### Unordered
 
-<Preview files={{ 'app.astro': ListUnorderedRaw }} client:load>
-	<ListUnordered client:load />
+<Preview files={{ 'app.astro': ListUnorderedRaw }} client:visible>
+	<ListUnordered client:visible />
 </Preview>
 
 ### Ordered
 
-<Preview files={{ 'app.astro': ListOrderedRaw }} client:load>
-	<ListOrdered client:load />
+<Preview files={{ 'app.astro': ListOrderedRaw }} client:visible>
+	<ListOrdered client:visible />
 </Preview>
 
 ### Basic
 
-<Preview files={{ 'app.astro': ListBasicRaw }} client:load>
-	<ListBasic client:load />
+<Preview files={{ 'app.astro': ListBasicRaw }} client:visible>
+	<ListBasic client:visible />
 </Preview>
 
 ### Description
 
-<Preview files={{ 'app.astro': ListDescRaw }} client:load>
-	<ListDesc client:load />
+<Preview files={{ 'app.astro': ListDescRaw }} client:visible>
+	<ListDesc client:visible />
 </Preview>
 
 ### Navigation
 
-<Preview files={{ 'app.astro': ListNavRaw }} client:load>
-	<ListNav client:load />
+<Preview files={{ 'app.astro': ListNavRaw }} client:visible>
+	<ListNav client:visible />
 </Preview>
 
 ## Semantic Typography
 
 When working with your designers, they may craft a semantic typography set for your project. To handle this, we recommend implementing [custom presets](/docs/design/presets#custom-presets) that mix CSS primitives with semantic HTML elements to replicate all desired styles. Feel free to use the boilerplate below, adding each style to your global stylesheet.
 
-<Preview files={{ 'app.svelte': SemanticRaw }} client:load>
+<Preview files={{ 'app.svelte': SemanticRaw }} client:visible>
 	<Semantic client:visible />
 </Preview>

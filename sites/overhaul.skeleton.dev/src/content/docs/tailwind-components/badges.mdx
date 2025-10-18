@@ -13,22 +13,22 @@ import Presets from '@/components/examples/tailwind-components/badges/presets.as
 import PresetsRaw from '@/components/examples/tailwind-components/badges/presets.astro?raw';
 import Preview from '@/components/ui/preview.svelte';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:load>
-	<Default client:load />
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default client:visible />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview files={{ 'app.astro': PresetsRaw }} client:load>
-	<Presets client:load />
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets client:visible />
 </Preview>
 
 ## Overlap
 
 Use `badge-icon` to create overlapping numeric or icon badges.
 
-<Preview files={{ 'app.astro': OverlapRaw }} client:load>
-	<Overlap client:load />
+<Preview files={{ 'app.astro': OverlapRaw }} client:visible>
+	<Overlap client:visible />
 </Preview>

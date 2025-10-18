@@ -16,28 +16,28 @@ import SelectReactRaw from '@/components/examples/tailwind-components/chips/reac
 import SelectSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/select.svelte?raw';
 import Preview from '@/components/ui/preview.svelte';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:load>
-	<Default client:load />
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default client:visible />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview files={{ 'app.astro': PresetsRaw }} client:load>
-	<Presets client:load />
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets client:visible />
 </Preview>
 
 ## Disabled
 
 When applied to a `<button>` element, you can use the `disabled` attribute.
 
-<Preview files={{ 'app.astro': DisabledRaw }} client:load>
-	<Disabled client:load />
+<Preview files={{ 'app.astro': DisabledRaw }} client:visible>
+	<Disabled client:visible />
 </Preview>
 
 ## Selection
 
-<Preview files={{ 'app.tsx': SelectReactRaw, 'app.svelte': SelectSvelteRaw }} client:load>
+<Preview files={{ 'app.tsx': SelectReactRaw, 'app.svelte': SelectSvelteRaw }} client:visible>
 	<SelectReact client:visible />
 </Preview>

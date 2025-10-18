@@ -1,9 +1,11 @@
+import { generateTypeDocumentation } from './scripts/generate-type-documentation';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
+import type { AstroIntegration } from 'astro';
 import { defineConfig } from 'astro/config';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
@@ -14,6 +16,7 @@ export default defineConfig({
 		syntaxHighlight: false,
 	},
 	integrations: [
+		skeleton(),
 		react(),
 		svelte({
 			compilerOptions: {
@@ -43,3 +46,19 @@ export default defineConfig({
 	},
 	adapter: vercel(),
 });
+
+function skeleton(): AstroIntegration {
+	return {
+		name: 'skeleton',
+		hooks: {
+			'astro:config:setup': async (ctx) => {
+				if (ctx.command !== 'build') {
+					return;
+				}
+				ctx.logger.info('Generating type documentation...');
+				await generateTypeDocumentation();
+				ctx.logger.info('Type documentation generated.');
+			},
+		},
+	};
+}

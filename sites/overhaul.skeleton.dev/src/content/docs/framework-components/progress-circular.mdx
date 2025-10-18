@@ -1,0 +1,66 @@
+---
+title: Progress (Circular)
+description: Circular progress indicators for showing task progress.
+---
+
+import IndeterminateReact from '@/components/examples/framework-components/progress-circular/react/indeterminate';
+import IndeterminateReactRaw from '@/components/examples/framework-components/progress-circular/react/indeterminate?raw';
+
+import DeterminateReact from '@/components/examples/framework-components/progress-circular/react/determinate';
+import DeterminateReactRaw from '@/components/examples/framework-components/progress-circular/react/determinate?raw';
+
+import IndeterminateSvelte from '@/components/examples/framework-components/progress-circular/svelte/indeterminate.svelte';
+import IndeterminateSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/indeterminate.svelte?raw';
+
+import DeterminateSvelte from '@/components/examples/framework-components/progress-circular/svelte/determinate.svelte';
+import DeterminateSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/determinate.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': IndeterminateSvelteRaw }} client:visible>
+		<IndeterminateSvelte client:visible />
+	</Preview>
+	<Preview framework="svelte" files={{ 'app.svelte': DeterminateSvelteRaw }} client:visible>
+		<DeterminateSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': IndeterminateReactRaw }} client:visible>
+		<IndeterminateReact client:visible />
+	</Preview>
+	<Preview framework="react" files={{ 'app.tsx': DeterminateReactRaw }} client:visible>
+		<DeterminateReact client:visible />
+	</Preview>
+</Framework>
+
+## Size
+
+Use different sizes for context-appropriate indicators.
+
+## Color
+
+Change the track and indicator colour using utility classes or custom CSS variables to match your design system.
+
+## Centered Content
+
+Place content in the center of the circular progress if needed (for example, a numeric value).
+
+## Indeterminate
+
+Set the value to `null` to make the progress indeterminate.
+
+## Format
+
+Use the `format` prop to customize the output of the `ValueText` component. Options include `percentage` (default), `decimal` (0.0 - 1.0), or using the Intl API to provide custom formatting.
+
+## Custom Value Text
+
+Provide a custom renderer for the `ValueText` if you need to show a different layout or label.
+
+## API Reference
+
+<ApiTable />

@@ -889,6 +889,9 @@ importers:
       octokit:
         specifier: 'catalog:'
         version: 5.0.3
+      playwright:
+        specifier: 'catalog:'
+        version: 1.56.0
       react:
         specifier: 'catalog:'
         version: 19.2.0
@@ -904,6 +907,12 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.14
+      tinyglobby:
+        specifier: 'catalog:'
+        version: 0.2.15
+      ts-morph:
+        specifier: 'catalog:'
+        version: 27.0.2
       typescript:
         specifier: 'catalog:'
         version: 5.9.3

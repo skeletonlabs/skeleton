@@ -1,0 +1,179 @@
+---
+title: Combobox
+description: A combobox is an input widget with an associated popup that enables users to select a value from a collection of possible values.
+---
+
+import DefaultReact from '@/components/examples/framework-components/combobox/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/combobox/react/default?raw';
+
+import GroupReact from '@/components/examples/framework-components/combobox/react/group';
+import GroupReactRaw from '@/components/examples/framework-components/combobox/react/group?raw';
+
+import AutoHighlightReact from '@/components/examples/framework-components/combobox/react/auto-highlight';
+import AutoHighlightReactRaw from '@/components/examples/framework-components/combobox/react/auto-highlight?raw';
+
+import MultipleReact from '@/components/examples/framework-components/combobox/react/multiple';
+import MultipleReactRaw from '@/components/examples/framework-components/combobox/react/multiple?raw';
+
+import DisabledItemReact from '@/components/examples/framework-components/combobox/react/disabled-item';
+import DisabledItemReactRaw from '@/components/examples/framework-components/combobox/react/disabled-item?raw';
+
+import CustomFilterReact from '@/components/examples/framework-components/combobox/react/custom-filter';
+import CustomFilterReactRaw from '@/components/examples/framework-components/combobox/react/custom-filter?raw';
+
+import DirReact from '@/components/examples/framework-components/combobox/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/combobox/react/dir?raw';
+
+import ZIndexReact from '@/components/examples/framework-components/combobox/react/z-index';
+import ZIndexReactRaw from '@/components/examples/framework-components/combobox/react/z-index?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/combobox/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/combobox/svelte/default.svelte?raw';
+
+import GroupSvelte from '@/components/examples/framework-components/combobox/svelte/group.svelte';
+import GroupSvelteRaw from '@/components/examples/framework-components/combobox/svelte/group.svelte?raw';
+
+import AutoHighlightSvelte from '@/components/examples/framework-components/combobox/svelte/auto-highlight.svelte';
+import AutoHighlightSvelteRaw from '@/components/examples/framework-components/combobox/svelte/auto-highlight.svelte?raw';
+
+import MultipleSvelte from '@/components/examples/framework-components/combobox/svelte/multiple.svelte';
+import MultipleSvelteRaw from '@/components/examples/framework-components/combobox/svelte/multiple.svelte?raw';
+
+import DisabledItemSvelte from '@/components/examples/framework-components/combobox/svelte/disabled-item.svelte';
+import DisabledItemSvelteRaw from '@/components/examples/framework-components/combobox/svelte/disabled-item.svelte?raw';
+
+import CustomFilterSvelte from '@/components/examples/framework-components/combobox/svelte/custom-filter.svelte';
+import CustomFilterSvelteRaw from '@/components/examples/framework-components/combobox/svelte/custom-filter.svelte?raw';
+
+import DirSvelte from '@/components/examples/framework-components/combobox/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/combobox/svelte/dir.svelte?raw';
+
+import ZIndexSvelte from '@/components/examples/framework-components/combobox/svelte/z-index.svelte';
+import ZIndexSvelteRaw from '@/components/examples/framework-components/combobox/svelte/z-index.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+import { Code } from 'astro:components';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Groups
+
+Create labelled groups for your items.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+		<GroupReact client:visible />
+	</Preview>
+</Framework>
+
+## Auto Highlight
+
+Search for any option, then tap Enter on your keyboard to automatically select it.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AutoHighlightSvelteRaw }} client:visible>
+		<AutoHighlightSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AutoHighlightReactRaw }} client:visible>
+		<AutoHighlightReact client:visible />
+	</Preview>
+</Framework>
+
+## Multiple
+
+To maintain filtering functionality and improve clarity for users, we recommend displaying each selected value outside the perimeter of the Combobox component.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
+		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleReactRaw }} client:visible>
+		<MultipleReact client:visible />
+	</Preview>
+</Framework>
+
+## Disabled Item
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledItemSvelteRaw }} client:visible>
+		<DisabledItemSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledItemReactRaw }} client:visible>
+		<DisabledItemReact client:visible />
+	</Preview>
+</Framework>
+
+## Custom Filter
+
+Try mistyping `apple` or `banana` to see the custom filter using the fuzzy search from [Fuse.js](https://fusejs.io/) in action.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomFilterSvelteRaw }} client:visible>
+		<CustomFilterSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomFilterReactRaw }} client:visible>
+		<CustomFilterReact client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+## Guidelines
+
+### Z-Index
+
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the Positioner component part.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
+		<ZIndexSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
+		<ZIndexReact client:visible />
+	</Preview>
+</Framework>
+
+### Max Items
+
+We recommend no more than 500 items max. For normal usage, a few dozen will provide the best performance.
+
+## API Reference
+
+<ApiTable />

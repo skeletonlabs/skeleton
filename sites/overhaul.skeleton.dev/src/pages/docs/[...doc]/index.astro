@@ -44,14 +44,14 @@ const { Content, headings } = await render(doc);
 					</Alert>
 				)
 			}
-			<article class="space-y-8">
+			<article class="grid gap-8">
 				<Content components={components} />
 			</article>
+			<Footer class="p-4 xl:px-0" />
 		</main>
 		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">
 			<Advertisement />
 			<TableOfContents {headings} />
 		</aside>
 	</div>
-	<Footer />
 </Layout>

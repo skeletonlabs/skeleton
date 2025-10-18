@@ -1,0 +1,94 @@
+---
+title: Tags Input
+description: Allows input of multiple values.
+---
+
+import DefaultReact from '@/components/examples/framework-components/tags-input/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
+
+import ControlledReact from '@/components/examples/framework-components/tags-input/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/tags-input/react/controlled?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
+
+import ControlledSvelte from '@/components/examples/framework-components/tags-input/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/controlled.svelte?raw';
+
+import CustomIconSvelte from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte';
+import CustomIconSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte?raw';
+
+import ColorSvelte from '@/components/examples/framework-components/tags-input/svelte/color.svelte';
+import ColorSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/color.svelte?raw';
+
+import ProviderSvelte from '@/components/examples/framework-components/tags-input/svelte/provider.svelte';
+import ProviderSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/provider.svelte?raw';
+
+import DirSvelte from '@/components/examples/framework-components/tags-input/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/dir.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+
+## Custom Icon
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': CustomIconSvelteRaw }} client:visible>
+		<CustomIcon client:visible />
+	</Preview>
+</Framework>
+
+## Color
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<Color client:visible />
+	</Preview>
+</Framework>
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': ProviderSvelteRaw }} client:visible>
+		<Provider client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<Dir client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<ApiTable />
