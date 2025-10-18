@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { codeHighlighter } from '@/modules/code-highlighter';
+	import { highlighter } from '@/modules/highlighter';
 
 	interface Props {
 		code: string;
-		lang?: Parameters<typeof codeHighlighter.codeToHtml>[1]['lang'];
+		lang?: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
 	}
 
 	const props: Props = $props();
 	const { code, lang = 'txt' } = $derived(props);
 
 	const html = $derived(
-		codeHighlighter.codeToHtml(code, {
+		highlighter.codeToHtml(code, {
 			lang,
 			theme: 'dark-plus',
 		}),

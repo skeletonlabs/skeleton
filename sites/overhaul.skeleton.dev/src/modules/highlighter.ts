@@ -1,7 +1,7 @@
 import { createHighlighterCore } from 'shiki/core';
 import { createJavaScriptRawEngine } from 'shiki/engine/javascript';
 
-export const codeHighlighter = await createHighlighterCore({
+export const highlighter = await createHighlighterCore({
 	themes: [import('@shikijs/themes/dark-plus')],
 	langs: [
 		import('@shikijs/langs-precompiled/ts'),
