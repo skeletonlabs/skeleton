@@ -11,6 +11,8 @@
 			import('@shikijs/langs/astro'),
 			import('@shikijs/langs/html'),
 			import('@shikijs/langs/bash'),
+			import('@shikijs/langs/diff'),
+			import('@shikijs/langs/json'),
 		],
 		engine: createOnigurumaEngine(import('shiki/wasm')),
 	});
