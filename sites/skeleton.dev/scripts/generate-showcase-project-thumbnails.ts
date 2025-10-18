@@ -6,7 +6,7 @@ import { glob } from 'tinyglobby';
 
 const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SHOWCASE_PROJECTS_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'content', 'showcase-projects');
-const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'images', 'showcase-project-thumbnails');
+const OUTPUT_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'assets', 'showcase-project-thumbnails');
 
 async function generateShowcaseProjectThumbnails() {
 	const browser = await chromium.launch();

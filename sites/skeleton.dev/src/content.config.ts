@@ -55,6 +55,22 @@ export const collections = {
 			login: z.string(),
 		}),
 	}),
+	'showcase-projects': defineCollection({
+		loader: glob({
+			base: './src/content/showcase-projects',
+			pattern: '*.json',
+		}),
+		schema: z.object({
+			name: z.string(),
+			description: z.string(),
+			url: z.string(),
+			playwright: z
+				.object({
+					instructions: z.array(z.string()),
+				})
+				.optional(),
+		}),
+	}),
 	types: defineCollection({
 		loader: glob({
 			base: './src/content/types',

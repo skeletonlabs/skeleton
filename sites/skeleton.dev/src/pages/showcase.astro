@@ -1,0 +1,64 @@
+---
+import Layout from '@/components/ui/layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Header from '@/components/ui/header.astro';
+import Footer from '@/components/ui/footer.astro';
+import { getCollection } from 'astro:content';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('@/assets/showcase-project-thumbnails/*.png');
+const projects = (await getCollection('showcase-projects'))
+	.map((project) => {
+		const lightModule = Object.entries(images).find(([path]) => path.endsWith(`${project.id}-light.png`))?.[1];
+		const darkModule = Object.entries(images).find(([path]) => path.endsWith(`${project.id}-dark.png`))?.[1];
+		if (!lightModule || !darkModule) {
+			throw new Error(`Missing images for project ${project.id}, did you forget to run the thumbnail generation script?`);
+		}
+		return {
+			...project,
+			images: {
+				light: lightModule(),
+				dark: darkModule(),
+			},
+		};
+	})
+	.sort(() => 0.5 - Math.random());
+---
+
+<Layout title="Showcase" description="Check out the showcase of amazing projects built by the Skeleton community.">
+	<Header />
+	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
+		<section class="text-center space-y-2">
+			<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">Build anything with Skeleton.</h1>
+			<p class="xl:text-balance">Check out the showcase of amazing projects built by the Skeleton community.</p>
+		</section>
+		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{
+				projects.map((project) => {
+					return (
+						<a href={project.data.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
+							<Image
+								src={project.images.light}
+								alt={`Thumbnail of ${project.data.name}`}
+								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow block dark:hidden"
+							/>
+							<Image
+								src={project.images.dark}
+								alt={`Thumbnail of ${project.data.name}`}
+								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow hidden dark:block"
+							/>
+							<strong>{project.data.name}</strong>
+							<p class="text-xs opacity-60">{project.data.description}</p>
+						</a>
+					);
+				})
+			}
+		</section>
+		<section class="text-center space-y-4">
+			<p>Have an interesting project you wish to share? Submit it here.</p>
+			<a href="https://github.com/skeletonlabs/skeleton/discussions/3912" target="_blank" class="btn btn-lg preset-filled">Submit Project</a
+			>
+		</section>
+	</main>
+	<Footer />
+</Layout>
