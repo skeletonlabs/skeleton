@@ -1,7 +1,7 @@
 /* Generate by @shikijs/codegen */
 import { createSingletonShorthands, createdBundledHighlighter } from '@shikijs/core';
 import { createJavaScriptRegexEngine } from '@shikijs/engine-javascript';
-import type { DynamicImportLanguageRegistration, DynamicImportThemeRegistration, HighlighterGeneric } from '@shikijs/types';
+import type { DynamicImportLanguageRegistration, DynamicImportThemeRegistration } from '@shikijs/types';
 
 type BundledLanguage =
 	| 'typescript'
@@ -19,7 +19,6 @@ type BundledLanguage =
 	| 'json'
 	| 'css';
 type BundledTheme = 'light-plus' | 'dark-plus';
-type Highlighter = HighlighterGeneric<BundledLanguage, BundledTheme>;
 
 const bundledLanguages = {
 	typescript: () => import('@shikijs/langs/typescript'),
@@ -49,19 +48,4 @@ const createHighlighter = /* @__PURE__ */ createdBundledHighlighter<BundledLangu
 	engine: () => createJavaScriptRegexEngine(),
 });
 
-const { codeToHtml, codeToHast, codeToTokensBase, codeToTokens, codeToTokensWithThemes, getSingletonHighlighter, getLastGrammarState } =
-	/* @__PURE__ */ createSingletonShorthands<BundledLanguage, BundledTheme>(createHighlighter);
-
-export {
-	bundledLanguages,
-	bundledThemes,
-	codeToHast,
-	codeToHtml,
-	codeToTokens,
-	codeToTokensBase,
-	codeToTokensWithThemes,
-	createHighlighter,
-	getLastGrammarState,
-	getSingletonHighlighter,
-};
-export type { BundledLanguage, BundledTheme, Highlighter };
+export const { codeToHtml } = /* @__PURE__ */ createSingletonShorthands<BundledLanguage, BundledTheme>(createHighlighter);

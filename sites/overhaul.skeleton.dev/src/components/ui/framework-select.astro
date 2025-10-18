@@ -26,7 +26,9 @@ const activeFramework = await getActiveFramework(Astro.cookies);
 		select?.addEventListener('change', async () => {
 			select.disabled = true;
 			await actions.setFramework(select.value);
-			await navigate(window.location.pathname);
+			await navigate(window.location.pathname, {
+				history: 'replace',
+			});
 		});
 	});
 </script>

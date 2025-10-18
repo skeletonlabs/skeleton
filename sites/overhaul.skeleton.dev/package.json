@@ -22,7 +22,6 @@
 		"@shikijs/core": "catalog:",
 		"@shikijs/engine-javascript": "catalog:",
 		"@shikijs/langs": "catalog:",
-		"@shikijs/langs-precompiled": "catalog:",
 		"@shikijs/themes": "catalog:",
 		"@shikijs/types": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
