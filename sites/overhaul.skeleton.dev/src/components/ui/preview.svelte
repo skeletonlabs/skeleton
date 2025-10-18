@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Code from './code.svelte';
 	import OpenInStackblitz from './open-in-stackblitz.svelte';
-	import { getLangFromExtension } from '@/modules/get-lang-from-extension';
 	import { EyeIcon } from '@lucide/svelte';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -42,7 +41,7 @@
 	{#if files}
 		{#each Object.entries(files) as [file, content] (file)}
 			<Tabs.Content value={file}>
-				<Code code={content} lang={getLangFromExtension(file.split('.').pop())} />
+				<Code code={content} lang={file.split('.').pop()} />
 			</Tabs.Content>
 		{/each}
 	{/if}
