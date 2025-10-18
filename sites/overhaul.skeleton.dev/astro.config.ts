@@ -52,13 +52,13 @@ function skeleton(): AstroIntegration {
 	return {
 		name: 'skeleton',
 		hooks: {
-			'astro:config:setup': async (ctx) => {
-				if (ctx.command !== 'build') {
+			'astro:config:setup': async (context) => {
+				if (context.command !== 'build') {
 					return;
 				}
-				ctx.logger.info('Generating type documentation...');
+				context.logger.info('Generating type documentation...');
 				await generateTypeDocumentation();
-				ctx.logger.info('Type documentation generated.');
+				context.logger.info('Type documentation generated.');
 			},
 		},
 	};
