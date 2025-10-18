@@ -29,13 +29,13 @@ import Preview from '@/components/ui/preview.svelte';
 Portals move rendered content from its original location in the DOM to a target location. This is helpful for overlays, modals, and tooltips where you need to escape parent styling or stacking contexts.
 
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': BasicSvelteRaw }} client:visible>
-		<BasicSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': BasicReactRaw }} client:visible>
-		<BasicReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 

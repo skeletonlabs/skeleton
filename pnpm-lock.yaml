@@ -850,6 +850,9 @@ importers:
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
+      '@skeletonlabs/skeleton-common':
+        specifier: workspace:*
+        version: link:../../packages/skeleton-common
       '@skeletonlabs/skeleton-react':
         specifier: workspace:*
         version: link:../../packages/skeleton-react

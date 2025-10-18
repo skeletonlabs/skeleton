@@ -6,14 +6,14 @@ description: Allows input of multiple values.
 import DefaultReact from '@/components/examples/framework-components/tags-input/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
 
-import ControlledReact from '@/components/examples/framework-components/tags-input/react/controlled';
-import ControlledReactRaw from '@/components/examples/framework-components/tags-input/react/controlled?raw';
+import ControlledReact from '@/components/examples/framework-components/tags-input/react/default';
+import ControlledReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
 
 import DefaultSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
 
-import ControlledSvelte from '@/components/examples/framework-components/tags-input/svelte/controlled.svelte';
-import ControlledSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/controlled.svelte?raw';
+import ControlledSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
 
 import CustomIconSvelte from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte';
 import CustomIconSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte?raw';
@@ -59,7 +59,7 @@ import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
 	<Preview files={{ 'app.svelte': CustomIconSvelteRaw }} client:visible>
-		<CustomIcon client:visible />
+		<CustomIconSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -67,7 +67,7 @@ import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
 	<Preview files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
-		<Color client:visible />
+		<ColorSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -77,7 +77,7 @@ Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to g
 
 <Framework id="svelte">
 	<Preview files={{ 'app.svelte': ProviderSvelteRaw }} client:visible>
-		<Provider client:visible />
+		<ProviderSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -85,7 +85,7 @@ Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to g
 
 <Framework id="svelte">
 	<Preview files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<Dir client:visible />
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 

@@ -11,8 +11,10 @@ import ColorsRaw from '@/components/examples/guides/cookbook/alerts/colors.astro
 import Default from '@/components/examples/guides/cookbook/alerts/default.astro';
 import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.astro?raw';
 
+import Preview from '@/components/ui/preview.svelte';
+
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default client:visible />
+	<Default />
 </Preview>
 
 ## Styling
@@ -20,5 +22,5 @@ import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.ast
 For even more customization, try mixing and matching various [Presets](/docs/design/presets) classes.
 
 <Preview files={{ 'app.astro': ColorsRaw }} client:visible>
-	<Colors client:visible />
+	<Colors />
 </Preview>

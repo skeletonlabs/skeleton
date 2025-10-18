@@ -47,7 +47,7 @@ Contrast color values are available for every shade. Use these to set accessible
 ```
 
 <Preview files={{ 'app.astro': ContrastRaw }} client:visible>
-	<Contrast client:visible />
+	<Contrast />
 </Preview>
 
 See the [Preset system](/docs/design/presets) for additional utility classes that automatically mix each color and contrast tone.
@@ -101,7 +101,7 @@ The following shows actual Color Pairings. Toggle this website between light and
 Color Parings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp but, but inverts the order when toggling from light to dark mode.
 
 <Preview client:visible>
-	<PairingsStack client:visible />
+	<PairingsStack />
 </Preview>
 
 - We can use shade `950` for light mode and `50` from dark mode to represent our body text color.

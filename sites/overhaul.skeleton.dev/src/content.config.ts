@@ -23,6 +23,7 @@ export const collections = {
 			description: z.string().nonempty(),
 			stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
 			order: z.number().nonnegative().optional().default(0),
+			tags: z.array(z.string()).optional().default([]),
 		}),
 	}),
 	contributors: defineCollection({

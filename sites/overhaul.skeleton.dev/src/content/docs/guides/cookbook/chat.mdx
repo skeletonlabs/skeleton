@@ -17,6 +17,8 @@ import FeedRaw from '@/components/examples/guides/cookbook/chat/feed.astro?raw';
 import Rows from '@/components/examples/guides/cookbook/chat/rows.astro';
 import RowsRaw from '@/components/examples/guides/cookbook/chat/rows.astro?raw';
 
+import Preview from '@/components/ui/preview.svelte';
+
 <Preview files={{ 'app.svelte': DefaultRaw }} client:visible>
 	<Default client:visible />
 </Preview>
@@ -26,7 +28,7 @@ import RowsRaw from '@/components/examples/guides/cookbook/chat/rows.astro?raw';
 Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
 <Preview files={{ 'app.astro': ColumnsRaw }} client:visible>
-	<Columns client:visible />
+	<Columns />
 </Preview>
 
 ## Layout Rows
@@ -34,7 +36,7 @@ Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns)
 Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
 <Preview files={{ 'app.astro': RowsRaw }} client:visible>
-	<Rows client:visible />
+	<Rows />
 </Preview>
 
 ## Message Feed
@@ -42,7 +44,7 @@ Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utili
 The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
 <Preview files={{ 'app.astro': FeedRaw }} client:visible>
-	<Feed client:visible />
+	<Feed />
 </Preview>
 
 ## Message Bubbles
@@ -50,7 +52,7 @@ The feed simply loops through the available feed data. Each `<pre>` tag represen
 Provide styling to each bubble element.
 
 <Preview files={{ 'app.astro': BubblesRaw }} client:visible>
-	<Bubbles client:visible />
+	<Bubbles />
 </Preview>
 
 ## Prompt

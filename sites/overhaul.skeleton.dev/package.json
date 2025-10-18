@@ -21,6 +21,7 @@
 		"@shikijs/langs": "catalog:",
 		"@shikijs/themes": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@stackblitz/sdk": "catalog:",

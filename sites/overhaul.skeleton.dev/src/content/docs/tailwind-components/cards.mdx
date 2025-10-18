@@ -15,11 +15,11 @@ import PresetsRaw from '@/components/examples/tailwind-components/cards/presets.
 import Preview from '@/components/ui/preview.svelte';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default client:visible />
+	<Default />
 </Preview>
 
 <Preview files={{ 'app.astro': DetailedRaw }} client:visible>
-	<Detailed client:visible />
+	<Detailed />
 </Preview>
 
 ## Presets
@@ -27,5 +27,5 @@ import Preview from '@/components/ui/preview.svelte';
 Provides full support of [Presets](/docs/design/presets).
 
 <Preview files={{ 'app.astro': PresetsRaw }} client:visible>
-	<Presets client:visible />
+	<Presets />
 </Preview>
