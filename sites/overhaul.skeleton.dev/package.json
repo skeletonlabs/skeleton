@@ -20,6 +20,7 @@
 		"@lucide/svelte": "catalog:",
 		"@shikijs/langs": "catalog:",
 		"@shikijs/themes": "catalog:",
+		"@shikijs/transformers": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",

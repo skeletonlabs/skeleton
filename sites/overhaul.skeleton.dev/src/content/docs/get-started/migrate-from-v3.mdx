@@ -55,15 +55,15 @@ The following migration steps apply to your global stylesheet (ex: `app.css`).
 
 The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
 
-```diff
-- @source '../node_modules/@skeletonlabs/skeleton-{framework}/dist';
-+ @import '@skeletonlabs/skeleton-{framework}';
+```css
+@source '../node_modules/@skeletonlabs/skeleton-{framework}/dist'; // [!code --]
+@import '@skeletonlabs/skeleton-{framework}'; // [!code ++]
 ```
 
 In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
 
-```diff
-- @import '@skeletonlabs/skeleton/optional/presets';
+```css
+@import '@skeletonlabs/skeleton/optional/presets'; // [!code --]
 ```
 
 ---

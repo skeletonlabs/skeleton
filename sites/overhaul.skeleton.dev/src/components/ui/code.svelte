@@ -1,4 +1,5 @@
 <script lang="ts" module>
+	import { transformerNotationDiff } from '@shikijs/transformers';
 	import { createHighlighterCore } from 'shiki/core';
 	import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
 
@@ -31,6 +32,7 @@
 		highlighter.codeToHtml(code, {
 			lang,
 			theme: 'dark-plus',
+			transformers: [transformerNotationDiff()],
 		}),
 	);
 </script>
