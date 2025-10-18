@@ -4,7 +4,7 @@ description: An introduction to the core concepts of Skeleton.
 order: 20
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 {
 
@@ -31,7 +31,7 @@ Skeleton is icon agnostic, meaning you may bring your own iconography solution. 
 
 The following features fall under the umbrella of our design system. Provided via the Skeleton core.
 
-<NavGrid collection="docs" path="design/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(item) => item.id.includes('design/')} classes="md:grid-cols-2" />
 
 ---
 
@@ -39,7 +39,7 @@ The following features fall under the umbrella of our design system. Provided vi
 
 Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
 
-<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(item) => item.id.includes('tailwind/')} classes="md:grid-cols-2" />
 
 ---
 

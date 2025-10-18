@@ -1,16 +1,17 @@
 ---
+import type { HTMLAttributes } from 'astro/types';
 import { getCollection } from 'astro:content';
 
-interface Props {
+interface Props extends HTMLAttributes<'nav'> {
 	filter?: Parameters<typeof getCollection>[1];
 }
 
-const { filter } = Astro.props;
+const { filter, class: className, ...rest } = Astro.props;
 
 const docs = await getCollection('docs', filter);
 ---
 
-<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<nav class={`grid grid-cols-1 gap-4 ${className}`} {...rest}>
 	{
 		docs.map((doc) => (
 			<a

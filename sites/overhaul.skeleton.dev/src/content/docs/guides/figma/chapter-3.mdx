@@ -4,7 +4,7 @@ description: Keep Your Skeleton Library Up to Date
 order: 20
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
@@ -83,4 +83,4 @@ In the `Libraries added to this file` section, click the `Remove`³ button next 
 
 ## Guides
 
-<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
+<NavigationGrid filter={(item) => item.id.includes('figma/')} classes="md:grid-cols-1" />
