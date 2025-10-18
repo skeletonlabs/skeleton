@@ -1,6 +1,4 @@
 ---
-import { ExternalLink } from '@lucide/svelte';
-
 const props = Astro.props;
 
 const isExternal = !props.href.includes(import.meta.env.SITE) && !props.href.startsWith('/') && !props.href.startsWith('#');
@@ -13,5 +11,4 @@ if (isExternal) {
 
 <a class="anchor inline-flex items-center gap-1" {...props}>
 	<slot />
-	{isExternal && <ExternalLink class="size-3" />}
 </a>
