@@ -11,38 +11,24 @@ import Overlap from '@/components/examples/tailwind-components/badges/overlap.as
 import OverlapRaw from '@/components/examples/tailwind-components/badges/overlap.astro?raw';
 import Presets from '@/components/examples/tailwind-components/badges/presets.astro';
 import PresetsRaw from '@/components/examples/tailwind-components/badges/presets.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Presets />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={PresetsRaw} lang="html" />
-	</Fragment>
+<Preview files={{ 'app.astro': PresetsRaw }} client:load>
+	<Presets client:load />
 </Preview>
 
 ## Overlap
 
 Use `badge-icon` to create overlapping numeric or icon badges.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Overlap />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={OverlapRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': OverlapRaw }} client:load>
+	<Overlap client:load />
 </Preview>

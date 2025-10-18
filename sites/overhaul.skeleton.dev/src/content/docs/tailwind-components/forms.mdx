@@ -21,15 +21,10 @@ import Special from '@/components/examples/tailwind-components/forms/special.ast
 import SpecialRaw from '@/components/examples/tailwind-components/forms/special.astro?raw';
 import TextareaRaw from '@/components/examples/tailwind-components/forms/textarea.astro?raw';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<div class="space-y-4" slot="code">
-		<Code code={InputRaw} lang="html" />
-		<Code code={SelectRaw} lang="html" />
-		<Code code={TextareaRaw} lang="html" />
-	</div>
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': InputRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 ## Prerequisites
@@ -65,72 +60,42 @@ The display of native and semantic HTML form elements can vary between both oper
 
 ## Inputs
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Input />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={InputRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': InputRaw }} client:load>
+	<Input client:load />
 </Preview>
 
 ## Select
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Selection />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={SelectionRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': SelectionRaw }} client:load>
+	<Selection client:load />
 </Preview>
 
 ## Checkboxes
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Checkboxes />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={CheckboxesRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': CheckboxesRaw }} client:load>
+	<Checkboxes client:load />
 </Preview>
 
 ## Radio Groups
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Radio />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={RadioRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': RadioRaw }} client:load>
+	<Radio client:load />
 </Preview>
 
 ## Kitchen Sink
 
 Display and functionality of these elements may vary greatly between devices and browsers.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Special />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={SpecialRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': SpecialRaw }} client:load>
+	<Special client:load />
 </Preview>
 
 ## Groups
 
 Input groups support a subset of form elements and button styles. These pair well with [Presets](/docs/design/presets).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Groups />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={GroupsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': GroupsRaw }} client:load>
+	<Groups client:load />
 </Preview>
 
 | Class         | Usage                                   |

@@ -16,59 +16,36 @@ import PresetsRaw from '@/components/examples/tailwind-components/buttons/preset
 import Sizes from '@/components/examples/tailwind-components/buttons/sizes.astro';
 import SizesRaw from '@/components/examples/tailwind-components/buttons/sizes.astro?raw';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Presets />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={PresetsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': PresetsRaw }} client:load>
+	<Presets client:load />
 </Preview>
 
 ## Sizes
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Sizes />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={SizesRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': SizesRaw }} client:load>
+	<Sizes client:load />
 </Preview>
 
 ## Disabled
 
 When applied to a `<button>` element, you can use the `disabled` attribute.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Disabled />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DisabledRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DisabledRaw }} client:load>
+	<Disabled client:load />
 </Preview>
 
 ## Group
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Group />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={GroupRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': GroupRaw }} client:load>
+	<Group client:load />
 </Preview>

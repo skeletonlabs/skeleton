@@ -29,13 +29,8 @@ import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
 
 }
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 1. **Filled** - a filled preset of the primary brand color.
@@ -57,13 +52,8 @@ Skeleton's provides the following opinionated set of styles, including accessibl
 preset-filled-{color}-{lightModeShade}-{darkModeShade}
 ```
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Filled />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={FilledRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': FilledRaw }} client:load>
+	<Filled client:load />
 </Preview>
 
 ### Tonal
@@ -72,13 +62,8 @@ preset-filled-{color}-{lightModeShade}-{darkModeShade}
 preset-tonal-{color}
 ```
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Tonal />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={TonalRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': TonalRaw }} client:load>
+	<Tonal client:load />
 </Preview>
 
 ### Outlined
@@ -87,13 +72,8 @@ preset-tonal-{color}
 preset-outlined-{color}-{shade}-{shade}
 ```
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Outlined />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={OutlinedRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': OutlinedRaw }} client:load>
+	<Outlined client:load />
 </Preview>
 
 ## Custom Presets
@@ -111,35 +91,20 @@ Please be aware the following presets are not included by Skeleton. Rather, thes
 
 ### Input Presets
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Custom />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={CustomRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': CustomRaw }} client:load>
+	<Custom client:load />
 </Preview>
 
 ### Gradient Presets
 
 Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes that can be used to generate presets.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Gradient />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={GradientRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': GradientRaw }} client:load>
+	<Gradient client:load />
 </Preview>
 
 ### Glass Presets
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Glass />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={GlassRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': GlassRaw }} client:load>
+	<Glass client:load />
 </Preview>

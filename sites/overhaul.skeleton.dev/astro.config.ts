@@ -5,7 +5,7 @@ import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
-import transformLucideImports from 'vite-plugin-transform-lucide-imports';
+import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
 export default defineConfig({
 	output: 'server',
@@ -31,6 +31,7 @@ export default defineConfig({
 			tailwindcss(),
 			/* @ts-expect-error vite version mismatch */
 			transformLucideImports({
+				extensions: [...SUPPORTED_EXTENSIONS, '.astro'],
 				onwarn(warning, defaultHandler) {
 					if (warning.message.match(/Skipping optimization of (\S+) because \1 is already a tree shaken package/)) {
 						return;

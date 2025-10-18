@@ -14,52 +14,30 @@ import PresetsRaw from '@/components/examples/tailwind-components/chips/presets.
 import SelectReact from '@/components/examples/tailwind-components/chips/react/select';
 import SelectReactRaw from '@/components/examples/tailwind-components/chips/react/select?raw';
 import SelectSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/select.svelte?raw';
+import Preview from '@/components/ui/preview.svelte';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Presets />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={PresetsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': PresetsRaw }} client:load>
+	<Presets client:load />
 </Preview>
 
 ## Disabled
 
 When applied to a `<button>` element, you can use the `disabled` attribute.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Disabled />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DisabledRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DisabledRaw }} client:load>
+	<Disabled client:load />
 </Preview>
 
 ## Selection
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<SelectReact client:visible />
-	</Fragment>
-	<Fragment slot="codeReact">
-		<Code code={SelectReactRaw} lang="tsx" />
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		<Code code={SelectSvelteRaw} lang="svelte" />
-	</Fragment>
+<Preview files={{ 'app.tsx': SelectReactRaw, 'app.svelte': SelectSvelteRaw }} client:load>
+	<SelectReact client:visible />
 </Preview>

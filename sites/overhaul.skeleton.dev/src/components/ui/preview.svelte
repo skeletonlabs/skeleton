@@ -9,7 +9,7 @@
 
 	interface Props {
 		children: Snippet;
-		framework: CollectionEntry<'frameworks'>['id'];
+		framework?: CollectionEntry<'frameworks'>['id'];
 		files: Record<string, string>;
 	}
 
@@ -28,7 +28,9 @@
 				<Tabs.Trigger value={file}>{file}</Tabs.Trigger>
 			{/each}
 		{/if}
-		<OpenInStackblitz class="ml-auto" {framework} {files} />
+		{#if framework}
+			<OpenInStackblitz class="ml-auto" {framework} {files} />
+		{/if}
 		<Tabs.Indicator />
 	</Tabs.List>
 	<Tabs.Content value="preview">

@@ -12,6 +12,8 @@ import PairingsDynamic from '@/components/examples/design/colors/pairings-dynami
 import PairingsStack from '@/components/examples/design/colors/pairings-stack.astro';
 import Pairings from '@/components/examples/design/colors/pairings.astro';
 
+import Preview from '@/components/ui/preview.svelte';
+
 ## Color Palette
 
 <Default />
@@ -44,13 +46,8 @@ Contrast color values are available for every shade. Use these to set accessible
 {property}-{color}-contrast-{shade}
 ```
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Contrast />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ContrastRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': ContrastRaw }} client:load>
+	<Contrast client:load />
 </Preview>
 
 See the [Preset system](/docs/design/presets) for additional utility classes that automatically mix each color and contrast tone.
@@ -104,24 +101,7 @@ The following shows actual Color Pairings. Toggle this website between light and
 Color Parings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp but, but inverts the order when toggling from light to dark mode.
 
 <Preview client:visible>
-	<Fragment slot="preview">
-		<PairingsStack />
-	</Fragment>
-	<Fragment slot="code">
-		```html
-		<div class="bg-primary-950-50">Foreground</div>
-		<div class="bg-primary-900-100">...</div>
-		<div class="bg-primary-800-200">...</div>
-		<div class="bg-primary-700-300">...</div>
-		<div class="bg-primary-600-400">...</div>
-		<div class="bg-primary-500">Branding</div>
-		<div class="bg-primary-400-600">...</div>
-		<div class="bg-primary-300-700">...</div>
-		<div class="bg-primary-200-800">...</div>
-		<div class="bg-primary-100-900">...</div>
-		<div class="bg-primary-50-950">Background</div>
-		```
-	</Fragment>
+	<PairingsStack client:visible />
 </Preview>
 
 - We can use shade `950` for light mode and `50` from dark mode to represent our body text color.

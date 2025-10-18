@@ -16,7 +16,7 @@ const { sections } = Astro.props;
 				<ul class="flex flex-col gap-1">
 					{section.items.map((item) => (
 						<li>
-							<a href={String(item.body)} title={item.data.title} class="flex justify-between items-center">
+							<a href={`/docs/${item.id}`} title={item.data.title} class="flex justify-between items-center">
 								<span
 									aria-current={Astro.url.pathname === item.id ? 'page' : 'false'}
 									class="grow px-2 py-1 rounded-base aria-[current=false]:anchor aria-[current=page]:preset-tonal"

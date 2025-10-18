@@ -12,33 +12,20 @@ import DetailedRaw from '@/components/examples/tailwind-components/cards/detaile
 import Presets from '@/components/examples/tailwind-components/cards/presets.astro';
 import PresetsRaw from '@/components/examples/tailwind-components/cards/presets.astro?raw';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Detailed />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DetailedRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DetailedRaw }} client:load>
+	<Detailed client:load />
 </Preview>
 
 ## Presets
 
 Provides full support of [Presets](/docs/design/presets).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Presets />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={PresetsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': PresetsRaw }} client:load>
+	<Presets client:load />
 </Preview>

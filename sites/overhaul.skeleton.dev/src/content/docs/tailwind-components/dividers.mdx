@@ -15,64 +15,40 @@ import Style from '@/components/examples/tailwind-components/dividers/style.astr
 import StyleRaw from '@/components/examples/tailwind-components/dividers/style.astro?raw';
 import Vert from '@/components/examples/tailwind-components/dividers/vert.astro';
 import VertRaw from '@/components/examples/tailwind-components/dividers/vert.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:load>
+	<Default client:load />
 </Preview>
 
 ## Size
 
 Use Tailwind's [border width](https://tailwindcss.com/docs/border-width) utilities to adjust thickness.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Size />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={SizeRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': SizeRaw }} client:load>
+	<Size client:load />
 </Preview>
 
 ## Style
 
 Use Tailwind's [border style](https://tailwindcss.com/docs/border-style) utilities to adjust visual style.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Style />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={StyleRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': StyleRaw }} client:load>
+	<Style client:load />
 </Preview>
 
 ## Colors
 
 Use any Tailwind or Skeleton [colors or pairing](/docs/design/colors).
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Colors />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ColorsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': ColorsRaw }} client:load>
+	<Colors client:load />
 </Preview>
 
 ## Vertical
 
 Use `vr` for a vertical rule, which supports all above styles. Make sure to set the height.
 
-<Preview client:load>
-	<Fragment slot="preview">
-		<Vert />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={VertRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': VertRaw }} client:load>
+	<Vert client:load />
 </Preview>
