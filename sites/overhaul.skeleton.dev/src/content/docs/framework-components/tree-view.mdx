@@ -29,12 +29,12 @@ import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -42,12 +42,12 @@ import Preview from '@/components/ui/preview.svelte';
 ## Controlled
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
 		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
@@ -58,7 +58,7 @@ import Preview from '@/components/ui/preview.svelte';
 - MacOS: Hold <kbd class="kbd">⌘</kbd> + left click with mouse.
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': MultipleSelectionRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSelectionRaw }} client:visible>
 		<MultipleSelection client:visible />
 	</Preview>
 </Framework>
@@ -68,7 +68,7 @@ import Preview from '@/components/ui/preview.svelte';
 Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to gain access to the `collapse` and `expand` methods on the `TreeView` instance.
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': CollapseExpandRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': CollapseExpandRaw }} client:visible>
 		<CollapseExpand client:visible />
 	</Preview>
 </Framework>
@@ -76,7 +76,7 @@ Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to g
 ## Lazy Loading
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': LazyLoadingRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': LazyLoadingRaw }} client:visible>
 		<LazyLoading client:visible />
 	</Preview>
 </Framework>

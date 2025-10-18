@@ -14,12 +14,12 @@ import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>

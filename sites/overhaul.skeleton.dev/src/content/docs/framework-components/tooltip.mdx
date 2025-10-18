@@ -45,12 +45,12 @@ import Preview from '@/components/ui/preview.svelte';
 import { Code } from 'astro:components';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -60,12 +60,12 @@ import { Code } from 'astro:components';
 You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts. Note that Zag.js opts to style these with CSS custom properties, which can be adjusted using a `style` attribute.
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ArrowSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ArrowSvelteRaw }} client:visible>
 		<ArrowSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ArrowReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ArrowReactRaw }} client:visible>
 		<ArrowReact client:visible />
 	</Preview>
 </Framework>
@@ -73,12 +73,12 @@ You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts.
 ## Z-Index
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
 		<ZIndexSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
 		<ZIndexReact client:visible />
 	</Preview>
 </Framework>
@@ -88,12 +88,12 @@ You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts.
 This is made possible via the Provider Pattern.
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ProgrammaticSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ProgrammaticSvelteRaw }} client:visible>
 		<ProgrammaticSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ProgrammaticReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ProgrammaticReactRaw }} client:visible>
 		<ProgrammaticReact client:visible />
 	</Preview>
 </Framework>
@@ -101,12 +101,12 @@ This is made possible via the Provider Pattern.
 ## Direction
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
@@ -114,12 +114,12 @@ This is made possible via the Provider Pattern.
 ## Headless
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
 		<HeadlessSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': HeadlessReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': HeadlessReactRaw }} client:visible>
 		<HeadlessReact client:visible />
 	</Preview>
 </Framework>

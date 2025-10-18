@@ -32,12 +32,12 @@ import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -45,12 +45,12 @@ import Preview from '@/components/ui/preview.svelte';
 ## Fluid Width
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': FluidSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': FluidSvelteRaw }} client:visible>
 		<FluidSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': FluidReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': FluidReactRaw }} client:visible>
 		<FluidReact client:visible />
 	</Preview>
 </Framework>
@@ -58,12 +58,12 @@ import Preview from '@/components/ui/preview.svelte';
 ## Vertical
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': VerticalSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': VerticalSvelteRaw }} client:visible>
 		<VerticalSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': VerticalReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': VerticalReactRaw }} client:visible>
 		<VerticalReact client:visible />
 	</Preview>
 </Framework>
@@ -71,12 +71,12 @@ import Preview from '@/components/ui/preview.svelte';
 ## Direction
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>

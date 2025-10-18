@@ -20,12 +20,12 @@ import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -33,7 +33,7 @@ import Preview from '@/components/ui/preview.svelte';
 ## Placement
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': PlacementSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': PlacementSvelteRaw }} client:visible>
 		<PlacementSvelte client:visible />
 	</Preview>
 </Framework>
@@ -43,7 +43,7 @@ import Preview from '@/components/ui/preview.svelte';
 This component acts as a Singleton - meaning you only implement a single instance (typically at the root scope of your app) and then reuse it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app (for SvelteKit this would be your root `+layout.svelte`), and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
 
 <Framework id="react">
-	<Preview files={{ 'app.tsx': PlacementReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': PlacementReactRaw }} client:visible>
 		<PlacementReact client:visible />
 	</Preview>
 </Framework>

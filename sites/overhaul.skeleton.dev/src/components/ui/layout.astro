@@ -16,7 +16,7 @@ const DEFAULT_DESCRIPTION = 'Documentation for Skeleton, the UI toolkit for buil
 const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
 
-<html lang="en" data-theme={Astro.cookies.get('theme') ?? 'cerberus'} data-mode={Astro.cookies.get('mode') ?? 'system'}>
+<html lang="en" data-theme={Astro.cookies.get('theme')?.value ?? 'cerberus'} data-mode={Astro.cookies.get('mode')?.value ?? 'system'}>
 	<head>
 		<SEO
 			title={title}

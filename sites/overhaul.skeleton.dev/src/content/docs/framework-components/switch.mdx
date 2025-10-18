@@ -37,12 +37,12 @@ import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
@@ -52,12 +52,12 @@ import Preview from '@/components/ui/preview.svelte';
 Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the active state using `data-[state=checked]`
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ColorsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ColorsSvelteRaw }} client:visible>
 		<ColorsSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ColorsReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ColorsReactRaw }} client:visible>
 		<ColorsReact client:visible />
 	</Preview>
 </Framework>
@@ -65,12 +65,12 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 ## List
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ListSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ListSvelteRaw }} client:visible>
 		<ListSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ListReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ListReactRaw }} client:visible>
 		<ListReact client:visible />
 	</Preview>
 </Framework>
@@ -78,12 +78,12 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 ## Icons
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': ThumbIconsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': ThumbIconsSvelteRaw }} client:visible>
 		<ThumbIconsSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': ThumbIconsReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': ThumbIconsReactRaw }} client:visible>
 		<ThumbIconsReact client:visible />
 	</Preview>
 </Framework>
@@ -91,12 +91,12 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 ## Direction
 
 <Framework id="svelte">
-	<Preview files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 <Framework id="react">
-	<Preview files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
