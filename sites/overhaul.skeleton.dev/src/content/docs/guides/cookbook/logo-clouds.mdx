@@ -1,0 +1,31 @@
+---
+title: Logo Clouds
+description: Provides a grid for presenting a set of logos, brands, or sponsors.
+tags: ['blocks', 'branding']
+---
+
+import Default from '@/components/examples/guides/cookbook/logo-clouds/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/logo-clouds/default.astro?raw';
+import Rows from '@/components/examples/guides/cookbook/logo-clouds/rows.astro';
+import RowsRaw from '@/components/examples/guides/cookbook/logo-clouds/rows.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<Default />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Rows
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<Rows />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={RowsRaw} lang="astro" />
+	</Fragment>
+</Preview>

@@ -1,0 +1,124 @@
+---
+title: Rating Group
+description: Rating Group allows users to rate something
+---
+
+import DefaultReact from '@/components/examples/framework-components/rating-group/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/rating-group/react/default?raw';
+
+import HalfReact from '@/components/examples/framework-components/rating-group/react/half';
+import HalfReactRaw from '@/components/examples/framework-components/rating-group/react/half?raw';
+
+import CustomIconsReact from '@/components/examples/framework-components/rating-group/react/custom-icons';
+import CustomIconsReactRaw from '@/components/examples/framework-components/rating-group/react/custom-icons?raw';
+
+import LabelReact from '@/components/examples/framework-components/rating-group/react/label';
+import LabelReactRaw from '@/components/examples/framework-components/rating-group/react/label?raw';
+
+import DisabledReact from '@/components/examples/framework-components/rating-group/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/rating-group/react/disabled?raw';
+
+import DirReact from '@/components/examples/framework-components/rating-group/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/rating-group/react/dir?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/rating-group/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/default.svelte?raw';
+
+import HalfSvelte from '@/components/examples/framework-components/rating-group/svelte/half.svelte';
+import HalfSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/half.svelte?raw';
+
+import CustomIconsSvelte from '@/components/examples/framework-components/rating-group/svelte/custom-icons.svelte';
+import CustomIconsSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/custom-icons.svelte?raw';
+
+import LabelSvelte from '@/components/examples/framework-components/rating-group/svelte/label.svelte';
+import LabelSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/label.svelte?raw';
+
+import DisabledSvelte from '@/components/examples/framework-components/rating-group/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/disabled.svelte?raw';
+
+import DirSvelte from '@/components/examples/framework-components/rating-group/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/dir.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Allow Half
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': HalfSvelteRaw }} client:visible>
+		<HalfSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': HalfReactRaw }} client:visible>
+		<HalfReact client:visible />
+	</Preview>
+</Framework>
+
+## Custom Icons
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomIconsSvelteRaw }} client:visible>
+		<CustomIconsSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomIconsReactRaw }} client:visible>
+		<CustomIconsReact client:visible />
+	</Preview>
+</Framework>
+
+## Label
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LabelSvelteRaw }} client:visible>
+		<LabelSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': LabelReactRaw }} client:visible>
+		<LabelReact client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<ApiTable />

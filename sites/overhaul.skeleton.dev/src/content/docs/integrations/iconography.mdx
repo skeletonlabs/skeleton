@@ -1,0 +1,84 @@
+---
+title: Iconography
+description: Learn how to integrate Lucide for iconography in Skeleton.
+---
+
+import Framework from '@/components/ui/framework.astro';
+import { TriangleIcon, HeartIcon, UserRoundIcon } from '@lucide/svelte';
+
+<p class="text-xl">
+	Skeleton takes an agnostic approach to icons, meaning you can use any combination of SVGs, emoji, unicode, or dedicated icon libraries.
+	Mix and match to fulfill your project's unique requirements.
+</p>
+
+## Lucide
+
+<figure class="linker bg-noise">
+	<div class="flex gap-4">
+		<HeartIcon class="size-8" />
+		<UserRoundIcon class="size-8" />
+		<TriangleIcon class="size-8" />
+	</div>
+</figure>
+
+If you're looking for an opinionated solution, Skeleton recommends [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all popular frameworks and feature a clean and modern style. All code examples in this documentation site implement Lucide, but feel free to replace with any alternative.
+
+## Installation
+
+<Framework id="svelte">
+
+Follow the official instructions to install [Lucide for Svelte](https://lucide.dev/guide/packages/lucide-svelte).
+
+</Framework>
+
+<Framework id="react">
+
+Follow the official instructions to install [Lucide for React](https://lucide.dev/guide/packages/lucide-react).
+
+</Framework>
+
+## Usage
+
+<Framework id="svelte">
+
+```svelte
+<script>
+	import { SkullIcon } from '@lucide/svelte';
+</script>
+
+<SkullIcon color="red" class="size-8" />
+```
+
+</Framework>
+
+<Framework id="react">
+
+```tsx
+import { SkullIcon } from 'lucide-react';
+
+export default function App() {
+	return <SkullIcon color="red" className="size-8" />;
+}
+```
+
+</Framework>
+
+## Alternatives
+
+<Framework id="svelte">
+
+- [Iconify](https://iconify.design/) - provides a vast array of icon sets supported by popular icon libraries.
+- [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
+- [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.
+
+</Framework>
+
+<Framework id="react">
+
+- [Radix Icons](https://www.radix-ui.com/icons) - features modern styles and a large selection, supports React only.
+- [Iconify](https://iconify.design/) - provides a vast array of icon sets supported by popular icon libraries.
+- [Font Awesome](https://fontawesome.com/) - provides a huge variety of icons in their free tier.
+- [HeroIcons](https://heroicons.com/) - from the makers of Tailwind CSS, supports React and Vue.
+- [SimpleIcons](https://simpleicons.org/) - provides an excellent selection of brand icons.
+
+</Framework>

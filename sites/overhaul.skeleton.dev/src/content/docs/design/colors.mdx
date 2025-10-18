@@ -1,0 +1,121 @@
+---
+title: Colors
+description: The Skeleton color system.
+srcCore: '/base/theme.scss'
+order: 10
+---
+
+import Contrast from '@/components/examples/design/colors/contrast.astro';
+import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
+import Default from '@/components/examples/design/colors/default.astro';
+import PairingsDynamic from '@/components/examples/design/colors/pairings-dynamic.astro';
+import PairingsStack from '@/components/examples/design/colors/pairings-stack.astro';
+import Pairings from '@/components/examples/design/colors/pairings.astro';
+
+import Preview from '@/components/ui/preview.svelte';
+
+## Color Palette
+
+<Default />
+
+Supports <u>all</u> standard Tailwind color utility classes using the following pattern.
+
+```txt
+{property}-{color}-{shade}
+```
+
+| Key      | Accepted Values                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------------- |
+| Property | `accent`, `bg`, `border`, `caret`, `decoration`, `divide`, `fill`, `outline`, `ring`, `shadow`, `stroke`, `text` |
+| Color    | `primary`, `secondary`, `tertiary`, `success`, `warning`, `error`, `surface`                                     |
+| Shade    | `50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`, `950`                                       |
+
+```html
+<div class="bg-primary-500">...</div>
+<div class="border border-secondary-600">...</div>
+<svg class="fill-surface-950">...</svg>
+```
+
+---
+
+## Contrast Colors
+
+Contrast color values are available for every shade. Use these to set accessible text color and icon fill values.
+
+```txt
+{property}-{color}-contrast-{shade}
+```
+
+<Preview files={{ 'app.astro': ContrastRaw }} client:visible>
+	<Contrast />
+</Preview>
+
+See the [Preset system](/docs/design/presets) for additional utility classes that automatically mix each color and contrast tone.
+
+---
+
+## Color Pairings
+
+Provides a condensed syntax of dual-tone color values balanced to swap between light and dark mode. These are supported for all the same properties standard colors support (`bg`, `border`, `fill`, etc).
+
+```txt
+{property}-{color}-{lightModeShade}-{darkModeShade}
+```
+
+For example:
+
+- `bg-surface-200-800`
+- `text-primary-400-600`
+- `border-secondary-50-950`
+
+### How Pairings Work
+
+Color Pairing are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function. For example, the `text-primary-300-700` pairing will be implemented in your CSS bundle as follows:
+
+```css
+.text-primary-300-700 {
+	color: light-dark(var(--color-primary-300), var(--color-primary-700));
+}
+```
+
+This roughly equivalent to the following, just more compact, and enabling support for Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) utilities.
+
+```html
+<div class="text-primary-300 dark:text-primary-700">...</div>
+```
+
+By default, Skeleton sets the overall app's color scheme to match light or dark mode.
+
+### Pairing Previews
+
+The following is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported.
+
+<Pairings />
+
+The following shows actual Color Pairings. Toggle this website between light and dark mode to see how these react.
+
+<PairingsDynamic />
+
+### When to use Pairings
+
+Color Parings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp but, but inverts the order when toggling from light to dark mode.
+
+<Preview client:visible>
+	<PairingsStack />
+</Preview>
+
+- We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
+- Then use shade `50` from light mode and `950` from dark mode to represent our app background.
+- Use the static `500` shade for key branding elements, such as buttons or banners.
+- Then reserve multiple layers between for elements such as cards, inputs, and more.
+
+---
+
+## Transparency
+
+Both Skeleton Colors and Color Pairings support Tailwind's color transparency syntax.
+
+```html
+<div class="bg-primary-500/25">Primary Color @ 25% transparency</div>
+<div class="bg-surface-50-950/60">Surface Pairing 50/950 @ 60% transparency</div>
+```

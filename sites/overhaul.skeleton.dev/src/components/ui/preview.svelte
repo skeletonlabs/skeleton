@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Code from './code.svelte';
 	import OpenInStackblitz from './open-in-stackblitz.svelte';
-	import { getLangFromExtension } from '@/modules/get-lang-from-extension';
 	import { EyeIcon } from '@lucide/svelte';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -9,7 +8,7 @@
 
 	interface Props {
 		children: Snippet;
-		framework: CollectionEntry<'frameworks'>['id'];
+		framework?: CollectionEntry<'frameworks'>['id'];
 		files: Record<string, string>;
 	}
 
@@ -28,16 +27,21 @@
 				<Tabs.Trigger value={file}>{file}</Tabs.Trigger>
 			{/each}
 		{/if}
-		<OpenInStackblitz class="ml-auto" {framework} {files} />
+		{#if framework}
+			<OpenInStackblitz class="ml-auto" {framework} {files} />
+		{/if}
 		<Tabs.Indicator />
 	</Tabs.List>
-	<Tabs.Content value="preview">
+	<Tabs.Content
+		value="preview"
+		class="card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8"
+	>
 		{@render children()}
 	</Tabs.Content>
 	{#if files}
 		{#each Object.entries(files) as [file, content] (file)}
 			<Tabs.Content value={file}>
-				<Code code={content} lang={getLangFromExtension(file.split('.').pop())} />
+				<Code code={content} lang={file.split('.').pop()} />
 			</Tabs.Content>
 		{/each}
 	{/if}

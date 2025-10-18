@@ -1,29 +1,39 @@
-<script lang="ts" module>
-	import { createHighlighterCore } from 'shiki/core';
-	import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
-
-	const highlighter = await createHighlighterCore({
-		themes: [import('@shikijs/themes/dark-plus')],
-		langs: [import('@shikijs/langs/typescript'), import('@shikijs/langs/tsx'), import('@shikijs/langs/svelte')],
-		engine: createOnigurumaEngine(import('shiki/wasm')),
-	});
-</script>
-
 <script lang="ts">
+	import { codeToHtml } from '@/modules/shiki.bundle';
+
 	interface Props {
 		code: string;
-		lang: string;
+		lang?: Parameters<typeof codeToHtml>[1]['lang'];
 	}
 
 	const props: Props = $props();
-	const { code, lang } = $derived(props);
+	const { code, lang = 'txt' } = $derived(props);
 
 	const html = $derived(
-		highlighter.codeToHtml(code, {
+		await codeToHtml(code, {
 			lang,
-			theme: 'dark-plus',
+			themes: {
+				light: 'light-plus',
+				dark: 'dark-plus',
+			},
+			defaultColor: 'light-dark()',
 		}),
 	);
 </script>
 
 {@html html}
+
+<style>
+	@reference "../../app.css";
+
+	:global(.shiki) {
+		white-space: pre-wrap;
+		padding: --spacing(2);
+		border-radius: var(--radius-container);
+		border: 1px solid var(--color-surface-200);
+
+		@variant dark {
+			border-color: var(--color-surface-800);
+		}
+	}
+</style>

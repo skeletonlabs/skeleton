@@ -1,0 +1,62 @@
+---
+title: Light Switch
+description: Learn how to create a Light Switch toggle.
+tags: ['theme', 'mode', 'guides']
+---
+
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
+
+import DefaultReactRaw from '@/components/examples/guides/cookbook/light-switch/react/default?raw';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/light-switch/svelte/default.svelte?raw';
+import Preview from '@/components/ui/preview.svelte';
+
+Use [Dark Mode](/docs/guides/mode) to make use of either a base or `dark:` variant for your utility class styles. By default, Tailwind uses the `prefers-color-scheme` media query to determine and match the user's operating system settings. However, if you wish to provide your users manual control, you'll need to adjust the Dark Mode strategy for Tailwind, as well as provide the toggle interface (aka a light switch). This guide will show you how to fulfill both requirements.
+
+<Process>
+	<ProcessStep step="1">
+        ## Adjust the Dark Mode Strategy
+        Open your global stylesheet and set the following variant:
+        ```css
+       	@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+        ```
+		Then set the following data attribute on your application's `<html>` element for light mode:
+		```html
+		<html data-mode="light"></html>
+		```
+		Or for dark mode:
+		```html
+		<html data-mode="dark"></html>
+		```
+    </ProcessStep>
+	<ProcessStep step="2">
+        ## Create the Component
+        We'll create a implementation of the Switch component that can toggle the mode on demand.
+	   <Preview selected="codeReact" client:visible>
+			<Fragment slot="codeReact">
+				<Code code={DefaultReactRaw} lang="tsx" />
+			</Fragment>
+			<Fragment slot="codeSvelte">
+				<Code code={DefaultSvelteRaw} lang="svelte" />
+			</Fragment>
+		</Preview>
+    </ProcessStep>
+    <ProcessStep step="3">
+    	## Import the Component
+    	We'll then add the component to our app. Make sure to set the correct path and file extension.
+    	```ts
+    	import Lightswitch from './path/to/Lightswitch.{tsx|svelte}';
+    	```
+    	```svelte
+    	<Lightswitch />
+    	```
+    </ProcessStep>
+</Process>
+
+## User Interface
+
+While we utilize a primitive Switch for the minimal example above, feel free to adjust the logic and interface to your preference. We provide a more detailed Switch example for [React](/docs/components/switch/react#light-switch) and [Svelte](/docs/components/switch/svelte#light-switch) respectively.
+
+## Next.js Users
+
+For Next.js users, you will need to [suppressHydrationWarning](https://nextjs.org/docs/messages/react-hydration-error#solution-3-using-suppresshydrationwarning) to `true` on the root `<html>` element. This will suppress hydration warnings.

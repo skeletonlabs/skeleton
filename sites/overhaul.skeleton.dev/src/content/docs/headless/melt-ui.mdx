@@ -1,0 +1,219 @@
+---
+title: Melt UI
+description: An open-source Svelte library for building high-quality, accessible design systems and web apps.
+order: 998
+---
+
+// Banner and component images removed for docs build (missing assets)
+
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
+
+{/* banner image removed */}
+
+<p class="text-xl">
+	Melt UI empowers developers to create accessible UIs that embody their unique style. With a strong focus on accessibility, limitless
+	customization options, and an overall delightful developer experience, Melt UI strives to be the de-facto headless UI library for Svelte.
+</p>
+
+<figure class="linker bg-noise !bg-[#d59f6a]">
+	<a class="btn preset-filled" href="https://next.melt-ui.com/" target="_blank">
+		View Melt UI Docs
+	</a>
+</figure>
+
+At minimum, we recommend you read the following documentation before you start this integration guide.
+
+- [Styling](https://next.melt-ui.com/guides/styling)
+- [How to Use](https://next.melt-ui.com/guides/how-to-use)
+
+## Requirements
+
+| Tooling                              | Minimum Supported  |
+| ------------------------------------ | ------------------ |
+| [Svelte](https://svelte.dev/)        | 5                  |
+| [Skeleton](https://skeleton.dev)     | 3                  |
+| [Tailwind](https://tailwindcss.com/) | 4                  |
+| [Melt UI](https://next.melt-ui.com/) | (Svelte 5 version) |
+
+## Introduction
+
+In this guide we'll implement the following Melt UI `<Accordion>` component. This will showcase the bare minimum requirements for integrating Skeleton with Melt UI.
+
+{/* component image removed */}
+
+<figure class="linker bg-noise !bg-[#d59f6a]">
+	<a class="btn preset-filled" href="https://next.melt-ui.com/components/accordion/" target="_blank">
+		Accordion Documentation
+	</a>
+</figure>
+
+## Get Started
+
+<Process>
+    <ProcessStep step="1">
+        ### Create a SvelteKit Project
+		To begin, we'll setup a new SvelteKit project, including Skeleton v3 and Tailwind v4.
+
+    	<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit App</a>
+    </ProcessStep>
+    <ProcessStep step="2">
+        ### Install Melt UI
+    	Install the Melt UI package via your package manager of choice.
+
+    	```bash
+    	npm install melt
+    	```
+    </ProcessStep>
+    <ProcessStep step="3">
+        ### Component Boilerplate
+    	Create a new component in `/lib/components/Accordion/Accordion.svelte` and insert the following markup. This will generate an unstyled version of the component.
+
+    	```svelte
+    	<script lang="ts">
+    		import { Accordion, type AccordionItem } from "melt/builders";
+
+    		type Item = AccordionItem<{
+    			title: string;
+    			description: string;
+    		}>;
+
+    		const items: Item[] = [
+    			{ id: "item-1", title: "What is it?", description: "..."},
+    			{ id: "item-2", title: "Can I customize it?", description: "..."},
+    		];
+
+    		const accordion = new Accordion();
+    	</script>
+
+    	<div {...accordion.root}>
+    		{#each items as i}
+    			{@const item = accordion.getItem(i)}
+    			<h2 {...item.heading}>
+    				<button {...item.trigger}>
+    					{item.item.title}
+    				</button>
+    			</h2>
+    			<div {...item.content}>
+    				{item.item.description}
+    			</div>
+    		{/each}
+    	</div>
+        ```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ### Add the Component
+    	Finally, let's add our new component to the root `+page.svelte` so that we may preview it.
+
+    	```svelte
+    	<script lang="ts">
+    		import Accordion from '$lib/components/Accordion/Accordion.svelte';
+    	</script>
+
+    	<main class="p-10">
+    		<Accordion />
+    	</main>
+    	```
+    </ProcessStep>
+
+</Process>
+
+## Styling
+
+Melt UI builders are made up of native HTML elements, meaning you can implement classes directly. Use this to provide Tailwind and Skeleton utility classes.
+
+### Basic Styles
+
+Styling the root element.
+
+```svelte
+<div {...accordion.root} class="card overflow-hidden">
+	<!-- ... -->
+</div>
+```
+
+Styling the trigger button element.
+
+```svelte
+<button {...item.trigger} class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left">
+	<!-- ... -->
+</button>
+```
+
+Styling content element, including animations based on the `data-state` value.
+
+```svelte
+<div
+	{...item.content}
+	class="preset-filled-surface-100-900 cursor-pointer p-4 transition-all duration-200 data-[state=closed]:h-0 data-[state=closed]:py-0"
+>
+	<!-- ... -->
+</div>
+```
+
+Before the close of the `#each` block, insert the follow to insert a `<hr />` divider.
+
+```svelte
+{#if index < items.length - 1}<hr class="hr border-surface-50-950" />{/if}
+```
+
+### Complete Example
+
+Below is a complete example showing the entire component with styles, transitions, and some basic configuration.
+
+```svelte
+<script lang="ts">
+	import { Accordion, type AccordionItem } from 'melt/builders';
+	import { slide } from 'svelte/transition';
+
+	type Item = AccordionItem<{
+		title: string;
+		description: string;
+	}>;
+
+	const items: Item[] = [
+		{
+			id: 'item-1',
+			title: 'Bulbasaur',
+			description: 'For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.',
+		},
+		{
+			id: 'item-2',
+			title: 'Charmander',
+			description: 'The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.',
+		},
+		{
+			id: 'item-3',
+			title: 'Squirtle',
+			description: 'After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.',
+		},
+	];
+
+	const accordion = new Accordion({ multiple: true });
+</script>
+
+<div {...accordion.root} class="card w-full max-w-xl overflow-hidden">
+	{#each items as i, index}
+		{@const item = accordion.getItem(i)}
+		<h2 {...item.heading}>
+			<button {...item.trigger} class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left">
+				{item.item.title}
+			</button>
+		</h2>
+		{#if item.isExpanded}
+			<div {...item.content} class="preset-filled-surface-100-900 cursor-pointer p-4" transition:slide={{ duration: 100 }}>
+				{item.item.description}
+			</div>
+		{/if}
+		{#if index < items.length - 1}<hr class="hr border-surface-50-950" />{/if}
+	{/each}
+</div>
+```
+
+## Going Further
+
+If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
+
+## Attribution
+
+Melt UI is created and maintained by [TGlide](https://github.com/TGlide). Consider [sponsoring him](https://github.com/sponsors/TGlide) to support this open source project.

@@ -1,0 +1,162 @@
+---
+title: Progress (Circular)
+description: Circular progress indicators for showing task progress.
+---
+
+import DefaultReact from '@/components/examples/framework-components/progress-circular/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/progress-circular/react/default?raw';
+
+import SizeReact from '@/components/examples/framework-components/progress-circular/react/size';
+import SizeReactRaw from '@/components/examples/framework-components/progress-circular/react/size?raw';
+
+import ColorReact from '@/components/examples/framework-components/progress-circular/react/color';
+import ColorReactRaw from '@/components/examples/framework-components/progress-circular/react/color?raw';
+
+import CenteredContentReact from '@/components/examples/framework-components/progress-circular/react/centered-content';
+import CenteredContentReactRaw from '@/components/examples/framework-components/progress-circular/react/centered-content?raw';
+
+import IndeterminateReact from '@/components/examples/framework-components/progress-circular/react/indeterminate';
+import IndeterminateReactRaw from '@/components/examples/framework-components/progress-circular/react/indeterminate?raw';
+
+import FormatReact from '@/components/examples/framework-components/progress-circular/react/format';
+import FormatReactRaw from '@/components/examples/framework-components/progress-circular/react/format?raw';
+
+import CustomValueTextReact from '@/components/examples/framework-components/progress-circular/react/custom-value-text';
+import CustomValueTextReactRaw from '@/components/examples/framework-components/progress-circular/react/custom-value-text?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/progress-circular/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/default.svelte?raw';
+
+import SizeSvelte from '@/components/examples/framework-components/progress-circular/svelte/size.svelte';
+import SizeSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/size.svelte?raw';
+
+import ColorSvelte from '@/components/examples/framework-components/progress-circular/svelte/color.svelte';
+import ColorSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/color.svelte?raw';
+
+import CenteredContentSvelte from '@/components/examples/framework-components/progress-circular/svelte/centered-content.svelte';
+import CenteredContentSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/centered-content.svelte?raw';
+
+import IndeterminateSvelte from '@/components/examples/framework-components/progress-circular/svelte/indeterminate.svelte';
+import IndeterminateSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/indeterminate.svelte?raw';
+
+import FormatSvelte from '@/components/examples/framework-components/progress-circular/svelte/format.svelte';
+import FormatSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/format.svelte?raw';
+
+import CustomValueTextSvelte from '@/components/examples/framework-components/progress-circular/svelte/custom-value-text.svelte';
+import CustomValueTextSvelteRaw from '@/components/examples/framework-components/progress-circular/svelte/custom-value-text.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Size
+
+Use different sizes for context-appropriate indicators.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SizeSvelteRaw }} client:visible>
+		<SizeSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SizeReactRaw }} client:visible>
+		<SizeReact client:visible />
+	</Preview>
+</Framework>
+
+## Color
+
+Change the track and indicator colour using utility classes or custom CSS variables to match your design system.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<ColorSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
+		<ColorReact client:visible />
+	</Preview>
+</Framework>
+
+## Centered Content
+
+Place content in the center of the circular progress if needed (for example, a numeric value).
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CenteredContentSvelteRaw }} client:visible>
+		<CenteredContentSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CenteredContentReactRaw }} client:visible>
+		<CenteredContentReact client:visible />
+	</Preview>
+</Framework>
+
+## Indeterminate
+
+Set the value to `null` to make the progress indeterminate.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': IndeterminateSvelteRaw }} client:visible>
+		<IndeterminateSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': IndeterminateReactRaw }} client:visible>
+		<IndeterminateReact client:visible />
+	</Preview>
+</Framework>
+
+## Format
+
+Use the `format` prop to customize the output of the `ValueText` component. Options include `percentage` (default), `decimal` (0.0 - 1.0), or using the Intl API to provide custom formatting.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FormatSvelteRaw }} client:visible>
+		<FormatSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FormatReactRaw }} client:visible>
+		<FormatReact client:visible />
+	</Preview>
+</Framework>
+
+## Custom Value Text
+
+Provide a custom renderer for the `ValueText` if you need to show a different layout or label.
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomValueTextSvelteRaw }} client:visible>
+		<CustomValueTextSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomValueTextReactRaw }} client:visible>
+		<CustomValueTextReact client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<ApiTable component="progress" />

@@ -1,0 +1,30 @@
+---
+title: Cards
+description: Provides container elements that wrap and separate content.
+srcCore: '/utilities/cards.css'
+---
+
+import Default from '@/components/examples/tailwind-components/cards/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/cards/default.astro?raw';
+import Detailed from '@/components/examples/tailwind-components/cards/detailed.astro';
+import DetailedRaw from '@/components/examples/tailwind-components/cards/detailed.astro?raw';
+import Presets from '@/components/examples/tailwind-components/cards/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind-components/cards/presets.astro?raw';
+
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+<Preview files={{ 'app.astro': DetailedRaw }} client:visible>
+	<Detailed />
+</Preview>
+
+## Presets
+
+Provides full support of [Presets](/docs/design/presets).
+
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets />
+</Preview>

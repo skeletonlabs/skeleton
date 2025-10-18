@@ -1,0 +1,86 @@
+---
+title: Pagination
+description: Client and server-side pagination controls.
+---
+
+import DefaultReact from '@/components/examples/framework-components/pagination/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/pagination/react/default?raw';
+
+import DynamicPageSizeReact from '@/components/examples/framework-components/pagination/react/dynamic-page-size';
+import DynamicPageSizeReactRaw from '@/components/examples/framework-components/pagination/react/dynamic-page-size?raw';
+
+import DirReact from '@/components/examples/framework-components/pagination/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/pagination/react/dir?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/pagination/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/pagination/svelte/default.svelte?raw';
+
+import DynamicPageSizeSvelte from '@/components/examples/framework-components/pagination/svelte/dynamic-page-size.svelte';
+import DynamicPageSizeSvelteRaw from '@/components/examples/framework-components/pagination/svelte/dynamic-page-size.svelte?raw';
+
+import DirSvelte from '@/components/examples/framework-components/pagination/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/pagination/svelte/dir.svelte?raw';
+
+import ApiTable from '@/components/ui/api-table.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Page Size
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw }} client:visible>
+		<DynamicPageSizeSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw }} client:visible>
+		<DynamicPageSizeReact client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<ApiTable />
+
+## Total Count
+
+For server-side pagination, your data source may be truncated. Make sure to specify the total records using `count`.
+
+```json
+{
+	"data": [...],
+	"pagination": {
+		"page": 1,
+		"limit": 10,
+		"count": 500,
+	}
+}
+```
+
+```svelte
+<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>...</Pagination>
+```

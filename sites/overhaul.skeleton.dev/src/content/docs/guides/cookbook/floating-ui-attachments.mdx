@@ -1,0 +1,119 @@
+---
+title: Floating UI Attachments
+description: A Svelte-focused guide around integrating Floating UI and Svelte attachments.
+tags: ['integration', 'popovers', 'svelte']
+---
+
+import PopoverRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover.svelte?raw';
+import PopoverModuleRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover?raw';
+import TooltipRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/tooltip.svelte?raw';
+import Alert from '@/components/ui/alert.astro';
+
+<Alert type="info">
+	Please note that this is a Svelte-only guide based around the [attachments](https://svelte.dev/docs/svelte/svelte-attachments) feature
+	introduced in Svelte `v5.29`.
+</Alert>
+
+### Summary
+
+The following will guide you through integrating [Floating UI](https://floating-ui.com/) in Svelte and generating a baseline [attachment](https://svelte.dev/docs/svelte/svelte-attachments) that can be used to scaffold any number of custom popover interfaces, including but not limited to: popovers, tooltips, dialogs, drawers, combobox, context menus, and more.
+
+### Accessibility Warning
+
+This guide is not a drop-in replacement for Skeleton's [Svelte Popovers](/docs/components/popover/svelte) as it does not replicate all recommended accessbility features out of the box (such as ARIA attributes, focus states, keyboard interactions, etc). These features are out of scope of this guide. It will be your responsibility to handle these features before using this in a production environment.
+
+### Target Audience
+
+This guide is intended for advanced Svelte users that wish to integrate directly with Floating UI, build custom floating interfaces, and go beyond the scope of Skeleton's [Svelte Popovers](/docs/integrations/popover/svelte). This can be used to generate interfaces not covered by Skeleton's Popover components.
+
+## Installing Floating UI
+
+To begin, install the standard version of Floating UI.
+
+```bash
+npm install @floating-ui/dom
+```
+
+If this is your first time using Floating UI, we recommend following the [guided tutorial](https://floating-ui.com/docs/tutorial) to learn the basics.
+
+## Creating a Svelte Attachment
+
+Next, let's generate our custom attachment. If you're working with SvelteKit, we recommend adding this to `/src/lib/attachments/floating.svelte.ts`.
+
+<Code code={PopoverModuleRaw} lang="ts" />
+
+This attachment will handle the following critical functionality:
+
+1. This imports the Svelte attachment and Floating UI dependencies.
+2. Scaffolds a simple `PopoverOptions` interface, which defines our configuraton options.
+3. Implement the `Popover` class, which handles all the business logic for creating and using the attachment.
+4. And of course sets the default configuration via `options`.
+
+We'll cover each additional method below.
+
+### reference()
+
+When implemented, this is spread to the **Trigger** element and handles interaction such as `click` and `hover`.
+
+### floating()
+
+When implemented, this is spread to the **Popover** element itself. This uses [createAttachmentKey](https://svelte.dev/docs/svelte/svelte-attachments#createAttachmentKey) to generate the attachment relationship itself.
+
+### isOpen()
+
+Returns the current `open` state as a boolean value. We'll use this to show and hide the popover on demand.
+
+### #updatePosition()
+
+This scaffolds [computePosition](https://floating-ui.com/docs/computePosition), which handles most of Floating UI's functionality.
+
+## Making the Tooltip Float
+
+Floating UI [requires these CSS styles](https://floating-ui.com/docs/tutorial#making-the-tooltip-float) to ensure the popover element "floats" over other UI. For this guide we'll handle this with a convention by adding the following your to global stylesheet. For SvelteKit this is located in `/src/app.css`.
+
+```css
+[data-floating] {
+	width: max-content;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+```
+
+## Usage
+
+### Popover
+
+Add the following to any page within your application to generate a basic popover.
+
+<Code code={PopoverRaw} lang="svelte" />
+
+1. First, import the Popover attachment and generate an instance using `new Popover()`.
+2. Next, create a wrapping `<span>` to ensure your popover is not affected by the flow of the document.
+3. Add your trigger button and spread the `popover.reference()`
+4. Add your popover element and spread the `popover.floating()`
+5. Apply `data-floating` to the popover element.
+6. Wrap the popover element with `#if popover.isOpen()` to show/hide the popover.
+
+> TIP: you can optionally import a [Svelte transition](https://svelte.dev/docs/svelte/svelte-transition), such as `slide`. Then use this to trigger animations on the open/close state for the popover.
+
+### Tooltip
+
+Add the following to any page within your application to generate a basic tooltip.
+
+<Code code={TooltipRaw} lang="svelte" />
+
+1. Similar to the Popover - we import, initialize, and scaffold the common attachment requirements.
+2. Unlike the Popover though, we configure `new Popover({ ... })` to adjust `interaction` and `placement` settings.
+3. We can also use a different transition, such as `fade`, as shown above.
+
+## Handling Accessibility
+
+We recommend you follow the [Aria APG patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) when generating popover interfaces for production use. We've linked a few of the common patterns below to help you get started. This covers `aria` and `role` attributes, keyboard interactions, and other best practices.
+
+- [Alert and Message Dialogs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/)
+- [Alert Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/)
+- [Combobox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/)
+- [Dialog (Modal) Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
+- [Menu and Menubar Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/)
+- [Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/)

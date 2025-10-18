@@ -1,0 +1,45 @@
+---
+import Github from '@/assets/sponsors/github.png';
+import KoFi from '@/assets/sponsors/kofi.png';
+import { Image } from 'astro:assets';
+
+const sponsors = [
+	{
+		href: 'https://github.com/sponsors/skeletonlabs',
+		image: Github,
+		title: 'GitHub',
+	},
+	{
+		href: 'https://ko-fi.com/skeletonlabs',
+		image: KoFi,
+		title: 'Ko-Fi',
+	},
+] as const;
+---
+
+<div class="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-10">
+	<div class="space-y-4">
+		<div class="space-y-2">
+			<h2 class="h2 text-balance">Sponsor Us</h2>
+			<p class="opacity-60">
+				Projects like Skeleton exist through the generosity of our community. Help fund the project, while receiving fun incentives in
+				return. Available on the following services.
+			</p>
+		</div>
+	</div>
+	<nav class="grid grid-cols-2 gap-5">
+		{
+			sponsors.map((sponsor) => (
+				<a
+					href={sponsor.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 p-5 md:p-10 flex flex-col items-center gap-4 md:gap-10"
+				>
+					<Image class="w-full aspect-square rounded-full object-cover shadow-xl" src={sponsor.image} alt={sponsor.title} />
+					<h3 class="h4">{sponsor.title}</h3>
+				</a>
+			))
+		}
+	</nav>
+</div>
