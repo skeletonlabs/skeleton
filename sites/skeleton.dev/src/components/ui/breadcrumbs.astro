@@ -1,0 +1,28 @@
+---
+const crumbs = Astro.url.pathname.replace(/^\/docs\//, '').split('/').filter(Boolean);
+---
+
+<ol class="flex gap-2 text-xs">
+	{
+		crumbs.map((crumb, i, arr) => {
+			const isLast = i === arr.length - 1;
+			const href = isLast ? undefined : `/docs/${crumbs[0]}/${crumb}`;
+			const displayCrumb = crumb.replace('-', ' ');
+
+			return (
+				<>
+					<li class={`capitalize ${isLast ? '' : 'opacity-60'}`}>
+						{href ? (
+							<a href={href} class="hover:underline">
+								{displayCrumb}
+							</a>
+						) : (
+							displayCrumb
+						)}
+					</li>
+					{!isLast && <li class="opacity-60">›</li>}
+				</>
+			);
+		})
+	}
+</ol>
