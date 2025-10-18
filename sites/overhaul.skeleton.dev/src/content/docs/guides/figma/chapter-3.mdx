@@ -8,9 +8,15 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-// Images removed from overhaul site to avoid unresolved imports during build
-// Original image imports were removed (ImgImport, ImgPublishLib, etc.).
+import ImgImport from '@/assets/figma/chapter-3/2-import.webp';
+import ImgPublishLib from '@/assets/figma/chapter-3/3-publish-library.webp';
+import ImgOpenFile from '@/assets/figma/chapter-3/4-open-file.webp';
+import ImgSelectNewSkeleton from '@/assets/figma/chapter-3/4-select-new-skeleton.webp';
+import ImgSelectSkeleton from '@/assets/figma/chapter-3/4-select-skeleton.webp';
+import ImgRemoveOld from '@/assets/figma/chapter-3/remove-old.webp';
+import SvgSkeleton from '@/assets/figma/skeletonFileIcon.svg';
 import { ChevronDown, BookOpen } from '@lucide/svelte';
+import { Image } from 'astro:assets';
 
 <p className="text-2xl">
 	Skeleton is continually evolving, and to ensure that your design remains in harmony with it, it's essential to keep the Skeleton Figma UI
