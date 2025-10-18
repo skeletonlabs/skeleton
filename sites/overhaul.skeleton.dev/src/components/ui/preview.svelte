@@ -41,7 +41,7 @@
 	{#if files}
 		{#each Object.entries(files) as [file, content] (file)}
 			<Tabs.Content value={file}>
-				<Code code={content} lang={file.split('.').pop() ?? 'plaintext'} />
+				<Code code={content} lang={file.split('.').pop()} />
 			</Tabs.Content>
 		{/each}
 	{/if}

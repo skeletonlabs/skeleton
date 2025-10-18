@@ -21,11 +21,11 @@
 <script lang="ts">
 	interface Props {
 		code: string;
-		lang: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
+		lang?: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
 	}
 
 	const props: Props = $props();
-	const { code, lang } = $derived(props);
+	const { code, lang = 'txt' } = $derived(props);
 
 	const html = $derived(
 		highlighter.codeToHtml(code, {
