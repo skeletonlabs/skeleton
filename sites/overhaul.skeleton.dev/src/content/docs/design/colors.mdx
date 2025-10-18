@@ -20,7 +20,7 @@ import Preview from '@/components/ui/preview.svelte';
 
 Supports <u>all</u> standard Tailwind color utility classes using the following pattern.
 
-```
+```txt
 {property}-{color}-{shade}
 ```
 
@@ -42,10 +42,9 @@ Supports <u>all</u> standard Tailwind color utility classes using the following 
 
 Contrast color values are available for every shade. Use these to set accessible text color and icon fill values.
 
-```
+```txt
 {property}-{color}-contrast-{shade}
 ```
-
 <Preview files={{ 'app.astro': ContrastRaw }} client:visible>
 	<Contrast />
 </Preview>
@@ -58,7 +57,7 @@ See the [Preset system](/docs/design/presets) for additional utility classes tha
 
 Provides a condensed syntax of dual-tone color values balanced to swap between light and dark mode. These are supported for all the same properties standard colors support (`bg`, `border`, `fill`, etc).
 
-```
+```txt
 {property}-{color}-{lightModeShade}-{darkModeShade}
 ```
 

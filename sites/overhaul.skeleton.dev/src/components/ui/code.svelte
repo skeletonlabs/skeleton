@@ -36,3 +36,18 @@
 </script>
 
 {@html html}
+
+<style>
+	@reference "../../app.css";
+
+	:global(.shiki) {
+		white-space: pre-wrap;
+		padding: --spacing(2);
+		border-radius: var(--radius-container);
+		border: 1px solid var(--color-surface-200);
+
+		@variant dark {
+			border-color: var(--color-surface-800);
+		}
+	}
+</style>
