@@ -19,10 +19,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				onclick: pagination().goToFirstPage(),
-			},
-			{
 				class: classesPagination.nextTrigger,
+				onclick:  pagination().goToFirstPage()
 			},
 			rest,
 		),
