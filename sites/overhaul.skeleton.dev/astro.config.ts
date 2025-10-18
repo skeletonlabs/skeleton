@@ -10,8 +10,8 @@ import { defineConfig } from 'astro/config';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
 export default defineConfig({
-	output: 'server',
 	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
+	prefetch: true,
 	markdown: {
 		syntaxHighlight: false,
 	},
@@ -44,6 +44,7 @@ export default defineConfig({
 			}),
 		],
 	},
+	output: 'server',
 	adapter: vercel(),
 });
 
