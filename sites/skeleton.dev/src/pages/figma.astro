@@ -3,17 +3,16 @@ import FigmaBuyNow from '@/components/ui/figma-buy-now.astro';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import NavigationGrid from '@/components/ui/navigation-grid.astro';
-import ImgHeroDark from '@/images/get-started/figma/hero-dark.webp';
-import ImgHeroLight from '@/images/get-started/figma/hero-light.webp';
-import ImgPlugin from '@/images/get-started/figma/plugin.webp';
-import ImgTutorial from '@/images/get-started/figma/tutorials.webp';
-import ImgKit from '@/images/get-started/figma/ui-kit.webp';
-import LayoutRoot from '@/components/ui/layout.astro';
+import HeroDark from '@/assets/figma/get-started/hero-dark.webp';
+import HeroLight from '@/assets/figma/get-started/hero-light.webp';
+import Plugin from '@/assets/figma/get-started/plugin.webp';
+import Tutorial from '@/assets/figma/get-started/tutorials.webp';
+import UIKit from '@/assets/figma/get-started/ui-kit.webp';
+import Layout from '@/components/ui/layout.astro';
 import { Image } from 'astro:assets';
 import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBookIcon } from '@lucide/svelte';
 ---
 
-<!-- Floating Button -->
 <a
 	href="https://www.etesie.dev/support"
 	target="_blank"
@@ -24,7 +23,7 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 	<MessageCircleIcon />
 </a>
 
-<LayoutRoot title="Figma UI Kit" description="Learn more about the Figma UI Kit for Skeleton.">
+<Layout title="Figma UI Kit" description="Learn more about the Figma UI Kit for Skeleton.">
 	<Header />
 	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
 		<header class="w-full max-w-6xl mx-auto flex flex-col items-center gap-5 text-center">
@@ -38,8 +37,8 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 				<ChevronRightIcon class="size-4" />
 			</a>
 			<div class="relative">
-				<Image src={ImgHeroDark} class="w-full max-w-6xl hidden dark:block" alt="hero" />
-				<Image src={ImgHeroLight} class="w-full max-w-6xl dark:hidden" alt="hero" />
+				<Image src={HeroDark} class="w-full max-w-6xl hidden dark:block" alt="hero" />
+				<Image src={HeroLight} class="w-full max-w-6xl dark:hidden" alt="hero" />
 			</div>
 		</header>
 		<section class="space-y-10">
@@ -68,7 +67,7 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 		<section class="flex flex-col gap-24 w-full py-12">
 			<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
 				<div>
-					<Image src={ImgKit} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={UIKit} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
 				</div>
 				<header class="space-y-4">
 					<h2 class="h2">Align quickly with prebuilt Skeleton components.</h2>
@@ -86,12 +85,12 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 					</p>
 				</header>
 				<div>
-					<Image src={ImgPlugin} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={Plugin} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
 				</div>
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
 				<div>
-					<Image src={ImgTutorial} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
+					<Image src={Tutorial} class="rounded-container border border-surface-200-800 shadow-xl" alt="components" />
 				</div>
 				<header class="space-y-4">
 					<h2 class="h2">Iterate faster with tutorials designed for every step of the design process.</h2>
@@ -142,4 +141,4 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 		</section>
 	</main>
 	<Footer />
-</LayoutRoot>
+</Layout>
