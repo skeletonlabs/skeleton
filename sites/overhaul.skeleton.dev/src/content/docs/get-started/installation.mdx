@@ -6,7 +6,7 @@ order: 10
 
 import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
-<NavigationGrid filter={(item) => item.id.includes('installation/')} class="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('installation/')} class="md:grid-cols-2" />
 
 ## Mixing UI Libraries
 
