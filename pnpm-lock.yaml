@@ -51,9 +51,6 @@ catalogs:
     '@shikijs/themes':
       specifier: 3.13.0
       version: 3.13.0
-    '@shikijs/transformers':
-      specifier: 3.13.0
-      version: 3.13.0
     '@stackblitz/sdk':
       specifier: 1.11.0
       version: 1.11.0
@@ -820,6 +817,9 @@ importers:
 
   sites/overhaul.skeleton.dev:
     dependencies:
+      '@astrojs/check':
+        specifier: 'catalog:'
+        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: 'catalog:'
         version: 4.3.7(astro@5.14.4(@types/node@24.7.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.1)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
@@ -848,9 +848,6 @@ importers:
         specifier: 'catalog:'
         version: 3.13.0
       '@shikijs/themes':
-        specifier: 'catalog:'
-        version: 3.13.0
-      '@shikijs/transformers':
         specifier: 'catalog:'
         version: 3.13.0
       '@skeletonlabs/skeleton':
@@ -907,6 +904,9 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.0(react@19.2.0)
+      sharp:
+        specifier: 'catalog:'
+        version: 0.34.4
       shiki:
         specifier: 'catalog:'
         version: 3.13.0
@@ -2506,9 +2506,6 @@ packages:
 
   '@shikijs/themes@3.13.0':
     resolution: {integrity: sha512-Vxw1Nm1/Od8jyA7QuAenaV78BG2nSr3/gCGdBkLpfLscddCkzkL36Q5b67SrLLfvAJTOUzW39x4FHVCFriPVgg==}
-
-  '@shikijs/transformers@3.13.0':
-    resolution: {integrity: sha512-833lcuVzcRiG+fXvgslWsM2f4gHpjEgui1ipIknSizRuTgMkNZupiXE5/TVJ6eSYfhNBFhBZKkReKWO2GgYmqA==}
 
   '@shikijs/types@3.13.0':
     resolution: {integrity: sha512-oM9P+NCFri/mmQ8LoFGVfVyemm5Hi27330zuOBp0annwJdKH1kOLndw3zCtAVDehPLg9fKqoEx3Ht/wNZxolfw==}
@@ -7371,11 +7368,6 @@ snapshots:
 
   '@shikijs/themes@3.13.0':
     dependencies:
-      '@shikijs/types': 3.13.0
-
-  '@shikijs/transformers@3.13.0':
-    dependencies:
-      '@shikijs/core': 3.13.0
       '@shikijs/types': 3.13.0
 
   '@shikijs/types@3.13.0':

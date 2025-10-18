@@ -10,6 +10,7 @@
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
 	},
 	"dependencies": {
+		"@astrojs/check": "catalog:",
 		"@astrojs/mdx": "catalog:",
 		"@astrojs/partytown": "catalog:",
 		"@astrojs/react": "catalog:",
@@ -20,7 +21,6 @@
 		"@lucide/svelte": "catalog:",
 		"@shikijs/langs": "catalog:",
 		"@shikijs/themes": "catalog:",
-		"@shikijs/transformers": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",
@@ -39,6 +39,7 @@
 		"playwright": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
+		"sharp": "catalog:",
 		"shiki": "catalog:",
 		"svelte": "catalog:",
 		"tailwindcss": "catalog:",
