@@ -1,14 +1,14 @@
 ---
-import type { Section } from '@/modules/navigation';
+import { commonSections, type Section } from '@/modules/navigation';
 
 interface Props {
-	sections: Section[];
+	sections?: Section[];
 }
 
-const { sections } = Astro.props;
+const { sections = commonSections } = Astro.props;
 ---
 
-<aside class="text-sm grid gap-10">
+<div class="text-sm grid gap-10">
 	{
 		sections.map((section) => (
 			<nav class="flex flex-col gap-2">
@@ -33,4 +33,4 @@ const { sections } = Astro.props;
 			</nav>
 		))
 	}
-</aside>
+</div>
