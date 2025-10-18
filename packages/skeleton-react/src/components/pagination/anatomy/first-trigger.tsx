@@ -14,8 +14,8 @@ export default function FirstTrigger(props: PaginationFirstTriggerProps) {
 
 	const attributes = mergeProps(
 		{
-         className: classesPagination.nextTrigger,
-         onClick: pagination.goToFirstPage,
+			className: classesPagination.nextTrigger,
+			onClick: pagination.goToFirstPage,
 		},
 		rest,
 	);

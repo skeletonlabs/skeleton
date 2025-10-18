@@ -14,8 +14,8 @@ export default function LastTrigger(props: PaginationLastTriggerProps) {
 
 	const attributes = mergeProps(
 		{
-         className: classesPagination.nextTrigger,
-         onClick: pagination.goToLastPage,
+			className: classesPagination.nextTrigger,
+			onClick: pagination.goToLastPage,
 		},
 		rest,
 	);

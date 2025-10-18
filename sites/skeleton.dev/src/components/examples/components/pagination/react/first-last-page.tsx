@@ -46,7 +46,7 @@ export default function Default() {
 					<ArrowLeftIcon className="size-4" />
 				</Pagination.PrevTrigger>
 				<Pagination.FirstTrigger>
-					<ArrowLeftToLineIcon className='size-4' />
+					<ArrowLeftToLineIcon className="size-4" />
 				</Pagination.FirstTrigger>
 				<Pagination.Context>
 					{(pagination) =>
@@ -64,7 +64,7 @@ export default function Default() {
 					}
 				</Pagination.Context>
 				<Pagination.LastTrigger>
-					<ArrowRightToLineIcon className='size-4' />
+					<ArrowRightToLineIcon className="size-4" />
 				</Pagination.LastTrigger>
 				<Pagination.NextTrigger>
 					<ArrowRightIcon className="size-4" />

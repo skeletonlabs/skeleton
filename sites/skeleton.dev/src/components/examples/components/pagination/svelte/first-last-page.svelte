@@ -56,9 +56,9 @@
 			<Pagination.PrevTrigger>
 				<ArrowLeftIcon class="size-4" />
 			</Pagination.PrevTrigger>
-         <Pagination.FirstTrigger>
-            <ArrowLeftToLineIcon class="size-4" />
-         </Pagination.FirstTrigger>
+			<Pagination.FirstTrigger>
+				<ArrowLeftToLineIcon class="size-4" />
+			</Pagination.FirstTrigger>
 			<Pagination.Context>
 				{#snippet children(pagination)}
 					{#each pagination().pages as page, index (page)}
@@ -72,9 +72,9 @@
 					{/each}
 				{/snippet}
 			</Pagination.Context>
-         <Pagination.LastTrigger>
-            <ArrowRightToLineIcon class="size-4" />
-         </Pagination.LastTrigger>
+			<Pagination.LastTrigger>
+				<ArrowRightToLineIcon class="size-4" />
+			</Pagination.LastTrigger>
 			<Pagination.NextTrigger>
 				<ArrowRightIcon class="size-4" />
 			</Pagination.NextTrigger>
