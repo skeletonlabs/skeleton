@@ -1,0 +1,114 @@
+---
+title: Presets
+description: Canned styles for your interface elements.
+srcCore: '/utilities/presets.scss'
+order: 20
+---
+
+import Custom from '@/components/examples/design/presets/custom.astro';
+import CustomRaw from '@/components/examples/design/presets/custom.astro?raw';
+import Default from '@/components/examples/design/presets/default.astro';
+import DefaultRaw from '@/components/examples/design/presets/default.astro?raw';
+import Filled from '@/components/examples/design/presets/filled.astro';
+import FilledRaw from '@/components/examples/design/presets/filled.astro?raw';
+import Glass from '@/components/examples/design/presets/glass.astro';
+import GlassRaw from '@/components/examples/design/presets/glass.astro?raw';
+import Gradient from '@/components/examples/design/presets/gradient.astro';
+import GradientRaw from '@/components/examples/design/presets/gradient.astro?raw';
+import Outlined from '@/components/examples/design/presets/outlined.astro';
+import OutlinedRaw from '@/components/examples/design/presets/outlined.astro?raw';
+import Tonal from '@/components/examples/design/presets/tonal.astro';
+import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
+
+import Preview from '@/components/ui/preview.svelte';
+
+{
+
+<p className="text-xl">
+	Presets are pre-defined styles that allow you to quickly and easily style buttons, badges, cards, and more. These are created by mixing
+	Skeleton and Tailwind primitives.
+</p>
+
+}
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+1. **Filled** - a filled preset of the primary brand color.
+2. **Tonal** - a tonal preset of the primary brand color.
+3. **Outlined** - an outlined preset of the primary brand color.
+4. **Glass** - a custom preset using background transparency and backdrop blur.
+5. **Elevated** - mixes a filled preset with a shadow.
+6. **Ghost** - has no style by default, but shows a tonal preset on hover.
+7. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
+8. **Gradient** - a custom preset generated using Tailwind gradient primitives.
+
+## Skeleton Presets
+
+Skeleton's provides the following opinionated set of styles, including accessible backgrounds and text colors.
+
+### Filled
+
+```txt
+preset-filled-{color}-{lightModeShade}-{darkModeShade}
+```
+
+<Preview files={{ 'app.astro': FilledRaw }} client:visible>
+	<Filled />
+</Preview>
+
+### Tonal
+
+```txt
+preset-tonal-{color}
+```
+
+<Preview files={{ 'app.astro': TonalRaw }} client:visible>
+	<Tonal />
+</Preview>
+
+### Outlined
+
+```txt
+preset-outlined-{color}-{shade}-{shade}
+```
+
+`preset-outlined-{color}-{shade}-{shade}`
+
+<Preview files={{ 'app.astro': OutlinedRaw }} client:visible>
+	<Outlined />
+</Preview>
+
+## Custom Presets
+
+Consider these best practices when creating presets:
+
+- Custom presets are only limited by your imagination.
+- Use any combination of Skeleton or Tailwind-provided primitive to generate a preset.
+- Apply presets to any relevant element, including: buttons, cards, inputs, and more.
+- Use a set naming convention, such as `preset-{foo}` to keep things standardized.
+- Implement all presets in using Tailwind's [@utility directive](https://tailwindcss.com/docs/functions-and-directives#utility-directive) in your global stylesheet.
+- Abstrast presets to a stylesheet or NPM package for shared used between projects.
+
+Please be aware the following presets are not included by Skeleton. Rather, these are examples of how you might utilize the Preset pattern.
+
+### Input Presets
+
+<Preview files={{ 'app.astro': CustomRaw }} client:visible>
+	<Custom />
+</Preview>
+
+### Gradient Presets
+
+Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes that can be used to generate presets.
+
+<Preview files={{ 'app.astro': GradientRaw }} client:visible>
+	<Gradient />
+</Preview>
+
+### Glass Presets
+
+<Preview files={{ 'app.astro': GlassRaw }} client:visible>
+	<Glass />
+</Preview>

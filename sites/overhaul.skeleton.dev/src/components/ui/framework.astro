@@ -1,13 +1,16 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import { getActiveFramework } from '@/modules/get-active-framework';
+import { type CollectionEntry } from 'astro:content';
 
 interface Props {
 	id: CollectionEntry<'frameworks'>['id'];
 }
 
 const { id } = Astro.props;
+
+const framework = await getActiveFramework(Astro.cookies);
 ---
 
-<div class={Astro.params.framework === id ? 'contents' : 'hidden'}>
+<div class={framework.id === id ? 'contents' : 'hidden'}>
 	<slot />
 </div>

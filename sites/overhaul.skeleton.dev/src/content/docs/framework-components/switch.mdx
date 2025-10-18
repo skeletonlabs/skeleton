@@ -1,0 +1,106 @@
+---
+title: Switch
+description: Toggle between two states, such as on/off.
+---
+
+import DefaultReact from '@/components/examples/framework-components/switch/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/switch/react/default?raw';
+
+import ColorsReact from '@/components/examples/framework-components/switch/react/colors';
+import ColorsReactRaw from '@/components/examples/framework-components/switch/react/colors?raw';
+
+import ListReact from '@/components/examples/framework-components/switch/react/list';
+import ListReactRaw from '@/components/examples/framework-components/switch/react/list?raw';
+
+import ThumbIconsReact from '@/components/examples/framework-components/switch/react/thumb-icons';
+import ThumbIconsReactRaw from '@/components/examples/framework-components/switch/react/thumb-icons?raw';
+
+import DirReact from '@/components/examples/framework-components/switch/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/switch/react/dir?raw';
+
+import DefaultSvelte from '@/components/examples/framework-components/switch/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/switch/svelte/default.svelte?raw';
+
+import ColorsSvelte from '@/components/examples/framework-components/switch/svelte/colors.svelte';
+import ColorsSvelteRaw from '@/components/examples/framework-components/switch/svelte/colors.svelte?raw';
+
+import ListSvelte from '@/components/examples/framework-components/switch/svelte/list.svelte';
+import ListSvelteRaw from '@/components/examples/framework-components/switch/svelte/list.svelte?raw';
+
+import ThumbIconsSvelte from '@/components/examples/framework-components/switch/svelte/thumb-icons.svelte';
+import ThumbIconsSvelteRaw from '@/components/examples/framework-components/switch/svelte/thumb-icons.svelte?raw';
+
+import DirSvelte from '@/components/examples/framework-components/switch/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/switch/svelte/dir.svelte?raw';
+
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+
+## Checked Color
+
+Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the active state using `data-[state=checked]`
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorsSvelteRaw }} client:visible>
+		<ColorsSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorsReactRaw }} client:visible>
+		<ColorsReact client:visible />
+	</Preview>
+</Framework>
+
+## List
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ListSvelteRaw }} client:visible>
+		<ListSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ListReactRaw }} client:visible>
+		<ListReact client:visible />
+	</Preview>
+</Framework>
+
+## Icons
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ThumbIconsSvelteRaw }} client:visible>
+		<ThumbIconsSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ThumbIconsReactRaw }} client:visible>
+		<ThumbIconsReact client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<ApiTable />

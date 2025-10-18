@@ -1,0 +1,67 @@
+---
+title: Scroll Containers
+description: Create scrolling containers using the scroll snap features from Tailwind.
+tags: ['blocks', 'images']
+---
+
+import Carousel from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro';
+import CarouselRaw from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro?raw';
+import Default from '@/components/examples/guides/cookbook/scroll-containers/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/scroll-containers/default.astro?raw';
+import MultiColumn from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro';
+import MultiColumnRaw from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
+
+## Scroll Snap
+
+Implements Tailwind's [Scroll Snap Alignment](https://tailwindcss.com/docs/scroll-snap-align) utility classes.
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<Default />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={DefaultRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Carousels
+
+Using Scroll Containers, we can create a fully functional carousel, complete with thumbnail selection.
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<Carousel />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={CarouselRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+## Multi-Column
+
+Using Scroll Containers, we can scroll sets of items.
+
+<Preview client:visible>
+	<Fragment slot="preview">
+		<MultiColumn />
+	</Fragment>
+	<Fragment slot="code">
+		<Code code={MultiColumnRaw} lang="astro" />
+	</Fragment>
+</Preview>
+
+> Images courtesy of [The Movie Database](https://www.themoviedb.org/)
+
+## API Reference
+
+Learn more about Tailwind's utility classes for scroll behavior and scroll snap.
+
+| Feature                                                             | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [scroll-behavior](https://tailwindcss.com/docs/scroll-behavior)     | Controls the scroll behavior of an element.                         |
+| [scroll-margin](https://tailwindcss.com/docs/scroll-margin)         | Controls the scroll offset around items in a snap container.        |
+| [scroll-padding](https://tailwindcss.com/docs/scroll-padding)       | Controls an element's scroll offset within a snap container.        |
+| [scroll-snap-align](https://tailwindcss.com/docs/scroll-snap-align) | Controls the scroll snap alignment of an element.                   |
+| [scroll-snap-stop](https://tailwindcss.com/docs/scroll-snap-stop)   | Controls whether you can skip past possible snap positions.         |
+| [scroll-snap-type](https://tailwindcss.com/docs/scroll-snap-type)   | Controls how strictly snap points are enforced in a snap container. |

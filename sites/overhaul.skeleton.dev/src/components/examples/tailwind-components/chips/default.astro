@@ -1,0 +1,17 @@
+---
+import { CheckIcon } from 'lucide-react';
+---
+
+<div class="flex items-center gap-4">
+	<!-- A simple icon chip -->
+	<button type="button" class="chip-icon preset-filled">
+		<CheckIcon size={16} />
+	</button>
+	<!-- A standard chip -->
+	<button type="button" class="chip preset-filled">Chip</button>
+	<!-- A chip + icon -->
+	<button type="button" class="chip preset-filled">
+		<span>Chip</span>
+		<CheckIcon size={16} />
+	</button>
+</div>

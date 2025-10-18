@@ -1,0 +1,112 @@
+---
+title: 1 - Setup & Usage
+description: Get Started with Skeleton.
+order: 0
+---
+
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
+
+// Images removed from overhaul site to avoid unresolved imports during build
+// Original image imports (01_createNewProject, 02_importProject, 03_publish, etc.) were removed.
+import { BookOpen } from '@lucide/svelte';
+
+{
+
+<p>
+	For best results, a{' '}
+	<a href="https://www.figma.com/pricing/#figma" class="anchor" target="_blank">
+		Figma Professional Team Plan
+	</a>{' '}
+	(or higher) is recommended.
+</p>
+
+}
+
+## How to Install the Figma Library
+
+<Process>
+    <ProcessStep step="1">
+        ### Purchase the Figma Asset
+
+        <div class="card-enhanced border-[1px] border-surface-200-800 space-y-2 p-4 md:p-8 flex flex-row justify-between items-center">
+            <div className="flex flex-row gap-4 items-center">
+            {/* image removed in overhaul build */}
+            <div className="flex flex-col gap-1">
+                <h6 className="h6">Skeleton Figma Design System</h6>
+                <p>Complete set of themed components for Skeleton v3</p>
+            </div>
+            </div>
+            <a href="/figma/#get-access" type="button" class="btn preset-filled" target="_blank">Purchase</a>
+        </div>
+    </ProcessStep>
+
+    <ProcessStep step="2">
+        ### Create a New Project
+
+        In Figma, go to `Home`¹ and select `All projects`² from the left sidebar². On the right side, click `+ Project`³ and name the project `Libraries`⁴.
+
+    {/* image removed in overhaul build */}
+    </ProcessStep>
+
+    <ProcessStep step="3">
+        ### Import Skeleton Design System
+
+        From the project page, click `Create new` in the top-right corner⁵ and select `Import`⁶. Then, choose `Import from computer`⁷ and select the Skeleton Figma file.
+
+    {/* image removed in overhaul build */}
+    </ProcessStep>
+
+    <ProcessStep step="4">
+        ### Publish Skeleton Figma Library
+
+        To use the library across all Figma files, it must be published.
+
+        Double-click the Skeleton Library to open it. At the top left, next to the library file name, click the chevron `v`⁸ and select `Publish library…`⁹. In the modal, click `Publish`¹⁰ and wait for the library to finish publishing.
+
+    {/* image removed in overhaul build */}
+
+        Once published, you can access the Skeleton Figma Library in any of your projects.
+    </ProcessStep>
+
+</Process>
+
+---
+
+## How to Use the Figma Library
+
+<Process>
+    <ProcessStep step="1">
+        ### Open or Create a Project to Use the Library
+
+        Open an existing project, or create a new one by clicking `+ Create new`¹ and selecting `Design file`².
+
+    {/* image removed in overhaul build */}
+    </ProcessStep>
+
+    <ProcessStep step="2">
+        ### Add the Library to Your Project
+
+        In the left sidebar, click `Assets`³, then click the <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ⁴ icon. A modal will appear with the `Libraries` tab active. Search for `skeleton`⁵ and click `Add to file`⁶.
+
+        The library is now added to your file, and its assets are ready for use.
+
+    {/* image removed in overhaul build */}
+    </ProcessStep>
+
+    <ProcessStep step="3">
+        ### Use Assets (Components)
+
+        You can now access the Skeleton Design library. In the `Assets` tab, you’ll see a list of Skeleton Components. Drag components onto the canvas or search for specific ones.
+
+    {/* image removed in overhaul build */}
+    </ProcessStep>
+
+</Process>
+
+---
+
+## Guides
+
+<NavigationGrid filter={(doc) => doc.id.includes('figma/')} classes="md:grid-cols-1" />

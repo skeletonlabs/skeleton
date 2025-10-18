@@ -1,0 +1,151 @@
+---
+title: Documentation
+description: Guidelines for contributing to the Skeleton documentation website.
+order: 20
+---
+
+## Astro
+
+The Skeleton documentation website is maintained using the Astro framework.
+
+<figure class="linker bg-noise">
+	<a href="https://astro.build/" target="_blank" class="btn preset-filled">
+		Astro Documentation &rarr;
+	</a>
+</figure>
+
+### Integrations
+
+Review the full list of integrations in `astro.config.js`.
+
+- [Partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/)
+- [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
+- [React](https://docs.astro.build/en/guides/integrations-guide/react/)
+- [Expressive Code](https://expressive-code.com/)
+- [Icon](https://www.astroicon.dev/)
+- [AutoImport](https://github.com/delucis/astro-auto-import)
+- [MDX (Markdown + JSX)](https://docs.astro.build/en/guides/markdown-content/)
+
+## App Structure
+
+Navigate the app structure within the `/src` directory. This includes the following directories:
+
+| Path          | Description                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `/components` | Contains our components.                                                                                                      |
+| `/content`    | Contains our MDX content managed with [Astro's content collections](https://docs.astro.build/en/guides/content-collections/). |
+| `/images`     | Contains our images.                                                                                                          |
+| `/lib`        | Contains our modules.                                                                                                         |
+| `/pages`      | Contains our pages.                                                                                                           |
+
+## Pages
+
+### Standard Pages
+
+1. Browse to `/content/docs/` and create a new `.mdx` file
+2. Populate all required Frontmatter metadata within the frontmatter `---` fences, see the content configuration in `/src/content.config.ts` for which properties need to be set.
+3. New pages will be automatically added to the sidebar navigation.
+
+### Component Pages
+
+Component page content is split into three files within `/content/docs/components/<component>/`.
+
+- `meta.mdx` - common frontmatter metadata for the page header (ex: title, description, etc).
+- `react.mdx` - examples and usage information specific to the React page.
+- `svelte.mdx` - examples and usage information specific to the Svelte page.
+
+### Hidden Pages
+
+If you wish to prevent a page from showing in the navigation, prefix it with an understore: `_example.mdx`.
+
+## Using MDX
+
+View the [Astro MDX Documentation](https://docs.astro.build/en/guides/markdown-content/) or refer to `/src/content/docs/resources/_markdown.md` for a "kitchen sink" example page.
+
+## Doc-Only Components
+
+Functional components for the Astro project are housed in `/src/components`. These support Astro/React.
+
+- Astro - used for simple presentational components without logic.
+- React - functional components that implement state, logic, or interaction.
+
+> TIP: For React components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
+
+## Global Components
+
+A suite of global components are automatically imported within MDX pages via [astro-auto-importer](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import).
+
+> TIP: These components are configure via `astro.config.mjs` > `AutoImport()` in the project root.
+
+### Essential Code
+
+Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntax highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
+
+```tsx
+<Code code={`<div>Skeleton<div>`} lang="html" />
+```
+
+<Code code={'```html\n<div>Skeleton<div>\n```'} lang="mdx" />
+
+### Preview
+
+Allows you to quickly toggle between an example component and its source code.
+
+```ts
+import Default from '@/components/examples/foo/default';
+import DefaultRaw from '@/components/examples/foo/default?raw';
+import Preview from '@/components/ui/preview.svelte';
+```
+
+```astro
+<Preview client:visible>
+	<Fragment slot="preview"><Default /></Fragment>
+	<Fragment slot="code"><Code code={DefaultRaw} lang="html" /></Fragment>
+</Preview>
+```
+
+#### Framework Specific Code
+
+To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
+
+```astro
+<Preview client:visible>
+	<Fragment slot="preview"><Example /></Fragment>
+	<Preview>
+		<Fragment slot="preview">
+			<Default />
+		</Fragment>
+		<Fragment slot="code">
+			<Code code={DefaultGenericRaw} lang="astro" />
+		</Fragment>
+		<Fragment slot="codeReact">
+			<Code code={DefaultReactRaw} lang="tsx" />
+		</Fragment>
+		<Fragment slot="codeSvelte">
+			<Code code={DefaultSvelteRaw} lang="svelte" />
+		</Fragment>
+	</Preview>
+</Preview>
+```
+
+> TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
+
+### API Tables
+
+When placed on a component documentation page, these will automatically fetch and display the type schema for the respective component.
+
+```mdx
+## API Reference
+
+<ApiTable />
+```
+
+## Icons
+
+### Lucide
+
+This documentation app implements the [React version](https://lucide.dev/guide/packages/lucide-react) of [Lucide](https://lucide.dev/) for most icons. View <a href="/docs/integrations/iconography/svelte" class="anchor">Iconography</a> details.
+
+### SVG Components
+
+View the [Astro documentation](https://docs.astro.build/en/guides/images/#svg-components) for more information.

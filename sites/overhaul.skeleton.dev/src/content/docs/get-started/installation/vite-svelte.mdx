@@ -1,0 +1,86 @@
+---
+title: Vite + Svelte
+description: Install and configure Skeleton for Vite + Svelte.
+order: 30
+---
+
+import ProcessStep from '@/components/ui/process-step.astro';
+import Process from '@/components/ui/process.astro';
+
+## Requirements
+
+| Tooling                              | Minimum Supported |
+| ------------------------------------ | ----------------- |
+| [Vite](https://vite.dev/)            | 6                 |
+| [Svelte](https://svelte.dev/)        | 5                 |
+| [Tailwind](https://tailwindcss.com/) | 4                 |
+
+## Installation
+
+<Process>
+    <ProcessStep step="1">
+        ### Create a Project
+        Start by creating a new [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project) project. This will install Svelte and Typescript.
+        ```bash
+        npm create vite@latest
+			- Set your project named as desired
+			- Set Svelte as the framework
+			- Set Typescript as the variant
+		cd {yourProjectName}
+		npm install
+        ```
+    </ProcessStep>
+    <ProcessStep step="2">
+       ### Install Skeleton
+        Install the Skeleton core and Svelte component packages.
+        ```bash
+        npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
+        ```
+    </ProcessStep>
+    <ProcessStep step="3">
+        ### Install Tailwind
+        Install Tailwind and and the Tailwind Vite plugin.
+        ```bash
+        npm install tailwindcss @tailwindcss/vite
+        ```
+		Implement the plugin in `vite.config` in the root of your project.
+		```ts title="vite.config" {3} "tailwindcss()"
+		import { defineConfig } from "vite";
+		import svelte from "@vitejs/plugin-svelte";
+		import tailwindcss from "@tailwindcss/vite";
+
+    	export default defineConfig({
+    		plugins: [
+    			tailwindcss(),
+    			svelte() // <-- Must come after Tailwind
+    		],
+    	});
+    	```
+    </ProcessStep>
+    <ProcessStep step="4">
+        ### Configure Tailwind
+    	Open your global styleshset in `/src/app.css` and append the following at the top of the file.
+         ```css title="app.css"
+        @import 'tailwindcss';
+
+        @import '@skeletonlabs/skeleton';
+        @import '@skeletonlabs/skeleton-svelte';
+        @import '@skeletonlabs/skeleton/themes/cerberus';
+        ```
+    </ProcessStep>
+    <ProcessStep step="5">
+        ### Set the Active Theme
+        Open `index.html`, then set the `data-theme` attribute on the HTML tag to define the active theme.
+        ```html title="index.html" "data-theme="cerberus""
+        <html data-theme="cerberus">...</html>
+        ```
+    </ProcessStep>
+    <ProcessStep step="check">
+        ### Done
+        Start the dev server using the following command.
+    	```bash
+        npm run dev
+        ```
+    </ProcessStep>
+
+</Process>

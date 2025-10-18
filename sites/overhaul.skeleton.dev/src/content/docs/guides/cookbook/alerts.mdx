@@ -1,0 +1,24 @@
+---
+title: Alerts
+description: General purpose notifications to attract attention and provide critical actions.
+tags: ['blocks', 'notifications']
+---
+
+import Colors from '@/components/examples/guides/cookbook/alerts/colors.astro';
+import ColorsRaw from '@/components/examples/guides/cookbook/alerts/colors.astro?raw';
+import Default from '@/components/examples/guides/cookbook/alerts/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.astro?raw';
+
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Styling
+
+For even more customization, try mixing and matching various [Presets](/docs/design/presets) classes.
+
+<Preview files={{ 'app.astro': ColorsRaw }} client:visible>
+	<Colors />
+</Preview>

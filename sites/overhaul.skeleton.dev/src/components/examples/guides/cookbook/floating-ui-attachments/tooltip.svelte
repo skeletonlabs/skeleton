@@ -1,0 +1,15 @@
+<script lang="ts">
+	import { Popover } from './popover';
+	import { fade } from 'svelte/transition';
+
+	const tooltip = new Popover({ interaction: 'hover', placement: 'top' });
+</script>
+
+<span>
+	<p>This triggers a <span class="underline" {...tooltip.reference()}>tooltip</span>.</p>
+	{#if tooltip.isOpen()}
+		<div {...tooltip.floating()} data-floating class="card preset-filled-surface-100-900 z-10 p-4" transition:fade={{ duration: 150 }}>
+			<p>This is an example tooltip.</p>
+		</div>
+	{/if}
+</span>

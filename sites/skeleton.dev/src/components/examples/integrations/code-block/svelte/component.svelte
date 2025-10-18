@@ -7,6 +7,7 @@
 	import js from 'shiki/langs/javascript.mjs';
 	import themeDarkPlus from 'shiki/themes/dark-plus.mjs';
 
+	// https://shiki.style/guide/sync-usage
 	const shiki = createHighlighterCoreSync({
 		engine: createJavaScriptRegexEngine(),
 		// Implement your import theme.

@@ -1,0 +1,19 @@
+---
+title: Placeholders
+description: Provides "skeleton" placeholders that can display while content loads.
+srcCore: '/utilities/placeholders.css'
+---
+
+import Default from '@/components/examples/tailwind-components/placeholders/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/placeholders/default.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Animated
+
+```html
+<div class="placeholder animate-pulse">...</div>
+```

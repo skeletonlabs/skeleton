@@ -1,0 +1,33 @@
+---
+title: Badges
+description: Provides a robust set of non-interactive badge styles.
+srcCore: '/utilities/badges.css'
+---
+
+import Default from '@/components/examples/tailwind-components/badges/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/badges/default.astro?raw';
+import Overlap from '@/components/examples/tailwind-components/badges/overlap.astro';
+import OverlapRaw from '@/components/examples/tailwind-components/badges/overlap.astro?raw';
+import Presets from '@/components/examples/tailwind-components/badges/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind-components/badges/presets.astro?raw';
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Presets
+
+Provides full support of [Presets](/docs/design/presets).
+
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets />
+</Preview>
+
+## Overlap
+
+Use `badge-icon` to create overlapping numeric or icon badges.
+
+<Preview files={{ 'app.astro': OverlapRaw }} client:visible>
+	<Overlap />
+</Preview>

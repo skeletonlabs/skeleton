@@ -1,0 +1,160 @@
+---
+title: Typography
+description: The Skeleton typography system.
+srcCore: '/utilities/typography.css'
+order: 30
+---
+
+import Typescale from '@/components/examples/design/typography/typescale.svelte';
+import TypescaleRaw from '@/components/examples/design/typography/typescale.svelte?raw';
+
+import Anchors from '@/components/examples/design/typography/anchors.astro';
+import AnchorsRaw from '@/components/examples/design/typography/anchors.astro?raw';
+import Blockquotes from '@/components/examples/design/typography/blockquotes.astro';
+import BlockquotesRaw from '@/components/examples/design/typography/blockquotes.astro?raw';
+import CodeTag from '@/components/examples/design/typography/code-tag.astro';
+import CodeTagRaw from '@/components/examples/design/typography/code-tag.astro?raw';
+import Headings from '@/components/examples/design/typography/headings.astro';
+import HeadingsRaw from '@/components/examples/design/typography/headings.astro?raw';
+import InsDel from '@/components/examples/design/typography/ins-del.astro';
+import InsDelRaw from '@/components/examples/design/typography/ins-del.astro?raw';
+import Keyboard from '@/components/examples/design/typography/keyboard.astro';
+import KeyboardRaw from '@/components/examples/design/typography/keyboard.astro?raw';
+import Mark from '@/components/examples/design/typography/mark.astro';
+import MarkRaw from '@/components/examples/design/typography/mark.astro?raw';
+import Paragraphs from '@/components/examples/design/typography/paragraphs.astro';
+import ParagraphsRaw from '@/components/examples/design/typography/paragraphs.astro?raw';
+import Pre from '@/components/examples/design/typography/pre.astro';
+import PreRaw from '@/components/examples/design/typography/pre.astro?raw';
+
+import Preview from '@/components/ui/preview.svelte';
+
+import ListBasic from '@/components/examples/design/typography/list-basic.astro';
+import ListBasicRaw from '@/components/examples/design/typography/list-basic.astro?raw';
+import ListDesc from '@/components/examples/design/typography/list-desc.astro';
+import ListDescRaw from '@/components/examples/design/typography/list-desc.astro?raw';
+import ListNav from '@/components/examples/design/typography/list-nav.astro';
+import ListNavRaw from '@/components/examples/design/typography/list-nav.astro?raw';
+import ListOrdered from '@/components/examples/design/typography/list-ordered.astro';
+import ListOrderedRaw from '@/components/examples/design/typography/list-ordered.astro?raw';
+import ListUnordered from '@/components/examples/design/typography/list-unordered.astro';
+import ListUnorderedRaw from '@/components/examples/design/typography/list-unordered.astro?raw';
+
+import Semantic from '@/components/examples/design/typography/semantic.svelte';
+import SemanticRaw from '@/components/examples/design/typography/semantic.svelte?raw';
+
+{
+
+<p class="text-xl">
+	Skeleton provides an array of opt-in utility classes for common typographic elements, with a fully functional typography scale based on
+	your theme settings. As well as a number of primitives for generating a semantic typography set for your project's individual needs.
+</p>
+
+}
+
+## Typographic Scale
+
+Skeleton introduces customizable [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
+
+<Preview client:visible>
+	<Typescale client:visible />
+</Preview>
+
+## Utility Classes
+
+Use the following utility classes to quickly style semantic HTML elements. These classes are opt-in by default, providing a simple escape hatch when you need to break from convention.
+
+### Headings
+
+<Preview files={{ 'app.astro': HeadingsRaw }} client:visible>
+	<Headings />
+</Preview>
+
+### Paragraphs
+
+<Preview files={{ 'app.astro': ParagraphsRaw }} client:visible>
+	<Paragraphs />
+</Preview>
+
+### Blockquotes
+
+<Preview files={{ 'app.astro': BlockquotesRaw }} client:visible>
+	<Blockquotes />
+</Preview>
+
+### Anchor
+
+<Preview files={{ 'app.astro': AnchorsRaw }} client:visible>
+	<Anchors />
+</Preview>
+
+### Pre-Formatted
+
+<Preview files={{ 'app.astro': PreRaw }} client:visible>
+	<Pre />
+</Preview>
+
+### Code
+
+<Preview files={{ 'app.astro': CodeTagRaw }} client:visible>
+	<CodeTag />
+</Preview>
+
+### Keyboard
+
+<Preview files={{ 'app.astro': KeyboardRaw }} client:visible>
+	<Keyboard />
+</Preview>
+
+### Insert & Delete
+
+<Preview files={{ 'app.astro': InsDelRaw }} client:visible>
+	<InsDel />
+</Preview>
+
+### Mark
+
+<Preview files={{ 'app.astro': MarkRaw }} client:visible>
+	<Mark />
+</Preview>
+## Lists
+
+Skeleton defers to Tailwind's built-in utility classes for common list styles.
+
+### Unordered
+
+<Preview files={{ 'app.astro': ListUnorderedRaw }} client:visible>
+	<ListUnordered />
+</Preview>
+
+### Ordered
+
+<Preview files={{ 'app.astro': ListOrderedRaw }} client:visible>
+	<ListOrdered />
+</Preview>
+
+### Basic
+
+<Preview files={{ 'app.astro': ListBasicRaw }} client:visible>
+	<ListBasic />
+</Preview>
+
+### Description
+
+<Preview files={{ 'app.astro': ListDescRaw }} client:visible>
+	<ListDesc />
+</Preview>
+
+### Navigation
+
+<Preview files={{ 'app.astro': ListNavRaw }} client:visible>
+	<ListNav />
+</Preview>
+
+## Semantic Typography
+
+When working with your designers, they may craft a semantic typography set for your project. To handle this, we recommend implementing [custom presets](/docs/design/presets#custom-presets) that mix CSS primitives with semantic HTML elements to replicate all desired styles. Feel free to use the boilerplate below, adding each style to your global stylesheet.
+
+<Preview files={{ 'app.svelte': SemanticRaw }} client:visible>
+	<Semantic client:visible />
+</Preview>

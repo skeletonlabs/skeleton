@@ -1,0 +1,192 @@
+---
+title: Themes
+description: The Skeleton theme system.
+srcCore: '/themes'
+order: 0
+---
+
+import ThemeList from '@/components/ui/theme-list.astro';
+
+{
+
+<p class="text-xl">
+	Skeleton themes utilize{' '}
+	<a className="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="external">
+		CSS custom properties
+	</a>{' '}
+	to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme
+	generator to create your own. Enable one or more and quickly switch on-demand.
+</p>
+}
+
+---
+
+## Preset Themes
+
+Skeleton is provided with high quality set of hand curated themes, as shown below.
+
+<ThemeList />
+
+Tap the theme preview above to copy the theme name to your clipboard. Then implement any desired theme in your app's global stylesheet.
+
+```css
+/* @import '@skeletonlabs/skeleton'; */
+@import '@skeletonlabs/skeleton/themes/{theme-name}';
+```
+
+> Make sure to replace `{theme-name}` with your desired theme names.
+
+## Custom Themes
+
+Use our powerful Theme Generator app to create your own themes.
+
+<figure class="linker bg-noise">
+	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
+		Theme Generator
+	</a>
+</figure>
+
+1. Open the Theme Generator and customize to your preference.
+2. Make sure to set a unique name for your theme.
+3. Tap the "code" view from the menu at top-right corner.
+4. Tap the "copy" button at the top of copy the theme contents.
+5. Paste the contents into a new file at your project root, such as `my-theme-name.css` (any name is fine).
+
+Follow the step below to register any number of custom themes. Take care to match each theme's file name.
+
+## Register Themes
+
+You may register any number of themes by adding addition theme imports to your global stylesheet. Please note that each theme will slightly increase the final CSS bundle size.
+
+```css
+/* @import '@skeletonlabs/skeleton'; */
+
+/* Register Preset Themes */
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton/themes/mona';
+@import '@skeletonlabs/skeleton/themes/vox';
+
+/* Register a Custom Themes */
+/* Make sure to resolve the relative path. */
+/* Note the .css extension is optional. */
+@import '../{my-theme-name}';
+```
+
+## Activate a Theme
+
+You may define the active theme using the `data-theme` attribute on your `<html>` element.
+
+```html
+<html data-theme="cerberus">
+	...
+</html>
+```
+
+> TIP: If you wish to create a theme switcher, this is the value you should aim to modify.
+
+---
+
+## Customize and Extend
+
+### Modify Properties
+
+You can modify any [theme property](/docs/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
+
+```css
+[data-theme='cerberus'] {
+	--spacing: 0.22rem;
+	--radius-container: 0.375rem;
+	--heading-font-weight: bolder;
+}
+```
+
+### Target Themes
+
+If your application supports multiple themes, you may isolate selection using the `data-theme` attribute. Just make sure to account for light and dark mode color values.
+
+```css title="app.css"
+/** Target only Cerberus .h1 elements. */
+[data-theme='cerberus'] .h1 {
+	color: red;
+	@variant dark {
+		color: green;
+	}
+}
+/** Target only Mona .h1 elements. */
+[data-theme='mona'] .h1 {
+	color: blue;
+	@variant dark {
+		color: yellow;
+	}
+}
+```
+
+### Backgrounds
+
+Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/get-started/core-api#colors).
+
+```css
+[data-theme='cerberus'] body {
+	--body-background-color: pink;
+	--body-background-color-dark: green;
+}
+```
+
+Background images are supported, including CSS mesh gradients. The following example adheres to theme colors.
+
+```css
+[data-theme='cerberus'] body {
+	background-image:
+		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
+		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
+		radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+```
+
+We recommend Mesher for generating custom mesh gradients. This will generate colors using RGB, but can be migrated to utilize `var()` for colors and `color-mix()` for transparency, per the example above.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://csshero.org/mesher/" target="_blank">
+		Mesher by CSS Hero
+	</a>
+</figure>
+
+### Custom Fonts
+
+Skeleton recommends the use of [Fontsource](https://fontsource.org/) for installing and managing custom fonts.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://fontsource.org/" target="_blank">
+		Browse Fontsource
+	</a>
+</figure>
+
+Install your font of choice.
+
+```bash
+npm install @fontsource/open-sans
+```
+
+Then import each font at the top of your global stylesheet, but below your Tailwind configuration.
+
+```css title="app.css"
+@import '@fontsource/open-sans';
+```
+
+Finally, use the following [theme properties](/docs/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
+
+```css title="app.css"
+[data-theme='cerberus'] {
+	--heading-font-family: 'Open Sans', sans-serif;
+	--base-font-family: 'Open Sans', sans-serif;
+	--anchor-font-family: 'inherit';
+}
+```
+
+## Core API
+
+For more information, please refer to the full [Core API](/docs/get-started/core-api) documentation.

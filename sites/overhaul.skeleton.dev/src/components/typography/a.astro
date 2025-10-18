@@ -1,7 +1,14 @@
 ---
 const props = Astro.props;
+
+const isExternal = !props.href.includes(import.meta.env.SITE) && !props.href.startsWith('/') && !props.href.startsWith('#');
+
+if (isExternal) {
+	props.target = '_blank';
+	props.rel = 'noopener noreferrer';
+}
 ---
 
-<a class="anchor" {...props}>
+<a class="anchor inline-flex items-center gap-1" {...props}>
 	<slot />
 </a>
