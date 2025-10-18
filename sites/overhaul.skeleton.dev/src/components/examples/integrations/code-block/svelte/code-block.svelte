@@ -1,24 +1,21 @@
 <script lang="ts" module>
-	import { createHighlighterCoreSync } from 'shiki/core';
+	import { createHighlighterCore } from 'shiki/core';
 	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
-	import console from 'shiki/langs/console.mjs';
-	import css from 'shiki/langs/css.mjs';
-	import html from 'shiki/langs/html.mjs';
-	import js from 'shiki/langs/javascript.mjs';
-	import themeDarkPlus from 'shiki/themes/dark-plus.mjs';
 
-	const shiki = createHighlighterCoreSync({
+	const highlighter = await createHighlighterCore({
+		langs: [
+			import('@shikijs/langs/bash'),
+			import('@shikijs/langs/css'),
+			import('@shikijs/langs/html'),
+			import('@shikijs/langs/javascript'),
+		],
+		themes: [import('@shikijs/themes/dark-plus')],
 		engine: createJavaScriptRegexEngine(),
-		// Implement your import theme.
-		themes: [themeDarkPlus],
-		// Implement your imported and supported languages.
-		langs: [console, html, css, js],
 	});
 
 	interface CodeBlockProps {
-		code: string;
-		lang?: string;
-		theme?: string;
+		code: Parameters<typeof highlighter.codeToHtml>[0];
+		lang?: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
 		// Base Style Props
 		base?: string;
 		background?: string;
@@ -35,8 +32,7 @@
 <script lang="ts">
 	const {
 		code = '',
-		lang = 'console',
-		theme = 'dark-plus',
+		lang = 'txt',
 		// Base Style Props
 		base = ' overflow-hidden',
 		rounded = 'rounded-container',
@@ -48,8 +44,10 @@
 		preClasses = '',
 	}: CodeBlockProps = $props();
 
-	// Shiki convert to HTML
-	const generatedHtml = shiki.codeToHtml(code, { lang, theme });
+	const generatedHtml = highlighter.codeToHtml(code, {
+		lang,
+		theme: 'dark-plus',
+	});
 </script>
 
 <div class="{base} {rounded} {shadow} {classes} {preBase} {prePadding} {preClasses}">

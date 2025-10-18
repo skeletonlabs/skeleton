@@ -20,6 +20,7 @@
 		"@floating-ui/dom": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@shikijs/langs": "catalog:",
+		"@shikijs/langs-precompiled": "catalog:",
 		"@shikijs/themes": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",

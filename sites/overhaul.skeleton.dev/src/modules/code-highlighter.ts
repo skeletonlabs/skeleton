@@ -1,17 +1,17 @@
 import { createHighlighterCore } from 'shiki/core';
-import { createOnigurumaEngine } from 'shiki/engine/oniguruma';
+import { createJavaScriptRawEngine } from 'shiki/engine/javascript';
 
 export const codeHighlighter = await createHighlighterCore({
 	themes: [import('@shikijs/themes/dark-plus')],
 	langs: [
-		import('@shikijs/langs/typescript'),
-		import('@shikijs/langs/tsx'),
-		import('@shikijs/langs/svelte'),
-		import('@shikijs/langs/astro'),
-		import('@shikijs/langs/html'),
-		import('@shikijs/langs/bash'),
-		import('@shikijs/langs/diff'),
-		import('@shikijs/langs/json'),
+		import('@shikijs/langs-precompiled/ts'),
+		import('@shikijs/langs-precompiled/tsx'),
+		import('@shikijs/langs-precompiled/svelte'),
+		import('@shikijs/langs-precompiled/astro'),
+		import('@shikijs/langs-precompiled/html'),
+		import('@shikijs/langs-precompiled/bash'),
+		import('@shikijs/langs-precompiled/diff'),
+		import('@shikijs/langs-precompiled/json'),
 	],
-	engine: createOnigurumaEngine(import('shiki/wasm')),
+	engine: createJavaScriptRawEngine(),
 });
