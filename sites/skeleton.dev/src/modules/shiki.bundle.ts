@@ -35,6 +35,8 @@ const bundledLanguages = {
 	diff: () => import('@shikijs/langs/diff'),
 	json: () => import('@shikijs/langs/json'),
 	css: () => import('@shikijs/langs/css'),
+	mdx: () => import('@shikijs/langs/mdx'),
+	yaml: () => import('@shikijs/langs/yaml'),
 } as Record<BundledLanguage, DynamicImportLanguageRegistration>;
 
 const bundledThemes = {

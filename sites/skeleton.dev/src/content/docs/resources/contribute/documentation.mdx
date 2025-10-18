@@ -4,6 +4,8 @@ description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
 ---
 
+import Code from '@/components/ui/code.svelte';
+
 ## Astro
 
 The Skeleton documentation website is maintained using the Astro framework.
@@ -82,10 +84,10 @@ A suite of global components are automatically imported within MDX pages via [as
 Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntax highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
 
 ```tsx
-<Code code={`<div>Skeleton<div>`} lang="html" />
+<Code code="<div>Skeleton<div>" lang="html" />
 ```
 
-<Code code={'```html\n<div>Skeleton<div>\n```'} lang="mdx" />
+<Code code={`<div>Skeleton<div>`} lang="html" />
 
 ### Preview
 
