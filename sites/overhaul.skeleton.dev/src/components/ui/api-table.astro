@@ -59,8 +59,6 @@ if (!types && process.env.NODE_ENV === 'production') {
 											)}
 										</td>
 										<td class="grid gap-2">
-											{/* This pre tag will otherwise include the line breaks prettier adds */}
-											{/* prettier-ignore */}
 											<pre class="pre max-w-[400px] !bg-surface-950 border border-surface-800 !p-1.5">{property.type}</pre>
 											<span>{property.JSDoc.description}</span>
 										</td>
