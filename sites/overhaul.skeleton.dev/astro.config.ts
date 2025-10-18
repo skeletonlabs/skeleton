@@ -15,19 +15,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: false,
 	},
-	integrations: [
-		skeleton(),
-		react(),
-		svelte({
-			compilerOptions: {
-				experimental: {
-					async: true,
-				},
-			},
-		}),
-		mdx(),
-		partytown(),
-	],
+	integrations: [skeleton(), react(), svelte(), mdx(), partytown()],
 	vite: {
 		plugins: [
 			/* @ts-expect-error vite version mismatch */

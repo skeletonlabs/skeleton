@@ -1,6 +1,5 @@
 'use client';
 
-import { createHighlighterCoreSync } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 import console from 'shiki/langs/console.mjs';
 import css from 'shiki/langs/css.mjs';
