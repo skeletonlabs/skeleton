@@ -6,4 +6,6 @@ export const classesPagination = defineSkeletonClasses({
 	item: 'btn btn-sm preset-tonal cursor-pointer select-none data-selected:preset-filled',
 	ellipsis: 'btn btn-sm preset-tonal pointer-events-none',
 	nextTrigger: 'btn btn-sm preset-tonal',
+	firstTrigger: 'btn btn-sm preset-tonal',
+	lastTrigger: 'btn btn-sm preset-tonal',
 });
