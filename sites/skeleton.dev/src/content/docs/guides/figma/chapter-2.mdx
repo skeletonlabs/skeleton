@@ -4,25 +4,25 @@ description: Customize Your Design with Skeleton Themes
 order: 10
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-import ImgOpenProject from '@/images/tutorials/figma/chapter-2/01_openProject.webp';
-import ImgOpenSkeleton from '@/images/tutorials/figma/chapter-2/01_openSkeleton.webp';
-import ImgOpenThemePlugin from '@/images/tutorials/figma/chapter-2/02_openThemePlugin.webp';
-import ImgSetStage from '@/images/tutorials/figma/chapter-2/02_setStage.webp';
-import ImgAddNewTheme from '@/images/tutorials/figma/chapter-2/03_addNewTheme.webp';
-import ImgSwitchTheme from '@/images/tutorials/figma/chapter-2/03_switchTheme.webp';
-import ImgSwitchThemeResult from '@/images/tutorials/figma/chapter-2/03_switchThemeResult.webp';
-import ImgSelectTheme from '@/images/tutorials/figma/chapter-2/04_selectTheme.webp';
-import ImgSwitchColorScheme from '@/images/tutorials/figma/chapter-2/04_switchColorScheme.webp';
-import ImgSwitchColorSchemeResult from '@/images/tutorials/figma/chapter-2/04_switchColorSchemeResult.webp';
-import ImgCopyTheme from '@/images/tutorials/figma/chapter-2/05_copyTheme.webp';
-import ImgPasteTheme from '@/images/tutorials/figma/chapter-2/06_pasteTheme.webp';
-import ImgPublish from '@/images/tutorials/figma/chapter-2/07_publish.webp';
-import ImgPublishUpdates from '@/images/tutorials/figma/chapter-2/07_publishUpdates.webp';
-import SvgSkeleton from '@/images/tutorials/figma/skeletonFileIcon.svg';
+import ImgOpenProject from '@/assets/figma/chapter-2/1-open-project.webp';
+import ImgOpenSkeleton from '@/assets/figma/chapter-2/1-open-skeleton.webp';
+import ImgOpenThemePlugin from '@/assets/figma/chapter-2/2-open-theme-plugin.webp';
+import ImgSetStage from '@/assets/figma/chapter-2/2-set-stage.webp';
+import ImgAddNewTheme from '@/assets/figma/chapter-2/3-add-new-theme.webp';
+import ImgSwitchThemeResult from '@/assets/figma/chapter-2/3-switch-theme-result.webp';
+import ImgSwitchTheme from '@/assets/figma/chapter-2/3-switch-theme.webp';
+import ImgSelectTheme from '@/assets/figma/chapter-2/4-select-theme.webp';
+import ImgSwitchColorSchemeResult from '@/assets/figma/chapter-2/4-switch-color-scheme-result.webp';
+import ImgSwitchColorScheme from '@/assets/figma/chapter-2/4-switch-color-scheme.webp';
+import ImgCopyTheme from '@/assets/figma/chapter-2/5-copy-theme.webp';
+import ImgPasteTheme from '@/assets/figma/chapter-2/6-paste-theme.webp';
+import ImgPublishUpdates from '@/assets/figma/chapter-2/7-publish-updates.webp';
+import ImgPublish from '@/assets/figma/chapter-2/7-publish.webp';
+import SvgSkeleton from '@/assets/figma/skeletonFileIcon.svg';
 import { Image } from 'astro:assets';
 
 ## Prerequisites
@@ -152,4 +152,4 @@ import { Image } from 'astro:assets';
 
 ## Guides
 
-<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
+<NavigationGrid filter={(doc) => doc.id.includes('figma/')} classes="md:grid-cols-1" />

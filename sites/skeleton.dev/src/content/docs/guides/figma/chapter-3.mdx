@@ -4,17 +4,17 @@ description: Keep Your Skeleton Library Up to Date
 order: 20
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-import ImgImport from '@/images/tutorials/figma/chapter-3/02_import.webp';
-import ImgPublishLib from '@/images/tutorials/figma/chapter-3/03_publishLibrary.webp';
-import ImgOpenFile from '@/images/tutorials/figma/chapter-3/04_openFile.webp';
-import ImgSelectNewSkeleton from '@/images/tutorials/figma/chapter-3/04_selectNewSkeleton.webp';
-import ImgSelectSkeleton from '@/images/tutorials/figma/chapter-3/04_selectSkeleton.webp';
-import ImgRemoveOld from '@/images/tutorials/figma/chapter-3/removeOld.webp';
-import SvgSkeleton from '@/images/tutorials/figma/skeletonFileIcon.svg';
+import ImgImport from '@/assets/figma/chapter-3/2-import.webp';
+import ImgPublishLib from '@/assets/figma/chapter-3/3-publish-library.webp';
+import ImgOpenFile from '@/assets/figma/chapter-3/4-open-file.webp';
+import ImgSelectNewSkeleton from '@/assets/figma/chapter-3/4-select-new-skeleton.webp';
+import ImgSelectSkeleton from '@/assets/figma/chapter-3/4-select-skeleton.webp';
+import ImgRemoveOld from '@/assets/figma/chapter-3/remove-old.webp';
+import SvgSkeleton from '@/assets/figma/skeletonFileIcon.svg';
 import { ChevronDown, BookOpen } from '@lucide/svelte';
 import { Image } from 'astro:assets';
 
@@ -36,7 +36,7 @@ import { Image } from 'astro:assets';
         ### Import the new version to your Figma library
 
         From the project page, click `Create new`² in the top-right corner and select `Import`³. Then, choose `Import from computer`⁴ and select the Skeleton Figma file.
-        <Image src={ImgImport} class="rounded-container" alt="Import" />
+
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -45,7 +45,7 @@ import { Image } from 'astro:assets';
         Double-click the new version of Skeleton v3 Figma UI Library to open it.
 
         <p className="relative">At the top left, next to the library file name, click the  <span class="badge-icon preset-filled"><ChevronDown size={16}/></span> ⁵ icon and select `Publish library…` ⁶. In the modal, click `Publish` ⁷ and wait for the library to finish publishing.</p>
-        <Image src={ImgPublishLib} class="rounded-container" alt="Publish library" />
+
     </ProcessStep>
 
     <ProcessStep step="4">
@@ -54,13 +54,13 @@ import { Image } from 'astro:assets';
         Open the project that uses the old version of Skeleton v3 Figma UI library. Open the `Assets`⁸ tab and click on the <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ⁹ icon to open the `Manage libraries`¹⁰ popup.
 
         In the `Libraries added to this file` section, select the old version of the Skeleton v3 Figma UI library¹¹.
-         <Image src={ImgOpenFile} class="rounded-container" alt="Publish library" />
+
 
          <p className='pt-4'>Click the `Swap Library`¹² button in the bottom right corner of the popup.</p>
-         <Image src={ImgSelectSkeleton} class="rounded-container" alt="Publish library" />
+
 
          <p className='pt-4'>In the top right corner of the popup, click `Choose library`¹³, select the latest Skeleton v3 Figma UI library¹⁴, and then click `Swap library`¹⁵.</p>
-         <Image src={ImgSelectNewSkeleton} class="rounded-container" alt="Publish library" />
+
 
          <p className='pt-4'>Your library will be updated, and all components using the Skeleton Figma library will refresh automatically.</p>
     </ProcessStep>
@@ -77,10 +77,8 @@ Open the project that utilizes the old version of Skeleton v3 Figma UI library. 
 
 In the `Libraries added to this file` section, click the `Remove`³ button next to the old version of the Skeleton v3 Figma UI library.
 
-<Image src={ImgRemoveOld} class="rounded-container" alt="Publish library" />
-
 ---
 
 ## Guides
 
-<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
+<NavigationGrid filter={(doc) => doc.id.includes('figma/')} classes="md:grid-cols-1" />

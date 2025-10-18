@@ -1,14 +1,15 @@
 ---
 import { getEntry } from 'astro:content';
-import { Code } from 'astro-expressive-code/components';
+import Code from '@/components/typography/code.astro';
+import { getActiveFramework } from '@/modules/get-active-framework';
 
 interface Props {
 	component: string;
 	framework: string;
 }
 
-const framework = Astro.props.framework ?? Astro.params.slug?.split('/').at(-1);
-const component = Astro.props.component ?? Astro.params.slug?.split('/').at(-2);
+const framework = Astro.props.framework ?? (await getActiveFramework(Astro.cookies)).id;
+const component = Astro.props.component ?? Astro.params.doc?.split('/').at(-1);
 
 const types = await getEntry('types', `${framework}/${component}`);
 
@@ -58,8 +59,6 @@ if (!types && process.env.NODE_ENV === 'production') {
 											)}
 										</td>
 										<td class="grid gap-2">
-											{/* This pre tag will otherwise include the line breaks prettier adds */}
-											{/* prettier-ignore */}
 											<pre class="pre max-w-[400px] !bg-surface-950 border border-surface-800 !p-1.5">{property.type}</pre>
 											<span>{property.JSDoc.description}</span>
 										</td>

@@ -5,7 +5,7 @@ showDocsUrl: false
 order: 8888
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 ## Introduction
 
@@ -19,7 +19,7 @@ While Skeleton v3 introduces support for multiple frameworks, we’ve historical
 
 We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
 
-```shell
+```bash
 git checkout -b migration
 ```
 
@@ -103,7 +103,7 @@ We’ve provided a dedicated migration script as part of the Skeleton CLI to hel
 
 > TIP: Please ensure you've committed all pending changes before proceeding.
 
-```console
+```bash
 npx skeleton migrate skeleton-3
 ```
 
@@ -293,7 +293,7 @@ Members of the both the Skeleton team and the Svelte community are actively buil
 
 If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm, and remember to merge all changes into your primary branch.
 
-```shell
+```bash
 npm run dev
 ```
 

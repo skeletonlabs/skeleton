@@ -94,10 +94,11 @@ Allows you to quickly toggle between an example component and its source code.
 ```ts
 import Default from '@/components/examples/foo/default';
 import DefaultRaw from '@/components/examples/foo/default?raw';
+import Preview from '@/components/ui/preview.svelte';
 ```
 
 ```astro
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview"><Default /></Fragment>
 	<Fragment slot="code"><Code code={DefaultRaw} lang="html" /></Fragment>
 </Preview>
@@ -108,7 +109,7 @@ import DefaultRaw from '@/components/examples/foo/default?raw';
 To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
 
 ```astro
-<Preview client:load>
+<Preview client:visible>
 	<Fragment slot="preview"><Example /></Fragment>
 	<Preview>
 		<Fragment slot="preview">

@@ -4,11 +4,9 @@ description: Learn how to install and setup Skeleton for your project.
 order: 10
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
-{/* --- */}
-
-<NavGrid collection="docs" path="installation/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('installation/')} class="md:grid-cols-2" />
 
 ## Mixing UI Libraries
 

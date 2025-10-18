@@ -1,109 +1,109 @@
 ---
-// Components
+import { ChevronRightIcon } from '@lucide/svelte';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
-import HomeBottomCta from '@/components/homepage/cta.astro';
-import HomeComponentGrid from '@/components/homepage/component-grid';
-import HomeDesignSystem from '@/components/homepage/design-system';
-import HomeEvenMore from '@/components/homepage/even-more.astro';
-import HomeFrameworkComps from '@/components/homepage/framework-components';
-import HomeHero from '@/components/homepage/hero.astro';
-import HomeMetrics from '@/components/homepage/metrics.astro';
-import HomeOpenSource from '@/components/homepage/open-source.astro';
-import HomePlayground from '@/components/homepage/playground.astro';
-import HomeSponsors from '@/components/homepage/sponsors.astro';
-import LayoutRoot from '@/components/layouts/root.astro';
-// Props
-const layoutProps = {
-	title: 'Welcome',
-	classList: '',
-};
+import Layout from '@/components/ui/layout.astro';
+import Skeleton from '@/assets/branding/skeleton.svg';
+import ComponentGrid from '@/components/landing-page/component-grid.svelte';
+import LiveDemos from '@/components/landing-page/live-demos.astro';
+import DesignSystem from '@/components/landing-page/design-system.svelte';
+import TailwindAndFrameworkComponents from '@/components/landing-page/tailwind-and-framework-components.svelte';
+import AdditionalFeatures from '@/components/landing-page/additional-features.astro';
+import OpenSource from '@/components/landing-page/open-source.astro';
+import Metrics from '@/components/landing-page/metrics.astro';
+import Sponsors from '@/components/landing-page/sponsors.astro';
+import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleton-today.astro';
 ---
 
-<LayoutRoot {...layoutProps}>
-	<!-- Header -->
+<Layout>
 	<Header />
-
-	<!-- Main -->
-	<main class="bg-surface-50-950">
-		<!-- Gradient 1 -->
-		<!-- <div class="bg-radial-[at_50%_75%] from-sky-200 via-blue-400/10 to-indigo-900 to-90%"> -->
+	<main>
 		<div class="gradient-homepage-one">
-			<!-- Section: Hero -->
-			<section>
-				<div class="container mx-auto flex justify-center p-10 pt-20 pb-5">
-					<HomeHero />
+			<section class="container mx-auto flex justify-center p-10 pt-20 pb-5">
+				<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
+					<div class="flex justify-center items-center">
+						<div class="relative size-48 md:size-64 aspect-square">
+							<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
+							<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
+							</div>
+						</div>
+					</div>
+					<div class="self-center space-y-4">
+						<a
+							href="https://github.com/skeletonlabs/skeleton/discussions/3920"
+							target="_blank"
+							class="btn btn-sm preset-filled-primary-500 gap-2 shadow"
+						>
+							<span>🎉</span>
+							<span>Skeleton v4.0 has launched!</span>
+							<ChevronRightIcon class="size-4" />
+						</a>
+						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
+							An adaptive design system powered by Tailwind CSS.
+						</h1>
+						<p class="xl:text-balance">
+							Skeleton integrates with <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> to provide an opinionated
+							solution for generating adaptive design systems. Including a turnkey component library for your favorite web frameworks.
+						</p>
+						<nav class="flex gap-4">
+							<a href="/docs/get-started/installation" class="btn preset-filled">
+								<span>Get Started</span>
+								<ChevronRightIcon class="size-4" />
+							</a>
+							<a href="/docs/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+								<span>Learn More</span>
+							</a>
+						</nav>
+					</div>
 				</div>
 			</section>
-
-			<!-- Section: Component Grid -->
-			<section class="hidden 2xl:block">
-				<div class="container mx-auto p-10 py-20">
-					<HomeComponentGrid client:load />
-				</div>
+			<section class="hidden 2xl:block container mx-auto p-10 py-20">
+				<ComponentGrid client:visible />
 			</section>
-
-			<!-- Section: Playground -->
-			<section class="hidden md:block">
-				<div class="container mx-auto p-10 py-20">
-					<HomePlayground />
-				</div>
+			<section class="hidden md:block container mx-auto p-10 py-20">
+				<LiveDemos />
 			</section>
 		</div>
-
-		<!-- Gradient 2 -->
 		<div class="gradient-homepage-two">
-			<!-- Section: Design System -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeDesignSystem client:load />
-				</div>
+			<section class="container mx-auto p-10 py-20">
+				<DesignSystem client:visible />
 			</section>
-
-			<!-- Section: Tailwind / Functional Components -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeFrameworkComps client:load />
-				</div>
+			<section class="container mx-auto p-10 py-20">
+				<TailwindAndFrameworkComponents client:visible />
 			</section>
-
-			<!-- Section: Even More -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeEvenMore />
-				</div>
+			<section class="container mx-auto p-10 py-20">
+				<AdditionalFeatures />
 			</section>
-
-			<!-- Section: Open Source -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeOpenSource />
-				</div>
+			<section class="container mx-auto p-10 py-20">
+				<OpenSource />
 			</section>
-
-			<!-- Section: Metrics -->
-			<section>
-				<div class="container mx-auto p-10 py-20">
-					<HomeMetrics />
-				</div>
+			<section class="container mx-auto p-10 py-20">
+				<Metrics />
 			</section>
 		</div>
-
-		<!-- Section: Sponsors -->
-		<section>
-			<div class="container mx-auto p-10 py-20">
-				<HomeSponsors />
-			</div>
+		<section class="container mx-auto p-10 py-20">
+			<Sponsors />
 		</section>
-
-		<!-- Section: CTA -->
-		<section>
-			<div class="container mx-auto p-10 py-20">
-				<HomeBottomCta />
-			</div>
+		<section class="container mx-auto p-10 py-20">
+			<BuildWithSkeletonToday />
 		</section>
 	</main>
-
-	<!-- Footer -->
 	<Footer />
-</LayoutRoot>
+</Layout>
+
+<style>
+	.gradient-homepage-one {
+		background-size: cover;
+		background-image:
+			radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
+			radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
+			radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+	}
+
+	.gradient-homepage-two {
+		background-size: cover;
+		background-image:
+			radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
+			radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
+	}
+</style>

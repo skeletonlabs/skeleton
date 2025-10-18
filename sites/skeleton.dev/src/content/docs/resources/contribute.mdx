@@ -3,8 +3,6 @@ title: Contribute
 description: Learn how to contribute to Skeleton.
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
-{/* --- */}
-
-<NavGrid collection="docs" path="resources/contribute/" />
+<NavigationGrid filter={(doc) => doc.id.includes('resources/contribute/')} />

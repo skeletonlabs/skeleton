@@ -4,7 +4,7 @@ description: Welcome to the Skeleton Figma Design System Tutorials!
 order: 60
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 {
 
@@ -29,4 +29,4 @@ Review the benefits of the Figma UI Kit for Skeleton.
 
 Follow along with our step-by-step guides.
 
-<NavGrid collection="docs" path="figma/" classes="md:grid-cols-1" />
+<NavigationGrid filter={(doc) => doc.id.includes('figma/')} classes="md:grid-cols-1" />

@@ -1,8 +1,6 @@
 ---
 title: Chat
 description: Create a custom chat feed or AI prompt interface.
-showDocsUrl: true
-pubDate: 2024-11-19
 tags: ['blocks', 'machine learning']
 ---
 
@@ -17,68 +15,42 @@ import FeedRaw from '@/components/examples/guides/cookbook/chat/feed.astro?raw';
 import Rows from '@/components/examples/guides/cookbook/chat/rows.astro';
 import RowsRaw from '@/components/examples/guides/cookbook/chat/rows.astro?raw';
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default client:visible />
-	</Fragment>
-	<Fragment slot="codeReact">
-		<Code code={`Coming soon...`} lang="tsx" />
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		<Code code={DefaultRaw} lang="svelte" />
-	</Fragment>
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.svelte': DefaultRaw }} client:visible>
+	<Default client:visible />
 </Preview>
 
 ## Layout Columns
 
 Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Columns />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ColumnsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': ColumnsRaw }} client:visible>
+	<Columns />
 </Preview>
 
 ## Layout Rows
 
 Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Rows />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={RowsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': RowsRaw }} client:visible>
+	<Rows />
 </Preview>
 
 ## Message Feed
 
 The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Feed />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={FeedRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': FeedRaw }} client:visible>
+	<Feed />
 </Preview>
 
 ## Message Bubbles
 
 Provide styling to each bubble element.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Bubbles />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={BubblesRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': BubblesRaw }} client:visible>
+	<Bubbles />
 </Preview>
 
 ## Prompt
@@ -110,23 +82,9 @@ let messageFeed = [
 
 Then bind to the textarea for your prompt in order to capture any message typed by the user.
 
-<Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">```tsx let elemPrompt: HTMLElement = useRef(); ```</Fragment>
-	<Fragment slot="codeSvelte">```ts let elemPrompt: HTMLElement; ```</Fragment>
-</Preview>
+<Preview client:visible>{/* Code-only examples converted to preview-only. */}</Preview>
 
-<Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```tsx
-		<textarea ref={elemPrompt} ... />
-		```
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		```svelte
-		<textarea bind:value={elemPrompt} ... />
-		```
-	</Fragment>
-</Preview>
+<Preview client:visible>{/* Code-only examples converted to preview-only. */}</Preview>
 
 Here's an example of how we might append a new message to the `messageFeed` array.
 

@@ -1,17 +1,13 @@
 ---
-interface PageHeadings {
-	depth: number;
-	slug: string;
-	text: string;
-}
+import type { MarkdownHeading } from 'astro';
 
 interface Props {
-	headings: PageHeadings[];
+	headings: MarkdownHeading[];
 }
 
 const { headings } = Astro.props;
 
-function setDepthClass(depth: number) {
+function getMarginFromDepth(depth: number) {
 	if (depth === 3) {
 		return 'ml-4';
 	}
@@ -31,16 +27,16 @@ function setDepthClass(depth: number) {
 {
 	headings.length > 0 && (
 		<nav class="text-sm space-y-2">
-			<div class="font-bold">On This Page</div>
+			<span class="font-bold">On This Page</span>
 			<ul class="space-y-2">
 				<li>
 					<a href={`#_top`} class="anchor block">
 						Overview
 					</a>
 				</li>
-				{headings.map((heading: PageHeadings) => (
+				{headings.map((heading) => (
 					<li>
-						<a href={`#${heading.slug}`} class="anchor block" class:list={`${setDepthClass(heading.depth)}`}>
+						<a href={`#${heading.slug}`} class={`anchor block ${getMarginFromDepth(heading.depth)}`}>
 							{heading.text}
 						</a>
 					</li>

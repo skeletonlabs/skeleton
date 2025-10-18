@@ -6,7 +6,7 @@ srcCore: '/'
 order: 30
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 {
 
@@ -169,7 +169,7 @@ Sets the default width for border, divide, and ring width to match the active th
 
 Allow you to style semantic HTML elements with utility classes.
 
-<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('tailwind/')} classes="md:grid-cols-2" />
 
 ## @variant
 

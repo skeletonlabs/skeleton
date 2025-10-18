@@ -29,7 +29,7 @@ Skeleton is provided with high quality set of hand curated themes, as shown belo
 
 Tap the theme preview above to copy the theme name to your clipboard. Then implement any desired theme in your app's global stylesheet.
 
-```css title="app.css" {3}
+```css
 /* @import '@skeletonlabs/skeleton'; */
 @import '@skeletonlabs/skeleton/themes/{theme-name}';
 ```
@@ -92,7 +92,7 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 
 You can modify any [theme property](/docs/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] {
 	--spacing: 0.22rem;
 	--radius-container: 0.375rem;
@@ -125,7 +125,7 @@ If your application supports multiple themes, you may isolate selection using th
 
 Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/get-started/core-api#colors).
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] body {
 	--body-background-color: pink;
 	--body-background-color-dark: green;
@@ -134,7 +134,7 @@ Your app's light and dark mode background color values can be adjusted using the
 
 Background images are supported, including CSS mesh gradients. The following example adheres to theme colors.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] body {
 	background-image:
 		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
@@ -167,7 +167,7 @@ Skeleton recommends the use of [Fontsource](https://fontsource.org/) for install
 
 Install your font of choice.
 
-```console
+```bash
 npm install @fontsource/open-sans
 ```
 

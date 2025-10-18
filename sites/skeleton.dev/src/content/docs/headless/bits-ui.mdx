@@ -1,25 +1,20 @@
 ---
 title: Bits UI
 description: Flexible, unstyled, and accessible primitives that provide the foundation for building your own high-quality Svelte component library.
+order: 997
 ---
 
-import ImgBanner from '@/images/headless/bits-ui/bits-banner.png';
-import ImgComponent from '@/images/headless/bits-ui/bits-component.gif';
-import { Image } from 'astro:assets';
+// Banner and component images removed for docs build (missing assets)
 
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-<Image src={ImgBanner} alt="banner" class="rounded-container shadow-xl" />
-
-{
+{/* banner image removed */}
 
 <p class="text-xl">
 	Bits UI is a collection of headless component primitives for Svelte that prioritizes developer experience, accessibility, and flexibility.
 	The goal is to empower developers to build high-quality, accessible user interfaces without sacrificing creative control or performance.
 </p>
-
-}
 
 <figure class="linker bg-noise !bg-[#cae2f7]">
 	<a class="btn preset-filled" href="https://www.bits-ui.com/" target="_blank">
@@ -45,7 +40,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 In this guide we'll implement the following Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI.
 
-<Image src={ImgComponent} alt="calendar" class="rounded-container shadow-xl" />
+{/* component image removed */}
 
 <figure class="linker bg-noise !bg-[#cae2f7]">
 	<a class="btn preset-filled" href="https://www.bits-ui.com/docs/components/calendar" target="_blank">
@@ -66,13 +61,13 @@ In this guide we'll implement the following Bits UI `<Calendar>` component. This
         ### Install Bits UI
     	Install the Bits UI package via your package manager of choice.
 
-    	```console
+    	```bash
     	npm install bits-ui
     	```
 
     	We'll also include the [Adobe International Date](https://react-spectrum.adobe.com/internationalized/date/index.html) package to assist with date/time formatting.
 
-    	```console
+    	```bash
     	npm i -D @internationalized/date
     	```
     </ProcessStep>
