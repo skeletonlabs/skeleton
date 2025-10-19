@@ -5,6 +5,8 @@ import Favicon from '@/assets/favicon.png';
 import Skeleton from '@/assets/branding/skeleton.png';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@/components/ui/analytics.astro';
+import ThemeLoader from '@/components/ui/theme-loader.astro';
+import ModeLoader from '@/components/ui/mode-loader.astro';
 
 interface Props {
 	title?: string;
@@ -17,7 +19,7 @@ const DEFAULT_DESCRIPTION = 'Documentation for Skeleton, the UI toolkit for buil
 const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props;
 ---
 
-<html lang="en" data-theme={Astro.cookies.get('theme')?.value ?? 'cerberus'} data-mode={Astro.cookies.get('mode')?.value ?? 'system'}>
+<html lang="en">
 	<head>
 		<SEO
 			title={title}
@@ -72,6 +74,8 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 				],
 			}}
 		/>
+		<ModeLoader />
+		<ThemeLoader />
 		<Analytics />
 		<ClientRouter />
 	</head>
