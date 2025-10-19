@@ -10,11 +10,10 @@ import Preview from '@/components/ui/preview.svelte';
 
 The most common way to load skeleton themes is by importing them in your root stylesheet.
 
-
-{/* <Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```css title="app/globals.css"
-		@import 'tailwindcss';
+{/\* <Preview selected="codeReact" client:visible>
+<Fragment slot="codeReact">
+```css title="app/globals.css"
+@import 'tailwindcss';
 
     	@import '@skeletonlabs/skeleton';
     	@import '@skeletonlabs/skeleton/themes/cerberus';
@@ -45,10 +44,10 @@ This approach assumes the CSS variables of the skeleton theme you want is availa
 
 In this example we will add a default theme that that can be used as a fallback.
 
-{/* <Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```css title="app/globals.css"
-		@import 'tailwindcss';
+{/\* <Preview selected="codeReact" client:visible>
+<Fragment slot="codeReact">
+```css title="app/globals.css"
+@import 'tailwindcss';
 
     	@import '@skeletonlabs/skeleton';
     	@import './default.css';
@@ -65,20 +64,22 @@ In this example we will add a default theme that that can be used as a fallback.
 
 </Preview> */}
 
-{/* <Preview selected="codeReact" client:visible>
-    <Fragment slot="codeReact">
-    	```css title="app/default.css"
+{/\* <Preview selected="codeReact" client:visible>
+<Fragment slot="codeReact">
+`css title="app/default.css"
     	[data-theme='default'] { }
-    	```
-    </Fragment>
-    <Fragment slot="codeSvelte">
-    	```css title="src/default.css"
+    	`
+</Fragment>
+<Fragment slot="codeSvelte">
+`css title="src/default.css"
     	[data-theme='default'] { }
-    	```
-	</Fragment>
+    	`
+</Fragment>
+
 </Preview> */}
 
-{/* 
+{/\*
+
 <Preview selected="codeReact" client:visible>
     <Fragment slot="codeReact">
 		To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
