@@ -37,6 +37,10 @@
 	color: var(--color-primary-contrast-500);
 }
 
+:root {
+	--header-height: 70px;
+}
+
 html {
 	scrollbar-gutter: stable;
 }
