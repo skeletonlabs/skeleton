@@ -37,6 +37,10 @@
 	color: var(--color-primary-contrast-500);
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
 [data-theme='catppuccin'],
 [data-theme='cerberus'],
 [data-theme='crimson'],
