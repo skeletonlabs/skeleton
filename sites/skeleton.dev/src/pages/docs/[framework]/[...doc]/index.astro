@@ -14,7 +14,7 @@ import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 export async function getStaticPaths() {
 	const docs = await getCollection('docs');
 	return docs.map((doc) => ({
-		params: { slug: doc.id },
+		params: { doc: doc.id },
 		props: { doc },
 	}));
 }
