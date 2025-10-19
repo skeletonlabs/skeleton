@@ -12,15 +12,19 @@ import Advertisement from '@/components/ui/advertisement.astro';
 import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 
 export async function getStaticPaths() {
+	const frameworks = await getCollection('frameworks');
 	const docs = await getCollection('docs');
-	return docs.map((doc) => ({
-		params: {
-			doc: doc.id,
-		},
-		props: {
-			doc,
-		},
-	}));
+	return frameworks.flatMap((framework) =>
+		docs.map((doc) => ({
+			params: {
+				framework: framework.id,
+				doc: doc.id,
+			},
+			props: {
+				doc,
+			},
+		})),
+	);
 }
 
 const { doc } = Astro.props;
