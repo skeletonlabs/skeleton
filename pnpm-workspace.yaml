@@ -74,7 +74,6 @@ catalog:
   commander: 14.0.1
   detect-indent: 7.0.2
   fuse.js: 7.1.0
-  html-escaper: 3.0.3
   jsdom: 27.0.0
   latest-version: 9.0.0
   lucide-react: 0.545.0
