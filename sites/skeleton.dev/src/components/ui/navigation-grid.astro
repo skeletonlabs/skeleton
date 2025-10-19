@@ -2,8 +2,8 @@
 import type { HTMLAttributes } from 'astro/types';
 import { getCollection } from 'astro:content';
 
-interface Props extends HTMLAttributes<'nav'> {
-	filter?: Parameters<typeof getCollection>[1];
+interface Props extends Omit<HTMLAttributes<'nav'>, 'filter'> {
+	filter?: Parameters<typeof getCollection<'docs'>>[1];
 }
 
 const { filter, class: className, ...rest } = Astro.props;
