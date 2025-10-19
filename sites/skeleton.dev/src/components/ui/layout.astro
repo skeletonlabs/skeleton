@@ -4,6 +4,7 @@ import { SEO } from 'astro-seo';
 import Favicon from '@/assets/favicon.png';
 import Skeleton from '@/assets/branding/skeleton.png';
 import { ClientRouter } from 'astro:transitions';
+import Analytics from '@/components/ui/analytics.astro';
 
 interface Props {
 	title?: string;
@@ -71,25 +72,7 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 				],
 			}}
 		/>
-		<script>
-			declare global {
-				interface Window {
-					plausible: any;
-				}
-			}
-			window.plausible =
-				window.plausible ||
-				function () {
-					(window.plausible.q = window.plausible.q || []).push(arguments);
-				};
-		</script>
-		<script
-			type="text/partytown"
-			async
-			defer
-			data-domain={Astro.site?.hostname}
-			src="https://events.plygrnd.org/js/script.outbound-links.js"
-			is:inline></script>
+		<Analytics />
 		<ClientRouter />
 	</head>
 	<body>
