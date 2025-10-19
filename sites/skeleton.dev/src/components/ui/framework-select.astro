@@ -6,29 +6,16 @@ const frameworks = await getCollection('frameworks');
 const activeFramework = await getActiveFramework(Astro);
 ---
 
-<select id="framework-select" class="select w-fit" value={activeFramework.id} aria-label="Select Framework" title="Select Framework">
+<nav id="framework-select" class="select w-fit">
 	{
 		frameworks.map((framework) => (
-			<option value={framework.id} selected={activeFramework.id === framework.id}>
+			<a
+				class="btn preset-outlined aria-[current=page]:preset-filled"
+				href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
+				aria-current={activeFramework.id === framework.id ? 'page' : undefined}
+			>
 				{framework.data.name}
-				{framework.data.logo && <img src={framework.data.logo} alt={`${framework.data.name} icon`} class="inline size-4 ml-2" />}
-			</option>
+			</a>
 		))
 	}
-</select>
-
-<script>
-	import { actions } from 'astro:actions';
-	import { navigate } from 'astro:transitions/client';
-
-	document.addEventListener('astro:page-load', () => {
-		const select = document.querySelector<HTMLSelectElement>('#framework-select');
-		select?.addEventListener('change', async () => {
-			select.disabled = true;
-			await actions.setFramework(select.value);
-			await navigate(window.location.pathname, {
-				history: 'replace',
-			});
-		});
-	});
-</script>
+</nav>
