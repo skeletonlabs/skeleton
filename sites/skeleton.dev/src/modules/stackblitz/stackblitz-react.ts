@@ -52,6 +52,7 @@ const packageJson = JSON.stringify(
 			'@types/react': '^19',
 			'@types/react-dom': '^19',
 			'@vitejs/plugin-react': '^5',
+			'lucide-react': '^0',
 			tailwindcss: '^4',
 			typescript: '^5',
 			vite: '^7',

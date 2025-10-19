@@ -45,6 +45,7 @@ const packageJson = JSON.stringify(
 			'@sveltejs/vite-plugin-svelte': '^6',
 			'@tailwindcss/vite': '^4',
 			'@tsconfig/svelte': '^5',
+			'@lucide/svelte': '^0',
 			svelte: '^5',
 			tailwindcss: '^4',
 			typescript: '^5',
