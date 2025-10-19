@@ -32,24 +32,6 @@ const { Content, headings } = await render(doc);
 			data-navigation
 		>
 			<Navigation />
-			<script>
-				const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
-
-				document.addEventListener('astro:page-load', () => {
-					const navigation = document.querySelector<HTMLElement>('[data-navigation]');
-					if (!navigation) {
-						throw new Error('Navigation element not found');
-					}
-					navigation.addEventListener('scroll', () => {
-						localStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
-					});
-					const storedScrollTop = localStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
-					if (!storedScrollTop) {
-						return;
-					}
-					navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
-				});
-			</script>
 		</aside>
 		<main class="px-4 xl:px-10 py-10 space-y-8">
 			<header class="scroll-header space-y-4" data-pagefind-body id="_top">
@@ -76,3 +58,22 @@ const { Content, headings } = await render(doc);
 		</aside>
 	</div>
 </Layout>
+
+<script>
+	const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
+
+	document.addEventListener('astro:page-load', () => {
+		const navigation = document.querySelector<HTMLElement>('[data-navigation]');
+		if (!navigation) {
+			return;
+		}
+		navigation.addEventListener('scroll', () => {
+			localStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
+		});
+		const storedScrollTop = localStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
+		if (!storedScrollTop) {
+			return;
+		}
+		navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
+	});
+</script>
