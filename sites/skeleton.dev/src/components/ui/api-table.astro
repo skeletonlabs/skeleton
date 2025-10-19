@@ -9,7 +9,7 @@ interface Props {
 }
 
 const framework = Astro.props.framework ?? (await getActiveFramework(Astro)).id;
-const component = Astro.props.component ?? Astro.url.pathname.split('/').pop();
+const component = Astro.props.component ?? Astro.url.pathname.split('/').filter(Boolean).pop();
 
 const types = await getEntry('types', `${framework}/${component}`);
 
@@ -21,6 +21,9 @@ function kebabToPascal(str: string) {
 }
 
 if (!types && import.meta.env.PROD) {
+	console.log({
+		url: Astro.url,
+	});
 	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
 }
 ---
