@@ -9,11 +9,41 @@ import DefaultReactRaw from '@/components/examples/framework-components/toast/re
 import PlacementReact from '@/components/examples/framework-components/toast/react/placement';
 import PlacementReactRaw from '@/components/examples/framework-components/toast/react/placement?raw';
 
+import ActionReact from '@/components/examples/framework-components/toast/react/action';
+import ActionReactRaw from '@/components/examples/framework-components/toast/react/action?raw';
+
+import ClosableReact from '@/components/examples/framework-components/toast/react/closable';
+import ClosableReactRaw from '@/components/examples/framework-components/toast/react/closable?raw';
+
+import MetaReact from '@/components/examples/framework-components/toast/react/meta';
+import MetaReactRaw from '@/components/examples/framework-components/toast/react/meta?raw';
+
+import PromiseReact from '@/components/examples/framework-components/toast/react/promise';
+import PromiseReactRaw from '@/components/examples/framework-components/toast/react/promise?raw';
+
+import TypeReact from '@/components/examples/framework-components/toast/react/type';
+import TypeReactRaw from '@/components/examples/framework-components/toast/react/type?raw';
+
 import DefaultSvelte from '@/components/examples/framework-components/toast/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/toast/svelte/default.svelte?raw';
 
 import PlacementSvelte from '@/components/examples/framework-components/toast/svelte/placement.svelte';
 import PlacementSvelteRaw from '@/components/examples/framework-components/toast/svelte/placement.svelte?raw';
+
+import ActionSvelte from '@/components/examples/framework-components/toast/svelte/action.svelte';
+import ActionSvelteRaw from '@/components/examples/framework-components/toast/svelte/action.svelte?raw';
+
+import ClosableSvelte from '@/components/examples/framework-components/toast/svelte/closable.svelte';
+import ClosableSvelteRaw from '@/components/examples/framework-components/toast/svelte/closable.svelte?raw';
+
+import MetaSvelte from '@/components/examples/framework-components/toast/svelte/meta.svelte';
+import MetaSvelteRaw from '@/components/examples/framework-components/toast/svelte/meta.svelte?raw';
+
+import PromiseSvelte from '@/components/examples/framework-components/toast/svelte/promise.svelte';
+import PromiseSvelteRaw from '@/components/examples/framework-components/toast/svelte/promise.svelte?raw';
+
+import TypeSvelte from '@/components/examples/framework-components/toast/svelte/type.svelte';
+import TypeSvelteRaw from '@/components/examples/framework-components/toast/svelte/type.svelte?raw';
 
 import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
@@ -37,16 +67,80 @@ import Preview from '@/components/ui/preview.svelte';
 		<PlacementSvelte client:visible />
 	</Preview>
 </Framework>
-
-## Usage
-
-This component acts as a Singleton - meaning you only implement a single instance (typically at the root scope of your app) and then reuse it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app (for SvelteKit this would be your root `+layout.svelte`), and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': PlacementReactRaw }} client:visible>
 		<PlacementReact client:visible />
 	</Preview>
 </Framework>
+
+## Action
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ActionSvelteRaw }} client:visible>
+		<ActionSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ActionReactRaw }} client:visible>
+		<ActionReact client:visible />
+	</Preview>
+</Framework>
+
+## Closable
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ClosableSvelteRaw }} client:visible>
+		<ClosableSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ClosableReactRaw }} client:visible>
+		<ClosableReact client:visible />
+	</Preview>
+</Framework>
+
+## Meta
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MetaSvelteRaw }} client:visible>
+		<MetaSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MetaReactRaw }} client:visible>
+		<MetaReact client:visible />
+	</Preview>
+</Framework>
+
+## Promise
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': PromiseSvelteRaw }} client:visible>
+		<PromiseSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': PromiseReactRaw }} client:visible>
+		<PromiseReact client:visible />
+	</Preview>
+</Framework>
+
+## Type
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': TypeSvelteRaw }} client:visible>
+		<TypeSvelte client:visible />
+	</Preview>
+</Framework>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': TypeReactRaw }} client:visible>
+		<TypeReact client:visible />
+	</Preview>
+</Framework>
+
+## Usage
+
+This component acts as a Singleton - meaning you only implement a single instance (typically at the root scope of your app) and then reuse it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app (for SvelteKit this would be your root `+layout.svelte`), and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
 
 ## API Reference
 

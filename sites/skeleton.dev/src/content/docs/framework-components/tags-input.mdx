@@ -9,6 +9,18 @@ import DefaultReactRaw from '@/components/examples/framework-components/tags-inp
 import ControlledReact from '@/components/examples/framework-components/tags-input/react/default';
 import ControlledReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
 
+import CustomIconReact from '@/components/examples/framework-components/tags-input/react/custom-icon';
+import CustomIconReactRaw from '@/components/examples/framework-components/tags-input/react/custom-icon?raw';
+
+import ColorReact from '@/components/examples/framework-components/tags-input/react/color';
+import ColorReactRaw from '@/components/examples/framework-components/tags-input/react/color?raw';
+
+import ProviderReact from '@/components/examples/framework-components/tags-input/react/provider';
+import ProviderReactRaw from '@/components/examples/framework-components/tags-input/react/provider?raw';
+
+import DirReact from '@/components/examples/framework-components/tags-input/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/tags-input/react/dir?raw';
+
 import DefaultSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
 
@@ -36,6 +48,7 @@ import Preview from '@/components/ui/preview.svelte';
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -49,6 +62,7 @@ import Preview from '@/components/ui/preview.svelte';
 		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
@@ -63,11 +77,23 @@ import Preview from '@/components/ui/preview.svelte';
 	</Preview>
 </Framework>
 
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomIconReactRaw }} client:visible>
+		<CustomIconReact client:visible />
+	</Preview>
+</Framework>
+
 ## Color
 
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
 		<ColorSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
+		<ColorReact client:visible />
 	</Preview>
 </Framework>
 
@@ -81,11 +107,23 @@ Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to g
 	</Preview>
 </Framework>
 
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ProviderReactRaw }} client:visible>
+		<ProviderReact client:visible />
+	</Preview>
+</Framework>
+
 ## Direction
 
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
 	</Preview>
 </Framework>
 
