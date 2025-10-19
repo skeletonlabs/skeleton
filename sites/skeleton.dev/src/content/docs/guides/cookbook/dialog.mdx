@@ -8,13 +8,8 @@ import Default from '@/components/examples/guides/cookbook/dialog/default.astro'
 import DefaultRaw from '@/components/examples/guides/cookbook/dialog/default.astro?raw';
 import Preview from '@/components/ui/preview.svelte';
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview framework="astro" files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## How It Works

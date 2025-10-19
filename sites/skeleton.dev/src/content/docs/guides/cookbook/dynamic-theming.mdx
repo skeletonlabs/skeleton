@@ -10,7 +10,8 @@ import Preview from '@/components/ui/preview.svelte';
 
 The most common way to load skeleton themes is by importing them in your root stylesheet.
 
-<Preview selected="codeReact" client:visible>
+
+{/* <Preview selected="codeReact" client:visible>
 	<Fragment slot="codeReact">
 		```css title="app/globals.css"
 		@import 'tailwindcss';
@@ -30,7 +31,7 @@ The most common way to load skeleton themes is by importing them in your root st
     	```
     </Fragment>
 
-</Preview>
+</Preview> */}
 
 This will bundle your themes when you build your application, for that reason you should only import the themes you need because they will increase your CSS bundle size.
 
@@ -44,7 +45,7 @@ This approach assumes the CSS variables of the skeleton theme you want is availa
 
 In this example we will add a default theme that that can be used as a fallback.
 
-<Preview selected="codeReact" client:visible>
+{/* <Preview selected="codeReact" client:visible>
 	<Fragment slot="codeReact">
 		```css title="app/globals.css"
 		@import 'tailwindcss';
@@ -62,26 +63,22 @@ In this example we will add a default theme that that can be used as a fallback.
     	```
     </Fragment>
 
-</Preview>
+</Preview> */}
 
-<Preview selected="codeReact" client:visible>
+{/* <Preview selected="codeReact" client:visible>
     <Fragment slot="codeReact">
     	```css title="app/default.css"
-    	[data-theme='default'] {
-    		/* ... */
-    	}
+    	[data-theme='default'] { }
     	```
     </Fragment>
     <Fragment slot="codeSvelte">
     	```css title="src/default.css"
-    	[data-theme='default'] {
-    		/* ... */
-    	}
+    	[data-theme='default'] { }
     	```
- </Fragment>
+	</Fragment>
+</Preview> */}
 
-</Preview>
-
+{/* 
 <Preview selected="codeReact" client:visible>
     <Fragment slot="codeReact">
 		To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
@@ -94,11 +91,11 @@ In this example we will add a default theme that that can be used as a fallback.
     		return [
     			{
     				name: 'theme-1',
-    				css: `[data-theme='theme-1'] { /* ... */ }`
+    				css: `[data-theme='theme-1'] { }`
     			},
     			{
     				name: 'theme-2',
-    				css: `[data-theme='theme-2'] { /* ... */ }`
+    				css: `[data-theme='theme-2'] { }`
     			}
     		];
     	};
@@ -138,11 +135,11 @@ In this example we will add a default theme that that can be used as a fallback.
     		return [
     			{
     				name: 'theme-1',
-    				css: `[data-theme='theme-1'] { /* ... */ }`
+    				css: `[data-theme='theme-1'] { }`
     			},
     			{
     				name: 'theme-2',
-    				css: `[data-theme='theme-2'] { /* ... */ }`
+    				css: `[data-theme='theme-2'] { }`
     			}
     		];
     	};
@@ -170,7 +167,7 @@ In this example we will add a default theme that that can be used as a fallback.
 
      </Fragment>
 
-</Preview>
+</Preview> */}
 
 > ⚠️ _Important_ make sure you sanitize the CSS before inserting it or you'll be vulnerable to CSS injection.
 
