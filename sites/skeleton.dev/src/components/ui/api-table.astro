@@ -8,7 +8,7 @@ interface Props {
 	framework: string;
 }
 
-const framework = Astro.props.framework ?? (await getActiveFramework(Astro.cookies)).id;
+const framework = Astro.props.framework ?? (await getActiveFramework(Astro)).id;
 const component = Astro.props.component ?? Astro.params.doc?.split('/').at(-1);
 
 const types = await getEntry('types', `${framework}/${component}`);
@@ -20,7 +20,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!types && process.env.NODE_ENV === 'production') {
+if (!types && import.meta.env.PROD) {
 	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
 }
 ---

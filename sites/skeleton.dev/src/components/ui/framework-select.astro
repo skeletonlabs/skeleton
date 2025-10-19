@@ -3,7 +3,7 @@ import { getActiveFramework } from '@/modules/get-active-framework';
 import { getCollection } from 'astro:content';
 
 const frameworks = await getCollection('frameworks');
-const activeFramework = await getActiveFramework(Astro.cookies);
+const activeFramework = await getActiveFramework(Astro);
 ---
 
 <select id="framework-select" class="select w-fit" value={activeFramework.id} aria-label="Select Framework" title="Select Framework">

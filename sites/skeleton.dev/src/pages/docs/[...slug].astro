@@ -1,5 +1,5 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '@/components/ui/layout.astro';
 import { components } from '@/components/typography';
 import H1 from '@/components/typography/h1.astro';
@@ -11,15 +11,15 @@ import TableOfContents from '@/components/ui/table-of-contents.astro';
 import Advertisement from '@/components/ui/advertisement.astro';
 import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 
-if (!Astro.params.doc) {
-	return Astro.redirect('/404');
+export async function getStaticPaths() {
+	const docs = await getCollection('docs');
+	return docs.map((doc) => ({
+		params: { slug: doc.id },
+		props: { doc },
+	}));
 }
 
-const doc = await getEntry('docs', Astro.params.doc);
-
-if (!doc) {
-	return Astro.redirect('/404');
-}
+const { doc } = Astro.props;
 
 const { Content, headings } = await render(doc);
 ---
