@@ -21,9 +21,6 @@ function kebabToPascal(str: string) {
 }
 
 if (!types && import.meta.env.PROD) {
-	console.log({
-		url: Astro.url,
-	});
 	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
 }
 ---
