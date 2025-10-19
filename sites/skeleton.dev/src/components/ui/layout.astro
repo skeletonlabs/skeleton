@@ -71,6 +71,25 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 				],
 			}}
 		/>
+		<script>
+			declare global {
+				interface Window {
+					plausible: any;
+				}
+			}
+			window.plausible =
+				window.plausible ||
+				function () {
+					(window.plausible.q = window.plausible.q || []).push(arguments);
+				};
+		</script>
+		<script
+			type="text/partytown"
+			async
+			defer
+			data-domain={Astro.site?.hostname}
+			src="https://events.plygrnd.org/js/script.outbound-links.js"
+			is:inline></script>
 		<ClientRouter />
 	</head>
 	<body>

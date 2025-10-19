@@ -9,8 +9,15 @@ import type { AstroIntegration } from 'astro';
 import { defineConfig } from 'astro/config';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
+export function getSite() {
+	if (import.meta.env.DEV) {
+		return 'http://localhost:4321';
+	}
+	return `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`;
+}
+
 export default defineConfig({
-	site: `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`,
+	site: getSite(),
 	prefetch: true,
 	markdown: {
 		syntaxHighlight: false,
