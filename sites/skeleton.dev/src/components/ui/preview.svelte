@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Code from './code.svelte';
 	import OpenInStackblitz from './open-in-stackblitz.svelte';
+	import Code from '@/components/ui/code.svelte';
 	import { EyeIcon } from '@lucide/svelte';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
