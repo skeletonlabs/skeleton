@@ -9,7 +9,7 @@ interface Props {
 }
 
 const framework = Astro.props.framework ?? (await getActiveFramework(Astro)).id;
-const component = Astro.props.component ?? Astro.params.doc?.split('/').at(-1);
+const component = Astro.props.component ?? Astro.url.pathname.split('/').pop();
 
 const types = await getEntry('types', `${framework}/${component}`);
 
