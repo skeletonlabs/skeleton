@@ -1,5 +1,25 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.1.0
+
+### Minor Changes
+
+- feat: toggle group ([#3929](https://github.com/skeletonlabs/skeleton/pull/3929))
+
+### Patch Changes
+
+- Updated dependencies [[`f5e61dd`](https://github.com/skeletonlabs/skeleton/commit/f5e61dd59aa9a4c461c129ae026add755ba7fe74)]:
+  - @skeletonlabs/skeleton-common@4.1.0
+
+## 4.0.2
+
+### Patch Changes
+
+- fix: SegmentedControl props not reactive ([#3974](https://github.com/skeletonlabs/skeleton/pull/3974))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.0.2
+
 ## 4.0.1
 
 ### Patch Changes

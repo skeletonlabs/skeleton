@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "4.0.1",
+	"version": "4.1.0",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -50,6 +50,7 @@
 		"@zag-js/tabs": "catalog:",
 		"@zag-js/tags-input": "catalog:",
 		"@zag-js/toast": "catalog:",
+		"@zag-js/toggle-group": "catalog:",
 		"@zag-js/tooltip": "catalog:",
 		"@zag-js/tree-view": "catalog:"
 	},

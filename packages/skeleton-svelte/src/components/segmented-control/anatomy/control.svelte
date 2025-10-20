@@ -26,5 +26,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<div {...attributes}>{@render children?.()}</div>
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
 {/if}
