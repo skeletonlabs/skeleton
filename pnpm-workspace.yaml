@@ -17,7 +17,7 @@ catalog:
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.546.0
   '@nanostores/persistent': 1.1.0
-  '@sveltejs/adapter-auto': 6.1.1
+  '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 5.10.3
   '@sveltejs/kit': 2.47.1
   '@sveltejs/package': 2.5.4
