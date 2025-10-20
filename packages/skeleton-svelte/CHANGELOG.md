@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.1.2
+
+### Patch Changes
+
+- fix: regression of cell trigger not receiving the right props ([#4002](https://github.com/skeletonlabs/skeleton/pull/4002))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.2
+
 ## 4.1.1
 
 ### Patch Changes
