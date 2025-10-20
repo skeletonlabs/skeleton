@@ -27,9 +27,9 @@
 			return {};
 		}
 		return {
-			day: datePicker().getDayTableCellProps,
-			month: datePicker().getMonthTableCellProps,
-			year: datePicker().getYearTableCellProps,
+			day: datePicker().getDayTableCellTriggerProps,
+			month: datePicker().getMonthTableCellTriggerProps,
+			year: datePicker().getYearTableCellTriggerProps,
 			// @ts-expect-error number === DateValue
 		}[view](tableCellProps());
 	});
