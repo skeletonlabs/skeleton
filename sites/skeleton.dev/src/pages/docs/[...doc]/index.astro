@@ -2,6 +2,8 @@
 import { getActiveFramework } from '@/modules/framework';
 import { getCollection } from 'astro:content';
 
+export const prerender = false;
+
 export async function getStaticPaths() {
 	const docs = await getCollection('docs');
 	return docs.map((doc) => ({
