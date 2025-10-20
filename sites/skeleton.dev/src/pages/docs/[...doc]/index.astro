@@ -1,0 +1,21 @@
+---
+import { getActiveFramework } from '@/modules/framework';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const docs = await getCollection('docs');
+	return docs.map((doc) => ({
+		params: {
+			doc: doc.id,
+		},
+		props: {
+			doc,
+		},
+	}));
+}
+
+const { doc } = Astro.props;
+const activeFramework = await getActiveFramework(Astro);
+
+return Astro.redirect(`/docs/${activeFramework.id}/${doc.id}`);
+---
