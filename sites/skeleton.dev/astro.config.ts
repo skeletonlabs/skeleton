@@ -2,6 +2,7 @@ import { generateTypeDocumentation } from './scripts/generate-type-documentation
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
@@ -22,7 +23,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: false,
 	},
-	integrations: [skeleton(), react(), svelte(), mdx(), partytown()],
+	integrations: [skeleton(), react(), svelte(), mdx(), partytown(), sitemap()],
 	vite: {
 		plugins: [
 			/* @ts-expect-error vite version mismatch */

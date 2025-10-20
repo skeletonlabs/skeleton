@@ -71,6 +71,10 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 						type: `image/${Favicon.format}`,
 						href: Favicon.src,
 					},
+					{
+						rel: 'sitemap',
+						href: '/sitemap-index.xml',
+					},
 				],
 			}}
 		/>
