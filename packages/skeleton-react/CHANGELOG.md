@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.1.1
+
+### Patch Changes
+
+- chore: bump zag ([#3995](https://github.com/skeletonlabs/skeleton/pull/3995))
+
+- fix: DatePicker not respecting optional `viewProps` ([#4001](https://github.com/skeletonlabs/skeleton/pull/4001))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.1
+
 ## 4.1.0
 
 ### Minor Changes
