@@ -16,7 +16,7 @@
 	const { children, framework, files } = $derived(props);
 </script>
 
-<Tabs defaultValue="preview">
+<Tabs defaultValue={children ? 'preview' : Object.keys(files)[0]}>
 	<Tabs.List>
 		{#if children}
 			<Tabs.Trigger value="preview">
