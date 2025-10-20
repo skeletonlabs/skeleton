@@ -41,7 +41,7 @@
 			month: datePicker().getMonthTableCellProps,
 			year: datePicker().getYearTableCellProps,
 			// @ts-expect-error number === DateValue
-		}[view](tableCellProps as TableCellProps);
+		}[view](tableCellProps);
 	});
 
 	const attributes = $derived(
