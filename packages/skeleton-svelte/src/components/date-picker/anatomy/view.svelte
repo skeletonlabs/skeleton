@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element';
 	import type { ViewProps } from '@zag-js/date-picker';
 
-	export interface DatePickerViewProps extends Required<ViewProps>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface DatePickerViewProps extends ViewProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -17,7 +17,7 @@
 
 	const datePicker = RootContext.consume();
 
-	const [viewProps, componentProps] = $derived(splitViewProps(props) as [Required<ViewProps>, Omit<DatePickerViewProps, keyof ViewProps>]);
+	const [viewProps, componentProps] = $derived(splitViewProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
