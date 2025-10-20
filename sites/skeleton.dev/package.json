@@ -36,6 +36,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"astro": "catalog:",
+		"astro-pagefind": "catalog:",
 		"astro-seo": "catalog:",
 		"fuse.js": "catalog:",
 		"html-escaper": "catalog:",

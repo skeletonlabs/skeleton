@@ -7,6 +7,7 @@ import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import type { AstroIntegration } from 'astro';
+import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
@@ -23,7 +24,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: false,
 	},
-	integrations: [skeleton(), react(), svelte(), mdx(), partytown(), sitemap()],
+	integrations: [skeleton(), react(), svelte(), mdx(), partytown(), sitemap(), pagefind()],
 	vite: {
 		plugins: [
 			/* @ts-expect-error vite version mismatch */
