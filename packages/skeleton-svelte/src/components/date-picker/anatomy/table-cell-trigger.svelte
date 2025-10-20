@@ -10,7 +10,6 @@
 	import { TableCellContext } from '../modules/table-cell-context';
 	import { ViewContext } from '../modules/view-context';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
-	import type { TableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableCellTriggerProps = $props();
@@ -21,21 +20,22 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	function getTableCellTriggerProps(tableCellProps: TableCellProps) {
-		switch (viewProps().view) {
-			case 'day':
-				// @ts-expect-error value is number filter
-				return datePicker().getDayTableCellTriggerProps(tableCellProps);
-			case 'month':
-				return datePicker().getMonthTableCellTriggerProps(tableCellProps);
-			case 'year':
-				return datePicker().getYearTableCellTriggerProps(tableCellProps);
+	const refinedTableCellProps = $derived.by(() => {
+		const view = viewProps?.()?.view;
+		if (!view) {
+			return {};
 		}
-	}
+		return {
+			day: datePicker().getDayTableCellTriggerProps,
+			month: datePicker().getMonthTableCellTriggerProps,
+			year: datePicker().getYearTableCellTriggerProps,
+			// @ts-expect-error number === DateValue
+		}[view](tableCellProps());
+	});
 
 	const attributes = $derived(
 		mergeProps(
-			getTableCellTriggerProps(tableCellProps() as TableCellProps),
+			refinedTableCellProps,
 			{
 				class: classesDatePicker.tableCellTrigger,
 			},

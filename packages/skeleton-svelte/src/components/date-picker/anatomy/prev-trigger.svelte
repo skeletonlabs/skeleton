@@ -21,7 +21,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			datePicker().getPrevTriggerProps(viewProps()),
+			datePicker().getPrevTriggerProps(viewProps?.()),
 			{
 				class: classesDatePicker.prevTrigger,
 			},
