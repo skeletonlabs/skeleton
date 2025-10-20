@@ -10,7 +10,6 @@
 	import { TableCellContext } from '../modules/table-cell-context';
 	import { ViewContext } from '../modules/view-context';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
-	import type { TableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableCellTriggerProps = $props();
