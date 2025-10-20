@@ -21,21 +21,22 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	function getTableCellTriggerProps(tableCellProps: TableCellProps) {
-		switch (viewProps().view) {
-			case 'day':
-				// @ts-expect-error value is number filter
-				return datePicker().getDayTableCellTriggerProps(tableCellProps);
-			case 'month':
-				return datePicker().getMonthTableCellTriggerProps(tableCellProps);
-			case 'year':
-				return datePicker().getYearTableCellTriggerProps(tableCellProps);
+	const refinedTableCellProps = $derived.by(() => {
+		const view = viewProps?.()?.view;
+		if (!view) {
+			return {};
 		}
-	}
-
+		return {
+			day: datePicker().getDayTableCellProps,
+			month: datePicker().getMonthTableCellProps,
+			year: datePicker().getYearTableCellProps,
+			// @ts-expect-error number === DateValue
+		}[view](tableCellProps as TableCellProps);
+	});
+	
 	const attributes = $derived(
 		mergeProps(
-			getTableCellTriggerProps(tableCellProps() as TableCellProps),
+			refinedTableCellProps,
 			{
 				class: classesDatePicker.tableCellTrigger,
 			},
