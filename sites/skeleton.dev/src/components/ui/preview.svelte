@@ -7,7 +7,7 @@
 	import type { Snippet } from 'svelte';
 
 	interface Props {
-		children: Snippet;
+		children?: Snippet;
 		framework?: CollectionEntry<'frameworks'>['id'];
 		files: Record<string, string>;
 	}
@@ -18,10 +18,12 @@
 
 <Tabs defaultValue="preview">
 	<Tabs.List>
-		<Tabs.Trigger value="preview">
-			<EyeIcon class="size-5" />
-			<span class="sr-only">Preview</span>
-		</Tabs.Trigger>
+		{#if children}
+			<Tabs.Trigger value="preview">
+				<EyeIcon class="size-5" />
+				<span class="sr-only">Preview</span>
+			</Tabs.Trigger>
+		{/if}
 		{#if files}
 			{#each Object.keys(files) as file (file)}
 				<Tabs.Trigger value={file}>{file}</Tabs.Trigger>
@@ -32,12 +34,14 @@
 		{/if}
 		<Tabs.Indicator />
 	</Tabs.List>
-	<Tabs.Content
-		value="preview"
-		class="card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8"
-	>
-		{@render children()}
-	</Tabs.Content>
+	{#if children}
+		<Tabs.Content
+			value="preview"
+			class="card bg-noise bg-surface-50-950 border-[1px] border-surface-200-800 flex justify-center items-center p-8"
+		>
+			{@render children()}
+		</Tabs.Content>
+	{/if}
 	{#if files}
 		{#each Object.entries(files) as [file, content] (file)}
 			<Tabs.Content value={file}>
