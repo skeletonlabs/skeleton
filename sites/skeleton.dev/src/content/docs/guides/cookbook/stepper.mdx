@@ -10,37 +10,33 @@ import Default from '@/components/examples/guides/cookbook/stepper/default.svelt
 import DefaultRaw from '@/components/examples/guides/cookbook/stepper/default.svelte?raw';
 import StepOne from '@/components/examples/guides/cookbook/stepper/step-one.svelte?raw';
 
+import Framework from '@/components/ui/framework.svelte';
 import Preview from '@/components/ui/preview.svelte';
 
-{/* <Preview client:visible>
-<Fragment slot="preview">
-<Default client:visible />
-</Fragment>
-<Fragment slot="codeReact">
-<Code code={`Coming soon...`} lang="tsx" />
-</Fragment>
-<Fragment slot="codeSvelte">
-<Code code={DefaultRaw} lang="svelte" />
-</Fragment>
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': DefaultRaw }} client:visible>
+		<Default client:visible />
+	</Preview>
+</Framework>
 
-</Preview>
+<Framework id="react">
+	<Preview files={{ 'app.tsx': `Coming soon...` }} client:visible>
+		<div>Coming soon...</div>
+	</Preview>
+</Framework>
 
 ## Using Components
 
 Optionally, you can substitute primitive data for components and props.
 
-<Preview client:visible>
-	<Fragment slot="preview">
+<Framework id="svelte">
+	<Preview files={{ 'app.svelte': ComponentRaw }} client:visible>
 		<Component client:visible />
-	</Fragment>
-	<Fragment slot="codeReact">
-		<Code code={`Coming soon...`} lang="tsx" />
-	</Fragment>
-	<Fragment slot="codeSvelte">
-		<div class="space-y-4">
-			<Code code={ComponentRaw} lang="svelte" />
-			<Code code={StepOne} lang="svelte" title="ExampleStepOne.svelte" />
-		</div>
-	</Fragment>
-</Preview>
-*/}
+	</Preview>
+</Framework>
+
+<Framework id="react">
+	<Preview files={{ 'app.tsx': `Coming soon...` }} client:visible>
+		<div>Coming soon...</div>
+	</Preview>
+</Framework>

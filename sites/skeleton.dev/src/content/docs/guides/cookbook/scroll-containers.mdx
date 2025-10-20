@@ -12,45 +12,29 @@ import MultiColumn from '@/components/examples/guides/cookbook/scroll-containers
 import MultiColumnRaw from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro?raw';
 import Preview from '@/components/ui/preview.svelte';
 
-{/* ## Scroll Snap
+## Scroll Snap
 
 Implements Tailwind's [Scroll Snap Alignment](https://tailwindcss.com/docs/scroll-snap-align) utility classes.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## Carousels
 
 Using Scroll Containers, we can create a fully functional carousel, complete with thumbnail selection.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Carousel />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={CarouselRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': CarouselRaw }} client:visible>
+	<Carousel />
 </Preview>
 
 ## Multi-Column
 
 Using Scroll Containers, we can scroll sets of items.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<MultiColumn />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={MultiColumnRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': MultiColumnRaw }} client:visible>
+	<MultiColumn />
 </Preview>
-*/}
 
 > Images courtesy of [The Movie Database](https://www.themoviedb.org/)
 

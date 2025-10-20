@@ -10,25 +10,12 @@ import Rows from '@/components/examples/guides/cookbook/logo-clouds/rows.astro';
 import RowsRaw from '@/components/examples/guides/cookbook/logo-clouds/rows.astro?raw';
 import Preview from '@/components/ui/preview.svelte';
 
-{/*
-
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## Rows
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Rows />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={RowsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': RowsRaw }} client:visible>
+	<Rows />
 </Preview>
-*/}

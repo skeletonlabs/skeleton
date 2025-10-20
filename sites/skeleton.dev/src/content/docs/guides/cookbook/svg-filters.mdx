@@ -5,6 +5,7 @@ tags: ['native', 'effects']
 ---
 
 import Default from '@/components/examples/guides/cookbook/svg-filters/default.astro';
+import DefaultRaw from '@/components/examples/guides/cookbook/svg-filters/default.astro?raw';
 
 import ApolloRaw from '@/components/examples/guides/cookbook/svg-filters/filters/apollo.astro?raw';
 import BlueNightRaw from '@/components/examples/guides/cookbook/svg-filters/filters/blue-night.astro?raw';
@@ -38,26 +39,24 @@ Apply a filter to any element using the Filter style property and passing the un
 ```
 
 We've provided a curated collection of SVG Filters to choose from below.
-{/*
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<div class="space-y-4">
-			<Code code={ApolloRaw} lang="astro" />
-			<Code code={BlueNightRaw} lang="astro" />
-			<Code code={GreenFallRaw} lang="astro" />
-			<Code code={NoirRaw} lang="astro" />
-			<Code code={NoirLightRaw} lang="astro" />
-			<Code code={RusticRaw} lang="astro" />
-			<Code code={SummerRaw} lang="astro" />
-			<Code code={XProRaw} lang="astro" />
-		</div>
-	</Fragment>
+<Preview
+	files={{
+		'app.astro': DefaultRaw,
+		'filters/apollo.astro': ApolloRaw,
+		'filters/blue-night.astro': BlueNightRaw,
+		'filters/emerald.astro': EmeraldRaw,
+		'filters/green-fall.astro': GreenFallRaw,
+		'filters/noir-light.astro': NoirLightRaw,
+		'filters/noir.astro': NoirRaw,
+		'filters/rustic.astro': RusticRaw,
+		'filters/summer.astro': SummerRaw,
+		'filters/x-pro.astro': XProRaw,
+	}}
+	client:visible
+>
+	<Default />
 </Preview>
-*/}
 
 ## Create a Filter
 

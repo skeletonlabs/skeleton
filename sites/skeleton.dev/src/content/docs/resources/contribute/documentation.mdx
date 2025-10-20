@@ -99,35 +99,23 @@ import DefaultRaw from '@/components/examples/foo/default?raw';
 import Preview from '@/components/ui/preview.svelte';
 ```
 
-```astro
-<Preview client:visible>
-	<Fragment slot="preview"><Default /></Fragment>
-	<Fragment slot="code"><Code code={DefaultRaw} lang="html" /></Fragment>
+```mdx
+import Preview from '@/components/ui/preview.svelte';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 ```
 
-#### Framework Specific Code
+#### Framework Specific Content
 
-To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
+To show framework specific content, use the `Framework` component.
 
-```astro
-<Preview client:visible>
-	<Fragment slot="preview"><Example /></Fragment>
-	<Preview>
-		<Fragment slot="preview">
-			<Default />
-		</Fragment>
-		<Fragment slot="code">
-			<Code code={DefaultGenericRaw} lang="astro" />
-		</Fragment>
-		<Fragment slot="codeReact">
-			<Code code={DefaultReactRaw} lang="tsx" />
-		</Fragment>
-		<Fragment slot="codeSvelte">
-			<Code code={DefaultSvelteRaw} lang="svelte" />
-		</Fragment>
-	</Preview>
-</Preview>
+```mdx
+import Framework from '@/components/ui/framework.svelte';
+
+<Framework id="svelte">This is Svelte specific content.</Framework>
+<Framework id="react">This is React specific content.</Framework>
 ```
 
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
