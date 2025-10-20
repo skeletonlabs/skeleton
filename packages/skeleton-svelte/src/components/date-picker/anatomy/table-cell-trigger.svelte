@@ -33,7 +33,7 @@
 			// @ts-expect-error number === DateValue
 		}[view](tableCellProps as TableCellProps);
 	});
-	
+
 	const attributes = $derived(
 		mergeProps(
 			refinedTableCellProps,
