@@ -2,7 +2,7 @@
 	import { codeToHtml } from '@/modules/shiki.bundle';
 
 	interface Props {
-		code: string;
+		code: Parameters<typeof codeToHtml>[0];
 		lang?: Parameters<typeof codeToHtml>[1]['lang'];
 	}
 
