@@ -1,7 +1,12 @@
 ---
 import { getActiveFramework } from '@/modules/framework';
+import { getEntry } from 'astro:content';
 
 export const prerender = false;
+
+if (!Astro.params.doc || !(await getEntry('docs', Astro.params.doc))) {
+	return Astro.redirect('/404');
+}
 
 const activeFramework = await getActiveFramework(Astro);
 

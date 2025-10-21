@@ -3,7 +3,7 @@ import { ChevronRightIcon } from '@lucide/svelte';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import Layout from '@/components/ui/layout.astro';
-import skeleton from '@/assets/branding/skeleton.svg';
+import Skeleton from '@/assets/branding/skeleton.svg';
 import ComponentGrid from '@/components/landing-page/component-grid.svelte';
 import LiveDemos from '@/components/landing-page/live-demos.astro';
 import DesignSystem from '@/components/landing-page/design-system.svelte';
@@ -23,7 +23,7 @@ import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleto
 				<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
 					<div class="flex justify-center items-center">
 						<div class="relative size-48 md:size-64 aspect-square">
-							<skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current"></skeleton>
+							<Skeleton class="absolute top-0 left-0 z-[2] size-full aspect-square drop-shadow-md fill-current" />
 							<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl">
 							</div>
 						</div>
