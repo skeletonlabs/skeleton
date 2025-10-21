@@ -5,6 +5,8 @@ import Layout from '@/components/ui/layout.astro';
 import { bluesky } from '@/modules/bluesky';
 import Bluesky from '@/assets/logos/bluesky.svg';
 
+export const prerender = false;
+
 const response = await bluesky.getAuthorFeed({
 	actor: 'skeleton.dev',
 	filter: 'posts_no_replies',
