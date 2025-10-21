@@ -1,21 +1,23 @@
 ---
-import { getActiveFramework } from '@/modules/framework';
+import { getActiveFramework, getFrameworkIdFromUrl } from '@/modules/framework';
 import { getCollection } from 'astro:content';
 
 const frameworks = await getCollection('frameworks');
 const activeFramework = await getActiveFramework(Astro);
 ---
 
-<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
-	{
-		frameworks.map((framework) => (
-			<a
-				class="btn btn-icon preset-outlined aria-[current=page]:preset-filled"
-				href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
-				aria-current={activeFramework.id === framework.id ? 'page' : undefined}
-			>
-				<img src={framework.data.logo} alt={framework.data.name} class="size-full object-contain" />
-			</a>
-		))
-	}
-</nav>
+{
+	getFrameworkIdFromUrl(Astro) && (
+		<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
+			{frameworks.map((framework) => (
+				<a
+					class="btn btn-icon preset-outlined aria-[current=page]:preset-filled"
+					href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
+					aria-current={activeFramework.id === framework.id ? 'page' : undefined}
+				>
+					<img src={framework.data.logo} alt={framework.data.name} class="size-full object-contain" />
+				</a>
+			))}
+		</nav>
+	)
+}

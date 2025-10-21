@@ -1,11 +1,16 @@
 import type { AstroGlobal } from 'astro';
 import { getEntry } from 'astro:content';
 
+export function getFrameworkIdFromUrl(Astro: AstroGlobal) {
+	return Astro.params.framework;
+}
+
 export async function getActiveFramework(Astro: AstroGlobal) {
-	if (!Astro.params.framework) {
+	const frameworkId = getFrameworkIdFromUrl(Astro);
+	if (!frameworkId) {
 		return await getDefaultFramework();
 	}
-	const framework = await getEntry('frameworks', Astro.params.framework);
+	const framework = await getEntry('frameworks', frameworkId);
 	if (!framework) {
 		return await getDefaultFramework();
 	}
