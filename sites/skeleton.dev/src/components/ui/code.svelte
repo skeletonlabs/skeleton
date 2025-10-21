@@ -19,6 +19,8 @@
 			defaultColor: 'light-dark()',
 		}),
 	);
+
+	console.log('This is a codeblock');
 </script>
 
 {@html html}
