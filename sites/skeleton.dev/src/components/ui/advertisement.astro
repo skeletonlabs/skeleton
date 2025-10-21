@@ -18,25 +18,28 @@
 		background-color: var(--color-surface-50-950);
 		border-width: 1px;
 		border-color: var(--color-surface-200-800);
-	}
-	#carbonads .carbon-wrap {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: --spacing(3);
-	}
-	#carbonads .carbon-text {
-		font-size: 11px;
-		padding: --spacing(1);
-		text-decoration-line: none;
-		opacity: 0.75;
-	}
-	#carbonads .carbon-poweredby {
-		display: block;
-		background-color: var(--color-surface-100-900);
-		color: var(--color-surface-600-400);
-		font-size: 10px;
-		padding: --spacing(1);
-		text-align: right;
-		text-transform: uppercase;
+		& .carbon-wrap {
+			display: flex;
+
+			gap: --spacing(1);
+		}
+		& .carbon-text {
+			font-size: 11px;
+			padding: --spacing(1);
+			text-decoration-line: none;
+			opacity: 0.75;
+		}
+		& .carbon-poweredby {
+			display: block;
+			background-color: var(--color-surface-100-900);
+			color: var(--color-surface-600-400);
+			font-size: 10px;
+			padding: --spacing(1);
+			text-align: right;
+			text-transform: uppercase;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 </style>
