@@ -15,7 +15,7 @@ async function getSection(prefix: string) {
 		}
 		return true;
 	});
-	return docs.toSorted((a: CollectionEntry<'docs'>, b: CollectionEntry<'docs'>) => a.data.order - b.data.order);
+	return docs.toSorted((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
 }
 
 export const commonSections: Section[] = [
