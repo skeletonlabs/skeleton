@@ -11,11 +11,13 @@ const activeFramework = await getActiveFramework(Astro);
 		<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
 			{frameworks.map((framework) => (
 				<a
-					class="btn btn-icon preset-outlined aria-[current=page]:preset-filled"
+					class="btn btn-icon preset-outlined aria-[current=page]:preset-filled aria-[current=page]:pointer-events-none"
 					href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
 					aria-current={activeFramework.id === framework.id ? 'page' : undefined}
 					aria-label={`Switch framework view to ${framework.data.name}`}
 					title={`Switch framework view to ${framework.data.name}`}
+					data-astro-history="replace"
+					tabindex={activeFramework.id === framework.id ? '-1' : '0'}
 				>
 					<img src={framework.data.logo} alt={framework.data.name} class="size-full object-contain" />
 				</a>
