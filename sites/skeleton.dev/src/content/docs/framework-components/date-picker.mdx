@@ -49,29 +49,29 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Controlled
 
-Manage the selected date value with Svelte state.
+Manage the selected date value with controlled state.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
-		<ControlledSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -79,14 +79,14 @@ Manage the selected date value with Svelte state.
 
 Disable the date picker to prevent user interaction.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
-		<DisabledSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
 		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -94,29 +94,32 @@ Disable the date picker to prevent user interaction.
 
 Restrict date selection to a specific range using the `min` and `max` props with the `parseDate` helper function.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': MinMaxSvelteRaw }} client:visible>
-		<MinMaxSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': MinMaxReactRaw }} client:visible>
 		<MinMaxReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MinMaxSvelteRaw }} client:visible>
+		<MinMaxSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Range Selection
 
-Enable range selection by setting `selectionMode="range"` on the root component. Use two input fields with `index={0}` and `index={1}` to represent the start and end dates.
+Enable range selection by setting `selectionMode="range"` on the root component. Pair with two inputs fields:
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': RangeSvelteRaw }} client:visible>
-		<RangeSvelte client:visible />
-	</Preview>
-</Framework>
+- `index={0}` to represent the start dates.
+- `index={1}` to represent the end dates.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': RangeReactRaw }} client:visible>
 		<RangeReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': RangeSvelteRaw }} client:visible>
+		<RangeSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -124,29 +127,29 @@ Enable range selection by setting `selectionMode="range"` on the root component.
 
 Display the calendar inline without a popover by adding the `inline` prop to the root component. When using inline mode, omit the `Portal` and `Positioner` components.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': InlineSvelteRaw }} client:visible>
-		<InlineSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': InlineReactRaw }} client:visible>
 		<InlineReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InlineSvelteRaw }} client:visible>
+		<InlineSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Month and Year Selection
 
-Optionally add `<DatePicker.MonthSelect />` and `<DatePicker.YearSelect />` components to provide dropdown selectors for quickly changing the month and year.
+Add `MonthSelect` and `YearSelect` components to provide selectors for quickly changing the month and year.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': WithSelectsSvelteRaw }} client:visible>
-		<WithSelectsSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': WithSelectsReactRaw }} client:visible>
 		<WithSelectsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': WithSelectsSvelteRaw }} client:visible>
+		<WithSelectsSvelte client:visible />
 	</Preview>
 </Framework>
 

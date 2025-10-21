@@ -43,40 +43,79 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Color
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
-		<ColorSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
 		<ColorReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<ColorSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Read-Only
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ReadonlyReactRaw }} client:visible>
+		<ReadonlyReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ReadonlySvelteRaw }} client:visible>
+		<ReadonlySvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Multiple Thumbs
 
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleThumbsReactRaw }} client:visible>
+		<MultipleThumbsReact client:visible />
+	</Preview>
+</Framework>
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': MultipleThumbsSvelteRaw }} client:visible>
 		<MultipleThumbsSvelte client:visible />
 	</Preview>
 </Framework>
+
+## Direction
+
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': MultipleThumbsReactRaw }} client:visible>
-		<MultipleThumbsReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 

@@ -49,15 +49,14 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -65,14 +64,14 @@ import Preview from '@/components/ui/preview.svelte';
 
 The [alertdialog](https://w3c.github.io/aria/#alertdialog) role enables assistive technologies and browsers to distinguish alert dialogs from other dialogs so they have the option of giving alert dialogs special treatment, such as playing a system alert sound.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': AlertDialogSvelteRaw }} client:visible>
-		<AlertDialogSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': AlertDialogReactRaw }} client:visible>
 		<AlertDialogReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AlertDialogSvelteRaw }} client:visible>
+		<AlertDialogSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -81,14 +80,14 @@ The [alertdialog](https://w3c.github.io/aria/#alertdialog) role enables assistiv
 If desired, you can disable click to close interactions for the backdrop. We recommend using this sparingly, as this traps the
 user in this experience.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': InteractionSvelteRaw }} client:visible>
-		<InteractionSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': InteractionReactRaw }} client:visible>
 		<InteractionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InteractionSvelteRaw }} client:visible>
+		<InteractionSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -96,14 +95,14 @@ user in this experience.
 
 This example repurposes the Dialog for use as a side-panel Drawer. It also introduces basic transition animations.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DrawerSvelteRaw }} client:visible>
-		<DrawerSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DrawerReactRaw }} client:visible>
 		<DrawerReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DrawerSvelteRaw }} client:visible>
+		<DrawerSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -111,27 +110,27 @@ This example repurposes the Dialog for use as a side-panel Drawer. It also intro
 
 By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component part.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
-		<ZIndexSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
 		<ZIndexReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
+		<ZIndexSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Direction
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -139,14 +138,14 @@ By default we do not take an opinionated stance regarding z-index stacking. The 
 
 Unlike most components in Skeleton, this feature is provided "headless". This means no default styles are applied out of the box. This ensures you retain full control of all styling.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
-		<HeadlessSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': HeadlessReactRaw }} client:visible>
 		<HeadlessReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
+		<HeadlessSvelte client:visible />
 	</Preview>
 </Framework>
 

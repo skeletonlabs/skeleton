@@ -43,15 +43,14 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -59,66 +58,66 @@ import Preview from '@/components/ui/preview.svelte';
 
 Supply your own text and icons within the dropzone.
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': CustomContentSvelteRaw }} client:visible>
-		<CustomContentSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': CustomContentReactRaw }} client:visible>
 		<CustomContentReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomContentSvelteRaw }} client:visible>
+		<CustomContentSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Disabled
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
-		<DisabledSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
 		<DisabledReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Button Only
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ButtonSvelteRaw }} client:visible>
-		<ButtonSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ButtonReactRaw }} client:visible>
 		<ButtonReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ButtonSvelteRaw }} client:visible>
+		<ButtonSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Clear Files
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ClearFilesSvelteRaw }} client:visible>
-		<ClearFilesSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ClearFilesReactRaw }} client:visible>
 		<ClearFilesReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ClearFilesSvelteRaw }} client:visible>
+		<ClearFilesSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Direction
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 

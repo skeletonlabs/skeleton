@@ -55,53 +55,53 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Controlled
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
-		<ControlledSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Icons
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': IconsSvelteRaw }} client:visible>
-		<IconsSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': IconsReactRaw }} client:visible>
 		<IconsReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': IconsSvelteRaw }} client:visible>
+		<IconsSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Orientation
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
-		<OrientationSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
 		<OrientationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+		<OrientationSvelte client:visible />
 	</Preview>
 </Framework>
 

@@ -25,54 +25,50 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Page Size
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw }} client:visible>
-		<DynamicPageSizeSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw }} client:visible>
 		<DynamicPageSizeReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw }} client:visible>
+		<DynamicPageSizeSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Direction
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
-
-## API Reference
-
-<ApiTable />
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Total Count
 
 For server-side pagination, your data source may be truncated. Make sure to specify the total records using `count`.
 
-```json
-{
-	"data": [...],
+```ts
+const res = {
+	"results": [...],
 	"pagination": {
 		"page": 1,
 		"limit": 10,
@@ -81,6 +77,10 @@ For server-side pagination, your data source may be truncated. Make sure to spec
 }
 ```
 
-```svelte
-<Pagination page={response.pagination.page} count={response.pagination.count} pageSize={response.pagination.limit}>...</Pagination>
+```astro
+<Pagination page={res.pagination.page} count={res.pagination.count} pageSize={res.pagination.limit}>...</Pagination>
 ```
+
+## API Reference
+
+<ApiTable />

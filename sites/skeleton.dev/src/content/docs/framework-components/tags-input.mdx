@@ -43,57 +43,53 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
 
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
-		<DefaultReact client:visible />
-	</Preview>
-</Framework>
-
 ## Controlled
-
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
-		<ControlledSvelte client:visible />
-	</Preview>
-</Framework>
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
-
-## Custom Icon
-
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': CustomIconSvelteRaw }} client:visible>
-		<CustomIconSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
+
+## Custom Icon
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': CustomIconReactRaw }} client:visible>
 		<CustomIconReact client:visible />
 	</Preview>
 </Framework>
-
-## Color
-
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
-		<ColorSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': CustomIconSvelteRaw }} client:visible>
+		<CustomIconSvelte client:visible />
 	</Preview>
 </Framework>
+
+## Color
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
 		<ColorReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<ColorSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -101,29 +97,27 @@ import Preview from '@/components/ui/preview.svelte';
 
 Use the [Provider Pattern](/docs/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
 
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ProviderReactRaw }} client:visible>
+		<ProviderReact client:visible />
+	</Preview>
+</Framework>
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': ProviderSvelteRaw }} client:visible>
 		<ProviderSvelte client:visible />
 	</Preview>
 </Framework>
 
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ProviderReactRaw }} client:visible>
-		<ProviderReact client:visible />
-	</Preview>
-</Framework>
-
 ## Direction
-
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
-</Framework>
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 

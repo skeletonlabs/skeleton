@@ -43,79 +43,79 @@ import ApiTable from '@/components/ui/api-table.astro';
 import Framework from '@/components/ui/framework.astro';
 import Preview from '@/components/ui/preview.svelte';
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
-		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Allow Half
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': HalfSvelteRaw }} client:visible>
-		<HalfSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': HalfReactRaw }} client:visible>
 		<HalfReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': HalfSvelteRaw }} client:visible>
+		<HalfSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Custom Icons
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': CustomIconsSvelteRaw }} client:visible>
-		<CustomIconsSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': CustomIconsReactRaw }} client:visible>
 		<CustomIconsReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomIconsSvelteRaw }} client:visible>
+		<CustomIconsSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Label
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': LabelSvelteRaw }} client:visible>
-		<LabelSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': LabelReactRaw }} client:visible>
 		<LabelReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LabelSvelteRaw }} client:visible>
+		<LabelSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Disabled
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
-		<DisabledSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
 		<DisabledReact client:visible />
 	</Preview>
 </Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Direction
 
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
-</Framework>
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
 	</Preview>
 </Framework>
 

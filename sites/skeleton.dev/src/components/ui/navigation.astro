@@ -12,7 +12,7 @@ const { sections = commonSections } = Astro.props;
 	{
 		sections.map((section) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-sm font-bold ml-2">{section.label}</span>
+				<span class="text-[13px] font-bold ml-2">{section.label}</span>
 				<ul class="flex flex-col gap-1">
 					{section.items.map((item) => (
 						<li>

@@ -40,10 +40,6 @@ export const commonSections: Section[] = [
 		items: await getSection('framework-components/'),
 	},
 	{
-		label: 'Headless Components',
-		items: await getSection('headless/'),
-	},
-	{
 		label: 'Integrations',
 		items: await getSection('integrations/'),
 	},
