@@ -7,6 +7,7 @@ import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import type { AstroIntegration } from 'astro';
+import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
@@ -15,7 +16,10 @@ export function getSite() {
 	if (import.meta.env.DEV) {
 		return 'http://localhost:4321';
 	}
-	return `https://${process.env.VERCEL_ENV === 'production' ? process.env.VERCEL_PROJECT_PRODUCTION_URL : process.env.VERCEL_URL}`;
+	if (process.env.VERCEL_ENV === 'production') {
+		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+	}
+	return `https://${process.env.VERCEL_URL}`;
 }
 
 export default defineConfig({
@@ -24,7 +28,24 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: false,
 	},
-	integrations: [skeleton(), react(), svelte(), mdx(), partytown(), sitemap(), pagefind()],
+	integrations: [
+		skeleton(),
+		react(),
+		svelte(),
+		autoImport({
+			imports: [
+				{
+					'./src/components/ui/framework.astro': [['default', 'Framework']],
+					'./src/components/ui/api-table.astro': [['default', 'ApiTable']],
+					'./src/components/ui/preview.svelte': [['default', 'Preview']],
+				},
+			],
+		}),
+		mdx(),
+		partytown(),
+		sitemap(),
+		pagefind(),
+	],
 	vite: {
 		plugins: [
 			/* @ts-expect-error vite version mismatch */

@@ -96,12 +96,9 @@ Allows you to quickly toggle between an example component and its source code.
 ```ts
 import Default from '@/components/examples/foo/default';
 import DefaultRaw from '@/components/examples/foo/default?raw';
-import Preview from '@/components/ui/preview.svelte';
 ```
 
 ```mdx
-import Preview from '@/components/ui/preview.svelte';
-
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
 </Preview>
@@ -112,8 +109,6 @@ import Preview from '@/components/ui/preview.svelte';
 To show framework specific content, use the `Framework` component.
 
 ```mdx
-import Framework from '@/components/ui/framework.astro';
-
 <Framework id="svelte">This is Svelte specific content.</Framework>
 <Framework id="react">This is React specific content.</Framework>
 ```
@@ -125,8 +120,6 @@ import Framework from '@/components/ui/framework.astro';
 When placed on a component documentation page, these will automatically fetch and display the type schema for the respective component.
 
 ```mdx
-import ApiTable from '@/components/ui/api-table.astro';
-
 ## API Reference
 
 <ApiTable />
