@@ -17,7 +17,7 @@ export async function getActiveFramework(Astro: AstroGlobal) {
 	return framework;
 }
 
-export async function getDefaultFramework() {
+async function getDefaultFramework() {
 	const framework = await getEntry('frameworks', 'svelte');
 	if (!framework) {
 		throw new Error('Default framework "svelte" not found in content collection "frameworks".');
