@@ -42,7 +42,7 @@ const { Content, headings } = await render(doc);
 			<Navigation />
 		</aside>
 		<main class="px-4 xl:px-10 py-10 space-y-8">
-			<header class="scroll-header space-y-4" data-pagefind-body id="_top">
+			<header class="space-y-4" data-pagefind-body>
 				<Breadcrumbs />
 				<H1>{doc.data.title}</H1>
 				<p class="text-lg opacity-60">{doc.data.description}</p>
@@ -55,7 +55,7 @@ const { Content, headings } = await render(doc);
 					</Alert>
 				)
 			}
-			<article class="grid gap-8">
+			<article class="grid gap-8" data-pagefind-body>
 				<Content components={components} />
 			</article>
 			<Footer class="p-4 xl:px-0" />
