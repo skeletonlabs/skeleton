@@ -1,3 +1,10 @@
-<script is:inline data-astro-rerun>
-	document.documentElement.setAttribute('data-mode', localStorage.getItem('mode') ?? 'system');
+<script is:inline>
+	function applyMode(document = window.document) {
+		console.log('applying mode');
+		document.documentElement.setAttribute('data-mode', localStorage.getItem('mode') ?? 'system');
+	}
+
+	applyMode();
+
+	document.addEventListener('astro:before-swap', (event) => applyMode(event.newDocument));
 </script>

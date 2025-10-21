@@ -1,3 +1,9 @@
-<script is:inline data-astro-rerun>
-	document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') ?? 'cerberus');
+<script is:inline>
+	function applyTheme(document = window.document) {
+		document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') ?? 'cerberus');
+	}
+
+	applyTheme();
+
+	document.addEventListener('astro:before-swap', (event) => applyTheme(event.newDocument));
 </script>
