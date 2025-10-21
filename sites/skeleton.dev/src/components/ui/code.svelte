@@ -21,20 +21,23 @@
 		}),
 	);
 
-	let copied = $state(false);
+	let hasCopied = $state(false);
 
 	async function copyCode() {
+		if (hasCopied) {
+			return;
+		}
 		await navigator.clipboard.writeText(code);
-		copied = true;
+		hasCopied = true;
 		setTimeout(() => {
-			copied = false;
+			hasCopied = false;
 		}, 2000);
 	}
 </script>
 
 <div class="relative">
 	<button onclick={copyCode} class="btn p-2 aspect-square preset-outlined-surface-200-800 absolute top-2 right-2">
-		{#if copied}
+		{#if hasCopied}
 			<CheckIcon class="size-4" />
 		{:else}
 			<CopyIcon class="size-4" />

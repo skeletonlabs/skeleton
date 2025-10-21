@@ -70,24 +70,21 @@ const { Content, headings } = await render(doc);
 <script is:inline>
 	function restoreScrollPosition() {
 		const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
-
-		document.addEventListener('astro:page-load', () => {
-			const navigation = document.querySelector('[data-navigation]');
-			if (!navigation) {
-				return;
-			}
-			navigation.addEventListener('scroll', () => {
-				sessionStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
-			});
-			const storedScrollTop = sessionStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
-			if (!storedScrollTop) {
-				return;
-			}
-			navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
+		const navigation = document.querySelector('[data-navigation]');
+		if (!navigation) {
+			return;
+		}
+		navigation.addEventListener('scroll', () => {
+			sessionStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
 		});
+		const storedScrollTop = sessionStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
+		if (!storedScrollTop) {
+			return;
+		}
+		navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
 	}
 
 	restoreScrollPosition();
 
-	document.addEventListener('astro:before-swap', restoreScrollPosition);
+	document.addEventListener('astro:after-swap', restoreScrollPosition);
 </script>
