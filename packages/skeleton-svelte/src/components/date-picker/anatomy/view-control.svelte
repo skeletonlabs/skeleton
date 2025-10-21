@@ -20,7 +20,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			datePicker().getViewControlProps(viewProps?.()),
+			datePicker().getViewControlProps(viewProps()),
 			{
 				class: classesDatePicker.viewControl,
 			},

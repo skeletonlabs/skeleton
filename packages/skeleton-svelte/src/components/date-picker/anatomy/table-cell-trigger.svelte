@@ -21,16 +21,12 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const refinedTableCellProps = $derived.by(() => {
-		const view = viewProps?.()?.view;
-		if (!view) {
-			return {};
-		}
 		return {
 			day: datePicker().getDayTableCellTriggerProps,
 			month: datePicker().getMonthTableCellTriggerProps,
 			year: datePicker().getYearTableCellTriggerProps,
 			// @ts-expect-error number === DateValue
-		}[view](tableCellProps());
+		}[viewProps().view](tableCellProps());
 	});
 
 	const attributes = $derived(
