@@ -1,6 +1,5 @@
 <script is:inline>
 	function applyMode(document = window.document) {
-		console.log('applying mode');
 		document.documentElement.setAttribute('data-mode', localStorage.getItem('mode') ?? 'system');
 	}
 
