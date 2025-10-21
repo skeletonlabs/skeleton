@@ -1,5 +1,9 @@
 ---
-const base = '/docs';
+import { getFrameworkIdFromUrl } from '@/modules/framework';
+
+const frameworkId = getFrameworkIdFromUrl(Astro);
+
+const base = frameworkId ? `/docs/${frameworkId}` : '/docs';
 const path = Astro.url.pathname.replace(`${base}/`, '');
 const segments = path.split('/').filter(Boolean);
 
