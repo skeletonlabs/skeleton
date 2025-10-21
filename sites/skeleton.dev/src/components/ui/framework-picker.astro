@@ -10,11 +10,11 @@ const activeFramework = await getActiveFramework(Astro);
 	{
 		frameworks.map((framework) => (
 			<a
-				class="btn preset-outlined aria-[current=page]:preset-filled"
+				class="btn btn-icon preset-outlined aria-[current=page]:preset-filled"
 				href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
 				aria-current={activeFramework.id === framework.id ? 'page' : undefined}
 			>
-				{framework.data.name}
+				<img src={framework.data.logo} alt={framework.data.name} class="size-full object-contain" />
 			</a>
 		))
 	}
