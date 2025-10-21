@@ -1,9 +1,7 @@
 import type { AstroGlobal } from 'astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
 
-const frameworks = await getCollection('frameworks');
-
-const DEFAULT_FRAMEWORK = frameworks.at(0)!;
+const DEFAULT_FRAMEWORK = await getEntry('frameworks', 'svelte');
 
 export async function getActiveFramework(Astro: AstroGlobal) {
 	if (!Astro.params.framework) {
