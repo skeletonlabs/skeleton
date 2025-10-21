@@ -1,35 +1,52 @@
 ---
 import { getFrameworkIdFromUrl } from '@/modules/framework';
+import { getEntry } from 'astro:content';
 
 const frameworkId = getFrameworkIdFromUrl(Astro);
-
 const base = frameworkId ? `/docs/${frameworkId}` : '/docs';
 const path = Astro.url.pathname.replace(`${base}/`, '');
+
 const segments = path.split('/').filter(Boolean);
 
-const crumbs = segments.map((segment, i) => {
-	const isFirst = i === 0;
-	const isLast = i === segments.length - 1;
+const crumbs = await Promise.all(
+	segments.map(async (segment, i) => {
+		const label = segment.replace(/-/g, ' ');
+		const isFirst = i === 0;
+		const isLast = i === segments.length - 1;
 
-	return {
-		label: segment.replace(/-/g, ' '),
-		href: !isFirst && !isLast ? `${base}/${segments.slice(0, i + 1).join('/')}` : undefined,
-		isLast,
-	};
-});
+		if (isFirst || isLast) {
+			return {
+				label,
+			};
+		}
+
+		const doc = await getEntry('docs', segments.slice(0, i + 1).join('/'));
+
+		if (doc) {
+			return {
+				label: doc.data.title,
+				href: `${base}/${doc.id}`,
+			};
+		}
+
+		return {
+			label,
+		};
+	}),
+);
 ---
 
 <ol class="flex flex-wrap gap-2 text-xs">
 	{
-		crumbs.map(({ label, href, isLast }, i) => (
+		crumbs.map((crumb, i) => (
 			<>
-				<li class:list={{ capitalize: true, 'opacity-60': isLast }}>
-					{href ? (
-						<a href={href} class="hover:underline">
-							{label}
+				<li class="capitalize" class:list={{ 'opacity-60': i === crumbs.length - 1 }}>
+					{crumb.href ? (
+						<a href={crumb.href} class="hover:underline">
+							{crumb.label}
 						</a>
 					) : (
-						label
+						crumb.label
 					)}
 				</li>
 				{i < crumbs.length - 1 && <li class="opacity-60">›</li>}
