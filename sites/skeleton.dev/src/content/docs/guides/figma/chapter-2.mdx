@@ -8,21 +8,21 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-import ImgOpenProject from '@/assets/figma/chapter-2/1-open-project.webp';
-import ImgOpenSkeleton from '@/assets/figma/chapter-2/1-open-skeleton.webp';
-import ImgOpenThemePlugin from '@/assets/figma/chapter-2/2-open-theme-plugin.webp';
-import ImgSetStage from '@/assets/figma/chapter-2/2-set-stage.webp';
-import ImgAddNewTheme from '@/assets/figma/chapter-2/3-add-new-theme.webp';
-import ImgSwitchThemeResult from '@/assets/figma/chapter-2/3-switch-theme-result.webp';
-import ImgSwitchTheme from '@/assets/figma/chapter-2/3-switch-theme.webp';
-import ImgSelectTheme from '@/assets/figma/chapter-2/4-select-theme.webp';
-import ImgSwitchColorSchemeResult from '@/assets/figma/chapter-2/4-switch-color-scheme-result.webp';
-import ImgSwitchColorScheme from '@/assets/figma/chapter-2/4-switch-color-scheme.webp';
-import ImgCopyTheme from '@/assets/figma/chapter-2/5-copy-theme.webp';
-import ImgPasteTheme from '@/assets/figma/chapter-2/6-paste-theme.webp';
-import ImgPublishUpdates from '@/assets/figma/chapter-2/7-publish-updates.webp';
-import ImgPublish from '@/assets/figma/chapter-2/7-publish.webp';
-import SvgSkeleton from '@/assets/figma/skeleton-file-icon.svg';
+import openProject from '@/assets/figma/chapter-2/1-open-project.webp';
+import openSkeleton from '@/assets/figma/chapter-2/1-open-skeleton.webp';
+import openThemePlugin from '@/assets/figma/chapter-2/2-open-theme-plugin.webp';
+import setStage from '@/assets/figma/chapter-2/2-set-stage.webp';
+import addNewTheme from '@/assets/figma/chapter-2/3-add-new-theme.webp';
+import switchThemeResult from '@/assets/figma/chapter-2/3-switch-theme-result.webp';
+import switchTheme from '@/assets/figma/chapter-2/3-switch-theme.webp';
+import selectTheme from '@/assets/figma/chapter-2/4-select-theme.webp';
+import switchColorSchemeResult from '@/assets/figma/chapter-2/4-switch-color-scheme-result.webp';
+import switchColorScheme from '@/assets/figma/chapter-2/4-switch-color-scheme.webp';
+import copyTheme from '@/assets/figma/chapter-2/5-copy-theme.webp';
+import pasteTheme from '@/assets/figma/chapter-2/6-paste-theme.webp';
+import publishUpdates from '@/assets/figma/chapter-2/7-publish-updates.webp';
+import publish from '@/assets/figma/chapter-2/7-publish.webp';
+import skeletonIcon from '@/assets/figma/skeleton-file-icon.svg';
 import { Image } from 'astro:assets';
 
 ## Prerequisites
@@ -37,7 +37,7 @@ import { Image } from 'astro:assets';
     <ProcessStep step="1">
         ### Open Skeleton v3 Figma Library
 
-        <Image src={ImgOpenSkeleton} class="rounded-container" alt="Create New Project" />
+        <Image src={openSkeleton} class="rounded-container" alt="Create New Project" />
     </ProcessStep>
 
     <ProcessStep step="2">
@@ -46,7 +46,7 @@ import { Image } from 'astro:assets';
         Click on the `Actions`¹ button in the toolbar, search for `Skeleton Themes`², and click on the `Skeleton Themes`³ plugin when it appears.
         > **Important:** The plugin is compatible only with the Skeleton v3 Figma Library.
 
-        <Image src={ImgOpenThemePlugin} class="rounded-container" alt="Create New Project" />
+        <Image src={openThemePlugin} class="rounded-container" alt="Create New Project" />
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -54,7 +54,7 @@ import { Image } from 'astro:assets';
 
         The library includes a default theme, `Cerberus`. To add your theme, click `Add theme`⁴.
 
-        <Image src={ImgAddNewTheme} class="rounded-container" alt="Import Project" />
+        <Image src={addNewTheme} class="rounded-container" alt="Import Project" />
     </ProcessStep>
 
     <ProcessStep step="4">
@@ -62,7 +62,7 @@ import { Image } from 'astro:assets';
 
         Copy your theme code by visiting the [Skeleton theme creator](https://themes.skeleton.dev/themes/create). Click `Import`⁵, then select a theme⁶, or compose your own.
 
-        <Image src={ImgSelectTheme} class="rounded-container" alt="Publish" />
+        <Image src={selectTheme} class="rounded-container" alt="Publish" />
     </ProcessStep>
 
     <ProcessStep step="5">
@@ -70,7 +70,7 @@ import { Image } from 'astro:assets';
 
         Open the `Code` tab in the right panel⁷ and copy the theme code⁸.
 
-        <Image src={ImgCopyTheme} class="rounded-container" alt="Create New File" />
+        <Image src={copyTheme} class="rounded-container" alt="Create New File" />
     </ProcessStep>
 
     <ProcessStep step="6">
@@ -80,7 +80,7 @@ import { Image } from 'astro:assets';
 
         > **Note:** Uploading the theme may take 3–5 minutes, depending on your device.
 
-        <Image src={ImgPasteTheme} class="rounded-container" alt="Select Library" />
+        <Image src={pasteTheme} class="rounded-container" alt="Select Library" />
     </ProcessStep>
 
     <ProcessStep step="7">
@@ -90,8 +90,8 @@ import { Image } from 'astro:assets';
 
         > **Note:** Publishing may take 5–7 minutes.
 
-        <Image src={ImgPublishUpdates} class="rounded-container" alt="Use Library" />
-        <Image src={ImgPublish} class="rounded-container" alt="Use Library" />
+        <Image src={publishUpdates} class="rounded-container" alt="Use Library" />
+        <Image src={publish} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
 </Process>
@@ -111,7 +111,7 @@ import { Image } from 'astro:assets';
 
         Open the project where the `Skeleton Figma Library` is applied.
 
-        <Image src={ImgOpenProject} class="rounded-container" alt="Use Library" />
+        <Image src={openProject} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
     <ProcessStep step="2">
@@ -119,7 +119,7 @@ import { Image } from 'astro:assets';
 
         Add `page examples` components on the canvas to preview your theme.
 
-        <Image src={ImgSetStage} class="rounded-container" alt="Use Library" />
+        <Image src={setStage} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -127,11 +127,11 @@ import { Image } from 'astro:assets';
 
         In the `Pages` section⁴ on the right panel, click `Apply variable mode`, hover over `Theme`, and select your imported theme⁵.
 
-        <Image src={ImgSwitchTheme} class="rounded-container" alt="Use Library" />
+        <Image src={switchTheme} class="rounded-container" alt="Use Library" />
 
         Voilà! Your theme is now applied to the components.
 
-        <Image src={ImgSwitchThemeResult} class="rounded-container" alt="Use Library" />
+        <Image src={switchThemeResult} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
     <ProcessStep step="4">
@@ -139,11 +139,11 @@ import { Image } from 'astro:assets';
 
         Skeleton themes include `light` and `dark` modes by default. Switch modes the same way you switch themes: in the `Pages` section⁶, click `Apply variable mode`, hover over `Color Scheme`, and select the scheme⁷.
 
-        <Image src={ImgSwitchColorScheme} class="rounded-container" alt="Use Library" />
+        <Image src={switchColorScheme} class="rounded-container" alt="Use Library" />
 
         Your components are now in the `Dark` `Color Scheme`.
 
-        <Image src={ImgSwitchColorSchemeResult} class="rounded-container" alt="Use Library" />
+        <Image src={switchColorSchemeResult} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
 </Process>

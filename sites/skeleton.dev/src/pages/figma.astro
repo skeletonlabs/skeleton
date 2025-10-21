@@ -3,10 +3,10 @@ import FigmaBuyNow from '@/components/ui/figma-buy-now.astro';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
 import NavigationGrid from '@/components/ui/navigation-grid.astro';
-import HeroDark from '@/assets/figma/get-started/hero-dark.webp';
-import HeroLight from '@/assets/figma/get-started/hero-light.webp';
-import Plugin from '@/assets/figma/get-started/plugin.webp';
-import Tutorial from '@/assets/figma/get-started/tutorials.webp';
+import heroDark from '@/assets/figma/get-started/hero-dark.webp';
+import heroLight from '@/assets/figma/get-started/hero-light.webp';
+import plugin from '@/assets/figma/get-started/plugin.webp';
+import tutorial from '@/assets/figma/get-started/tutorials.webp';
 import UIKit from '@/assets/figma/get-started/ui-kit.webp';
 import Layout from '@/components/ui/layout.astro';
 import { Image } from 'astro:assets';
@@ -37,8 +37,8 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 				<ChevronRightIcon class="size-4" />
 			</a>
 			<div class="relative">
-				<Image src={HeroDark} class="w-full max-w-6xl hidden dark:block" alt="hero" />
-				<Image src={HeroLight} class="w-full max-w-6xl dark:hidden" alt="hero" />
+				<Image src={heroDark} class="w-full max-w-6xl hidden dark:block" alt="hero" />
+				<Image src={heroLight} class="w-full max-w-6xl dark:hidden" alt="hero" />
 			</div>
 		</header>
 		<section class="space-y-10">
@@ -85,12 +85,12 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 					</p>
 				</header>
 				<div>
-					<Image src={Plugin} class="rounded-container border border-surface-200-800 shadow-xl" alt="Plugin" />
+					<Image src={plugin} class="rounded-container border border-surface-200-800 shadow-xl" alt="Plugin" />
 				</div>
 			</div>
 			<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10">
 				<div>
-					<Image src={Tutorial} class="rounded-container border border-surface-200-800 shadow-xl" alt="Tutorial" />
+					<Image src={tutorial} class="rounded-container border border-surface-200-800 shadow-xl" alt="Tutorial" />
 				</div>
 				<header class="space-y-4">
 					<h2 class="h2">Iterate faster with tutorials designed for every step of the design process.</h2>

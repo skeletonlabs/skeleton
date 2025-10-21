@@ -1,8 +1,8 @@
 ---
 import '@/app.css';
 import { SEO } from 'astro-seo';
-import Favicon from '@/assets/favicon.png';
-import Skeleton from '@/assets/branding/skeleton.png';
+import favicon from '@/assets/favicon.png';
+import skeleton from '@/assets/branding/skeleton.png';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
@@ -31,14 +31,14 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 					title: title,
 					type: 'website',
 					url: Astro.site,
-					image: Skeleton.src,
+					image: skeleton.src,
 				},
 				image: {
-					url: Skeleton.src,
-					secureUrl: Skeleton.src,
-					type: `image/${Skeleton.format}`,
-					width: Skeleton.width,
-					height: Skeleton.height,
+					url: skeleton.src,
+					secureUrl: skeleton.src,
+					type: `image/${skeleton.format}`,
+					width: skeleton.width,
+					height: skeleton.height,
 					alt: 'Skeleton',
 				},
 				optional: {
@@ -50,7 +50,7 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 			twitter={{
 				title: title,
 				description: description,
-				image: Skeleton.src,
+				image: skeleton.src,
 				imageAlt: 'Skeleton',
 				site: Astro.site?.toString(),
 			}}
@@ -68,8 +68,8 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 				link: [
 					{
 						rel: 'icon',
-						type: `image/${Favicon.format}`,
-						href: Favicon.src,
+						type: `image/${favicon.format}`,
+						href: favicon.src,
 					},
 					{
 						rel: 'sitemap',

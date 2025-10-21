@@ -8,6 +8,15 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 import { BookOpen } from '@lucide/svelte';
+import { Image } from 'astro:assets';
+import skeletonFileIcon from '@/assets/figma/skeleton-file-icon.svg';
+import createNewProject from '@/assets/figma/chapter-1/1-create-new-project.webp';
+import importProject from '@/assets/figma/chapter-1/2-import-project.webp';
+import publish from '@/assets/figma/chapter-1/3-publish.webp';
+import createNewFile from '@/assets/figma/chapter-1/4-create-new-file.webp';
+import selectLibrary from '@/assets/figma/chapter-1/5-select-library.webp';
+import useLibrary from '@/assets/figma/chapter-1/6-use-library.webp';
+
 
 {
 
@@ -29,7 +38,7 @@ import { BookOpen } from '@lucide/svelte';
 
         <div class="card-enhanced border-[1px] border-surface-200-800 space-y-2 p-4 md:p-8 flex flex-row justify-between items-center">
             <div className="flex flex-row gap-4 items-center">
-            {/* image removed in overhaul build */}
+            <Image src={skeletonFileIcon} class="rounded-container" alt="Skeleton" />
             <div className="flex flex-col gap-1">
                 <h6 className="h6">Skeleton Figma Design System</h6>
                 <p>Complete set of themed components for Skeleton v3</p>
@@ -44,7 +53,7 @@ import { BookOpen } from '@lucide/svelte';
 
         In Figma, go to `Home`¹ and select `All projects`² from the left sidebar². On the right side, click `+ Project`³ and name the project `Libraries`⁴.
 
-    {/* image removed in overhaul build */}
+        <Image src={createNewProject} class="rounded-container" alt="Create New Project" />
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -52,7 +61,7 @@ import { BookOpen } from '@lucide/svelte';
 
         From the project page, click `Create new` in the top-right corner⁵ and select `Import`⁶. Then, choose `Import from computer`⁷ and select the Skeleton Figma file.
 
-    {/* image removed in overhaul build */}
+        <Image src={importProject} class="rounded-container" alt="Import Project" />
     </ProcessStep>
 
     <ProcessStep step="4">
@@ -62,7 +71,7 @@ import { BookOpen } from '@lucide/svelte';
 
         Double-click the Skeleton Library to open it. At the top left, next to the library file name, click the chevron `v`⁸ and select `Publish library…`⁹. In the modal, click `Publish`¹⁰ and wait for the library to finish publishing.
 
-    {/* image removed in overhaul build */}
+        <Image src={publish} class="rounded-container" alt="Publish" />
 
         Once published, you can access the Skeleton Figma Library in any of your projects.
     </ProcessStep>
@@ -79,7 +88,7 @@ import { BookOpen } from '@lucide/svelte';
 
         Open an existing project, or create a new one by clicking `+ Create new`¹ and selecting `Design file`².
 
-    {/* image removed in overhaul build */}
+        <Image src={createNewFile} class="rounded-container" alt="Create New File" />
     </ProcessStep>
 
     <ProcessStep step="2">
@@ -89,7 +98,7 @@ import { BookOpen } from '@lucide/svelte';
 
         The library is now added to your file, and its assets are ready for use.
 
-    {/* image removed in overhaul build */}
+        <Image src={selectLibrary} class="rounded-container" alt="Select Library" />
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -97,7 +106,7 @@ import { BookOpen } from '@lucide/svelte';
 
         You can now access the Skeleton Design library. In the `Assets` tab, you’ll see a list of Skeleton Components. Drag components onto the canvas or search for specific ones.
 
-    {/* image removed in overhaul build */}
+        <Image src={useLibrary} class="rounded-container" alt="Use Library" />
     </ProcessStep>
 
 </Process>

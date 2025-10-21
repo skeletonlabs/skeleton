@@ -8,13 +8,12 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-import ImgImport from '@/assets/figma/chapter-3/2-import.webp';
-import ImgPublishLib from '@/assets/figma/chapter-3/3-publish-library.webp';
-import ImgOpenFile from '@/assets/figma/chapter-3/4-open-file.webp';
-import ImgSelectNewSkeleton from '@/assets/figma/chapter-3/4-select-new-skeleton.webp';
-import ImgSelectSkeleton from '@/assets/figma/chapter-3/4-select-skeleton.webp';
-import ImgRemoveOld from '@/assets/figma/chapter-3/remove-old.webp';
-import SvgSkeleton from '@/assets/figma/skeleton-file-icon.svg';
+import import_ from '@/assets/figma/chapter-3/2-import.webp';
+import publishLib from '@/assets/figma/chapter-3/3-publish-library.webp';
+import openFile from '@/assets/figma/chapter-3/4-open-file.webp';
+import selectNewSkeleton from '@/assets/figma/chapter-3/4-select-new-skeleton.webp';
+import selectSkeleton from '@/assets/figma/chapter-3/4-select-skeleton.webp';
+import removeOld from '@/assets/figma/chapter-3/remove-old.webp';
 import { ChevronDown, BookOpen } from '@lucide/svelte';
 import { Image } from 'astro:assets';
 
@@ -37,6 +36,7 @@ import { Image } from 'astro:assets';
 
         From the project page, click `Create new`² in the top-right corner and select `Import`³. Then, choose `Import from computer`⁴ and select the Skeleton Figma file.
 
+        <Image src={import_} class="rounded-container" alt="Import" />
     </ProcessStep>
 
     <ProcessStep step="3">
@@ -46,6 +46,8 @@ import { Image } from 'astro:assets';
 
         <p className="relative">At the top left, next to the library file name, click the  <span class="badge-icon preset-filled"><ChevronDown size={16}/></span> ⁵ icon and select `Publish library…` ⁶. In the modal, click `Publish` ⁷ and wait for the library to finish publishing.</p>
 
+
+        <Image src={publishLib} class="rounded-container" alt="Publish Library" />
     </ProcessStep>
 
     <ProcessStep step="4">
@@ -55,14 +57,17 @@ import { Image } from 'astro:assets';
 
         In the `Libraries added to this file` section, select the old version of the Skeleton v3 Figma UI library¹¹.
 
+        <Image src={openFile} class="rounded-container" alt="Open File" />
 
-         <p className='pt-4'>Click the `Swap Library`¹² button in the bottom right corner of the popup.</p>
+        <p className='pt-4'>Click the `Swap Library`¹² button in the bottom right corner of the popup.</p>
 
+        <Image src={selectSkeleton} class="rounded-container" alt="Select Skeleton" />
 
-         <p className='pt-4'>In the top right corner of the popup, click `Choose library`¹³, select the latest Skeleton v3 Figma UI library¹⁴, and then click `Swap library`¹⁵.</p>
+        <p className='pt-4'>In the top right corner of the popup, click `Choose library`¹³, select the latest Skeleton v3 Figma UI library¹⁴, and then click `Swap library`¹⁵.</p>
 
+        <Image src={selectNewSkeleton} class="rounded-container" alt="Select New Skeleton" />
 
-         <p className='pt-4'>Your library will be updated, and all components using the Skeleton Figma library will refresh automatically.</p>
+        <p className='pt-4'>Your library will be updated, and all components using the Skeleton Figma library will refresh automatically.</p>
     </ProcessStep>
 
 </Process>
@@ -76,6 +81,8 @@ After updating the Skeleton Figma library, please remove previous versions. Keep
 Open the project that utilizes the old version of Skeleton v3 Figma UI library. Open `Assets`¹ tab and click on <span class="badge-icon preset-filled"><BookOpen size={16} /></span> ² icon to open `Manage libraries` popup.
 
 In the `Libraries added to this file` section, click the `Remove`³ button next to the old version of the Skeleton v3 Figma UI library.
+
+<Image src={removeOld} class="rounded-container" alt="Remove Old Library" />
 
 ---
 
