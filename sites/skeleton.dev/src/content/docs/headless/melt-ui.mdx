@@ -4,12 +4,13 @@ description: An open-source Svelte library for building high-quality, accessible
 order: 998
 ---
 
-// Banner and component images removed for docs build (missing assets)
-
+import accordion from '@/assets/headless/melt-ui/accordion.gif';
+import banner from '@/assets/headless/melt-ui/banner.png';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
+import { Image } from 'astro:assets';
 
-{/* banner image removed */}
+<Image src={banner} alt="Melt UI Banner" class="rounded-container shadow-xl" />
 
 <p class="text-xl">
 	Melt UI empowers developers to create accessible UIs that embody their unique style. With a strong focus on accessibility, limitless
@@ -40,7 +41,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 In this guide we'll implement the following Melt UI `<Accordion>` component. This will showcase the bare minimum requirements for integrating Skeleton with Melt UI.
 
-{/* component image removed */}
+<Image src={accordion} alt="Melt UI Accordion Component" class="rounded-container shadow-xl" />
 
 <figure class="linker bg-noise !bg-[#d59f6a]">
 	<a class="btn preset-filled" href="https://next.melt-ui.com/components/accordion/" target="_blank">

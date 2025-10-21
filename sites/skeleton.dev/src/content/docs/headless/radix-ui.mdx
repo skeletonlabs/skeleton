@@ -4,11 +4,18 @@ description: Unstyled, accessible, open source React primitives for high-quality
 order: 999
 ---
 
+import banner from '@/assets/headless/radix-ui/banner.png';
+import toggleGroup from '@/assets/headless/radix-ui/toggle-group.gif';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
- 
-Radix Primitives is a low-level UI component library with a focus on accessibility, customization and developer experience. You can use
-these components either as the base layer of your design system, or adopt them incrementally.
+import { Image } from 'astro:assets';
+
+<Image src={banner} alt="Radix UI Banner" class="rounded-container shadow-xl" />;
+
+<p class="text-xl">
+	Radix Primitives is a low-level UI component library with a focus on accessibility, customization and developer experience. You can use
+	these components either as the base layer of your design system, or adopt them incrementally.
+</p>
 
 <figure class="linker bg-noise !bg-[#3a2036]">
 	<a class="btn preset-filled" href="https://www.radix-ui.com/" target="_blank">
@@ -35,7 +42,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 In this guide we'll implement the following Radix UI `<ToggleGroup>` component. This will showcase the bare minimum requirements for integrating Skeleton with Radix UI.
 
-{/* component image removed */}
+<Image src={toggleGroup} alt="Radix UI Toggle Group Component" class="rounded-container shadow-xl" />
 
 <figure class="linker bg-noise !bg-[#3a2036]">
 	<a class="btn preset-filled" href="https://www.radix-ui.com/primitives/docs/components/toggle-group" target="_blank">

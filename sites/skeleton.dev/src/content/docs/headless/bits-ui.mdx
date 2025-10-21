@@ -4,12 +4,13 @@ description: Flexible, unstyled, and accessible primitives that provide the foun
 order: 997
 ---
 
-// Banner and component images removed for docs build (missing assets)
-
+import banner from '@/assets/headless/bits-ui/banner.png';
+import datePicker from '@/assets/headless/bits-ui/date-picker.gif';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
+import { Image } from 'astro:assets';
 
-{/* banner image removed */}
+<Image src={banner} alt="Bits UI Banner" class="rounded-container shadow-xl" />
 
 <p class="text-xl">
 	Bits UI is a collection of headless component primitives for Svelte that prioritizes developer experience, accessibility, and flexibility.
@@ -40,7 +41,7 @@ At minimum, we recommend you read the following documentation before you start t
 
 In this guide we'll implement the following Bits UI `<Calendar>` component. This will showcase the bare minimum requirements for integrating Skeleton with Bits UI.
 
-{/* component image removed */}
+<Image src={datePicker} alt="Bits UI Date Picker Component" class="rounded-container shadow-xl" />
 
 <figure class="linker bg-noise !bg-[#cae2f7]">
 	<a class="btn preset-filled" href="https://www.bits-ui.com/docs/components/calendar" target="_blank">
