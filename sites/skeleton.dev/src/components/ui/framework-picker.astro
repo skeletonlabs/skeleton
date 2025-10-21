@@ -14,6 +14,8 @@ const activeFramework = await getActiveFramework(Astro);
 					class="btn btn-icon preset-outlined aria-[current=page]:preset-filled"
 					href={Astro.url.pathname.replace(activeFramework.id, framework.id)}
 					aria-current={activeFramework.id === framework.id ? 'page' : undefined}
+					aria-label={`Switch framework view to ${framework.data.name}`}
+					title={`Switch framework view to ${framework.data.name}`}
 				>
 					<img src={framework.data.logo} alt={framework.data.name} class="size-full object-contain" />
 				</a>
