@@ -38,6 +38,7 @@ const { Content, headings } = await render(doc);
 		<aside
 			class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] py-4 xl:py-10 overflow-y-auto pr-10"
 			data-navigation
+			transition:persist
 		>
 			<Navigation />
 		</aside>
@@ -68,20 +69,20 @@ const { Content, headings } = await render(doc);
 </Layout>
 
 <script>
-	const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
+	// const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
 
-	document.addEventListener('astro:page-load', () => {
-		const navigation = document.querySelector<HTMLElement>('[data-navigation]');
-		if (!navigation) {
-			return;
-		}
-		navigation.addEventListener('scroll', () => {
-			localStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
-		});
-		const storedScrollTop = localStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
-		if (!storedScrollTop) {
-			return;
-		}
-		navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
-	});
+	// document.addEventListener('astro:page-load', () => {
+	// 	const navigation = document.querySelector<HTMLElement>('[data-navigation]');
+	// 	if (!navigation) {
+	// 		return;
+	// 	}
+	// 	navigation.addEventListener('scroll', () => {
+	// 		localStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
+	// 	});
+	// 	const storedScrollTop = localStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
+	// 	if (!storedScrollTop) {
+	// 		return;
+	// 	}
+	// 	navigation.scrollTop = storedScrollTop ? parseInt(storedScrollTop) : 0;
+	// });
 </script>
