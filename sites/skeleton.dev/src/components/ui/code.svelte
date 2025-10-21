@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { codeToHtml } from '@/modules/shiki.bundle';
+	import { CheckIcon, CopyIcon } from '@lucide/svelte';
 
 	interface Props {
 		code: Parameters<typeof codeToHtml>[0];
@@ -19,9 +20,28 @@
 			defaultColor: 'light-dark()',
 		}),
 	);
+
+	let copied = $state(false);
+
+	async function copyCode() {
+		await navigator.clipboard.writeText(code);
+		copied = true;
+		setTimeout(() => {
+			copied = false;
+		}, 2000);
+	}
 </script>
 
-{@html html}
+<div class="relative">
+	<button onclick={copyCode} class="btn p-2 aspect-square preset-outlined-surface-200-800 absolute top-2 right-2">
+		{#if copied}
+			<CheckIcon class="size-4" />
+		{:else}
+			<CopyIcon class="size-4" />
+		{/if}
+	</button>
+	{@html html}
+</div>
 
 <style>
 	@reference "../../app.css";
