@@ -27,8 +27,10 @@
 	@reference "../../app.css";
 
 	:global(.shiki) {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
-		padding: --spacing(2);
+		padding: --spacing(4);
 		border-radius: var(--radius-container);
 		border: 1px solid var(--color-surface-200);
 
