@@ -27,6 +27,7 @@
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
 			<Switch class="scale-[2.0] shadow-xl">
+				<Switch.Label class="sr-only">Toggle</Switch.Label>
 				<Switch.Control>
 					<Switch.Thumb />
 				</Switch.Control>

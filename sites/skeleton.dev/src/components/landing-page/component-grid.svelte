@@ -51,11 +51,11 @@
 			<form class="grid grid-cols-1 gap-5">
 				<label class="label">
 					<span class="label-text">Email</span>
-					<input type="email" class="input" placeholder="me@example.com" autocomplete="email" />
+					<input type="email" class="input" placeholder="me@example.com" />
 				</label>
 				<label class="label">
 					<span class="label-text">Password</span>
-					<input type="password" class="input" placeholder="Enter your password..." autocomplete="current-password" />
+					<input type="password" class="input" placeholder="Enter your password..." />
 				</label>
 			</form>
 			<button class="w-full btn preset-filled-primary-500">Create Account</button>
