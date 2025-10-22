@@ -13,6 +13,7 @@ import OpenSource from '@/components/landing-page/open-source.astro';
 import Metrics from '@/components/landing-page/metrics.astro';
 import Sponsors from '@/components/landing-page/sponsors.astro';
 import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleton-today.astro';
+import { getRelativeDocsUrl } from '@/modules/framework';
 ---
 
 <Layout>
@@ -46,11 +47,14 @@ import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleto
 							solution for generating adaptive design systems. Including a turnkey component library for your favorite web frameworks.
 						</p>
 						<nav class="flex gap-4">
-							<a href="/docs/get-started/installation" class="btn preset-filled">
+							<a href={getRelativeDocsUrl(Astro, '/get-started/installation')} class="btn preset-filled">
 								<span>Get Started</span>
 								<ChevronRightIcon class="size-4" />
 							</a>
-							<a href="/docs/get-started/introduction" class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+							<a
+								href={getRelativeDocsUrl(Astro, '/get-started/introduction')}
+								class="btn preset-outlined-surface-800-200 hover:preset-tonal"
+							>
 								<span>Learn More</span>
 							</a>
 						</nav>

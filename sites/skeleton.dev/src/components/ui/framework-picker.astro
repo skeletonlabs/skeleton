@@ -1,13 +1,13 @@
 ---
 import { getCollection } from '@/modules/content';
-import { getActiveFramework, getFrameworkIdFromUrl } from '@/modules/framework';
+import { getActiveFramework } from '@/modules/framework';
 
 const frameworks = await getCollection('frameworks');
-const activeFramework = await getActiveFramework(Astro);
+const activeFramework = getActiveFramework(Astro);
 ---
 
 {
-	getFrameworkIdFromUrl(Astro) && (
+	Astro.params.framework && (
 		<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
 			{frameworks.map((framework) => (
 				<a

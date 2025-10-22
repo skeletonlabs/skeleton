@@ -1,26 +1,29 @@
+import { getCollection } from './content';
 import type { AstroGlobal } from 'astro';
-import { getEntry } from 'astro:content';
 
-export function getFrameworkIdFromUrl(Astro: AstroGlobal) {
-	return Astro.params.framework;
-}
+const frameworks = await getCollection('frameworks');
 
-export async function getActiveFramework(Astro: AstroGlobal) {
-	const frameworkId = getFrameworkIdFromUrl(Astro);
-	if (!frameworkId) {
-		return await getDefaultFramework();
-	}
-	const framework = await getEntry('frameworks', frameworkId);
+function getDefaultFramework() {
+	const framework = frameworks.find((framework) => framework.data.default)!;
 	if (!framework) {
-		return await getDefaultFramework();
+		throw new Error('No default framework defined in content collection "frameworks". Please set one framework as default.');
 	}
 	return framework;
 }
 
-async function getDefaultFramework() {
-	const framework = await getEntry('frameworks', 'svelte');
+export function getActiveFrameworkId(Astro: AstroGlobal) {
+	return Astro.params.framework ?? getDefaultFramework().id;
+}
+
+export function getActiveFramework(Astro: AstroGlobal) {
+	const framework = frameworks.find((framework) => framework.id === getActiveFrameworkId(Astro));
 	if (!framework) {
-		throw new Error('Default framework "svelte" not found in content collection "frameworks".');
+		return getDefaultFramework();
 	}
 	return framework;
+}
+
+export function getRelativeDocsUrl(Astro: AstroGlobal, path: string) {
+	const activeFramework = getActiveFrameworkId(Astro);
+	return `/docs/${activeFramework}${path.startsWith('/') ? '' : '/'}${path}`;
 }

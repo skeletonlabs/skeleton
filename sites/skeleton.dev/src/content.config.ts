@@ -11,6 +11,7 @@ export const collections = {
 		schema: z.object({
 			name: z.string().nonempty(),
 			logo: z.string().nonempty(),
+			default: z.boolean().optional().default(false),
 		}),
 	}),
 	docs: defineCollection({

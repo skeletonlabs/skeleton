@@ -1,5 +1,6 @@
 ---
 import { getCollection } from '@/modules/content';
+import { getRelativeDocsUrl } from '@/modules/framework';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends Omit<HTMLAttributes<'nav'>, 'filter'> {
@@ -15,7 +16,7 @@ const docs = await getCollection('docs', filter);
 	{
 		docs.map((doc) => (
 			<a
-				href={`/docs/${doc.id}`}
+				href={getRelativeDocsUrl(Astro, doc.id)}
 				class="card block bg-surface-50-950 border-[1px] border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
 			>
 				<h3 class="h5">{doc.data.title}</h3>

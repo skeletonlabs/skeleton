@@ -8,7 +8,7 @@ if (!Astro.params.doc || !(await getEntry('docs', Astro.params.doc))) {
 	return Astro.redirect('/404');
 }
 
-const activeFramework = await getActiveFramework(Astro);
+const activeFramework = getActiveFramework(Astro);
 
 return Astro.redirect(Astro.url.pathname.replace('/docs', `/docs/${activeFramework.id}`));
 ---

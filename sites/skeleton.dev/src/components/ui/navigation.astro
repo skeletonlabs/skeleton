@@ -1,5 +1,5 @@
 ---
-import { getActiveFramework } from '@/modules/framework';
+import { getActiveFramework, getRelativeDocsUrl } from '@/modules/framework';
 import { commonSections, type Section } from '@/modules/navigation';
 
 interface Props {
@@ -8,22 +8,18 @@ interface Props {
 
 const { sections = commonSections } = Astro.props;
 
-const activeFramework = await getActiveFramework(Astro);
+const activeFramework = getActiveFramework(Astro);
 ---
 
 <div class="text-sm grid gap-10">
 	{
-		sections.map((section) => (
+		sections.map(async (section) => (
 			<nav class="flex flex-col gap-2">
 				<span class="text-[13px] font-bold ml-2">{section.label}</span>
 				<ul class="flex flex-col gap-1">
 					{section.items.map((doc) => (
 						<li>
-							<a
-								href={`/${doc.collection}/${activeFramework.id}/${doc.id}`}
-								title={doc.data.title}
-								class="flex justify-between items-center"
-							>
+							<a href={getRelativeDocsUrl(Astro, doc.id)} title={doc.data.title} class="flex justify-between items-center">
 								<span
 									aria-current={Astro.url.pathname === doc.id ? 'page' : 'false'}
 									class="grow px-2 py-1 rounded-base aria-[current=false]:anchor aria-[current=page]:preset-tonal"
