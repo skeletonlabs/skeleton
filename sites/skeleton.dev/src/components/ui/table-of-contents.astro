@@ -19,22 +19,21 @@ function getMarginFromDepth(depth: number) {
 
 {
 	headings.length > 0 && (
-		<nav class="text-sm flex flex-col gap-2">
+		<div class="flex flex-col gap-2">
 			<span class="font-bold">On This Page</span>
-			<ul class="flex flex-col gap-2">
-				<li>
-					<a href="#" class="anchor block">
-						Overview
-					</a>
-				</li>
+			<nav class="text-sm flex flex-col gap-2">
+				<a href="#" class="anchor block">
+					Overview
+				</a>
 				{headings.map((heading) => (
-					<li>
-						<a href={`#${heading.slug}`} class={`anchor block ${getMarginFromDepth(heading.depth)}`}>
-							{heading.text}
-						</a>
-					</li>
+					<a href={`#${heading.slug}`} class={`anchor block ${getMarginFromDepth(heading.depth)}`}>
+						{heading.text}
+					</a>
 				))}
-			</ul>
-		</nav>
+				<svg xmlns="http://www.w3.org/2000/svg" id="toc-svg">
+					<path id="toc-svg-path" fill="transparent" stroke-width="2" stroke="black" stroke-linecap="round" />
+				</svg>
+			</nav>
+		</div>
 	)
 }

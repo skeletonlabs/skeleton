@@ -36,14 +36,14 @@
 </script>
 
 <div class="relative">
-	<button onclick={copyCode} class="btn p-2 aspect-square preset-outlined-surface-200-800 absolute top-2 right-2">
+	{@html html}
+	<button onclick={copyCode} class="btn p-2 aspect-square preset-outlined-surface-200-800 absolute top-3 end-3">
 		{#if hasCopied}
 			<CheckIcon class="size-4" />
 		{:else}
 			<CopyIcon class="size-4" />
 		{/if}
 	</button>
-	{@html html}
 </div>
 
 <style>
@@ -56,7 +56,6 @@
 		padding: --spacing(4);
 		border-radius: var(--radius-container);
 		border: 1px solid var(--color-surface-200);
-
 		@variant dark {
 			border-color: var(--color-surface-800);
 		}
