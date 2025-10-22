@@ -1,5 +1,4 @@
-<script>
-	import { getRelativeDocsUrl } from '@/modules/framework';
+<script lang="ts">
 	import { ChevronRight } from '@lucide/svelte';
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
 </script>
@@ -13,10 +12,10 @@
 			</p>
 		</div>
 		<div class="card bg-noise preset-filled-secondary-500 aspect-video shadow-xl flex justify-center items-center">
-			<a href={getRelativeDocsUrl(Astro, 'tailwind/buttons')} target="_blank" class="btn preset-filled scale-150 shadow-xl">
+			<button class="btn preset-filled scale-150 shadow-xl">
 				<span>Button</span>
 				<ChevronRight class="size-4" />
-			</a>
+			</button>
 		</div>
 	</div>
 	<div class="space-y-10">

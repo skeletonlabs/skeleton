@@ -128,7 +128,7 @@
 			/>
 			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 				<Play class="size-4 opacity-60" />
-				<Slider defaultValue={[70]} on:change={() => {}}>
+				<Slider defaultValue={[70]}>
 					<Slider.Control>
 						<Slider.Track>
 							<Slider.Range />
