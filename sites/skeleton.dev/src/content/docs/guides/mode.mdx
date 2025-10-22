@@ -5,6 +5,8 @@ srcCore: '/base/globals.css'
 order: 40
 ---
 
+import { getRelativeDocsUrl } from '@/modules/framework';
+
 {
 
 <p class="text-xl">
@@ -97,7 +99,7 @@ Legacy versions of Skeleton offer a unique Light Switch component for controllin
 We now recommend you generate your own component following [Tailwind's best practices](https://tailwindcss.com/docs/dark-mode). To help you get started, we've provided a Cookbook recipe covering the basics.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="/docs/guides/cookbook/light-switch">
+	<a class="btn preset-filled" href={getRelativeDocsUrl(props.Astro, 'guides/cookbook/light-switch')}>
 		Light Switch Recipe &rarr;
 	</a>
 </figure>

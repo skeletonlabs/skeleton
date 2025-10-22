@@ -57,7 +57,7 @@ const { Content, headings } = await render(doc);
 				)
 			}
 			<article class="grid gap-8" data-pagefind-body>
-				<Content components={components} />
+				<Content components={components} Astro={Astro} />
 			</article>
 			<Footer class="p-4 xl:px-0" />
 		</main>

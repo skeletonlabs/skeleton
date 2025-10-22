@@ -9,6 +9,7 @@ import banner from '@/assets/headless/melt-ui/banner.png';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 import { Image } from 'astro:assets';
+import { getRelativeDocsUrl } from '@/modules/framework';
 
 <Image src={banner} alt="Melt UI Banner" class="rounded-container shadow-xl" />
 
@@ -56,7 +57,7 @@ In this guide we'll implement the following Melt UI `<Accordion>` component. Thi
         ### Create a SvelteKit Project
 		To begin, we'll setup a new SvelteKit project, including Skeleton v3 and Tailwind v4.
 
-    	<a class="btn preset-filled mt-4" href="/docs/get-started/installation/sveltekit" target="_blank">Setup SvelteKit App</a>
+    	<a class="btn preset-filled mt-4" href={getRelativeDocsUrl(props.Astro, 'get-started/installation/sveltekit')} target="_blank">Setup SvelteKit App</a>
     </ProcessStep>
     <ProcessStep step="2">
         ### Install Melt UI

@@ -1,4 +1,5 @@
 ---
+import { getRelativeDocsUrl } from '@/modules/framework';
 import { ChevronRightIcon } from '@lucide/svelte';
 ---
 
@@ -6,7 +7,7 @@ import { ChevronRightIcon } from '@lucide/svelte';
 	<div class="max-w-[400px]">
 		<h2 class="h2 leading-snug !text-current">Start building with Skeleton today.</h2>
 	</div>
-	<a href="/docs/get-started/installation" class="self-center btn preset-filled">
+	<a href={getRelativeDocsUrl(Astro, 'get-started/installation')} class="self-center btn preset-filled">
 		<span>Get Started</span>
 		<ChevronRightIcon class="size-4" />
 	</a>

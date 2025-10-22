@@ -7,6 +7,7 @@ order: 30
 ---
 
 import NavigationGrid from '@/components/ui/navigation-grid.astro';
+import { getRelativeDocsUrl } from '@/modules/framework';
 
 {
 
@@ -196,7 +197,7 @@ Enables you to target and style elements for a particular theme.
 Provides a canned set of styles for use with buttons, badges, cards, and more.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/presets" class="btn preset-filled">
+	<a href={getRelativeDocsUrl(props.Astro, 'design/presets')} class="btn preset-filled">
 		Browse Presets
 	</a>
 </figure>
@@ -206,7 +207,7 @@ Provides a canned set of styles for use with buttons, badges, cards, and more.
 Provides a hand curated set of themes for Skeleton.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/themes" class="btn preset-filled">
+	<a href={getRelativeDocsUrl(props.Astro, 'design/themes')} class="btn preset-filled">
 		Browse Themes
 	</a>
 </figure>
