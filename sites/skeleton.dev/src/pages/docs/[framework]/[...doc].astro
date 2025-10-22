@@ -61,7 +61,9 @@ const { Content, headings } = await render(doc);
 			</article>
 			<Footer class="p-4 xl:px-0" />
 		</main>
-		<aside class="hidden xl:block self-start sticky top-[70px] h-[calc(100vh-70px)] py-4 xl:py-10 space-y-8 overflow-y-auto">
+		<aside
+			class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] py-4 xl:py-10 space-y-8 overflow-y-auto"
+		>
 			<Advertisement />
 			<TableOfContents {headings} />
 		</aside>
