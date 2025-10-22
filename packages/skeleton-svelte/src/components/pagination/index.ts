@@ -8,4 +8,4 @@ export type { PaginationRootContextProps } from './anatomy/root-context.svelte';
 export type { PaginationRootProps } from './anatomy/root.svelte';
 export type { PaginationEllipsisProps } from './anatomy/ellipsis.svelte';
 export type { PaginationFirstTriggerProps } from './anatomy/first-trigger.svelte';
-export type { PaginationLastTriggerProps } from './anatomy/last-trigger.svelte'
+export type { PaginationLastTriggerProps } from './anatomy/last-trigger.svelte';

@@ -20,7 +20,9 @@
 		mergeProps(
 			{
 				class: classesPagination.lastTrigger,
-				onclick: () => {pagination().goToLastPage()},
+				onclick: () => {
+					pagination().goToLastPage();
+				},
 			},
 			rest,
 		),

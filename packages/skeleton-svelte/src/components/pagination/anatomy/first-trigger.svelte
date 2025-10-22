@@ -20,7 +20,9 @@
 		mergeProps(
 			{
 				class: classesPagination.firstTrigger,
-				onclick:  () => {pagination().goToFirstPage()}
+				onclick: () => {
+					pagination().goToFirstPage();
+				},
 			},
 			rest,
 		),
