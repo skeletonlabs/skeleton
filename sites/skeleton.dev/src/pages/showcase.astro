@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Header from '@/components/ui/header.astro';
 import Footer from '@/components/ui/footer.astro';
-import { getCollection } from 'astro:content';
+import { getCollection } from '@/modules/content';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('@/assets/showcase-project-thumbnails/*.png');
 const projects = (await getCollection('showcase-projects'))
@@ -22,7 +22,7 @@ const projects = (await getCollection('showcase-projects'))
 			},
 		};
 	})
-	.sort(() => 0.5 - Math.random());
+	.toSorted(() => 0.5 - Math.random());
 ---
 
 <Layout title="Showcase" description="Check out the showcase of amazing projects built by the Skeleton community.">

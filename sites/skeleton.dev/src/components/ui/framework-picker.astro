@@ -1,6 +1,6 @@
 ---
+import { getCollection } from '@/modules/content';
 import { getActiveFramework, getFrameworkIdFromUrl } from '@/modules/framework';
-import { getCollection } from 'astro:content';
 
 const frameworks = await getCollection('frameworks');
 const activeFramework = await getActiveFramework(Astro);

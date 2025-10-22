@@ -17,17 +17,21 @@ const activeFramework = await getActiveFramework(Astro);
 			<nav class="flex flex-col gap-2">
 				<span class="text-[13px] font-bold ml-2">{section.label}</span>
 				<ul class="flex flex-col gap-1">
-					{section.items.map((item) => (
+					{section.items.map((doc) => (
 						<li>
-							<a href={`/docs/${activeFramework.id}/${item.id}`} title={item.data.title} class="flex justify-between items-center">
+							<a
+								href={`/${doc.collection}/${activeFramework.id}/${doc.id}`}
+								title={doc.data.title}
+								class="flex justify-between items-center"
+							>
 								<span
-									aria-current={Astro.url.pathname === item.id ? 'page' : 'false'}
+									aria-current={Astro.url.pathname === doc.id ? 'page' : 'false'}
 									class="grow px-2 py-1 rounded-base aria-[current=false]:anchor aria-[current=page]:preset-tonal"
 								>
-									{item.data.title}
+									{doc.data.title}
 								</span>
-								{item.data.stability !== 'stable' && (
-									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{item.data.stability}</span>
+								{doc.data.stability !== 'stable' && (
+									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{doc.data.stability}</span>
 								)}
 							</a>
 						</li>

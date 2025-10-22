@@ -1,6 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
 import { ChevronRightIcon } from '@lucide/svelte';
+import { getCollection } from '@/modules/content';
 
 const contributors = await getCollection('contributors');
 ---

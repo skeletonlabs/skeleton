@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 import Layout from '@/components/ui/layout.astro';
 import { components } from '@/components/typography';
 import H1 from '@/components/typography/h1.astro';
@@ -10,6 +10,7 @@ import Alert from '@/components/ui/alert.astro';
 import TableOfContents from '@/components/ui/table-of-contents.astro';
 import Advertisement from '@/components/ui/advertisement.astro';
 import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
+import { getCollection } from '@/modules/content';
 
 export async function getStaticPaths() {
 	const frameworks = await getCollection('frameworks');

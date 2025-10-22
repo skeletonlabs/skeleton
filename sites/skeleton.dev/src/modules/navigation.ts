@@ -1,4 +1,5 @@
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from '@/modules/content';
+import type { CollectionEntry } from 'astro:content';
 
 export interface Section {
 	label: string;
@@ -6,16 +7,15 @@ export interface Section {
 }
 
 async function getSection(prefix: string) {
-	const docs = await getCollection('docs', (entry) => {
-		if (!entry.id.startsWith(prefix)) {
+	return await getCollection('docs', (doc) => {
+		if (!doc.id.startsWith(prefix)) {
 			return false;
 		}
-		if (entry.id.split('/').length > 2) {
+		if (doc.id.split('/').length > 2) {
 			return false;
 		}
 		return true;
 	});
-	return docs.toSorted((a, b) => a.data.order - b.data.order || a.id.localeCompare(b.id));
 }
 
 export const commonSections: Section[] = [
