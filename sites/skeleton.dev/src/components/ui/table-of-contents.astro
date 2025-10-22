@@ -8,19 +8,12 @@ interface Props {
 const { headings } = Astro.props;
 
 function getMarginFromDepth(depth: number) {
-	if (depth === 3) {
-		return 'ml-4';
-	}
-	if (depth === 4) {
-		return 'ml-6';
-	}
-	if (depth === 5) {
-		return 'ml-8';
-	}
-	if (depth === 6) {
-		return 'ml-10';
-	}
-	return;
+	return {
+		3: 'ml-4',
+		4: 'ml-6',
+		5: 'ml-8',
+		6: 'ml-10',
+	}[depth];
 }
 ---
 
