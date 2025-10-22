@@ -31,21 +31,18 @@
 	);
 	const { element, children, ...rest } = $derived(componentProps);
 
-	function getTableCellProps(tableCellProps: TableCellProps) {
-		switch (viewProps().view) {
-			case 'day':
-				// @ts-expect-error value is number filter
-				return datePicker().getDayTableCellProps(tableCellProps);
-			case 'month':
-				return datePicker().getMonthTableCellProps(tableCellProps);
-			case 'year':
-				return datePicker().getYearTableCellProps(tableCellProps);
-		}
-	}
+	const refinedTableCellProps = $derived.by(() => {
+		return {
+			day: datePicker().getDayTableCellProps,
+			month: datePicker().getMonthTableCellProps,
+			year: datePicker().getYearTableCellProps,
+			// @ts-expect-error number === DateValue
+		}[viewProps().view](tableCellProps);
+	});
 
 	const attributes = $derived(
 		mergeProps(
-			getTableCellProps(tableCellProps as TableCellProps),
+			refinedTableCellProps,
 			{
 				class: classesDatePicker.tableCell,
 			},

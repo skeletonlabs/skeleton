@@ -1,5 +1,36 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.1.3
+
+### Patch Changes
+
+- fix: set `view` to `day` by default ([#4005](https://github.com/skeletonlabs/skeleton/pull/4005))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.3
+
+## 4.1.2
+
+### Patch Changes
+
+- fix: regression of cell trigger not receiving the right props ([#4002](https://github.com/skeletonlabs/skeleton/pull/4002))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.2
+
+## 4.1.1
+
+### Patch Changes
+
+- fix: toast overriding the `id` causing unclearable toasts internally ([#3999](https://github.com/skeletonlabs/skeleton/pull/3999))
+
+- chore: bump zag ([#3995](https://github.com/skeletonlabs/skeleton/pull/3995))
+
+- fix: DatePicker not respecting optional `viewProps` ([#4001](https://github.com/skeletonlabs/skeleton/pull/4001))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.1
+
 ## 4.1.0
 
 ### Minor Changes
