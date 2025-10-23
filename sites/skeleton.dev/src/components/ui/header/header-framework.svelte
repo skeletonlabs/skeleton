@@ -1,19 +1,19 @@
-<script>
+<script lang="ts">
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
-	import { onMount } from 'svelte';
+	import type { CollectionEntry } from 'astro:content';
 
-	let { frameworks, activeFramework } = $props();
+	interface Props {
+		url: URL;
+		frameworks: CollectionEntry<'frameworks'>[];
+		activeFramework: CollectionEntry<'frameworks'>;
+	}
 
-	let currentPath = $state('');
-
-	onMount(() => {
-		currentPath = window.location.pathname;
-	});
+	const { url, frameworks, activeFramework }: Props = $props();
 </script>
 
 <Popover>
-	<Popover.Trigger class="btn hover:preset-tonal px-2">
+	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2">
 		<img src={activeFramework.data.logo} alt={activeFramework.data.name} class="size-4" />
 		{activeFramework.data.name}
 		<ChevronDownIcon class="size-4 opacity-50" />
@@ -24,7 +24,7 @@
 				<div class="grid grid-cols-2 gap-2">
 					{#each frameworks as framework (framework)}
 						<a
-							href={currentPath.replace(activeFramework.id, framework.id)}
+							href={url.pathname.replace(activeFramework.id, framework.id)}
 							class="aspect-square flex flex-col items-center space-2 p-4 rounded-base hover:preset-tonal aria-[current=page]:preset-filled aria-[current=page]:pointer-events-none"
 							aria-current={activeFramework.id === framework.id ? 'page' : undefined}
 							data-astro-history="replace"

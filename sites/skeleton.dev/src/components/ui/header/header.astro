@@ -56,7 +56,7 @@ const socialLinks = [
 		</nav>
 		<!-- Pickers -->
 		<nav class="flex justify-center items-center ml-auto gap-1">
-			{Astro.params.framework && <FrameworkPicker {frameworks} {activeFramework} client:visible />}
+			{Astro.params.framework && <FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />}
 			<ThemePicker client:visible />
 			<VersionPicker client:visible />
 		</nav>

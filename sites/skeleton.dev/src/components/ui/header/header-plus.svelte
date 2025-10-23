@@ -10,7 +10,7 @@
 </script>
 
 <Popover>
-	<Popover.Trigger class="btn hover:preset-tonal">
+	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal">
 		<span>More</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>

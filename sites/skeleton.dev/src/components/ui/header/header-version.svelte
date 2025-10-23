@@ -8,7 +8,7 @@
 </script>
 
 <Popover>
-	<Popover.Trigger class="btn hover:preset-tonal px-2">
+	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2">
 		<span>{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
