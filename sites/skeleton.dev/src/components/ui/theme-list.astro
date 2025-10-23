@@ -27,12 +27,13 @@ import { themes } from '@skeletonlabs/skeleton-common';
 
 <script>
 	for (const button of document.querySelectorAll<HTMLButtonElement>('button[data-theme]')) {
-		button.addEventListener('click', async () => {
+		button.addEventListener('click', () => {
 			const theme = button.getAttribute('data-theme');
 			if (!theme) {
 				return;
 			}
-			await navigator.clipboard.writeText(theme);
+			localStorage.setItem('theme', theme);
+			document.documentElement.setAttribute('data-theme', theme);
 		});
 	}
 </script>
