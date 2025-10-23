@@ -1,9 +1,8 @@
 ---
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
-import Layout from '@/components/ui/layout.astro';
+import RootLayout from '@/components/layouts/root-layout.astro';
 import { bluesky } from '@/modules/bluesky';
-import blueskyIcon from '@/assets/logos/bluesky.svg';
 
 export const prerender = false;
 
@@ -20,7 +19,7 @@ const posts = response.data.feed
 	.map((item) => item.post);
 ---
 
-<Layout title="News" description="Stay up to date with the latest news about Skeleton.">
+<RootLayout title="News" description="Stay up to date with the latest news about Skeleton.">
 	<Header />
 	<main class="max-w-3xl mx-auto space-y-10 px-4 py-10">
 		<header class="flex justify-between items-center">
@@ -86,4 +85,4 @@ const posts = response.data.feed
 		</div>
 	</main>
 	<Footer />
-</Layout>
+</RootLayout>

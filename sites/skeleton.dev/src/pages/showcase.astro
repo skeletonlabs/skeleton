@@ -1,5 +1,5 @@
 ---
-import Layout from '@/components/ui/layout.astro';
+import RootLayout from '@/components/layouts/root-layout.astro';
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Header from '@/components/ui/header.astro';
@@ -25,7 +25,7 @@ const projects = (await getCollection('showcase-projects'))
 	.toSorted(() => 0.5 - Math.random());
 ---
 
-<Layout title="Showcase" description="Check out the showcase of amazing projects built by the Skeleton community.">
+<RootLayout title="Showcase" description="Check out the showcase of amazing projects built by the Skeleton community.">
 	<Header />
 	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
 		<section class="text-center space-y-2">
@@ -61,4 +61,4 @@ const projects = (await getCollection('showcase-projects'))
 		</section>
 	</main>
 	<Footer />
-</Layout>
+</RootLayout>
