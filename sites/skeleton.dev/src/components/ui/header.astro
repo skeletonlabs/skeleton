@@ -1,7 +1,10 @@
 ---
 import Skeleton from '@/assets/branding/skeleton.svg';
-import FrameworkPicker from '@/components/ui/framework-picker.astro';
+import FrameworkPicker from '@/components/ui/framework-picker.svelte';
 import { getRelativeDocsUrl } from '@/modules/framework';
+
+import { getCollection } from '@/modules/content';
+import { getActiveFramework } from '@/modules/framework';
 
 const links = [
 	{ href: await getRelativeDocsUrl(Astro, '/get-started/introduction'), title: 'Docs' },
@@ -10,6 +13,9 @@ const links = [
 	{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
 	{ href: '/figma', title: 'Figma' },
 ];
+
+const frameworks = await getCollection('frameworks');
+const activeFramework = getActiveFramework(Astro);
 ---
 
 <header
@@ -30,19 +36,6 @@ const links = [
 				}
 			</div>
 		</nav>
-		<FrameworkPicker />
+		<FrameworkPicker {frameworks} {activeFramework} client:visible />
 	</div>
 </header>
-
-<style is:global>
-	@reference "../../app.css";
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		scroll-margin-top: calc(var(--header-height) + --spacing(4));
-	}
-</style>
