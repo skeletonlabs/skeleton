@@ -25,12 +25,12 @@
 						class="btn hover:preset-tonal justify-between"
 						href="https://github.com/sponsors/skeletonlabs"
 						target="_blank"
-						rel="noreferrer"
+						rel="noreferrer noopener"
 					>
 						<span>Via GitHub</span>
 						<ArrowUpRightIcon class="size-4 opacity-60" />
 					</a>
-					<a class="btn hover:preset-tonal justify-between" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer">
+					<a class="btn hover:preset-tonal justify-between" href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer noopener">
 						<span>Via Ko-Fi</span>
 						<ArrowUpRightIcon class="size-4 opacity-60" />
 					</a>
