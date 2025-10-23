@@ -40,15 +40,15 @@
 	RootContext.provide(() => toast);
 </script>
 
-<div {...toast.getGhostBeforeProps()}></div>
 {#if element}
 	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
+		<div {...toast.getGhostBeforeProps()}></div>
 		{@render children?.()}
+		<div {...toast.getGhostAfterProps()}></div>
 	</div>
 {/if}
-<div {...toast.getGhostAfterProps()}></div>
 
 <style>
 	[data-part='root'] {
