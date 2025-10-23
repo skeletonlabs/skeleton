@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	function useActiveHeading(headings: MarkdownHeading[]) {
-		let activeHeading = $state<MarkdownHeading | undefined>(headings[0]);
+	function useActiveHeading(headings: () => MarkdownHeading[]) {
+		let activeHeading = $state<MarkdownHeading | undefined>(headings()[0]);
 		$effect(() => {
 			const observer = new IntersectionObserver(
 				(entries) => {
 					for (const entry of entries) {
 						const id = `#${entry.target.getAttribute('id')}`;
-						const heading = headings.find((heading) => `#${heading.slug}` === id);
+						const heading = headings().find((heading) => `#${heading.slug}` === id);
 						if (entry?.isIntersecting) {
 							activeHeading = heading;
 						}
@@ -16,7 +16,7 @@
 					rootMargin: '0px 0px -60% 0px',
 				},
 			);
-			for (const element of headings
+			for (const element of headings()
 				.map((heading) => document.getElementById(heading.slug))
 				.filter((element): element is HTMLElement => element !== null)) {
 				observer.observe(element);
@@ -32,13 +32,12 @@
 	import type { MarkdownHeading } from 'astro';
 
 	interface Props {
-		url: URL;
 		headings: MarkdownHeading[];
 	}
 
 	const { headings }: Props = $props();
 
-	const activeHeading = useActiveHeading(headings);
+	const activeHeading = useActiveHeading(() => headings);
 
 	function getPaddingFromDepth(depth: number) {
 		return {
