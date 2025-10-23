@@ -1,42 +1,29 @@
 <script lang="ts" module>
-	function useTocObserver(headings: MarkdownHeading[]) {
+	function useActiveHeading(headings: MarkdownHeading[]) {
 		let activeHeading = $state<MarkdownHeading | undefined>(headings[0]);
-		let previousActiveHeading = $state<MarkdownHeading>();
-
 		$effect(() => {
-			const observer = new IntersectionObserver((entries) => {
-				for (const entry of entries) {
-					const id = `#${entry.target.getAttribute('id')}`;
-					const heading = headings.find((heading) => `#${heading.slug}` === id);
-					if (entry?.isIntersecting) {
-						previousActiveHeading = activeHeading;
-						activeHeading = heading;
-					} else {
-						if (heading === previousActiveHeading) {
-							previousActiveHeading = undefined;
-						}
-						if (activeHeading === heading && previousActiveHeading) {
-							activeHeading = previousActiveHeading;
+			const observer = new IntersectionObserver(
+				(entries) => {
+					for (const entry of entries) {
+						const id = `#${entry.target.getAttribute('id')}`;
+						const heading = headings.find((heading) => `#${heading.slug}` === id);
+						if (entry?.isIntersecting) {
+							activeHeading = heading;
 						}
 					}
-				}
-			});
-
-			for (const element of headings.map((heading) => document.getElementById(heading.slug))) {
-				if (element) observer.observe(element);
+				},
+				{
+					rootMargin: '0px 0px -60% 0px',
+				},
+			);
+			for (const element of headings
+				.map((heading) => document.getElementById(heading.slug))
+				.filter((element): element is HTMLElement => element !== null)) {
+				observer.observe(element);
 			}
-
 			return () => observer.disconnect();
 		});
-
-		return {
-			get activeHeading() {
-				return activeHeading;
-			},
-			get previousActiveHeading() {
-				return previousActiveHeading;
-			},
-		};
+		return () => activeHeading;
 	}
 </script>
 
@@ -49,29 +36,31 @@
 		headings: MarkdownHeading[];
 	}
 
-	const { url, headings }: Props = $props();
+	const { headings }: Props = $props();
 
-	function getMarginFromDepth(depth: number) {
+	const activeHeading = useActiveHeading(headings);
+
+	function getPaddingFromDepth(depth: number) {
 		return {
-			3: 'ml-4',
-			4: 'ml-6',
-			5: 'ml-8',
-			6: 'ml-10',
+			1: 'ps-0',
+			2: 'ps-2',
+			3: 'ps-4',
+			4: 'ps-6',
+			5: 'ps-8',
+			6: 'ps-10',
 		}[depth];
 	}
-
-	const observer = useTocObserver(headings);
 </script>
 
 {#if headings.length > 0}
 	<nav class="flex flex-col gap-2">
 		<span class="font-bold">On This Page</span>
-		<SegmentedControl value={observer.activeHeading?.slug} orientation="vertical">
-			<SegmentedControl.Control class="border-none">
+		<SegmentedControl value={activeHeading()?.slug} orientation="vertical">
+			<SegmentedControl.Control class="border-none p-0">
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}
-					<a href={`#${heading.slug}`} class={`block ${getMarginFromDepth(heading.depth)}`}>
-						<SegmentedControl.Item value={heading.slug} class="justify-start">
+					<a href={`#${heading.slug}`}>
+						<SegmentedControl.Item value={heading.slug} class="justify-start text-sm p-0 {getPaddingFromDepth(heading.depth)}">
 							<SegmentedControl.ItemText class="data-[state=checked]:text-surface-contrast-50-950 data-[state=checked]:font-semibold">
 								{heading.text}
 							</SegmentedControl.ItemText>

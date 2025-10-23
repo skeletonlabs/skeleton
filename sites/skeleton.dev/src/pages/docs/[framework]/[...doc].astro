@@ -65,7 +65,7 @@ const { Content, headings } = await render(doc);
 			class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] py-4 xl:py-10 space-y-8 overflow-y-auto"
 		>
 			<Advertisement />
-			<TableOfContents url={Astro.url} {headings} client:visible />
+			<TableOfContents {headings} client:visible />
 		</aside>
 	</div>
 </Layout>
