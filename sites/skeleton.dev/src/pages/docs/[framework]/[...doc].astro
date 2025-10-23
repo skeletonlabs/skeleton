@@ -7,7 +7,7 @@ import Header from '@/components/ui/header.astro';
 import Footer from '@/components/ui/footer.astro';
 import Navigation from '@/components/ui/navigation.astro';
 import Alert from '@/components/ui/alert.astro';
-import TableOfContents from '@/components/ui/table-of-contents.astro';
+import TableOfContents from '@/components/ui/table-of-contents.svelte';
 import Advertisement from '@/components/ui/advertisement.astro';
 import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 import { getCollection } from '@/modules/content';
@@ -65,7 +65,7 @@ const { Content, headings } = await render(doc);
 			class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] py-4 xl:py-10 space-y-8 overflow-y-auto"
 		>
 			<Advertisement />
-			<TableOfContents {headings} />
+			<TableOfContents url={Astro.url} {headings} client:visible />
 		</aside>
 	</div>
 </Layout>
