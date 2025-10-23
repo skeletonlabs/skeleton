@@ -27,10 +27,10 @@
 	interface Props {
 		children?: Snippet;
 		framework?: CollectionEntry<'frameworks'>['id'];
-		files: Record<string, string>;
+		files?: Record<string, string>;
 	}
 
-	const { children, framework, files }: Props = $props();
+	const { children, framework, files = {} }: Props = $props();
 
 	let viewMode = $state('preview');
 	let customizeMode = $state('');
