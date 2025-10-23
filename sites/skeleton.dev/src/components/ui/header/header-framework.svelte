@@ -12,7 +12,7 @@
 	});
 </script>
 
-<Popover positioning={{ placement: 'bottom' }}>
+<Popover>
 	<Popover.Trigger class="btn hover:preset-tonal px-2">
 		<img src={activeFramework.data.logo} alt={activeFramework.data.name} class="size-4" />
 		{activeFramework.data.name}

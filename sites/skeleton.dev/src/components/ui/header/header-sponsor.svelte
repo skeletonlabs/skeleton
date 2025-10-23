@@ -7,7 +7,7 @@
 	// const links = [{ href: 'https://github.com/sponsors/skeletonlabs', title: 'News' }];
 </script>
 
-<Popover positioning={{ placement: 'top-end' }}>
+<Popover>
 	<Popover.Trigger class="hidden xl:flex btn p-2 hover:preset-tonal data-[state=open]:preset-tonal" title="Sponsor Us">
 		<HeartIcon class="fill-surface-950-50 size-5" />
 		<ChevronDownIcon class="size-4 opacity-50" />

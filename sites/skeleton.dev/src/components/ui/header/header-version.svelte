@@ -7,7 +7,7 @@
 	const versions = ['v3', 'v2', 'v1'];
 </script>
 
-<Popover positioning={{ placement: 'bottom' }}>
+<Popover>
 	<Popover.Trigger class="btn hover:preset-tonal px-2">
 		<span>{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />

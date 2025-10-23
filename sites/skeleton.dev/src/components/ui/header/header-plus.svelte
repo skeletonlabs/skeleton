@@ -9,7 +9,7 @@
 	];
 </script>
 
-<Popover positioning={{ placement: 'bottom' }}>
+<Popover>
 	<Popover.Trigger class="btn hover:preset-tonal">
 		<span>More</span>
 		<ChevronDownIcon class="size-4 opacity-50" />

@@ -18,7 +18,7 @@
 	});
 </script>
 
-<Popover positioning={{ placement: 'bottom' }}>
+<Popover>
 	<Popover.Trigger class="btn hover:preset-tonal p-2">
 		<PaletteIcon class="size-4" />
 		<span>Theme</span>
