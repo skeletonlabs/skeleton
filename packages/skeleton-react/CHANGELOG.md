@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.1.4
+
+### Patch Changes
+
+- fix: toast incorrectly placed `ghost` elements ([#4020](https://github.com/skeletonlabs/skeleton/pull/4020))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.4
+
 ## 4.1.3
 
 ### Patch Changes
