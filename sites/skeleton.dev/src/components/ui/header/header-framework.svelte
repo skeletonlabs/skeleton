@@ -12,8 +12,8 @@
 	});
 </script>
 
-<Popover positioning={{ placement: 'bottom-end' }}>
-	<Popover.Trigger class="btn hover:preset-tonal">
+<Popover positioning={{ placement: 'bottom' }}>
+	<Popover.Trigger class="btn hover:preset-tonal px-2">
 		<img src={activeFramework.data.logo} alt={activeFramework.data.name} class="size-4" />
 		{activeFramework.data.name}
 		<ChevronDownIcon class="size-4 opacity-50" />

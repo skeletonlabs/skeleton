@@ -1,0 +1,82 @@
+---
+import { getRelativeDocsUrl, getActiveFramework } from '@/modules/framework';
+import { getCollection } from '@/modules/content';
+// Skeleton Logo
+import Skeleton from '@/assets/branding/skeleton.svg';
+// Social Logos
+import LogoGitHub from '@/assets/logos/github.svg';
+import LogoDiscord from '@/assets/logos/discord.svg';
+import LogoBluesky from '@/assets/logos/bluesky.svg';
+// Child Components
+import SearchTrigger from '@/components/ui/header/header-search.svelte';
+import FrameworkPicker from '@/components/ui/header/header-framework.svelte';
+import VersionPicker from '@/components/ui/header/header-version.svelte';
+import ThemePicker from '@/components/ui/header/header-theme.svelte';
+import PlusPicker from '@/components/ui/header/header-plus.svelte';
+import SponsorPicker from '@/components/ui/header/header-sponsor.svelte';
+
+const frameworks = await getCollection('frameworks');
+const activeFramework = getActiveFramework(Astro);
+
+const links = [
+	{ href: '/', title: 'Home' },
+	{ href: await getRelativeDocsUrl(Astro, '/get-started/introduction'), title: 'Docs' },
+];
+const socialLinks = [
+	{ href: 'https://github.com/skeletonlabs/skeleton', icon: LogoGitHub },
+	{ href: 'https://discord.gg/EXqV7W8MtY', icon: LogoDiscord },
+	{ href: 'https://bsky.app/profile/skeleton.dev', icon: LogoBluesky },
+];
+---
+
+<header
+	class="z-50 sticky top-0 border border-surface-100-900/30 bg-surface-50-950/75 backdrop-blur-lg h-(--header-height) flex items-center"
+>
+	<div class="container mx-auto px-4 flex items-center justify-between gap-2">
+		<!-- Logo -->
+		<a class="hidden xl:inline-block" href="/" title="Skeleton">
+			<Skeleton class="size-6 fill-current" />
+		</a>
+		<!-- Navigation -->
+		<nav class="flex justify-center items-center gap-4">
+			<div class="hidden xl:flex items-center">
+				{
+					links.map((link) => (
+						<a class="btn hover:preset-tonal" href={link.href}>
+							{link.title}
+						</a>
+					))
+				}
+				<PlusPicker client:load />
+			</div>
+		</nav>
+		<!-- Search -->
+		<nav>
+			<SearchTrigger client:load />
+		</nav>
+		<!-- Pickers -->
+		<nav class="flex justify-center items-center ml-auto gap-1">
+			<FrameworkPicker {frameworks} {activeFramework} client:load />
+			<ThemePicker client:load />
+			<VersionPicker client:load />
+		</nav>
+		<span class="vr h-[20px]"></span>
+		<!-- Social -->
+		<nav class="flex justify-center items-center">
+			{
+				socialLinks.map((link) => {
+					const BrandIcon = link.icon;
+					return (
+						<a href={link.href} target="_blank" class="btn py-2 hover:preset-tonal">
+							<BrandIcon />
+						</a>
+					);
+				})
+			}
+		</nav>
+		<span class="vr h-[20px]"></span>
+		<nav class="flex justify-center items-center">
+			<SponsorPicker client:load />
+		</nav>
+	</div>
+</header>
