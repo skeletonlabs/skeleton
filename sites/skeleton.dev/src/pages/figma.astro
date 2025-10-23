@@ -8,7 +8,7 @@ import heroLight from '@/assets/figma/get-started/hero-light.webp';
 import plugin from '@/assets/figma/get-started/plugin.webp';
 import tutorial from '@/assets/figma/get-started/tutorials.webp';
 import UIKit from '@/assets/figma/get-started/ui-kit.webp';
-import Layout from '@/components/ui/layout.astro';
+import RootLayout from '@/components/layouts/root-layout.astro';
 import { Image } from 'astro:assets';
 import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBookIcon } from '@lucide/svelte';
 ---
@@ -23,7 +23,7 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 	<MessageCircleIcon />
 </a>
 
-<Layout title="Figma UI Kit" description="Learn more about the Figma UI Kit for Skeleton.">
+<RootLayout title="Figma UI Kit" description="Learn more about the Figma UI Kit for Skeleton.">
 	<Header />
 	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
 		<header class="w-full max-w-6xl mx-auto flex flex-col items-center gap-5 text-center">
@@ -141,4 +141,4 @@ import { ChevronRightIcon, Clock3Icon, MessageCircleIcon, ShapesIcon, SwatchBook
 		</section>
 	</main>
 	<Footer />
-</Layout>
+</RootLayout>

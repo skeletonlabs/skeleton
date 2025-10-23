@@ -2,7 +2,7 @@
 import { ChevronRightIcon } from '@lucide/svelte';
 import Footer from '@/components/ui/footer.astro';
 import Header from '@/components/ui/header.astro';
-import Layout from '@/components/ui/layout.astro';
+import RootLayout from '@/components/layouts/root-layout.astro';
 import Skeleton from '@/assets/branding/skeleton.svg';
 import ComponentGrid from '@/components/landing-page/component-grid.svelte';
 import LiveDemos from '@/components/landing-page/live-demos.astro';
@@ -16,7 +16,7 @@ import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleto
 import { getRelativeDocsUrl } from '@/modules/framework';
 ---
 
-<Layout>
+<RootLayout>
 	<Header />
 	<main>
 		<div class="gradient-homepage-one">
@@ -93,7 +93,7 @@ import { getRelativeDocsUrl } from '@/modules/framework';
 		</section>
 	</main>
 	<Footer />
-</Layout>
+</RootLayout>
 
 <style>
 	.gradient-homepage-one {
