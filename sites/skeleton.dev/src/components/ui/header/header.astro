@@ -47,18 +47,18 @@ const socialLinks = [
 						</a>
 					))
 				}
-				<PlusPicker client:load />
+				<PlusPicker client:visible />
 			</div>
 		</nav>
 		<!-- Search -->
 		<nav>
-			<SearchTrigger client:load />
+			<SearchTrigger client:visible />
 		</nav>
 		<!-- Pickers -->
 		<nav class="flex justify-center items-center ml-auto gap-1">
-			{Astro.params.framework && <FrameworkPicker {frameworks} {activeFramework} client:load />}
-			<ThemePicker client:load />
-			<VersionPicker client:load />
+			{Astro.params.framework && <FrameworkPicker {frameworks} {activeFramework} client:visible />}
+			<ThemePicker client:visible />
+			<VersionPicker client:visible />
 		</nav>
 		<span class="vr h-[20px]"></span>
 		<!-- Social -->
@@ -76,7 +76,7 @@ const socialLinks = [
 		</nav>
 		<span class="vr h-[20px]"></span>
 		<nav class="flex justify-center items-center">
-			<SponsorPicker client:load />
+			<SponsorPicker client:visible />
 		</nav>
 	</div>
 </header>
