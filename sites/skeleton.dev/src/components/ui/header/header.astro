@@ -20,7 +20,7 @@ const activeFramework = getActiveFramework(Astro);
 
 const links = [
 	{ href: '/', title: 'Home' },
-	{ href: await getRelativeDocsUrl(Astro, '/get-started/introduction'), title: 'Docs' },
+	{ href: getRelativeDocsUrl(Astro, '/get-started/introduction'), title: 'Docs' },
 ];
 const socialLinks = [
 	{ href: 'https://github.com/skeletonlabs/skeleton', icon: LogoGitHub },
@@ -57,7 +57,7 @@ const socialLinks = [
 		<!-- Pickers -->
 		<nav class="flex justify-center items-center ml-auto gap-1">
 			<FrameworkPicker {frameworks} {activeFramework} client:load />
-			<ThemePicker client:load />
+			{Astro.params.framework && <ThemePicker client:load />}
 			<VersionPicker client:load />
 		</nav>
 		<span class="vr h-[20px]"></span>
