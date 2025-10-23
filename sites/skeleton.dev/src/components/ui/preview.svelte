@@ -38,7 +38,7 @@
 	const fileEntries = $derived(Object.entries(files));
 </script>
 
-<div class="card border border-surface-200-800 max-w-full">
+<div class="card border border-surface-200-800 max-w-full overflow-hidden">
 	<!-- Header -->
 	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
 		<!-- Mode -->
@@ -93,9 +93,9 @@
 	</div>
 
 	<!-- Panel: Files -->
-	<Tabs defaultValue={fileEntries[0]?.[0]} class="p-3 overflow-x-auto {viewMode === 'code' && files ? 'block' : 'hidden'}">
+	<Tabs defaultValue={fileEntries[0]?.[0]} class="p-3 {viewMode === 'code' && files ? 'block' : 'hidden'}">
 		{#if fileEntries.length > 1}
-			<Tabs.List>
+			<Tabs.List class="overflow-x-auto">
 				{#if files}
 					{#each fileEntries as [file] (file)}
 						<Tabs.Trigger value={file}>{file}</Tabs.Trigger>
