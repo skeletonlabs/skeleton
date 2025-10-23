@@ -16,9 +16,15 @@
 	}
 </script>
 
-<button {...rest} onclick={openInStackblitz} class="btn aspect-square p-2 preset-filled {rest.class}">
-	<span class="sr-only">Open in Stackblitz</span>
-	<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 16 16">
-		<path fill="#2196f3" d="m5 15l8-8H9l2-6l-8 8h4z" />
+<button
+	{...rest}
+	type="button"
+	onclick={openInStackblitz}
+	class="btn-icon preset-outlined-surface-200-800 hover:preset-tonal {rest.class}"
+	title="Open on Stackblitz"
+	aria-label="Open on Stackblitz"
+>
+	<svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 16 16">
+		<path class="fill-current" d="m5 15l8-8H9l2-6l-8 8h4z" />
 	</svg>
 </button>
