@@ -42,7 +42,7 @@
 	<!-- Header -->
 	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
 		<!-- Mode -->
-		<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])}>
+		<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])} deselectable={false}>
 			<ToggleGroup.Item value="preview" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
 				<EyeIcon class="size-4" />
 			</ToggleGroup.Item>
