@@ -20,7 +20,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			datePicker().getTableHeaderProps(viewProps?.()),
+			datePicker().getTableHeaderProps(viewProps()),
 			{
 				class: classesDatePicker.tableHeader,
 			},

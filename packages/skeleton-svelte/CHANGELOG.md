@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.1.3
+
+### Patch Changes
+
+- fix: set `view` to `day` by default ([#4005](https://github.com/skeletonlabs/skeleton/pull/4005))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.3
+
 ## 4.1.2
 
 ### Patch Changes
