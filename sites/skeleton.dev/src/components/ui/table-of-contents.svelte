@@ -1,8 +1,6 @@
 <script lang="ts" module>
-	function useTocObserver(headings: MarkdownHeading[]) {
+	function useActiveHeading(headings: MarkdownHeading[]) {
 		let activeHeading = $state<MarkdownHeading | undefined>(headings[0]);
-		let previousActiveHeading = $state<MarkdownHeading>();
-
 		$effect(() => {
 			const observer = new IntersectionObserver(
 				(entries) => {
@@ -10,40 +8,22 @@
 						const id = `#${entry.target.getAttribute('id')}`;
 						const heading = headings.find((heading) => `#${heading.slug}` === id);
 						if (entry?.isIntersecting) {
-							previousActiveHeading = activeHeading;
 							activeHeading = heading;
-						} else {
-							if (heading === previousActiveHeading) {
-								previousActiveHeading = undefined;
-							}
-							if (activeHeading === heading && previousActiveHeading) {
-								activeHeading = previousActiveHeading;
-							}
 						}
 					}
 				},
 				{
-					rootMargin: '0px 0px -75% 0px',
+					rootMargin: '0px 0px -60% 0px',
 				},
 			);
-
 			for (const element of headings
 				.map((heading) => document.getElementById(heading.slug))
 				.filter((element): element is HTMLElement => element !== null)) {
 				observer.observe(element);
 			}
-
 			return () => observer.disconnect();
 		});
-
-		return {
-			get activeHeading() {
-				return activeHeading;
-			},
-			get previousActiveHeading() {
-				return previousActiveHeading;
-			},
-		};
+		return () => activeHeading;
 	}
 </script>
 
@@ -58,7 +38,7 @@
 
 	const { headings }: Props = $props();
 
-	const observer = useTocObserver(headings);
+	const activeHeading = useActiveHeading(headings);
 
 	function getPaddingFromDepth(depth: number) {
 		return {
@@ -75,7 +55,7 @@
 {#if headings.length > 0}
 	<nav class="flex flex-col gap-2">
 		<span class="font-bold">On This Page</span>
-		<SegmentedControl value={observer.activeHeading?.slug} orientation="vertical">
+		<SegmentedControl value={activeHeading()?.slug} orientation="vertical">
 			<SegmentedControl.Control class="border-none p-0">
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}
