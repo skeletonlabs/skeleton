@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	function useActiveHeading(headings: MarkdownHeading[]) {
-		let activeHeading = $state<MarkdownHeading | undefined>(headings[0]);
+		let activeHeading = $state<MarkdownHeading>();
 		$effect(() => {
 			const observer = new IntersectionObserver(
 				(entries) => {
