@@ -20,7 +20,7 @@
 	import OpenInStackblitz from './open-in-stackblitz.svelte';
 	import Code from '@/components/ui/code.svelte';
 	import { EyeIcon, CodeIcon, PaletteIcon } from '@lucide/svelte';
-	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs, ToggleGroup } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import type { Snippet } from 'svelte';
 
@@ -33,42 +33,30 @@
 	const props: Props = $props();
 	const { children, framework, files } = $derived(props);
 
-	let mode: 'preview' | 'code' = $state('preview');
-	let menuCustomize = $state(false);
+	let viewMode = $state('preview');
+	let customizeMode = $state('');
 </script>
 
 <div class="card border border-surface-200-800 max-w-full">
 	<!-- Header -->
 	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
 		<!-- Mode -->
-		<nav class="inline-flex preset-outlined-surface-200-800 divide-x-[1px] divide-surface-200-800 overflow-hidden rounded-base">
-			<button
-				class="flex justify-center items-center w-9 aspect-square"
-				class:preset-tonal={mode === 'preview'}
-				onclick={() => (mode = 'preview')}
-			>
+		<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])}>
+			<ToggleGroup.Item value="preview" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
 				<EyeIcon class="size-4" />
-			</button>
-			<button
-				class="flex justify-center items-center w-9 aspect-square"
-				class:preset-tonal={mode === 'code'}
-				onclick={() => (mode = 'code')}
-			>
+			</ToggleGroup.Item>
+			<ToggleGroup.Item value="code" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
 				<CodeIcon class="size-4" />
-			</button>
-		</nav>
+			</ToggleGroup.Item>
+		</ToggleGroup>
 
 		<!-- Customize / Tabs -->
-		{#if mode === 'preview'}
-			<button
-				type="button"
-				class="ml-auto btn-icon preset-outlined-surface-200-800 hover:preset-tonal"
-				onclick={() => (menuCustomize = !menuCustomize)}
-				title="Customize"
-				aria-label="Customize"
-			>
-				<PaletteIcon class="size-4" />
-			</button>
+		{#if viewMode === 'preview'}
+			<ToggleGroup value={[customizeMode]} onValueChange={(details) => (customizeMode = details.value[0])} class="ml-auto">
+				<ToggleGroup.Item value="customize" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
+					<PaletteIcon class="size-4" />
+				</ToggleGroup.Item>
+			</ToggleGroup>
 		{/if}
 
 		<!-- Stackblitz -->
@@ -78,7 +66,7 @@
 	</header>
 
 	<!-- Presets -->
-	{#if menuCustomize}
+	{#if viewMode === 'preview' && customizeMode}
 		<div class="border-b border-surface-200-800 p-3 flex items-center gap-3">
 			{#each presets as preset, i (preset)}
 				<button
@@ -95,14 +83,14 @@
 	{/if}
 
 	<!-- Panel: Children -->
-	{#if mode === 'preview' && children}
+	{#if viewMode === 'preview' && children}
 		<div class="p-8 flex justify-center items-center {activePreset}">
 			{@render children()}
 		</div>
 	{/if}
 
 	<!-- Panel: Files -->
-	{#if mode === 'code' && files}
+	{#if viewMode === 'code' && files}
 		<div class="p-3">
 			<Tabs defaultValue={Object.keys(files)[0]} class="overflow-x-auto">
 				{#if Object.keys(files).length > 1}
