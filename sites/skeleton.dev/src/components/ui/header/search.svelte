@@ -108,9 +108,6 @@
 			<Dialog.Content
 				class="card bg-surface-50-950/90 backdrop-blur-sm border border-surface-200-800 w-full max-w-[960px] p-4 space-y-4 shadow-[0_0_100px_rgba(0,0,0,0.25)] shadow-primary-500/50 transition transition-discrete duration-200 opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
 			>
-				<header class="flex justify-between items-center">
-					<Dialog.Title class="font-bold text-lg">Explore</Dialog.Title>
-				</header>
 				<Combobox
 					class="w-full flex flex-col gap-4"
 					placeholder="Search..."
