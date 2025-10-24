@@ -22,7 +22,6 @@
 
 <script lang="ts">
 	import { BookIcon, ChevronRightIcon, HashIcon } from '@lucide/svelte';
-	import { LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -50,7 +49,7 @@
 	const { activeFramework }: Props = $props();
 
 	let query = $state('');
-	let status: 'idle' | 'searching' | 'done' = $state('idle');
+	let status: 'idle' | 'done' = $state('idle');
 	let items: (Result | Subresult)[] = $state.raw([]);
 
 	const id = $props.id();
@@ -81,12 +80,8 @@
 			items = [];
 			return;
 		}
-		if (status === 'idle') {
-			status = 'searching';
-		}
 		const pagefind = await getPagefind();
-		const searchResult = await pagefind.debouncedSearch(query);
-		// @ts-expect-error status can have changed during the debounce
+		const searchResult = await pagefind.debouncedSearch(query, {}, 150);
 		if (!searchResult || status === 'idle') {
 			return;
 		}
@@ -204,10 +199,6 @@
 					</Combobox.Control>
 					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if status === 'searching'}
-						<span class="py-10 flex justify-center opacity-50">
-							<LoaderIcon class="size-4 animate-spin" />
-						</span>
 					{:else if status === 'done'}
 						{#if collection.items.length === 0}
 							<span class="py-10 text-center opacity-50">
