@@ -6,7 +6,7 @@
 		return async function get() {
 			if (!instance) {
 				// @ts-expect-error pagefind is only present during runtime
-				instance = (await import('/pagefind/pagefind.js')) as Pagefind;
+				instance = (await import(/* @vite-ignore */ '/pagefind/pagefind.js')) as Pagefind;
 				await instance.init();
 			}
 			return instance;
