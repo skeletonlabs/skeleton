@@ -128,7 +128,7 @@
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'loading'}
 						<span class="py-10 text-center opacity-50 flex justify-center">
-							<LoaderIcon class="animate-spin size-5" />
+							<LoaderIcon class="animate-spin size-4" />
 						</span>
 					{:else if search.status === 'success'}
 						{#if collection.items.length === 0}
