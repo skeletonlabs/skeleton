@@ -207,7 +207,7 @@
 						{/if}
 					{/if}
 					<hr class="hidden lg:block hr" />
-					<div class="hidden lg:flex justify-between gap-2 px-4 pb-4 pt-2">
+					<div class="hidden lg:flex gap-2 px-4 pb-4 pt-2">
 						<span class="text-xs opacity-50"><kbd class="kbd">Esc</kbd> to close</span>
 						<span class="text-xs opacity-50"><kbd class="kbd">Enter</kbd> to select</span>
 						<span class="text-xs opacity-50"><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> to navigate</span>
