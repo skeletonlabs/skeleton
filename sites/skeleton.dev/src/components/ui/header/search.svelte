@@ -58,8 +58,8 @@
 		search.items = [];
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		search.query = event.inputValue;
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		search.query = details.inputValue;
 		if (search.query.trim().length === 0) {
 			search.status = 'idle';
 			search.items = [];
