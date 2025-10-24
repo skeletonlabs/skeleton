@@ -28,6 +28,10 @@
 		activeFramework: CollectionEntry<'frameworks'>;
 	}
 
+	$effect(() => {
+		getPagefind();
+	});
+
 	const { activeFramework }: Props = $props();
 
 	let items: PagefindSearchFragment[] = $state.raw([]);
