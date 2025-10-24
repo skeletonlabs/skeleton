@@ -87,6 +87,9 @@
 		search.status = 'loading';
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.debouncedSearch(search.query);
+		if (!searchResult) {
+			return;
+		}
 		search.items = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
