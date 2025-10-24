@@ -28,13 +28,22 @@
 		activeFramework: CollectionEntry<'frameworks'>;
 	}
 
-	$effect(() => {
-		getPagefind();
-	});
-
 	const { activeFramework }: Props = $props();
 
-	let items: PagefindSearchFragment[] = $state.raw([]);
+	let query = $state('');
+	let items = $derived(
+		await (async () => {
+			const pagefind = await getPagefind();
+			const search = await pagefind.search(query);
+			const results = await Promise.all(search.results.map((result) => result.data()));
+			return results.filter((item) => {
+				if (item.url.startsWith('/docs/')) {
+					return item.url.startsWith(`/docs/${activeFramework.id}/`);
+				}
+				return true;
+			});
+		})(),
+	);
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
@@ -49,15 +58,7 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		const pagefind = await getPagefind();
-		const search = await pagefind.search(event.inputValue);
-		const results = await Promise.all(search.results.map((result) => result.data()));
-		items = results.filter((item) => {
-			if (item.url.startsWith('/docs/')) {
-				return item.url.startsWith(`/docs/${activeFramework.id}/`);
-			}
-			return true;
-		});
+		query = event.inputValue;
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
