@@ -82,7 +82,7 @@
 		search.items = [];
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = debounce(async (details) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		search.query = details.inputValue;
 		if (search.query.trim().length === 0) {
 			search.status = 'idle';
@@ -90,43 +90,45 @@
 			return;
 		}
 		search.status = 'loading';
-		const pagefind = await getPagefind();
-		const searchResult = await pagefind.search(search.query);
-		if (!searchResult) {
-			return;
-		}
-		search.items = (
-			await Promise.all(
-				searchResult.results.map(async (searchResult) => {
-					const result = await searchResult.data();
-					return [
-						{
-							type: 'result' as const,
-							url: result.url,
-							title: result.meta.title,
-							excerpt: result.excerpt,
-						},
-						...result.sub_results
-							.filter((subResult) => subResult.url !== result.url)
-							.map((subResult) => ({
-								type: 'subresult' as const,
-								url: subResult.url,
-								title: subResult.title,
-								excerpt: subResult.excerpt,
-							})),
-					];
-				}),
+		debounce(async () => {
+			const pagefind = await getPagefind();
+			const searchResult = await pagefind.search(search.query);
+			if (!searchResult) {
+				return;
+			}
+			search.items = (
+				await Promise.all(
+					searchResult.results.map(async (searchResult) => {
+						const result = await searchResult.data();
+						return [
+							{
+								type: 'result' as const,
+								url: result.url,
+								title: result.meta.title,
+								excerpt: result.excerpt,
+							},
+							...result.sub_results
+								.filter((subResult) => subResult.url !== result.url)
+								.map((subResult) => ({
+									type: 'subresult' as const,
+									url: subResult.url,
+									title: subResult.title,
+									excerpt: subResult.excerpt,
+								})),
+						];
+					}),
+				)
 			)
-		)
-			.flat()
-			.filter((item) => {
-				if (item.url.startsWith('/docs/')) {
-					return item.url.startsWith(`/docs/${activeFramework.id}/`);
-				}
-				return true;
-			});
-		search.status = 'success';
-	}, 250);
+				.flat()
+				.filter((item) => {
+					if (item.url.startsWith('/docs/')) {
+						return item.url.startsWith(`/docs/${activeFramework.id}/`);
+					}
+					return true;
+				});
+			search.status = 'success';
+		}, 200);
+	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
 		const url = details.value.at(0);
