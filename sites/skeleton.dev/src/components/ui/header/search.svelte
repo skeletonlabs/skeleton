@@ -90,7 +90,7 @@
 		}
 		search.status = 'loading';
 		const pagefind = await getPagefind();
-		const searchResult = await pagefind.debouncedSearch(search.query);
+		const searchResult = await pagefind.search(search.query);
 		// @ts-expect-error search.status can have changed in the meantime
 		if (!searchResult || search.status === 'idle') {
 			return;
