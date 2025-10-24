@@ -122,7 +122,7 @@
 				>
 					<Combobox.Control class="flex flex-row items-center gap-2">
 						<SearchIcon class="size-4 opacity-60" />
-						<Combobox.Input class="input-ghost" data-search-input />
+						<Combobox.Input data-search-input />
 					</Combobox.Control>
 
 					{#if search.status === 'idle'}
