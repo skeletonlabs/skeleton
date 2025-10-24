@@ -185,6 +185,7 @@
 							<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
 						</Combobox.Control>
 					</div>
+					<hr class="hr" />
 					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if status === 'done'}
@@ -204,6 +205,12 @@
 							</Combobox.Content>
 						{/if}
 					{/if}
+					<hr class="hr" />
+					<div class="p-4">
+						<span class="text-xs opacity-50">Press <kbd class="kbd">Esc</kbd> to close</span>
+						<span class="text-xs opacity-50">Press <kbd class="kbd">Enter</kbd> to select</span>
+						<span class="text-xs opacity-50">Use <kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> to navigate</span>
+					</div>
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
