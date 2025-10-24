@@ -40,8 +40,10 @@
 	});
 
 	let query = $state('');
-	let items = $derived.by(async () => {
-		if (import.meta.env.SSR) {
+	let items = $state.raw<PagefindSearchFragment[]>([]);
+
+	const search = $derived.by(async () => {
+		if (import.meta.env.SSR || query.trim() === '') {
 			return [];
 		}
 		const pagefind = await getPagefind();
@@ -55,16 +57,16 @@
 		});
 	});
 
-	const collection = $derived.by(async () =>
+	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
-			items: await items,
+			items,
 			itemToString: (item) => item.meta.title,
 			itemToValue: (item) => item.url,
 		}),
 	);
 
 	const onOpenChange = () => {
-		items = Promise.resolve([]);
+		items = [];
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
@@ -106,7 +108,7 @@
 				<Combobox
 					class="w-full"
 					placeholder="Search..."
-					collection={await collection}
+					{collection}
 					{onOpenChange}
 					{onInputValueChange}
 					{onValueChange}
@@ -116,20 +118,18 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<svelte:boundary>
-						{#snippet pending()}
-							<div class="p-4 text-center opacity-50">Loading results...</div>
-						{/snippet}
-
+					{#await search}
+						<div class="p-4 text-center opacity-50">Loading results...</div>
+					{:then results}
 						<Combobox.Content class="p-0 border-none">
-							{#each (await collection).items as item (item)}
-								<Combobox.Item {item}>
-									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+							{#each results as result (result)}
+								<Combobox.Item item={result}>
+									<Combobox.ItemText>{result.meta.title}</Combobox.ItemText>
 									<Combobox.ItemIndicator />
 								</Combobox.Item>
 							{/each}
 						</Combobox.Content>
-					</svelte:boundary>
+					{/await}
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
