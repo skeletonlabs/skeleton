@@ -121,8 +121,8 @@
 		if (!url) {
 			return;
 		}
-		await navigate(url);
 		dialog().setOpen(false);
+		await navigate(url);
 	};
 
 	$effect(() =>
