@@ -140,6 +140,7 @@
 								{#each collection.items as item (item)}
 									<Combobox.Item {item}>
 										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+										{@html item.excerpt}
 										<Combobox.ItemIndicator />
 									</Combobox.Item>
 								{/each}
