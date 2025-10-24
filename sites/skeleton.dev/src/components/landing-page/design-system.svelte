@@ -142,7 +142,7 @@
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'The Figma UI Kit'}
+		{#if activeStep.label === 'Colors'}
 			<div class="grid grid-cols-3 gap-5 md:gap-10">
 				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
 				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>

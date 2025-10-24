@@ -8,22 +8,24 @@ tags: ['theme', 'guides']
 
 The most common way to load skeleton themes is by importing them in your root stylesheet.
 
-<Framework id="svelte">
-	<Preview files={{ 'src/app.css': `@import 'tailwindcss';
-
-    @import '@skeletonlabs/skeleton';
-    @import '@skeletonlabs/skeleton/themes/cerberus';
-    @import '@skeletonlabs/skeleton/themes/catppuccin';` }} client:visible />
-
-</Framework>
-
 <Framework id="react">
-	<Preview files={{ 'app/globals.css': `@import 'tailwindcss';
+	```css title="app/globals.css"
+	@import 'tailwindcss';
 
     @import '@skeletonlabs/skeleton';
     @import '@skeletonlabs/skeleton/themes/cerberus';
     @import '@skeletonlabs/skeleton/themes/catppuccin';
-    ` }} client:visible />
+    ```
+
+</Framework>
+<Framework id="svelte">
+	```css title="src/app.css"
+	@import 'tailwindcss';
+
+    @import '@skeletonlabs/skeleton';
+    @import '@skeletonlabs/skeleton/themes/cerberus';
+    @import '@skeletonlabs/skeleton/themes/catppuccin';
+    ```
 
 </Framework>
 
@@ -39,82 +41,54 @@ This approach assumes the CSS variables of the skeleton theme you want is availa
 
 In this example we will add a default theme that that can be used as a fallback.
 
-<Framework id="svelte">
-	<Preview
-		files={{ 'src/app.css': `@import 'tailwindcss';\n@import '@skeletonlabs/skeleton';\n@import './default.css';` }}
-		client:visible
-	/>
-</Framework>
-
 <Framework id="react">
-	<Preview
-		files={{ 'app/global.css': `@import 'tailwindcss';\n@import '@skeletonlabs/skeleton';\n@import './default.css';` }}
-		client:visible
-	/>
-</Framework>
+	```css title="app/globals.css"
+	@import 'tailwindcss';
 
+    @import '@skeletonlabs/skeleton';
+    @import './default.css';
+    ```
+
+</Framework>
 <Framework id="svelte">
-	<Preview files={{ 'src/default.css': `[data-theme='default'] {}` }} client:visible />
+	```css title="src/app.css"
+	@import 'tailwindcss';
+
+    @import '@skeletonlabs/skeleton';
+    @import './default.css';
+    ```
+
 </Framework>
 
+{/* prettier-ignore */}
 <Framework id="react">
-	<Preview files={{ 'app/default.css': `[data-theme='default'] {}` }} client:visible />
+	```css title="app/default.css"
+	[data-theme='default'] {/* ... */}
+	```
 </Framework>
-
-To load your themes we will utilize framework-specific load functions:
-
+{/* prettier-ignore */}
 <Framework id="svelte">
-	To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
-
-    <Preview files={{
-    	'src/route/+layout.server.ts': `import type { PageLoad } from './$types';
-
-    	const getThemes = async () => {
-    		return [
-    			{
-    				name: 'theme-1',
-    				css: \\\`[data-theme='theme-1'] { }\\\`
-    			},
-    			{
-    				name: 'theme-2',
-    				css: \\\`[data-theme='theme-2'] { }\\\`
-    			}
-    		];
-    	};
-
-    	export const load: PageLoad = async (event) => {
-    		const themes = getThemes();
-    		return {
-    			themes: ['default', ...themes.map((t) => t.name)],
-    			css: themes.map((theme) => theme.css).join('\\\\n\\\\n')
-    		};
-    	};`,
-    	'src/routes/+layout.svelte': `<script>
-    		const { data } = $props();
-    	</script>
-
-    	<svelte:head>
-    		{@html \\\`<style>\\\${data.css}</style>\\\`}
-    	</svelte:head>`
-    }} client:visible />
-
+	```css title="src/default.css"
+	[data-theme='default'] {/* ... */}
+	```
 </Framework>
 
 <Framework id="react">
 	To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
 
-    <Preview files={{ 'app/layout.tsx': `import Head from 'next/head';
+    ```tsx title="app/layout.tsx"
+    import Head from 'next/head';
     import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 
     const getThemes = async () => {
     	return [
     		{
     			name: 'theme-1',
-    			css: \\\`[data-theme='theme-1'] { }\\\`
+    			css: `[data-theme='theme-1'] { /* ... */ }`
     		},
     		{
     			name: 'theme-2',
-    			css: \\\`[data-theme='theme-2'] { }\\\`
+    			css: `[data-theme='theme-2'] { /* ... */ }`
     		}
     	];
     };
@@ -124,7 +98,7 @@ To load your themes we will utilize framework-specific load functions:
     	return {
     		props: {
     			themes: ['default', ...themes.map((t) => t.name)],
-    			css: themes.map((theme) => theme.css).join('\\\\n\\\\n')
+    			css: themes.map((theme) => theme.css).join('\n\n')
     		}
     	};
     }) satisfies GetServerSideProps<{ repo: Repo }>;
@@ -140,7 +114,46 @@ To load your themes we will utilize framework-specific load functions:
     			</main>
     		</>
     	);
-    }` }} client:visible />
+    }
+    ```
+
+</Framework>
+<Framework id="svelte">
+	To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
+
+    ```ts title="src/route/+layout.server.ts"
+    import type { PageLoad } from './$types';
+
+    const getThemes = async () => {
+    	return [
+    		{
+    			name: 'theme-1',
+    			css: `[data-theme='theme-1'] { /* ... */ }`
+    		},
+    		{
+    			name: 'theme-2',
+    			css: `[data-theme='theme-2'] { /* ... */ }`
+    		}
+    	];
+    };
+
+    export const load: PageLoad = async (event) => {
+    	const themes = getThemes();
+    	return {
+    		themes: ['default', ...themes.map((t) => t.name)],
+    		css: themes.map((theme) => theme.css).join('\n\n')
+    	};
+    };
+    ```
+    ```svelte title="src/routes/+layout.svelte"
+    <script>
+    	const { data } = $props();
+    </script>
+
+    <svelte:head>
+    	{@html `<style>${data.css}</style>`}
+    </svelte:head>
+    ```
 
 </Framework>
 
