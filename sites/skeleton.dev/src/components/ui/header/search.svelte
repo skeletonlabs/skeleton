@@ -19,6 +19,7 @@
 
 <script lang="ts">
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
+	import { LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -39,30 +40,42 @@
 		},
 	});
 
-	let items = $state.raw<PagefindSearchFragment[]>([]);
+	const search = $state({
+		query: '',
+		items: [] as PagefindSearchFragment[],
+		status: 'idle' as 'idle' | 'loading' | 'error' | 'success',
+	});
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
-			items,
+			items: search.items,
 			itemToString: (item) => item.meta.title,
 			itemToValue: (item) => item.url,
 		}),
 	);
 
 	const onOpenChange = () => {
-		items = [];
+		search.items = [];
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		search.query = details.inputValue;
+		if (search.query.trim().length === 0) {
+			search.status = 'idle';
+			search.items = [];
+			return;
+		}
+		search.status = 'loading';
 		const pagefind = await getPagefind();
-		const search = await pagefind.debouncedSearch(event.inputValue);
-		const results = await Promise.all(search.results.map((result) => result.data()));
-		items = results.filter((item) => {
+		const result = await pagefind.debouncedSearch(search.query);
+		const results = await Promise.all(result.results.map((result) => result.data()));
+		search.items = results.filter((item) => {
 			if (item.url.startsWith('/docs/')) {
 				return item.url.startsWith(`/docs/${activeFramework.id}/`);
 			}
 			return true;
 		});
+		search.status = 'success';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -95,13 +108,8 @@
 			<Dialog.Content
 				class="card bg-surface-50-950/90 backdrop-blur-sm border border-surface-200-800 w-full max-w-[960px] p-4 space-y-4 shadow-[0_0_100px_rgba(0,0,0,0.25)] shadow-primary-500/50 transition transition-discrete duration-200 opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
 			>
-				<header class="flex justify-between items-center">
-					<Dialog.Title class="font-bold text-lg">Explore</Dialog.Title>
-					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
-				</header>
-				<hr class="hr" />
 				<Combobox
-					class="w-full"
+					class="w-full flex flex-col gap-4"
 					placeholder="Search..."
 					{collection}
 					{onOpenChange}
@@ -109,19 +117,35 @@
 					{onValueChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="clear"
-					open={true}
+					open
 				>
-					<Combobox.Control>
+					<Combobox.Control class="flex flex-row items-center gap-2">
 						<Combobox.Input data-search-input />
+						<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 					</Combobox.Control>
-					<Combobox.Content class="p-0 border-none">
-						{#each items as item (item)}
-							<Combobox.Item {item}>
-								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-								<Combobox.ItemIndicator />
-							</Combobox.Item>
-						{/each}
-					</Combobox.Content>
+
+					{#if search.status === 'idle'}
+						<span class="py-10 text-center opacity-50">What can we help you find?</span>
+					{:else if search.status === 'loading'}
+						<span class="py-10 text-center opacity-50 flex justify-center">
+							<LoaderIcon class="animate-spin size-5" />
+						</span>
+					{:else if search.status === 'success'}
+						{#if collection.items.length === 0}
+							<span class="py-10 text-center opacity-50">
+								No results found for <code class="code">{search.query}</code>
+							</span>
+						{:else}
+							<Combobox.Content class="p-0 border-none">
+								{#each collection.items as item (item)}
+									<Combobox.Item {item}>
+										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
+									</Combobox.Item>
+								{/each}
+							</Combobox.Content>
+						{/if}
+					{/if}
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
