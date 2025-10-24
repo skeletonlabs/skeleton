@@ -183,7 +183,7 @@
 					{onInputValueChange}
 					{onValueChange}
 					inputBehavior="autohighlight"
-					open
+					open={false}
 				>
 					<div class="px-4 pt-4 pb-4 lg:pb-2">
 						<Combobox.Control class="input-group grid-cols-[auto_1fr]">
