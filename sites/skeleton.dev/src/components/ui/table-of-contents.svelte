@@ -54,8 +54,10 @@
 
 {#if headings.length > 0}
 	<nav class="flex flex-col gap-4">
-		<span class="font-bold flex items-center gap-2 ml-4">On This Page</span>
-		<SegmentedControl value={activeHeading()?.slug} orientation="vertical">
+		<!-- Label -->
+		<span class="font-bold flex items-center gap-2">On This Page</span>
+		<!-- Links -->
+		<SegmentedControl value={activeHeading()?.slug} orientation="vertical" class="-ml-4">
 			<SegmentedControl.Control class="border-none p-0">
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}

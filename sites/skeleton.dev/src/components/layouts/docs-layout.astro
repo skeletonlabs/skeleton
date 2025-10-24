@@ -48,7 +48,7 @@ const { Content, headings } = await render(doc);
 		<Footer class="p-4 xl:px-0" />
 	</main>
 	<aside
-		class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 py-4 xl:py-10 space-y-8 overflow-y-auto hide-scrollbars"
+		class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 py-4 pl-4 xl:py-10 space-y-8 overflow-y-auto hide-scrollbars"
 	>
 		<Advertisement />
 		<TableOfContents {headings} client:visible />
