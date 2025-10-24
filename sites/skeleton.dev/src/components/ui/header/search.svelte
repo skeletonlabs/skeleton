@@ -46,7 +46,7 @@
 	interface Search {
 		query: string;
 		items: (Result | Subresult)[];
-		status: 'idle' | 'loading' | 'error' | 'success';
+		status: 'idle' | 'success';
 	}
 
 	interface Props {
@@ -127,7 +127,6 @@
 			search.items = [];
 			return;
 		}
-		search.status = 'loading';
 		debouncedSearch(search.query);
 	};
 
@@ -207,10 +206,6 @@
 					</Combobox.Control>
 					{#if search.status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if search.status === 'loading'}
-						<span class="py-10 text-center opacity-50 flex justify-center leading-normal h-(--base-line-height)">
-							<LoaderIcon class="animate-spin size-4" />
-						</span>
 					{:else if search.status === 'success'}
 						{#if collection.items.length === 0}
 							<span class="py-10 text-center opacity-50">
