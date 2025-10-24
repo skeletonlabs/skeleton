@@ -177,7 +177,7 @@
 					inputBehavior="autohighlight"
 					open
 				>
-					<div class="p-4">
+					<div class="px-4 pt-4 pb-2">
 						<Combobox.Control class="input-group grid-cols-[auto_1fr]">
 							<div class="ig-cell preset-tonal">
 								<SearchIcon class="size-4" />
@@ -194,7 +194,7 @@
 								No results found for <code class="code">{query}</code>
 							</span>
 						{:else}
-							<Combobox.Content class="p-4 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+							<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
 								{#each collection.items as item (item)}
 									{#if item.type === 'result'}
 										{@render result(item)}
@@ -205,11 +205,11 @@
 							</Combobox.Content>
 						{/if}
 					{/if}
-					<hr class="hr" />
-					<div class="p-4">
-						<span class="text-xs opacity-50">Press <kbd class="kbd">Esc</kbd> to close</span>
-						<span class="text-xs opacity-50">Press <kbd class="kbd">Enter</kbd> to select</span>
-						<span class="text-xs opacity-50">Use <kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> to navigate</span>
+					<hr class="hidden lg:block hr" />
+					<div class="hidden lg:block px-4 pb-4 pt-2 flex justify-between gap-2">
+						<span class="text-xs opacity-50"><kbd class="kbd">Esc</kbd> to close</span>
+						<span class="text-xs opacity-50"><kbd class="kbd">Enter</kbd> to select</span>
+						<span class="text-xs opacity-50"><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> to navigate</span>
 					</div>
 				</Combobox>
 			</Dialog.Content>
