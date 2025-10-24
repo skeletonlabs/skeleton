@@ -49,6 +49,10 @@
 
 	const { activeFramework }: Props = $props();
 
+	let query = $state('');
+	let status: 'idle' | 'searching' | 'done' = $state('idle');
+	let items: (Result | Subresult)[] = $state.raw([]);
+
 	const id = $props.id();
 	const dialog = useDialog({
 		id,
@@ -56,10 +60,6 @@
 			return document.querySelector('[data-search-input]');
 		},
 	});
-
-	let query = $state('');
-	let status: 'idle' | 'searching' | 'done' = $state('idle');
-	let items: (Result | Subresult)[] = $state.raw([]);
 
 	const collection = $derived(
 		useListCollection<Result | Subresult>({
@@ -132,6 +132,10 @@
 		dialog().setOpen(false);
 		await navigate(url);
 	};
+
+	$effect(() => {
+		getPagefind();
+	});
 
 	$effect(() =>
 		on(document, 'keydown', (event) => {
