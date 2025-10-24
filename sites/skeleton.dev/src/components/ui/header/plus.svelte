@@ -1,11 +1,12 @@
 <script>
+	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	const links = [
-		{ href: 'https://themes.skeleton.dev/', title: 'Themes', target: '_blank' },
-		{ href: '/figma', title: 'Figma Kit' },
-		{ href: '/showcase', title: 'Showcase' },
+	const links = [{ href: 'https://themes.skeleton.dev/', title: 'Theme Generator', target: '_blank' }];
+	const linksMore = [
+		{ href: 'https://www.etesie.dev/figma', title: 'Figma Kit', target: '_blank' },
+		{ href: 'https://www.etesie.dev/guides/figma/01_basics', title: 'Figma Kit Tutorials', target: '_blank' },
 	];
 </script>
 
@@ -16,11 +17,22 @@
 	</Popover.Trigger>
 	<Portal>
 		<Popover.Positioner class="z-[51]!">
-			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-2 shadow-xl">
+			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 shadow-xl">
 				<div class="grid grid-cols-1 gap-2">
 					{#each links as link (link)}
-						<a href={link.href} target="_blank" class="btn justify-start hover:preset-tonal">
-							{link.title}
+						<a href={link.href} target={link.target} class="btn justify-between hover:preset-tonal">
+							<span>{link.title}</span>
+							{#if link.target === '_blank'}<ArrowUpRight class="size-4" />{/if}
+						</a>
+					{/each}
+				</div>
+				<hr class="hr" />
+				<p class="text-xs ml-4 opacity-60">Community Tools</p>
+				<div class="grid grid-cols-1 gap-2">
+					{#each linksMore as link (link)}
+						<a href={link.href} target={link.target} class="btn justify-between hover:preset-tonal">
+							<span>{link.title}</span>
+							{#if link.target === '_blank'}<ArrowUpRight class="size-4" />{/if}
 						</a>
 					{/each}
 				</div>
