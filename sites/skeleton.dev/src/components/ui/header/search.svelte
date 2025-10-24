@@ -75,10 +75,6 @@
 			}
 			return true;
 		});
-		if (search.items.length === 0) {
-			search.status = 'error';
-			return;
-		}
 		search.status = 'success';
 	};
 
