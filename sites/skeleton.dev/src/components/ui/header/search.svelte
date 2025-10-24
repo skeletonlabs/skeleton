@@ -19,7 +19,7 @@
 
 <script lang="ts">
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
-	import { LoaderIcon } from '@lucide/svelte';
+	import { BookIcon, ChevronRightIcon, LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -139,8 +139,12 @@
 							<Combobox.Content class="p-0 border-none">
 								{#each collection.items as item (item)}
 									<Combobox.Item {item}>
-										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-										{@html item.excerpt}
+										<BookIcon class="size-6 opacity-50" />
+										<div class="space-y-1">
+											<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+											<p class="text-xs">{item.url}</p>
+										</div>
+										<ChevronRightIcon class="size-4 opacity-50" />
 										<Combobox.ItemIndicator />
 									</Combobox.Item>
 								{/each}
