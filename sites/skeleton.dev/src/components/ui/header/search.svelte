@@ -97,8 +97,8 @@
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
-					return result.sub_results.map((subResult, i) => ({
-						type: i === 0 ? ('result' as const) : ('subresult' as const),
+					return result.sub_results.map((subResult) => ({
+						type: result.url === subResult.url ? ('result' as const) : ('subresult' as const),
 						url: subResult.url,
 						title: subResult.title,
 						description: subResult.excerpt,
