@@ -5,7 +5,7 @@
 		let instance: Pagefind;
 
 		return async function get() {
-			if (!instance && import.meta.env.PROD) {
+			if (!instance) {
 				// @ts-expect-error pagefind is only present during runtime
 				instance = (await import('/pagefind/pagefind.js')) as Pagefind;
 				await instance.init();
@@ -30,8 +30,6 @@
 
 	const { activeFramework }: Props = $props();
 
-	const pagefind = await getPagefind();
-
 	let items: PagefindSearchFragment[] = $state.raw([]);
 
 	const collection = $derived(
@@ -47,6 +45,7 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
+		const pagefind = await getPagefind();
 		const search = await pagefind.search(event.inputValue);
 		const results = await Promise.all(search.results.map((result) => result.data()));
 		items = results.filter((item) => {
