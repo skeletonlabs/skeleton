@@ -21,11 +21,11 @@
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps } from '@skeletonlabs/skeleton-svelte';
 
-	let items = $state([]);
+	let items: PagefindSearchFragment[] = $state.raw([]);
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
-			items: [],
+			items,
 			itemToString: (item) => item.meta.title,
 			itemToValue: (item) => item.url,
 		}),
@@ -39,7 +39,7 @@
 		const pagefind = await getPagefind();
 		const search = await pagefind.search(event.inputValue);
 		const results = await Promise.all(search.results.map((result) => result.data()));
-		console.log({ results });
+		items = results;
 	};
 </script>
 
@@ -60,22 +60,18 @@
 					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 				</header>
 				<hr class="hr" />
-				<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+				<Combobox class="w-full" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<Portal>
-						<Combobox.Positioner class="z-[1]!">
-							<Combobox.Content>
-								{#each collection.items as item (item)}
-									<Combobox.Item {item}>
-										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-										<Combobox.ItemIndicator />
-									</Combobox.Item>
-								{/each}
-							</Combobox.Content>
-						</Combobox.Positioner>
-					</Portal>
+					<Combobox.Content>
+						{#each collection.items as item (item)}
+							<Combobox.Item {item}>
+								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
+							</Combobox.Item>
+						{/each}
+					</Combobox.Content>
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
