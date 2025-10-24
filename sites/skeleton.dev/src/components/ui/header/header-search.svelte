@@ -46,7 +46,7 @@
 		});
 	});
 
-	const collection = $derived(
+	const collection = $derived.by(async () =>
 		useListCollection<PagefindSearchFragment>({
 			items: await items,
 			itemToString: (item) => item.meta.title,
@@ -91,7 +91,7 @@
 				<Combobox
 					class="w-full"
 					placeholder="Search..."
-					{collection}
+					collection={await collection}
 					{onOpenChange}
 					{onInputValueChange}
 					{onValueChange}
@@ -107,7 +107,7 @@
 						{/snippet}
 
 						<Combobox.Content class="p-0 border-none">
-							{#each collection.items as item (item)}
+							{#each (await collection).items as item (item)}
 								<Combobox.Item {item}>
 									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
 									<Combobox.ItemIndicator />
