@@ -152,7 +152,7 @@
 		<HashIcon class="size-4 opacity-50" />
 		<div class="space-y-1">
 			<Combobox.ItemText>{item.title}</Combobox.ItemText>
-			<p class="text-xs text-surface-600-400 break-words [&>code]:code">
+			<p class="text-xs text-surface-600-400 break-words [&>mark]:mark">
 				{@html item.description}
 			</p>
 		</div>
