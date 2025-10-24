@@ -88,7 +88,9 @@
 			search.items = [];
 			return;
 		}
-		search.status = 'loading';
+		if (search.items.length === 0) {
+			search.status = 'loading';
+		}
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.search(search.query);
 		if (!searchResult) {
