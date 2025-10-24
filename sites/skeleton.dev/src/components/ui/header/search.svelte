@@ -116,14 +116,18 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<Combobox.Content class="p-0 border-none">
-						{#each (await collection).items as result (result)}
-							<Combobox.Item item={result}>
-								<Combobox.ItemText>{result.meta.title}</Combobox.ItemText>
-								<Combobox.ItemIndicator />
-							</Combobox.Item>
-						{/each}
-					</Combobox.Content>
+					{#await collection}
+						<div class="p-4 text-center opacity-50">Loading results...</div>
+					{:then items}
+						<Combobox.Content class="p-0 border-none">
+							{#each items as item (item)}
+								<Combobox.Item {item}>
+									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+									<Combobox.ItemIndicator />
+								</Combobox.Item>
+							{/each}
+						</Combobox.Content>
+					{/await}
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
