@@ -15,17 +15,17 @@ const activeFramework = getActiveFramework(Astro);
 	{
 		sections.map(async (section) => (
 			<nav class="flex flex-col gap-2">
-				<span class="text-[13px] font-bold ml-2">{section.label}</span>
+				<span class="text-[12px] font-bold ml-2 text-surface-600-400 uppercase">{section.label}</span>
 				<ul class="flex flex-col gap-1">
 					{section.items.map((doc) => (
 						<li>
-							<a href={getRelativeDocsUrl(Astro, doc.id)} title={doc.data.title} class="flex justify-between items-center">
-								<span
-									aria-current={Astro.url.pathname === doc.id ? 'page' : 'false'}
-									class="grow px-2 py-1 rounded-base aria-[current=false]:anchor aria-[current=page]:preset-tonal"
-								>
-									{doc.data.title}
-								</span>
+							<a
+								href={getRelativeDocsUrl(Astro, doc.id)}
+								title={doc.data.title}
+								class="btn hover:preset-tonal flex justify-between items-center px-2"
+								aria-current={Astro.url.pathname === doc.id ? 'page' : 'false'}
+							>
+								<span class="text-sm">{doc.data.title}</span>
 								{doc.data.stability !== 'stable' && (
 									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{doc.data.stability}</span>
 								)}

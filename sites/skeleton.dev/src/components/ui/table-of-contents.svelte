@@ -53,12 +53,9 @@
 </script>
 
 {#if headings.length > 0}
-	<nav class="flex flex-col gap-2">
-		<span class="opacity-50 flex items-center gap-2">
-			<TableOfContentsIcon class="size-4" />
-			On This Page
-		</span>
-		<SegmentedControl value={activeHeading()?.slug} orientation="vertical" class="shadow-[inset_2px_0_0_0_var(--color-surface-200-800)]">
+	<nav class="flex flex-col gap-4">
+		<span class="font-bold flex items-center gap-2 ml-4">On This Page</span>
+		<SegmentedControl value={activeHeading()?.slug} orientation="vertical">
 			<SegmentedControl.Control class="border-none p-0">
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}

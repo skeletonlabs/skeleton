@@ -90,3 +90,14 @@ html {
 			radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
 	}
 }
+
+/* Hide Scrollbars */
+
+.hide-scrollbars::-webkit-scrollbar {
+	display: none;
+}
+/* For Firefox */
+.hide-scrollbars {
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* IE/Edge */
+}
