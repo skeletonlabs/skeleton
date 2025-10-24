@@ -215,9 +215,9 @@
 					{/if}
 					<hr class="hidden lg:block hr" />
 					<div class="hidden lg:flex gap-2 px-4 pb-4 pt-2">
-						<span class="text-xs opacity-50"><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> Navigate</span>
-						<span class="text-xs opacity-50"><kbd class="kbd">⏎</kbd> Select</span>
-						<span class="text-xs opacity-50"><kbd class="kbd">Esc</kbd> Close</span>
+						<span class="text-sm opacity-50"><kbd class="kbd">↑</kbd> <kbd class="kbd">↓</kbd> Navigate</span>
+						<span class="text-sm opacity-50"><kbd class="kbd">⏎</kbd> Select</span>
+						<span class="text-sm opacity-50"><kbd class="kbd">Esc</kbd> Close</span>
 					</div>
 				</Combobox>
 			</Dialog.Content>
