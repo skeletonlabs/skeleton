@@ -82,6 +82,45 @@
 		search.items = [];
 	};
 
+	const debouncedSearch = debounce(async (query: string) => {
+		const pagefind = await getPagefind();
+		const searchResult = await pagefind.search(query);
+		if (!searchResult) return;
+
+		search.items = (
+			await Promise.all(
+				searchResult.results.map(async (searchResult) => {
+					const result = await searchResult.data();
+					return [
+						{
+							type: 'result' as const,
+							url: result.url,
+							title: result.meta.title,
+							excerpt: result.excerpt,
+						},
+						...result.sub_results
+							.filter((subResult) => subResult.url !== result.url)
+							.map((subResult) => ({
+								type: 'subresult' as const,
+								url: subResult.url,
+								title: subResult.title,
+								excerpt: subResult.excerpt,
+							})),
+					];
+				}),
+			)
+		)
+			.flat()
+			.filter((item) => {
+				if (item.url.startsWith('/docs/')) {
+					return item.url.startsWith(`/docs/${activeFramework.id}/`);
+				}
+				return true;
+			});
+
+		search.status = 'success';
+	}, 200);
+
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		search.query = details.inputValue;
 		if (search.query.trim().length === 0) {
@@ -90,44 +129,7 @@
 			return;
 		}
 		search.status = 'loading';
-		debounce(async () => {
-			const pagefind = await getPagefind();
-			const searchResult = await pagefind.search(search.query);
-			if (!searchResult) {
-				return;
-			}
-			search.items = (
-				await Promise.all(
-					searchResult.results.map(async (searchResult) => {
-						const result = await searchResult.data();
-						return [
-							{
-								type: 'result' as const,
-								url: result.url,
-								title: result.meta.title,
-								excerpt: result.excerpt,
-							},
-							...result.sub_results
-								.filter((subResult) => subResult.url !== result.url)
-								.map((subResult) => ({
-									type: 'subresult' as const,
-									url: subResult.url,
-									title: subResult.title,
-									excerpt: subResult.excerpt,
-								})),
-						];
-					}),
-				)
-			)
-				.flat()
-				.filter((item) => {
-					if (item.url.startsWith('/docs/')) {
-						return item.url.startsWith(`/docs/${activeFramework.id}/`);
-					}
-					return true;
-				});
-			search.status = 'success';
-		}, 200);
+		debouncedSearch(search.query);
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
