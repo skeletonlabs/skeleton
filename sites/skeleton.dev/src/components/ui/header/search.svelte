@@ -39,39 +39,41 @@
 		},
 	});
 
-	let query = $state('');
-	let items = $state.raw<PagefindSearchFragment[]>([]);
-	let status: 'idle' | 'loading' | 'error' | 'success' = $state('idle');
+	const search = $state({
+		query: '',
+		items: [] as PagefindSearchFragment[],
+		status: 'idle' as 'idle' | 'loading' | 'error' | 'success',
+	});
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
-			items,
+			items: search.items,
 			itemToString: (item) => item.meta.title,
 			itemToValue: (item) => item.url,
 		}),
 	);
 
 	const onOpenChange = () => {
-		items = [];
+		search.items = [];
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		status = 'loading';
-		query = event.inputValue;
+		search.status = 'loading';
+		search.query = event.inputValue;
 		const pagefind = await getPagefind();
-		const search = await pagefind.debouncedSearch(query);
-		const results = await Promise.all(search.results.map((result) => result.data()));
-		items = results.filter((item) => {
+		const result = await pagefind.debouncedSearch(search.query);
+		const results = await Promise.all(result.results.map((result) => result.data()));
+		search.items = results.filter((item) => {
 			if (item.url.startsWith('/docs/')) {
 				return item.url.startsWith(`/docs/${activeFramework.id}/`);
 			}
 			return true;
 		});
-		if (items.length === 0) {
-			status = 'error';
+		if (search.items.length === 0) {
+			search.status = 'error';
 			return;
 		}
-		status = 'success';
+		search.status = 'success';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -123,21 +125,23 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					{#if status === 'idle'}
+					{#if search.status === 'idle'}
 						<p class="text-center text-sm opacity-60 mt-2">Start typing to search...</p>
-					{:else if status === 'loading'}
+					{:else if search.status === 'loading'}
 						<p class="text-center text-sm opacity-60 mt-2">Loading results...</p>
-					{:else if status === 'error'}
-						<p class="text-center text-sm opacity-60 mt-2">No results found for {query}</p>
-					{:else if status === 'success'}
-						<Combobox.Content class="p-0 border-none">
-							{#each items as item (item)}
-								<Combobox.Item {item}>
-									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-									<Combobox.ItemIndicator />
-								</Combobox.Item>
-							{/each}
-						</Combobox.Content>
+					{:else if search.status === 'success'}
+						{#if collection.items.length === 0}
+							<p class="text-center text-sm opacity-60 mt-2">No results found.</p>
+						{:else}
+							<Combobox.Content class="p-0 border-none">
+								{#each collection.items as item (item)}
+									<Combobox.Item {item}>
+										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
+									</Combobox.Item>
+								{/each}
+							</Combobox.Content>
+						{/if}
 					{/if}
 				</Combobox>
 			</Dialog.Content>
