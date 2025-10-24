@@ -33,6 +33,9 @@
 
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
+			if (import.meta.env.SSR) {
+				return;
+			}
 			// @ts-expect-error pagefind is only present during runtime
 			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
 			await pagefind.options({
