@@ -175,7 +175,6 @@
 					{onInputValueChange}
 					{onValueChange}
 					inputBehavior="autohighlight"
-					selectionBehavior="clear"
 					open
 				>
 					<div class="p-4">
