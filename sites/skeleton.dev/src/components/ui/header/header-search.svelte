@@ -5,7 +5,7 @@
 		let instance: Pagefind;
 
 		return async function get() {
-			if (!instance) {
+			if (!instance && import.meta.env.PROD) {
 				// @ts-expect-error pagefind is only present during runtime
 				instance = (await import('/pagefind/pagefind.js')) as Pagefind;
 				await instance.init();

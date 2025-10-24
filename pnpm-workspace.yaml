@@ -96,6 +96,7 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
+  runed: 0.35.1
   sass-embedded: 1.93.2
   semver: 7.7.3
   sharp: 0.34.4

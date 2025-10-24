@@ -46,6 +46,7 @@
 		"playwright": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
+		"runed": "catalog:",
 		"sharp": "catalog:",
 		"shiki": "catalog:",
 		"svelte": "catalog:",
