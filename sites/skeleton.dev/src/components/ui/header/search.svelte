@@ -178,12 +178,14 @@
 					selectionBehavior="clear"
 					open
 				>
-					<Combobox.Control class="input-group grid-cols-[auto_1fr] p-4">
-						<div class="ig-cell preset-tonal">
-							<SearchIcon class="size-4" />
-						</div>
-						<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
-					</Combobox.Control>
+					<div class="p-4">
+						<Combobox.Control class="input-group grid-cols-[auto_1fr]">
+							<div class="ig-cell preset-tonal">
+								<SearchIcon class="size-4" />
+							</div>
+							<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
+						</Combobox.Control>
+					</div>
 					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if status === 'done'}
