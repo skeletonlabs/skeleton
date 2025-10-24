@@ -138,7 +138,7 @@
 						{:else}
 							<Combobox.Content class="p-0 border-none">
 								{#each collection.items as item (item)}
-									<Combobox.Item class="p-4" {item}>
+									<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] items-center" {item}>
 										<BookIcon class="size-6 opacity-50" />
 										<div class="space-y-1">
 											<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
