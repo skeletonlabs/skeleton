@@ -74,15 +74,15 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
-		query = details.inputValue;
-		if (query.trim().length === 0) {
+		query = details.inputValue.trim();
+		if (query.length === 0) {
 			status = 'idle';
 			items = [];
 			return;
 		}
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.debouncedSearch(query, {}, 150);
-		if (!searchResult || status === 'idle') {
+		if (!searchResult) {
 			return;
 		}
 		const results = (
