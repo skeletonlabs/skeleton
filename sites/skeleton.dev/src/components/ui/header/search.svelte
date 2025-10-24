@@ -119,6 +119,7 @@
 				return true;
 			});
 		search.status = 'success';
+		console.log({ search });
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
