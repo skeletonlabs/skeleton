@@ -31,30 +31,28 @@
 	const { activeFramework }: Props = $props();
 
 	let query = $state('');
-	let items = $derived(
-		await (async () => {
-			const pagefind = await getPagefind();
-			const search = await pagefind.search(query);
-			const results = await Promise.all(search.results.map((result) => result.data()));
-			return results.filter((item) => {
-				if (item.url.startsWith('/docs/')) {
-					return item.url.startsWith(`/docs/${activeFramework.id}/`);
-				}
-				return true;
-			});
-		})(),
-	);
+	let items = $derived.by(async () => {
+		const pagefind = await getPagefind();
+		const search = await pagefind.search(query);
+		const results = await Promise.all(search.results.map((result) => result.data()));
+		return results.filter((item) => {
+			if (item.url.startsWith('/docs/')) {
+				return item.url.startsWith(`/docs/${activeFramework.id}/`);
+			}
+			return true;
+		});
+	});
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
-			items,
+			items: await items,
 			itemToString: (item) => item.meta.title,
 			itemToValue: (item) => item.url,
 		}),
 	);
 
 	const onOpenChange = () => {
-		items = [];
+		items = Promise.resolve([]);
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
@@ -100,14 +98,20 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<Combobox.Content class="p-0 border-none">
-						{#each collection.items as item (item)}
-							<Combobox.Item {item}>
-								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-								<Combobox.ItemIndicator />
-							</Combobox.Item>
-						{/each}
-					</Combobox.Content>
+					<svelte:boundary>
+						{#snippet pending()}
+							<div class="p-4 text-center opacity-50">Loading results...</div>
+						{/snippet}
+
+						<Combobox.Content class="p-0 border-none">
+							{#each await items as item (item)}
+								<Combobox.Item {item}>
+									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+									<Combobox.ItemIndicator />
+								</Combobox.Item>
+							{/each}
+						</Combobox.Content>
+					</svelte:boundary>
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
