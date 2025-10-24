@@ -110,11 +110,9 @@
 			>
 				<header class="flex justify-between items-center">
 					<Dialog.Title class="font-bold text-lg">Explore</Dialog.Title>
-					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 				</header>
-				<hr class="hr" />
 				<Combobox
-					class="w-full flex flex-col gap-2"
+					class="w-full flex flex-col gap-4"
 					placeholder="Search..."
 					{collection}
 					{onOpenChange}
@@ -124,9 +122,11 @@
 					selectionBehavior="clear"
 					open
 				>
-					<Combobox.Control>
+					<Combobox.Control class="flex flex-row items-center gap-2">
 						<Combobox.Input data-search-input />
+						<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 					</Combobox.Control>
+
 					{#if search.status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'loading'}
