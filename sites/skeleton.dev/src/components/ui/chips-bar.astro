@@ -1,0 +1,154 @@
+---
+import { PersonStandingIcon, CodeIcon, BlocksIcon } from 'lucide-react';
+import Framework from './framework.astro';
+
+// Props
+const { doc } = Astro.props;
+
+// Doc Info
+// "filePath": "src/content/docs/framework-components/avatar.mdx",
+const path = doc.filePath.split('/');
+const contentType = path.at(-2);
+// const featureFileName = path.at(-1);
+const featureName = path.at(-1).replace('.mdx', '');
+
+// Allowance
+const allow = {
+	design: 'design',
+	framework: 'framework-components',
+	tailwind: 'tailwind-components',
+};
+const allowSource = [allow.framework].includes(contentType);
+const allowCss = [allow.design, allow.tailwind, allow.framework].includes(contentType);
+// const allowA11y = [allow.framework].includes(contentType);
+const allowApi = [allow.framework].includes(contentType);
+
+// Paths
+// const branch = 'main';
+// const githubBaseUrl = `https://github.com/skeletonlabs/skeleton/tree/${branch}/`;
+const urlPartials = {
+	// githubDocs: `${githubBaseUrl}/sites/skeleton.dev/src/content`,
+	// githubSkeletonCommon: `${githubBaseUrl}/packages/skeleton-common`,
+	// githubSkeleton: `${githubBaseUrl}/packages/skeleton/src`,
+	// githubSvelte: `${githubBaseUrl}/packages/skeleton-svelte`,
+	// githubReact: `${githubBaseUrl}/packages/skeleton-react`,
+    zag: `https://zagjs.com/components`
+};
+---
+
+<pre class="pre">contentType: {contentType}</pre>
+<pre class="pre">featureName: {featureName}</pre>
+
+<div class="flex flex-wrap gap-2 overflow-x-auto pb-2">
+    <!-- Source Code Chip -->
+    <!-- NOTE: framework specific; URL tailored to content type -->
+	{
+		allowSource && (
+			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
+				<CodeIcon className="size-4" />
+				<span>Source</span>
+			</a>
+		)
+	}
+    <!-- CSS Styles Chip -->
+    <!-- URL tailored to content type -->
+	{
+		allowCss && (
+			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
+				<CodeIcon className="size-4" />
+				<span>CSS</span>
+			</a>
+		)
+	}
+    <!-- ARIA APG Chip -->
+    <!-- TODO: we need to add a frontmatter key for this path -->
+	{/*
+    {
+		allowA11y && (
+			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
+				<PersonStandingIcon className="size-4" />
+				<span>A11y</span>
+			</a>
+		)
+	}
+    */}
+    <!-- Zag API Chip -->
+	{
+		allowApi && (
+			<Framework id="react">
+                <a class="chip preset-filled-surface-200-800" href={`${urlPartials.zag}/react/${featureName}`} target="_blank">
+                    <BlocksIcon className="size-4" />
+                    <span>API</span>
+                </a>
+            </Framework>
+			<Framework id="svelte">
+                <a class="chip preset-filled-surface-200-800" href={`${urlPartials.zag}/svelte/${featureName}`} target="_blank">
+                    <BlocksIcon className="size-4" />
+                    <span>API</span>
+                </a>
+            </Framework>
+		)
+	}
+
+	<!-- {
+		frontmatter.srcCore && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
+				<CodeIcon className="size-4" />
+				<span>Source</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcCss && (
+			<a class="chip preset-filled-surface-200-800" href={`${urls.githubSkeletonCommon + frontmatter.srcCss}.ts`} target="_blank">
+				<CodeIcon className="size-4" />
+				<span>CSS</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcReact && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
+				<CodeIcon className="size-4" />
+				<span>React</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcSvelte && (
+			<a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
+				<CodeIcon className="size-4" />
+				<span>Svelte</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.showDocsUrl && (
+			<a
+				class="chip preset-filled-surface-200-800"
+				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
+				target="_blank"
+			>
+				<BookOpenIcon className="size-4" />
+				<span>Doc</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcAlly && (
+			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
+				<PersonStandingIcon className="size-4" />
+				<span>A11y</span>
+			</a>
+		)
+	}
+	{
+		frontmatter.srcZag && (
+			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcZag} target="_blank">
+				<BlocksIcon className="size-4" />
+				<span>API</span>
+			</a>
+		)
+	}
+    -->
+</div>

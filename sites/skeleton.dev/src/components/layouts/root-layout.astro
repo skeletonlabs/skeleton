@@ -8,46 +8,28 @@ import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
 import ModeLoader from '@/components/ui/mode-loader.astro';
 
-// import OpenGraphImage from '@/images/meta/opengraph.png';
-
 interface Props {
 	title?: string;
 	description?: string;
 	classList?: string;
 }
 
-const DEFAULT_TITLE = 'Skeleton';
-const DEFAULT_DESCRIPTION = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.';
-
-const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, classList } = Astro.props;
-
-// Format meta tag data
-const meta = {
-	title: `${title ? title + ' - ' : ''}Skeleton`,
-	description: description ? description : 'Skeleton is an adaptive design system powered by Tailwind CSS.',
-	// image: OpenGraphImage.src,
-};
+const {
+	title = 'Skeleton',
+	description = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.',
+	classList,
+} = Astro.props;
 ---
 
 <html lang="en" transition:animate="none">
 	<head>
-		<!-- Meta Tags -->
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-
-		<!-- TODO: distribute into SEO component -->
-		<meta
-			name="keywords"
-			content="design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, accessibility, typescript, css, open source, adaptive"
-		/>
-		<meta name="theme-color" content="#111111" />
-		<meta name="author" content="Skeleton Labs" />
-
+		<!-- https://github.com/jonasmerlin/astro-seo#readme -->
 		<SEO
 			title={title}
 			description={description}
 			canonical={Astro.site}
 			charset="UTF-8"
+			theme-color="#111111"
 			openGraph={{
 				basic: {
 					title: title,
@@ -74,6 +56,7 @@ const meta = {
 				description: description,
 				image: skeleton.src,
 				imageAlt: 'Skeleton',
+				card: 'summary',
 				site: Astro.site?.toString(),
 			}}
 			extend={{
@@ -81,6 +64,11 @@ const meta = {
 					{
 						name: 'viewport',
 						content: 'width=device-width, initial-scale=1',
+					},
+					{
+						name: 'keywords',
+						content:
+							'design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, a11y, accessibility, typescript, javascript, css, open source, adaptive, theme',
 					},
 					{
 						name: 'generator',
