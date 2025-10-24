@@ -5,8 +5,7 @@
 		let instance: Pagefind | null = null;
 		return async function get() {
 			if (!instance) {
-				const module = (await import('@/modules/pagefind')) as { default: Pagefind };
-				instance = module.default;
+				instance = (await import('@/modules/pagefind')) as Pagefind;
 				await instance.init();
 			}
 			return instance;
