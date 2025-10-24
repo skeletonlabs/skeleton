@@ -1,4 +1,5 @@
 <script lang="ts" module>
+	import { debounce } from '@/modules/debounce';
 	import type { Pagefind } from '@/modules/pagefind';
 
 	function createPagefindSingleton() {
@@ -81,16 +82,14 @@
 		search.items = [];
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = debounce(async (details) => {
 		search.query = details.inputValue;
 		if (search.query.trim().length === 0) {
 			search.status = 'idle';
 			search.items = [];
 			return;
 		}
-		if (search.items.length === 0) {
-			search.status = 'loading';
-		}
+		search.status = 'loading';
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.search(search.query);
 		if (!searchResult) {
@@ -127,7 +126,7 @@
 				return true;
 			});
 		search.status = 'success';
-	};
+	}, 250);
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
 		const url = details.value.at(0);
