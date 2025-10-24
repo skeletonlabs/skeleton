@@ -22,6 +22,7 @@
 
 <script lang="ts">
 	import { BookIcon, ChevronRightIcon, HashIcon } from '@lucide/svelte';
+	import { LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -57,6 +58,7 @@
 	});
 
 	let query = $state('');
+	let status: 'idle' | 'searching' | 'done' = $state('idle');
 	const collection = useListCollection<Result | Subresult>({
 		items: [],
 		itemToString: (item) => item.title,
@@ -71,12 +73,15 @@
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		query = details.inputValue;
 		if (query.trim().length === 0) {
+			status = 'idle';
 			collection.setItems([]);
 			return;
 		}
+		status = 'searching';
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.debouncedSearch(query);
-		if (!searchResult) {
+		// @ts-expect-error status can have changed during the debounce
+		if (!searchResult || status === 'idle') {
 			return;
 		}
 		const results = (
@@ -110,6 +115,7 @@
 				return true;
 			});
 		collection.setItems(results);
+		status = 'done';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -186,22 +192,28 @@
 						</div>
 						<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
 					</Combobox.Control>
-					{#if query === ''}
+					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if collection.items.length === 0}
+					{:else if status === 'searching'}
 						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{query}</code>
+							<LoaderIcon class="size-4" />
 						</span>
-					{:else}
-						<Combobox.Content class="p-0 border-none bg-transparent">
-							{#each collection.items as item (item)}
-								{#if item.type === 'result'}
-									{@render result(item)}
-								{:else if item.type === 'subresult'}
-									{@render subresult(item)}
-								{/if}
-							{/each}
-						</Combobox.Content>
+					{:else if status === 'done'}
+						{#if collection.items.length === 0}
+							<span class="py-10 text-center opacity-50">
+								No results found for <code class="code">{query}</code>
+							</span>
+						{:else}
+							<Combobox.Content class="p-0 border-none bg-transparent">
+								{#each collection.items as item (item)}
+									{#if item.type === 'result'}
+										{@render result(item)}
+									{:else if item.type === 'subresult'}
+										{@render subresult(item)}
+									{/if}
+								{/each}
+							</Combobox.Content>
+						{/if}
 					{/if}
 				</Combobox>
 			</Dialog.Content>
