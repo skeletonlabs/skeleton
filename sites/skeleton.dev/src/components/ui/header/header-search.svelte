@@ -2,7 +2,7 @@
 	import type { Pagefind } from '@/modules/pagefind';
 
 	function createPagefindSingleton() {
-		let instance: Pagefind | null = null;
+		let instance: Pagefind;
 		return async function get() {
 			if (!instance) {
 				instance = (await import('@/modules/pagefind')) as Pagefind;
