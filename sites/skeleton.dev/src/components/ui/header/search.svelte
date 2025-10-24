@@ -8,6 +8,9 @@
 			if (!instance) {
 				// @ts-expect-error pagefind is only present during runtime
 				instance = (await import('/pagefind/pagefind.js')) as Pagefind;
+				await instance.options({
+					excerptLength: 10,
+				});
 				await instance.init();
 			}
 			return instance;
@@ -36,7 +39,7 @@
 		type: 'subresult';
 		url: string;
 		title: string;
-		excerpt: string;
+		description: string;
 	}
 
 	interface Search {
@@ -94,20 +97,12 @@
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
-					return [
-						{
-							type: 'result' as const,
-							url: result.url,
-							title: result.meta.title,
-							description: result.meta.description,
-						},
-						...result.sub_results.map((subResult) => ({
-							type: 'subresult' as const,
-							url: subResult.url,
-							title: subResult.title,
-							excerpt: subResult.excerpt,
-						})),
-					];
+					return result.sub_results.map((subResult, i) => ({
+						type: i === 0 ? ('result' as const) : ('subresult' as const),
+						url: subResult.url,
+						title: subResult.title,
+						description: subResult.excerpt,
+					}));
 				}),
 			)
 		)
@@ -158,7 +153,7 @@
 		<HashIcon class="size-6 opacity-50" />
 		<div class="space-y-1">
 			<Combobox.ItemText>{item.title}</Combobox.ItemText>
-			<p class="text-xs text-surface-600-400 break-words">{@html item.excerpt}</p>
+			<p class="text-xs text-surface-600-400 break-words">{@html item.description}</p>
 		</div>
 		<ChevronRightIcon class="size-4 opacity-50" />
 		<Combobox.ItemIndicator />
