@@ -1,5 +1,4 @@
 <script lang="ts" module>
-	import { debounce } from '@/modules/debounce';
 	import type { Pagefind } from '@/modules/pagefind';
 
 	function createPagefindSingleton() {
@@ -22,7 +21,7 @@
 </script>
 
 <script lang="ts">
-	import { BookIcon, ChevronRightIcon, HashIcon, LoaderIcon } from '@lucide/svelte';
+	import { BookIcon, ChevronRightIcon, HashIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -43,12 +42,6 @@
 		excerpt: string;
 	}
 
-	interface Search {
-		query: string;
-		items: (Result | Subresult)[];
-		status: 'idle' | 'success';
-	}
-
 	interface Props {
 		activeFramework: CollectionEntry<'frameworks'>;
 	}
@@ -63,30 +56,30 @@
 		},
 	});
 
-	const search: Search = $state({
-		query: '',
+	let query = $state('');
+	const collection = useListCollection<Result | Subresult>({
 		items: [],
-		status: 'idle',
+		itemToString: (item) => item.title,
+		itemToValue: (item) => item.url,
 	});
 
-	const collection = $derived(
-		useListCollection({
-			items: search.items,
-			itemToString: (item) => item.title,
-			itemToValue: (item) => item.url,
-		}),
-	);
-
 	const onOpenChange = () => {
-		search.items = [];
+		query = '';
+		collection.setItems([]);
 	};
 
-	const debouncedSearch = debounce(async (query: string) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		query = details.inputValue;
+		if (query.trim().length === 0) {
+			collection.setItems([]);
+			return;
+		}
 		const pagefind = await getPagefind();
-		const searchResult = await pagefind.search(query);
-		if (!searchResult) return;
-
-		search.items = (
+		const searchResult = await pagefind.debouncedSearch(query);
+		if (!searchResult) {
+			return;
+		}
+		const results = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
@@ -116,18 +109,7 @@
 				}
 				return true;
 			});
-
-		search.status = 'success';
-	}, 200);
-
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
-		search.query = details.inputValue;
-		if (search.query.trim().length === 0) {
-			search.status = 'idle';
-			search.items = [];
-			return;
-		}
-		debouncedSearch(search.query);
+		collection.setItems(results);
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -204,24 +186,22 @@
 						</div>
 						<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
 					</Combobox.Control>
-					{#if search.status === 'idle'}
+					{#if query === ''}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if search.status === 'success'}
-						{#if collection.items.length === 0}
-							<span class="py-10 text-center opacity-50">
-								No results found for <code class="code">{search.query}</code>
-							</span>
-						{:else}
-							<Combobox.Content class="p-0 border-none bg-transparent">
-								{#each collection.items as item (item)}
-									{#if item.type === 'result'}
-										{@render result(item)}
-									{:else if item.type === 'subresult'}
-										{@render subresult(item)}
-									{/if}
-								{/each}
-							</Combobox.Content>
-						{/if}
+					{:else if collection.items.length === 0}
+						<span class="py-10 text-center opacity-50">
+							No results found for <code class="code">{query}</code>
+						</span>
+					{:else}
+						<Combobox.Content class="p-0 border-none bg-transparent">
+							{#each collection.items as item (item)}
+								{#if item.type === 'result'}
+									{@render result(item)}
+								{:else if item.type === 'subresult'}
+									{@render subresult(item)}
+								{/if}
+							{/each}
+						</Combobox.Content>
 					{/if}
 				</Combobox>
 			</Dialog.Content>
