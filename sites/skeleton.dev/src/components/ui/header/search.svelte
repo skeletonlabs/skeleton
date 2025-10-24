@@ -59,8 +59,13 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		search.status = 'loading';
 		search.query = event.inputValue;
+		if (search.query.trim().length === 0) {
+			search.status = 'idle';
+			search.items = [];
+			return;
+		}
+		search.status = 'loading';
 		const pagefind = await getPagefind();
 		const result = await pagefind.debouncedSearch(search.query);
 		const results = await Promise.all(result.results.map((result) => result.data()));
