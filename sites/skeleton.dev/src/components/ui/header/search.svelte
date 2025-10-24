@@ -133,7 +133,7 @@
 						</span>
 					{:else if search.status === 'success'}
 						{#if collection.items.length === 0}
-							<span class="py-10 text-center opacity-50">
+							<span class="py-10 text-center opacity-50 leading-normal">
 								No results found for <code class="code">{search.query}</code>
 							</span>
 						{:else}
