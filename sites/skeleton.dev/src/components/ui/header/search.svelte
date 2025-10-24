@@ -31,6 +31,12 @@
 	let status: 'idle' | 'done' = $state('idle');
 	let items: (Result | Subresult)[] = $state.raw([]);
 
+	function reset() {
+		query = '';
+		status = 'idle';
+		items = [];
+	}
+
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
 			if (import.meta.env.SSR) {
@@ -56,8 +62,7 @@
 			if (!open) {
 				return;
 			}
-			query = '';
-			items = [];
+			reset();
 		},
 	});
 
@@ -72,8 +77,7 @@
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		query = details.inputValue.trim();
 		if (query.length === 0) {
-			status = 'idle';
-			items = [];
+			reset();
 			return;
 		}
 		const pagefind = await pagefindPromise;
