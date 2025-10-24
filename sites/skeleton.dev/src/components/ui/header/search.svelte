@@ -1,26 +1,5 @@
-<script lang="ts" module>
-	import type { Pagefind } from '@/modules/pagefind';
-
-	function createPagefindSingleton() {
-		let instance: Pagefind;
-
-		return async function get() {
-			if (!instance) {
-				// @ts-expect-error pagefind is only present during runtime
-				instance = (await import('/pagefind/pagefind.js')) as Pagefind;
-				await instance.options({
-					excerptLength: 10,
-				});
-				await instance.init();
-			}
-			return instance;
-		};
-	}
-
-	const getPagefind = createPagefindSingleton();
-</script>
-
 <script lang="ts">
+	import type { Pagefind } from '@/modules/pagefind';
 	import { BookIcon, ChevronRightIcon, HashIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
@@ -52,6 +31,18 @@
 	let status: 'idle' | 'done' = $state('idle');
 	let items: (Result | Subresult)[] = $state.raw([]);
 
+	const pagefindPromise = new Promise<Pagefind>((resolve) =>
+		(async () => {
+			// @ts-expect-error pagefind is only present during runtime
+			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
+			await pagefind.options({
+				excerptLength: 10,
+			});
+			await pagefind.init();
+			resolve(pagefind);
+		})(),
+	);
+
 	const id = $props.id();
 	const dialog = useDialog({
 		id,
@@ -67,6 +58,7 @@
 			itemToValue: (item) => item.url,
 		}),
 	);
+
 	const onOpenChange = () => {
 		query = '';
 		items = [];
@@ -79,7 +71,7 @@
 			items = [];
 			return;
 		}
-		const pagefind = await getPagefind();
+		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
 		items = (
 			await Promise.all(
