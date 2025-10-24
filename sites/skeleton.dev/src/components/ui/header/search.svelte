@@ -42,21 +42,6 @@
 	let query = $state('');
 	let items = $state.raw<PagefindSearchFragment[]>([]);
 
-	const search = $derived.by(async () => {
-		if (import.meta.env.SSR || query.trim() === '') {
-			return [];
-		}
-		const pagefind = await getPagefind();
-		const search = await pagefind.search(query);
-		const results = await Promise.all(search.results.map((result) => result.data()));
-		return results.filter((item) => {
-			if (item.url.startsWith('/docs/')) {
-				return item.url.startsWith(`/docs/${activeFramework.id}/`);
-			}
-			return true;
-		});
-	});
-
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
 			items,
@@ -70,7 +55,15 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		query = event.inputValue;
+		const pagefind = await getPagefind();
+		const search = await pagefind.search(query);
+		const results = await Promise.all(search.results.map((result) => result.data()));
+		items = results.filter((item) => {
+			if (item.url.startsWith('/docs/')) {
+				return item.url.startsWith(`/docs/${activeFramework.id}/`);
+			}
+			return true;
+		});
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -118,18 +111,14 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					{#await search}
-						<div class="p-4 text-center opacity-50">Loading results...</div>
-					{:then results}
-						<Combobox.Content class="p-0 border-none">
-							{#each results as result (result)}
-								<Combobox.Item item={result}>
-									<Combobox.ItemText>{result.meta.title}</Combobox.ItemText>
-									<Combobox.ItemIndicator />
-								</Combobox.Item>
-							{/each}
-						</Combobox.Content>
-					{/await}
+					<Combobox.Content class="p-0 border-none">
+						{#each items as item (item)}
+							<Combobox.Item {item}>
+								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
+							</Combobox.Item>
+						{/each}
+					</Combobox.Content>
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
