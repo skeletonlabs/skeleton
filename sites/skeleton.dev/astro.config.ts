@@ -47,6 +47,11 @@ export default defineConfig({
 		pagefind(),
 	],
 	vite: {
+		build: {
+			rollupOptions: {
+				external: ['/pagefind/pagefind.js'],
+			},
+		},
 		plugins: [
 			/* @ts-expect-error vite version mismatch */
 			tailwindcss(),
