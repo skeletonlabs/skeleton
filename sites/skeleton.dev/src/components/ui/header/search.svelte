@@ -28,7 +28,6 @@
 	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
-	import type { ExclamationTokenableNode } from 'ts-morph';
 
 	interface Result {
 		type: 'result';
