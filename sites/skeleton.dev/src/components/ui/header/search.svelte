@@ -76,6 +76,10 @@
 		}
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
+		// A more recent search call was made
+		if (!searchResult) {
+			return;
+		}
 		items = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
