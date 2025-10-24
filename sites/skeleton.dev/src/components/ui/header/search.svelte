@@ -81,7 +81,9 @@
 			items = [];
 			return;
 		}
-		status = 'searching';
+		if (status === 'idle') {
+			status = 'searching';
+		}
 		const pagefind = await getPagefind();
 		const searchResult = await pagefind.debouncedSearch(query);
 		// @ts-expect-error status can have changed during the debounce
