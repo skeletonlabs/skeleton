@@ -52,6 +52,10 @@
 		initialFocusEl: () => {
 			return document.querySelector('[data-search-input]');
 		},
+		onOpenChange: () => {
+			query = '';
+			items = [];
+		},
 	});
 
 	const collection = $derived(
@@ -61,11 +65,6 @@
 			itemToValue: (item) => item.url,
 		}),
 	);
-
-	const onOpenChange = () => {
-		query = '';
-		items = [];
-	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		query = details.inputValue.trim();
@@ -173,7 +172,6 @@
 					class="w-full flex flex-col gap-4"
 					placeholder="Search..."
 					{collection}
-					{onOpenChange}
 					{onInputValueChange}
 					{onValueChange}
 					inputBehavior="autohighlight"
