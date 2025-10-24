@@ -39,7 +39,9 @@
 		},
 	});
 
+	let query = $state('');
 	let items = $state.raw<PagefindSearchFragment[]>([]);
+	let status: 'idle' | 'loading' | 'error' | 'success' = $state('idle');
 
 	const collection = $derived(
 		useListCollection<PagefindSearchFragment>({
@@ -54,8 +56,10 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
+		status = 'loading';
+		query = event.inputValue;
 		const pagefind = await getPagefind();
-		const search = await pagefind.debouncedSearch(event.inputValue);
+		const search = await pagefind.debouncedSearch(query);
 		const results = await Promise.all(search.results.map((result) => result.data()));
 		items = results.filter((item) => {
 			if (item.url.startsWith('/docs/')) {
@@ -63,6 +67,11 @@
 			}
 			return true;
 		});
+		if (items.length === 0) {
+			status = 'error';
+			return;
+		}
+		status = 'success';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -101,7 +110,7 @@
 				</header>
 				<hr class="hr" />
 				<Combobox
-					class="w-full"
+					class="w-full flex flex-col gap-2"
 					placeholder="Search..."
 					{collection}
 					{onOpenChange}
@@ -109,19 +118,27 @@
 					{onValueChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="clear"
-					open={true}
+					open
 				>
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<Combobox.Content class="p-0 border-none">
-						{#each items as item (item)}
-							<Combobox.Item {item}>
-								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-								<Combobox.ItemIndicator />
-							</Combobox.Item>
-						{/each}
-					</Combobox.Content>
+					{#if status === 'idle'}
+						<p class="text-center text-sm opacity-60 mt-2">Start typing to search...</p>
+					{:else if status === 'loading'}
+						<p class="text-center text-sm opacity-60 mt-2">Loading results...</p>
+					{:else if status === 'error'}
+						<p class="text-center text-sm opacity-60 mt-2">No results found for {query}</p>
+					{:else if status === 'success'}
+						<Combobox.Content class="p-0 border-none">
+							{#each items as item (item)}
+								<Combobox.Item {item}>
+									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+									<Combobox.ItemIndicator />
+								</Combobox.Item>
+							{/each}
+						</Combobox.Content>
+					{/if}
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
