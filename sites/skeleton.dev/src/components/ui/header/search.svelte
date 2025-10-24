@@ -39,7 +39,6 @@
 		},
 	});
 
-	let query = $state('');
 	let items = $state.raw<PagefindSearchFragment[]>([]);
 
 	const collection = $derived(
@@ -56,7 +55,7 @@
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
 		const pagefind = await getPagefind();
-		const search = await pagefind.search(query);
+		const search = await pagefind.debouncedSearch(event.inputValue);
 		const results = await Promise.all(search.results.map((result) => result.data()));
 		items = results.filter((item) => {
 			if (item.url.startsWith('/docs/')) {
