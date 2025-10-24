@@ -1,5 +1,4 @@
 <script lang="ts" module>
-	import { debounce } from '@/modules/debounce';
 	import type { Pagefind } from '@/modules/pagefind';
 
 	function createPagefindSingleton() {
@@ -68,11 +67,21 @@
 			itemToValue: (item) => item.url,
 		}),
 	);
+	const onOpenChange = () => {
+		query = '';
+		items = [];
+	};
 
-	const debouncedSearch = debounce(async (query: string) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		query = details.inputValue.trim();
+		if (query.length === 0) {
+			status = 'idle';
+			items = [];
+			return;
+		}
 		const pagefind = await getPagefind();
-		const searchResult = await pagefind.search(query);
-		const results = (
+		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
+		items = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
@@ -102,23 +111,7 @@
 				}
 				return true;
 			});
-		items = results;
 		status = 'done';
-	}, 150);
-
-	const onOpenChange = () => {
-		query = '';
-		items = [];
-	};
-
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
-		query = details.inputValue.trim();
-		if (query.length === 0) {
-			status = 'idle';
-			items = [];
-			return;
-		}
-		debouncedSearch(query);
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -129,10 +122,6 @@
 		dialog().setOpen(false);
 		await navigate(url);
 	};
-
-	$effect(() => {
-		getPagefind();
-	});
 
 	$effect(() =>
 		on(document, 'keydown', (event) => {
