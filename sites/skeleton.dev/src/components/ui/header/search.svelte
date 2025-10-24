@@ -19,6 +19,7 @@
 
 <script lang="ts">
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
+	import { LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
@@ -126,12 +127,16 @@
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
 					{#if search.status === 'idle'}
-						<p class="text-center text-sm opacity-60 mt-2">Start typing to search...</p>
+						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'loading'}
-						<p class="text-center text-sm opacity-60 mt-2">Loading results...</p>
+						<span class="py-10 text-center opacity-50 flex justify-center">
+							<LoaderIcon class="animate-spin size-5" />
+						</span>
 					{:else if search.status === 'success'}
 						{#if collection.items.length === 0}
-							<p class="text-center text-sm opacity-60 mt-2">No results found.</p>
+							<span class="py-10 text-center opacity-50">
+								No results found for <code class="code">{search.query}</code>
+							</span>
 						{:else}
 							<Combobox.Content class="p-0 border-none">
 								{#each collection.items as item (item)}
