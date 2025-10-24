@@ -18,13 +18,32 @@
 </script>
 
 <script lang="ts">
-	import type { PagefindSearchFragment } from '@/modules/pagefind';
-	import { BookIcon, ChevronRightIcon, LoaderIcon } from '@lucide/svelte';
+	import { BookIcon, ChevronRightIcon, HashIcon, LoaderIcon } from '@lucide/svelte';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
+
+	interface Result {
+		type: 'result';
+		url: string;
+		title: string;
+		description: string;
+	}
+
+	interface Subresult {
+		type: 'subresult';
+		url: string;
+		title: string;
+		excerpt: string;
+	}
+
+	interface Search {
+		query: string;
+		items: (Result | Subresult)[];
+		status: 'idle' | 'loading' | 'error' | 'success';
+	}
 
 	interface Props {
 		activeFramework: CollectionEntry<'frameworks'>;
@@ -40,16 +59,16 @@
 		},
 	});
 
-	const search = $state({
+	const search: Search = $state({
 		query: '',
-		items: [] as PagefindSearchFragment[],
-		status: 'idle' as 'idle' | 'loading' | 'error' | 'success',
+		items: [],
+		status: 'idle',
 	});
 
 	const collection = $derived(
-		useListCollection<PagefindSearchFragment>({
+		useListCollection({
 			items: search.items,
-			itemToString: (item) => item.meta.title,
+			itemToString: (item) => item.title,
 			itemToValue: (item) => item.url,
 		}),
 	);
@@ -67,14 +86,35 @@
 		}
 		search.status = 'loading';
 		const pagefind = await getPagefind();
-		const result = await pagefind.debouncedSearch(search.query);
-		const results = await Promise.all(result.results.map((result) => result.data()));
-		search.items = results.filter((item) => {
-			if (item.url.startsWith('/docs/')) {
-				return item.url.startsWith(`/docs/${activeFramework.id}/`);
-			}
-			return true;
-		});
+		const searchResult = await pagefind.debouncedSearch(search.query);
+		search.items = (
+			await Promise.all(
+				searchResult.results.map(async (searchResult) => {
+					const result = await searchResult.data();
+					return [
+						{
+							type: 'result' as const,
+							url: result.url,
+							title: result.meta.title,
+							description: result.meta.description,
+						},
+						...result.sub_results.map((subResult) => ({
+							type: 'subresult' as const,
+							url: subResult.url,
+							title: subResult.title,
+							excerpt: subResult.excerpt,
+						})),
+					];
+				}),
+			)
+		)
+			.flat()
+			.filter((item) => {
+				if (item.url.startsWith('/docs/')) {
+					return item.url.startsWith(`/docs/${activeFramework.id}/`);
+				}
+				return true;
+			});
 		search.status = 'success';
 	};
 
@@ -96,6 +136,30 @@
 		}),
 	);
 </script>
+
+{#snippet result(item: Result)}
+	<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+		<BookIcon class="size-6 opacity-50" />
+		<div class="space-y-1">
+			<Combobox.ItemText>{item.title}</Combobox.ItemText>
+			<p class="text-xs">{item.url}</p>
+		</div>
+		<ChevronRightIcon class="size-4 opacity-50" />
+		<Combobox.ItemIndicator />
+	</Combobox.Item>
+{/snippet}
+
+{#snippet subresult(item: Subresult)}
+	<Combobox.Item class="p-4 ml-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+		<HashIcon class="size-6 opacity-50" />
+		<div class="space-y-1">
+			<Combobox.ItemText>{item.title}</Combobox.ItemText>
+			<p class="text-xs text-surface-600-400 break-words">{@html item.excerpt}</p>
+		</div>
+		<ChevronRightIcon class="size-4 opacity-50" />
+		<Combobox.ItemIndicator />
+	</Combobox.Item>
+{/snippet}
 
 <Dialog.Provider value={dialog}>
 	<Dialog.Trigger class="btn preset-tonal justify-start">
@@ -140,15 +204,11 @@
 						{:else}
 							<Combobox.Content class="p-0 border-none">
 								{#each collection.items as item (item)}
-									<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
-										<BookIcon class="size-6 opacity-50" />
-										<div class="space-y-1">
-											<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
-											<p class="text-xs">{item.url}</p>
-										</div>
-										<ChevronRightIcon class="size-4 opacity-50" />
-										<Combobox.ItemIndicator />
-									</Combobox.Item>
+									{#if item.type === 'result'}
+										{@render result(item)}
+									{:else if item.type === 'subresult'}
+										{@render subresult(item)}
+									{/if}
 								{/each}
 							</Combobox.Content>
 						{/if}
