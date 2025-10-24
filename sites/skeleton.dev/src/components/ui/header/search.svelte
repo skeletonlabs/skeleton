@@ -127,12 +127,12 @@
 					{#if search.status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'loading'}
-						<span class="py-10 text-center opacity-50 flex justify-center">
-							<LoaderIcon class="animate-spin size-4 h-(--base-line-height)" />
+						<span class="py-10 text-center opacity-50 flex justify-center leading-normal h-(--base-line-height)">
+							<LoaderIcon class="animate-spin size-4" />
 						</span>
 					{:else if search.status === 'success'}
 						{#if collection.items.length === 0}
-							<span class="py-10 text-center opacity-50 leading-normal">
+							<span class="py-10 text-center opacity-50">
 								No results found for <code class="code">{search.query}</code>
 							</span>
 						{:else}
