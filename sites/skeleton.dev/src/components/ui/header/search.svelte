@@ -120,11 +120,10 @@
 					selectionBehavior="clear"
 					open
 				>
-					<Combobox.Control class="flex flex-row items-center gap-2">
+					<Combobox.Control class="flex flex-row items-center gap-4">
 						<SearchIcon class="size-4 opacity-60" />
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-
 					{#if search.status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'loading'}
