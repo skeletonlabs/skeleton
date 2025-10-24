@@ -106,6 +106,7 @@
 					{onValueChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="clear"
+					open={true}
 				>
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
