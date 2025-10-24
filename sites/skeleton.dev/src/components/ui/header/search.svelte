@@ -52,7 +52,10 @@
 		initialFocusEl() {
 			return document.querySelector('[data-search-input]');
 		},
-		onOpenChange() {
+		onOpenChange(open) {
+			if (!open) {
+				return;
+			}
 			query = '';
 			items = [];
 		},
