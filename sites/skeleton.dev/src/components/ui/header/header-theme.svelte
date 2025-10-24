@@ -1,6 +1,10 @@
 <script lang="ts">
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import SystemIcon from '@lucide/svelte/icons/laptop-minimal-check';
+	import MoonIcon from '@lucide/svelte/icons/moon';
 	import PaletteIcon from '@lucide/svelte/icons/palette';
+	import SunIcon from '@lucide/svelte/icons/sun';
 	import { themes } from '@skeletonlabs/skeleton-common';
 	import { Popover, Portal, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
@@ -28,34 +32,50 @@
 <Popover>
 	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2">
 		<PaletteIcon class="size-4" />
-		<span>Theme</span>
+		<span class="hidden xl:inline">Theme</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>
 		<Popover.Positioner class="z-[51]!">
-			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-2 shadow-xl">
-				<SegmentedControl value={activeMode} onValueChange={(details) => details.value && setActiveMode(details.value)} class="w-full mb-2">
-					<SegmentedControl.Label>Choose Mode</SegmentedControl.Label>
-					<SegmentedControl.Control>
-						<SegmentedControl.Indicator />
-						<SegmentedControl.Item value="system">
-							<SegmentedControl.ItemText>System</SegmentedControl.ItemText>
-							<SegmentedControl.ItemHiddenInput />
-						</SegmentedControl.Item>
-						<SegmentedControl.Item value="light">
-							<SegmentedControl.ItemText>Light</SegmentedControl.ItemText>
-							<SegmentedControl.ItemHiddenInput />
-						</SegmentedControl.Item>
-						<SegmentedControl.Item value="dark">
-							<SegmentedControl.ItemText>Dark</SegmentedControl.ItemText>
-							<SegmentedControl.ItemHiddenInput />
-						</SegmentedControl.Item>
-					</SegmentedControl.Control>
-				</SegmentedControl>
-				<hr class="hr" />
-				<span class="label">
-					<span class="label-text">Choose Theme</span>
-					<div class="grid lg:grid-cols-3 gap-2">
+			<Popover.Content
+				class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 shadow-xl max-h-[75vh] lg:max-h-none overflow-y-auto"
+			>
+				<!-- Mode Selection -->
+				<div>
+					<SegmentedControl
+						value={activeMode}
+						onValueChange={(details) => details.value && setActiveMode(details.value)}
+						class="bg-surface-50-950 w-full mb-2"
+					>
+						<SegmentedControl.Control>
+							<SegmentedControl.Indicator />
+							<SegmentedControl.Item value="system">
+								<SegmentedControl.ItemText class="flex items-center gap-2">
+									<SystemIcon class="size-4" />
+									<span>System</span>
+								</SegmentedControl.ItemText>
+								<SegmentedControl.ItemHiddenInput />
+							</SegmentedControl.Item>
+							<SegmentedControl.Item value="light">
+								<SegmentedControl.ItemText class="flex items-center gap-2">
+									<SunIcon class="size-4" />
+									<span>Light</span>
+								</SegmentedControl.ItemText>
+								<SegmentedControl.ItemHiddenInput />
+							</SegmentedControl.Item>
+							<SegmentedControl.Item value="dark">
+								<SegmentedControl.ItemText class="flex items-center gap-2">
+									<MoonIcon class="size-4" />
+									<span>Dark</span>
+								</SegmentedControl.ItemText>
+								<SegmentedControl.ItemHiddenInput />
+							</SegmentedControl.Item>
+						</SegmentedControl.Control>
+					</SegmentedControl>
+				</div>
+				<!-- Theme Selection -->
+				<div class="space-y-4">
+					<div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
 						{#each themes as theme (theme)}
 							<button
 								data-theme={theme.name}
@@ -75,7 +95,14 @@
 							</button>
 						{/each}
 					</div>
-				</span>
+				</div>
+				<!-- Create a Theme -->
+				<div class="card bg-primary-500 flex justify-center items-center py-4 mx-auto">
+					<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
+						<span>Create a Theme</span>
+						<ArrowUpRightIcon class="size-4" />
+					</a>
+				</div>
 			</Popover.Content>
 		</Popover.Positioner>
 	</Portal>

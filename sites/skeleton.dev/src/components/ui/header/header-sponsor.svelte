@@ -7,17 +7,21 @@
 	// const links = [{ href: 'https://github.com/sponsors/skeletonlabs', title: 'News' }];
 </script>
 
-<Popover>
-	<Popover.Trigger class="hidden xl:flex btn p-2 hover:preset-tonal data-[state=open]:preset-tonal" title="Sponsor Us">
+<Popover positioning={{ placement: 'bottom' }}>
+	<Popover.Trigger
+		class="hidden xl:flex btn p-2 hover:preset-tonal data-[state=open]:preset-tonal"
+		title="Sponsor Us"
+		aria-label="Sponsor Us"
+	>
 		<HeartIcon class="fill-surface-950-50 size-5" />
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>
 		<Popover.Positioner>
-			<Popover.Content class="card max-w-72 bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 z-50">
+			<Popover.Content class="card w-full max-w-xl bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 z-50">
 				<header class="space-y-2">
 					<p class="font-bold">Sponsor Us</p>
-					<p class="text-xs opacity-60">Sponsor Skeleton and help support the project. Available on the following services.</p>
+					<p class="text-xs opacity-60">Support the project!</p>
 				</header>
 				<hr class="hr" />
 				<div class="flex flex-col gap-1">

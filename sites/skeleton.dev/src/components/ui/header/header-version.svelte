@@ -7,9 +7,9 @@
 	const versions = ['v3', 'v2', 'v1'];
 </script>
 
-<Popover>
-	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2">
-		<span>{packageJson.version}</span>
+<Popover class="hidden xl:block">
+	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2 hidden xl:flex">
+		<span>v{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>

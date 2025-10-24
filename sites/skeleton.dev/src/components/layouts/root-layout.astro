@@ -8,19 +8,41 @@ import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
 import ModeLoader from '@/components/ui/mode-loader.astro';
 
+// import OpenGraphImage from '@/images/meta/opengraph.png';
+
 interface Props {
 	title?: string;
 	description?: string;
+	classList?: string;
 }
 
 const DEFAULT_TITLE = 'Skeleton';
 const DEFAULT_DESCRIPTION = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.';
 
-const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props;
+const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, classList } = Astro.props;
+
+// Format meta tag data
+const meta = {
+	title: `${title ? title + ' - ' : ''}Skeleton`,
+	description: description ? description : 'Skeleton is an adaptive design system powered by Tailwind CSS.',
+	// image: OpenGraphImage.src,
+};
 ---
 
 <html lang="en" transition:animate="none">
 	<head>
+		<!-- Meta Tags -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<!-- TODO: distribute into SEO component -->
+		<meta
+			name="keywords"
+			content="design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, accessibility, typescript, css, open source, adaptive"
+		/>
+		<meta name="theme-color" content="#111111" />
+		<meta name="author" content="Skeleton Labs" />
+
 		<SEO
 			title={title}
 			description={description}
@@ -83,7 +105,7 @@ const { title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION } = Astro.props
 		<Analytics />
 		<ClientRouter />
 	</head>
-	<body>
+	<body class:list={[classList]}>
 		<slot />
 	</body>
 </html>
