@@ -78,6 +78,9 @@
 	keys.onKeys(['meta', 'k'], () => {
 		dialog().setOpen(true);
 	});
+	keys.onKeys(['ctrl', 'k'], () => {
+		dialog().setOpen(true);
+	});
 </script>
 
 <Dialog.Provider value={dialog}>
