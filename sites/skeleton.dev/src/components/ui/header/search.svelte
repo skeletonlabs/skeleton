@@ -49,10 +49,10 @@
 	const id = $props.id();
 	const dialog = useDialog({
 		id,
-		initialFocusEl: () => {
+		initialFocusEl() {
 			return document.querySelector('[data-search-input]');
 		},
-		onOpenChange: () => {
+		onOpenChange() {
 			query = '';
 			items = [];
 		},
@@ -172,6 +172,7 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
+					inputValue={query}
 					{onInputValueChange}
 					{onValueChange}
 					inputBehavior="autohighlight"
