@@ -120,8 +120,8 @@
 					open
 				>
 					<Combobox.Control class="flex flex-row items-center gap-2">
-						<Combobox.Input data-search-input />
-						<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
+						<SearchIcon class="size-4 opacity-60" />
+						<Combobox.Input class="input-ghost" data-search-input />
 					</Combobox.Control>
 
 					{#if search.status === 'idle'}
