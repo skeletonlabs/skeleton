@@ -52,6 +52,7 @@ export default defineConfig({
 				external: ['/pagefind/pagefind.js'],
 			},
 		},
+		assetsInclude: '**/pagefind.js',
 		plugins: [
 			/* @ts-expect-error vite version mismatch */
 			tailwindcss(),
