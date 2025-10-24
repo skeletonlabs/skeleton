@@ -83,7 +83,7 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					<Combobox.Content>
+					<Combobox.Content class="p-0 border-none">
 						{#each collection.items as item (item)}
 							<Combobox.Item {item}>
 								<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
