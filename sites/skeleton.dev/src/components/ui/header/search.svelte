@@ -59,22 +59,26 @@
 
 	let query = $state('');
 	let status: 'idle' | 'searching' | 'done' = $state('idle');
-	const collection = useListCollection<Result | Subresult>({
-		items: [],
-		itemToString: (item) => item.title,
-		itemToValue: (item) => item.url,
-	});
+	let items: (Result | Subresult)[] = $state.raw([]);
+
+	const collection = $derived(
+		useListCollection<Result | Subresult>({
+			items,
+			itemToString: (item) => item.title,
+			itemToValue: (item) => item.url,
+		}),
+	);
 
 	const onOpenChange = () => {
 		query = '';
-		collection.setItems([]);
+		items = [];
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		query = details.inputValue;
 		if (query.trim().length === 0) {
 			status = 'idle';
-			collection.setItems([]);
+			items = [];
 			return;
 		}
 		status = 'searching';
@@ -114,7 +118,7 @@
 				}
 				return true;
 			});
-		collection.setItems(results);
+		items = results;
 		status = 'done';
 	};
 
@@ -195,8 +199,8 @@
 					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if status === 'searching'}
-						<span class="py-10 text-center opacity-50">
-							<LoaderIcon class="size-4" />
+						<span class="py-10 flex justify-center opacity-50">
+							<LoaderIcon class="size-4 animate-spin" />
 						</span>
 					{:else if status === 'done'}
 						{#if collection.items.length === 0}
