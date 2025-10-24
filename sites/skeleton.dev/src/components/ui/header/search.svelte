@@ -24,7 +24,7 @@
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
-	import { PressedKeys } from 'runed';
+	import { on } from 'svelte/events';
 
 	interface Props {
 		activeFramework: CollectionEntry<'frameworks'>;
@@ -87,13 +87,14 @@
 		await navigate(url);
 	};
 
-	const keys = new PressedKeys();
-	keys.onKeys(['meta', 'k'], () => {
-		dialog().setOpen(true);
-	});
-	keys.onKeys(['ctrl', 'k'], () => {
-		dialog().setOpen(true);
-	});
+	$effect(() =>
+		on(document, 'keydown', (event) => {
+			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+				event.preventDefault();
+				dialog().setOpen(true);
+			}
+		}),
+	);
 </script>
 
 <Dialog.Provider value={dialog}>
