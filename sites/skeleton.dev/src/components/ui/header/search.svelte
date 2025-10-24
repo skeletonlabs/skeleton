@@ -40,33 +40,31 @@
 	});
 
 	let query = $state('');
-	let items = $state.raw<PagefindSearchFragment[]>([]);
 
-	const search = $derived.by(async () => {
-		if (import.meta.env.SSR || query.trim() === '') {
-			return [];
-		}
-		const pagefind = await getPagefind();
-		const search = await pagefind.search(query);
-		const results = await Promise.all(search.results.map((result) => result.data()));
-		return results.filter((item) => {
-			if (item.url.startsWith('/docs/')) {
-				return item.url.startsWith(`/docs/${activeFramework.id}/`);
+	const collection = $derived.by(async () => {
+		async function getItems() {
+			if (import.meta.env.SSR || query.trim() === '') {
+				return [];
 			}
-			return true;
+			const pagefind = await getPagefind();
+			const search = await pagefind.search(query);
+			const results = await Promise.all(search.results.map((result) => result.data()));
+			return results.filter((item) => {
+				if (item.url.startsWith('/docs/')) {
+					return item.url.startsWith(`/docs/${activeFramework.id}/`);
+				}
+				return true;
+			});
+		}
+		return useListCollection<PagefindSearchFragment>({
+			items: await getItems(),
+			itemToString: (item) => item.meta.title,
+			itemToValue: (item) => item.url,
 		});
 	});
 
-	const collection = $derived(
-		useListCollection<PagefindSearchFragment>({
-			items,
-			itemToString: (item) => item.meta.title,
-			itemToValue: (item) => item.url,
-		}),
-	);
-
-	const onOpenChange = () => {
-		items = [];
+	const onOpenChange = async () => {
+		(await collection).setItems([]);
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
@@ -108,7 +106,7 @@
 				<Combobox
 					class="w-full"
 					placeholder="Search..."
-					{collection}
+					collection={await collection}
 					{onOpenChange}
 					{onInputValueChange}
 					{onValueChange}
@@ -118,18 +116,14 @@
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
-					{#await search}
-						<div class="p-4 text-center opacity-50">Loading results...</div>
-					{:then results}
-						<Combobox.Content class="p-0 border-none">
-							{#each results as result (result)}
-								<Combobox.Item item={result}>
-									<Combobox.ItemText>{result.meta.title}</Combobox.ItemText>
-									<Combobox.ItemIndicator />
-								</Combobox.Item>
-							{/each}
-						</Combobox.Content>
-					{/await}
+					<Combobox.Content class="p-0 border-none">
+						{#each (await collection).items as result (result)}
+							<Combobox.Item item={result}>
+								<Combobox.ItemText>{result.meta.title}</Combobox.ItemText>
+								<Combobox.ItemIndicator />
+							</Combobox.Item>
+						{/each}
+					</Combobox.Content>
 				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
