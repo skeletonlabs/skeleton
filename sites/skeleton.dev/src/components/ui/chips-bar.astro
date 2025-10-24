@@ -1,16 +1,19 @@
 ---
-import { PersonStandingIcon, CodeIcon, BlocksIcon } from 'lucide-react';
-import Framework from './framework.astro';
+import { PersonStandingIcon, CodeIcon, BlocksIcon } from '@lucide/svelte';
+import { getActiveFramework } from '@/modules/framework';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	doc: CollectionEntry<'docs'>;
+}
 
 // Props
 const { doc } = Astro.props;
 
 // Doc Info
-// "filePath": "src/content/docs/framework-components/avatar.mdx",
-const path = doc.filePath.split('/');
-const contentType = path.at(-2);
-// const featureFileName = path.at(-1);
-const featureName = path.at(-1).replace('.mdx', '');
+const path = doc.id.split('/');
+const contentType = path.at(0) ?? '';
+const featureName = path.at(1) ?? '';
 
 // Allowance
 const allow = {
@@ -32,16 +35,18 @@ const urlPartials = {
 	// githubSkeleton: `${githubBaseUrl}/packages/skeleton/src`,
 	// githubSvelte: `${githubBaseUrl}/packages/skeleton-svelte`,
 	// githubReact: `${githubBaseUrl}/packages/skeleton-react`,
-    zag: `https://zagjs.com/components`
+	zag: `https://zagjs.com/components`,
 };
+
+const activeFramework = getActiveFramework(Astro);
 ---
 
 <pre class="pre">contentType: {contentType}</pre>
 <pre class="pre">featureName: {featureName}</pre>
 
 <div class="flex flex-wrap gap-2 overflow-x-auto pb-2">
-    <!-- Source Code Chip -->
-    <!-- NOTE: framework specific; URL tailored to content type -->
+	<!-- Source Code Chip -->
+	<!-- NOTE: framework specific; URL tailored to content type -->
 	{
 		allowSource && (
 			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
@@ -50,19 +55,20 @@ const urlPartials = {
 			</a>
 		)
 	}
-    <!-- CSS Styles Chip -->
-    <!-- URL tailored to content type -->
+	<!-- CSS Styles Chip -->
+	<!-- URL tailored to content type -->
 	{
 		allowCss && (
 			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
-				<CodeIcon className="size-4" />
+				<CodeIcon class="size-4" />
 				<span>CSS</span>
 			</a>
 		)
 	}
-    <!-- ARIA APG Chip -->
-    <!-- TODO: we need to add a frontmatter key for this path -->
-	{/*
+	<!-- ARIA APG Chip -->
+	<!-- TODO: we need to add a frontmatter key for this path -->
+	{
+		/*
     {
 		allowA11y && (
 			<a class="chip preset-filled-surface-200-800" href="/#" target="_blank">
@@ -71,22 +77,15 @@ const urlPartials = {
 			</a>
 		)
 	}
-    */}
-    <!-- Zag API Chip -->
+    */
+	}
+	<!-- Zag API Chip -->
 	{
 		allowApi && (
-			<Framework id="react">
-                <a class="chip preset-filled-surface-200-800" href={`${urlPartials.zag}/react/${featureName}`} target="_blank">
-                    <BlocksIcon className="size-4" />
-                    <span>API</span>
-                </a>
-            </Framework>
-			<Framework id="svelte">
-                <a class="chip preset-filled-surface-200-800" href={`${urlPartials.zag}/svelte/${featureName}`} target="_blank">
-                    <BlocksIcon className="size-4" />
-                    <span>API</span>
-                </a>
-            </Framework>
+			<a class="chip preset-filled-surface-200-800" href={`${urlPartials.zag}/${activeFramework.id}/${featureName}`} target="_blank">
+				<BlocksIcon class="size-4" />
+				<span>API</span>
+			</a>
 		)
 	}
 

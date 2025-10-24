@@ -148,8 +148,8 @@
 {/snippet}
 
 {#snippet subresult(item: Subresult)}
-	<Combobox.Item class="p-4 ml-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
-		<HashIcon class="size-6 opacity-50" />
+	<Combobox.Item class="p-4 ml-8 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+		<HashIcon class="size-4 opacity-50" />
 		<div class="space-y-1">
 			<Combobox.ItemText>{item.title}</Combobox.ItemText>
 			<p class="text-xs text-surface-600-400 break-words">{@html item.description}</p>
@@ -200,7 +200,7 @@
 								No results found for <code class="code">{search.query}</code>
 							</span>
 						{:else}
-							<Combobox.Content class="p-0 border-none">
+							<Combobox.Content class="p-0 border-none bg-transparent">
 								{#each collection.items as item (item)}
 									{#if item.type === 'result'}
 										{@render result(item)}

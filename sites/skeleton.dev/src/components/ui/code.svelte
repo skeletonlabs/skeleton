@@ -35,7 +35,7 @@
 	}
 </script>
 
-<div class="relative">
+<div class="relative" data-pagefind-ignore>
 	{@html html}
 	<button onclick={copyCode} class="btn p-2 aspect-square preset-outlined-surface-200-800 absolute top-3 end-3">
 		{#if hasCopied}
