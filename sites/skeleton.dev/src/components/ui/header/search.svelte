@@ -20,15 +20,24 @@
 <script lang="ts">
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
 	import SearchIcon from '@lucide/svelte/icons/search';
-	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
+	import { PressedKeys } from 'runed';
 
 	interface Props {
 		activeFramework: CollectionEntry<'frameworks'>;
 	}
 
 	const { activeFramework }: Props = $props();
+
+	const id = $props.id();
+	const dialog = useDialog({
+		id,
+		initialFocusEl: () => {
+			return document.querySelector('[data-search-input]');
+		},
+	});
 
 	let query = $state('');
 	let items = $derived.by(async () => {
@@ -67,11 +76,17 @@
 		if (!url) {
 			return;
 		}
+		dialog().setOpen(false);
 		await navigate(url);
 	};
+
+	const keys = new PressedKeys();
+	keys.onKeys(['meta', 'k'], () => {
+		dialog().setOpen(true);
+	});
 </script>
 
-<Dialog initialFocusEl={() => document.querySelector('[data-search-input]')}>
+<Dialog.Provider value={dialog}>
 	<Dialog.Trigger class="btn preset-tonal justify-start">
 		<SearchIcon class="size-4 opacity-60" />
 		<span class="opacity-60">Search...</span>
@@ -119,4 +134,4 @@
 			</Dialog.Content>
 		</Dialog.Positioner>
 	</Portal>
-</Dialog>
+</Dialog.Provider>
