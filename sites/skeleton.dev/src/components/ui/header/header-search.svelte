@@ -21,7 +21,16 @@
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps } from '@skeletonlabs/skeleton-svelte';
+	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
+
+	interface Props {
+		activeFramework: CollectionEntry<'frameworks'>;
+	}
+
+	const { activeFramework }: Props = $props();
+
+	const pagefind = await getPagefind();
 
 	let items: PagefindSearchFragment[] = $state.raw([]);
 
@@ -38,10 +47,14 @@
 	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
-		const pagefind = await getPagefind();
 		const search = await pagefind.search(event.inputValue);
 		const results = await Promise.all(search.results.map((result) => result.data()));
-		items = results;
+		items = results.filter((item) => {
+			if (item.url.startsWith('/docs/')) {
+				return item.url.startsWith(`/docs/${activeFramework.id}/`);
+			}
+			return true;
+		});
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
