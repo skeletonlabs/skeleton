@@ -32,6 +32,9 @@
 
 	let query = $state('');
 	let items = $derived.by(async () => {
+		if (import.meta.env.SSR) {
+			return [];
+		}
 		const pagefind = await getPagefind();
 		const search = await pagefind.search(query);
 		const results = await Promise.all(search.results.map((result) => result.data()));
