@@ -27,19 +27,20 @@
 	import type { CollectionEntry } from 'astro:content';
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
+	import type { ExclamationTokenableNode } from 'ts-morph';
 
 	interface Result {
 		type: 'result';
 		url: string;
 		title: string;
-		description: string;
+		excerpt: string;
 	}
 
 	interface Subresult {
 		type: 'subresult';
 		url: string;
 		title: string;
-		description: string;
+		excerpt: string;
 	}
 
 	interface Search {
@@ -97,12 +98,22 @@
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
-					return result.sub_results.map((subResult) => ({
-						type: result.url === subResult.url ? ('result' as const) : ('subresult' as const),
-						url: subResult.url,
-						title: subResult.title,
-						description: subResult.excerpt,
-					}));
+					return [
+						{
+							type: 'result' as const,
+							url: result.url,
+							title: result.meta.title,
+							excerpt: result.excerpt,
+						},
+						...result.sub_results
+							.filter((subResult) => subResult.url !== result.url)
+							.map((subResult) => ({
+								type: 'subresult' as const,
+								url: subResult.url,
+								title: subResult.title,
+								excerpt: subResult.excerpt,
+							})),
+					];
 				}),
 			)
 		)
