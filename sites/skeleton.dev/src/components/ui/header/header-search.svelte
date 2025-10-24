@@ -3,6 +3,7 @@
 
 	function createPagefindSingleton() {
 		let instance: Pagefind;
+
 		return async function get() {
 			if (!instance) {
 				// @ts-expect-error pagefind is only present during runtime
@@ -20,6 +21,7 @@
 	import type { PagefindSearchFragment } from '@/modules/pagefind';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps } from '@skeletonlabs/skeleton-svelte';
+	import { navigate } from 'astro:transitions/client';
 
 	let items: PagefindSearchFragment[] = $state.raw([]);
 
@@ -41,6 +43,14 @@
 		const results = await Promise.all(search.results.map((result) => result.data()));
 		items = results;
 	};
+
+	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
+		const url = details.value.at(0);
+		if (!url) {
+			return;
+		}
+		await navigate(url);
+	};
 </script>
 
 <Dialog initialFocusEl={() => document.querySelector('[data-search-input]')}>
@@ -60,7 +70,16 @@
 					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 				</header>
 				<hr class="hr" />
-				<Combobox class="w-full" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+				<Combobox
+					class="w-full"
+					placeholder="Search..."
+					{collection}
+					{onOpenChange}
+					{onInputValueChange}
+					{onValueChange}
+					inputBehavior="autohighlight"
+					selectionBehavior="clear"
+				>
 					<Combobox.Control>
 						<Combobox.Input data-search-input />
 					</Combobox.Control>
