@@ -1,11 +1,49 @@
-<script lang="ts">
-	import SearchIcon from '@lucide/svelte/icons/search';
-	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+<script lang="ts" module>
+	import type { Pagefind } from '@/modules/pagefind';
 
-	let inputRef: HTMLInputElement;
+	function createPagefindSingleton() {
+		let instance: Pagefind | null = null;
+		return async function get() {
+			if (!instance) {
+				const module = (await import('@/modules/pagefind')) as { default: Pagefind };
+				instance = module.default;
+				await instance.init();
+			}
+			return instance;
+		};
+	}
+
+	const getPagefind = createPagefindSingleton();
 </script>
 
-<Dialog initialFocusEl={() => inputRef}>
+<script lang="ts">
+	import type { PagefindSearchFragment } from '@/modules/pagefind';
+	import SearchIcon from '@lucide/svelte/icons/search';
+	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps } from '@skeletonlabs/skeleton-svelte';
+
+	let items = $state([]);
+
+	const collection = $derived(
+		useListCollection<PagefindSearchFragment>({
+			items: [],
+			itemToString: (item) => item.meta.title,
+			itemToValue: (item) => item.url,
+		}),
+	);
+
+	const onOpenChange = () => {
+		items = [];
+	};
+
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (event) => {
+		const pagefind = await getPagefind();
+		const search = await pagefind.search(event.inputValue);
+		const results = await Promise.all(search.results.map((result) => result.data()));
+		console.log({ results });
+	};
+</script>
+
+<Dialog initialFocusEl={() => document.querySelector('[data-search-input]')}>
 	<Dialog.Trigger class="btn preset-tonal justify-start">
 		<SearchIcon class="size-4 opacity-60" />
 		<span class="opacity-60">Search...</span>
@@ -22,7 +60,23 @@
 					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 				</header>
 				<hr class="hr" />
-				<input bind:this={inputRef} type="search" class="input p-4 py-2 text-xl" placeholder="Search..." />
+				<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+					<Combobox.Control>
+						<Combobox.Input data-search-input />
+					</Combobox.Control>
+					<Portal>
+						<Combobox.Positioner class="z-[1]!">
+							<Combobox.Content>
+								{#each collection.items as item (item)}
+									<Combobox.Item {item}>
+										<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
+									</Combobox.Item>
+								{/each}
+							</Combobox.Content>
+						</Combobox.Positioner>
+					</Portal>
+				</Combobox>
 			</Dialog.Content>
 		</Dialog.Positioner>
 	</Portal>
