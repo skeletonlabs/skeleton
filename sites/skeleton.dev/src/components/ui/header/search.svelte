@@ -55,9 +55,6 @@
 	const id = $props.id();
 	const dialog = useDialog({
 		id,
-		initialFocusEl() {
-			return document.querySelector('[data-search-input]');
-		},
 		onOpenChange(open) {
 			if (!open) {
 				return;
@@ -190,7 +187,7 @@
 							<div class="ig-cell preset-tonal">
 								<SearchIcon class="size-4" />
 							</div>
-							<Combobox.Input class="ig-input rounded-s-none" type="search" data-search-input />
+							<Combobox.Input class="ig-input rounded-s-none" type="search" />
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
