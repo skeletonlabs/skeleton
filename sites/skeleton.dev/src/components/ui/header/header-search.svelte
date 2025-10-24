@@ -104,7 +104,7 @@
 						{/snippet}
 
 						<Combobox.Content class="p-0 border-none">
-							{#each await items as item (item)}
+							{#each collection.items as item (item)}
 								<Combobox.Item {item}>
 									<Combobox.ItemText>{item.meta.title}</Combobox.ItemText>
 									<Combobox.ItemIndicator />
