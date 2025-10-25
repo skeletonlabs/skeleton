@@ -29,7 +29,7 @@
 </script>
 
 <Popover positioning={{ placement: 'bottom-end' }}>
-	<Popover.Trigger class="chip preset-filled-surface-200-800 data-[state=open]:brightness-75">
+	<Popover.Trigger class="btn btn-sm preset-outlined-surface-200-800 data-[state=open]:brightness-75">
 		<FileTextIcon class="size-4" />
 		<span>LLM</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
@@ -43,7 +43,7 @@
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="btn-sm flex items-center gap-2 justify-between hover:preset-tonal"
+							class="btn-sm flex justify-start items-center gap-2 hover:preset-tonal"
 						>
 							{@html link.icon}
 							<span>Open in {link.title}</span>
