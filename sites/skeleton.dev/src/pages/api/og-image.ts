@@ -1,10 +1,9 @@
 import SkeletonBlueprint from '@/modules/skeleton-blueprint';
 import { Resvg } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
-import { readFile } from 'fs/promises';
 import satori, { type SatoriOptions } from 'satori';
 
-const roboto = await readFile(new URL('../../assets/fonts/Roboto-Regular.ttf', import.meta.url));
+const roboto = await fetch('https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Me5Q.ttf').then((res) => res.arrayBuffer());
 
 const satoriOptions: SatoriOptions = {
 	width: 1200,
