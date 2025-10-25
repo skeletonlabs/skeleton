@@ -61,28 +61,27 @@ const { Content, headings } = await render(doc);
 		<!-- Content -->
 		<article class="grid gap-8" data-pagefind-body>
 			<Content components={components} Astro={Astro} />
-			<slot />
 		</article>
+
+		<!-- Suggest changes -->
+		<a
+			class="flex items-center gap-2 anchor text-sm"
+			href={`https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/${doc.filePath}`}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<SquarePenIcon class="inline-block size-4" />
+			Suggest changes to this page
+		</a>
 		<!-- Footer -->
 		<Footer class="p-4 xl:px-0" />
 	</main>
 	<!-- Sidebar (Right) - Table of Contents -->
 	<aside
-		class="xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 py-4 pl-4 xl:py-10"
+		class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10"
 	>
-		<div class="flex flex-col gap-8 h-full">
-			<Advertisement />
-			<TableOfContents {headings} client:visible />
-			<a
-				class="btn hover:preset-tonal w-fit gap-2 mt-auto text-sm opacity-50"
-				href={`https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/${doc.filePath}`}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<SquarePenIcon class="size-4" />
-				Suggest changes to this page
-			</a>
-		</div>
+		<Advertisement />
+		<TableOfContents {headings} client:visible />
 	</aside>
 </div>
 
