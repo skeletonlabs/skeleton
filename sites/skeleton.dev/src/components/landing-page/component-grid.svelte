@@ -40,7 +40,7 @@
 	<div class="grid grid-cols-4 gap-4">
 		<div class={cardClasses}>
 			<header>
-				<h3 class="h3">Create Account</h3>
+				<span class="h3">Create Account</span>
 				<p class="opacity-60">Complete the form to get started.</p>
 			</header>
 			<nav class="grid grid-cols-2 gap-5">
@@ -103,7 +103,7 @@
 						{/if}
 						<button type="button" class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3">
 							<Avatar>
-								<Avatar.Image src={`https://i.pravatar.cc/150?img=${i + 10}`} class="grayscale" />
+								<Avatar.Image src={`https://i.pravatar.cc/150?img=${i + 10}`} alt={`Avatar of ${member.name}`} class="grayscale" />
 							</Avatar>
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
@@ -128,7 +128,7 @@
 			/>
 			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 				<Play class="size-4 opacity-60" />
-				<Slider defaultValue={[70]}>
+				<Slider name="volume" defaultValue={[70]}>
 					<Slider.Control>
 						<Slider.Track>
 							<Slider.Range />
@@ -306,9 +306,9 @@
 		</div>
 
 		<div class="{cardClasses} row-span-2 row-start-5 text-center">
-			<button type="button" class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full">
+			<div class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full">
 				<Check class="size-8" />
-			</button>
+			</div>
 			<div class="space-y-2 text-center">
 				<h2 class="h2">Invoice Paid</h2>
 				<p class="text-sm opacity-60">You paid $14,276. Receipt submitted to:</p>
@@ -321,12 +321,15 @@
 		</div>
 
 		<div class="{cardClasses} col-span-2 row-span-2 col-start-3 row-start-5">
-			<input type="search" class="input" placeholder="Filter elements..." />
+			<label>
+				<span class="label-text">Filter</span>
+				<input type="search" class="input" placeholder="Filter elements..." />
+			</label>
 			<div class="table-wrap">
 				<table class="table">
 					<thead>
 						<tr>
-							<th><input type="checkbox" class="checkbox" /></th>
+							<th>Selected</th>
 							<th>Symbol</th>
 							<th>Name</th>
 							<th class="!text-right">Weight</th>
@@ -335,7 +338,12 @@
 					<tbody class="[&>tr]:hover:preset-tonal">
 						{#each tableData as row, i}
 							<tr>
-								<td><input type="checkbox" class="checkbox" checked={i === 1} /></td>
+								<td>
+									<label>
+										<span class="sr-only">Select {row.name}</span>
+										<input type="checkbox" class="checkbox" checked={i === 1} />
+									</label>
+								</td>
 								<td>{row.symbol}</td>
 								<td>{row.name}</td>
 								<td class="text-right">{row.atomic_no}</td>
@@ -398,7 +406,7 @@
 					<Play class="size-6 fill-current stroke-none" />
 				</button>
 				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
-					<button type="button" class="btn hover:preset-tonal"><Rewind class="size-4 opacity-60" /></button>
+					<button type="button" class="btn hover:preset-tonal" aria-label="Rewind"><Rewind class="size-4 opacity-60" /></button>
 					<div class="space-y-1">
 						<p class="font-bold">Pink Floyd</p>
 						<progress class="progress" value="75" max="100"></progress>
@@ -407,11 +415,11 @@
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
 					</div>
-					<button type="button" class="btn hover:preset-tonal"><FastForward class="size-4 opacity-60" /></button>
+					<button type="button" class="btn hover:preset-tonal" aria-label="Fast forward"><FastForward class="size-4 opacity-60" /></button>
 				</div>
 				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
 					<Volume2 class="size-4 opacity-60" />
-					<Slider defaultValue={[70]}>
+					<Slider name="volume" defaultValue={[70]}>
 						<Slider.Control>
 							<Slider.Track>
 								<Slider.Range />
