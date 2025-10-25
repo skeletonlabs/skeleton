@@ -3,7 +3,11 @@
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import type { Snippet } from 'svelte';
 
-	let { children }: { children: Snippet } = $props();
+	interface Props {
+		children: Snippet;
+	}
+
+	const { children }: Props = $props();
 </script>
 
 <Dialog>
@@ -16,14 +20,16 @@
 		/>
 		<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
 			<Dialog.Content
-				class="card bg-surface-100-900 w-sm !h-screen p-4 space-y-4 shadow-xl overflow-y-auto transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
+				class="card bg-surface-100-900 w-sm !h-screen p-4 space-y-4 shadow-xl overflow-hidden transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
 			>
 				<header class="flex justify-between items-center gap-4">
 					<Dialog.Title class="text-2xl font-bold">Skeleton</Dialog.Title>
 					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
 				</header>
 				<hr class="hr" />
-				{@render children()}
+				<div class="overflow-y-auto">
+					{@render children()}
+				</div>
 			</Dialog.Content>
 		</Dialog.Positioner>
 	</Portal>
