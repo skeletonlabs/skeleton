@@ -2,7 +2,6 @@
 import '@/app.css';
 import { SEO } from 'astro-seo';
 import favicon from '@/assets/favicon.png';
-import skeleton from '@/assets/branding/skeleton.png';
 import { ClientRouter } from 'astro:transitions';
 import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
@@ -19,19 +18,21 @@ const {
 	description = 'Documentation for Skeleton, the UI toolkit for building high-quality web applications.',
 	classList,
 } = Astro.props;
+
+const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skeleton`;
 ---
 
 <html lang="en" transition:animate="none">
 	<head>
 		<SEO
-			title={title}
+			title={titleWithSkeletonSuffix}
 			description={description}
 			canonical={Astro.site}
 			charset="UTF-8"
 			theme-color="#111111"
 			openGraph={{
 				basic: {
-					title: title,
+					title: titleWithSkeletonSuffix,
 					type: 'website',
 					url: Astro.site,
 					image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
@@ -40,7 +41,7 @@ const {
 					url: new URL(`/api/og-image?text=${title}`, Astro.site),
 					secureUrl: new URL(`/api/og-image?text=${title}`, Astro.site),
 					type: `image/png`,
-					alt: `Skeleton - ${title}`,
+					alt: titleWithSkeletonSuffix,
 				},
 				optional: {
 					locale: 'en_US',
@@ -49,10 +50,10 @@ const {
 				},
 			}}
 			twitter={{
-				title: title,
+				title: titleWithSkeletonSuffix,
 				description: description,
 				image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
-				imageAlt: 'Skeleton',
+				imageAlt: titleWithSkeletonSuffix,
 				card: 'summary',
 				site: Astro.site?.toString(),
 			}}
