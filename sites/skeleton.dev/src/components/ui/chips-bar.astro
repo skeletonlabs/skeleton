@@ -71,14 +71,19 @@ const references = [
 	{ label: 'Styles', url: getStylesUrl(), icon: CodeIcon },
 	{ label: 'A11y', url: getA11yUrl(), icon: PersonStandingIcon },
 	{ label: 'Zag', url: getZagUrl(), icon: BlocksIcon },
-].filter((reference) => Boolean(reference.url));
+].filter((reference): reference is { label: string; url: URL; icon: typeof CodeIcon } => Boolean(reference.url));
 ---
 
 {
 	references.length > 0 && (
 		<nav class="flex flex-wrap gap-2 overflow-x-auto">
 			{references.map((reference) => (
-				<a class="chip preset-filled-surface-200-800" href={reference.url} target="_blank" rel="noopener noreferrer">
+				<a
+					class="chip preset-filled-surface-200-800"
+					href={reference.url.toString().replace('[FRAMEWORK]', activeFramework.id)}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					<reference.icon class="size-4" />
 					<span>{reference.label}</span>
 				</a>
