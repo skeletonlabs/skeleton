@@ -61,13 +61,13 @@ const { Content, headings } = await render(doc);
 		</article>
 		<!-- Suggest changes -->
 		<a
-			class="flex justify-center items-center gap-2 anchor text-sm"
+			class="mt-24 flex justify-center items-center gap-2 opacity-60 hover:underline text-sm"
 			href={`https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/${doc.filePath}`}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
 			<SquarePenIcon class="inline-block size-4" />
-			Edit page on GitHub
+			Edit this page on GitHub
 		</a>
 		<!-- Footer -->
 		<Footer class="p-4 xl:px-0" />
