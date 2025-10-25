@@ -12,6 +12,7 @@ import { render, type CollectionEntry } from 'astro:content';
 import ChipsBar from '../ui/chips-bar.astro';
 import { SquarePenIcon } from '@lucide/svelte';
 import LLMs from '@/components/ui/large-language-models.svelte';
+import NavigationSteps from '@/components/ui/navigation-steps.astro';
 
 interface Props {
 	doc: CollectionEntry<'docs'>;
@@ -58,6 +59,8 @@ const { Content, headings } = await render(doc);
 		<!-- Content -->
 		<article class="grid gap-8" data-pagefind-body>
 			<Content components={components} Astro={Astro} />
+			<!-- Inner Page Navigation -->
+			<NavigationSteps />
 		</article>
 		<!-- Suggest changes -->
 		<a
