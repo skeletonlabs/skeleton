@@ -48,8 +48,8 @@ const skeletonImage = await getImage({
 					url: skeletonImage.src,
 					secureUrl: skeletonImage.src,
 					type: `image/png`,
-					width: skeletonImage.attributes.width,
-					height: skeletonImage.attributes.height,
+					width: skeletonImage.options.width,
+					height: skeletonImage.options.height,
 					alt: titleWithSkeletonSuffix,
 				},
 				optional: {
