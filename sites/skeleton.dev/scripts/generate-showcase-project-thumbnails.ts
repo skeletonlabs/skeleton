@@ -32,7 +32,7 @@ async function generateShowcaseProjectThumbnails() {
 				for (const colorScheme of ['light', 'dark'] as const) {
 					const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 					await page.emulateMedia({ colorScheme });
-					await page.goto(project.url, { waitUntil: 'networkidle' });
+					await page.goto(project.url, { waitUntil: 'domcontentloaded' });
 
 					for (const instruction of project.playwright?.instructions ?? []) {
 						// oxlint-disable-next-line no-implied-eval
@@ -46,8 +46,8 @@ async function generateShowcaseProjectThumbnails() {
 
 					await page.close();
 				}
-			} catch (error) {
-				console.error(`❌ Failed to process project "${project.slug}":`, error);
+			} catch {
+				console.warn(`Failed to generate thumbnail for project "${project.slug}", skipping...`);
 			}
 		}),
 	);
