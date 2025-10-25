@@ -1,4 +1,4 @@
-import SkeletonBlueprint from './skeleton-blueprint';
+import SkeletonBlueprint from '@/modules/skeleton-blueprint';
 import { Resvg } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
 import { readFile } from 'fs/promises';
