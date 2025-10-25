@@ -1,7 +1,7 @@
 ---
 import RootLayout from '@/components/layouts/root-layout.astro';
 import DocsLayout from '@/components/layouts/docs-layout.astro';
-import { getCollection } from '@/modules/content';
+import { getCollection, getSiblingDoc } from '@/modules/content';
 
 export async function getStaticPaths() {
 	const frameworks = await getCollection('frameworks');
@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 				doc: doc.id,
 			},
 			props: {
+				previousDoc: getSiblingDoc(doc, 'previous'),
 				doc,
+				nextDoc: getSiblingDoc(doc, 'next'),
 			},
 		})),
 	);
@@ -23,5 +25,5 @@ const { doc } = Astro.props;
 ---
 
 <RootLayout title={doc.data.title} description={doc.data.description}>
-	<DocsLayout doc={doc} />
+	<DocsLayout doc={doc} previousDoc={Astro.props.previousDoc} nextDoc={Astro.props.nextDoc} />
 </RootLayout>
