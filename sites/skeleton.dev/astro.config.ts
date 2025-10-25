@@ -38,6 +38,8 @@ export default defineConfig({
 					'./src/components/ui/framework.astro': [['default', 'Framework']],
 					'./src/components/ui/api-table.astro': [['default', 'ApiTable']],
 					'./src/components/ui/preview.svelte': [['default', 'Preview']],
+					'./src/components/ui/summary.astro': [['default', 'Summary']],
+					'./src/components/ui/alert.astro': [['default', 'Alert']],
 				},
 			],
 		}),

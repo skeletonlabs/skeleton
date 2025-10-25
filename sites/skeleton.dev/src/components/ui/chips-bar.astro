@@ -71,19 +71,18 @@ const references = [
 	{ label: 'Styles', url: getStylesUrl(), icon: CodeIcon },
 	{ label: 'A11y', url: getA11yUrl(), icon: PersonStandingIcon },
 	{ label: 'Zag', url: getZagUrl(), icon: BlocksIcon },
-] as const;
+].filter((reference) => Boolean(reference.url));
 ---
 
-<nav class="flex flex-wrap gap-2 overflow-x-auto pb-2">
-	{
-		references.map(
-			(reference) =>
-				reference.url && (
-					<a class="chip preset-filled-surface-200-800" href={reference.url} target="_blank" rel="noopener noreferrer">
-						<reference.icon class="size-4" />
-						<span>{reference.label}</span>
-					</a>
-				),
-		)
-	}
-</nav>
+{
+	references.length > 0 && (
+		<nav class="flex flex-wrap gap-2 overflow-x-auto">
+			{references.map((reference) => (
+				<a class="chip preset-filled-surface-200-800" href={reference.url} target="_blank" rel="noopener noreferrer">
+					<reference.icon class="size-4" />
+					<span>{reference.label}</span>
+				</a>
+			))}
+		</nav>
+	)
+}
