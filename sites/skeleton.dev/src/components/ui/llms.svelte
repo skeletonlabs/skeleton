@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
+	import chatgpt from '@/assets/logos/chatgpt.svg?raw';
+	import claude from '@/assets/logos/claude.svg?raw';
+	import { ChevronDownIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
-	import type { CollectionEntry } from 'astro:content';
 
 	interface Props {
 		url: URL;
@@ -16,28 +17,30 @@
 	const links = $derived([
 		{
 			title: 'ChatGPT',
-			href: new URL('https://chatgpt.com/', new URLSearchParams({ prompt }).toString()),
+			icon: chatgpt,
+			href: `https://chatgpt.com/?${new URLSearchParams({ prompt })}`,
 		},
 		{
 			title: 'Claude',
-			href: new URL('https://claude.ai/new', new URLSearchParams({ q: prompt }).toString()),
+			icon: claude,
+			href: `https://claude.ai/new?${new URLSearchParams({ q: prompt })}`,
 		},
 	]);
 </script>
 
-<Popover>
+<Popover positioning={{ placement: 'bottom-end' }}>
 	<Popover.Trigger class="chip preset-filled-surface-200-800">
 		<span>LLM</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>
-		<Popover.Positioner class="z-[51]!">
-			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 shadow-xl">
-				<nav>
+		<Popover.Positioner>
+			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-2 shadow-xl">
+				<nav class="flex flex-col gap-1">
 					{#each links as link (link)}
-						<a href={link.toString()} target="_blank" rel="noopener noreferrer" class="btn justify-between hover:preset-tonal">
-							<span>{link.title}</span>
-							<ArrowUpRightIcon class="size-4" />
+						<a href={link.href} target="_blank" rel="noopener noreferrer" class="btn-sm flex items-center gap-2 hover:preset-tonal">
+							{@html link.icon}
+							<span>Open in {link.title}</span>
 						</a>
 					{/each}
 				</nav>

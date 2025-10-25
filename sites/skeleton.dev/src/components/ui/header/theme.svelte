@@ -1,10 +1,5 @@
 <script lang="ts">
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import SystemIcon from '@lucide/svelte/icons/laptop-minimal-check';
-	import MoonIcon from '@lucide/svelte/icons/moon';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import SunIcon from '@lucide/svelte/icons/sun';
+	import { ArrowUpRightIcon, ChevronDownIcon, LaptopMinimalCheckIcon, MoonIcon, PaletteIcon, SunIcon } from '@lucide/svelte';
 	import { themes } from '@skeletonlabs/skeleton-common';
 	import { Popover, Portal, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
@@ -51,7 +46,7 @@
 							<SegmentedControl.Indicator />
 							<SegmentedControl.Item value="system">
 								<SegmentedControl.ItemText class="flex items-center gap-2">
-									<SystemIcon class="size-4" />
+									<LaptopMinimalCheckIcon class="size-4" />
 									<span>System</span>
 								</SegmentedControl.ItemText>
 								<SegmentedControl.ItemHiddenInput />

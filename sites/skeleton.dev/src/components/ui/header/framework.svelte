@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import { ChevronDownIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 

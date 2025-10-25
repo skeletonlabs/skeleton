@@ -1,10 +1,6 @@
 <script>
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import HeartIcon from '@lucide/svelte/icons/heart';
+	import { ChevronDownIcon, ArrowUpRightIcon, HeartIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
-
-	// const links = [{ href: 'https://github.com/sponsors/skeletonlabs', title: 'News' }];
 </script>
 
 <Popover positioning={{ placement: 'bottom' }}>

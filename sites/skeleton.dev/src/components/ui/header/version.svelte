@@ -1,6 +1,5 @@
 <script>
-	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 	import packageJson from '@skeletonlabs/skeleton/package.json';
 
@@ -19,7 +18,7 @@
 					{#each versions as version (version)}
 						<a href="https://{version}.skeleton.dev" target="_blank" class="btn justify-start hover:preset-tonal">
 							<span>{version} Docs</span>
-							<ArrowUpRight class="size-4" />
+							<ArrowUpRightIcon class="size-4" />
 						</a>
 					{/each}
 				</div>
