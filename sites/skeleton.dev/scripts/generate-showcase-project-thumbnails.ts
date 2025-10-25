@@ -33,7 +33,9 @@ async function generateShowcaseProjectThumbnails() {
 					(['light', 'dark'] as const).map(async (colorScheme) => {
 						const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 						await page.emulateMedia({ colorScheme });
-						await page.goto(project.url, { waitUntil: 'domcontentloaded' });
+						await page.goto(project.url, {
+							waitUntil: 'domcontentloaded',
+						});
 						// Let client side rendering finish
 						await page.waitForTimeout(2500);
 

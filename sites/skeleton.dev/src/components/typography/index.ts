@@ -9,6 +9,7 @@ import h5 from '@/components/typography/h5.astro';
 import h6 from '@/components/typography/h6.astro';
 import hr from '@/components/typography/hr.astro';
 import ol from '@/components/typography/ol.astro';
+import pre from '@/components/typography/pre.astro';
 import table from '@/components/typography/table.astro';
 import ul from '@/components/typography/ul.astro';
 
@@ -23,6 +24,7 @@ export const components = {
 	hr,
 	ol,
 	ul,
+	pre,
 	code,
 	table,
 	blockquote,
