@@ -6,6 +6,7 @@ import { ClientRouter } from 'astro:transitions';
 import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
 import ModeLoader from '@/components/ui/mode-loader.astro';
+import { getImage } from 'astro:assets';
 
 interface Props {
 	title?: string;
@@ -20,6 +21,12 @@ const {
 } = Astro.props;
 
 const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skeleton`;
+
+const skeletonImage = await getImage({
+	src: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
+	format: 'png',
+	inferSize: true,
+});
 ---
 
 <html lang="en" transition:animate="none">
@@ -35,12 +42,14 @@ const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skel
 					title: titleWithSkeletonSuffix,
 					type: 'website',
 					url: Astro.site,
-					image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
+					image: skeletonImage.src,
 				},
 				image: {
-					url: new URL(`/api/og-image?text=${title}`, Astro.site),
-					secureUrl: new URL(`/api/og-image?text=${title}`, Astro.site),
+					url: skeletonImage.src,
+					secureUrl: skeletonImage.src,
 					type: `image/png`,
+					width: skeletonImage.attributes.width,
+					height: skeletonImage.attributes.height,
 					alt: titleWithSkeletonSuffix,
 				},
 				optional: {
@@ -52,7 +61,7 @@ const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skel
 			twitter={{
 				title: titleWithSkeletonSuffix,
 				description: description,
-				image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
+				image: skeletonImage.src,
 				imageAlt: titleWithSkeletonSuffix,
 				card: 'summary',
 				site: Astro.site?.toString(),
