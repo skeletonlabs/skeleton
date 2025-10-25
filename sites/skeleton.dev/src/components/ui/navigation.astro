@@ -1,5 +1,5 @@
 ---
-import { getActiveFramework, getRelativeDocsUrl } from '@/modules/framework';
+import { getRelativeDocsUrl } from '@/modules/framework';
 import { commonSections, type Section } from '@/modules/navigation';
 
 interface Props {
@@ -7,8 +7,6 @@ interface Props {
 }
 
 const { sections = commonSections } = Astro.props;
-
-const activeFramework = getActiveFramework(Astro);
 ---
 
 <div class="text-sm grid gap-10">
@@ -25,6 +23,16 @@ const activeFramework = getActiveFramework(Astro);
 								class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
 								aria-current={Astro.url.pathname === getRelativeDocsUrl(Astro, doc.id) ? 'page' : 'false'}
 							>
+								<pre>
+									{JSON.stringify(
+										{
+											relativeUrl: getRelativeDocsUrl(Astro, doc.id),
+											currentUrl: Astro.url.pathname,
+										},
+										null,
+										2,
+									)}
+								</pre>
 								<span class="text-sm">{doc.data.title}</span>
 								{doc.data.stability !== 'stable' && (
 									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{doc.data.stability}</span>
