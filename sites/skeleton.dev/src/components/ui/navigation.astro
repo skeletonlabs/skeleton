@@ -1,6 +1,7 @@
 ---
 import { getRelativeDocsUrl } from '@/modules/framework';
 import { commonSections, type Section } from '@/modules/navigation';
+import { removeTrailingSlash } from '@/modules/normalize-path';
 
 interface Props {
 	sections?: Section[];
@@ -21,18 +22,8 @@ const { sections = commonSections } = Astro.props;
 								href={getRelativeDocsUrl(Astro, doc.id)}
 								title={doc.data.title}
 								class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
-								aria-current={Astro.url.pathname === getRelativeDocsUrl(Astro, doc.id) ? 'page' : 'false'}
+								aria-current={removeTrailingSlash(Astro.url.pathname) === getRelativeDocsUrl(Astro, doc.id) ? 'page' : 'false'}
 							>
-								<pre>
-									{JSON.stringify(
-										{
-											relativeUrl: getRelativeDocsUrl(Astro, doc.id),
-											currentUrl: Astro.url.pathname,
-										},
-										null,
-										2,
-									)}
-								</pre>
 								<span class="text-sm">{doc.data.title}</span>
 								{doc.data.stability !== 'stable' && (
 									<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{doc.data.stability}</span>
