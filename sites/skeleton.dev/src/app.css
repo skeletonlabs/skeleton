@@ -101,3 +101,17 @@ html {
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* IE/Edge */
 }
+
+/* Animations */
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.spin-360 {
+	animation: spin 5s linear infinite; /* Shorthand */
+}
