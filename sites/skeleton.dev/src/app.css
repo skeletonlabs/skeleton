@@ -91,15 +91,10 @@ html {
 	}
 }
 
-/* Hide Scrollbars */
+/* Hide Scrollbars Tracks */
 
-.hide-scrollbars::-webkit-scrollbar {
-	display: none;
-}
-/* For Firefox */
-.hide-scrollbars {
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* IE/Edge */
+.hide-scrollbar-track {
+	scrollbar-color: var(--color-surface-300-700) rgba(0, 0, 0, 0); /* thumb / track */
 }
 
 /* Animations */
