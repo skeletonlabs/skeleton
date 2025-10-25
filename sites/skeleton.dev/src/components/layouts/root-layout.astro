@@ -23,7 +23,6 @@ const {
 
 <html lang="en" transition:animate="none">
 	<head>
-		<!-- https://github.com/jonasmerlin/astro-seo#readme -->
 		<SEO
 			title={title}
 			description={description}
@@ -35,14 +34,12 @@ const {
 					title: title,
 					type: 'website',
 					url: Astro.site,
-					image: skeleton.src,
+					image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
 				},
 				image: {
-					url: skeleton.src,
-					secureUrl: skeleton.src,
-					type: `image/${skeleton.format}`,
-					width: skeleton.width,
-					height: skeleton.height,
+					url: new URL(`/api/og-image?text=${title}`, Astro.site),
+					secureUrl: new URL(`/api/og-image?text=${title}`, Astro.site),
+					type: `image/png`,
 					alt: 'Skeleton',
 				},
 				optional: {
@@ -54,7 +51,7 @@ const {
 			twitter={{
 				title: title,
 				description: description,
-				image: skeleton.src,
+				image: new URL(`/api/og-image?text=${title}`, Astro.site).toString(),
 				imageAlt: 'Skeleton',
 				card: 'summary',
 				site: Astro.site?.toString(),

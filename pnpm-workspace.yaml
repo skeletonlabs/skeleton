@@ -17,6 +17,7 @@ catalog:
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.546.0
+  '@resvg/resvg-js': 2.6.2
   '@shikijs/core': 3.13.0
   '@shikijs/engine-javascript': 3.13.0
   '@shikijs/langs': 3.13.0
@@ -97,6 +98,7 @@ catalog:
   react: 19.2.0
   react-dom: 19.2.0
   sass-embedded: 1.93.2
+  satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.4
   shiki: 3.13.0
