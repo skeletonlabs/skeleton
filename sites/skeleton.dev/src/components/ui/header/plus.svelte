@@ -1,6 +1,5 @@
 <script>
-	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	const links = [{ href: 'https://themes.skeleton.dev/', title: 'Theme Generator', target: '_blank' }];
@@ -12,7 +11,7 @@
 
 <Popover>
 	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal">
-		<span>More</span>
+		<span>LLM</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>
@@ -22,7 +21,7 @@
 					{#each links as link (link)}
 						<a href={link.href} target={link.target} class="btn justify-between hover:preset-tonal">
 							<span>{link.title}</span>
-							{#if link.target === '_blank'}<ArrowUpRight class="size-4" />{/if}
+							{#if link.target === '_blank'}<ArrowUpRightIcon class="size-4" />{/if}
 						</a>
 					{/each}
 				</div>
@@ -32,7 +31,7 @@
 					{#each linksMore as link (link)}
 						<a href={link.href} target={link.target} class="btn justify-between hover:preset-tonal">
 							<span>{link.title}</span>
-							{#if link.target === '_blank'}<ArrowUpRight class="size-4" />{/if}
+							{#if link.target === '_blank'}<ArrowUpRightIcon class="size-4" />{/if}
 						</a>
 					{/each}
 				</div>

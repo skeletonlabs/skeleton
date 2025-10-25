@@ -11,6 +11,7 @@ import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import ChipsBar from '../ui/chips-bar.astro';
 import { FileTextIcon, SquarePenIcon } from '@lucide/svelte';
+import LLMs from '@/components/ui/llms.svelte';
 
 interface Props {
 	doc: CollectionEntry<'docs'>;
@@ -38,11 +39,7 @@ const { Content, headings } = await render(doc);
 		<header class="space-y-4" data-pagefind-body>
 			<div class="flex justify-between items-start">
 				<Breadcrumbs />
-				<!-- TODO: convert to popover menu -->
-				<a class="chip preset-filled-surface-200-800" href={`${Astro.url.pathname}/llms.txt`}>
-					<FileTextIcon size={16} />
-					<span>LLM</span>
-				</a>
+				<LLMs client:visible />
 			</div>
 			<H1>{doc.data.title}</H1>
 			<p class="text-lg opacity-60">{doc.data.description}</p>
