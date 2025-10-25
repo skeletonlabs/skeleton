@@ -16,9 +16,11 @@ import NavigationSteps from '@/components/ui/navigation-steps.astro';
 
 interface Props {
 	doc: CollectionEntry<'docs'>;
+	previousDoc?: CollectionEntry<'docs'>;
+	nextDoc?: CollectionEntry<'docs'>;
 }
 
-const { doc } = Astro.props;
+const { doc, previousDoc, nextDoc } = Astro.props;
 
 const { Content, headings } = await render(doc);
 ---
@@ -60,7 +62,7 @@ const { Content, headings } = await render(doc);
 		<article class="grid gap-8" data-pagefind-body>
 			<Content components={components} Astro={Astro} />
 			<!-- Inner Page Navigation -->
-			<NavigationSteps />
+			<NavigationSteps {previousDoc} {nextDoc} />
 		</article>
 		<!-- Suggest changes -->
 		<a

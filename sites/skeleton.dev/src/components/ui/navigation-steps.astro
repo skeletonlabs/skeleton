@@ -1,5 +1,14 @@
 ---
+import { getRelativeDocsUrl } from '@/modules/framework';
 import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	previousDoc?: CollectionEntry<'docs'>;
+	nextDoc?: CollectionEntry<'docs'>;
+}
+
+const { previousDoc, nextDoc } = Astro.props;
 ---
 
 <!--
@@ -8,19 +17,31 @@ https://tailwindcss.com/docs/grid-column#starting-and-ending-lines
 -->
 <nav class="mt-10 grid grid-cols-2 gap-4">
 	<!-- Button: Prev -->
-	<a href="/#" class="btn justify-start py-6 preset-tonal border border-surface-200-800">
-		<ArrowLeftIcon />
-		<div>
-			<p class="text-sm opacity-60">Previous</p>
-			<p class="text-xl">ContentTitleHere</p>
-		</div>
-	</a>
+	{
+		previousDoc && (
+			<a
+				href={getRelativeDocsUrl(Astro, previousDoc.id)}
+				class="btn justify-start py-6 preset-tonal border border-surface-200-800 col-start-1"
+			>
+				<ArrowLeftIcon />
+				<div>
+					<p class="text-sm opacity-60">Previous</p>
+					<p class="text-xl">{previousDoc.data.title}</p>
+				</div>
+			</a>
+		)
+	}
+
 	<!-- Button: Next -->
-	<a href="/#" class="btn justify-end py-6 preset-tonal border border-surface-200-800">
-		<div class="text-right">
-			<p class="text-sm opacity-60">Next</p>
-			<p class="text-xl">ContentTitleHere</p>
-		</div>
-		<ArrowRightIcon />
-	</a>
+	{
+		nextDoc && (
+			<a href={getRelativeDocsUrl(Astro, nextDoc.id)} class="btn justify-end py-6 preset-tonal border border-surface-200-800 col-start-2">
+				<div class="text-right">
+					<p class="text-sm opacity-60">Next</p>
+					<p class="text-xl">{nextDoc.data.title}</p>
+				</div>
+				<ArrowRightIcon />
+			</a>
+		)
+	}
 </nav>
