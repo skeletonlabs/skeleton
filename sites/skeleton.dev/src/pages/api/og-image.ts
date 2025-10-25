@@ -37,7 +37,6 @@ export const GET: APIRoute = async (context) => {
 			mode: 'width',
 			value: 1200,
 		},
-		background: 'transparent',
 	});
 
 	return new Response(new Uint8Array(resvg.render().asPng()), {
