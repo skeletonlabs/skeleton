@@ -22,8 +22,8 @@ const activeFramework = getActiveFramework(Astro);
 							<a
 								href={getRelativeDocsUrl(Astro, doc.id)}
 								title={doc.data.title}
-								class="btn hover:preset-tonal flex justify-between items-center px-2"
-								aria-current={Astro.url.pathname === doc.id ? 'page' : 'false'}
+								class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
+								aria-current={Astro.url.pathname === getRelativeDocsUrl(Astro, doc.id) ? 'page' : 'false'}
 							>
 								<span class="text-sm">{doc.data.title}</span>
 								{doc.data.stability !== 'stable' && (
