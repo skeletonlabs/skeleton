@@ -18,7 +18,6 @@ interface Props {
 
 const { doc } = Astro.props;
 
-console.log(doc.filePath);
 const { Content, headings } = await render(doc);
 ---
 
