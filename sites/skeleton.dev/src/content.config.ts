@@ -27,10 +27,10 @@ export const collections = {
 			tags: z.array(z.string()).optional().default([]),
 			references: z
 				.object({
-					source: z.string().url().optional(),
-					styles: z.string().url().optional(),
-					a11y: z.string().url().optional(),
-					zag: z.string().url().optional(),
+					source: z.union([z.string().url(), z.literal(false)]).optional(),
+					styles: z.union([z.string().url(), z.literal(false)]).optional(),
+					a11y: z.union([z.string().url(), z.literal(false)]).optional(),
+					zag: z.union([z.string().url(), z.literal(false)]).optional(),
 				})
 				.optional()
 				.default({}),

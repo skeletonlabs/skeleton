@@ -19,7 +19,10 @@ const feature = path.at(1) ?? '';
 const activeFramework = getActiveFramework(Astro);
 
 function getSourcePath() {
-	if (doc.data.references?.source) {
+	if (doc.data.references.source === false) {
+		return;
+	}
+	if (doc.data.references.source) {
 		return new URL(doc.data.references.source);
 	}
 	if (section === 'framework-components') {
@@ -31,7 +34,10 @@ function getSourcePath() {
 }
 
 function getStylesUrl() {
-	if (doc.data.references?.styles) {
+	if (doc.data.references.styles === false) {
+		return;
+	}
+	if (doc.data.references.styles) {
 		return new URL(doc.data.references.styles);
 	}
 	if (section === 'framework-components') {
@@ -40,13 +46,19 @@ function getStylesUrl() {
 }
 
 function getA11yUrl() {
-	if (doc.data.references?.a11y) {
+	if (doc.data.references.a11y === false) {
+		return;
+	}
+	if (doc.data.references.a11y) {
 		return new URL(doc.data.references.a11y);
 	}
 }
 
 function getZagUrl() {
-	if (doc.data.references?.zag) {
+	if (doc.data.references.zag === false) {
+		return;
+	}
+	if (doc.data.references.zag) {
 		return new URL(doc.data.references.zag);
 	}
 	if (section === 'framework-components') {
