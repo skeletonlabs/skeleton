@@ -21,7 +21,7 @@ const {
 
 const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skeleton`;
 
-const skeletonImage = new URL(`/api/og-image?text=${title}`, Astro.site);
+const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 ---
 
 <html lang="en" transition:animate="none">

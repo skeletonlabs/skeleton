@@ -1,4 +1,4 @@
-import SkeletonBlueprint from '@/modules/skeleton-blueprint';
+import SkeletonOgImage from '@/modules/skeleton-og-image';
 import { Resvg } from '@resvg/resvg-js';
 import type { APIRoute } from 'astro';
 import satori, { type SatoriOptions } from 'satori';
@@ -29,7 +29,8 @@ const satoriOptions: SatoriOptions = {
 export const prerender = false;
 
 export const GET: APIRoute = async (context) => {
-	const svg = await satori(SkeletonBlueprint({ text: context.url.searchParams.get('text') ?? '' }), satoriOptions);
+	const feature = context.url.searchParams.get('feature') ?? '';
+	const svg = await satori(SkeletonOgImage(feature), satoriOptions);
 
 	const resvg = new Resvg(svg, {
 		fitTo: {
