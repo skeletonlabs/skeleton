@@ -25,6 +25,15 @@ export const collections = {
 			stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
 			order: z.number().nonnegative().optional().default(0),
 			tags: z.array(z.string()).optional().default([]),
+			references: z
+				.object({
+					source: z.string().url().optional(),
+					styles: z.string().url().optional(),
+					a11y: z.string().url().optional(),
+					zag: z.string().url().optional(),
+				})
+				.optional()
+				.default({}),
 		}),
 	}),
 	contributors: defineCollection({
