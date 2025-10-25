@@ -14,8 +14,8 @@
 		await codeToHtml(code, {
 			lang,
 			themes: {
-				light: 'light-plus',
-				dark: 'dark-plus',
+				light: 'github-light',
+				dark: 'github-dark',
 			},
 			defaultColor: 'light-dark()',
 		}),
@@ -50,14 +50,15 @@
 	@reference "../../app.css";
 
 	:global(.shiki) {
-		font-size: var(--text-sm);
+		font-size: 12px;
 		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
-		padding: --spacing(4);
+		padding: --spacing(5);
+		border: 1px solid var(--color-surface-100-900);
 		border-radius: var(--radius-container);
-		border: 1px solid var(--color-surface-200);
+		margin-bottom: --spacing(2);
 		@variant dark {
-			border-color: var(--color-surface-800);
+			background-color: rgba(0, 0, 0, 0.5) !important;
 		}
 	}
 </style>

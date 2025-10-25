@@ -9,7 +9,7 @@
 			import('@shikijs/langs/html'),
 			import('@shikijs/langs/javascript'),
 		],
-		themes: [import('@shikijs/themes/dark-plus')],
+		themes: [import('@shikijs/themes/github-dark')],
 		engine: createJavaScriptRegexEngine(),
 	});
 
@@ -46,7 +46,7 @@
 
 	const generatedHtml = highlighter.codeToHtml(code, {
 		lang,
-		theme: 'dark-plus',
+		theme: 'github-dark',
 	});
 </script>
 

@@ -3,7 +3,7 @@ import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 
 const highlighter = await createHighlighterCore({
 	langs: [import('@shikijs/langs/bash'), import('@shikijs/langs/css'), import('@shikijs/langs/html'), import('@shikijs/langs/javascript')],
-	themes: [import('@shikijs/themes/dark-plus')],
+	themes: [import('@shikijs/themes/github-dark')],
 	engine: createJavaScriptRegexEngine(),
 });
 
@@ -38,7 +38,7 @@ export default function CodeBlock({
 }: CodeBlockProps) {
 	const html = highlighter.codeToHtml(code, {
 		lang,
-		theme: 'dark-plus',
+		theme: 'github-dark',
 	});
 	return (
 		<div

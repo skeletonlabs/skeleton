@@ -18,7 +18,7 @@ type BundledLanguage =
 	| 'diff'
 	| 'json'
 	| 'css';
-type BundledTheme = 'light-plus' | 'dark-plus';
+type BundledTheme = 'github-light' | 'github-dark';
 
 const bundledLanguages = {
 	typescript: () => import('@shikijs/langs/typescript'),
@@ -40,8 +40,8 @@ const bundledLanguages = {
 } as Record<BundledLanguage, DynamicImportLanguageRegistration>;
 
 const bundledThemes = {
-	'light-plus': () => import('@shikijs/themes/light-plus'),
-	'dark-plus': () => import('@shikijs/themes/dark-plus'),
+	'github-light': () => import('@shikijs/themes/github-light'),
+	'github-dark': () => import('@shikijs/themes/github-dark'),
 } as Record<BundledTheme, DynamicImportThemeRegistration>;
 
 const createHighlighter = /* @__PURE__ */ createdBundledHighlighter<BundledLanguage, BundledTheme>({
