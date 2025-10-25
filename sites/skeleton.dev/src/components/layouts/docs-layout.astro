@@ -59,16 +59,15 @@ const { Content, headings } = await render(doc);
 		<article class="grid gap-8" data-pagefind-body>
 			<Content components={components} Astro={Astro} />
 		</article>
-
 		<!-- Suggest changes -->
 		<a
-			class="flex items-center gap-2 anchor text-sm"
+			class="flex justify-center items-center gap-2 anchor text-sm"
 			href={`https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/${doc.filePath}`}
 			target="_blank"
 			rel="noopener noreferrer"
 		>
 			<SquarePenIcon class="inline-block size-4" />
-			Suggest changes to this page
+			Edit page on GitHub
 		</a>
 		<!-- Footer -->
 		<Footer class="p-4 xl:px-0" />
