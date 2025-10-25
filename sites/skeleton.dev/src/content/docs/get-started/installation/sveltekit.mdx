@@ -7,8 +7,6 @@ order: 10
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-{/* --- */}
-
 ## Requirements
 
 | Tooling                              | Minimum Supported |
@@ -23,7 +21,7 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="1">
         ### Create a Project
         Use the [Svelte CLI](https://svelte.dev/docs/kit/creating-a-project) to generate a new SvelteKit project.
-        ```console
+        ```bash
         npx sv create --types ts my-skeleton-app
 		cd my-skeleton-app
         ```
@@ -32,7 +30,7 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="2">
         ### Install Skeleton
         Install the Skeleton core and Svelte component packages.
-        ```console
+        ```bash
         npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
         ```
     </ProcessStep>
@@ -57,7 +55,7 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="check">
         ### Done
         Start the dev server using the following command.
-    	```console
+    	```bash
         npm run dev
         ```
     </ProcessStep>

@@ -7,8 +7,6 @@ order: 30
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-{/* --- */}
-
 ## Requirements
 
 | Tooling                              | Minimum Supported |
@@ -23,7 +21,7 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="1">
         ### Create a Project
         Start by creating a new [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project) project. This will install Svelte and Typescript.
-        ```console
+        ```bash
         npm create vite@latest
 			- Set your project named as desired
 			- Set Svelte as the framework
@@ -35,14 +33,14 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="2">
        ### Install Skeleton
         Install the Skeleton core and Svelte component packages.
-        ```console
+        ```bash
         npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
         ```
     </ProcessStep>
     <ProcessStep step="3">
         ### Install Tailwind
         Install Tailwind and and the Tailwind Vite plugin.
-        ```console
+        ```bash
         npm install tailwindcss @tailwindcss/vite
         ```
 		Implement the plugin in `vite.config` in the root of your project.
@@ -80,7 +78,7 @@ import Process from '@/components/ui/process.astro';
     <ProcessStep step="check">
         ### Done
         Start the dev server using the following command.
-    	```console
+    	```bash
         npm run dev
         ```
     </ProcessStep>

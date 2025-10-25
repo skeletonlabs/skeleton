@@ -21,23 +21,16 @@ const headings: PageHeadings[] = [
 
 /** Provide a padding-left class based on the depth. */
 function setIndentationClass(depth: number) {
-	// prettier-ignore
-	switch(depth) {
-		case(6): { return 'pl-12';
-		}
-		case(5): { return 'pl-10';
-		}
-		case(4): { return 'pl-8';
-		}
-		case(3): { return 'pl-6';
-		}
-		case(2): { return 'pl-4';
-		}
-		case(1): { return 'pl-2';
-		}
-		default: { return 'pl-0';
-		}
-	}
+	return (
+		{
+			0: 'pl-0',
+			1: 'pl-2',
+			2: 'pl-4',
+			3: 'pl-6',
+			4: 'pl-8',
+			5: 'pl-10',
+		}[depth] ?? 'pl-0'
+	);
 }
 ---
 

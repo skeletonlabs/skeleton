@@ -4,6 +4,8 @@ description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
 ---
 
+import Code from '@/components/ui/code.svelte';
+
 ## Astro
 
 The Skeleton documentation website is maintained using the Astro framework.
@@ -82,10 +84,10 @@ A suite of global components are automatically imported within MDX pages via [as
 Code Blocks are provided via [Expressive Code](https://expressive-code.com/) via either the `<Code>` component or Markdown fences. This is powered by the [Shiki](https://shiki.matsu.io/) syntax highlighter. View the [list of supported languages](https://github.com/shikijs/textmate-grammars-themes/blob/main/packages/tm-grammars/README.md).
 
 ```tsx
-<Code code={`<div>Skeleton<div>`} lang="html" />
+<Code code="<div>Skeleton<div>" lang="html" />
 ```
 
-<Code code={'```html\n<div>Skeleton<div>\n```'} lang="mdx" />
+<Code code={`<div>Skeleton<div>`} lang="html" />
 
 ### Preview
 
@@ -96,35 +98,19 @@ import Default from '@/components/examples/foo/default';
 import DefaultRaw from '@/components/examples/foo/default?raw';
 ```
 
-```astro
-<Preview client:load>
-	<Fragment slot="preview"><Default /></Fragment>
-	<Fragment slot="code"><Code code={DefaultRaw} lang="html" /></Fragment>
+```mdx
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 ```
 
-#### Framework Specific Code
+#### Framework Specific Content
 
-To allow for a common preview to have framework specific code, use the `codeReact` and `codeSvelte` slots. For generic code that is not framework specific, such as an Astro component along with JavaScript, use the `code` slot instead.
+To show framework specific content, use the `Framework` component.
 
-```astro
-<Preview client:load>
-	<Fragment slot="preview"><Example /></Fragment>
-	<Preview>
-		<Fragment slot="preview">
-			<Default />
-		</Fragment>
-		<Fragment slot="code">
-			<Code code={DefaultGenericRaw} lang="astro" />
-		</Fragment>
-		<Fragment slot="codeReact">
-			<Code code={DefaultReactRaw} lang="tsx" />
-		</Fragment>
-		<Fragment slot="codeSvelte">
-			<Code code={DefaultSvelteRaw} lang="svelte" />
-		</Fragment>
-	</Preview>
-</Preview>
+```mdx
+<Framework id="svelte">This is Svelte specific content.</Framework>
+<Framework id="react">This is React specific content.</Framework>
 ```
 
 > TIP: For React or Svelte components, make sure to use [Astro's hydration directives](https://docs.astro.build/en/guides/framework-components/#hydrating-interactive-components).
@@ -143,7 +129,7 @@ When placed on a component documentation page, these will automatically fetch an
 
 ### Lucide
 
-This documentation app implements the [React version](https://lucide.dev/guide/packages/lucide-react) of [Lucide](https://lucide.dev/) for most icons. View <a href="/docs/integrations/iconography/svelte" class="anchor">Iconography</a> details.
+This documentation app uses [Lucide](https://lucide.dev/guide/packages/lucide-svelte) for its icons.
 
 ### SVG Components
 

@@ -8,15 +8,21 @@ catalog:
   '@astrojs/mdx': 4.3.7
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
+  '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.0
   '@astrojs/vercel': 8.2.10
-  '@atproto/api': 0.17.3
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.546.0
-  '@nanostores/persistent': 1.1.0
+  '@resvg/resvg-js': 2.6.2
+  '@shikijs/core': 3.13.0
+  '@shikijs/engine-javascript': 3.13.0
+  '@shikijs/langs': 3.13.0
+  '@shikijs/themes': 3.13.0
+  '@shikijs/types': 3.13.0
+  '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 5.10.3
   '@sveltejs/kit': 2.47.1
@@ -32,12 +38,11 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
-  '@types/mdast': 4.0.4
+  '@types/html-escaper': 3.0.4
   '@types/node': 24.8.1
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
-  '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.0.4
   '@zag-js/accordion': 1.26.3
   '@zag-js/avatar': 1.26.3
@@ -65,30 +70,25 @@ catalog:
   '@zag-js/tree-view': 1.26.3
   astro: 5.14.6
   astro-auto-import: 0.4.5
-  astro-expressive-code: 0.41.3
+  astro-pagefind: 1.8.5
+  astro-seo: 0.8.4
   chroma-js: 3.1.2
   colorette: 2.0.20
   commander: 14.0.1
   detect-indent: 7.0.2
   fuse.js: 7.1.0
+  html-escaper: 3.0.3
   jsdom: 27.0.1
   latest-version: 9.0.0
   lucide-react: 0.546.0
   magic-string: 0.30.19
-  mdast-util-from-markdown: 2.0.2
-  mdast-util-gfm: 3.1.0
-  mdast-util-mdx: 3.0.0
-  mdast-util-to-markdown: 2.1.2
-  micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
-  nanostores: 1.0.1
   next: 15.5.6
   node-html-parser: 7.0.1
   octokit: 5.0.4
   oxlint: 1.23.0
   oxlint-tsgolint: 0.2.0
   package-manager-detector: 1.5.0
-  pagefind: 1.4.0
   playwright: 1.56.1
   postcss: 8.5.6
   prettier: 3.6.2
@@ -97,6 +97,7 @@ catalog:
   react: 19.2.0
   react-dom: 19.2.0
   sass-embedded: 1.93.2
+  satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.4
   shiki: 3.13.0
@@ -108,11 +109,9 @@ catalog:
   tsdown: 0.15.8
   type-fest: 5.1.0
   typescript: 5.9.3
-  unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
   vite: 7.1.10
-  vite-plugin-pagefind: 1.0.7
   vite-plugin-transform-lucide-imports: 0.3.0
   vitest: 3.2.4
   zimmerframe: 1.1.4
