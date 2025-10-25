@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 import { readFile } from 'fs/promises';
 import satori, { type SatoriOptions } from 'satori';
 
-const roboto = await readFile(new URL('../assets/fonts/Roboto-Regular.ttf', import.meta.url));
+const roboto = await readFile(new URL('../../assets/fonts/Roboto-Regular.ttf', import.meta.url));
 
 const satoriOptions: SatoriOptions = {
 	width: 1200,
