@@ -20,8 +20,8 @@ export default function SkeletonBlueprint(props: { text: string }) {
 		>
 			<div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-					<div style={{ fontSize: 64, display: 'flex', alignContent: 'center', gap: 16 }}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 512 512">
+					<div style={{ fontSize: 96, display: 'flex', alignContent: 'center', gap: 16 }}>
+						<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 512 512">
 							<path
 								fill="#fff"
 								fillRule="evenodd"
@@ -30,11 +30,10 @@ export default function SkeletonBlueprint(props: { text: string }) {
 						</svg>
 						Skeleton
 					</div>
-					<div style={{ fontSize: 18, fontWeight: 300, opacity: 0.6 }}>The adaptive design system.</div>
+					<div style={{ fontSize: 32, fontWeight: 300, opacity: 0.6 }}>The adaptive design system.</div>
 				</div>
 			</div>
-
-			<div style={{ fontSize: 64, fontWeight: 600 }}>{props.text}</div>
+			<div style={{ fontSize: 96, fontWeight: 500 }}>{props.text}</div>
 		</div>
 	);
 }
