@@ -11,7 +11,7 @@ import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import ChipsBar from '../ui/chips-bar.astro';
 import { SquarePenIcon } from '@lucide/svelte';
-import LLMs from '@/components/ui/large-language-models.svelte';
+import LlmMenu from '@/components/ui/large-language-models.svelte';
 import NavigationSteps from '@/components/ui/navigation-steps.astro';
 
 interface Props {
@@ -42,7 +42,7 @@ const { Content, headings } = await render(doc);
 		<header class="space-y-4" data-pagefind-body>
 			<div class="flex justify-between items-start">
 				<Breadcrumbs />
-				<LLMs url={Astro.url} client:visible />
+				<LlmMenu url={Astro.url} client:visible />
 			</div>
 			<H1>{doc.data.title}</H1>
 			<p class="text-lg opacity-60">{doc.data.description}</p>
