@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MassiveAttackMezzanine from '@/assets/landing-page/massive-attack-mezzanine.png';
+	import massiveAttackMezzanine from '@/assets/landing-page/massive-attack-mezzanine.webp';
 	import { ArrowUpRight, Check, Music, FastForward, Sliders, Headphones, Play, Rewind, Users, Volume2, ChartBar } from '@lucide/svelte';
 	import { Avatar, Slider, Progress, SegmentedControl, Switch } from '@skeletonlabs/skeleton-svelte';
 
@@ -120,9 +120,9 @@
 				<p class="text-xs opacity-60">Harman Kardon Luna</p>
 			</header>
 			<img
-				src={MassiveAttackMezzanine.src}
-				width={MassiveAttackMezzanine.width}
-				height={MassiveAttackMezzanine.height}
+				src={massiveAttackMezzanine.src}
+				width={massiveAttackMezzanine.width}
+				height={massiveAttackMezzanine.height}
 				alt="Massive Attack"
 				class="rounded-container border-[1px] border-surface-500/50"
 			/>
