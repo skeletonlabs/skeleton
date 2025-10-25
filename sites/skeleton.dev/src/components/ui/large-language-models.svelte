@@ -29,7 +29,7 @@
 </script>
 
 <Popover positioning={{ placement: 'bottom-end' }}>
-	<Popover.Trigger class="chip preset-filled-surface-200-800">
+	<Popover.Trigger class="chip preset-filled-surface-200-800 data-[state=open]:brightness-75">
 		<FileTextIcon class="size-4" />
 		<span>LLM</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
