@@ -1,7 +1,7 @@
 <script lang="ts">
 	import chatgpt from '@/assets/logos/chatgpt.svg?raw';
 	import claude from '@/assets/logos/claude.svg?raw';
-	import { ChevronDownIcon } from '@lucide/svelte';
+	import { ChevronDownIcon, FileTextIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	interface Props {
@@ -30,6 +30,7 @@
 
 <Popover positioning={{ placement: 'bottom-end' }}>
 	<Popover.Trigger class="chip preset-filled-surface-200-800">
+		<FileTextIcon class="size-4" />
 		<span>LLM</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
@@ -38,7 +39,12 @@
 			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-2 shadow-xl">
 				<nav class="flex flex-col gap-1">
 					{#each links as link (link)}
-						<a href={link.href} target="_blank" rel="noopener noreferrer" class="btn-sm flex items-center gap-2 hover:preset-tonal">
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn-sm flex items-center gap-2 justify-between hover:preset-tonal"
+						>
 							{@html link.icon}
 							<span>Open in {link.title}</span>
 						</a>
