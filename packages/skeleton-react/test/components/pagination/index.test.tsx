@@ -10,6 +10,13 @@ describe('Pagination', () => {
 		});
 	});
 
+	describe('FirstTrigger', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('first-trigger')).toBeInTheDocument();
+		});
+	});
+
 	describe('PrevTrigger', () => {
 		it('renders', () => {
 			render(<Test />);
@@ -35,6 +42,13 @@ describe('Pagination', () => {
 		it('renders', () => {
 			render(<Test />);
 			expect(screen.getByTestId('next-trigger')).toBeInTheDocument();
+		});
+	});
+
+	describe('LastTrigger', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('first-trigger')).toBeInTheDocument();
 		});
 	});
 });

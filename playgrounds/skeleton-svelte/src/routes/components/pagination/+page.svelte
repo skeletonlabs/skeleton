@@ -4,6 +4,7 @@
 
 <Pagination count={5000} pageSize={10}>
 	<Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
+	<Pagination.FirstTrigger>First</Pagination.FirstTrigger>
 	<Pagination.Context>
 		{#snippet children(pagination)}
 			{#each pagination().pages as page, index (page)}
@@ -15,5 +16,6 @@
 			{/each}
 		{/snippet}
 	</Pagination.Context>
+	<Pagination.LastTrigger>Last</Pagination.LastTrigger>
 	<Pagination.NextTrigger>Next</Pagination.NextTrigger>
 </Pagination>
