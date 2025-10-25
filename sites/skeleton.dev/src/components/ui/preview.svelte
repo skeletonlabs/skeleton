@@ -43,10 +43,20 @@
 	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
 		<!-- Mode -->
 		<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])} deselectable={false}>
-			<ToggleGroup.Item value="preview" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
+			<ToggleGroup.Item
+				value="preview"
+				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+				title="Preview Feature"
+				aria-label="Preview Feature"
+			>
 				<EyeIcon class="size-4" />
 			</ToggleGroup.Item>
-			<ToggleGroup.Item value="code" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
+			<ToggleGroup.Item
+				value="code"
+				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+				title="View Code"
+				aria-label="View Code"
+			>
 				<CodeIcon class="size-4" />
 			</ToggleGroup.Item>
 		</ToggleGroup>
@@ -57,7 +67,12 @@
 			onValueChange={(details) => (customizeMode = details.value[0])}
 			class="ml-auto {viewMode === 'preview' ? 'block' : 'hidden'}"
 		>
-			<ToggleGroup.Item value="customize" class="data-[state=on]:preset-tonal text-surface-contrast-50-950">
+			<ToggleGroup.Item
+				value="customize"
+				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+				title="Customize"
+				aria-label="Customize"
+			>
 				<PaletteIcon class="size-4" />
 			</ToggleGroup.Item>
 		</ToggleGroup>
