@@ -43,6 +43,8 @@ const skeletonImage = new URL(`/api/og-image?text=${title}`, Astro.site);
 					url: skeletonImage.toString(),
 					secureUrl: skeletonImage.toString(),
 					type: `image/png`,
+					width: 1200,
+					height: 630,
 					alt: titleWithSkeletonSuffix,
 				},
 				optional: {
