@@ -140,8 +140,8 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 #### Extend
 
-- `PropsWithElement<Tag>` - via Skeleton's `@/internal/props-with-element.js`; allows for HTML template overrides.
-- `HTMLAttributes<Tag, Omit>` - via Skeleton's `@/internal/html-attributes.js`; allows for standard HTML attributes.
+- `PropsWithElement<Tag>` - via Skeleton's `@/internal/props-with-element`; allows for HTML template overrides.
+- `HTMLAttributes<Tag, Omit>` - via Skeleton's `@/internal/html-attributes`; allows for standard HTML attributes.
 
 #### Omit
 
@@ -175,7 +175,7 @@ For most components this will only be necessary for the root component, some com
 
 ```ts title="avatar-root-context.ts"
 import type { useAvatar } from './use-avatar';
-import { createContext } from '@/internal/create-context.js';
+import { createContext } from '@/internal/create-context';
 
 export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 ```
@@ -185,7 +185,7 @@ export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 The index prepares all required component files for export.
 
 ```ts
-export { Avatar } from './modules/anatomy.js';
+export { Avatar } from './modules/anatomy';
 export { useAvatar } from './modules/provider';
 export type { AvatarRootProps } from './anatomy/root';
 export type { AvatarRootProviderProps } from './anatomy/root-provider';
@@ -273,7 +273,7 @@ packages/
 Here's an example of the Avatar styles found in `avatar.ts`:
 
 ```ts title="avatar.ts"
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesAvatar = defineSkeletonClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
@@ -294,7 +294,7 @@ export const classesAvatar = defineSkeletonClasses({
 You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
 
 ```ts title="avatar.ts"
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesProgress = defineSkeletonClasses({
 	root: [
@@ -330,8 +330,8 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
 ```tsx title="root.tsx"
-import type { HTMLAttributes } from '@/internal/html-attributes.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import type { HTMLAttributes } from '@/internal/html-attributes';
+import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import type { Props } from '@zag-js/avatar';
 import { mergeProps } from '@zag-js/react';
