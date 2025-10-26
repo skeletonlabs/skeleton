@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { codeToHtml } from '@/modules/shiki.bundle';
 	import { CheckIcon, CopyIcon } from '@lucide/svelte';
-	import { transformerNotationHighlight, transformerNotationDiff } from '@shikijs/transformers';
+	import { transformerNotationHighlight, transformerNotationWordHighlight, transformerNotationDiff } from '@shikijs/transformers';
 
 	interface Props {
 		code: Parameters<typeof codeToHtml>[0];
@@ -19,7 +19,7 @@
 				dark: 'github-dark',
 			},
 			defaultColor: 'light-dark()',
-			transformers: [transformerNotationHighlight(), transformerNotationDiff()],
+			transformers: [transformerNotationHighlight(), transformerNotationWordHighlight(), transformerNotationDiff()],
 		}),
 	);
 
@@ -99,8 +99,9 @@
 					}
 				}
 
-				:global(&.highlighted) {
-					background-color: var(--color-surface-100-900);
+				:global(&.highlighted),
+				:global(& > .highlighted-word) {
+					background-color: var(--color-surface-200-800);
 				}
 			}
 		}

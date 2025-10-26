@@ -22,42 +22,64 @@ The exact instructions for installing Skeleton will differ per framework, howeve
 
 <Process>
     <ProcessStep step="1">
+
         ### Create a Project
+
         Scaffold your web-based application using any framework (such as [Nuxt](https://nuxt.com/), [SolidStart](https://start.solidjs.com/), [Laravel](https://laravel.com/), etc.)
+
     </ProcessStep>
     <ProcessStep step="2">
+
         ### Install Tailwind
-		Refer to the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) for installing Tailwind on your framework of choice.
+
+    	Refer to the [official instructions](https://tailwindcss.com/docs/installation/framework-guides) for installing Tailwind on your framework of choice.
+
     </ProcessStep>
     <ProcessStep step="3">
+
         ### Install Skeleton
+
         Install the Skeleton core package to gain access to most features - excluding Components.
+
         ```bash
         npm i -D @skeletonlabs/skeleton
         ```
+
     </ProcessStep>
     <ProcessStep step="4">
+
         ### Configure Tailwind
+
         Locate your global stylesheet and append the following at the top of the file.
+
         ```css
         @import 'tailwindcss';
 
-        @import '@skeletonlabs/skeleton';
-        @import '@skeletonlabs/skeleton/themes/cerberus';
+        @import '@skeletonlabs/skeleton'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton/themes/cerberus'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="6">
+
         ### Set Active Theme
+
         Open the file containing the `<html>` tag for your project and set the `data-theme` attribute as follows.
-        ```html "data-theme="cerberus""
+
+        ```html
+        <!-- [!code word:data-theme="cerberus"] -->
         <html data-theme="cerberus">
-            ...
+            <!-- ... -->
         </html>
         ```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Run the Project
+
         Start the dev server for your framework of choice.
+
     </ProcessStep>
 
 </Process>

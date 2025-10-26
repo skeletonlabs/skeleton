@@ -22,58 +22,86 @@ Learn how to install the Skeleton core into your Astro project. We'll cover usin
 
 <Process>
     <ProcessStep step="1">
+
         ### Create a Project
+
         Start by creating a new Astro project. We recommend selecting all default options.
+
         ```bash
         npm create astro@latest --add tailwind my-skeleton-app
-		cd my-skeleton-app
+    	cd my-skeleton-app
         ```
+
     </ProcessStep>
     <ProcessStep step="2">
+
         ### Install Skeleton
+
         Install the Skeleton core package for the Tailwind plugin.
+
         ```bash
         npm i -D @skeletonlabs/skeleton
         ```
+
     </ProcessStep>
     <ProcessStep step="3">
         ### Configure Tailwind
-      	Create a global styleshseet in `/src/styles/global.css` and add import the following.
-         ```css title="global.css"
+
+      	Create a global stylesheet in `/src/styles/global.css` and add import the following.
+
+         ```css
         @import 'tailwindcss';
 
-        @import '@skeletonlabs/skeleton';
-        @import '@skeletonlabs/skeleton/themes/cerberus';
+        @import '@skeletonlabs/skeleton'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton/themes/cerberus'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="4">
+
         ### Remove Default Content and Styles
+
         We recommend you open `/src/components/welcome.astro` and remove all default HTML and CSS. Here's a simple starter layout.
+
         ```astro
-       ---
+        ---
+        import '../styles/global.css';
+
     	const framework = 'Astro';
-    	import '../styles/global.css'
     	---
+
     	<main class="p-10 space-y-4">
     		<h1 class="h1">Hello {framework}</h1>
     		<p>This page is working.</p>
     		<button type="button" class="btn preset-filled-primary-500">Example Button</button>
     	</main>
     	```
+
     </ProcessStep>
     <ProcessStep step="5">
+
         ### Set Active Theme
+
         Open `/src/layouts/Layout.astro`, then set the `data-theme` attribute on the HTML tag to define the active theme.
-        ```html title="layouts/Layout.astro" "data-theme="cerberus""
-        <html data-theme="cerberus">...</html>
+
+        ```html
+        <!-- [!code word:data-theme="cerberus"] -->
+        <html data-theme="cerberus">
+            <!-- ... -->
+        </html>
         ```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Run the Project
+
         Start the dev server using the following command.
+
     	```bash
     	npm run dev
         ```
+
     </ProcessStep>
 
 </Process>
@@ -89,78 +117,103 @@ While Astro can support [multiple Frontend frameworks](https://docs.astro.build/
 <Process>
 	<ProcessStep step="1">
         ### Astro Framework Packages
+
         Install only the Astro framework(s) packages you intend to use.
+
         ```bash
         npx astro add react
         ```
-		https://docs.astro.build/en/guides/integrations-guide/react/
+
+    	https://docs.astro.build/en/guides/integrations-guide/react/
+
         ```bash
-		npx astro add svelte
+    	npx astro add svelte
         ```
-		https://docs.astro.build/en/guides/integrations-guide/svelte/
+
+    	https://docs.astro.build/en/guides/integrations-guide/svelte/
+
     </ProcessStep>
-	<ProcessStep step="2">
+    <ProcessStep step="2">
+
         ### Skeleton Framework Packages
+
         Install only the Skeleton framework(s) packages you intend to use.
+
         ```bash
        	@skeletonlabs/skeleton-react
         ```
+
         ```bash
-		@skeletonlabs/skeleton-svelte
+    	@skeletonlabs/skeleton-svelte
         ```
+
     </ProcessStep>
     	<ProcessStep step="3">
+
         ### Add Style Imports
-        
+
         Import the stylesheets for the framework(s) you intend to use in your global stylesheet created above.
-        ```css title="global.css"
-        @import '@skeletonlabs/skeleton-react'; 
-        @import '@skeletonlabs/skeleton-svelte';
+
+        ```css
+        @import '@skeletonlabs/skeleton-react'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton-svelte'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="4">
         ### Using Wrapper Components
+
         In most cases, frontend framework components may not be fully functional if used directly within `.astro` files. To overcome this, you may utilize a wrapper component of that framework. Here's a demo using the Skeleton Avatar component as an example.
-    	#### React
-    	```tsx title="ReactAvatarWrapper.tsx"
-    	import React from 'react';
+
+        #### React
+
+    	```tsx
     	import { Avatar } from '@skeletonlabs/skeleton-react';
 
-    	export const ReactAvatarWrapper: React.FC = () => {
+    	export function AvatarWrapper() {
     		const imgSrc = '...';
     		return <Avatar src={imgSrc} name="skeleton" />;
-    	};
+    	}
     	```
-    	```astro title="page.astro"
+
+    	```astro
     	---
-    	import { ReactAvatarWrapper } from '@/components/ReactAvatarWrapper';
+    	import { AvatarWrapper } from '@/components/avatar-wrapper';
     	---
 
-    	<ReactAvatarWrapper />
+    	<AvatarWrapper />
     	```
+
     	#### Svelte
-    	```svelte title="SvelteAvatarWrapper.svelte"
+
+    	```svelte
     	<script lang="ts">
-    	import { Avatar } from '@skeletonlabs/skeleton-svelte';
-    	const imgSrc = '...';
+    	    import { Avatar } from '@skeletonlabs/skeleton-svelte';
+    	    const imgSrc = '...';
     	</script>
 
     	<Avatar src={imgSrc} name="skeleton" />
     	```
-    	```astro title="page.astro"
+
+    	```astro
     	---
-    	import { SvelteAvatarWrapper } from '@/components/SvelteAvatarWrapper';
+    	import AvatarWrapper from '@/components/avatar-wrapper.svelte';
     	---
 
-    	<SvelteAvatarWrapper />
+    	<AvatarWrapper />
     	```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Run the Project
+
         Start the dev server using the following command.
+
     	```bash
     	npm run dev
         ```
+
     </ProcessStep>
 
 </Process>

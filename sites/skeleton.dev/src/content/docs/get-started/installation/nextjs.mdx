@@ -19,44 +19,67 @@ import Process from '@/components/ui/process.astro';
 
 <Process>
     <ProcessStep step="1">
+    
         ### Create a Project
+
         Use the [Next.js CLI](https://nextjs.org/docs/app/getting-started/installation) to scaffold a new project.
+
         ```bash
-        npm create next-app@latest my-skeleton-app 
+        npm create next-app@latest my-skeleton-app
         cd my-skeleton-app
         ```
+
     </ProcessStep>
     <ProcessStep step="2">
+
         ### Install Skeleton
+
         Install the Skeleton core and React component packages.
+
         ```bash
         npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-react
         ```
+
     </ProcessStep>
     <ProcessStep step="4">
+
         ### Configure Tailwind
+
         Open your global stylesheet in `/src/app/globals.css` and add the following imports:
-        ```css title="globals.css" {3-7}
+
+        ```css
         @import 'tailwindcss';
 
-        @import '@skeletonlabs/skeleton';
-        @import '@skeletonlabs/skeleton-react';
-        @import '@skeletonlabs/skeleton/themes/cerberus';
+        @import '@skeletonlabs/skeleton'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton-react'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton/themes/cerberus'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="5">
+
         ### Set Active Theme
+
         Open `/src/app/layout.tsx`, then set the `data-theme` attribute on the HTML tag to define the active theme.
-        ```html title="layout.tsx" "data-theme="cerberus""
-        <html data-theme="cerberus">...</html>
+
+        ```html
+        <!-- [!code word:data-theme="cerberus"] -->
+        <html data-theme="cerberus">
+            <!-- ... -->
+        </html>
         ```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Done
+
         Start the dev server using the following command.
+
     	```bash
         npm run dev
         ```
+
     </ProcessStep>
 
 </Process>
