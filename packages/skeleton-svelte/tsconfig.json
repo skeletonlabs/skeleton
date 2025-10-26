@@ -1,6 +1,7 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
+		"moduleResolution": "nodenext",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"target": "es2022",

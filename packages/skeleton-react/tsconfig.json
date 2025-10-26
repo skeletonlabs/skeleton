@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"moduleResolution": "nodenext",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"target": "es2022",
