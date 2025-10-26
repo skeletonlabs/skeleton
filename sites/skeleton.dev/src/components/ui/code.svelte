@@ -38,14 +38,14 @@
 </script>
 
 <div class="relative" data-pagefind-ignore>
-	{@html html}
-	<button onclick={copyCode} class="btn absolute p-2 aspect-square preset-tonal top-3 end-3">
+	<button onclick={copyCode} class="btn absolute p-2 aspect-square preset-filled-surface-100-900 top-3 end-3">
 		{#if hasCopied}
 			<CheckIcon class="size-4" />
 		{:else}
 			<CopyIcon class="size-4" />
 		{/if}
 	</button>
+	{@html html}
 </div>
 
 <style>
