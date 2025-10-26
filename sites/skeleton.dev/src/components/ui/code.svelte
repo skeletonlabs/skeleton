@@ -62,7 +62,6 @@
 		padding-top: --spacing(10);
 		border: 1px solid var(--color-surface-100-900);
 		border-radius: var(--radius-container);
-		margin-bottom: --spacing(2);
 
 		@variant dark {
 			background-color: rgba(0, 0, 0, 0.5) !important;
