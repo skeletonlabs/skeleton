@@ -11,10 +11,6 @@ interface Props {
 const { previousDoc, nextDoc } = Astro.props;
 ---
 
-<!--
-TIP: use col-start-* to add gap when you need to "disable" the left/prev button.
-https://tailwindcss.com/docs/grid-column#starting-and-ending-lines
--->
 <nav class="mt-10 grid grid-cols-2 gap-4">
 	<!-- Button: Prev -->
 	{
@@ -26,19 +22,18 @@ https://tailwindcss.com/docs/grid-column#starting-and-ending-lines
 				<ArrowLeftIcon />
 				<div>
 					<p class="text-sm opacity-60">Previous</p>
-					<p class="text-xl">{previousDoc.data.title}</p>
+					<p class="text-xs md:text-xl">{previousDoc.data.title}</p>
 				</div>
 			</a>
 		)
 	}
-
 	<!-- Button: Next -->
 	{
 		nextDoc && (
 			<a href={getRelativeDocsUrl(Astro, nextDoc.id)} class="btn justify-end py-6 preset-tonal border border-surface-200-800 col-start-2">
 				<div class="text-right">
 					<p class="text-sm opacity-60">Next</p>
-					<p class="text-xl">{nextDoc.data.title}</p>
+					<p class="text-xs md:text-xl">{nextDoc.data.title}</p>
 				</div>
 				<ArrowRightIcon />
 			</a>
