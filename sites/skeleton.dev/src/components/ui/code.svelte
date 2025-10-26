@@ -37,18 +37,15 @@
 	}
 </script>
 
-<div class="relative group" data-pagefind-ignore>
-	<span class="absolute text-xs top-1 end-3 transition duration-500 opacity-50 group-hover:opacity-0 font-mono">{lang}</span>
-	<button
-		onclick={copyCode}
-		class="btn absolute p-3 aspect-square preset-filled-surface-100-900 top-2 end-2 duration-500 opacity-0 data-[copied=true]:opacity-100 group-hover:opacity-100"
-		aria-label={hasCopied ? 'Code copied' : 'Copy code to clipboard'}
-		data-copied={hasCopied}
-	>
+<div class="relative" data-pagefind-ignore>
+	<span class="absolute text-xs top-2.5 left-5 transition duration-500 opacity-50 font-mono">{lang}</span>
+	<button onclick={copyCode} class="absolute top-2.5 end-5 text-xs flex items-center gap-2" data-copied={hasCopied}>
 		{#if hasCopied}
-			<CheckIcon class="size-4" />
+			<CheckIcon class="size-3" />
+			Code copied
 		{:else}
-			<CopyIcon class="size-4" />
+			<CopyIcon class="size-3" />
+			Copy code
 		{/if}
 	</button>
 	{@html html}
@@ -62,6 +59,7 @@
 		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
 		padding-block: --spacing(5);
+		padding-top: --spacing(10);
 		border: 1px solid var(--color-surface-100-900);
 		border-radius: var(--radius-container);
 		margin-bottom: --spacing(2);
