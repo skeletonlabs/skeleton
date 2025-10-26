@@ -12,7 +12,7 @@ const { step } = Astro.props;
 	<div class="text-sm preset-filled-surface-200-800 -ml-4 flex size-7 items-center justify-center rounded-full">
 		{step !== 'check' ? step : <CheckIcon class="size-4" />}
 	</div>
-	<article class="[&>.h2]:!text-lg [&>.h3]:!text-lg space-y-4">
+	<article class="[&>.h2]:!text-lg [&>.h3]:!text-lg space-y-4 overflow-y-auto">
 		<slot />
 	</article>
 </div>
