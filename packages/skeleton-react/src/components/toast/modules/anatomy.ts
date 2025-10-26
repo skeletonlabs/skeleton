@@ -1,11 +1,11 @@
-import ActionTrigger from '../anatomy/action-trigger';
-import CloseTrigger from '../anatomy/close-trigger';
-import Description from '../anatomy/description';
-import Group from '../anatomy/group';
-import Message from '../anatomy/message';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import Title from '../anatomy/title';
+import ActionTrigger from '../anatomy/action-trigger.jsx';
+import CloseTrigger from '../anatomy/close-trigger.jsx';
+import Description from '../anatomy/description.jsx';
+import Group from '../anatomy/group.jsx';
+import Message from '../anatomy/message.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import Root from '../anatomy/root.jsx';
+import Title from '../anatomy/title.jsx';
 
 export const Toast = Object.assign(Root, {
 	Context: RootContext,
