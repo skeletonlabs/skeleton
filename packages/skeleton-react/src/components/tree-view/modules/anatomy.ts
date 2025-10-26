@@ -1,15 +1,15 @@
-import Branch from '../anatomy/branch.jsx';
 import BranchContent from '../anatomy/branch-content.jsx';
 import BranchControl from '../anatomy/branch-control.jsx';
 import BranchIndentGuide from '../anatomy/branch-indent-guide.jsx';
 import BranchIndicator from '../anatomy/branch-indicator.jsx';
 import BranchText from '../anatomy/branch-text.jsx';
+import Branch from '../anatomy/branch.jsx';
 import Item from '../anatomy/item.jsx';
 import Label from '../anatomy/label.jsx';
 import NodeProvider from '../anatomy/node-provider.jsx';
-import Root from '../anatomy/root.jsx';
 import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
 import Tree from '../anatomy/tree.jsx';
 
 export const TreeView = Object.assign(Root, {
