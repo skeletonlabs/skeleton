@@ -60,6 +60,8 @@ const { Content, headings } = await render(doc);
 		<ChipsBar {doc} />
 		<!-- Content -->
 		<article class="grid gap-8" data-pagefind-body>
+			<p class="text-lg opacity-60">{doc.data.summary}</p>
+
 			<Content components={components} Astro={Astro} />
 			<!-- Inner Page Navigation -->
 			<NavigationSteps {previousDoc} {nextDoc} />
