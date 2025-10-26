@@ -52,7 +52,6 @@
 			{/if}
 		</button>
 	</header>
-
 	{@html html}
 </div>
 
