@@ -1,5 +1,5 @@
 import { RootContext } from '../modules/root-context.js';
-import ChevronDownIcon from '@/internal/components/chevron-down';
+import ChevronDownIcon from '@/internal/components/chevron-down.jsx';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesCombobox } from '@skeletonlabs/skeleton-common';

@@ -7,8 +7,8 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { TableCellContext } from '../modules/table-cell-context';
-	import { ViewContext } from '../modules/view-context';
+	import { TableCellContext } from '../modules/table-cell-context.js';
+	import { ViewContext } from '../modules/view-context.js';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

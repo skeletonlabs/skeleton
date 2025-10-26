@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { ThumbContext } from '../modules/thumb-context';
+	import { ThumbContext } from '../modules/thumb-context.js';
 	import { classesSlider } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

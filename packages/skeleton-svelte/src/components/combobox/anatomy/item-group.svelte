@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context';
+	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { splitItemGroupProps } from '@zag-js/combobox';

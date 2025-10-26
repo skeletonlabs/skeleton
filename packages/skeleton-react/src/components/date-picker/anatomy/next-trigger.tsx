@@ -1,6 +1,6 @@
 // oxlint-disable-next-line no-unused-vars
 import { RootContext } from '../modules/root-context.js';
-import { ViewContext } from '../modules/view-context';
+import { ViewContext } from '../modules/view-context.js';
 import ChevronRight from '@/internal/components/chevron-right.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
