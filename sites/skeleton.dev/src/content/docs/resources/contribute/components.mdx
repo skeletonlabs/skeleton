@@ -108,7 +108,7 @@ Every component part should export their component as a default export and their
 
 **React**
 
-```tsx title="avatar-root.tsx"
+```tsx
 export interface AvatarRootProps {
 	// ...
 }
@@ -120,7 +120,7 @@ export default function Root(props: AvatarRootProps) {
 
 **Svelte**
 
-```svelte title="avatar-root.svelte"
+```svelte
 <script lang="ts" module>
 	export interface AvatarRootProps {
 		// ...
@@ -153,7 +153,7 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
-```ts title="avatar-anatomy.ts"
+```ts
 import Fallback from '../anatomy/fallback';
 import Image from '../anatomy/image';
 import Root from '../anatomy/root';
@@ -173,7 +173,7 @@ The `{part}-context.ts` file contains the exported context for each component pa
 
 For most components this will only be necessary for the root component, some components however may require context for their children well. Reference existing components for real world examples.
 
-```ts title="avatar-root-context.ts"
+```ts
 import type { useAvatar } from './use-avatar';
 import { createContext } from '@/internal/create-context';
 
@@ -272,7 +272,7 @@ packages/
 
 Here's an example of the Avatar styles found in `avatar.ts`:
 
-```ts title="avatar.ts"
+```ts
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesAvatar = defineSkeletonClasses({
@@ -293,7 +293,7 @@ export const classesAvatar = defineSkeletonClasses({
 
 You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
 
-```ts title="avatar.ts"
+```ts
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesProgress = defineSkeletonClasses({
@@ -313,7 +313,7 @@ export const classesProgress = defineSkeletonClasses({
 
 It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:` (short for "Skeleton Base"). By applying `with { type: 'macro' }` to the import, the import will run `defineSkeletonClasses` specifically at build time. This variant prefix will assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over our internally defined classes. This is accomplished using the following Tailwind custom variant.
 
-```css title="/packages/skeleton/src/variants/base.css"
+```css
 @custom-variant skb {
 	@layer base {
 		@slot;
@@ -329,7 +329,7 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
-```tsx title="root.tsx"
+```tsx
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
@@ -357,7 +357,7 @@ export default function (props: AvatarRootProps) {
 
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility, just without the `api.getPartProps()`.
 
-```tsx title="root.tsx"
+```tsx
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 

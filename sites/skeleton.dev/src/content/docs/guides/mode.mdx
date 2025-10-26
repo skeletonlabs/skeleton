@@ -21,13 +21,13 @@ Enable by default. Uses CSS's [prefers-color-scheme](https://developer.mozilla.o
 
 Activates dark mode by adding or removing the `.dark` class to your application's `<html>` element.
 
-```css title="app.css"
+```css
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-```html title="app.html"
+```html
 <html class="dark">
-	...
+	<!-- ... -->
 </html>
 ```
 
@@ -35,13 +35,13 @@ Activates dark mode by adding or removing the `.dark` class to your application'
 
 Uses a data attribute instead of a class to activate dark mode.
 
-```css title="app.css"
+```css
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 ```
 
-```html title="app.html"
+```html
 <html data-mode="dark">
-	...
+	<!-- ... -->
 </html>
 ```
 
@@ -49,7 +49,7 @@ Uses a data attribute instead of a class to activate dark mode.
 
 Apply a base style, then with Tailwind's `dark:` variant.
 
-```html title="app.html"
+```html
 <!-- Light Mode: White | Dark Mode: Black -->
 <div class="bg-white dark:bg-black">...</div>
 ```

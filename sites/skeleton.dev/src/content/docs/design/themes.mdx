@@ -159,13 +159,13 @@ npm install @fontsource/open-sans
 
 Then import each font at the top of your global stylesheet, but below your Tailwind configuration.
 
-```css title="app.css"
+```css
 @import '@fontsource/open-sans';
 ```
 
 Finally, use the following [theme properties](/docs/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] {
 	--heading-font-family: 'Open Sans', sans-serif;
 	--base-font-family: 'Open Sans', sans-serif;

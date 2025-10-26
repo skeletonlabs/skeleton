@@ -9,7 +9,7 @@ tags: ['theme', 'guides']
 The most common way to load skeleton themes is by importing them in your root stylesheet.
 
 <Framework id="react">
-	```css title="app/globals.css"
+	```css
 	@import 'tailwindcss';
 
     @import '@skeletonlabs/skeleton';
@@ -19,7 +19,7 @@ The most common way to load skeleton themes is by importing them in your root st
 
 </Framework>
 <Framework id="svelte">
-	```css title="src/app.css"
+	```css
 	@import 'tailwindcss';
 
     @import '@skeletonlabs/skeleton';
@@ -42,7 +42,7 @@ This approach assumes the CSS variables of the skeleton theme you want is availa
 In this example we will add a default theme that that can be used as a fallback.
 
 <Framework id="react">
-	```css title="app/globals.css"
+	```css
 	@import 'tailwindcss';
 
     @import '@skeletonlabs/skeleton';
@@ -51,7 +51,7 @@ In this example we will add a default theme that that can be used as a fallback.
 
 </Framework>
 <Framework id="svelte">
-	```css title="src/app.css"
+	```css
 	@import 'tailwindcss';
 
     @import '@skeletonlabs/skeleton';
@@ -60,23 +60,26 @@ In this example we will add a default theme that that can be used as a fallback.
 
 </Framework>
 
-{/* prettier-ignore */}
 <Framework id="react">
-	```css title="app/default.css"
-	[data-theme='default'] {/* ... */}
-	```
+
+    ```css
+    [data-theme='default'] {/* ... */}
+    ```
+
 </Framework>
-{/* prettier-ignore */}
 <Framework id="svelte">
-	```css title="src/default.css"
-	[data-theme='default'] {/* ... */}
-	```
+
+    ```css
+    [data-theme='default'] {/* ... */}
+    ```
+
 </Framework>
 
 <Framework id="react">
-	To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
 
-    ```tsx title="app/layout.tsx"
+    To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
+
+    ```tsx
     import Head from 'next/head';
     import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 
@@ -119,9 +122,10 @@ In this example we will add a default theme that that can be used as a fallback.
 
 </Framework>
 <Framework id="svelte">
-	To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
 
-    ```ts title="src/route/+layout.server.ts"
+    To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
+
+    ```ts
     import type { PageLoad } from './$types';
 
     const getThemes = async () => {
@@ -145,7 +149,7 @@ In this example we will add a default theme that that can be used as a fallback.
     	};
     };
     ```
-    ```svelte title="src/routes/+layout.svelte"
+    ```svelte
     <script>
     	const { data } = $props();
     </script>
