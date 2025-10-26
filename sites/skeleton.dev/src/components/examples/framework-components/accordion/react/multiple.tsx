@@ -1,5 +1,7 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
 
+// [!code highlight]
+
 export default function Multiple() {
 	return (
 		<Accordion multiple>

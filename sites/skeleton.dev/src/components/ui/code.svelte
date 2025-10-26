@@ -37,8 +37,14 @@
 	}
 </script>
 
-<div class="relative" data-pagefind-ignore>
-	<button onclick={copyCode} class="btn absolute p-2 aspect-square preset-filled-surface-100-900 top-3 end-3">
+<div class="relative group" data-pagefind-ignore>
+	<span class="absolute text-xs top-1 end-3 transition duration-500 opacity-50 group-hover:opacity-0 font-mono">{lang}</span>
+	<button
+		onclick={copyCode}
+		class="btn absolute p-3 aspect-square preset-filled-surface-100-900 top-2 end-2 duration-500 opacity-0 data-[copied=true]:opacity-100 group-hover:opacity-100"
+		aria-label={hasCopied ? 'Code copied' : 'Copy code to clipboard'}
+		data-copied={hasCopied}
+	>
 		{#if hasCopied}
 			<CheckIcon class="size-4" />
 		{:else}
