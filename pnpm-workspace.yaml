@@ -21,6 +21,7 @@ catalog:
   '@shikijs/engine-javascript': 3.13.0
   '@shikijs/langs': 3.13.0
   '@shikijs/themes': 3.13.0
+  '@shikijs/transformers': 3.13.0
   '@shikijs/types': 3.13.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0

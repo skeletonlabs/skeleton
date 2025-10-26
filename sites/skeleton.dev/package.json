@@ -25,6 +25,7 @@
 		"@shikijs/engine-javascript": "catalog:",
 		"@shikijs/langs": "catalog:",
 		"@shikijs/themes": "catalog:",
+		"@shikijs/transformers": "catalog:",
 		"@shikijs/types": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",

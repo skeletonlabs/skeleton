@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { codeToHtml } from '@/modules/shiki.bundle';
 	import { CheckIcon, CopyIcon } from '@lucide/svelte';
+	import { transformerNotationHighlight, transformerNotationDiff } from '@shikijs/transformers';
 
 	interface Props {
 		code: Parameters<typeof codeToHtml>[0];
@@ -18,6 +19,7 @@
 				dark: 'github-dark',
 			},
 			defaultColor: 'light-dark()',
+			transformers: [transformerNotationHighlight(), transformerNotationDiff()],
 		}),
 	);
 
@@ -53,12 +55,54 @@
 		font-size: 12px;
 		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
-		padding: --spacing(5);
+		padding-block: --spacing(5);
 		border: 1px solid var(--color-surface-100-900);
 		border-radius: var(--radius-container);
 		margin-bottom: --spacing(2);
+
 		@variant dark {
 			background-color: rgba(0, 0, 0, 0.5) !important;
+		}
+
+		:global(& > code) {
+			display: inline-block;
+			width: 100%;
+
+			:global(& > .line) {
+				display: inline-block;
+				width: 100%;
+				padding-inline: --spacing(5);
+
+				:global(&:empty) {
+					display: none;
+				}
+
+				:global(&.diff) {
+					:global(&.add) {
+						position: relative;
+						&::before {
+							position: absolute;
+							left: --spacing(2);
+							content: '+ ';
+							color: var(--color-success-500);
+						}
+					}
+
+					:global(&.remove) {
+						position: relative;
+						&::before {
+							position: absolute;
+							left: --spacing(2);
+							content: '- ';
+							color: var(--color-error-500);
+						}
+					}
+				}
+
+				:global(&.highlighted) {
+					background-color: var(--color-surface-100-900);
+				}
+			}
 		}
 	}
 </style>
