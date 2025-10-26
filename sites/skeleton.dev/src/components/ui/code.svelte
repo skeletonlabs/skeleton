@@ -40,16 +40,19 @@
 </script>
 
 <div class="relative" data-pagefind-ignore>
-	<span class="absolute text-xs top-2.5 left-5 transition duration-500 opacity-50 font-mono">{lang}</span>
-	<button onclick={copyCode} class="absolute top-2.5 end-5 text-xs flex items-center gap-2" data-copied={hasCopied}>
-		{#if hasCopied}
-			<CheckIcon class="size-3" />
-			Code copied
-		{:else}
-			<CopyIcon class="size-3" />
-			Copy code
-		{/if}
-	</button>
+	<header class="absolute select-none top-0 left-0 w-full px-5 h-10 text-xs flex justify-between items-center">
+		<span class="opacity-50 font-mono">{lang}</span>
+		<button onclick={copyCode} class="flex items-center gap-2" data-copied={hasCopied}>
+			{#if hasCopied}
+				<CheckIcon class="size-3" />
+				Copied
+			{:else}
+				<CopyIcon class="size-3" />
+				Copy code
+			{/if}
+		</button>
+	</header>
+
 	{@html html}
 </div>
 
@@ -95,6 +98,7 @@
 
 					:global(&.remove) {
 						position: relative;
+						opacity: 0.8;
 						&::before {
 							position: absolute;
 							left: --spacing(2);
