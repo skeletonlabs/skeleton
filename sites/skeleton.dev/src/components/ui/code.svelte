@@ -18,6 +18,8 @@
 				light: 'github-light',
 				dark: 'github-dark',
 			},
+			mergeSameStyleTokens: true,
+			mergeWhitespaces: true,
 			defaultColor: 'light-dark()',
 			transformers: [transformerNotationHighlight(), transformerNotationWordHighlight(), transformerNotationDiff()],
 		}),
