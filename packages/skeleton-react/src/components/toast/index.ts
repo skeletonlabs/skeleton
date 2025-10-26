@@ -6,5 +6,5 @@ export type { ToastRootProps } from './anatomy/root';
 export type { ToastRootContextProps } from './anatomy/root-context';
 export type { ToastTitleProps } from './anatomy/title';
 export type { ToastActionTriggerProps } from './anatomy/action-trigger';
-export { Toast } from './modules/anatomy';
+export { Toast } from './modules/anatomy.js';
 export { createStore as createToaster } from '@zag-js/toast';

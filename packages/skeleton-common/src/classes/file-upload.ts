@@ -1,4 +1,4 @@
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesFileUpload = defineSkeletonClasses({
 	root: 'flex flex-col gap-2 w-full data-disabled:disabled',

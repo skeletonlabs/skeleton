@@ -9,5 +9,5 @@ export type { ListboxRootContextProps } from './anatomy/root-context';
 export type { ListboxRootProviderProps } from './anatomy/root-provider';
 export type { ListboxLabelProps } from './anatomy/label';
 export type { ListboxContentProps } from './anatomy/content';
-export { Listbox } from './modules/anatomy';
+export { Listbox } from './modules/anatomy.js';
 export { useListbox } from './modules/provider';

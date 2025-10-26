@@ -1,4 +1,4 @@
-import { SegmentedControl } from '@/index';
+import { SegmentedControl } from '@/index.js';
 
 export default function Test() {
 	return (

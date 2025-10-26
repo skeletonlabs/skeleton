@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface DatePickerPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context';
 	import ChevronLeftIcon from '@/internal/components/chevron-left.svelte';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';

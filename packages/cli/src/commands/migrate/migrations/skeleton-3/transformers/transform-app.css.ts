@@ -1,5 +1,5 @@
-import type { Theme } from '../utility/types';
-import { transformStylesheet } from './transform-stylesheet';
+import type { Theme } from '../utility/types.js';
+import { transformStylesheet } from './transform-stylesheet.js';
 import { atRule, comment, parse } from 'postcss';
 import type { AtRule, Node, Root } from 'postcss';
 

@@ -4,5 +4,5 @@ export type { CollapsibleRootContextProps } from './anatomy/root-context';
 export type { CollapsibleRootProviderProps } from './anatomy/root-provider';
 export type { CollapsibleTriggerProps } from './anatomy/trigger';
 export type { CollapsibleIndicatorProps } from './anatomy/indicator';
-export { Collapsible } from './modules/anatomy';
+export { Collapsible } from './modules/anatomy.js';
 export { useCollapsible } from './modules/provider';

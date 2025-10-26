@@ -1,13 +1,13 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ViewProps } from '@zag-js/date-picker';
 
 	export interface DatePickerViewProps extends ViewProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
 	import { splitViewProps } from '@zag-js/date-picker';

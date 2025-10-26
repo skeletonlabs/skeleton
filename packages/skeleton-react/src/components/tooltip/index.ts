@@ -6,5 +6,5 @@ export type { TooltipRootProps } from './anatomy/root';
 export type { TooltipRootContextProps } from './anatomy/root-context';
 export type { TooltipRootProviderProps } from './anatomy/root-provider';
 export type { TooltipTriggerProps } from './anatomy/trigger';
-export { Tooltip } from './modules/anatomy';
+export { Tooltip } from './modules/anatomy.js';
 export { useTooltip } from './modules/provider';

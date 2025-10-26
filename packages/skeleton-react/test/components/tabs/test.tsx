@@ -1,4 +1,4 @@
-import { Tabs } from '@/index';
+import { Tabs } from '@/index.js';
 
 export default function Test() {
 	return (

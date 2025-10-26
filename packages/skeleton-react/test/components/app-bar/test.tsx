@@ -1,4 +1,4 @@
-import { AppBar } from '@/index';
+import { AppBar } from '@/index.js';
 
 export default function Test() {
 	return (

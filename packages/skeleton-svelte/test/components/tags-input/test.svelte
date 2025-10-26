@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TagsInput } from '@/index';
+	import { TagsInput } from '@/index.js';
 </script>
 
 <TagsInput data-testid="root">

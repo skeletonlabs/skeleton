@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"module": "nodenext",
 		"moduleResolution": "nodenext",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
@@ -14,7 +15,6 @@
 		"noImplicitOverride": true,
 		"declaration": true,
 		"declarationMap": true,
-		"module": "preserve",
 		"noEmit": true,
 		"lib": ["es2022", "dom", "dom.iterable"]
 	},

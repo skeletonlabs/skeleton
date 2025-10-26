@@ -5,5 +5,5 @@ export type { AccordionRootProps } from './anatomy/root';
 export type { AccordionRootContextProps } from './anatomy/root-context';
 export type { AccordionRootProviderProps } from './anatomy/root-provider';
 export type { AccordionItemTriggerProps } from './anatomy/item-trigger';
-export { Accordion } from './modules/anatomy';
+export { Accordion } from './modules/anatomy.js';
 export { useAccordion } from './modules/provider';

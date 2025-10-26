@@ -24,6 +24,6 @@ export type { DatePickerViewControlProps } from './anatomy/view-control';
 export type { DatePickerViewTriggerProps } from './anatomy/view-trigger';
 export type { DatePickerYearSelectProps } from './anatomy/year-select';
 export type { DateValue } from '@zag-js/date-picker';
-export { DatePicker } from './modules/anatomy';
+export { DatePicker } from './modules/anatomy.js';
 export { parse as parseDate } from '@zag-js/date-picker';
 export { useDatePicker } from './modules/provider';

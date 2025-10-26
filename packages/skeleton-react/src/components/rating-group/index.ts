@@ -5,5 +5,5 @@ export type { RatingGroupLabelProps } from './anatomy/label';
 export type { RatingGroupRootProps } from './anatomy/root';
 export type { RatingGroupRootContextProps } from './anatomy/root-context';
 export type { RatingGroupRootProviderProps } from './anatomy/root-provider';
-export { RatingGroup } from './modules/anatomy';
+export { RatingGroup } from './modules/anatomy.js';
 export { useRatingGroup } from './modules/provider';

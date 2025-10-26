@@ -1,4 +1,4 @@
-export { TreeView } from './modules/anatomy';
+export { TreeView } from './modules/anatomy.js';
 export { useTreeView } from './modules/provider';
 export { createTreeViewCollection } from './modules/create-tree-view-collection';
 export type { TreeViewRootProps } from './anatomy/root';

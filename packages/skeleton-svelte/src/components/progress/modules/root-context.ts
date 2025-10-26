@@ -1,4 +1,4 @@
-import type { useProgress } from './provider.svelte';
-import { createContext } from '@/internal/create-context.js';
+import type { useProgress } from './provider.svelte.js';
+import { createContext } from '@/internal/create-context.js.js';
 
 export const RootContext = createContext<ReturnType<typeof useProgress>>();

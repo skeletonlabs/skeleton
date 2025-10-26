@@ -1,9 +1,9 @@
-import { hasRange } from '../../../../../utility/svelte/has-range';
-import { renameComponent } from '../../../../../utility/svelte/rename-component';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings';
-import { transformClasses } from './transform-classes';
-import { transformModule } from './transform-module';
-import { transformStylesheet } from './transform-stylesheet';
+import { hasRange } from '../../../../../utility/svelte/has-range.js';
+import { renameComponent } from '../../../../../utility/svelte/rename-component.js';
+import { EXPORT_MAPPINGS } from '../utility/export-mappings.js';
+import { transformClasses } from './transform-classes.js';
+import { transformModule } from './transform-module.js';
+import { transformStylesheet } from './transform-stylesheet.js';
 import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';

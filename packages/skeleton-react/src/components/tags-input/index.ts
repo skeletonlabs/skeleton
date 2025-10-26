@@ -11,5 +11,5 @@ export type { TagsInputLabelProps } from './anatomy/label';
 export type { TagsInputRootProps } from './anatomy/root';
 export type { TagsInputRootContextProps } from './anatomy/root-context';
 export type { TagsInputRootProviderProps } from './anatomy/root-provider';
-export { TagsInput } from './modules/anatomy';
+export { TagsInput } from './modules/anatomy.js';
 export { useTagsInput } from './modules/provider';

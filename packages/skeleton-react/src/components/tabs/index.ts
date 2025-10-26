@@ -5,5 +5,5 @@ export type { TabsRootProps } from './anatomy/root';
 export type { TabsRootContextProps } from './anatomy/root-context';
 export type { TabsRootProviderProps } from './anatomy/root-provider';
 export type { TabsTriggerProps } from './anatomy/trigger';
-export { Tabs } from './modules/anatomy';
+export { Tabs } from './modules/anatomy.js';
 export { useTabs } from './modules/provider';

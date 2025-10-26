@@ -1,9 +1,9 @@
-import { RootContext } from '../modules/root-context';
+import { RootContext } from '../modules/root-context.js';
 import StarEmpty from '@/internal/components/star-empty';
 import StarFull from '@/internal/components/star-full';
 import StarHalf from '@/internal/components/star-half';
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 import { splitItemProps } from '@zag-js/rating-group';
 import type { ItemProps } from '@zag-js/rating-group';

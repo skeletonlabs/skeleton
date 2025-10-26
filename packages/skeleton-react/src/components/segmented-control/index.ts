@@ -1,4 +1,4 @@
-export { SegmentedControl } from './modules/anatomy';
+export { SegmentedControl } from './modules/anatomy.js';
 export { useSegmentedControl } from './modules/provider';
 export type { SegmentedControlRootProps } from './anatomy/root';
 export type { SegmentedControlRootContextProps } from './anatomy/root-context';

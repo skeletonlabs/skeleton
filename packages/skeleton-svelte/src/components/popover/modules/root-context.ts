@@ -1,4 +1,4 @@
-import type { usePopover } from './provider.svelte';
-import { createContext } from '@/internal/create-context';
+import type { usePopover } from './provider.svelte.js';
+import { createContext } from '@/internal/create-context.js';
 
 export const PopoverRootContext = createContext<ReturnType<typeof usePopover>>();

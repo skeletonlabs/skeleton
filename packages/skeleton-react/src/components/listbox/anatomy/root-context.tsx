@@ -1,5 +1,5 @@
 import type { useListbox } from '../modules/provider';
-import { RootContext as RootContext_ } from '../modules/root-context';
+import { RootContext as RootContext_ } from '../modules/root-context.js';
 import { type ReactNode, use } from 'react';
 
 export interface ListboxRootContextProps {

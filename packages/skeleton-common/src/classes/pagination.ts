@@ -1,4 +1,4 @@
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesPagination = defineSkeletonClasses({
 	root: 'inline-flex gap-2 p-2 rounded-container preset-outlined-surface-200-800 w-fit',

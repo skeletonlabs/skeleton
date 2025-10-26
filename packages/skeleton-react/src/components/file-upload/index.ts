@@ -10,5 +10,5 @@ export type { FileUploadRootProps } from './anatomy/root';
 export type { FileUploadRootContextProps } from './anatomy/root-context';
 export type { FileUploadRootProviderProps } from './anatomy/root-provider';
 export type { FileUploadTriggerProps } from './anatomy/trigger';
-export { FileUpload } from './modules/anatomy';
+export { FileUpload } from './modules/anatomy.js';
 export { useFileUpload } from './modules/provider';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FileUpload } from '@/index';
+	import { FileUpload } from '@/index.js';
 </script>
 
 <FileUpload data-testid="root">

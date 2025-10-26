@@ -8,5 +8,5 @@ export type { ProgressValueTextProps } from './anatomy/value-text';
 export type { ProgressCircleProps } from './anatomy/circle';
 export type { ProgressCircleRangeProps } from './anatomy/circle-range';
 export type { ProgressCircleTrackProps } from './anatomy/circle-track';
-export { Progress } from './modules/anatomy';
+export { Progress } from './modules/anatomy.js';
 export { useProgress } from './modules/provider';

@@ -1,4 +1,4 @@
-import { transformClasses } from './transform-classes';
+import { transformClasses } from './transform-classes.js';
 import { parse } from 'postcss';
 
 function transformStylesheet(code: string) {

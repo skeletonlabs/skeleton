@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Listbox, useListCollection } from '@/index';
+	import { Listbox, useListCollection } from '@/index.js';
 
 	const collection = $derived(
 		useListCollection({

@@ -8,5 +8,5 @@ export type { DialogRootContextProps } from './anatomy/root-context';
 export type { DialogRootProviderProps } from './anatomy/root-provider';
 export type { DialogTitleProps } from './anatomy/title';
 export type { DialogTriggerProps } from './anatomy/trigger';
-export { Dialog } from './modules/anatomy';
+export { Dialog } from './modules/anatomy.js';
 export { useDialog } from './modules/provider';

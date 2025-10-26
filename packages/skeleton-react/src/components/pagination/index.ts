@@ -1,4 +1,4 @@
-export { Pagination } from './modules/anatomy';
+export { Pagination } from './modules/anatomy.js';
 export { usePagination } from './modules/provider';
 export type { PaginationRootProviderProps } from './anatomy/root-provider';
 export type { PaginationPrevTriggerProps } from './anatomy/prev-trigger';

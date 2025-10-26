@@ -1,4 +1,4 @@
-export { Slider } from './modules/anatomy';
+export { Slider } from './modules/anatomy.js';
 export { useSlider } from './modules/provider';
 export type { SliderRootProps } from './anatomy/root';
 export type { SliderRootProviderProps } from './anatomy/root-provider';

@@ -9,5 +9,5 @@ export type { PopoverTitleProps } from './anatomy/title';
 export type { PopoverArrowProps } from './anatomy/arrow';
 export type { PopoverArrowTipProps } from './anatomy/arrow-tip';
 export type { PopoverTriggerProps } from './anatomy/trigger';
-export { Popover } from './modules/anatomy';
+export { Popover } from './modules/anatomy.js';
 export { usePopover } from './modules/provider';

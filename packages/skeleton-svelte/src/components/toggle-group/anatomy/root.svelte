@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { Props } from '@zag-js/toggle-group';
 
 	export interface ToggleGroupRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useToggleGroup } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesToggleGroup } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/toggle-group';

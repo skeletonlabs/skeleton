@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 

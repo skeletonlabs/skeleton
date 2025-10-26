@@ -8,5 +8,5 @@ export type { DialogRootContextProps } from './anatomy/root-context.svelte';
 export type { DialogRootProviderProps } from './anatomy/root-provider.svelte';
 export type { DialogTitleProps } from './anatomy/title.svelte';
 export type { DialogTriggerProps } from './anatomy/trigger.svelte';
-export { Dialog } from './modules/anatomy';
-export { useDialog } from './modules/provider.svelte';
+export { Dialog } from './modules/anatomy.js';
+export { useDialog } from './modules/provider.svelte.js';

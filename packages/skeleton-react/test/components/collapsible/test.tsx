@@ -1,4 +1,4 @@
-import { Collapsible } from '@/index';
+import { Collapsible } from '@/index.js';
 
 export default function Test() {
 	return (

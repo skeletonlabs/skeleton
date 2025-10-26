@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { useDialog } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/dialog';
 
 	const props: DialogRootProps = $props();

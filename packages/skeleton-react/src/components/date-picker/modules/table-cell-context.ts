@@ -1,4 +1,4 @@
-import { createContext } from '@/internal/create-context';
+import { createContext } from '@/internal/create-context.js';
 import type { Union } from '@/internal/union';
 import type { DayTableCellProps, TableCellProps } from '@zag-js/date-picker';
 

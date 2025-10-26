@@ -1,4 +1,4 @@
-import { DatePicker, parseDate } from '@/index';
+import { DatePicker, parseDate } from '@/index.js';
 
 export default function Test() {
 	return (
