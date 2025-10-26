@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { Props, Store } from '@zag-js/toast';
 	import type { Snippet } from 'svelte';
 
@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-	import { GroupContext } from '../modules/group-context';
+	import { GroupContext } from '../modules/group-context.js';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';

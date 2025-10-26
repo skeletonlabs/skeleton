@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from '../html-attributes';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import { mergeProps } from '@zag-js/react';
 
 export type StarEmptyProps = HTMLAttributes<'svg', 'children'>;

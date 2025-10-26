@@ -1,4 +1,4 @@
-import { TagsInput } from '@/index';
+import { TagsInput } from '@/index.js';
 
 export default function Test() {
 	return (

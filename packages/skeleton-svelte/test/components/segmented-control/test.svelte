@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SegmentedControl } from '@/index';
+	import { SegmentedControl } from '@/index.js';
 </script>
 
 <SegmentedControl data-testid="root">

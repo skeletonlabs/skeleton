@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import type { useFileUpload } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 
 	const props: FileUploadRootContextProps = $props();
 

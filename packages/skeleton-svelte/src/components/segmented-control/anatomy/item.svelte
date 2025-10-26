@@ -1,14 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/radio-group';
 
 	export interface SegmentedControlItemProps extends ItemProps, PropsWithElement<'label'>, HTMLAttributes<'label'> {}
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context';
-	import { RootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';

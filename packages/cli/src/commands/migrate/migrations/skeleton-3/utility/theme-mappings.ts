@@ -1,4 +1,4 @@
-import type { Theme } from './types';
+import type { Theme } from './types.js';
 
 const THEME_MAPPINGS: Record<string, Theme> = {
 	skeleton: { type: 'preset', value: 'legacy' },

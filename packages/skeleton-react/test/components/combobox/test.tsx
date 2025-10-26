@@ -1,4 +1,4 @@
-import { Combobox } from '@/index';
+import { Combobox } from '@/index.js';
 
 export default function Test() {
 	return (

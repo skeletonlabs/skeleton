@@ -9,5 +9,5 @@ export type { ListboxLabelProps } from './anatomy/label.svelte';
 export type { ListboxRootProps } from './anatomy/root.svelte';
 export type { ListboxRootContextProps } from './anatomy/root-context.svelte';
 export type { ListboxRootProviderProps } from './anatomy/root-provider.svelte';
-export { Listbox } from './modules/anatomy';
-export { useListbox } from './modules/provider.svelte';
+export { Listbox } from './modules/anatomy.js';
+export { useListbox } from './modules/provider.svelte.js';

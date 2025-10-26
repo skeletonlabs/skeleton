@@ -6,5 +6,5 @@ export type { TooltipRootProps } from './anatomy/root.svelte';
 export type { TooltipRootContextProps } from './anatomy/root-context.svelte';
 export type { TooltipRootProviderProps } from './anatomy/root-provider.svelte';
 export type { TooltipTriggerProps } from './anatomy/trigger.svelte';
-export { Tooltip } from './modules/anatomy';
-export { useTooltip } from './modules/provider.svelte';
+export { Tooltip } from './modules/anatomy.js';
+export { useTooltip } from './modules/provider.svelte.js';

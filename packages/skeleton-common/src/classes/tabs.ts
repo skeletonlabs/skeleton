@@ -1,4 +1,4 @@
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesTabs = defineSkeletonClasses({
 	root: 'w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row',

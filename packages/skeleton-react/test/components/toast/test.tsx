@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@/index';
+import { Toast, createToaster } from '@/index.js';
 import { useEffect } from 'react';
 
 export default function Test() {
