@@ -1,5 +1,5 @@
-import { RootContext } from '../modules/root-context.js.js';
-import X from '@/internal/components/x';
+import { RootContext } from '../modules/root-context.js';
+import X from '@/internal/components/x.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesToast } from '@skeletonlabs/skeleton-common';

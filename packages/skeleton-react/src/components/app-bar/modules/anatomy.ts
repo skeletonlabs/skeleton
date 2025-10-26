@@ -1,8 +1,8 @@
-import Headline from '../anatomy/headline';
-import Lead from '../anatomy/lead';
-import Root from '../anatomy/root';
-import Toolbar from '../anatomy/toolbar';
-import Trail from '../anatomy/trail';
+import Headline from '../anatomy/headline.jsx';
+import Lead from '../anatomy/lead.jsx';
+import Root from '../anatomy/root.jsx';
+import Toolbar from '../anatomy/toolbar.jsx';
+import Trail from '../anatomy/trail.jsx';
 
 export const AppBar = Object.assign(Root, {
 	Toolbar: Toolbar,

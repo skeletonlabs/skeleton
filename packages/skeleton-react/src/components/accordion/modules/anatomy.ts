@@ -1,10 +1,10 @@
-import Item from '../anatomy/item';
-import ItemContent from '../anatomy/item-content';
-import ItemIndicator from '../anatomy/item-indicator';
-import ItemTrigger from '../anatomy/item-trigger';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
+import Item from '../anatomy/item.jsx';
+import ItemContent from '../anatomy/item-content.jsx';
+import ItemIndicator from '../anatomy/item-indicator.jsx';
+import ItemTrigger from '../anatomy/item-trigger.jsx';
+import Root from '../anatomy/root.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
 
 export const Accordion = Object.assign(Root, {
 	Provider: RootProvider,

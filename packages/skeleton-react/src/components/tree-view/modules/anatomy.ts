@@ -1,16 +1,16 @@
-import Branch from '../anatomy/branch';
-import BranchContent from '../anatomy/branch-content';
-import BranchControl from '../anatomy/branch-control';
-import BranchIndentGuide from '../anatomy/branch-indent-guide';
-import BranchIndicator from '../anatomy/branch-indicator';
-import BranchText from '../anatomy/branch-text';
-import Item from '../anatomy/item';
-import Label from '../anatomy/label';
-import NodeProvider from '../anatomy/node-provider';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
-import Tree from '../anatomy/tree';
+import Branch from '../anatomy/branch.jsx';
+import BranchContent from '../anatomy/branch-content.jsx';
+import BranchControl from '../anatomy/branch-control.jsx';
+import BranchIndentGuide from '../anatomy/branch-indent-guide.jsx';
+import BranchIndicator from '../anatomy/branch-indicator.jsx';
+import BranchText from '../anatomy/branch-text.jsx';
+import Item from '../anatomy/item.jsx';
+import Label from '../anatomy/label.jsx';
+import NodeProvider from '../anatomy/node-provider.jsx';
+import Root from '../anatomy/root.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Tree from '../anatomy/tree.jsx';
 
 export const TreeView = Object.assign(Root, {
 	Provider: RootProvider,
