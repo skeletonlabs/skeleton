@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { NodeContext } from '../modules/node-context';
+	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
 	import ChevronRight from '@/internal/components/chevron-right.svelte';
 	import { classesTreeView } from '@skeletonlabs/skeleton-common';

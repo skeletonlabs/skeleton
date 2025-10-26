@@ -1,4 +1,4 @@
-import type { usePopover } from '../modules/provider';
+import type { usePopover } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
 import type { PropsWithChildren } from 'react';
 

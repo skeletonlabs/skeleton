@@ -1,4 +1,4 @@
-import type { useAccordion } from '../modules/provider';
+import type { useAccordion } from '../modules/provider.js';
 import { RootContext as RootContext_ } from '../modules/root-context.js';
 import { use } from 'react';
 import type { ReactNode } from 'react';

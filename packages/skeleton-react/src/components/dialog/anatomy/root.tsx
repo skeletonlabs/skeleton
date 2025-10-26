@@ -1,4 +1,4 @@
-import { useDialog } from '../modules/provider';
+import { useDialog } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/dialog';
 import { type PropsWithChildren } from 'react';

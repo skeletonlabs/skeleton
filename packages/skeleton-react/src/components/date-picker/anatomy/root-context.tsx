@@ -1,4 +1,4 @@
-import type { useDatePicker } from '../modules/provider';
+import type { useDatePicker } from '../modules/provider.js';
 import { RootContext as RootContext_ } from '../modules/root-context.js';
 import { type ReactNode, use } from 'react';
 
