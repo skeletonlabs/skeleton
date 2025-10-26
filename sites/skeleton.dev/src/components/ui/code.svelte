@@ -59,7 +59,7 @@
 	@reference "../../app.css";
 
 	:global(.shiki) {
-		font-size: 12px;
+		font-size: var(--text-sm);
 		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
 		padding-block: --spacing(5);
