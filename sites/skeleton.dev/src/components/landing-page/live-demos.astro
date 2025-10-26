@@ -5,6 +5,7 @@ import Vue from '@/assets/logos/vue.svg';
 import Solid from '@/assets/logos/solid.svg';
 import Astro_ from '@/assets/logos/astro.svg'; // Astro is a reserved word
 import { EllipsisIcon } from '@lucide/svelte';
+import { getRelativeDocsUrl } from '@/modules/framework';
 
 const frameworks = [
 	{
@@ -42,7 +43,7 @@ const frameworks = [
 	},
 	{
 		name: 'More',
-		href: '/docs/get-started/installation',
+		href: getRelativeDocsUrl(Astro, 'get-started/installation'),
 		bgColor: 'var(--skeleton-preset-tonal-bg)',
 		Icon: EllipsisIcon,
 	},
