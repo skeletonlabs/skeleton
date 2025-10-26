@@ -1,4 +1,4 @@
-import { Slider } from '@/index';
+import { Slider } from '@/index.js';
 
 export default function Test() {
 	return (

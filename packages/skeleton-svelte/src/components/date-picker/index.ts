@@ -24,6 +24,6 @@ export type { DatePickerViewControlProps } from './anatomy/view-control.svelte';
 export type { DatePickerViewTriggerProps } from './anatomy/view-trigger.svelte';
 export type { DatePickerYearSelectProps } from './anatomy/year-select.svelte';
 export type { DateValue } from '@zag-js/date-picker';
-export { DatePicker } from './modules/anatomy';
+export { DatePicker } from './modules/anatomy.js';
 export { parse as parseDate } from '@zag-js/date-picker';
-export { useDatePicker } from './modules/provider.svelte';
+export { useDatePicker } from './modules/provider.svelte.js';

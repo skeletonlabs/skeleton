@@ -1,14 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/accordion';
 
 	export interface AccordionItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context';
-	import { RootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesAccordion } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';

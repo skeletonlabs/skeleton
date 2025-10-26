@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AppBar } from '@/index';
+	import { AppBar } from '@/index.js';
 </script>
 
 <AppBar data-testid="root">

@@ -1,6 +1,8 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"target": "es2022",
@@ -14,7 +16,6 @@
 		"noImplicitOverride": true,
 		"declaration": true,
 		"declarationMap": true,
-		"module": "preserve",
 		"noEmit": true,
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"types": ["@testing-library/jest-dom/vitest"],

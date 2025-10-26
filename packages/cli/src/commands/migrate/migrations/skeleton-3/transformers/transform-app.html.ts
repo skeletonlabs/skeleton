@@ -1,4 +1,4 @@
-import { THEME_MAPPINGS } from '../utility/theme-mappings';
+import { THEME_MAPPINGS } from '../utility/theme-mappings.js';
 import { parse } from 'node-html-parser';
 
 function transformAppHtml(code: string) {

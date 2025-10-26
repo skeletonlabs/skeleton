@@ -1,4 +1,4 @@
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesAppBar = defineSkeletonClasses({
 	root: 'w-full bg-surface-100-900 p-4 space-y-4',

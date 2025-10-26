@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/root-context';
+	import { PopoverRootContext } from '../modules/root-context.js';
 
 	const props: PopoverRootContextProps = $props();
 

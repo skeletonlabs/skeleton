@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context';
+	import { RootContext } from '../modules/root-context.js';
 
 	const props: ToastRootContextProps = $props();
 

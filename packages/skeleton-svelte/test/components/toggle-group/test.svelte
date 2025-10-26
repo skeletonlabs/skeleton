@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ToggleGroup } from '@/index';
+	import { ToggleGroup } from '@/index.js';
 </script>
 
 <ToggleGroup data-testid="root">

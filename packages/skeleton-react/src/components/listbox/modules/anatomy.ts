@@ -1,14 +1,14 @@
-import Content from '../anatomy/content';
-import Input from '../anatomy/input';
-import Item from '../anatomy/item';
-import ItemGroup from '../anatomy/item-group';
-import ItemGroupLabel from '../anatomy/item-group-label';
-import ItemIndicator from '../anatomy/item-indicator';
-import ItemText from '../anatomy/item-text';
-import Label from '../anatomy/label';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
+import Content from '../anatomy/content.jsx';
+import Input from '../anatomy/input.jsx';
+import ItemGroupLabel from '../anatomy/item-group-label.jsx';
+import ItemGroup from '../anatomy/item-group.jsx';
+import ItemIndicator from '../anatomy/item-indicator.jsx';
+import ItemText from '../anatomy/item-text.jsx';
+import Item from '../anatomy/item.jsx';
+import Label from '../anatomy/label.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
 
 export const Listbox = Object.assign(Root, {
 	Provider: RootProvider,

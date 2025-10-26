@@ -1,16 +1,16 @@
-import ClearTrigger from '../anatomy/clear-trigger';
-import Control from '../anatomy/control';
-import HiddenInput from '../anatomy/hidden-input';
-import Input from '../anatomy/input';
-import Item from '../anatomy/item';
-import ItemDeleteTrigger from '../anatomy/item-delete-trigger';
-import ItemInput from '../anatomy/item-input';
-import ItemPreview from '../anatomy/item-preview';
-import ItemText from '../anatomy/item-text';
-import Label from '../anatomy/label';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
+import ClearTrigger from '../anatomy/clear-trigger.jsx';
+import Control from '../anatomy/control.jsx';
+import HiddenInput from '../anatomy/hidden-input.jsx';
+import Input from '../anatomy/input.jsx';
+import ItemDeleteTrigger from '../anatomy/item-delete-trigger.jsx';
+import ItemInput from '../anatomy/item-input.jsx';
+import ItemPreview from '../anatomy/item-preview.jsx';
+import ItemText from '../anatomy/item-text.jsx';
+import Item from '../anatomy/item.jsx';
+import Label from '../anatomy/label.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
 
 export const TagsInput = Object.assign(Root, {
 	Provider: RootProvider,

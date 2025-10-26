@@ -1,5 +1,5 @@
-import { useTooltip } from '../modules/provider';
-import { RootContext } from '../modules/root-context';
+import { useTooltip } from '../modules/provider.js';
+import { RootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/tooltip';
 import type { PropsWithChildren } from 'react';
 
