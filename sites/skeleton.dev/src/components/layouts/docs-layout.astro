@@ -60,8 +60,20 @@ const { Content, headings } = await render(doc);
 		<ChipsBar {doc} />
 		<!-- Content -->
 		<article class="grid gap-8" data-pagefind-body>
+			<!-- Summary -->
 			<p class="text-lg opacity-60">{doc.data.summary}</p>
-
+			<!-- Key Features -->
+			{
+				doc.data.features && (
+					<p class="font-bold">Key Features</p>
+					<ul class="list-inside list-disc space-y-2">
+						{doc.data.features.map((listItem) => (
+							<li>{listItem}</li>
+						))}
+					</ul>
+				)
+			}
+			<!-- Content -->
 			<Content components={components} Astro={Astro} />
 			<!-- Inner Page Navigation -->
 			<NavigationSteps {previousDoc} {nextDoc} />
