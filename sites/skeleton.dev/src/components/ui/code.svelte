@@ -87,22 +87,31 @@
 				:global(&.diff) {
 					:global(&.add) {
 						position: relative;
+						background: var(--color-green-50);
 						&::before {
 							position: absolute;
 							left: --spacing(2);
-							content: '+ ';
-							color: var(--color-success-500);
+							content: '+';
+							color: var(--color-green-500);
+						}
+
+						@variant dark {
+							background: var(--color-green-950);
 						}
 					}
 
 					:global(&.remove) {
 						position: relative;
-						opacity: 0.8;
+						background: var(--color-red-50);
 						&::before {
 							position: absolute;
 							left: --spacing(2);
-							content: '- ';
-							color: var(--color-error-500);
+							content: '-';
+							color: var(--color-red-500);
+						}
+
+						@variant dark {
+							background: var(--color-red-950);
 						}
 					}
 				}
