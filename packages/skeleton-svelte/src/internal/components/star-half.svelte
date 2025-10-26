@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../html-attributes';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	export type StarHalfProps = HTMLAttributes<'svg', 'children'>;
