@@ -1,21 +1,26 @@
 ---
 import { ChevronRightIcon } from '@lucide/svelte';
 import { getCollection } from '@/modules/content';
+import { Image } from 'astro:assets';
 import { resolve } from '@/modules/framework';
 
 const contributors = await getCollection('contributors');
 ---
 
 <div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] items-start gap-10">
-	<div class="grid grid-cols-10 xl:grid-cols-[repeat(20,minmax(0,1fr))] gap-3">
+	<div class="grid grid-cols-10 xl:grid-cols-20 gap-3">
 		{
-			contributors.map((contributor) => {
-				return (
-					<a class="hover:scale-125" href={contributor.data.html_url} target="_blank" title={contributor.data.login}>
-						<img class="bg-surface-500 rounded-full" src={contributor.data.avatar_url} alt={contributor.data.login} />
-					</a>
-				);
-			})
+			contributors.map((contributor) => (
+				<a class="hover:scale-125" href={contributor.data.html_url} target="_blank" title={contributor.data.login}>
+					<Image
+						class="bg-surface-500 rounded-full"
+						src={contributor.data.avatar_url}
+						alt={contributor.data.login}
+						width={100}
+						height={100}
+					/>
+				</a>
+			))
 		}
 	</div>
 	<div class="space-y-4">
