@@ -44,7 +44,7 @@ export const collections = {
 				return Array.from({ length: 100 }).map((_, index) => ({
 					id: String(index),
 					html_url: `https://github.com/user-${index}`,
-					avatar_url: `https://picsum.photos/100?random=${index}`,
+					avatar_url: `https://picsum.photos/100`,
 					login: `user-${index}`,
 				}));
 			}
