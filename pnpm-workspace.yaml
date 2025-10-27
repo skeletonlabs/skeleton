@@ -9,7 +9,7 @@ catalog:
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
   '@astrojs/svelte': 7.2.0
-  '@astrojs/vercel': 8.2.11
+  '@astrojs/vercel': 9.0.0
   '@atproto/api': 0.17.4
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
