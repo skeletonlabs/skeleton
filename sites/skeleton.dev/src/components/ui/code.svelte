@@ -12,7 +12,7 @@
 	const { code, lang = 'txt' } = $derived(props);
 
 	const html = $derived(
-		await codeToHtml(code, {
+		await codeToHtml(code.trim(), {
 			lang,
 			themes: {
 				light: 'github-light',
@@ -80,10 +80,6 @@
 				width: 100%;
 				padding-inline: --spacing(5);
 				word-break: break-all;
-
-				:global(&:empty) {
-					display: none;
-				}
 
 				:global(&.diff) {
 					:global(&.add) {
