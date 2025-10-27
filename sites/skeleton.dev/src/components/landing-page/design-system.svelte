@@ -88,7 +88,9 @@
 		<div class="space-y-4">
 			<p class="opacity-60">{activeStep.description}</p>
 			{#if activeStep.label === 'The Figma UI Kit'}
-				<a href="/figma" class="btn preset-tonal w-full">Learn More &rarr;</a>
+				<a href="https://www.etesie.dev/figma" target="_blank" rel="noopener noreferrer" class="btn preset-tonal w-full">
+					Learn More &rarr;
+				</a>
 			{/if}
 		</div>
 	</div>
