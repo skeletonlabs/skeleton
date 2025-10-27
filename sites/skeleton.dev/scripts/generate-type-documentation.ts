@@ -175,9 +175,9 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 
 async function getClassValue(component: string, part: string) {
 	try {
-		const module = await import(
-			/* @vite-ignore */ pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href
-		);
+		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href;
+		// oxlint-disable-next-line no-eval
+		const module = await eval(`import(${JSON.stringify(path)})`);
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
 		if (!value || typeof value !== 'string') {
 			return;
