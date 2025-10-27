@@ -22,7 +22,12 @@ export const GET: APIRoute = async (context) => {
 		});
 	}
 	const doc = await getEntry('docs', context.params.doc);
-	return new Response(doc?.body, {
+	if (!doc) {
+		return new Response('Documentation not found', {
+			status: 404,
+		});
+	}
+	return new Response(doc.body, {
 		headers: {
 			'Content-Type': 'text/plain',
 		},
