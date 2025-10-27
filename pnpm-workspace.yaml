@@ -4,28 +4,28 @@ packages:
   - sites/*
 
 catalog:
-  '@astrojs/check': 0.9.4
-  '@astrojs/mdx': 4.3.7
+  '@astrojs/check': 0.9.5
+  '@astrojs/mdx': 4.3.8
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.0
   '@astrojs/svelte': 7.2.0
-  '@astrojs/vercel': 8.2.10
-  '@atproto/api': 0.17.3
+  '@astrojs/vercel': 8.2.11
+  '@atproto/api': 0.17.4
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
-  '@lucide/svelte': 0.546.0
-  '@nanostores/persistent': 1.1.0
+  '@lucide/svelte': 0.548.0
+  '@nanostores/persistent': 1.2.0
   '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 5.10.3
-  '@sveltejs/kit': 2.47.1
+  '@sveltejs/kit': 2.47.3
   '@sveltejs/package': 2.5.4
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.10
-  '@tailwindcss/postcss': 4.1.14
-  '@tailwindcss/vite': 4.1.14
+  '@tailwindcss/postcss': 4.1.16
+  '@tailwindcss/vite': 4.1.16
   '@testing-library/jest-dom': 6.9.1
   '@testing-library/react': 16.3.0
   '@testing-library/svelte': 5.2.8
@@ -33,48 +33,48 @@ catalog:
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
   '@types/mdast': 4.0.4
-  '@types/node': 24.8.1
+  '@types/node': 24.9.1
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
   '@types/unist': 3.0.3
-  '@vitejs/plugin-react': 5.0.4
-  '@zag-js/accordion': 1.26.3
-  '@zag-js/avatar': 1.26.3
-  '@zag-js/collapsible': 1.26.3
-  '@zag-js/collection': 1.26.3
-  '@zag-js/combobox': 1.26.3
-  '@zag-js/date-picker': 1.26.3
-  '@zag-js/dialog': 1.26.3
-  '@zag-js/file-upload': 1.26.3
-  '@zag-js/listbox': 1.26.3
-  '@zag-js/pagination': 1.26.3
-  '@zag-js/popover': 1.26.3
-  '@zag-js/progress': 1.26.3
-  '@zag-js/radio-group': 1.26.3
-  '@zag-js/rating-group': 1.26.3
-  '@zag-js/react': 1.26.3
-  '@zag-js/slider': 1.26.3
-  '@zag-js/svelte': 1.26.3
-  '@zag-js/switch': 1.26.3
-  '@zag-js/tabs': 1.26.3
-  '@zag-js/tags-input': 1.26.3
-  '@zag-js/toast': 1.26.3
-  '@zag-js/toggle-group': 1.26.3
-  '@zag-js/tooltip': 1.26.3
-  '@zag-js/tree-view': 1.26.3
-  astro: 5.14.6
+  '@vitejs/plugin-react': 5.1.0
+  '@zag-js/accordion': 1.26.4
+  '@zag-js/avatar': 1.26.4
+  '@zag-js/collapsible': 1.26.4
+  '@zag-js/collection': 1.26.4
+  '@zag-js/combobox': 1.26.4
+  '@zag-js/date-picker': 1.26.4
+  '@zag-js/dialog': 1.26.4
+  '@zag-js/file-upload': 1.26.4
+  '@zag-js/listbox': 1.26.4
+  '@zag-js/pagination': 1.26.4
+  '@zag-js/popover': 1.26.4
+  '@zag-js/progress': 1.26.4
+  '@zag-js/radio-group': 1.26.4
+  '@zag-js/rating-group': 1.26.4
+  '@zag-js/react': 1.26.4
+  '@zag-js/slider': 1.26.4
+  '@zag-js/svelte': 1.26.4
+  '@zag-js/switch': 1.26.4
+  '@zag-js/tabs': 1.26.4
+  '@zag-js/tags-input': 1.26.4
+  '@zag-js/toast': 1.26.4
+  '@zag-js/toggle-group': 1.26.4
+  '@zag-js/tooltip': 1.26.4
+  '@zag-js/tree-view': 1.26.4
+  astro: 5.15.1
   astro-auto-import: 0.4.5
   astro-expressive-code: 0.41.3
   chroma-js: 3.1.2
   colorette: 2.0.20
-  commander: 14.0.1
+  commander: 14.0.2
   detect-indent: 7.0.2
   fuse.js: 7.1.0
   jsdom: 27.0.1
   latest-version: 9.0.0
-  lucide-react: 0.546.0
-  magic-string: 0.30.19
+  lucide-react: 0.548.0
+  magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.2
   mdast-util-gfm: 3.1.0
   mdast-util-mdx: 3.0.0
@@ -85,8 +85,8 @@ catalog:
   next: 15.5.6
   node-html-parser: 7.0.1
   octokit: 5.0.4
-  oxlint: 1.23.0
-  oxlint-tsgolint: 0.2.0
+  oxlint: 1.24.0
+  oxlint-tsgolint: 0.3.0
   package-manager-detector: 1.5.0
   pagefind: 1.4.0
   playwright: 1.56.1
@@ -99,13 +99,13 @@ catalog:
   sass-embedded: 1.93.2
   semver: 7.7.3
   sharp: 0.34.4
-  shiki: 3.13.0
-  svelte: 5.41.0
+  shiki: 3.14.0
+  svelte: 5.42.2
   svelte-check: 4.3.3
-  tailwindcss: 4.1.14
+  tailwindcss: 4.1.16
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
-  tsdown: 0.15.8
+  tsdown: 0.15.9
   type-fest: 5.1.0
   typescript: 5.9.3
   unist-util-visit: 5.0.0

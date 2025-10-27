@@ -31,10 +31,10 @@
 		"node": ">=22.0.0",
 		"pnpm": ">=10.15.0"
 	},
-	"packageManager": "pnpm@10.18.3",
+	"packageManager": "pnpm@10.19.0",
 	"pnpm": {
 		"overrides": {
-			"tsdown>rolldown": "1.0.0-beta.43"
+			"tsdown>rolldown": "1.0.0-beta.44"
 		}
 	}
 }
