@@ -28,9 +28,9 @@
 </script>
 
 <script lang="ts">
-	import { TableOfContentsIcon } from '@lucide/svelte';
 	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 	import type { MarkdownHeading } from 'astro';
+	import { scrollY } from 'svelte/reactivity/window';
 
 	interface Props {
 		headings: MarkdownHeading[];
@@ -39,6 +39,8 @@
 	const { headings }: Props = $props();
 
 	const activeHeading = useActiveHeading(headings);
+
+	const scrollTop = $derived(scrollY.current ?? 0);
 
 	function getPaddingFromDepth(depth: number) {
 		return {
@@ -57,7 +59,7 @@
 		<!-- Label -->
 		<span class="font-bold flex items-center gap-2">On This Page</span>
 		<!-- Links -->
-		<SegmentedControl value={activeHeading()?.slug} orientation="vertical" class="-ml-4">
+		<SegmentedControl value={scrollTop > 32 ? activeHeading()?.slug : undefined} orientation="vertical" class="-ml-4">
 			<SegmentedControl.Control class="border-none p-0">
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}
