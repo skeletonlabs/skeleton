@@ -1,37 +1,49 @@
 ---
-import { getRelativeDocsUrl, getActiveFramework } from '@/modules/framework';
+import { resolve, getActiveFramework } from '@/modules/framework';
 import { getCollection } from '@/modules/content';
-// Skeleton Logo
 import Skeleton from '@/assets/branding/skeleton.svg';
-// Social Logos
 import LogoGitHub from '@/assets/logos/github.svg';
 import LogoDiscord from '@/assets/logos/discord.svg';
 import LogoBluesky from '@/assets/logos/bluesky.svg';
-// Modals
 import DrawerTrigger from '@/components/ui/header/drawer.svelte';
 import SearchTrigger from '@/components/ui/header/search.svelte';
-// Child Components
 import FrameworkPicker from '@/components/ui/header/framework.svelte';
 import VersionPicker from '@/components/ui/header/version.svelte';
 import ThemePicker from '@/components/ui/header/theme.svelte';
 import PlusPicker from '@/components/ui/header/plus.svelte';
 import SponsorPicker from '@/components/ui/header/sponsor.svelte';
-// Components
 import Navigation from '../navigation.astro';
 
 const frameworks = await getCollection('frameworks');
 const activeFramework = getActiveFramework(Astro);
 
 const links = [
-	// { href: '/', title: 'Design System' }, // coming in v5
-	// { href: '/components', title: 'Components' }, // coming in v5
-	{ href: getRelativeDocsUrl(Astro, '/get-started/introduction'), title: 'Docs' },
-	{ href: '/showcase', title: 'Showcase' },
+	{
+		href: resolve(Astro, '/docs/[framework]/get-started/introduction'),
+		title: 'Docs',
+	},
+	{
+		href: '/showcase',
+		title: 'Showcase',
+	},
 ];
+
 const socialLinks = [
-	{ href: 'https://github.com/skeletonlabs/skeleton', icon: LogoGitHub, title: 'GitHub' },
-	{ href: 'https://discord.gg/EXqV7W8MtY', icon: LogoDiscord, title: 'Discord' },
-	{ href: 'https://bsky.app/profile/skeleton.dev', icon: LogoBluesky, title: 'Bluesky' },
+	{
+		href: 'https://github.com/skeletonlabs/skeleton',
+		icon: LogoGitHub,
+		title: 'GitHub',
+	},
+	{
+		href: 'https://discord.gg/EXqV7W8MtY',
+		icon: LogoDiscord,
+		title: 'Discord',
+	},
+	{
+		href: 'https://bsky.app/profile/skeleton.dev',
+		icon: LogoBluesky,
+		title: 'Bluesky',
+	},
 ];
 ---
 

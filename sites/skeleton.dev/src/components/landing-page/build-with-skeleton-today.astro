@@ -1,13 +1,13 @@
 ---
-import { getRelativeDocsUrl } from '@/modules/framework';
+import { resolve } from '@/modules/framework';
 import { ChevronRightIcon } from '@lucide/svelte';
 ---
 
 <div class="card bg-noise preset-filled-primary-500 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl">
 	<div class="max-w-[400px]">
-		<h2 class="h2 leading-snug !text-current">Start building with Skeleton today.</h2>
+		<h2 class="h2 leading-snug text-current!">Start building with Skeleton today.</h2>
 	</div>
-	<a href={getRelativeDocsUrl(Astro, 'get-started/installation')} class="self-center btn preset-filled">
+	<a href={resolve(Astro, '/docs/[framework]/get-started/installation')} class="self-center btn preset-filled">
 		<span>Get Started</span>
 		<ChevronRightIcon class="size-4" />
 	</a>

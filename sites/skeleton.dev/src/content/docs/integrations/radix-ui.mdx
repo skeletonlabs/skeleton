@@ -9,7 +9,7 @@ import banner from '@/assets/headless/radix-ui/banner.png';
 import toggleGroup from '@/assets/headless/radix-ui/toggle-group.gif';
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
-import { getRelativeDocsUrl } from '@/modules/framework';
+import { resolve } from '@/modules/framework';
 import { Image } from 'astro:assets';
 
 <Image src={banner} alt="Radix UI Banner" class="rounded-container shadow-xl" />
@@ -54,7 +54,7 @@ In this guide we'll implement the following Radix UI `<ToggleGroup>` component. 
         ### Create a Project
 		To begin, we'll setup a new Vite project with React v19, Skeleton v3, and Tailwind v4.
 
-    	<a class="btn preset-filled mt-4" href={getRelativeDocsUrl(props.Astro, 'get-started/installation/vite-react')} target="_blank">Setup Vite/React App</a>
+    	<a class="btn preset-filled mt-4" href={resolve(props.Astro, 'get-started/installation/vite-react')} target="_blank">Setup Vite/React App</a>
     </ProcessStep>
     <ProcessStep step="2">
         ### Install Radix Component
@@ -199,7 +199,7 @@ export const ToggleGroup: FC<ToggleGroupProps> = () => {
 
 ## Going Further
 
-If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/resources/contribute/components).
+If you wish to match Skeleton component conventions, view our [contributor component guidelines](/docs/[framework]/resources/contribute/components).
 
 ## Attribution
 

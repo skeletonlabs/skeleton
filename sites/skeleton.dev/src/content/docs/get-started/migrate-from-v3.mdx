@@ -30,7 +30,7 @@ To begin, we will run a quick automated migration.
 npx skeleton migrate skeleton-4
 ```
 
-This will handle the package and stylesheet updates in the next couple steps. If you opt for the CLI, feel free to skip down to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below. Note the manual steps are required for all migrations.
+This will handle the package and stylesheet updates in the next couple steps. If you opt for the CLI, feel free to skip down to the [Manual Migration](/docs/[framework]/get-started/migrate-from-v3#manual-migration) steps below. Note the manual steps are required for all migrations.
 
 ### Update NPM Packages
 
@@ -59,7 +59,7 @@ The `@source` rules for sourcing component styles have been replaced with simple
 @import '@skeletonlabs/skeleton-{framework}'; /* [!code ++] */
 ```
 
-In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
+In Skeleton v3 the [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
 
 ```css
 @import '@skeletonlabs/skeleton/optional/presets'; /* [!code --] */
@@ -90,7 +90,7 @@ Below is an example of that process specifically tailored for the Avatar compone
 </Avatar>
 ```
 
-1. Consult the documentation for the [Avatar component](/docs/framework-components/avatar)
+1. Consult the documentation for the [Avatar component](/docs/[framework]/framework-components/avatar)
 2. Keep the import as is; no changes are required for this component.
 3. The root component `<Avatar>` remains; remove the `src`, `alt`, and or `name` props.
 4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
@@ -102,15 +102,15 @@ Below is an example of that process specifically tailored for the Avatar compone
 
 As part of this update, select components have been renamed. We now aim to follow the [Zag.js](https://zagjs.com/) naming conventions.
 
-| Was (v3)            | Now (v4)                     | v4 Docs                                              |
-| ------------------- | ---------------------------- | ---------------------------------------------------- |
-| `<Modal>`           | `<Dialog>`                   | [View](/docs/framework-components/dialog)            |
-| `<Navigation.Bar>`  | `<Navigation layout="bar">`  | [View](/docs/framework-components/navigation)        |
-| `<Navigation.Rail>` | `<Navigation layout="rail">` | [View](/docs/framework-components/navigation)        |
-| `<ProgressRing>`    | `<Progress>`                 | [View](/docs/framework-components/progress-circular) |
-| `<Ratings>`         | `<RatingGroup>`              | [View](/docs/framework-components/rating-group)      |
-| `<Segment>`         | `<SegmentedControl>`         | [View](/docs/framework-components/segmented-control) |
-| `<Toaster>`         | `<Toast.Group>`              | [View](/docs/framework-components/toast)             |
+| Was (v3)            | Now (v4)                     | v4 Docs                                                          |
+| ------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| `<Modal>`           | `<Dialog>`                   | [View](/docs/[framework]/framework-components/dialog)            |
+| `<Navigation.Bar>`  | `<Navigation layout="bar">`  | [View](/docs/[framework]/framework-components/navigation)        |
+| `<Navigation.Rail>` | `<Navigation layout="rail">` | [View](/docs/[framework]/framework-components/navigation)        |
+| `<ProgressRing>`    | `<Progress>`                 | [View](/docs/[framework]/framework-components/progress-circular) |
+| `<Ratings>`         | `<RatingGroup>`              | [View](/docs/[framework]/framework-components/rating-group)      |
+| `<Segment>`         | `<SegmentedControl>`         | [View](/docs/[framework]/framework-components/segmented-control) |
+| `<Toaster>`         | `<Toast.Group>`              | [View](/docs/[framework]/framework-components/toast)             |
 
 ---
 

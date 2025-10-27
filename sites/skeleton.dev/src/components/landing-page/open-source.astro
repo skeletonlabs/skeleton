@@ -1,7 +1,7 @@
 ---
 import { ChevronRightIcon } from '@lucide/svelte';
 import { getCollection } from '@/modules/content';
-import { getRelativeDocsUrl } from '@/modules/framework';
+import { resolve } from '@/modules/framework';
 
 const contributors = await getCollection('contributors');
 ---
@@ -32,7 +32,7 @@ const contributors = await getCollection('contributors');
 				<span>View GitHub</span>
 				<ChevronRightIcon class="size-4" />
 			</a>
-			<a href={getRelativeDocsUrl(Astro, 'resources/contribute')} class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+			<a href={resolve(Astro, '/docs/[framework]/resources/contribute')} class="btn preset-outlined-surface-800-200 hover:preset-tonal">
 				<span>How to Contribute</span>
 			</a>
 		</nav>

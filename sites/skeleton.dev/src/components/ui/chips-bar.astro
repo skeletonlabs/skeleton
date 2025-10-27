@@ -20,7 +20,7 @@ const feature = path.at(1) ?? '';
 const activeFramework = getActiveFramework(Astro);
 
 function replacePlaceholders(url: string) {
-	return url.replace('[FRAMEWORK]', activeFramework.id).replace('[GIT_BRANCH]', GIT_BRANCH);
+	return url.replaceAll('[framework]', activeFramework.id).replace('[branch]', GIT_BRANCH);
 }
 
 function getSourcePath() {

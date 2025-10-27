@@ -1,7 +1,9 @@
 ---
-import { getRelativeDocsUrl } from '@/modules/framework';
+import { getActiveFramework } from '@/modules/framework';
 
 const props = Astro.props;
+
+const activeFramework = getActiveFramework(Astro);
 
 const isExternal = !props.href.includes(import.meta.env.SITE) && !props.href.startsWith('/') && !props.href.startsWith('#');
 
@@ -10,10 +12,7 @@ if (isExternal) {
 	props.rel = 'noopener noreferrer';
 }
 
-if (!isExternal && props.href.startsWith('/docs')) {
-	const docId = props.href.replace('/docs/', '');
-	props.href = getRelativeDocsUrl(Astro, docId);
-}
+props.href = props.href.replaceAll('[framework]', activeFramework.id);
 ---
 
 <a class="anchor inline-flex items-center gap-1" {...props}>

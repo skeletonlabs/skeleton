@@ -66,7 +66,7 @@ Before migration to tailwind v4 using their upgrade guide some manual steps are 
 
 Migrate to the latest release of Tailwind v4.
 
-> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Remove the classes temporarily, then follow [these steps](/docs/get-started/migrate-from-v2#replacing-apply) to adapt to native CSS custom properties and Tailwind's new utilities.
+> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Remove the classes temporarily, then follow [these steps](/docs/[framework]/get-started/migrate-from-v2#replacing-apply) to adapt to native CSS custom properties and Tailwind's new utilities.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://tailwindcss.com/docs/upgrade-guide" target="_blank" rel="noopener noreferrer">
@@ -144,16 +144,16 @@ Your preset theme should be automatically migrated by the CLI, you're all set!
 4. Update and modify any theme settings in the live preview.
 5. Make sure to set a valid theme name in the right-hand panel.
 6. Tap the “Code” tab to preview your generated theme code.
-7. Copy the theme code, then following our [custom theme instructions](/docs/design/themes#custom-themes).
+7. Copy the theme code, then following our [custom theme instructions](/docs/[framework]/design/themes#custom-themes).
 8. Similar to preset themes, you will need to both register and set an active theme.
 
 ### Replace AppShell with Custom Layouts
 
-Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a [Layouts](/docs/guides/layouts) guide for replicating common page structures using only semantic HTML and Tailwind - no Skeleton specific features needed!
+Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a [Layouts](/docs/[framework]/guides/layouts) guide for replicating common page structures using only semantic HTML and Tailwind - no Skeleton specific features needed!
 
 ### Migrating Components
 
-> NOTE: if you're aiming to migrate to Skeleton v4, we recommend you skip this specific step and follow [the v4 migration guide instead](/docs/get-started/migrate-from-v3). Once complete, resume from the "Tailwind 4 Changes" section below, and continue through the remainder of this guide.
+> NOTE: if you're aiming to migrate to Skeleton v4, we recommend you skip this specific step and follow [the v4 migration guide instead](/docs/[framework]/get-started/migrate-from-v3). Once complete, resume from the "Tailwind 4 Changes" section below, and continue through the remainder of this guide.
 
 Components have undergone the biggest update in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's equivalent v3 documentation. We’ve highlighted a few of the key changes below:
 
@@ -162,7 +162,7 @@ Components have undergone the biggest update in Skeleton v3. Given the sheer num
 - Changes to the import path: `@skeletonlabs/skeleton-svelte`.
 - Changes to the component name and/or structure (including sub-components)
 - Changes based on newly introduces features and properties.
-- Changes to adopt the new [component fundamentals](/docs/get-started/fundamentals#functional-components).
+- Changes to adopt the new [component fundamentals](/docs/[framework]/get-started/fundamentals#functional-components).
 
 Here's an example of changes for a single component from v2 to the new equivalent:
 
@@ -211,8 +211,8 @@ We’ve recorded the most notable changes to each component in the table below:
 Taliwind v4 represents a major update for Tailwind. We've detailed the most notable features as they may relate to your Skeleton project. Please consult the [Tailwind v4 announcement](https://tailwindcss.com/blog/tailwindcss-v4) post for the full roster of changes.
 
 - The `tailwing.config` has been removed in favor of [CSS-base configuration](https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration) in your global stylesheet.
-- Make sure you’re using the newest strategies for supporting [Dark Mode](/docs/guides/mode).
-- You are still required to implement the [Tailwind Forms Plugin](/docs/tailwind-components/forms#prerequisites) to use Skeleton form elements.
+- Make sure you’re using the newest strategies for supporting [Dark Mode](/docs/[framework]/guides/mode).
+- You are still required to implement the [Tailwind Forms Plugin](/docs/[framework]/tailwind-components/forms#prerequisites) to use Skeleton form elements.
 - The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`
 - Themes colors are now stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
 
@@ -242,7 +242,7 @@ We strongly encourage you take this opportunity to move away from any usage of `
 ```
 
 - Usage of `@apply` may be found in your global stylesheet or component `<style>` blocks.
-- Refer to the Skeleton [Core API](/docs/get-started/core-api) documentation for a full list of Skeleton's CSS custom properties.
+- Refer to the Skeleton [Core API](/docs/[framework]/get-started/core-api) documentation for a full list of Skeleton's CSS custom properties.
 - Refer to the Tailwind's [functions and directives](https://tailwindcss.com/docs/functions-and-directives) for information on how to utilize these new features.
 
 ### Replace Unsupported Features
@@ -251,11 +251,11 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 
 #### Svelte Actions
 
-| Name       | v2                                                 | Alternative                                | Notes                              |
-| ---------- | -------------------------------------------------- | ------------------------------------------ | ---------------------------------- |
-| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/guides/cookbook/clipboard)    | Provided via Cookbook guide        |
-| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/guides/cookbook/svg-filters)  | Provided via Cookbook guide        |
-| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/framework-components/popover) | Built-into v4+ overlay components. |
+| Name       | v2                                                 | Alternative                                            | Notes                              |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
+| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/[framework]/guides/cookbook/clipboard)    | Provided via Cookbook guide        |
+| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/[framework]/guides/cookbook/svg-filters)  | Provided via Cookbook guide        |
+| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/[framework]/framework-components/popover) | Built-into v4+ overlay components. |
 
 > TIP: We also recommend [Runed](https://runed.dev/docs) for a similar approach to small composable features for Svelte 5.
 
@@ -263,24 +263,24 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 
 | Name              | v2                                                              | Alternative                                                                    | Notes                                    |
 | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------- |
-| `<AppShell>`      | [Link](https://v2.skeleton.dev/components/app-shell)            | [Link](/docs/guides/layouts)                                                   | Replaced with custom layouts             |
-| `<Autocomplete>`  | [Link](https://v2.skeleton.dev/components/autocomplete)         | [Link](/docs/framework-components/combobox)                                    | Replaced with Combobox                   |
+| `<AppShell>`      | [Link](https://v2.skeleton.dev/components/app-shell)            | [Link](/docs/[framework]/guides/layouts)                                       | Replaced with custom layouts             |
+| `<Autocomplete>`  | [Link](https://v2.skeleton.dev/components/autocomplete)         | [Link](/docs/[framework]/framework-components/combobox)                        | Replaced with Combobox                   |
 | `<ConicGradient>` | [Link](https://v2.skeleton.dev/components/conic-gradients)      | [Link](https://tailwindcss.com/docs/background-image#adding-a-radial-gradient) | Now built into Tailwind                  |
-| `<Lightswitch>`   | [Link](https://v2.skeleton.dev/docs/dark-mode#custom-component) | [Link](/docs/guides/mode#lightswitch)                                          | Removed in favor of custom components    |
-| `<Stepper>`       | [Link](https://v2.skeleton.dev/components/steppers)             | [Link](/docs/guides/cookbook/stepper)                                          | Provided via Cookbook guide              |
-| `<Table>`         | [Link](https://v2.skeleton.dev/components/tables)               | [Link](/docs/tailwind-components/tables)                                       | Removed in favor of a Tailwind component |
+| `<Lightswitch>`   | [Link](https://v2.skeleton.dev/docs/dark-mode#custom-component) | [Link](/docs/[framework]/guides/mode#lightswitch)                              | Removed in favor of custom components    |
+| `<Stepper>`       | [Link](https://v2.skeleton.dev/components/steppers)             | [Link](/docs/[framework]/guides/cookbook/stepper)                              | Provided via Cookbook guide              |
+| `<Table>`         | [Link](https://v2.skeleton.dev/components/tables)               | [Link](/docs/[framework]/tailwind-components/tables)                           | Removed in favor of a Tailwind component |
 
 #### Utilities
 
-| Name              | v2                                                             | Alternative                                     | Notes                          |
-| ----------------- | -------------------------------------------------------------- | ----------------------------------------------- | ------------------------------ |
-| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/integrations/code-block)           | Provided via Integration guide |
-| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/framework-components/dialog)       | Replace with new component     |
-| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/framework-components/dialog)       | Replace with new component     |
-| Popups            | [Link](https://v2.skeleton.dev/utilities/popups)               | [Link](/docs/framework-components/popover)      | Replace with new component     |
-| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/framework-components/toast)        | Replace with new component     |
-| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/guides/cookbook/table-of-contents) | Provided via Cookbook guide    |
-| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                              | Incompatible with Svelte 5     |
+| Name              | v2                                                             | Alternative                                                 | Notes                          |
+| ----------------- | -------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
+| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/[framework]/integrations/code-block)           | Provided via Integration guide |
+| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/[framework]/framework-components/dialog)       | Replace with new component     |
+| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/[framework]/framework-components/dialog)       | Replace with new component     |
+| Popups            | [Link](https://v2.skeleton.dev/utilities/popups)               | [Link](/docs/[framework]/framework-components/popover)      | Replace with new component     |
+| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/[framework]/framework-components/toast)        | Replace with new component     |
+| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/[framework]/guides/cookbook/table-of-contents) | Provided via Cookbook guide    |
+| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                                          | Incompatible with Svelte 5     |
 
 ### Migration Complete
 
