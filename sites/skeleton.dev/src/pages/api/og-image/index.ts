@@ -40,6 +40,7 @@ export const GET: APIRoute = async (context) => {
 	});
 
 	return new Response(new Uint8Array(resvg.render().asPng()), {
+		status: 200,
 		headers: {
 			'Content-Type': 'image/png',
 		},
