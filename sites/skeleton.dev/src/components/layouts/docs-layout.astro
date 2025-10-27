@@ -13,6 +13,7 @@ import ChipsBar from '../ui/chips-bar.astro';
 import { SquarePenIcon } from '@lucide/svelte';
 import LlmMenu from '@/components/ui/large-language-models.svelte';
 import NavigationSteps from '@/components/ui/navigation-steps.astro';
+import { GIT_BRANCH } from 'astro:env/server';
 
 interface Props {
 	doc: CollectionEntry<'docs'>;
@@ -83,7 +84,7 @@ const { Content, headings } = await render(doc);
 		<!-- Suggest changes -->
 		<a
 			class="mt-24 flex justify-center items-center gap-2 opacity-60 hover:underline text-sm"
-			href={`https://github.com/skeletonlabs/skeleton/edit/docs/new/sites/skeleton.dev/${doc.filePath}`}
+			href={`https://github.com/skeletonlabs/skeleton/edit/${GIT_BRANCH}/sites/skeleton.dev/${doc.filePath}`}
 			target="_blank"
 			rel="noopener noreferrer"
 		>

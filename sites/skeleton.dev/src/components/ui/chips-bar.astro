@@ -2,6 +2,7 @@
 import { CodeIcon, BlocksIcon, PersonStandingIcon } from '@lucide/svelte';
 import { getActiveFramework } from '@/modules/framework';
 import type { CollectionEntry } from 'astro:content';
+import { GIT_BRANCH } from 'astro:env/server';
 
 interface Props {
 	doc: CollectionEntry<'docs'>;
@@ -9,7 +10,7 @@ interface Props {
 
 const { doc } = Astro.props;
 
-const REPOSITORY_ROOT = new URL(`https://github.com/skeletonlabs/skeleton/tree/main/`);
+const REPOSITORY_ROOT = new URL(`https://github.com/skeletonlabs/skeleton/tree/${GIT_BRANCH}/`);
 const ZAG_ROOT = new URL('https://zagjs.com/');
 
 const path = doc.id.split('/');
@@ -17,6 +18,10 @@ const section = path.at(0) ?? '';
 const feature = path.at(1) ?? '';
 
 const activeFramework = getActiveFramework(Astro);
+
+function replacePlaceholders(url: string) {
+	return url.replace('[FRAMEWORK]', activeFramework.id).replace('[GIT_BRANCH]', GIT_BRANCH);
+}
 
 function getSourcePath() {
 	if (doc.data.references.source === false) {
@@ -78,12 +83,7 @@ const references = [
 	references.length > 0 && (
 		<nav class="flex flex-wrap gap-2 overflow-x-auto">
 			{references.map((reference) => (
-				<a
-					class="chip preset-tonal"
-					href={reference.url.toString().replace('[FRAMEWORK]', activeFramework.id)}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a class="chip preset-tonal" href={replacePlaceholders(reference.url.toString())} target="_blank" rel="noopener noreferrer">
 					<reference.icon class="size-4" />
 					<span>{reference.label}</span>
 				</a>

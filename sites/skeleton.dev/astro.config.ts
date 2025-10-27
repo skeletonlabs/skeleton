@@ -9,7 +9,8 @@ import tailwindcss from '@tailwindcss/vite';
 import type { AstroIntegration } from 'astro';
 import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
+import { execSync } from 'node:child_process';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
 export function getSite() {
@@ -47,6 +48,15 @@ export default defineConfig({
 		sitemap(),
 		pagefind(),
 	],
+	env: {
+		schema: {
+			GIT_BRANCH: envField.string({
+				context: 'server',
+				access: 'public',
+				default: execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
+			}),
+		},
+	},
 	vite: {
 		build: {
 			rollupOptions: {

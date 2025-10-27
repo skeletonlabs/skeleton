@@ -20,7 +20,7 @@ if (fileContent.charCodeAt(0) === 0xfeff) {
 const reportData = JSON.parse(fileContent);
 
 // Filter out links with status 200
-const filteredLinks = reportData.links.filter((link) => link.status !== 200);
+const filteredLinks = reportData.links.filter((link) => link.status !== 200 && link.status !== 429);
 
 // Create output object
 const output = {
