@@ -41,7 +41,7 @@ Skeleton is built on top of the following technologies. These must be migrated i
 Migrate to the latest release of Svelte v5.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://svelte.dev/docs/svelte/v5-migration-guide" target="_blank">
+	<a class="btn preset-filled" href="https:/.dev/docs/v5-migration-guide" target="_blank">
 		Svelte v5 Migration &rarr;
 	</a>
 </figure>
@@ -51,7 +51,7 @@ Migrate to the latest release of Svelte v5.
 Migrate to the latest release of SvelteKit v2.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://svelte.dev/docs/kit/migrating-to-sveltekit-2" target="_blank">
+	<a class="btn preset-filled" href="https:/.dev/docs/kit/migrating-to-sveltekit-2" target="_blank">
 		SvelteKit v2 Migration &rarr;
 	</a>
 </figure>
@@ -157,12 +157,12 @@ Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/
 
 Components have undergone the biggest update in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's equivalent v3 documentation. We’ve highlighted a few of the key changes below:
 
-- Changes to adopt the new [Svelte 5 APIs](https://svelte.dev/docs/svelte/v5-migration-guide) like runes, snippets, event handlers, etc.
+- Changes to adopt the new [Svelte 5 APIs](https:/.dev/docs/v5-migration-guide) like runes, snippets, event handlers, etc.
 - Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation of our cross-framework components.
 - Changes to the import path: `@skeletonlabs/skeleton-svelte`.
 - Changes to the component name and/or structure (including sub-components)
 - Changes based on newly introduces features and properties.
-- Changes to adopt the new [style prop conventions](/docs/get-started/fundamentals#style-props) and cross-framework standardization.
+- Changes to adopt the new [component fundamentals](/docs/get-started/fundamentals#functional-components).
 
 Here's an example of changes for a single component from v2 to the new equivalent:
 
@@ -190,22 +190,21 @@ Here's an example of changes for a single component from v2 to the new equivalen
 <Slider name="amount" {value} onValueChange={(e) => (value = e.value)} markers={[25, 50, 75]} />
 ```
 
-We’ve denoted the most notable changes to each component in the table below:
+We’ve recorded the most notable changes to each component in the table below:
 
-| Name               | v2                                                          | v3                                            | Notes                                                                                                        |
-| ------------------ | ----------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `<AppRail>`        | [Link](https://v2.skeleton.dev/components/app-rail)         | [Link](/docs/components/navigation/svelte)    | Renamed `<Navigation>` - greatly expanded features                                                           |
-| `<FileButton>`     | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileDropzone>` features                                                    |
-| `<FileDropzone>`   | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileButton>` features                                                      |
-| `<InputChip>`      | [Link](https://v2.skeleton.dev/components/input-chips)      | [Link](/docs/components/tags-input/svelte)    | Renamed `<TagsInput>`                                                                                        |
-| `<Paginator>`      | [Link](https://v2.skeleton.dev/components/paginators)       | [Link](/docs/components/pagination/svelte)    | Renamed `<Pagination>`                                                                                       |
-| `<ProgressBar>`    | [Link](https://v2.skeleton.dev/components/progress-bars)    | [Link](/docs/components/progress/svelte)      | Renamed `<Progress>`                                                                                         |
-| `<ProgressRadial>` | [Link](https://v2.skeleton.dev/components/progress-radials) | [Link](/docs/components/progress-ring/svelte) | Renamed `<ProgressRing>`                                                                                     |
-| `<RadioGroup>`     | [Link](https://v2.skeleton.dev/components/radio-groups)     | [Link](/docs/components/segment/svelte)       | Renamed `<Segment>` (aka Segmented Control)                                                                  |
-| `<RangeSlider>`    | [Link](https://v2.skeleton.dev/components/range-sliders)    | [Link](/docs/components/slider/svelte)        | Renamed `<Slider>`                                                                                           |
-| `<SlideToggle>`    | [Link](https://v2.skeleton.dev/components/slide-toggles)    | [Link](/docs/components/switch/svelte)        | Renamed `<Switch>`                                                                                           |
-| `<TabGroup>`       | [Link](https://v2.skeleton.dev/components/tabs)             | [Link](/docs/components/tabs/svelte)          | Renamed `<Tabs>`                                                                                             |
-| `<TreeView>`       | [Link](https://v2.skeleton.dev/components/tree-views)       | --                                            | Coming soon - [Track progress](https://github.com/skeletonlabs/skeleton/issues/2358#issuecomment-2313215789) |
+| Name               | v2                                                          | v3                                                   | Notes                                                     |
+| ------------------ | ----------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------- |
+| `<AppRail>`        | [Link](https://v2.skeleton.dev/components/app-rail)         | [Link](/docs/framework-components/navigation)        | Renamed `<Navigation>` - greatly expanded features        |
+| `<FileButton>`     | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](/docs/framework-components/file-upload)       | Renamed `<FileUpload>` - merges `<FileDropzone>` features |
+| `<FileDropzone>`   | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](/docs/framework-components/file-upload)       | Renamed `<FileUpload>` - merges `<FileButton>` features   |
+| `<InputChip>`      | [Link](https://v2.skeleton.dev/components/input-chips)      | [Link](/docs/framework-components/tags-input)        | Renamed `<TagsInput>`                                     |
+| `<Paginator>`      | [Link](https://v2.skeleton.dev/components/paginators)       | [Link](/docs/framework-components/pagination)        | Renamed `<Pagination>`                                    |
+| `<ProgressBar>`    | [Link](https://v2.skeleton.dev/components/progress-bars)    | [Link](/docs/framework-components/progress-linear)   | Renamed `<Progress>`                                      |
+| `<ProgressRadial>` | [Link](https://v2.skeleton.dev/components/progress-radials) | [Link](/docs/framework-components/progress-circular) | Renamed `<Progress>`                                      |
+| `<RadioGroup>`     | [Link](https://v2.skeleton.dev/components/radio-groups)     | [Link](/docs/framework-components/segment)           | Renamed `<SegmentedControl>`                              |
+| `<RangeSlider>`    | [Link](https://v2.skeleton.dev/components/range-sliders)    | [Link](/docs/framework-components/slider)            | Renamed `<Slider>`                                        |
+| `<Slider>`         | [Link](https://v2.skeleton.dev/components/slide-toggles)    | [Link](/docs/framework-components/switch)            | Renamed `<Switch>`                                        |
+| `<TabGroup>`       | [Link](https://v2.skeleton.dev/components/tabs)             | [Link](/docs/framework-components/tabs)              | Renamed `<Tabs>`                                          |
 
 ### Tailwind v4 Changes
 
@@ -213,7 +212,7 @@ Taliwind v4 represents a major update for Tailwind. We've detailed the most nota
 
 - The `tailwing.config` has been removed in favor of [CSS-base configuration](https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration) in your global stylesheet.
 - Make sure you’re using the newest strategies for supporting [Dark Mode](/docs/guides/mode).
-- You are still required to implement the [Tailwind Forms Plugin](/docs/tailwind/forms#prerequisites) to use Skeleton form elements.
+- You are still required to implement the [Tailwind Forms Plugin](/docs/tailwind-components/forms#prerequisites) to use Skeleton form elements.
 - The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`
 - Themes colors are now stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
 
@@ -252,11 +251,11 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 
 #### Svelte Actions
 
-| Name       | v2                                                 | Alternative                               | Notes                          |
-| ---------- | -------------------------------------------------- | ----------------------------------------- | ------------------------------ |
-| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/guides/cookbook/clipboard)   | Provided via Cookbook guide    |
-| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/guides/cookbook/svg-filters) | Provided via Cookbook guide    |
-| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/integrations/popover/svelte) | Provided via Integration guide |
+| Name       | v2                                                 | Alternative                                | Notes                              |
+| ---------- | -------------------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/guides/cookbook/clipboard)    | Provided via Cookbook guide        |
+| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/guides/cookbook/svg-filters)  | Provided via Cookbook guide        |
+| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/framework-components/popover) | Built-into v4+ overlay components. |
 
 > TIP: We also recommend [Runed](https://runed.dev/docs) for a similar approach to small composable features for Svelte 5.
 
@@ -265,28 +264,23 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 | Name              | v2                                                              | Alternative                                                                    | Notes                                    |
 | ----------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------- |
 | `<AppShell>`      | [Link](https://v2.skeleton.dev/components/app-shell)            | [Link](/docs/guides/layouts)                                                   | Replaced with custom layouts             |
-| `<Autocomplete>`  | [Link](https://v2.skeleton.dev/components/autocomplete)         | [Link](/docs/integrations/popover/svelte#combobox)                             | Provided via Integration guide           |
+| `<Autocomplete>`  | [Link](https://v2.skeleton.dev/components/autocomplete)         | [Link](/docs/framework-components/combobox)                                    | Replaced with Combobox                   |
 | `<ConicGradient>` | [Link](https://v2.skeleton.dev/components/conic-gradients)      | [Link](https://tailwindcss.com/docs/background-image#adding-a-radial-gradient) | Now built into Tailwind                  |
 | `<Lightswitch>`   | [Link](https://v2.skeleton.dev/docs/dark-mode#custom-component) | [Link](/docs/guides/mode#lightswitch)                                          | Removed in favor of custom components    |
-| `<ListBox>`       | [Link](https://v2.skeleton.dev/components/listboxes)            | --                                                                             | Removed                                  |
 | `<Stepper>`       | [Link](https://v2.skeleton.dev/components/steppers)             | [Link](/docs/guides/cookbook/stepper)                                          | Provided via Cookbook guide              |
-| `<Table>`         | [Link](https://v2.skeleton.dev/components/tables)               | [Link](/docs/tailwind/tables)                                                  | Removed in favor of a Tailwind component |
+| `<Table>`         | [Link](https://v2.skeleton.dev/components/tables)               | [Link](/docs/tailwind-components/tables)                                       | Removed in favor of a Tailwind component |
 
 #### Utilities
 
-| Name              | v2                                                             | Alternative                                       | Notes                          |
-| ----------------- | -------------------------------------------------------------- | ------------------------------------------------- | ------------------------------ |
-| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/integrations/code-block/svelte)      | Provided via Integration guide |
-| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/integrations/popover/svelte#modal)   | Provided via Integration guide |
-| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/integrations/popover/svelte#modal)   | Provided via Integration guide |
-| Popovers          | [Link](https://v2.skeleton.dev/utilities/popovers)             | [Link](/docs/integrations/popover/svelte#popover) | Provided via Integration guide |
-| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/integrations/toasts/svelte)          | Provided via Integration guide |
-| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/guides/cookbook/table-of-contents)   | Provided via Cookbook guide    |
-| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                                | Incompatible with Svelte 5     |
-
-#### Popovers and Modals
-
-Members of the both the Skeleton team and the Svelte community are actively building [Floating UI Svelte](https://floating-ui-svelte.vercel.app/). The long term goal is to use this as a best-in-class solution for: popovers, tooltips, modals, drawers, and more. Until then, we are providing a [select set of components](/docs/integrations/popover/svelte), powered by Zag.js, to help bridge the gap. These components will be supported for the full duration of Skeleton v3.x. However, they will be replaced with a dedicated guide ([similar to React](/docs/integrations/popover/react)) in the future. We ask that you please be patient during this transitory phase.
+| Name              | v2                                                             | Alternative                                     | Notes                          |
+| ----------------- | -------------------------------------------------------------- | ----------------------------------------------- | ------------------------------ |
+| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/integrations/code-block)           | Provided via Integration guide |
+| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/framework-components/dialog)       | Replace with new component     |
+| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/framework-components/dialog)       | Replace with new component     |
+| Popovers          | [Link](https://v2.skeleton.dev/utilities/popovers)             | [Link](/docs/framework-components/popover)      | Replace with new component     |
+| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/framework-components/toast)        | Replace with new component     |
+| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/guides/cookbook/table-of-contents) | Provided via Cookbook guide    |
+| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                              | Incompatible with Svelte 5     |
 
 ### Migration Complete
 

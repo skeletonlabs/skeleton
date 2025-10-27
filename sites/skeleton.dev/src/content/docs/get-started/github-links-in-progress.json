@@ -1,0 +1,57 @@
+[
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/integrations/radix-ui.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/integrations/radix-ui"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/integrations/melt-ui.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/integrations/melt-ui"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/get-started/installation/nextjs.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/get-started/installation/nextjs"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/design/colors.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/design/colors"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/resources/contribute.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/resources/contribute"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/design/iconography.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/design/iconography"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/tailwind-components/tables.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/tailwind-components/tables"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/design/spacing.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/design/spacing"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/get-started/migrate-from-v3.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/get-started/migrate-from-v3"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/guides/cookbook.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/guides/cookbook"
+	},
+	{
+		"url": "https://github.com/skeletonlabs/skeleton/edit/main/sites/skeleton.dev/src/content/docs/get-started/introduction.mdx",
+		"status": 429,
+		"parent": "/docs/svelte/get-started/introduction"
+	}
+]

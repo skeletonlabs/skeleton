@@ -34,6 +34,9 @@ function getSourcePath() {
 }
 
 function getStylesUrl() {
+	if (['portal'].includes(feature)) {
+		return;
+	}
 	if (doc.data.references.styles === false) {
 		return;
 	}
@@ -55,6 +58,9 @@ function getA11yUrl() {
 }
 
 function getZagUrl() {
+	if (['app-bar', 'navigation'].includes(feature)) {
+		return;
+	}
 	if (doc.data.references.zag === false) {
 		return;
 	}

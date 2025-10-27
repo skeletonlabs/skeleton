@@ -4,11 +4,6 @@
 	const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'] as const;
 
 	const steps = {
-		figma: {
-			label: 'The Figma UI Kit',
-			description:
-				'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.',
-		},
 		themes: {
 			label: 'Themes',
 			description:
@@ -38,13 +33,18 @@
 			description:
 				"Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project's aesthetic.",
 		},
+		figma: {
+			label: 'The Figma UI Kit',
+			description:
+				'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.',
+		},
 	} as const;
 </script>
 
 <script lang="ts">
 	import { BookmarkIcon, HeartIcon, TriangleIcon, UserRoundIcon } from '@lucide/svelte';
 
-	let activeStep = $state<(typeof steps)[keyof typeof steps]>(steps['figma']);
+	let activeStep = $state<(typeof steps)[keyof typeof steps]>(steps['themes']);
 
 	const btnActive = 'btn preset-filled';
 	const btnInactive = 'btn preset-outlined-surface-800-200 hover:preset-tonal';
