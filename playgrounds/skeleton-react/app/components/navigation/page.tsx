@@ -96,7 +96,7 @@ export default function Page() {
 							</Navigation.Menu>
 						</Navigation.Content>
 						<Navigation.Footer>
-							<a href="./#" className={anchorRail} title="Settings" aria-label="Settings">
+							<a href="#" className={anchorRail} title="Settings" aria-label="Settings">
 								<SettingsIcon className="size-5" />
 							</a>
 						</Navigation.Footer>
