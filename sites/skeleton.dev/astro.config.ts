@@ -53,7 +53,7 @@ export default defineConfig({
 			GIT_BRANCH: envField.string({
 				context: 'server',
 				access: 'public',
-				default: process.env.VERCEL_GIT_COMMIT_REF,
+				default: process.env.VERCEL_GIT_COMMIT_REF ?? execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
 			}),
 		},
 	},
