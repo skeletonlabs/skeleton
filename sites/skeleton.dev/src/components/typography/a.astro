@@ -12,7 +12,7 @@ if (isExternal) {
 	props.rel = 'noopener noreferrer';
 }
 
-props.href = props.href.replaceAll('[framework]', activeFramework.id);
+props.href = decodeURIComponent(props.href).replaceAll('[framework]', activeFramework.id);
 ---
 
 <a class="anchor inline-flex items-center gap-1" {...props}>
