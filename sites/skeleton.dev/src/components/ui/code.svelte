@@ -79,6 +79,7 @@
 				display: inline-block;
 				width: 100%;
 				padding-inline: --spacing(5);
+				word-break: break-all;
 
 				:global(&:empty) {
 					display: none;
