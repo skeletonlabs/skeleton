@@ -65,12 +65,14 @@ const { Content, headings } = await render(doc);
 			<!-- Key Features -->
 			{
 				doc.data.features && (
-					<p class="font-bold">Key Features</p>
-					<ul class="list-inside list-disc space-y-2">
-						{doc.data.features.map((listItem) => (
-							<li>{listItem}</li>
-						))}
-					</ul>
+					<>
+						<p class="font-bold">Key Features</p>
+						<ul class="list-inside list-disc space-y-2">
+							{doc.data.features.map((listItem) => (
+								<li>{listItem}</li>
+							))}
+						</ul>
+					</>
 				)
 			}
 			<!-- Content -->
