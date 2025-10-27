@@ -11,13 +11,19 @@ catalog:
   '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.0
   '@astrojs/vercel': 9.0.0
-  '@atproto/api': 0.17.4
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@lucide/svelte': 0.548.0
-  '@nanostores/persistent': 1.2.0
+  '@resvg/resvg-js': 2.6.2
+  '@shikijs/core': 3.14.0
+  '@shikijs/engine-javascript': 3.14.0
+  '@shikijs/langs': 3.14.0
+  '@shikijs/themes': 3.14.0
+  '@shikijs/transformers': 3.14.0
+  '@shikijs/types': 3.14.0
+  '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 5.10.3
   '@sveltejs/kit': 2.47.3
@@ -33,12 +39,11 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 5.2.2
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
-  '@types/mdast': 4.0.4
+  '@types/html-escaper': 3.0.4
   '@types/node': 24.9.1
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
-  '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.1.0
   '@zag-js/accordion': 1.26.4
   '@zag-js/avatar': 1.26.4
@@ -78,11 +83,6 @@ catalog:
   latest-version: 9.0.0
   lucide-react: 0.548.0
   magic-string: 0.30.21
-  mdast-util-from-markdown: 2.0.2
-  mdast-util-gfm: 3.1.0
-  mdast-util-mdx: 3.0.0
-  mdast-util-to-markdown: 2.1.2
-  micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   next: 15.5.6
   node-html-parser: 7.0.1
