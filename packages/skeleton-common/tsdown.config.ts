@@ -5,7 +5,6 @@ import Raw from 'unplugin-raw/rolldown';
 export default defineConfig({
 	logLevel: 'error',
 	clean: false,
-	unbundle: true,
 	copy: ['src/index.css'],
 	plugins: [Raw(), Macros()],
 });
