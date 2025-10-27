@@ -36,7 +36,7 @@ if (!types && import.meta.env.PROD) {
 				{types.data.types.map((type) => (
 					<>
 						<h3 class="h3">{type.name.replace(kebabToPascal(component), '').replace('Props', '')}</h3>
-						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} />}
+						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
 						<div class="table-wrap card border border-surface-200-800 rounded-container">
 							<table class="table">
 								<thead class="bg-surface-100-900/50">
