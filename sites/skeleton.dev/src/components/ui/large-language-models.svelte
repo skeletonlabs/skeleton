@@ -1,6 +1,7 @@
 <script lang="ts">
 	import chatgpt from '@/assets/logos/chatgpt.svg?raw';
 	import claude from '@/assets/logos/claude.svg?raw';
+	import markdown from '@/assets/logos/markdown.svg?raw';
 	import { ChevronDownIcon, FileTextIcon } from '@lucide/svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
@@ -16,14 +17,29 @@
 
 	const links = $derived([
 		{
-			title: 'ChatGPT',
-			icon: chatgpt,
-			href: `https://chatgpt.com/?${new URLSearchParams({ prompt })}`,
+			title: 'View Markdown',
+			icon: markdown,
+			attributes: {
+				href: new URL(`${url.toString().replace(/\/?$/, '/') + 'llms.txt'}`).toString(),
+			},
 		},
 		{
-			title: 'Claude',
+			title: 'Open in ChatGPT',
+			icon: chatgpt,
+			attributes: {
+				href: `https://chatgpt.com/?${new URLSearchParams({ prompt })}`,
+				target: '_blank',
+				rel: 'noopener noreferrer',
+			},
+		},
+		{
+			title: 'Open in Claude',
 			icon: claude,
-			href: `https://claude.ai/new?${new URLSearchParams({ q: prompt })}`,
+			attributes: {
+				href: `https://claude.ai/new?${new URLSearchParams({ q: prompt })}`,
+				target: '_blank',
+				rel: 'noopener noreferrer',
+			},
 		},
 	]);
 </script>
@@ -39,14 +55,9 @@
 			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-2 shadow-xl">
 				<nav class="flex flex-col gap-1">
 					{#each links as link (link)}
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="btn-sm flex justify-start items-center gap-2 hover:preset-tonal"
-						>
+						<a class="btn-sm flex justify-start items-center gap-2 hover:preset-tonal" {...link.attributes}>
 							{@html link.icon}
-							<span>Open in {link.title}</span>
+							<span>{link.title}</span>
 						</a>
 					{/each}
 				</nav>
