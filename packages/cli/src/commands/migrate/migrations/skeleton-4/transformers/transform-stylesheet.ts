@@ -1,5 +1,5 @@
-import { AtRule, parse } from 'postcss';
 import { log } from '@clack/prompts';
+import { AtRule, parse } from 'postcss';
 
 export function transformStylesheet(content: string) {
 	try {

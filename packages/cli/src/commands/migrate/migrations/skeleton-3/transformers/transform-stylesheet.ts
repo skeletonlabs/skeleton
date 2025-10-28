@@ -1,6 +1,6 @@
 import { transformClasses } from './transform-classes.js';
-import { parse } from 'postcss';
 import { log } from '@clack/prompts';
+import { parse } from 'postcss';
 
 function transformStylesheet(code: string) {
 	try {

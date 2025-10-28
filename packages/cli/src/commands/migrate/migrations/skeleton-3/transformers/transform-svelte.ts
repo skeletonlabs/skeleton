@@ -4,11 +4,11 @@ import { EXPORT_MAPPINGS } from '../utility/export-mappings.js';
 import { transformClasses } from './transform-classes.js';
 import { transformModule } from './transform-module.js';
 import { transformStylesheet } from './transform-stylesheet.js';
+import { log } from '@clack/prompts';
 import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
 import { walk } from 'zimmerframe';
-import { log } from '@clack/prompts';
 
 function transformScript(s: MagicString, script: AST.Script | null) {
 	if (
