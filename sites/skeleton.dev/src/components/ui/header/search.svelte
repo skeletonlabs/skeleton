@@ -115,6 +115,7 @@
 				return true;
 			});
 		if (query.length === 0) {
+			reset();
 			return;
 		}
 		status = 'done';
