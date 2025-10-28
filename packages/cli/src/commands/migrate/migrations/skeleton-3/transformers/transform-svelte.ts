@@ -4,6 +4,7 @@ import { EXPORT_MAPPINGS } from '../utility/export-mappings.js';
 import { transformClasses } from './transform-classes.js';
 import { transformModule } from './transform-module.js';
 import { transformStylesheet } from './transform-stylesheet.js';
+import { log } from '@clack/prompts';
 import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
@@ -37,8 +38,12 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
 	if (!css) {
 		return;
 	}
-	const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
-	s.overwrite(css.content.start, css.content.end, transformed.code);
+	try {
+		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
+		s.overwrite(css.content.start, css.content.end, transformed.code);
+	} catch (error) {
+		log.warn(`Failed to transform CSS in Svelte component, skipping: ${error instanceof Error ? error.message : 'Unknown error'}`);
+	}
 }
 
 function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {

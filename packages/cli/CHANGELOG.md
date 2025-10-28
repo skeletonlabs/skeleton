@@ -1,5 +1,11 @@
 # skeleton
 
+## 4.2.0
+
+### Patch Changes
+
+- fix: migrate commands, log invalid css instead of erroring out ([#4034](https://github.com/skeletonlabs/skeleton/pull/4034))
+
 ## 4.1.5
 
 ### Patch Changes

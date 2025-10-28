@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.2.0
+
+### Minor Changes
+
+- feat: `Pagination.FirstTrigger` and `Pagination.LastTrigger` ([#3987](https://github.com/skeletonlabs/skeleton/pull/3987))
+
 ## 4.1.5
 
 ### Patch Changes
