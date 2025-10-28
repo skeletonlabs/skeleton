@@ -101,7 +101,7 @@
 		}),
 	);
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (details) => {
 		query = details.inputValue.trim();
 	};
 
