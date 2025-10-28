@@ -202,7 +202,7 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#await new Promise((r) => setTimeout(r, 500)) then _}
+					{#await new Promise((r) => setTimeout(r, 3000)) then _}
 						{#if status === 'idle'}
 							<span class="py-10 text-center opacity-50">What can we help you find?</span>
 						{:else if status === 'done'}
