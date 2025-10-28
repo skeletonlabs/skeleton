@@ -77,8 +77,10 @@
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
 		search.query = details.inputValue.trim();
 		if (search.query.length === 0) {
+			search.status = 'idle';
 			return [];
 		}
+		search.status = 'searching';
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(search.query, {}, 200);
 		// A more recent search call was made
@@ -115,6 +117,11 @@
 				}
 				return true;
 			});
+		if (search.items.length === 0) {
+			search.status = 'idle';
+			return [];
+		}
+		search.status = 'done';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -202,13 +209,15 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if search.query.length === 0}
+					{#if search.status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if collection.items.length === 0}
+					{:else if search.status === 'searching'}
+						<span class="py-10 text-center opacity-50">Searching...</span>
+					{:else if search.status === 'done' && collection.items.length === 0}
 						<span class="py-10 text-center opacity-50">
 							No results found for <code class="code">{search.query}</code>
 						</span>
-					{:else}
+					{:else if search.status === 'done'}
 						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
 							{#each collection.items as item (item)}
 								{#if item.type === 'result'}
