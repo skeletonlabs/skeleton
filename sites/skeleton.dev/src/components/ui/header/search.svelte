@@ -114,6 +114,9 @@
 				}
 				return true;
 			});
+		if (query.length === 0) {
+			return;
+		}
 		status = 'done';
 	};
 
