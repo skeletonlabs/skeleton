@@ -78,7 +78,6 @@
 			reset();
 			return;
 		}
-		// Set to searching state immediately
 		status = 'searching';
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
