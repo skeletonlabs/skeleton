@@ -40,6 +40,7 @@ catalog:
   '@types/chroma-js': 3.1.1
   '@types/estree': 1.0.8
   '@types/html-escaper': 3.0.4
+  '@types/mdast': 4.0.4
   '@types/node': 24.9.1
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
@@ -83,6 +84,10 @@ catalog:
   latest-version: 9.0.0
   lucide-react: 0.548.0
   magic-string: 0.30.21
+  mdast-util-from-markdown: 2.0.2
+  mdast-util-mdx: 3.0.0
+  mdast-util-to-markdown: 2.1.2
+  micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
   next: 15.5.6
   node-html-parser: 7.0.1
@@ -110,6 +115,7 @@ catalog:
   tsdown: 0.15.9
   type-fest: 5.1.0
   typescript: 5.9.3
+  unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
   vite: 7.1.10

@@ -1,4 +1,5 @@
 import { getCollection } from '@/modules/content';
+import { getMarkdownFromDoc } from '@/modules/llms';
 import type { APIRoute } from 'astro';
 import { getEntry } from 'astro:content';
 
@@ -27,7 +28,7 @@ export const GET: APIRoute = async (context) => {
 			status: 404,
 		});
 	}
-	return new Response(doc.body, {
+	return new Response(getMarkdownFromDoc(doc), {
 		headers: {
 			'Content-Type': 'text/plain',
 		},

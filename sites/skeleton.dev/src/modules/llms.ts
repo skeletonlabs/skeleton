@@ -1,5 +1,61 @@
-import type { CollectionEntry } from 'astro:content';
+import mdxRenderer from '@astrojs/mdx/server.js';
+import reactRenderer from '@astrojs/react/server.js';
+import svelteRenderer from '@astrojs/svelte/server.js';
+import { experimental_AstroContainer } from 'astro/container';
+import { render, type CollectionEntry } from 'astro:content';
+import type { Root, Node } from 'mdast';
+import { fromMarkdown } from 'mdast-util-from-markdown';
+import { mdxFromMarkdown, mdxToMarkdown } from 'mdast-util-mdx';
+import { toMarkdown } from 'mdast-util-to-markdown';
+import { mdxjs } from 'micromark-extension-mdxjs';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { visit } from 'unist-util-visit';
+
+function parseMDX(content: string) {
+	return fromMarkdown(content, {
+		extensions: [mdxjs()],
+		mdastExtensions: [mdxFromMarkdown()],
+	});
+}
+
+function printMDX(root: Root) {
+	console.log('We just printed a root!');
+	return toMarkdown(root, {
+		extensions: [mdxToMarkdown()],
+	});
+}
+
+export function pruneMDXNodes(root: Root) {
+	const nodesToRemove = new WeakSet<Node>();
+	visit(root, (node) => {
+		if (node.type.startsWith('mdx')) {
+			nodesToRemove.add(node);
+		}
+	});
+	function filterChildren(node: Node) {
+		if ('children' in node && Array.isArray(node.children)) {
+			node.children = node.children.filter((child) => !nodesToRemove.has(child)).map(filterChildren);
+		}
+		return node;
+	}
+	return filterChildren(root);
+}
 
 export function getMarkdownFromDoc(doc: CollectionEntry<'docs'>) {
-	return doc.body;
+	if (!doc.body) {
+		return;
+	}
+	const root = parseMDX(doc.body);
+	// TODO: Parse <Framework> components
+	// TODO: Parse <Preview> components
+	// TODO: Parse <ApiTable> components
+	pruneMDXNodes(root);
+	return [
+		`# ${doc.data.title}`,
+		doc.data.description && `Description: ${doc.data.description}`,
+		doc.data.summary && `Summary: ${doc.data.summary}`,
+		printMDX(root),
+	]
+		.filter(Boolean)
+		.join('\n\n');
 }

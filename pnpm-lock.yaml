@@ -27,12 +27,6 @@ catalogs:
     '@astrojs/vercel':
       specifier: 9.0.0
       version: 9.0.0
-    '@changesets/cli':
-      specifier: 2.29.7
-      version: 2.29.7
-    '@clack/prompts':
-      specifier: 0.11.0
-      version: 0.11.0
     '@faker-js/faker':
       specifier: 10.1.0
       version: 10.1.0
@@ -66,141 +60,21 @@ catalogs:
     '@stackblitz/sdk':
       specifier: 1.11.0
       version: 1.11.0
-    '@sveltejs/adapter-auto':
-      specifier: 7.0.0
-      version: 7.0.0
-    '@sveltejs/adapter-vercel':
-      specifier: 5.10.3
-      version: 5.10.3
-    '@sveltejs/kit':
-      specifier: 2.47.3
-      version: 2.47.3
-    '@sveltejs/package':
-      specifier: 2.5.4
-      version: 2.5.4
-    '@sveltejs/vite-plugin-svelte':
-      specifier: 6.2.1
-      version: 6.2.1
-    '@svitejs/changesets-changelog-github-compact':
-      specifier: 1.2.0
-      version: 1.2.0
-    '@tailwindcss/forms':
-      specifier: 0.5.10
-      version: 0.5.10
-    '@tailwindcss/postcss':
-      specifier: 4.1.16
-      version: 4.1.16
     '@tailwindcss/vite':
       specifier: 4.1.16
       version: 4.1.16
-    '@testing-library/jest-dom':
-      specifier: 6.9.1
-      version: 6.9.1
-    '@testing-library/react':
-      specifier: 16.3.0
-      version: 16.3.0
-    '@testing-library/svelte':
-      specifier: 5.2.8
-      version: 5.2.8
-    '@trivago/prettier-plugin-sort-imports':
-      specifier: 5.2.2
-      version: 5.2.2
-    '@types/chroma-js':
-      specifier: 3.1.1
-      version: 3.1.1
-    '@types/estree':
-      specifier: 1.0.8
-      version: 1.0.8
     '@types/html-escaper':
       specifier: 3.0.4
       version: 3.0.4
-    '@types/node':
-      specifier: 24.9.1
-      version: 24.9.1
+    '@types/mdast':
+      specifier: 4.0.4
+      version: 4.0.4
     '@types/react':
       specifier: 19.2.2
       version: 19.2.2
     '@types/react-dom':
       specifier: 19.2.2
       version: 19.2.2
-    '@types/semver':
-      specifier: 7.7.1
-      version: 7.7.1
-    '@vitejs/plugin-react':
-      specifier: 5.1.0
-      version: 5.1.0
-    '@zag-js/accordion':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/avatar':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/collapsible':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/collection':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/combobox':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/date-picker':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/dialog':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/file-upload':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/listbox':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/pagination':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/popover':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/progress':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/radio-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/rating-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/react':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/slider':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/svelte':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/switch':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tabs':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tags-input':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/toast':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/toggle-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tooltip':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tree-view':
-      specifier: 1.26.4
-      version: 1.26.4
     astro:
       specifier: 5.15.1
       version: 5.15.1
@@ -213,87 +87,42 @@ catalogs:
     astro-seo:
       specifier: 0.8.4
       version: 0.8.4
-    chroma-js:
-      specifier: 3.1.2
-      version: 3.1.2
-    colorette:
-      specifier: 2.0.20
-      version: 2.0.20
-    commander:
-      specifier: 14.0.2
-      version: 14.0.2
-    detect-indent:
-      specifier: 7.0.2
-      version: 7.0.2
     fuse.js:
       specifier: 7.1.0
       version: 7.1.0
     html-escaper:
       specifier: 3.0.3
       version: 3.0.3
-    jsdom:
-      specifier: 27.0.1
-      version: 27.0.1
-    latest-version:
-      specifier: 9.0.0
-      version: 9.0.0
     lucide-react:
       specifier: 0.548.0
       version: 0.548.0
-    magic-string:
-      specifier: 0.30.21
-      version: 0.30.21
-    nanoid:
-      specifier: 5.1.6
-      version: 5.1.6
-    next:
-      specifier: 15.5.6
-      version: 15.5.6
-    node-html-parser:
-      specifier: 7.0.1
-      version: 7.0.1
+    mdast-util-from-markdown:
+      specifier: 2.0.2
+      version: 2.0.2
+    mdast-util-mdx:
+      specifier: 3.0.0
+      version: 3.0.0
+    mdast-util-to-markdown:
+      specifier: 2.1.2
+      version: 2.1.2
+    micromark-extension-mdxjs:
+      specifier: 3.0.0
+      version: 3.0.0
     octokit:
       specifier: 5.0.4
       version: 5.0.4
-    oxlint:
-      specifier: 1.24.0
-      version: 1.24.0
-    oxlint-tsgolint:
-      specifier: 0.3.0
-      version: 0.3.0
-    package-manager-detector:
-      specifier: 1.5.0
-      version: 1.5.0
     playwright:
       specifier: 1.56.1
       version: 1.56.1
-    postcss:
-      specifier: 8.5.6
-      version: 8.5.6
-    prettier:
-      specifier: 3.6.2
-      version: 3.6.2
-    prettier-plugin-astro:
-      specifier: 0.14.1
-      version: 0.14.1
-    prettier-plugin-svelte:
-      specifier: 3.4.0
-      version: 3.4.0
     react:
       specifier: 19.2.0
       version: 19.2.0
     react-dom:
       specifier: 19.2.0
       version: 19.2.0
-    sass-embedded:
-      specifier: 1.93.2
-      version: 1.93.2
     satori:
       specifier: 0.18.3
       version: 0.18.3
-    semver:
-      specifier: 7.7.3
-      version: 7.7.3
     sharp:
       specifier: 0.34.4
       version: 0.34.4
@@ -303,9 +132,6 @@ catalogs:
     svelte:
       specifier: 5.42.2
       version: 5.42.2
-    svelte-check:
-      specifier: 4.3.3
-      version: 4.3.3
     tailwindcss:
       specifier: 4.1.16
       version: 4.1.16
@@ -315,33 +141,15 @@ catalogs:
     ts-morph:
       specifier: 27.0.2
       version: 27.0.2
-    tsdown:
-      specifier: 0.15.9
-      version: 0.15.9
-    type-fest:
-      specifier: 5.1.0
-      version: 5.1.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
-    unplugin-macros:
-      specifier: 0.18.2
-      version: 0.18.2
-    unplugin-raw:
-      specifier: 0.6.3
-      version: 0.6.3
-    vite:
-      specifier: 7.1.10
-      version: 7.1.10
+    unist-util-visit:
+      specifier: 5.0.0
+      version: 5.0.0
     vite-plugin-transform-lucide-imports:
       specifier: 0.3.0
       version: 0.3.0
-    vitest:
-      specifier: 3.2.4
-      version: 3.2.4
-    zimmerframe:
-      specifier: 1.1.4
-      version: 1.1.4
 
 overrides:
   tsdown>rolldown: 1.0.0-beta.44
@@ -871,6 +679,9 @@ importers:
       '@types/html-escaper':
         specifier: 'catalog:'
         version: 3.0.4
+      '@types/mdast':
+        specifier: 'catalog:'
+        version: 4.0.4
       '@types/react':
         specifier: 'catalog:'
         version: 19.2.2
@@ -898,6 +709,18 @@ importers:
       lucide-react:
         specifier: 'catalog:'
         version: 0.548.0(react@19.2.0)
+      mdast-util-from-markdown:
+        specifier: 'catalog:'
+        version: 2.0.2
+      mdast-util-mdx:
+        specifier: 'catalog:'
+        version: 3.0.0
+      mdast-util-to-markdown:
+        specifier: 'catalog:'
+        version: 2.1.2
+      micromark-extension-mdxjs:
+        specifier: 'catalog:'
+        version: 3.0.0
       octokit:
         specifier: 'catalog:'
         version: 5.0.4
@@ -934,6 +757,9 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
+      unist-util-visit:
+        specifier: 'catalog:'
+        version: 5.0.0
       vite-plugin-transform-lucide-imports:
         specifier: 'catalog:'
         version: 0.3.0(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
@@ -2739,9 +2565,6 @@ packages:
   '@types/node@18.19.130':
     resolution: {integrity: sha512-GRaXQx6jGfL8sKfaIDD6OupbIHBr9jv7Jnaml9tB7l4v068PAOXqfcujMMo5PhbIs6ggR1XODELqahT2R8v0fg==}
 
-  '@types/node@24.8.1':
-    resolution: {integrity: sha512-alv65KGRadQVfVcG69MuB4IzdYVpRwMG/mq8KWOaoOdyY617P5ivaDiMCGOFDWD2sAn5Q0mR3mRtUOgm99hL9Q==}
-
   '@types/node@24.9.1':
     resolution: {integrity: sha512-QoiaXANRkSXK6p0Duvt56W208du4P9Uye9hWLWgGMDTEoKPhuenzNcC4vGUmrNkiOKTlIrBoyNQYNpSwfEZXSg==}
 
@@ -2802,11 +2625,6 @@ packages:
     peerDependenciesMeta:
       '@aws-sdk/credential-provider-web-identity':
         optional: true
-
-  '@vercel/nft@0.30.2':
-    resolution: {integrity: sha512-pquXF3XZFg/T3TBor08rUhIGgOhdSilbn7WQLVP/aVSSO+25Rs4H/m3nxNDQ2x3znX7Z3yYjryN8xaLwypcwQg==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   '@vercel/nft@0.30.3':
     resolution: {integrity: sha512-UEq+eF0ocEf9WQCV1gktxKhha36KDs7jln5qii6UpPf5clMqDc0p3E7d9l2Smx0i9Pm1qpq4S4lLfNl97bbv6w==}
@@ -5343,9 +5161,6 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
-  undici-types@7.14.0:
-    resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
-
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
@@ -7325,7 +7140,7 @@ snapshots:
   '@sveltejs/adapter-vercel@5.10.3(@sveltejs/kit@2.47.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(rollup@4.52.4)':
     dependencies:
       '@sveltejs/kit': 2.47.3(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
-      '@vercel/nft': 0.30.2(rollup@4.52.4)
+      '@vercel/nft': 0.30.3(rollup@4.52.4)
       esbuild: 0.25.10
     transitivePeerDependencies:
       - encoding
@@ -7343,7 +7158,7 @@ snapshots:
       devalue: 5.3.2
       esm-env: 1.2.2
       kleur: 4.1.5
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       mrmime: 2.0.1
       sade: 1.8.1
       set-cookie-parser: 2.7.1
@@ -7363,7 +7178,7 @@ snapshots:
       devalue: 5.3.2
       esm-env: 1.2.2
       kleur: 4.1.5
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       mrmime: 2.0.1
       sade: 1.8.1
       set-cookie-parser: 2.7.1
@@ -7406,7 +7221,7 @@ snapshots:
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       svelte: 5.42.2
       vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
       vitefu: 1.1.1(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
@@ -7418,7 +7233,7 @@ snapshots:
       '@sveltejs/vite-plugin-svelte-inspector': 5.0.1(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       svelte: 5.42.2
       vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
       vitefu: 1.1.1(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
@@ -7451,7 +7266,7 @@ snapshots:
       enhanced-resolve: 5.18.3
       jiti: 2.6.1
       lightningcss: 1.30.2
-      magic-string: 0.30.19
+      magic-string: 0.30.21
       source-map-js: 1.2.1
       tailwindcss: 4.1.16
 
@@ -7632,7 +7447,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
 
   '@types/hast@3.0.4':
     dependencies:
@@ -7660,10 +7475,6 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@24.8.1':
-    dependencies:
-      undici-types: 7.14.0
-
   '@types/node@24.9.1':
     dependencies:
       undici-types: 7.16.0
@@ -7678,7 +7489,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 24.8.1
+      '@types/node': 24.9.1
 
   '@types/semver@7.7.1': {}
 
@@ -7698,25 +7509,6 @@ snapshots:
   '@vercel/functions@2.2.13':
     dependencies:
       '@vercel/oidc': 2.0.2
-
-  '@vercel/nft@0.30.2(rollup@4.52.4)':
-    dependencies:
-      '@mapbox/node-pre-gyp': 2.0.0
-      '@rollup/pluginutils': 5.3.0(rollup@4.52.4)
-      acorn: 8.15.0
-      acorn-import-attributes: 1.9.5(acorn@8.15.0)
-      async-sema: 3.1.1
-      bindings: 1.5.0
-      estree-walker: 2.0.2
-      glob: 10.4.5
-      graceful-fs: 4.2.11
-      node-gyp-build: 4.8.4
-      picomatch: 4.0.3
-      resolve-from: 5.0.0
-    transitivePeerDependencies:
-      - encoding
-      - rollup
-      - supports-color
 
   '@vercel/nft@0.30.3(rollup@4.52.4)':
     dependencies:
@@ -9342,7 +9134,7 @@ snapshots:
 
   magic-string-ast@1.0.3:
     dependencies:
-      magic-string: 0.30.19
+      magic-string: 0.30.21
 
   magic-string@0.30.19:
     dependencies:
@@ -10902,8 +10694,6 @@ snapshots:
   uncrypto@0.1.3: {}
 
   undici-types@5.26.5: {}
-
-  undici-types@7.14.0: {}
 
   undici-types@7.16.0: {}
 

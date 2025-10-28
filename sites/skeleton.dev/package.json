@@ -34,6 +34,7 @@
 		"@stackblitz/sdk": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/html-escaper": "catalog:",
+		"@types/mdast": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"astro": "catalog:",
@@ -43,6 +44,10 @@
 		"fuse.js": "catalog:",
 		"html-escaper": "catalog:",
 		"lucide-react": "catalog:",
+		"mdast-util-from-markdown": "catalog:",
+		"mdast-util-mdx": "catalog:",
+		"mdast-util-to-markdown": "catalog:",
+		"micromark-extension-mdxjs": "catalog:",
 		"octokit": "catalog:",
 		"playwright": "catalog:",
 		"react": "catalog:",
@@ -55,6 +60,7 @@
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"typescript": "catalog:",
+		"unist-util-visit": "catalog:",
 		"vite-plugin-transform-lucide-imports": "catalog:"
 	},
 	"type": "module"
