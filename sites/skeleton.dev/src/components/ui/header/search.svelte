@@ -207,7 +207,7 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if status === 'idle'}
+					{#if status === 'idle' || (status === 'searching' && collection.items.length === 0)}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if status === 'done' && collection.items.length === 0}
 						<span class="py-10 text-center opacity-50">
