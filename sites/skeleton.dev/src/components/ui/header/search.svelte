@@ -4,6 +4,7 @@
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
+	import { prefetch } from 'astro:prefetch';
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
 
@@ -28,6 +29,14 @@
 	const { activeFramework }: Props = $props();
 
 	let query = $state('');
+	let status: 'idle' | 'done' = $state('idle');
+	let items: (Result | Subresult)[] = $state.raw([]);
+
+	function reset() {
+		query = '';
+		status = 'idle';
+		items = [];
+	}
 
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
@@ -47,20 +56,35 @@
 	const id = $props.id();
 	const dialog = useDialog({
 		id,
+		onOpenChange(open) {
+			if (!open) {
+				return;
+			}
+			reset();
+		},
 	});
 
-	const items = $derived.by(async () => {
-		if (query.length === 0) {
-			return [];
-		}
+	const collection = $derived(
+		useListCollection<Result | Subresult>({
+			items,
+			itemToString: (item) => item.title,
+			itemToValue: (item) => item.url,
+		}),
+	);
 
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		query = details.inputValue.trim();
+		if (query.length === 0) {
+			reset();
+			return;
+		}
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
 		// A more recent search call was made
 		if (!searchResult) {
-			return [];
+			return;
 		}
-		return (
+		items = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
@@ -90,18 +114,7 @@
 				}
 				return true;
 			});
-	});
-
-	const collection = $derived(
-		useListCollection<Result | Subresult>({
-			items: await items,
-			itemToString: (item) => item.title,
-			itemToValue: (item) => item.url,
-		}),
-	);
-
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
-		query = details.inputValue.trim();
+		status = 'done';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -111,6 +124,14 @@
 		}
 		dialog().setOpen(false);
 		await navigate(url);
+	};
+
+	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = async (details) => {
+		const url = details.highlightedValue;
+		if (!url) {
+			return;
+		}
+		prefetch(url);
 	};
 
 	$effect(() =>
@@ -164,8 +185,10 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
+					inputValue={query}
 					{onInputValueChange}
 					{onValueChange}
+					{onHighlightChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="preserve"
 					open={dialog().open}
@@ -179,22 +202,24 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if query.length === 0}
+					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if collection.items.length === 0 && !$effect.pending()}
-						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{query}</code>
-						</span>
-					{:else}
-						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
-							{#each collection.items as item (item)}
-								{#if item.type === 'result'}
-									{@render result(item)}
-								{:else if item.type === 'subresult'}
-									{@render subresult(item)}
-								{/if}
-							{/each}
-						</Combobox.Content>
+					{:else if status === 'done'}
+						{#if collection.items.length === 0}
+							<span class="py-10 text-center opacity-50">
+								No results found for <code class="code">{query}</code>
+							</span>
+						{:else}
+							<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+								{#each collection.items as item (item)}
+									{#if item.type === 'result'}
+										{@render result(item)}
+									{:else if item.type === 'subresult'}
+										{@render subresult(item)}
+									{/if}
+								{/each}
+							</Combobox.Content>
+						{/if}
 					{/if}
 					<hr class="hidden lg:block hr" />
 					<div class="hidden lg:flex gap-2 px-4 pb-4 pt-2">
