@@ -28,10 +28,10 @@
 
 	const { activeFramework }: Props = $props();
 
-	let inputValue = $state('');
-	let searchQuery = $state('');
+	let query = $state('');
+	let items = $state.raw<(Result | Subresult)[]>([]);
 
-	async function performSearch(query: string): Promise<(Result | Subresult)[]> {
+	async function search(query: string): Promise<(Result | Subresult)[]> {
 		if (query.length === 0) {
 			return [];
 		}
@@ -73,8 +73,6 @@
 			});
 	}
 
-	let items = $derived(await performSearch(searchQuery));
-
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
 			if (import.meta.env.SSR) {
@@ -97,8 +95,7 @@
 			if (!open) {
 				return;
 			}
-			inputValue = '';
-			searchQuery = '';
+			query = '';
 		},
 	});
 
@@ -111,8 +108,7 @@
 	);
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (details) => {
-		inputValue = details.inputValue.trim();
-		searchQuery = inputValue;
+		query = details.inputValue.trim();
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -140,6 +136,11 @@
 			}
 		}),
 	);
+
+	// @ts-expect-error $effect is badly typed IMO
+	$effect(async () => {
+		items = await search(query);
+	});
 </script>
 
 {#snippet result(item: Result)}
@@ -183,7 +184,7 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
-					{inputValue}
+					inputValue={query}
 					{onInputValueChange}
 					{onValueChange}
 					{onHighlightChange}
@@ -200,11 +201,11 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if searchQuery.length === 0}
+					{#if query.length === 0}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if collection.items.length === 0}
 						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{searchQuery}</code>
+							No results found for <code class="code">{query}</code>
 						</span>
 					{:else}
 						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
