@@ -1,4 +1,4 @@
-import { ToggleGroup } from '@/index';
+import { ToggleGroup } from '@/index.js';
 
 export default function Test() {
 	return (

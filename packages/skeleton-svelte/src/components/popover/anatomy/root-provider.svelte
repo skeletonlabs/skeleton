@@ -1,6 +1,6 @@
 <script lang="ts" module>
 	import type { usePopover } from '../modules/provider.svelte';
-	import type { PropsWithChildren } from '@/internal/props-with-children';
+	import type { PropsWithChildren } from '@/internal/props-with-children.js';
 
 	export interface PopoverRootProviderProps extends PropsWithChildren {
 		value: ReturnType<typeof usePopover>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/root-context';
+	import { PopoverRootContext } from '../modules/root-context.js';
 
 	const props: PopoverRootProviderProps = $props();
 

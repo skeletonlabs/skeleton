@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Navigation } from '@/index';
+	import { Navigation } from '@/index.js';
 </script>
 
 <Navigation data-testid="root">

@@ -1,4 +1,4 @@
-import { Portal, type PortalRootProps } from '@/index';
+import { Portal, type PortalRootProps } from '@/index.js';
 
 export default function Test(props: Omit<PortalRootProps, 'children'>) {
 	return (

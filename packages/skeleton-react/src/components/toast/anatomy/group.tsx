@@ -1,6 +1,6 @@
-import { GroupContext } from '../modules/group-context';
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import { GroupContext } from '../modules/group-context.js';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesToast } from '@skeletonlabs/skeleton-common';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { group } from '@zag-js/toast';

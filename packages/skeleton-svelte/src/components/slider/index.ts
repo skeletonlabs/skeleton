@@ -1,5 +1,5 @@
-export { Slider } from './modules/anatomy';
-export { useSlider } from './modules/provider.svelte';
+export { Slider } from './modules/anatomy.js';
+export { useSlider } from './modules/provider.svelte.js';
 export type { SliderRootProps } from './anatomy/root.svelte';
 export type { SliderRootProviderProps } from './anatomy/root-provider.svelte';
 export type { SliderRootContextProps } from './anatomy/root-context.svelte';

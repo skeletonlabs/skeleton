@@ -6,5 +6,5 @@ export type { ToastRootProps } from './anatomy/root.svelte';
 export type { ToastRootContextProps } from './anatomy/root-context.svelte';
 export type { ToastActionTriggerProps } from './anatomy/action-trigger.svelte';
 export type { ToastTitleProps } from './anatomy/title.svelte';
-export { Toast } from './modules/anatomy';
+export { Toast } from './modules/anatomy.js';
 export { createStore as createToaster } from '@zag-js/toast';

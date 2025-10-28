@@ -1,4 +1,4 @@
-import type { Theme } from './types';
+import type { Theme } from './types.js';
 
 const FALLBACK_THEME: Theme = {
 	type: 'preset',

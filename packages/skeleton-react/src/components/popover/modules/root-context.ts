@@ -1,4 +1,4 @@
-import type { usePopover } from './provider';
-import { createContext } from '@/internal/create-context';
+import type { usePopover } from './provider.js';
+import { createContext } from '@/internal/create-context.js';
 
 export const RootContext = createContext<ReturnType<typeof usePopover>>();

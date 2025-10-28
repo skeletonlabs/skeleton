@@ -1,4 +1,4 @@
-import { Pagination } from '@/index';
+import { Pagination } from '@/index.js';
 
 export default function Test() {
 	return (

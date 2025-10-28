@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Portal, type PortalRootProps } from '@/index';
+	import { Portal, type PortalRootProps } from '@/index.js';
 
 	const props: Omit<PortalRootProps, 'children'> = $props();
 </script>

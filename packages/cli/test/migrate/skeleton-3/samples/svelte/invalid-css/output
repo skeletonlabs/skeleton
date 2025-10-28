@@ -1,0 +1,11 @@
+<script>
+	let value = 'test';
+</script>
+
+<div>{value}</div>
+
+<style>
+	.selector {
+		// margin-top: -15px; /* comment */
+	}
+</style>

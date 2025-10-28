@@ -1,5 +1,5 @@
-import { usePopover } from '../modules/provider';
-import { RootContext } from '../modules/root-context';
+import { usePopover } from '../modules/provider.js';
+import { RootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/popover';
 import { type PropsWithChildren } from 'react';
 

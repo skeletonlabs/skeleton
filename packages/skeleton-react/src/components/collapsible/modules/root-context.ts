@@ -1,4 +1,4 @@
-import type { useCollapsible } from './provider';
-import { createContext } from '@/internal/create-context';
+import type { useCollapsible } from './provider.js';
+import { createContext } from '@/internal/create-context.js';
 
 export const RootContext = createContext<ReturnType<typeof useCollapsible>>();

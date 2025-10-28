@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Pagination } from '@/index';
+	import { Pagination } from '@/index.js';
 </script>
 
 <Pagination data-testid="root">

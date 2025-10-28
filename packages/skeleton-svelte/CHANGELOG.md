@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.1.5
+
+### Patch Changes
+
+- fix: widen compatbility with `nodenext` ([#4026](https://github.com/skeletonlabs/skeleton/pull/4026))
+
+- Updated dependencies [[`fd6b74a`](https://github.com/skeletonlabs/skeleton/commit/fd6b74a3ecb81c26206b0a490a9dec17cbe51893)]:
+  - @skeletonlabs/skeleton-common@4.1.5
+
+## 4.1.4
+
+### Patch Changes
+
+- fix: toast incorrectly placed `ghost` elements ([#4020](https://github.com/skeletonlabs/skeleton/pull/4020))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.1.4
+
 ## 4.1.3
 
 ### Patch Changes

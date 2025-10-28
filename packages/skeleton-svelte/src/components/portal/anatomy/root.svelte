@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children';
+	import type { PropsWithChildren } from '@/internal/props-with-children.js';
 
 	export interface PortalRootProps extends Required<PropsWithChildren> {
 		/**

@@ -1,11 +1,11 @@
-import Arrow from '../anatomy/arrow';
-import ArrowTip from '../anatomy/arrow-tip';
-import Content from '../anatomy/content';
-import Positioner from '../anatomy/positioner';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
-import Trigger from '../anatomy/trigger';
+import ArrowTip from '../anatomy/arrow-tip.jsx';
+import Arrow from '../anatomy/arrow.jsx';
+import Content from '../anatomy/content.jsx';
+import Positioner from '../anatomy/positioner.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
+import Trigger from '../anatomy/trigger.jsx';
 
 export const Tooltip = Object.assign(Root, {
 	Provider: RootProvider,

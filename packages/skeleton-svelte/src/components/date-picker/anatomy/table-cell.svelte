@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
-	import type { Union } from '@/internal/union';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { Union } from '@/internal/union.js';
 	import type { DayTableCellProps, TableCellProps } from '@zag-js/date-picker';
 
 	export interface DatePickerTableCellProps
@@ -11,9 +11,9 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context';
-	import { TableCellContext } from '../modules/table-cell-context';
-	import { ViewContext } from '../modules/view-context';
+	import { RootContext } from '../modules/root-context.js';
+	import { TableCellContext } from '../modules/table-cell-context.js';
+	import { ViewContext } from '../modules/view-context.js';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
 	import { splitTableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';

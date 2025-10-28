@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DatePicker, parseDate } from '@/index';
+	import { DatePicker, parseDate } from '@/index.js';
 </script>
 
 <DatePicker data-testid="root">

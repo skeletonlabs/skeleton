@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from './html-attributes';
+import type { HTMLAttributes } from './html-attributes.js';
 import type { Snippet } from 'svelte';
 import type { SvelteHTMLElements } from 'svelte/elements';
 

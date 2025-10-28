@@ -1,5 +1,5 @@
-import skeleton3 from './migrations/skeleton-3';
-import skeleton4 from './migrations/skeleton-4';
+import skeleton3 from './migrations/skeleton-3/index.js';
+import skeleton4 from './migrations/skeleton-4/index.js';
 import { Argument, Command, Option } from 'commander';
 
 interface MigrateOptions {

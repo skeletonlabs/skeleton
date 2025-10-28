@@ -1,4 +1,4 @@
-import { Tooltip } from '@/index';
+import { Tooltip } from '@/index.js';
 
 export default function Test() {
 	return (

@@ -1,14 +1,14 @@
-import Arrow from '../anatomy/arrow';
-import ArrowTip from '../anatomy/arrow-tip';
-import CloseTrigger from '../anatomy/close-trigger';
-import Content from '../anatomy/content';
-import Description from '../anatomy/description';
-import Positioner from '../anatomy/positioner';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
-import Title from '../anatomy/title';
-import Trigger from '../anatomy/trigger';
+import ArrowTip from '../anatomy/arrow-tip.jsx';
+import Arrow from '../anatomy/arrow.jsx';
+import CloseTrigger from '../anatomy/close-trigger.jsx';
+import Content from '../anatomy/content.jsx';
+import Description from '../anatomy/description.jsx';
+import Positioner from '../anatomy/positioner.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
+import Title from '../anatomy/title.jsx';
+import Trigger from '../anatomy/trigger.jsx';
 
 export const Popover = Object.assign(Root, {
 	Provider: RootProvider,

@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { Options } from '@zag-js/toast';
 
 	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
@@ -9,8 +9,8 @@
 </script>
 
 <script lang="ts">
-	import { GroupContext } from '../modules/group-context';
-	import { RootContext } from '../modules/root-context';
+	import { GroupContext } from '../modules/group-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { connect, machine } from '@zag-js/toast';
@@ -40,15 +40,15 @@
 	RootContext.provide(() => toast);
 </script>
 
-<div {...toast.getGhostBeforeProps()}></div>
 {#if element}
 	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
+		<div {...toast.getGhostBeforeProps()}></div>
 		{@render children?.()}
+		<div {...toast.getGhostAfterProps()}></div>
 	</div>
 {/if}
-<div {...toast.getGhostAfterProps()}></div>
 
 <style>
 	[data-part='root'] {

@@ -9,5 +9,5 @@ export type { PopoverTitleProps } from './anatomy/title.svelte';
 export type { PopoverTriggerProps } from './anatomy/trigger.svelte';
 export type { PopoverArrowProps } from './anatomy/arrow.svelte';
 export type { PopoverArrowTipProps } from './anatomy/arrow-tip.svelte';
-export { Popover } from './modules/anatomy';
-export { usePopover } from './modules/provider.svelte';
+export { Popover } from './modules/anatomy.js';
+export { usePopover } from './modules/provider.svelte.js';

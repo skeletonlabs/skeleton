@@ -1,4 +1,4 @@
-import { Listbox, useListCollection } from '@/index';
+import { Listbox, useListCollection } from '@/index.js';
 
 export default function Test() {
 	const collection = useListCollection({

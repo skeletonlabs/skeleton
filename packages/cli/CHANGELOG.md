@@ -1,5 +1,13 @@
 # skeleton
 
+## 4.1.5
+
+### Patch Changes
+
+- fix: widen compatbility with `nodenext` ([#4026](https://github.com/skeletonlabs/skeleton/pull/4026))
+
+## 4.1.4
+
 ## 4.1.3
 
 ## 4.1.2

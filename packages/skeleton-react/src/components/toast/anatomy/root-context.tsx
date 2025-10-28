@@ -1,4 +1,4 @@
-import { RootContext as RootContext_ } from '../modules/root-context';
+import { RootContext as RootContext_ } from '../modules/root-context.js';
 import type { PropTypes } from '@zag-js/react';
 import type { Api } from '@zag-js/toast';
 import { use } from 'react';

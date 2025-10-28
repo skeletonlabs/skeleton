@@ -1,6 +1,6 @@
-import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file';
-import { IDENTIFIER_MAPPINGS } from '../utility/identifier-mappings';
-import { IMPORT_MAPPINGS } from '../utility/import-mappings';
+import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file.js';
+import { IDENTIFIER_MAPPINGS } from '../utility/identifier-mappings.js';
+import { IMPORT_MAPPINGS } from '../utility/import-mappings.js';
 import { Node } from 'ts-morph';
 
 function transformModule(code: string) {

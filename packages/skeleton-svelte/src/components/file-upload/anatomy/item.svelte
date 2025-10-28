@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import { splitItemProps } from '@zag-js/file-upload';
 	import type { ItemProps } from '@zag-js/file-upload';
 
@@ -8,8 +8,8 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context';
-	import { RootContext } from '../modules/root-context';
+	import { ItemContext } from '../modules/item-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

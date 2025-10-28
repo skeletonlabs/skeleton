@@ -1,14 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes';
-	import type { PropsWithElement } from '@/internal/props-with-element';
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ItemGroupProps } from '@zag-js/combobox';
 
 	export interface ComboboxItemGroupProps extends Omit<ItemGroupProps, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id'> {}
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context';
-	import { RootContext } from '../modules/root-context';
+	import { ItemGroupContext } from '../modules/item-group-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { splitItemGroupProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';

@@ -1,2 +1,2 @@
-export { Portal } from './modules/anatomy';
-export type { PortalRootProps } from './anatomy/root';
+export { Portal } from './modules/anatomy.js';
+export type { PortalRootProps } from './anatomy/root.jsx';
