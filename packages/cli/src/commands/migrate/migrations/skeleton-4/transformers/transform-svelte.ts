@@ -7,6 +7,7 @@ import MagicString from 'magic-string';
 import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
 import { walk } from 'zimmerframe';
+import { log } from '@clack/prompts';
 
 function transformScript(s: MagicString, script: AST.Script | null) {
 	if (
@@ -34,8 +35,12 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
 	if (!css) {
 		return;
 	}
-	const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
-	s.overwrite(css.content.start, css.content.end, transformed.code);
+	try {
+		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
+		s.overwrite(css.content.start, css.content.end, transformed.code);
+	} catch (error) {
+		log.warn(`Failed to transform CSS in Svelte component, skipping: ${error instanceof Error ? error.message : 'Unknown error'}`);
+	}
 }
 
 function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImports: string[]) {
