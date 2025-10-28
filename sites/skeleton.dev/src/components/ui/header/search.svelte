@@ -10,7 +10,7 @@
 
 	interface Search {
 		query: string;
-		status: 'idle' | 'searching' | 'done';
+		status: 'idle' | 'searching' | 'no-results' | 'results';
 		items: (Result | Subresult)[];
 	}
 
@@ -117,11 +117,11 @@
 				}
 				return true;
 			});
-		if (search.items.length === 0) {
+		if (search.query.length === 0) {
 			search.status = 'idle';
 			return [];
 		}
-		search.status = 'done';
+		search.status = search.items.length === 0 ? 'no-results' : 'results';
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -213,11 +213,11 @@
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if search.status === 'searching'}
 						<span class="py-10 text-center opacity-50">Searching...</span>
-					{:else if search.status === 'done' && collection.items.length === 0}
+					{:else if search.status === 'no-results'}
 						<span class="py-10 text-center opacity-50">
 							No results found for <code class="code">{search.query}</code>
 						</span>
-					{:else if search.status === 'done'}
+					{:else if search.status === 'results'}
 						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
 							{#each collection.items as item (item)}
 								{#if item.type === 'result'}
