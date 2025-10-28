@@ -8,6 +8,12 @@
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
 
+	interface Search {
+		query: string;
+		status: 'idle' | 'searching' | 'done';
+		items: (Result | Subresult)[];
+	}
+
 	interface Result {
 		type: 'result';
 		url: string;
@@ -28,20 +34,58 @@
 
 	const { activeFramework }: Props = $props();
 
-	let query = $state('');
-	let items = $state.raw<(Result | Subresult)[]>([]);
+	const search: Search = $state({
+		query: '',
+		status: 'idle',
+		items: [],
+	});
 
-	async function search(query: string): Promise<(Result | Subresult)[]> {
-		if (query.length === 0) {
+	const pagefindPromise = new Promise<Pagefind>((resolve) =>
+		(async () => {
+			if (import.meta.env.SSR) {
+				return;
+			}
+			// @ts-expect-error pagefind is only present during runtime
+			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
+			await pagefind.options({
+				excerptLength: 10,
+			});
+			await pagefind.init();
+			resolve(pagefind);
+		})(),
+	);
+
+	const id = $props.id();
+	const dialog = useDialog({
+		id,
+		onOpenChange(open) {
+			if (!open) {
+				return;
+			}
+			search.query = '';
+		},
+	});
+
+	const collection = $derived(
+		useListCollection<Result | Subresult>({
+			items: search.items,
+			itemToString: (item) => item.title,
+			itemToValue: (item) => item.url,
+		}),
+	);
+
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		search.query = details.inputValue.trim();
+		if (search.query.length === 0) {
 			return [];
 		}
 		const pagefind = await pagefindPromise;
-		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
+		const searchResult = await pagefind.debouncedSearch(search.query, {}, 200);
 		// A more recent search call was made
 		if (!searchResult) {
 			return [];
 		}
-		return (
+		search.items = (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
@@ -71,44 +115,6 @@
 				}
 				return true;
 			});
-	}
-
-	const pagefindPromise = new Promise<Pagefind>((resolve) =>
-		(async () => {
-			if (import.meta.env.SSR) {
-				return;
-			}
-			// @ts-expect-error pagefind is only present during runtime
-			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
-			await pagefind.options({
-				excerptLength: 10,
-			});
-			await pagefind.init();
-			resolve(pagefind);
-		})(),
-	);
-
-	const id = $props.id();
-	const dialog = useDialog({
-		id,
-		onOpenChange(open) {
-			if (!open) {
-				return;
-			}
-			query = '';
-		},
-	});
-
-	const collection = $derived(
-		useListCollection<Result | Subresult>({
-			items,
-			itemToString: (item) => item.title,
-			itemToValue: (item) => item.url,
-		}),
-	);
-
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (details) => {
-		query = details.inputValue.trim();
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -136,11 +142,6 @@
 			}
 		}),
 	);
-
-	// @ts-expect-error $effect is badly typed IMO
-	$effect(async () => {
-		items = await search(query);
-	});
 </script>
 
 {#snippet result(item: Result)}
@@ -184,7 +185,7 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
-					inputValue={query}
+					inputValue={search.query}
 					{onInputValueChange}
 					{onValueChange}
 					{onHighlightChange}
@@ -201,11 +202,11 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if query.length === 0}
+					{#if search.query.length === 0}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if collection.items.length === 0}
 						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{query}</code>
+							No results found for <code class="code">{search.query}</code>
 						</span>
 					{:else}
 						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
