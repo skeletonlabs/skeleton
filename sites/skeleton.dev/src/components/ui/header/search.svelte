@@ -28,14 +28,15 @@
 
 	const { activeFramework }: Props = $props();
 
-	let query = $state('');
+	let inputValue = $state('');
+	let searchQuery = $state('');
 
-	async function performSearch(searchQuery: string): Promise<(Result | Subresult)[]> {
-		if (searchQuery.length === 0) {
+	async function performSearch(query: string): Promise<(Result | Subresult)[]> {
+		if (query.length === 0) {
 			return [];
 		}
 		const pagefind = await pagefindPromise;
-		const searchResult = await pagefind.debouncedSearch(searchQuery, {}, 200);
+		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
 		// A more recent search call was made
 		if (!searchResult) {
 			return [];
@@ -72,7 +73,7 @@
 			});
 	}
 
-	let items = $derived(await performSearch(query));
+	let items = $derived(await performSearch(searchQuery));
 
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
@@ -96,7 +97,8 @@
 			if (!open) {
 				return;
 			}
-			query = '';
+			inputValue = '';
+			searchQuery = '';
 		},
 	});
 
@@ -109,7 +111,8 @@
 	);
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (details) => {
-		query = details.inputValue.trim();
+		inputValue = details.inputValue.trim();
+		searchQuery = inputValue;
 	};
 
 	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
@@ -180,7 +183,7 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
-					inputValue={query}
+					{inputValue}
 					{onInputValueChange}
 					{onValueChange}
 					{onHighlightChange}
@@ -197,11 +200,11 @@
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />
-					{#if query.length === 0}
+					{#if searchQuery.length === 0}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
 					{:else if collection.items.length === 0}
 						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{query}</code>
+							No results found for <code class="code">{searchQuery}</code>
 						</span>
 					{:else}
 						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
