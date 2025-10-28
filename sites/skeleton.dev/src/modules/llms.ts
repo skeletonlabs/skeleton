@@ -1,14 +1,9 @@
-import mdxRenderer from '@astrojs/mdx/server.js';
-import reactRenderer from '@astrojs/react/server.js';
-import svelteRenderer from '@astrojs/svelte/server.js';
-import { experimental_AstroContainer } from 'astro/container';
-import { render, type CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import type { Root, Node } from 'mdast';
 import { fromMarkdown } from 'mdast-util-from-markdown';
 import { mdxFromMarkdown, mdxToMarkdown } from 'mdast-util-mdx';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import { mdxjs } from 'micromark-extension-mdxjs';
-import { writeFile, mkdir } from 'node:fs/promises';
 import { visit } from 'unist-util-visit';
 
 function parseMDX(content: string) {
