@@ -29,6 +29,7 @@
 	],
 	"sideEffects": false,
 	"dependencies": {
+		"@internationalized/date": "catalog:",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
