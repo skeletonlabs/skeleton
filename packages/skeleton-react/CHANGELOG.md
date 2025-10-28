@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.2.0
+
+### Minor Changes
+
+- feat: `Pagination.FirstTrigger` and `Pagination.LastTrigger` ([#3987](https://github.com/skeletonlabs/skeleton/pull/3987))
+
+### Patch Changes
+
+- Updated dependencies [[`48f0f7d`](https://github.com/skeletonlabs/skeleton/commit/48f0f7d0662c982966d17f62736fb8b66c08a291)]:
+  - @skeletonlabs/skeleton-common@4.2.0
+
 ## 4.1.5
 
 ### Patch Changes
