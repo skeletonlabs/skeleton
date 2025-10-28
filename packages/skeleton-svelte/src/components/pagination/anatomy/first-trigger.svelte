@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-	export interface PaginationNextTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface PaginationFirstTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
@@ -10,7 +10,7 @@
 	import { classesPagination } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: PaginationNextTriggerProps = $props();
+	const props: PaginationFirstTriggerProps = $props();
 
 	const pagination = RootContext.consume();
 
@@ -19,8 +19,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				class: classesPagination.nextTrigger,
-				onclick: pagination().getNextTriggerProps(),
+				class: classesPagination.firstTrigger,
+				onclick: () => pagination().goToFirstPage(),
 			},
 			rest,
 		),

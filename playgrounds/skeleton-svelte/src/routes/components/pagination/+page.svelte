@@ -3,6 +3,7 @@
 </script>
 
 <Pagination count={5000} pageSize={10}>
+	<Pagination.FirstTrigger>First</Pagination.FirstTrigger>
 	<Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
 	<Pagination.Context>
 		{#snippet children(pagination)}
@@ -16,4 +17,5 @@
 		{/snippet}
 	</Pagination.Context>
 	<Pagination.NextTrigger>Next</Pagination.NextTrigger>
+	<Pagination.LastTrigger>Last</Pagination.LastTrigger>
 </Pagination>
