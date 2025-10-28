@@ -29,7 +29,7 @@
 	const { activeFramework }: Props = $props();
 
 	let query = $state('');
-	let status: 'idle' | 'done' = $state('idle');
+	let status: 'idle' | 'searching' | 'done' = $state('idle');
 	let items: (Result | Subresult)[] = $state.raw([]);
 
 	function reset() {
@@ -78,6 +78,8 @@
 			reset();
 			return;
 		}
+		// Set to searching state immediately
+		status = 'searching';
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
 		// A more recent search call was made
@@ -208,22 +210,20 @@
 					<hr class="hr" />
 					{#if status === 'idle'}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if status === 'done'}
-						{#if collection.items.length === 0}
-							<span class="py-10 text-center opacity-50">
-								No results found for <code class="code">{query}</code>
-							</span>
-						{:else}
-							<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
-								{#each collection.items as item (item)}
-									{#if item.type === 'result'}
-										{@render result(item)}
-									{:else if item.type === 'subresult'}
-										{@render subresult(item)}
-									{/if}
-								{/each}
-							</Combobox.Content>
-						{/if}
+					{:else if status === 'done' && collection.items.length === 0}
+						<span class="py-10 text-center opacity-50">
+							No results found for <code class="code">{query}</code>
+						</span>
+					{:else if collection.items.length > 0}
+						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+							{#each collection.items as item (item)}
+								{#if item.type === 'result'}
+									{@render result(item)}
+								{:else if item.type === 'subresult'}
+									{@render subresult(item)}
+								{/if}
+							{/each}
+						</Combobox.Content>
 					{/if}
 					<hr class="hidden lg:block hr" />
 					<div class="hidden lg:flex gap-2 px-4 pb-4 pt-2">
