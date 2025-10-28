@@ -22,8 +22,3 @@ export function getActiveFramework(Astro: AstroGlobal) {
 	}
 	return framework;
 }
-
-export function resolve(Astro: AstroGlobal, path: string) {
-	const activeFrameworkId = getActiveFrameworkId(Astro);
-	return path.replaceAll('[framework]', activeFrameworkId);
-}

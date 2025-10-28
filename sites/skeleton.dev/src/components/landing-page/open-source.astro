@@ -2,7 +2,7 @@
 import { ChevronRightIcon } from '@lucide/svelte';
 import { getCollection } from '@/modules/content';
 import { Image } from 'astro:assets';
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 
 const contributors = await getCollection('contributors');
 ---
@@ -37,7 +37,7 @@ const contributors = await getCollection('contributors');
 				<span>View GitHub</span>
 				<ChevronRightIcon class="size-4" />
 			</a>
-			<a href={resolve(Astro, '/docs/[framework]/resources/contribute')} class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+			<a href={resolvePath(Astro, '/docs/[framework]/resources/contribute')} class="btn preset-outlined-surface-800-200 hover:preset-tonal">
 				<span>How to Contribute</span>
 			</a>
 		</nav>

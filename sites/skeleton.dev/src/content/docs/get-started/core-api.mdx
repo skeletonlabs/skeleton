@@ -8,7 +8,7 @@ order: 30
 ---
 
 import NavigationGrid from '@/components/ui/navigation-grid.astro';
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 
 ## @base
 
@@ -187,7 +187,7 @@ Enables you to target and style elements for a particular theme.
 Provides a canned set of styles for use with buttons, badges, cards, and more.
 
 <figure class="linker bg-noise">
-	<a href={resolve(props.Astro, '/docs/[framework]/design/presets')} class="btn preset-filled">
+	<a href={resolvePath(props.Astro, '/docs/[framework]/design/presets')} class="btn preset-filled">
 		Browse Presets
 	</a>
 </figure>
@@ -197,7 +197,7 @@ Provides a canned set of styles for use with buttons, badges, cards, and more.
 Provides a hand curated set of themes for Skeleton.
 
 <figure class="linker bg-noise">
-	<a href={resolve(props.Astro, '/docs/[framework]/design/themes')} class="btn preset-filled">
+	<a href={resolvePath(props.Astro, '/docs/[framework]/design/themes')} class="btn preset-filled">
 		Browse Themes
 	</a>
 </figure>

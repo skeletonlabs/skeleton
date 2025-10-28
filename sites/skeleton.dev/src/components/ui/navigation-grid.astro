@@ -1,6 +1,6 @@
 ---
 import { getCollection } from '@/modules/content';
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends Omit<HTMLAttributes<'nav'>, 'filter'> {
@@ -16,7 +16,7 @@ const docs = await getCollection('docs', filter);
 	{
 		docs.map((doc) => (
 			<a
-				href={resolve(Astro, `/docs/[framework]/${doc.id}`)}
+				href={resolvePath(Astro, `/docs/[framework]/${doc.id}`)}
 				class="card block bg-surface-50-950 border border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
 			>
 				<h3 class="h5">{doc.data.title}</h3>

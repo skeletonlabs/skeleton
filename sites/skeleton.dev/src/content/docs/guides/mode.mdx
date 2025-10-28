@@ -7,7 +7,7 @@ references:
 order: 40
 ---
 
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 
 ## Dark Mode
 
@@ -85,7 +85,7 @@ Legacy versions of Skeleton offer a unique Light Switch component for controllin
 We now recommend you generate your own component following [Tailwind's best practices](https://tailwindcss.com/docs/dark-mode). To help you get started, we've provided a Cookbook recipe covering the basics.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href={resolve(props.Astro, '/docs/[framework]/guides/cookbook/light-switch')}>
+	<a class="btn preset-filled" href={resolvePath(props.Astro, '/docs/[framework]/guides/cookbook/light-switch')}>
 		Light Switch Recipe &rarr;
 	</a>
 </figure>

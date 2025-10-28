@@ -1,5 +1,5 @@
 ---
-import { resolve, getActiveFramework } from '@/modules/framework';
+import { getActiveFramework } from '@/modules/framework';
 import { getCollection } from '@/modules/content';
 import Skeleton from '@/assets/branding/skeleton.svg';
 import LogoGitHub from '@/assets/logos/github.svg';
@@ -13,13 +13,14 @@ import ThemePicker from '@/components/ui/header/theme.svelte';
 import PlusPicker from '@/components/ui/header/plus.svelte';
 import SponsorPicker from '@/components/ui/header/sponsor.svelte';
 import Navigation from '../navigation.astro';
+import { resolvePath } from '@/modules/resolve-path';
 
 const frameworks = await getCollection('frameworks');
 const activeFramework = getActiveFramework(Astro);
 
 const links = [
 	{
-		href: resolve(Astro, '/docs/[framework]/get-started/introduction'),
+		href: resolvePath(Astro, '/docs/[framework]/get-started/introduction'),
 		title: 'Docs',
 	},
 	{

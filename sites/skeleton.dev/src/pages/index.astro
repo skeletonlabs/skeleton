@@ -13,7 +13,7 @@ import OpenSource from '@/components/landing-page/open-source.astro';
 import Metrics from '@/components/landing-page/metrics.astro';
 import Sponsors from '@/components/landing-page/sponsors.astro';
 import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleton-today.astro';
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 ---
 
 <RootLayout>
@@ -42,12 +42,12 @@ import { resolve } from '@/modules/framework';
 							adaptive design systems. Including turnkey components for your favorite web frameworks.
 						</p>
 						<nav class="flex gap-4">
-							<a href={resolve(Astro, '/docs/[framework]/get-started/installation')} class="btn preset-filled">
+							<a href={resolvePath(Astro, '/docs/[framework]/get-started/installation')} class="btn preset-filled">
 								<span>Get Started</span>
 								<ChevronRightIcon class="size-4" />
 							</a>
 							<a
-								href={resolve(Astro, '/docs/[framework]/get-started/introduction')}
+								href={resolvePath(Astro, '/docs/[framework]/get-started/introduction')}
 								class="btn preset-outlined-surface-800-200 hover:preset-tonal"
 							>
 								<span>Learn More</span>

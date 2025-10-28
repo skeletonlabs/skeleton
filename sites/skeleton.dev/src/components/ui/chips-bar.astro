@@ -1,6 +1,6 @@
 ---
 import { CodeIcon, BlocksIcon, PersonStandingIcon } from '@lucide/svelte';
-import { getActiveFramework } from '@/modules/framework';
+import { getActiveFramework, resolve } from '@/modules/framework';
 import type { CollectionEntry } from 'astro:content';
 import { GIT_BRANCH } from 'astro:env/server';
 
@@ -18,10 +18,6 @@ const section = path.at(0) ?? '';
 const feature = path.at(1) ?? '';
 
 const activeFramework = getActiveFramework(Astro);
-
-function replacePlaceholders(url: string) {
-	return url.replaceAll('[framework]', activeFramework.id).replace('[branch]', GIT_BRANCH);
-}
 
 function getSourcePath() {
 	if (doc.data.references.source === false) {
@@ -83,7 +79,7 @@ const references = [
 	references.length > 0 && (
 		<nav class="flex flex-wrap gap-2 overflow-x-auto">
 			{references.map((reference) => (
-				<a class="chip preset-tonal" href={replacePlaceholders(reference.url.toString())} target="_blank" rel="noopener noreferrer">
+				<a class="chip preset-tonal" href={resolve(Astro, reference.url.toString())} target="_blank" rel="noopener noreferrer">
 					<reference.icon class="size-4" />
 					<span>{reference.label}</span>
 				</a>

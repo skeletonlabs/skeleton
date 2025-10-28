@@ -1,5 +1,5 @@
 ---
-import { resolve } from '@/modules/framework';
+import { resolvePath } from '@/modules/resolve-path';
 import { commonSections, type Section } from '@/modules/navigation';
 import { removeTrailingSlash } from '@/modules/normalize-path';
 
@@ -19,10 +19,12 @@ const { sections = commonSections } = Astro.props;
 					{section.items.map((doc) => (
 						<li>
 							<a
-								href={resolve(Astro, `/docs/[framework]/${doc.id}`)}
+								href={resolvePath(Astro, `/docs/[framework]/${doc.id}`)}
 								title={doc.data.title}
 								class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
-								aria-current={removeTrailingSlash(Astro.url.pathname) === resolve(Astro, `/docs/[framework]/${doc.id}`) ? 'page' : 'false'}
+								aria-current={
+									removeTrailingSlash(Astro.url.pathname) === resolvePath(Astro, `/docs/[framework]/${doc.id}`) ? 'page' : 'false'
+								}
 							>
 								<span class="text-sm">{doc.data.title}</span>
 								{doc.data.stability !== 'stable' && (
