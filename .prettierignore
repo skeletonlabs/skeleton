@@ -1,6 +1,2 @@
 .changeset/*.md
 pnpm-lock.yaml
-packages/cli/test/migrate/skeleton-3/samples/stylesheet/invalid-css/
-packages/cli/test/migrate/skeleton-4/samples/stylesheet/invalid-css/
-packages/cli/test/migrate/skeleton-3/samples/svelte/invalid-css/
-packages/cli/test/migrate/skeleton-4/samples/svelte/invalid-css/
