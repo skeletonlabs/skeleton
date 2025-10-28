@@ -152,7 +152,7 @@
 		<HashIcon class="size-4 opacity-50" />
 		<div class="space-y-1">
 			<Combobox.ItemText>{item.title}</Combobox.ItemText>
-			<p class="text-xs text-surface-600-400 break-words [&>mark]:mark">
+			<p class="text-xs text-surface-600-400 wrap-break-word [&>mark]:mark">
 				{@html item.excerpt}
 			</p>
 		</div>
@@ -170,7 +170,7 @@
 		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50 backdrop-blur-[2px]" />
 		<Dialog.Positioner class="fixed inset-0 z-50 flex justify-center items-start mt-[5%] p-4">
 			<Dialog.Content
-				class="card bg-surface-50-950/90 backdrop-blur-sm border border-surface-200-800 w-full max-w-[960px] space-y-4 shadow-[0_0_100px_rgba(0,0,0,0.25)] shadow-primary-500/50 transition transition-discrete duration-200 opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
+				class="card bg-surface-50-950/90 backdrop-blur-sm border border-surface-200-800 w-full max-w-[960px] space-y-4 shadow-[0_0_100px_rgba(0,0,0,0.25)] shadow-primary-500/50 transition transition-discrete duration-200 opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100 motion-reduce:transition-none"
 			>
 				<Combobox
 					class="w-full flex flex-col"

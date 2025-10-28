@@ -64,6 +64,7 @@
 
 html {
 	scrollbar-gutter: stable;
+	scroll-behavior: smooth;
 }
 
 [data-theme='catppuccin'],
@@ -107,6 +108,7 @@ html {
 		transform: rotate(360deg);
 	}
 }
+
 .spin-360 {
 	animation: spin 5s linear infinite; /* Shorthand */
 }
