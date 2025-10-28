@@ -1,12 +1,12 @@
-import Ellipsis from '../anatomy/ellipsis';
-import FirstTrigger from '../anatomy/first-trigger';
-import Item from '../anatomy/item';
-import LastTrigger from '../anatomy/last-trigger';
-import NextTrigger from '../anatomy/next-trigger';
-import PrevTrigger from '../anatomy/prev-trigger';
-import Root from '../anatomy/root';
-import RootContext from '../anatomy/root-context';
-import RootProvider from '../anatomy/root-provider';
+import Ellipsis from '../anatomy/ellipsis.jsx';
+import FirstTrigger from '../anatomy/first-trigger.jsx';
+import Item from '../anatomy/item.jsx';
+import LastTrigger from '../anatomy/last-trigger.jsx';
+import NextTrigger from '../anatomy/next-trigger.jsx';
+import PrevTrigger from '../anatomy/prev-trigger.jsx';
+import RootContext from '../anatomy/root-context.jsx';
+import RootProvider from '../anatomy/root-provider.jsx';
+import Root from '../anatomy/root.jsx';
 
 export const Pagination = Object.assign(Root, {
 	Provider: RootProvider,

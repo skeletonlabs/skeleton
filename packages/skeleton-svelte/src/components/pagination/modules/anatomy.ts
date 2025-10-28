@@ -15,6 +15,6 @@ export const Pagination = Object.assign(Root, {
 	PrevTrigger: PrevTrigger,
 	Item: Item,
 	Ellipsis: Ellipsis,
-	LastTrigger: LastTrigger,
 	NextTrigger: NextTrigger,
+	LastTrigger: LastTrigger,
 });

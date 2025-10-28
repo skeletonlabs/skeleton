@@ -4,5 +4,5 @@
 "@skeletonlabs/skeleton-react": minor
 ---
 
-feat: Pagination first and last buttons
+feat: `Pagination.FirstTrigger` and `Pagination.LastTrigger`
   

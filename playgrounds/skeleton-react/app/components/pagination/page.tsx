@@ -5,6 +5,7 @@ import { Pagination } from '@skeletonlabs/skeleton-react';
 export default function Page() {
 	return (
 		<Pagination count={5000} pageSize={10}>
+			<Pagination.FirstTrigger>First</Pagination.FirstTrigger>
 			<Pagination.PrevTrigger>Prev</Pagination.PrevTrigger>
 			<Pagination.Context>
 				{(pagination) =>
@@ -22,6 +23,7 @@ export default function Page() {
 				}
 			</Pagination.Context>
 			<Pagination.NextTrigger>Next</Pagination.NextTrigger>
+			<Pagination.LastTrigger>Last</Pagination.LastTrigger>
 		</Pagination>
 	);
 }
