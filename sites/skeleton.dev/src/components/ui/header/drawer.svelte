@@ -20,7 +20,7 @@
 		/>
 		<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
 			<Dialog.Content
-				class="card border-r border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg w-sm !h-screen p-4 pb-48 space-y-4 shadow-xl overflow-y-auto hide-scrollbar-track transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
+				class="card border-r border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg w-sm h-dvh p-4 space-y-4 shadow-xl overflow-y-auto hide-scrollbar-track transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
 			>
 				<header class="flex justify-between items-center gap-4">
 					<Dialog.Title class="text-2xl font-bold">Skeleton</Dialog.Title>
