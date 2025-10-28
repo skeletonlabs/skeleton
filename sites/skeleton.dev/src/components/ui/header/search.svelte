@@ -29,20 +29,6 @@
 	const { activeFramework }: Props = $props();
 
 	let query = $state('');
-	let items = $state.raw<(Result | Subresult)[]>([]);
-
-	const id = $props.id();
-	const dialog = useDialog({
-		id,
-	});
-
-	const collection = $derived(
-		useListCollection<Result | Subresult>({
-			items,
-			itemToString: (item) => item.title,
-			itemToValue: (item) => item.url,
-		}),
-	);
 
 	const pagefindPromise = new Promise<Pagefind>((resolve) =>
 		(async () => {
@@ -59,38 +45,23 @@
 		})(),
 	);
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (details) => {
-		query = details.inputValue;
-	};
+	const id = $props.id();
+	const dialog = useDialog({
+		id,
+	});
 
-	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
-		const url = details.value.at(0);
-		if (!url) {
-			return;
-		}
-		dialog().setOpen(false);
-		await navigate(url);
-	};
-
-	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = (details) => {
-		const url = details.highlightedValue;
-		if (!url) {
-			return;
-		}
-		prefetch(url);
-	};
-
-	async function search(query: string) {
+	const items = $derived.by(async () => {
 		if (query.length === 0) {
-			return;
+			return [];
 		}
+
 		const pagefind = await pagefindPromise;
 		const searchResult = await pagefind.debouncedSearch(query, {}, 200);
 		// A more recent search call was made
 		if (!searchResult) {
-			return;
+			return [];
 		}
-		items = (
+		return (
 			await Promise.all(
 				searchResult.results.map(async (searchResult) => {
 					const result = await searchResult.data();
@@ -120,7 +91,36 @@
 				}
 				return true;
 			});
-	}
+	});
+
+	const collection = $derived(
+		useListCollection<Result | Subresult>({
+			items: await items,
+			itemToString: (item) => item.title,
+			itemToValue: (item) => item.url,
+		}),
+	);
+
+	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = async (details) => {
+		query = details.inputValue.trim();
+	};
+
+	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
+		const url = details.value.at(0);
+		if (!url) {
+			return;
+		}
+		dialog().setOpen(false);
+		await navigate(url);
+	};
+
+	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = (details) => {
+		const url = details.highlightedValue;
+		if (!url) {
+			return;
+		}
+		prefetch(url);
+	};
 
 	$effect(() =>
 		on(document, 'keydown', (event) => {
@@ -130,10 +130,6 @@
 			}
 		}),
 	);
-
-	$effect(() => {
-		search(query);
-	});
 </script>
 
 {#snippet result(item: Result)}
@@ -177,7 +173,6 @@
 					class="w-full flex flex-col"
 					placeholder="Search..."
 					{collection}
-					inputValue={query}
 					{onInputValueChange}
 					{onValueChange}
 					{onHighlightChange}
@@ -196,20 +191,24 @@
 					<hr class="hr" />
 					{#if query.length === 0}
 						<span class="py-10 text-center opacity-50">What can we help you find?</span>
-					{:else if collection.items.length === 0}
-						<span class="py-10 text-center opacity-50">
-							No results found for <code class="code">{query}</code>
-						</span>
 					{:else}
-						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
-							{#each items as item (item)}
-								{#if item.type === 'result'}
-									{@render result(item)}
-								{:else if item.type === 'subresult'}
-									{@render subresult(item)}
-								{/if}
-							{/each}
-						</Combobox.Content>
+						{#await items then items}
+							{#if items.length === 0}
+								<span class="py-10 text-center opacity-50">
+									No results found for <code class="code">{query}</code>
+								</span>
+							{:else}
+								<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+									{#each items as item (item)}
+										{#if item.type === 'result'}
+											{@render result(item)}
+										{:else if item.type === 'subresult'}
+											{@render subresult(item)}
+										{/if}
+									{/each}
+								</Combobox.Content>
+							{/if}
+						{/await}
 					{/if}
 					<hr class="hidden lg:block hr" />
 					<div class="hidden lg:flex gap-2 px-4 pb-4 pt-2">
