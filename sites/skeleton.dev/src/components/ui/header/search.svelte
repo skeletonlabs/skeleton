@@ -4,6 +4,7 @@
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
+	import { prefetch } from 'astro:prefetch';
 	import { navigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
 
@@ -125,6 +126,14 @@
 		await navigate(url);
 	};
 
+	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = (details) => {
+		const url = details.highlightedValue;
+		if (!url) {
+			return;
+		}
+		prefetch(url);
+	};
+
 	$effect(() =>
 		on(document, 'keydown', (event) => {
 			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
@@ -179,6 +188,7 @@
 					inputValue={query}
 					{onInputValueChange}
 					{onValueChange}
+					{onHighlightChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="preserve"
 					open={dialog().open}
