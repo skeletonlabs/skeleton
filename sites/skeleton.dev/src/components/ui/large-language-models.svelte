@@ -12,7 +12,7 @@
 	const { url }: Props = $props();
 
 	const prompt = $derived(
-		`The following is a documentation page from Skeleton UI (a UI-toolkit build on top of Tailwind and provides framework agnostic components): ${url}. Be ready to help answer questions about this page.`,
+		`The following is a documentation page from Skeleton UI (a UI-toolkit build on top of Tailwind and provides framework agnostic components): ${url}.md. Be ready to help answer questions about this page.`,
 	);
 
 	const links = $derived([
@@ -20,7 +20,7 @@
 			title: 'View Markdown',
 			icon: markdown,
 			attributes: {
-				href: `${url.pathname}.md`,
+				href: `${url}.md`,
 			},
 		},
 		{
