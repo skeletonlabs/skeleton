@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.2.1
+
+### Patch Changes
+
+- Update dependencies to add the peerDependency `@internationalized/date` required by `@zag-js/date-utils` ([#4037](https://github.com/skeletonlabs/skeleton/pull/4037))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.2.1
+
 ## 4.2.0
 
 ### Minor Changes
