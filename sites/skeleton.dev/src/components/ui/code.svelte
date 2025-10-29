@@ -87,7 +87,7 @@
 						background: var(--color-green-50);
 						&::before {
 							position: absolute;
-							left: --spacing(2);
+							left: --spacing(1.5);
 							content: '+';
 							color: var(--color-green-500);
 						}
@@ -102,7 +102,7 @@
 						background: var(--color-red-50);
 						&::before {
 							position: absolute;
-							left: --spacing(2);
+							left: --spacing(1.5);
 							content: '-';
 							color: var(--color-red-500);
 						}
