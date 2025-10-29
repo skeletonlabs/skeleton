@@ -26,6 +26,7 @@ export function getSite() {
 export default defineConfig({
 	site: getSite(),
 	prefetch: true,
+	trailingSlash: 'never',
 	markdown: {
 		syntaxHighlight: false,
 	},

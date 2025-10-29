@@ -14,7 +14,6 @@ function parseMDX(content: string) {
 }
 
 function printMDX(root: Root) {
-	console.log('We just printed a root!');
 	return toMarkdown(root, {
 		extensions: [mdxToMarkdown()],
 	});
@@ -45,12 +44,5 @@ export function getMarkdownFromDoc(doc: CollectionEntry<'docs'>) {
 	// TODO: Parse <Preview> components
 	// TODO: Parse <ApiTable> components
 	pruneMDXNodes(root);
-	return [
-		`# ${doc.data.title}`,
-		doc.data.description && `Description: ${doc.data.description}`,
-		doc.data.summary && `Summary: ${doc.data.summary}`,
-		printMDX(root),
-	]
-		.filter(Boolean)
-		.join('\n\n');
+	return [`# ${doc.data.title}`, doc.data.description, doc.data.summary, printMDX(root)].filter(Boolean).join('\n\n');
 }

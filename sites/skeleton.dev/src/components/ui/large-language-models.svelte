@@ -20,7 +20,7 @@
 			title: 'View Markdown',
 			icon: markdown,
 			attributes: {
-				href: new URL(`${url.toString().replace(/\/?$/, '/') + 'llms.txt'}`).toString(),
+				href: `${url.toString()}.md`,
 			},
 		},
 		{
