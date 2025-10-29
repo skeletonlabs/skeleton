@@ -50,19 +50,21 @@ function readFileContents(importPath: string) {
 	);
 
 	const pathWithoutRaw = pathWithTsconfigResolved.replace(/\?raw$/, '');
-
-	const absolutePath = resolve(process.cwd(), pathWithoutRaw);
+	const pathWithoutExtension = pathWithoutRaw.replace(extname(pathWithoutRaw), '');
+	const absolutePath = resolve(process.cwd(), pathWithoutExtension);
 	const matchingFiles = globSync(`${absolutePath}.*`);
-
-	if (matchingFiles.length === 0) {
-		throw new Error(`No files found matching: ${absolutePath}`);
-	}
 
 	if (matchingFiles.length > 1) {
 		throw new Error(`Multiple files found matching: ${absolutePath}`);
 	}
 
-	return readFileSync(matchingFiles[0], 'utf-8');
+	const file = matchingFiles.at(0);
+
+	if (!file) {
+		throw new Error(`No files found matching: ${absolutePath}`);
+	}
+
+	return readFileSync(file, 'utf-8');
 }
 
 export function processPreviewComponents(root: Root) {
