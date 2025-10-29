@@ -78,6 +78,7 @@ catalog:
   colorette: 2.0.20
   commander: 14.0.2
   detect-indent: 7.0.2
+  find-up: 8.0.0
   fuse.js: 7.1.0
   html-escaper: 3.0.3
   jsdom: 27.0.1
