@@ -39,6 +39,9 @@ catalogs:
     '@floating-ui/dom':
       specifier: 1.7.4
       version: 1.7.4
+    '@internationalized/date':
+      specifier: 3.10.0
+      version: 3.10.0
     '@lucide/svelte':
       specifier: 0.548.0
       version: 0.548.0
@@ -487,6 +490,9 @@ importers:
 
   packages/skeleton-react:
     dependencies:
+      '@internationalized/date':
+        specifier: 'catalog:'
+        version: 3.10.0
       '@skeletonlabs/skeleton-common':
         specifier: workspace:*
         version: link:../skeleton-common
@@ -507,7 +513,7 @@ importers:
         version: 1.26.4
       '@zag-js/date-picker':
         specifier: 'catalog:'
-        version: 1.26.4(@internationalized/date@3.9.0)
+        version: 1.26.4(@internationalized/date@3.10.0)
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.26.4
@@ -599,6 +605,9 @@ importers:
 
   packages/skeleton-svelte:
     dependencies:
+      '@internationalized/date':
+        specifier: 'catalog:'
+        version: 3.10.0
       '@skeletonlabs/skeleton-common':
         specifier: workspace:*
         version: link:../skeleton-common
@@ -619,7 +628,7 @@ importers:
         version: 1.26.4
       '@zag-js/date-picker':
         specifier: 'catalog:'
-        version: 1.26.4(@internationalized/date@3.9.0)
+        version: 1.26.4(@internationalized/date@3.10.0)
       '@zag-js/dialog':
         specifier: 'catalog:'
         version: 1.26.4
@@ -1656,8 +1665,8 @@ packages:
       '@types/node':
         optional: true
 
-  '@internationalized/date@3.9.0':
-    resolution: {integrity: sha512-yaN3brAnHRD+4KyyOsJyk49XUvj2wtbNACSqg0bz3u8t2VuzhC8Q5dfRnrSxjnnbDb+ienBnkn1TzQfE154vyg==}
+  '@internationalized/date@3.10.0':
+    resolution: {integrity: sha512-oxDR/NTEJ1k+UFVQElaNIk65E/Z83HK1z1WI3lQyhTtnNg4R5oVXaPzK3jcpKG8UHKDVuDQHzn+wsxSz8RP3aw==}
 
   '@isaacs/balanced-match@4.0.1':
     resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
@@ -6586,7 +6595,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.9.1
 
-  '@internationalized/date@3.9.0':
+  '@internationalized/date@3.10.0':
     dependencies:
       '@swc/helpers': 0.5.17
 
@@ -7797,12 +7806,12 @@ snapshots:
       '@zag-js/dom-query': 1.26.4
       '@zag-js/utils': 1.26.4
 
-  '@zag-js/date-picker@1.26.4(@internationalized/date@3.9.0)':
+  '@zag-js/date-picker@1.26.4(@internationalized/date@3.10.0)':
     dependencies:
-      '@internationalized/date': 3.9.0
+      '@internationalized/date': 3.10.0
       '@zag-js/anatomy': 1.26.4
       '@zag-js/core': 1.26.4
-      '@zag-js/date-utils': 1.26.4(@internationalized/date@3.9.0)
+      '@zag-js/date-utils': 1.26.4(@internationalized/date@3.10.0)
       '@zag-js/dismissable': 1.26.4
       '@zag-js/dom-query': 1.26.4
       '@zag-js/live-region': 1.26.4
@@ -7810,9 +7819,9 @@ snapshots:
       '@zag-js/types': 1.26.4
       '@zag-js/utils': 1.26.4
 
-  '@zag-js/date-utils@1.26.4(@internationalized/date@3.9.0)':
+  '@zag-js/date-utils@1.26.4(@internationalized/date@3.10.0)':
     dependencies:
-      '@internationalized/date': 3.9.0
+      '@internationalized/date': 3.10.0
 
   '@zag-js/dialog@1.26.4':
     dependencies:
