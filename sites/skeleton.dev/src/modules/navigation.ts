@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 
 export interface Section {
 	label: string;
-	items: CollectionEntry<'docs'>[];
+	docs: CollectionEntry<'docs'>[];
 }
 
 async function getSection(prefix: string) {
@@ -21,30 +21,30 @@ async function getSection(prefix: string) {
 export const commonSections: Section[] = [
 	{
 		label: 'Get Started',
-		items: await getSection('get-started/'),
+		docs: await getSection('get-started/'),
 	},
 	{
 		label: 'Guides',
-		items: await getSection('guides/'),
+		docs: await getSection('guides/'),
 	},
 	{
 		label: 'Design System',
-		items: await getSection('design/'),
+		docs: await getSection('design/'),
 	},
 	{
 		label: 'Tailwind Components',
-		items: await getSection('tailwind-components/'),
+		docs: await getSection('tailwind-components/'),
 	},
 	{
 		label: 'Framework Components',
-		items: await getSection('framework-components/'),
+		docs: await getSection('framework-components/'),
 	},
 	{
 		label: 'Integrations',
-		items: await getSection('integrations/'),
+		docs: await getSection('integrations/'),
 	},
 	{
 		label: 'Resources',
-		items: await getSection('resources/'),
+		docs: await getSection('resources/'),
 	},
 ];

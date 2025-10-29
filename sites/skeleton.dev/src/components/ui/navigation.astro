@@ -16,7 +16,7 @@ const { sections = commonSections } = Astro.props;
 			<nav class="flex flex-col gap-2">
 				<span class="text-[12px] font-bold ml-2 text-surface-600-400 uppercase">{section.label}</span>
 				<ul class="flex flex-col gap-1">
-					{section.items.map((doc) => (
+					{section.docs.map((doc) => (
 						<li>
 							<a
 								href={resolvePath(Astro, `/docs/[framework]/${doc.id}`)}

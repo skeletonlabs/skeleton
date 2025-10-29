@@ -9,13 +9,15 @@ export async function getStaticPaths() {
 		params: {
 			framework: framework.id,
 		},
+		props: {
+			framework,
+		},
 	}));
 }
 
-// TODO: Prune sections based on framework param
-export const GET: APIRoute = () => {
+export const GET: APIRoute = (context) => {
 	return new Response(
-		`# Skeleton Documentation\n\n${commonSections.map((section) => `## ${section.label}\n\n${section.items.map(getMarkdownFromDoc).join('\n')}`).join('\n')}`,
+		`# Skeleton Documentation\n\n${commonSections.map((section) => `## ${section.label}\n\n${section.docs.map((doc) => getMarkdownFromDoc(doc, [context.props.framework])).join('\n')}`).join('\n')}`,
 		{
 			headers: {
 				'Content-Type': 'text/plain',

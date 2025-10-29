@@ -1,7 +1,6 @@
 import { getCollection } from '@/modules/content';
 import { getMarkdownFromDoc } from '@/modules/llms/get-markdown-from-doc';
 import type { APIRoute } from 'astro';
-import { getEntry } from 'astro:content';
 
 export async function getStaticPaths() {
 	const frameworks = await getCollection('frameworks');
@@ -12,23 +11,16 @@ export async function getStaticPaths() {
 				framework: framework.id,
 				doc: doc.id,
 			},
+			props: {
+				framework,
+				doc,
+			},
 		})),
 	);
 }
 
 export const GET: APIRoute = async (context) => {
-	if (!context.params.doc) {
-		return new Response('Documentation not found', {
-			status: 404,
-		});
-	}
-	const doc = await getEntry('docs', context.params.doc);
-	if (!doc) {
-		return new Response('Documentation not found', {
-			status: 404,
-		});
-	}
-	return new Response(getMarkdownFromDoc(doc), {
+	return new Response(getMarkdownFromDoc(context.props.doc, context.props.framework), {
 		headers: {
 			'Content-Type': 'text/plain',
 		},
