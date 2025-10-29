@@ -12,7 +12,20 @@ import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Tree from '../anatomy/tree.svelte';
 
-export const TreeView = Object.assign(Root, {
+export const TreeView: typeof Root & {
+	Provider: typeof RootProvider;
+	Context: typeof RootContext;
+	Tree: typeof Tree;
+	Label: typeof Label;
+	NodeProvider: typeof NodeProvider;
+	Branch: typeof Branch;
+	BranchControl: typeof BranchControl;
+	BranchText: typeof BranchText;
+	BranchIndicator: typeof BranchIndicator;
+	BranchContent: typeof BranchContent;
+	BranchIndentGuide: typeof BranchIndentGuide;
+	Item: typeof Item;
+} = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
 	Tree: Tree,
