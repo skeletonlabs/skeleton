@@ -52,7 +52,7 @@ function readFileContents(importPath: string) {
 	const pathWithoutRaw = pathWithTsconfigResolved.replace(/\?raw$/, '');
 
 	const absolutePath = resolve(process.cwd(), pathWithoutRaw);
-	const matchingFiles = globSync(`${absolutePath}*`);
+	const matchingFiles = globSync(`${absolutePath}.*`);
 
 	if (matchingFiles.length === 0) {
 		throw new Error(`No files found matching: ${absolutePath}`);
