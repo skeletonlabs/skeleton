@@ -1,5 +1,5 @@
 import { getCollection } from '@/modules/content';
-import { getMarkdownFromDoc } from '@/modules/llms';
+import { getMarkdownFromDoc } from '@/modules/llms/get-markdown-from-doc';
 import type { APIRoute } from 'astro';
 import { getEntry } from 'astro:content';
 

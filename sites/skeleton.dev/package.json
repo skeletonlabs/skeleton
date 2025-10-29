@@ -47,6 +47,7 @@
 		"mdast-util-from-markdown": "catalog:",
 		"mdast-util-mdx": "catalog:",
 		"mdast-util-to-markdown": "catalog:",
+		"mdast-util-to-string": "catalog:",
 		"micromark-extension-mdxjs": "catalog:",
 		"octokit": "catalog:",
 		"playwright": "catalog:",
