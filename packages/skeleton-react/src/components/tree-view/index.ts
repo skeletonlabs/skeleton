@@ -1,6 +1,6 @@
 export { TreeView } from './modules/anatomy.js';
 export { useTreeView } from './modules/provider.js';
-export { createTreeViewCollection } from './modules/create-tree-view-collection.js';
+export { collection as createTreeViewCollection } from '@zag-js/tree-view';
 export type { TreeViewRootProps } from './anatomy/root.jsx';
 export type { TreeViewRootProviderProps } from './anatomy/root-provider.jsx';
 export type { TreeViewRootContextProps } from './anatomy/root-context.jsx';
