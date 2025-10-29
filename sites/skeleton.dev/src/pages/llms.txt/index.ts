@@ -5,7 +5,6 @@ import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
 	const frameworks = await getCollection('frameworks');
-
 	return new Response(
 		commonSections.map((section) => section.docs.map((doc) => getMarkdownFromDoc(doc, frameworks)).join('\n')).join('\n'),
 		{
