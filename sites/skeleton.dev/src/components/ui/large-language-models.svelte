@@ -20,7 +20,7 @@
 			title: 'View Markdown',
 			icon: markdown,
 			attributes: {
-				href: `${url.toString()}.md`,
+				href: `${url.pathname}.md`,
 			},
 		},
 		{
