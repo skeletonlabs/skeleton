@@ -153,7 +153,6 @@
 					<p class="text-xs">{item.href}</p>
 				</div>
 				<ChevronRightIcon class="size-4 opacity-50" />
-				<Combobox.ItemIndicator />
 			</a>
 		{/snippet}
 	</Combobox.Item>
