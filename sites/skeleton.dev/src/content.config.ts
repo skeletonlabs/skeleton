@@ -84,7 +84,7 @@ export const collections = {
 				.optional(),
 		}),
 	}),
-	'component-documentation': defineCollection({
+	components: defineCollection({
 		loader: process.env.VERCEL_ENV === 'production' ? componentDocumentationLoader : async () => [],
 		schema: z.object({
 			name: z.string(),
