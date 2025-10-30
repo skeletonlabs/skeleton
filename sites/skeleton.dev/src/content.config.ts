@@ -1,4 +1,4 @@
-import { getTypeDocumentation } from './modules/type-documentation/get-type-documentation';
+import { componentDocumentationLoader } from './modules/component-documentation';
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 import { Octokit } from 'octokit';
@@ -84,8 +84,8 @@ export const collections = {
 				.optional(),
 		}),
 	}),
-	'type-documentation': defineCollection({
-		loader: import.meta.env.PROD ? getTypeDocumentation : async () => [],
+	'component-documentation': defineCollection({
+		loader: import.meta.env.PROD ? componentDocumentationLoader : async () => [],
 		schema: z.object({
 			name: z.string(),
 			types: z.array(
