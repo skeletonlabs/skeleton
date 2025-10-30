@@ -11,7 +11,7 @@ interface Props {
 const framework = Astro.props.framework ?? getActiveFramework(Astro).id;
 const component = Astro.props.component ?? Astro.url.pathname.split('/').filter(Boolean).pop();
 
-const types = await getEntry('types', `${framework}/${component}`);
+const types = await getEntry('type-documentation', `${framework}/${component}`);
 
 function kebabToPascal(str: string) {
 	return str

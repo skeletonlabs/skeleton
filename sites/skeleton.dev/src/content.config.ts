@@ -84,7 +84,7 @@ export const collections = {
 				.optional(),
 		}),
 	}),
-	types: defineCollection({
+	'type-documentation': defineCollection({
 		loader: import.meta.env.PROD ? getTypeDocumentation : async () => [],
 		schema: z.object({
 			name: z.string(),
