@@ -184,9 +184,7 @@ async function getClassValue(component: string, part: string) {
 			.split(' ')
 			.map((str) => str.replace('skb:', ''))
 			.join(' ');
-	} catch (e) {
-		console.warn(`Failed to get class value for ${component} ${part}:`, e);
-	}
+	} catch {}
 }
 
 function getComponentPartNameFromPath(path: string): string {
