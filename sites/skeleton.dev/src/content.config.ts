@@ -1,11 +1,11 @@
 import { getTypeDocumentation } from './modules/type-documentation/get-type-documentation';
-import { glob as globLoader } from 'astro/loaders';
+import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 import { Octokit } from 'octokit';
 
 export const collections = {
 	frameworks: defineCollection({
-		loader: globLoader({
+		loader: glob({
 			base: './src/content/frameworks',
 			pattern: '*.json',
 		}),
@@ -16,7 +16,7 @@ export const collections = {
 		}),
 	}),
 	docs: defineCollection({
-		loader: globLoader({
+		loader: glob({
 			base: './src/content/docs',
 			pattern: '**/*.{md,mdx}',
 		}),
@@ -69,7 +69,7 @@ export const collections = {
 		}),
 	}),
 	'showcase-projects': defineCollection({
-		loader: globLoader({
+		loader: glob({
 			base: './src/content/showcase-projects',
 			pattern: '*.json',
 		}),
