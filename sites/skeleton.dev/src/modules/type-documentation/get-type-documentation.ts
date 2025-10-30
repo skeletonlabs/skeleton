@@ -174,11 +174,8 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 async function getClassValue(component: string, part: string) {
 	try {
 		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href;
-		console.log('Importing:', path);
-		const module = await import(/* @vite-ignore */ path);
-		console.log({
-			moduleKeys: Object.keys(module),
-		});
+		// oxlint-disable-next-line no-eval
+		const module = await eval(`${`import(${path})`}`);
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
 		if (!value || typeof value !== 'string') {
 			return;
@@ -187,7 +184,9 @@ async function getClassValue(component: string, part: string) {
 			.split(' ')
 			.map((str) => str.replace('skb:', ''))
 			.join(' ');
-	} catch {}
+	} catch (e) {
+		console.warn(`Failed to get class value for ${component} ${part}:`, e);
+	}
 }
 
 function getComponentPartNameFromPath(path: string): string {
