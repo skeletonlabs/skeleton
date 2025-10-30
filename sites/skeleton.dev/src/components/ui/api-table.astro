@@ -11,7 +11,7 @@ interface Props {
 const framework = Astro.props.framework ?? getActiveFramework(Astro).id;
 const component = Astro.props.component ?? Astro.url.pathname.split('/').filter(Boolean).pop();
 
-const types = await getEntry('components', `${framework}/${component}`);
+const components = await getEntry('components', `${framework}/${component}`);
 
 function kebabToPascal(str: string) {
 	return str
@@ -20,20 +20,20 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!types && import.meta.env.PROD) {
-	throw new Error(`Unable to auto detect types for ${framework}/${component}`);
+if (!components && import.meta.env.PROD) {
+	throw new Error(`Unable to load component information for ${framework}/${component}`);
 }
 ---
 
 <div>
 	{
-		!types ? (
+		!components ? (
 			<p class="italic text-sm opacity-50">
-				Unable to load auto detect types for {framework}/{component}
+				Unable to load component information for {framework}/{component}
 			</p>
 		) : (
 			<section class="grid gap-4">
-				{types.data.types.map((type) => (
+				{components.data.types.map((type) => (
 					<>
 						<h3 class="h3">{type.name.replace(kebabToPascal(component), '').replace('Props', '')}</h3>
 						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
