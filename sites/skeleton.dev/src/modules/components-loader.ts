@@ -196,7 +196,7 @@ function getComponentPartNameFromPath(path: string): string {
 	return componentPart;
 }
 
-export const componentDocumentationLoader = async () => {
+export const componentsLoader = async () => {
 	const frameworks = ['svelte', 'react'] as const;
 
 	const allEntries = await Promise.all(

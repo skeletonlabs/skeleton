@@ -1,4 +1,4 @@
-import { componentDocumentationLoader } from './modules/component-documentation';
+import { componentsLoader } from '@/modules/components-loader';
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 import { Octokit } from 'octokit';
@@ -85,7 +85,7 @@ export const collections = {
 		}),
 	}),
 	components: defineCollection({
-		loader: process.env.VERCEL_ENV === 'production' ? componentDocumentationLoader : async () => [],
+		loader: process.env.VERCEL_ENV === 'production' ? componentsLoader : async () => [],
 		schema: z.object({
 			name: z.string(),
 			types: z.array(
