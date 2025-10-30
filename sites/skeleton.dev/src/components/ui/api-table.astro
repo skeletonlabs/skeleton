@@ -8,10 +8,10 @@ interface Props {
 	framework: string;
 }
 
-const framework = Astro.props.framework ?? getActiveFramework(Astro).id;
-const component = Astro.props.component ?? Astro.url.pathname.split('/').filter(Boolean).pop();
+const frameworkId = Astro.props.framework ?? getActiveFramework(Astro).id;
+const componentId = Astro.props.component ?? Astro.url.pathname.split('/').filter(Boolean).pop();
 
-const components = await getEntry('components', `${framework}/${component}`);
+const component = await getEntry('components', `${frameworkId}/${componentId}`);
 
 function kebabToPascal(str: string) {
 	return str
@@ -20,22 +20,22 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!components && process.env.VERCEL_ENV === 'production') {
-	throw new Error(`Unable to load component information for ${framework}/${component}`);
+if (!component && process.env.VERCEL_ENV === 'production') {
+	throw new Error(`Unable to load component information for ${frameworkId}/${componentId}`);
 }
 ---
 
 <div>
 	{
-		!components ? (
+		!component ? (
 			<p class="italic text-sm opacity-50">
-				Unable to load component information for {framework}/{component}
+				Unable to load component information for {frameworkId}/{componentId}
 			</p>
 		) : (
 			<section class="grid gap-4">
-				{components.data.types.map((type) => (
+				{component.data.types.map((type) => (
 					<>
-						<h3 class="h3">{type.name.replace(kebabToPascal(component), '').replace('Props', '')}</h3>
+						<h3 class="h3">{type.name.replace(kebabToPascal(componentId), '').replace('Props', '')}</h3>
 						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
 						<div class="table-wrap card border border-surface-200-800 rounded-container">
 							<table class="table">
