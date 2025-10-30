@@ -5,7 +5,7 @@
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { prefetch } from 'astro:prefetch';
-	import { navigate } from 'astro:transitions/client';
+	import { navigate as astroNavigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
 
 	interface Search {
@@ -124,21 +124,21 @@
 		search.status = search.items.length === 0 ? 'no-results' : 'results';
 	};
 
-	const onValueChange: ComboboxRootProps['onValueChange'] = async (details) => {
-		const url = details.value.at(0);
-		if (!url) {
-			return;
-		}
-		dialog().setOpen(false);
-		await navigate(url);
-	};
-
 	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = async (details) => {
 		const url = details.highlightedValue;
 		if (!url) {
 			return;
 		}
 		prefetch(url);
+	};
+
+	const navigate: ComboboxRootProps['navigate'] = async (details) => {
+		const url = details.value.at(0);
+		if (!url) {
+			return;
+		}
+		await astroNavigate(url);
+		dialog().setOpen(false);
 	};
 
 	$effect(() =>
@@ -194,7 +194,7 @@
 					{collection}
 					inputValue={search.query}
 					{onInputValueChange}
-					{onValueChange}
+					{navigate}
 					{onHighlightChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="preserve"
