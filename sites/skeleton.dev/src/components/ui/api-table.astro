@@ -20,7 +20,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!components && process.env.VERCEL_ENV === 'production') {
+if (!components && process.env.VERCEL) {
 	throw new Error(`Unable to load component information for ${framework}/${component}`);
 }
 ---

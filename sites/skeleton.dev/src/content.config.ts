@@ -41,7 +41,7 @@ export const collections = {
 	}),
 	contributors: defineCollection({
 		loader: async () => {
-			if (process.env.VERCEL_ENV !== 'production') {
+			if (!process.env.VERCEL) {
 				return Array.from({ length: 100 }).map((_, index) => ({
 					id: String(index),
 					html_url: `https://github.com/user-${index}`,
@@ -85,7 +85,7 @@ export const collections = {
 		}),
 	}),
 	components: defineCollection({
-		loader: process.env.VERCEL_ENV === 'production' ? componentsLoader : async () => [],
+		loader: process.env.VERCEL ? componentsLoader : async () => [],
 		schema: z.object({
 			name: z.string(),
 			types: z.array(
