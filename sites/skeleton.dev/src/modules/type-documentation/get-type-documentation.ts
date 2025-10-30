@@ -174,7 +174,11 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 async function getClassValue(component: string, part: string) {
 	try {
 		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href;
+		console.log('Importing:', path);
 		const module = await import(/* @vite-ignore */ path);
+		console.log({
+			moduleKeys: Object.keys(module),
+		});
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
 		if (!value || typeof value !== 'string') {
 			return;
@@ -214,7 +218,9 @@ export const getTypeDocumentation = async () => {
 							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components', component),
 							absolute: true,
 						});
-						if (!paths.length) return undefined;
+						if (!paths.length) {
+							return;
+						}
 
 						const partOrder = await getPartOrderFromAnatomy(framework, component);
 
