@@ -1,4 +1,3 @@
-import { generateTypeDocumentation } from './scripts/generate-type-documentation';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
@@ -6,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
-import type { AstroIntegration } from 'astro';
 import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
@@ -31,7 +29,6 @@ export default defineConfig({
 		syntaxHighlight: false,
 	},
 	integrations: [
-		skeleton(),
 		react(),
 		svelte(),
 		autoImport({
@@ -82,19 +79,3 @@ export default defineConfig({
 	},
 	adapter: vercel(),
 });
-
-function skeleton(): AstroIntegration {
-	return {
-		name: 'skeleton',
-		hooks: {
-			'astro:config:setup': async (context) => {
-				if (context.command !== 'build') {
-					return;
-				}
-				context.logger.info('Generating type documentation...');
-				await generateTypeDocumentation();
-				context.logger.info('Type documentation generated.');
-			},
-		},
-	};
-}

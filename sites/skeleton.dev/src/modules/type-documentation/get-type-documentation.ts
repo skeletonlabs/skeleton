@@ -1,12 +1,10 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { fileURLToPath } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
-const MONOREPO_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
-const SITE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'sites', name);
+const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
 const PACKAGE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'packages', name);
 
 type TypeKind = 'function' | 'array' | 'object' | 'primitive';
@@ -176,8 +174,7 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 async function getClassValue(component: string, part: string) {
 	try {
 		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href;
-		// oxlint-disable-next-line no-eval
-		const module = await eval(`import(${JSON.stringify(path)})`);
+		const module = await import(/* @vite-ignore */ path);
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
 		if (!value || typeof value !== 'string') {
 			return;
@@ -189,15 +186,6 @@ async function getClassValue(component: string, part: string) {
 	} catch {}
 }
 
-function getComponentNameFromPath(path: string): string {
-	const segments = path.split(/[\\/]/);
-	const component = segments.at(-3);
-	if (!component) {
-		throw new Error(`Could not determine component from path: ${path}`);
-	}
-	return component;
-}
-
 function getComponentPartNameFromPath(path: string): string {
 	const segments = path.split(/[\\/]/);
 	const componentPart = segments.at(-1)?.split('.').at(0);
@@ -207,69 +195,63 @@ function getComponentPartNameFromPath(path: string): string {
 	return componentPart;
 }
 
-export async function generateTypeDocumentation() {
-	const OUTPUT_DIRECTORY = join(SITE_DIRECTORY('skeleton.dev'), 'src', 'content', 'types');
+export const getTypeDocumentation = async () => {
+	const frameworks = ['svelte', 'react'] as const;
 
-	for (const framework of ['svelte', 'react'] as const) {
-		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
-		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
+	const allEntries = await Promise.all(
+		frameworks.map(async (framework) => {
+			const parser = new Parser(framework);
 
-		const paths = await glob(`**/anatomy/*.d.ts`, {
-			cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components'),
-			absolute: true,
-		});
-
-		const components = paths.reduce(
-			(acc, path) => {
-				const component = getComponentNameFromPath(path);
-				if (!acc[component]) {
-					acc[component] = [];
-				}
-				acc[component].push(path);
-				return acc;
-			},
-			{} as Record<string, string[]>,
-		);
-
-		const parser = new Parser(framework);
-
-		for (const [component, parts] of Object.entries(components)) {
-			const partOrder = await getPartOrderFromAnatomy(framework, component);
-
-			const types = (
-				await Promise.all(
-					parts.map(async (part) => {
-						const sourceFile = parser.getSourceFile(part);
-						const componentPartName = getComponentPartNameFromPath(part);
-						const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
-						const classValue = await getClassValue(component, componentPartName);
-						return {
-							name: _interface.name,
-							props: _interface.props,
-							metadata: {
-								classValue: classValue,
-							},
-						};
-					}),
-				)
-			).toSorted((a, b) => {
-				const aName = a.name.replace(/Props$/, '');
-				const bName = b.name.replace(/Props$/, '');
-				return partOrder.indexOf(aName) - partOrder.indexOf(bName);
+			const anatomyPaths = await glob('src/components/*/modules/anatomy.ts', {
+				cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`)),
 			});
+			const components = anatomyPaths.map((p) => p.split('/')[2]);
 
-			const result = JSON.stringify(
-				{
-					name: component,
-					types: types,
-				},
-				undefined,
-				4,
+			const componentEntries = await Promise.all(
+				components.map(async (component) => {
+					try {
+						const paths = await glob(`**/anatomy/*.d.ts`, {
+							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components', component),
+							absolute: true,
+						});
+						if (!paths.length) return undefined;
+
+						const partOrder = await getPartOrderFromAnatomy(framework, component);
+
+						const types = (
+							await Promise.all(
+								paths.map(async (part) => {
+									const sourceFile = parser.getSourceFile(part);
+									const componentPartName = getComponentPartNameFromPath(part);
+									const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
+									const classValue = await getClassValue(component, componentPartName);
+									return {
+										name: _interface.name,
+										props: _interface.props,
+										metadata: { classValue },
+									};
+								}),
+							)
+						).toSorted((a, b) => {
+							const aName = a.name.replace(/Props$/, '');
+							const bName = b.name.replace(/Props$/, '');
+							return partOrder.indexOf(aName) - partOrder.indexOf(bName);
+						});
+
+						return {
+							id: `${framework}/${component}`,
+							name: component,
+							types,
+						};
+					} catch {
+						return undefined;
+					}
+				}),
 			);
 
-			const outputPath = join(OUTPUT_DIRECTORY, framework, `${component}.json`);
+			return componentEntries.filter((e): e is NonNullable<typeof e> => !!e);
+		}),
+	);
 
-			await writeFile(outputPath, result, 'utf-8');
-		}
-	}
-}
+	return allEntries.flat();
+};
