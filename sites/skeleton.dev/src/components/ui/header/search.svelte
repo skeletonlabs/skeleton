@@ -68,6 +68,8 @@
 	const collection = $derived(
 		useListCollection<Result | Subresult>({
 			items: search.items,
+			itemToString: (item) => item.title,
+			itemToValue: (item) => item.href,
 		}),
 	);
 
