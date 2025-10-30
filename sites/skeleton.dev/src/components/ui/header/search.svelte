@@ -5,7 +5,6 @@
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { prefetch } from 'astro:prefetch';
-	import { navigate as astroNavigate } from 'astro:transitions/client';
 	import { on } from 'svelte/events';
 
 	interface Search {
@@ -16,14 +15,14 @@
 
 	interface Result {
 		type: 'result';
-		url: string;
+		href: string;
 		title: string;
 		excerpt: string;
 	}
 
 	interface Subresult {
 		type: 'subresult';
-		url: string;
+		href: string;
 		title: string;
 		excerpt: string;
 	}
@@ -69,8 +68,6 @@
 	const collection = $derived(
 		useListCollection<Result | Subresult>({
 			items: search.items,
-			itemToString: (item) => item.title,
-			itemToValue: (item) => item.url,
 		}),
 	);
 
@@ -94,7 +91,7 @@
 					return [
 						{
 							type: 'result' as const,
-							url: result.url,
+							href: result.url,
 							title: result.meta.title,
 							excerpt: result.excerpt,
 						},
@@ -102,7 +99,7 @@
 							.filter((subResult) => subResult.url !== result.url)
 							.map((subResult) => ({
 								type: 'subresult' as const,
-								url: subResult.url,
+								href: subResult.url,
 								title: subResult.title,
 								excerpt: subResult.excerpt,
 							})),
@@ -112,8 +109,8 @@
 		)
 			.flat()
 			.filter((item) => {
-				if (item.url.startsWith('/docs/')) {
-					return item.url.startsWith(`/docs/${activeFramework.id}/`);
+				if (item.href.startsWith('/docs/')) {
+					return item.href.startsWith(`/docs/${activeFramework.id}/`);
 				}
 				return true;
 			});
@@ -124,21 +121,16 @@
 		search.status = search.items.length === 0 ? 'no-results' : 'results';
 	};
 
+	const onValueChange: ComboboxRootProps['onValueChange'] = () => {
+		dialog().setOpen(false);
+	};
+
 	const onHighlightChange: ComboboxRootProps['onHighlightChange'] = async (details) => {
 		const url = details.highlightedValue;
 		if (!url) {
 			return;
 		}
 		prefetch(url);
-	};
-
-	const navigate: ComboboxRootProps['navigate'] = async (details) => {
-		const url = details.value.at(0);
-		if (!url) {
-			return;
-		}
-		await astroNavigate(url);
-		dialog().setOpen(false);
 	};
 
 	$effect(() =>
@@ -153,26 +145,34 @@
 
 {#snippet result(item: Result)}
 	<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
-		<BookIcon class="size-6 opacity-50" />
-		<div class="space-y-1">
-			<Combobox.ItemText>{item.title}</Combobox.ItemText>
-			<p class="text-xs">{item.url}</p>
-		</div>
-		<ChevronRightIcon class="size-4 opacity-50" />
-		<Combobox.ItemIndicator />
+		{#snippet element(attributes)}
+			<a {...attributes as Record<string, unknown>} href={item.href}>
+				<BookIcon class="size-6 opacity-50" />
+				<div class="space-y-1">
+					<Combobox.ItemText>{item.title}</Combobox.ItemText>
+					<p class="text-xs">{item.href}</p>
+				</div>
+				<ChevronRightIcon class="size-4 opacity-50" />
+				<Combobox.ItemIndicator />
+			</a>
+		{/snippet}
 	</Combobox.Item>
 {/snippet}
 
 {#snippet subresult(item: Subresult)}
 	<Combobox.Item class="p-4 ml-8 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
-		<HashIcon class="size-4 opacity-50" />
-		<div class="space-y-1">
-			<Combobox.ItemText>{item.title}</Combobox.ItemText>
-			<p class="text-xs text-surface-600-400 wrap-break-word [&>mark]:mark">
-				{@html item.excerpt}
-			</p>
-		</div>
-		<ChevronRightIcon class="size-4 opacity-50" />
+		{#snippet element(attributes)}
+			<a {...attributes as Record<string, unknown>} href={item.href}>
+				<HashIcon class="size-4 opacity-50" />
+				<div class="space-y-1">
+					<Combobox.ItemText>{item.title}</Combobox.ItemText>
+					<p class="text-xs text-surface-600-400 wrap-break-word [&>mark]:mark">
+						{@html item.excerpt}
+					</p>
+				</div>
+				<ChevronRightIcon class="size-4 opacity-50" />
+			</a>
+		{/snippet}
 	</Combobox.Item>
 {/snippet}
 
@@ -194,7 +194,7 @@
 					{collection}
 					inputValue={search.query}
 					{onInputValueChange}
-					{navigate}
+					{onValueChange}
 					{onHighlightChange}
 					inputBehavior="autohighlight"
 					selectionBehavior="preserve"
