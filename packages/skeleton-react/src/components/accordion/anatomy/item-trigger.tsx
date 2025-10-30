@@ -18,7 +18,7 @@ export default function ItemTrigger(props: AccordionItemTriggerProps) {
 	const attributes = mergeProps(
 		accordion.getItemTriggerProps(itemProps),
 		{
-			className: classesAccordion.trigger,
+			className: classesAccordion.itemTrigger,
 		},
 		rest,
 	);

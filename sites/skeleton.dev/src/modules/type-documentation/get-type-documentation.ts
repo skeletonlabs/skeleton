@@ -183,7 +183,9 @@ async function getClassValue(component: string, part: string) {
 			.split(' ')
 			.map((str) => str.replace('skb:', ''))
 			.join(' ');
-	} catch {}
+	} catch (e) {
+		console.error(e);
+	}
 }
 
 function getComponentPartNameFromPath(path: string): string {
@@ -228,7 +230,9 @@ export const getTypeDocumentation = async () => {
 									return {
 										name: _interface.name,
 										props: _interface.props,
-										metadata: { classValue },
+										metadata: {
+											classValue,
+										},
 									};
 								}),
 							)
