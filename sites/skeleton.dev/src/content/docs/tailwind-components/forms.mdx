@@ -8,6 +8,7 @@ references:
 import Checkboxes from '@/components/examples/tailwind-components/forms/checkboxes.astro';
 import CheckboxesRaw from '@/components/examples/tailwind-components/forms/checkboxes.astro?raw';
 import Default from '@/components/examples/tailwind-components/forms/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/forms/default.astro?raw';
 import Groups from '@/components/examples/tailwind-components/forms/groups.astro';
 import GroupsRaw from '@/components/examples/tailwind-components/forms/groups.astro?raw';
 import Input from '@/components/examples/tailwind-components/forms/input.astro';
@@ -21,7 +22,7 @@ import Special from '@/components/examples/tailwind-components/forms/special.ast
 import SpecialRaw from '@/components/examples/tailwind-components/forms/special.astro?raw';
 import TextareaRaw from '@/components/examples/tailwind-components/forms/textarea.astro?raw';
 
-<Preview files={{ 'app.astro': InputRaw }} client:visible>
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
 </Preview>
 
@@ -29,21 +30,21 @@ import TextareaRaw from '@/components/examples/tailwind-components/forms/textare
 
 ### Tailwind Forms
 
-Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. This plugin is required if you wish to make use of any utility classes provided on this page.
+Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. This plugin is <u>required</u> if you wish to use any form utility classes provided on this page.
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
 	<a class="btn preset-filled" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">
-		Plugin Doc
+		View on Github
 	</a>
 </figure>
 
-Install the `@tailwindcss/forms` package.
+To being, install the `@tailwindcss/forms` package.
 
 ```sh
 npm install -D @tailwindcss/forms
 ```
 
-Implement the plugin using the `@plugin` directive immediately following the `tailwindcss` import.
+Then implement in your global stylesheet using the the `@plugin` directive.
 
 ```css
 @import 'tailwindcss';
@@ -54,9 +55,11 @@ Implement the plugin using the `@plugin` directive immediately following the `ta
 
 ### Browser Support
 
-The display of native and semantic HTML form elements can vary between both operating systems and browsers. Skeleton does its best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
+The quality and appearance of native and semantic HTML form elements can vary between both operating systems and browser vendors. Skeleton does its best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
 
 ## Inputs
+
+Supports all [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types), within reason.
 
 <Preview files={{ 'app.astro': InputRaw }} client:visible>
 	<Input />

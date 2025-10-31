@@ -7,8 +7,10 @@ import Default from '@/components/examples/tailwind-components/buttons/default.a
 import DefaultRaw from '@/components/examples/tailwind-components/buttons/default.astro?raw';
 import Disabled from '@/components/examples/tailwind-components/buttons/disabled.astro';
 import DisabledRaw from '@/components/examples/tailwind-components/buttons/disabled.astro?raw';
-import Group from '@/components/examples/tailwind-components/buttons/group.astro';
-import GroupRaw from '@/components/examples/tailwind-components/buttons/group.astro?raw';
+import GroupReact from '@/components/examples/tailwind-components/buttons/group';
+import GroupSvelte from '@/components/examples/tailwind-components/buttons/group.svelte';
+import GroupSvelteRaw from '@/components/examples/tailwind-components/buttons/group.svelte?raw';
+import GroupReactRaw from '@/components/examples/tailwind-components/buttons/group.tsx?raw';
 import Presets from '@/components/examples/tailwind-components/buttons/presets.astro';
 import PresetsRaw from '@/components/examples/tailwind-components/buttons/presets.astro?raw';
 import Sizes from '@/components/examples/tailwind-components/buttons/sizes.astro';
@@ -42,6 +44,13 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 ## Group
 
-<Preview files={{ 'app.astro': GroupRaw }} client:visible>
-	<Group />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+		<GroupReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
+	</Preview>
+</Framework>

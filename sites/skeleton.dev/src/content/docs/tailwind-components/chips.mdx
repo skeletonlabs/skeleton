@@ -11,6 +11,7 @@ import Presets from '@/components/examples/tailwind-components/chips/presets.ast
 import PresetsRaw from '@/components/examples/tailwind-components/chips/presets.astro?raw';
 import SelectReact from '@/components/examples/tailwind-components/chips/react/select';
 import SelectReactRaw from '@/components/examples/tailwind-components/chips/react/select?raw';
+import SelectSvelte from '@/components/examples/tailwind-components/chips/svelte/select.svelte';
 import SelectSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/select.svelte?raw';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
@@ -35,6 +36,13 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 
 ## Selection
 
-<Preview files={{ 'app.tsx': SelectReactRaw, 'app.svelte': SelectSvelteRaw }} client:visible>
-	<SelectReact client:visible />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SelectReactRaw }} client:visible>
+		<SelectReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SelectSvelteRaw }} client:visible>
+		<SelectSvelte client:visible />
+	</Preview>
+</Framework>
