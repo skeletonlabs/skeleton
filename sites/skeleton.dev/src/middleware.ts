@@ -11,7 +11,7 @@ const redirects = {
 export const onRequest: MiddlewareHandler = async (context, next) => {
 	const path = context.url.pathname;
 	for (const [pattern, target] of Object.entries(redirects)) {
-		const regex = new RegExp('^' + pattern.replace(/\[([^\]]+)\]/g, '(?<$1>[^/]+)').replace(/\//g, '\\/') + '\\/?$');
+		const regex = new RegExp(`^${pattern.replace(/\[([^\]]+)\]/g, '(?<$1>[^/]+)').replace(/\//g, '\\/')}\\/?$`);
 		const match = path.match(regex);
 		if (match) {
 			const destination = Object.entries(match.groups ?? {}).reduce((acc, [key, value]) => acc.replace(`[${key}]`, value), target);
