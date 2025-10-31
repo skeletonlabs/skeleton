@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "4.2.0",
+	"version": "4.2.2",
 	"description": "The React package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -28,6 +28,7 @@
 	],
 	"sideEffects": false,
 	"dependencies": {
+		"@internationalized/date": "catalog:",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",

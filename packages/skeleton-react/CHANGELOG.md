@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-react
 
+## 4.2.2
+
+### Patch Changes
+
+- fix: support generics in TreeView ([#4040](https://github.com/skeletonlabs/skeleton/pull/4040))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.2.2
+
+## 4.2.1
+
+### Patch Changes
+
+- Update dependencies to add the peerDependency `@internationalized/date` required by `@zag-js/date-utils` ([#4037](https://github.com/skeletonlabs/skeleton/pull/4037))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.2.1
+
 ## 4.2.0
 
 ### Minor Changes
