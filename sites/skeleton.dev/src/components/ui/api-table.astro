@@ -4,8 +4,8 @@ import Code from '@/components/ui/code.svelte';
 import { getActiveFramework } from '@/modules/framework';
 
 interface Props {
-	component: string;
 	framework: string;
+	component: string;
 }
 
 const frameworkId = Astro.props.framework ?? getActiveFramework(Astro).id;
