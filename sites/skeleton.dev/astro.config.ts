@@ -78,11 +78,4 @@ export default defineConfig({
 		],
 	},
 	adapter: vercel(),
-	redirects: {
-		'/news': 'https://bsky.app/profile/skeleton.dev',
-		'/figma': 'https://www.etesie.dev/figma',
-		'/docs/tailwind/[component]': '/docs/tailwind-components/[component]',
-		'/docs/components/[component]/[framework]': '/docs/[framework]/framework-components/[component]',
-		'/docs/headless/[library]': '/docs/integrations/[library]',
-	},
 });
