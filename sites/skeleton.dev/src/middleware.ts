@@ -15,7 +15,7 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
 		const match = path.match(regex);
 		if (match) {
 			const destination = Object.entries(match.groups ?? {}).reduce((acc, [key, value]) => acc.replace(`[${key}]`, value), target);
-			return context.redirect(destination, 302);
+			return context.redirect(destination);
 		}
 	}
 	return next();
