@@ -2,16 +2,22 @@ import { Tabs } from '@skeletonlabs/skeleton-react';
 
 export default function Dir() {
 	return (
-		<Tabs defaultValue="tab-1" dir="rtl">
+		<Tabs defaultValue="overview" dir="rtl">
 			<Tabs.List>
-				<Tabs.Trigger value="tab-1">Tab 1</Tabs.Trigger>
-				<Tabs.Trigger value="tab-2">Tab 2</Tabs.Trigger>
-				<Tabs.Trigger value="tab-3">Tab 3</Tabs.Trigger>
+				<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+				<Tabs.Trigger value="features">Key features</Tabs.Trigger>
+				<Tabs.Trigger value="activity">Activity</Tabs.Trigger>
 				<Tabs.Indicator />
 			</Tabs.List>
-			<Tabs.Content value="tab-1">Content for Tab 1</Tabs.Content>
-			<Tabs.Content value="tab-2">Content for Tab 2</Tabs.Content>
-			<Tabs.Content value="tab-3">Content for Tab 3</Tabs.Content>
+			<Tabs.Content value="overview">
+				A concise overview of the project: usage, goals, and recent highlights. Use this area to orient readers with key metrics and links to deeper docs.
+			</Tabs.Content>
+			<Tabs.Content value="features">
+				List the most important features here with short, pragmatic descriptions so readers can scan for what matters (accessibility, theming, integrations).
+			</Tabs.Content>
+			<Tabs.Content value="activity">
+				Show recent activity or sample data: new releases, PRs merged, or notable user events. This helps examples feel realistic and actionable.
+			</Tabs.Content>
 		</Tabs>
 	);
 }

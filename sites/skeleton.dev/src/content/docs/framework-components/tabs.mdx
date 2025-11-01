@@ -6,6 +6,12 @@ description: Use tabs to quickly switch between different views and pages.
 import DefaultReact from '@/components/examples/framework-components/tabs/react/default.tsx';
 import DefaultReactRaw from '@/components/examples/framework-components/tabs/react/default.tsx?raw';
 
+import ControlledReact from '@/components/examples/framework-components/tabs/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/tabs/react/controlled.tsx?raw';
+
+import NavigationReact from '@/components/examples/framework-components/tabs/react/navigation';
+import NavigationReactRaw from '@/components/examples/framework-components/tabs/react/navigation.tsx?raw';
+
 import FluidReact from '@/components/examples/framework-components/tabs/react/fluid';
 import FluidReactRaw from '@/components/examples/framework-components/tabs/react/fluid.tsx?raw';
 
@@ -17,6 +23,12 @@ import DirReactRaw from '@/components/examples/framework-components/tabs/react/d
 
 import DefaultSvelte from '@/components/examples/framework-components/tabs/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tabs/svelte/default.svelte?raw';
+
+import ControlledSvelte from '@/components/examples/framework-components/tabs/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/tabs/svelte/controlled.svelte?raw';
+
+import NavigationSvelte from '@/components/examples/framework-components/tabs/svelte/navigation.svelte';
+import NavigationSvelteRaw from '@/components/examples/framework-components/tabs/svelte/navigation.svelte?raw';
 
 import FluidSvelte from '@/components/examples/framework-components/tabs/svelte/fluid.svelte';
 import FluidSvelteRaw from '@/components/examples/framework-components/tabs/svelte/fluid.svelte?raw';
@@ -38,7 +50,39 @@ import DirSvelteRaw from '@/components/examples/framework-components/tabs/svelte
 	</Preview>
 </Framework>
 
+## Controlled
+
+Use the `value` and `onValueChange` props to control the active tab programmatically.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Navigation
+
+Use the `element` slot to override the default `button` with an `a` tag for navigation tabs.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': NavigationReactRaw }} client:visible>
+		<NavigationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': NavigationSvelteRaw }} client:visible>
+		<NavigationSvelte client:visible />
+	</Preview>
+</Framework>
+
 ## Fluid Width
+
+Use `flex` utility classes to make the tabs stretch to fill the width of their container.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': FluidReactRaw }} client:visible>
@@ -53,6 +97,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/tabs/svelte
 
 ## Vertical
 
+Use the `vertical` prop to render tabs stacked vertically.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': VerticalReactRaw }} client:visible>
 		<VerticalReact client:visible />
@@ -65,6 +111,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/tabs/svelte
 </Framework>
 
 ## Direction
+
+Use the `dir` prop to switch direction for RTL/LTR layouts.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

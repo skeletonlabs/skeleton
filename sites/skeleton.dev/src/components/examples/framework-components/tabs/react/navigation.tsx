@@ -1,18 +1,33 @@
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-export default function Fluid() {
+export default function Navigation() {
 	return (
 		<Tabs defaultValue="overview">
 			<Tabs.List>
-				<Tabs.Trigger className="flex-1" value="overview">
-					Overview
-				</Tabs.Trigger>
-				<Tabs.Trigger className="flex-1" value="features">
-					Key features
-				</Tabs.Trigger>
-				<Tabs.Trigger className="flex-1" value="activity">
-					Activity
-				</Tabs.Trigger>
+				<Tabs.Trigger
+					value="overview"
+					element={(attributes: Record<string, unknown>) => (
+						<a href="#overview" {...attributes}>
+							Overview
+						</a>
+					)}
+				/>
+				<Tabs.Trigger
+					value="features"
+					element={(attributes: Record<string, unknown>) => (
+						<a href="#features" {...attributes}>
+							Key features
+						</a>
+					)}
+				/>
+				<Tabs.Trigger
+					value="activity"
+					element={(attributes: Record<string, unknown>) => (
+						<a href="#activity" {...attributes}>
+							Activity
+						</a>
+					)}
+				/>
 				<Tabs.Indicator />
 			</Tabs.List>
 			<Tabs.Content value="overview">

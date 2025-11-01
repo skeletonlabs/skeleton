@@ -1,18 +1,15 @@
 import { Tabs } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
 
-export default function Fluid() {
+export default function Controlled() {
+	const [value, setValue] = useState('overview');
+
 	return (
-		<Tabs defaultValue="overview">
+		<Tabs value={value} onValueChange={(details) => setValue(details.value)}>
 			<Tabs.List>
-				<Tabs.Trigger className="flex-1" value="overview">
-					Overview
-				</Tabs.Trigger>
-				<Tabs.Trigger className="flex-1" value="features">
-					Key features
-				</Tabs.Trigger>
-				<Tabs.Trigger className="flex-1" value="activity">
-					Activity
-				</Tabs.Trigger>
+				<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+				<Tabs.Trigger value="features">Key features</Tabs.Trigger>
+				<Tabs.Trigger value="activity">Activity</Tabs.Trigger>
 				<Tabs.Indicator />
 			</Tabs.List>
 			<Tabs.Content value="overview">
