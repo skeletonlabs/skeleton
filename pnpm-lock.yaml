@@ -27,21 +27,12 @@ catalogs:
     '@astrojs/vercel':
       specifier: 9.0.0
       version: 9.0.0
-    '@changesets/cli':
-      specifier: 2.29.7
-      version: 2.29.7
-    '@clack/prompts':
-      specifier: 0.11.0
-      version: 0.11.0
     '@faker-js/faker':
       specifier: 10.1.0
       version: 10.1.0
     '@floating-ui/dom':
       specifier: 1.7.4
       version: 1.7.4
-    '@internationalized/date':
-      specifier: 3.10.0
-      version: 3.10.0
     '@lucide/svelte':
       specifier: 0.548.0
       version: 0.548.0
@@ -69,144 +60,21 @@ catalogs:
     '@stackblitz/sdk':
       specifier: 1.11.0
       version: 1.11.0
-    '@sveltejs/adapter-auto':
-      specifier: 7.0.0
-      version: 7.0.0
-    '@sveltejs/adapter-vercel':
-      specifier: 5.10.3
-      version: 5.10.3
-    '@sveltejs/kit':
-      specifier: 2.47.3
-      version: 2.47.3
-    '@sveltejs/package':
-      specifier: 2.5.4
-      version: 2.5.4
-    '@sveltejs/vite-plugin-svelte':
-      specifier: 6.2.1
-      version: 6.2.1
-    '@svitejs/changesets-changelog-github-compact':
-      specifier: 1.2.0
-      version: 1.2.0
-    '@tailwindcss/forms':
-      specifier: 0.5.10
-      version: 0.5.10
-    '@tailwindcss/postcss':
-      specifier: 4.1.16
-      version: 4.1.16
     '@tailwindcss/vite':
       specifier: 4.1.16
       version: 4.1.16
-    '@testing-library/jest-dom':
-      specifier: 6.9.1
-      version: 6.9.1
-    '@testing-library/react':
-      specifier: 16.3.0
-      version: 16.3.0
-    '@testing-library/svelte':
-      specifier: 5.2.8
-      version: 5.2.8
-    '@trivago/prettier-plugin-sort-imports':
-      specifier: 5.2.2
-      version: 5.2.2
-    '@types/chroma-js':
-      specifier: 3.1.1
-      version: 3.1.1
-    '@types/estree':
-      specifier: 1.0.8
-      version: 1.0.8
     '@types/html-escaper':
       specifier: 3.0.4
       version: 3.0.4
     '@types/mdast':
       specifier: 4.0.4
       version: 4.0.4
-    '@types/node':
-      specifier: 24.9.1
-      version: 24.9.1
     '@types/react':
       specifier: 19.2.2
       version: 19.2.2
     '@types/react-dom':
       specifier: 19.2.2
       version: 19.2.2
-    '@types/semver':
-      specifier: 7.7.1
-      version: 7.7.1
-    '@vitejs/plugin-react':
-      specifier: 5.1.0
-      version: 5.1.0
-    '@zag-js/accordion':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/avatar':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/collapsible':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/collection':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/combobox':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/date-picker':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/dialog':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/file-upload':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/listbox':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/pagination':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/popover':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/progress':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/radio-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/rating-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/react':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/slider':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/svelte':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/switch':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tabs':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tags-input':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/toast':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/toggle-group':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tooltip':
-      specifier: 1.26.4
-      version: 1.26.4
-    '@zag-js/tree-view':
-      specifier: 1.26.4
-      version: 1.26.4
     astro:
       specifier: 5.15.1
       version: 5.15.1
@@ -219,39 +87,15 @@ catalogs:
     astro-seo:
       specifier: 0.8.4
       version: 0.8.4
-    chroma-js:
-      specifier: 3.1.2
-      version: 3.1.2
-    colorette:
-      specifier: 2.0.20
-      version: 2.0.20
-    commander:
-      specifier: 14.0.2
-      version: 14.0.2
-    detect-indent:
-      specifier: 7.0.2
-      version: 7.0.2
-    find-up:
-      specifier: 8.0.0
-      version: 8.0.0
     fuse.js:
       specifier: 7.1.0
       version: 7.1.0
     html-escaper:
       specifier: 3.0.3
       version: 3.0.3
-    jsdom:
-      specifier: 27.0.1
-      version: 27.0.1
-    latest-version:
-      specifier: 9.0.0
-      version: 9.0.0
     lucide-react:
       specifier: 0.548.0
       version: 0.548.0
-    magic-string:
-      specifier: 0.30.21
-      version: 0.30.21
     mdast-util-from-markdown:
       specifier: 2.0.2
       version: 2.0.2
@@ -264,57 +108,24 @@ catalogs:
     micromark-extension-mdxjs:
       specifier: 3.0.0
       version: 3.0.0
-    nanoid:
-      specifier: 5.1.6
-      version: 5.1.6
-    next:
-      specifier: 15.5.6
-      version: 15.5.6
-    node-html-parser:
-      specifier: 7.0.1
-      version: 7.0.1
     octokit:
       specifier: 5.0.4
       version: 5.0.4
-    oxlint:
-      specifier: 1.24.0
-      version: 1.24.0
-    oxlint-tsgolint:
-      specifier: 0.3.0
-      version: 0.3.0
-    package-manager-detector:
-      specifier: 1.5.0
-      version: 1.5.0
+    oxc-resolver:
+      specifier: 11.12.0
+      version: 11.12.0
     playwright:
       specifier: 1.56.1
       version: 1.56.1
-    postcss:
-      specifier: 8.5.6
-      version: 8.5.6
-    prettier:
-      specifier: 3.6.2
-      version: 3.6.2
-    prettier-plugin-astro:
-      specifier: 0.14.1
-      version: 0.14.1
-    prettier-plugin-svelte:
-      specifier: 3.4.0
-      version: 3.4.0
     react:
       specifier: 19.2.0
       version: 19.2.0
     react-dom:
       specifier: 19.2.0
       version: 19.2.0
-    sass-embedded:
-      specifier: 1.93.2
-      version: 1.93.2
     satori:
       specifier: 0.18.3
       version: 0.18.3
-    semver:
-      specifier: 7.7.3
-      version: 7.7.3
     sharp:
       specifier: 0.34.4
       version: 0.34.4
@@ -324,9 +135,6 @@ catalogs:
     svelte:
       specifier: 5.42.2
       version: 5.42.2
-    svelte-check:
-      specifier: 4.3.3
-      version: 4.3.3
     tailwindcss:
       specifier: 4.1.16
       version: 4.1.16
@@ -336,36 +144,15 @@ catalogs:
     ts-morph:
       specifier: 27.0.2
       version: 27.0.2
-    tsdown:
-      specifier: 0.15.9
-      version: 0.15.9
-    type-fest:
-      specifier: 5.1.0
-      version: 5.1.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
     unist-util-visit:
       specifier: 5.0.0
       version: 5.0.0
-    unplugin-macros:
-      specifier: 0.18.2
-      version: 0.18.2
-    unplugin-raw:
-      specifier: 0.6.3
-      version: 0.6.3
-    vite:
-      specifier: 7.1.10
-      version: 7.1.10
     vite-plugin-transform-lucide-imports:
       specifier: 0.3.0
       version: 0.3.0
-    vitest:
-      specifier: 3.2.4
-      version: 3.2.4
-    zimmerframe:
-      specifier: 1.1.4
-      version: 1.1.4
 
 overrides:
   tsdown>rolldown: 1.0.0-beta.44
@@ -458,7 +245,7 @@ importers:
         version: 7.7.1
       tsdown:
         specifier: 'catalog:'
-        version: 0.15.9(publint@0.3.13)(typescript@5.9.3)
+        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
       type-fest:
         specifier: 'catalog:'
         version: 5.1.0
@@ -498,7 +285,7 @@ importers:
         version: 4.1.16
       tsdown:
         specifier: 'catalog:'
-        version: 0.15.9(publint@0.3.13)(typescript@5.9.3)
+        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -613,7 +400,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       tsdown:
         specifier: 'catalog:'
-        version: 0.15.9(publint@0.3.13)(typescript@5.9.3)
+        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -922,9 +709,6 @@ importers:
       astro-seo:
         specifier: 'catalog:'
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
-      find-up:
-        specifier: 'catalog:'
-        version: 8.0.0
       fuse.js:
         specifier: 'catalog:'
         version: 7.1.0
@@ -949,6 +733,9 @@ importers:
       octokit:
         specifier: 'catalog:'
         version: 5.0.4
+      oxc-resolver:
+        specifier: 'catalog:'
+        version: 11.12.0
       playwright:
         specifier: 'catalog:'
         version: 1.56.1
@@ -1918,6 +1705,109 @@ packages:
 
   '@oxc-project/types@0.95.0':
     resolution: {integrity: sha512-vACy7vhpMPhjEJhULNxrdR0D943TkA/MigMpJCHmBHvMXxRStRi/dPtTlfQ3uDwWSzRpT8z+7ImjZVf8JWBocQ==}
+
+  '@oxc-resolver/binding-android-arm-eabi@11.12.0':
+    resolution: {integrity: sha512-/IfGWLNdmS1kVYM2g+Xw4qXNWtCPZ/i5YMprflA8FC3vAjT4N0VucQcDxUPHxatQwre4qnhbFFWqRa1mz6Cgkw==}
+    cpu: [arm]
+    os: [android]
+
+  '@oxc-resolver/binding-android-arm64@11.12.0':
+    resolution: {integrity: sha512-H3Ehyinfx2VO8F5TwdaD/WY686Ia6J1H3LP0tgpNjlPGH2TrTniPERiwjqtOm/xHEef0KJvb/yfmUKLbHudhCA==}
+    cpu: [arm64]
+    os: [android]
+
+  '@oxc-resolver/binding-darwin-arm64@11.12.0':
+    resolution: {integrity: sha512-hmm+A/0WdEtIeBrPtUHoSTzJefrZkhGSrmv5pwELKiqNqd+/gctzmTlt6wWrU8BMIryDMT9fWqLSQ3+NYfqAEA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxc-resolver/binding-darwin-x64@11.12.0':
+    resolution: {integrity: sha512-g1tVu53EMfuRKs67o0PZR0+y/WXl/Tfn3d2ggjK3Hj17pQPcb9x1+Y6W7n4EjIDttwLZbCPCEr06X+aC03I45A==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxc-resolver/binding-freebsd-x64@11.12.0':
+    resolution: {integrity: sha512-TiMatzvcVMSOiAx8sbnAw7UCfQpZDlm91ItywZrSHlQIJqDBipOmjIEYUMc2p823Y+fJ2ADL5UBjUB2kfqpedw==}
+    cpu: [x64]
+    os: [freebsd]
+
+  '@oxc-resolver/binding-linux-arm-gnueabihf@11.12.0':
+    resolution: {integrity: sha512-zU+9UgxPIvfReqmRr/dqZt3387HPgcH0hA4u0QGE+280EFjBYYL2rxGDxK0L+keO6vc2+ITWVDXm9KIj+alofg==}
+    cpu: [arm]
+    os: [linux]
+
+  '@oxc-resolver/binding-linux-arm-musleabihf@11.12.0':
+    resolution: {integrity: sha512-dfO1rrOeELYWD/BewMCp81k1I3pOdtAi2VCKg/A1I8z0uI4OR6cThb5dV9fpHkj7zlb0Y5iZFPe+NTbI/u1MgQ==}
+    cpu: [arm]
+    os: [linux]
+
+  '@oxc-resolver/binding-linux-arm64-gnu@11.12.0':
+    resolution: {integrity: sha512-JJNyN1ueryETKTUsG57+u0GDbtHKVcwcUoC6YyJmDdWE0o/3twXtHuS+F/121a2sVK8PKlROqGAev+STx3AuuQ==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@oxc-resolver/binding-linux-arm64-musl@11.12.0':
+    resolution: {integrity: sha512-rQHoxL0H0WwYUuukPUscLyzWwTl/hyogptYsY+Ye6AggJEOuvgJxMum2glY7etGIGOXxrfjareHnNO1tNY7WYg==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@oxc-resolver/binding-linux-ppc64-gnu@11.12.0':
+    resolution: {integrity: sha512-XPUZSctO+FrC0314Tcth+GrTtzy2yaYqyl8weBMAbKFMwuV8VnR2SHg9dmtI9vkukmM3auOLj0Kqjpl3YXwXiw==}
+    cpu: [ppc64]
+    os: [linux]
+    libc: [glibc]
+
+  '@oxc-resolver/binding-linux-riscv64-gnu@11.12.0':
+    resolution: {integrity: sha512-AmMjcP+6zHLF1JNq/p3yPEcXmZW/Xw5Xl19Zd0eBCSyGORJRuUOkcnyC8bwMO43b/G7PtausB83fclnFL5KZ3w==}
+    cpu: [riscv64]
+    os: [linux]
+    libc: [glibc]
+
+  '@oxc-resolver/binding-linux-riscv64-musl@11.12.0':
+    resolution: {integrity: sha512-K2/yFBqFQOKyVwQxYDAKqDtk2kS4g58aGyj/R1bvYPr2P7v7971aUG/5m2WD5u2zSqWBfu1o4PdhX0lsqvA3vQ==}
+    cpu: [riscv64]
+    os: [linux]
+    libc: [musl]
+
+  '@oxc-resolver/binding-linux-s390x-gnu@11.12.0':
+    resolution: {integrity: sha512-uSl4jo78tONGZtwsOA4ldT/OI7/hoHJhSMlGYE4Z/lzwMjkAaBdX4soAK5P/rL+U2yCJlRMnnoUckhXlZvDbSw==}
+    cpu: [s390x]
+    os: [linux]
+    libc: [glibc]
+
+  '@oxc-resolver/binding-linux-x64-gnu@11.12.0':
+    resolution: {integrity: sha512-YjL8VAkbPyQ1kUuR6pOBk1O+EkxOoLROTa+ia1/AmFLuXYNltLGI1YxOY14i80cKpOf0Z59IXnlrY3coAI9NDQ==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@oxc-resolver/binding-linux-x64-musl@11.12.0':
+    resolution: {integrity: sha512-qpHPU0qqeJXh7cPzA+I+WWA6RxtRArfmSrhTXidbiQ08G5A1e55YQwExWkitB2rSqN6YFxnpfhHKo9hyhpyfSg==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@oxc-resolver/binding-wasm32-wasi@11.12.0':
+    resolution: {integrity: sha512-oqg80bERZAagWLqYmngnesE0/2miv4lST7+wiiZniD6gyb1SoRckwEkbTsytGutkudFtw7O61Pon6pNlOvyFaA==}
+    engines: {node: '>=14.0.0'}
+    cpu: [wasm32]
+
+  '@oxc-resolver/binding-win32-arm64-msvc@11.12.0':
+    resolution: {integrity: sha512-qKH816ycEN9yR/TX91CP1/i6xyVNHKX9VEOYa3XzQROPVtcYG2F6A3ng/PhwpJvS1cmL/DlilhglZe9KWkhNjg==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxc-resolver/binding-win32-ia32-msvc@11.12.0':
+    resolution: {integrity: sha512-3bgxubTlhzF6BwBnhGz5BTboarl1upuanEr6i0dncjfEcU+Z9xAOgbtA7Ip3G3EKDjE1objRKK+ny8PKJZ3b7Q==}
+    cpu: [ia32]
+    os: [win32]
+
+  '@oxc-resolver/binding-win32-x64-msvc@11.12.0':
+    resolution: {integrity: sha512-rbiWYQWxwy+x7+KgNAoAGYIPB3xUclQlFVV3L5lwfsbp4PQPomJohHowlWgi3GRAEybM5+ZL9xny0YfpJOsthA==}
+    cpu: [x64]
+    os: [win32]
 
   '@oxlint-tsgolint/darwin-arm64@0.3.0':
     resolution: {integrity: sha512-AoK80jrY1DhqnGtpWCyyUuFBl6smiwHXeW25OimCzOHwVy7MFgMMaVU4LTcMFOD524UI4sIBl7aN3PLPa/X92A==}
@@ -3729,10 +3619,6 @@ packages:
     resolution: {integrity: sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw==}
     engines: {node: '>=8'}
 
-  find-up@8.0.0:
-    resolution: {integrity: sha512-JGG8pvDi2C+JxidYdIwQDyS/CgcrIdh18cvgxcBge3wSHRQOrooMD3GlFBcmMJAN9M42SAZjDp5zv1dglJjwww==}
-    engines: {node: '>=20'}
-
   flattie@1.1.1:
     resolution: {integrity: sha512-9UbaD6XdAL97+k/n+N7JwX46K/M6Zc6KcFYskrYL8wbBV/Uyk0CTAMY0VT+qiK5PM7AIc9aTWYtq65U7T+aCNQ==}
     engines: {node: '>=8'}
@@ -4140,10 +4026,6 @@ packages:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
 
-  locate-path@8.0.0:
-    resolution: {integrity: sha512-XT9ewWAC43tiAV7xDAPflMkG0qOPn2QjHqlgX8FOqmWa/rxnyYDulF9T0F7tRy1u+TVTmK/M//6VIOye+2zDXg==}
-    engines: {node: '>=20'}
-
   lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
 
@@ -4497,6 +4379,9 @@ packages:
   outdent@0.5.0:
     resolution: {integrity: sha512-/jHxFIzoMXdqPzTaCpFzAAWhpkSjZPF4Vsn6jAfNpmbH/ymsmd7Qc6VE9BGn0L6YMj6uwpQLxCECpus4ukKS9Q==}
 
+  oxc-resolver@11.12.0:
+    resolution: {integrity: sha512-zmS2q2txiB+hS2u0aiIwmvITIJN8c8ThlWoWB762Wx5nUw8WBlttp0rzt8nnuP1cGIq9YJ7sGxfsgokm+SQk5Q==}
+
   oxlint-tsgolint@0.3.0:
     resolution: {integrity: sha512-q4ZI3TXwiBZsku1RzVlIyk09HY0lI33No87b/XIHLAGm6+3BeyW4D0kIcMok//O65Z5xINTJNlSNkazmkgx8pA==}
     hasBin: true
@@ -4519,10 +4404,6 @@ packages:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
 
-  p-limit@4.0.0:
-    resolution: {integrity: sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-
   p-limit@6.2.0:
     resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
     engines: {node: '>=18'}
@@ -4530,10 +4411,6 @@ packages:
   p-locate@4.1.0:
     resolution: {integrity: sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==}
     engines: {node: '>=8'}
-
-  p-locate@6.0.0:
-    resolution: {integrity: sha512-wPrq66Llhl7/4AGC6I+cqxT07LhXvWL08LNXz1fENOw0Ap4sRZZ/gZpTTJ5jpurzzzfS2W/Ge9BY3LgLjCShcw==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   p-map@2.1.0:
     resolution: {integrity: sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==}
@@ -5404,10 +5281,6 @@ packages:
 
   unicode-trie@2.0.0:
     resolution: {integrity: sha512-x7bc76x0bm4prf1VLg79uhAzKw8DVboClSN5VxJuQ+LKDOVEW9CdH+VY7SP+vX7xCYQqzzgQpFqz15zeLvAtZQ==}
-
-  unicorn-magic@0.3.0:
-    resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
-    engines: {node: '>=18'}
 
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
@@ -6995,6 +6868,65 @@ snapshots:
 
   '@oxc-project/types@0.95.0': {}
 
+  '@oxc-resolver/binding-android-arm-eabi@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-android-arm64@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-darwin-arm64@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-darwin-x64@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-freebsd-x64@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-arm-gnueabihf@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-arm-musleabihf@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-arm64-gnu@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-arm64-musl@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-ppc64-gnu@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-riscv64-gnu@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-riscv64-musl@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-s390x-gnu@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-x64-gnu@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-linux-x64-musl@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-wasm32-wasi@11.12.0':
+    dependencies:
+      '@napi-rs/wasm-runtime': 1.0.7
+    optional: true
+
+  '@oxc-resolver/binding-win32-arm64-msvc@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-win32-ia32-msvc@11.12.0':
+    optional: true
+
+  '@oxc-resolver/binding-win32-x64-msvc@11.12.0':
+    optional: true
+
   '@oxlint-tsgolint/darwin-arm64@0.3.0':
     optional: true
 
@@ -7436,12 +7368,12 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
+  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       debug: 4.4.3
       svelte: 5.42.2
-      vite: 6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -7456,14 +7388,14 @@ snapshots:
 
   '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
     dependencies:
-      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.21
       svelte: 5.42.2
       vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+      vitefu: 1.1.1(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -8707,7 +8639,9 @@ snapshots:
 
   dset@3.1.4: {}
 
-  dts-resolver@2.1.2: {}
+  dts-resolver@2.1.2(oxc-resolver@11.12.0):
+    optionalDependencies:
+      oxc-resolver: 11.12.0
 
   eastasianwidth@0.2.0: {}
 
@@ -8881,11 +8815,6 @@ snapshots:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
-
-  find-up@8.0.0:
-    dependencies:
-      locate-path: 8.0.0
-      unicorn-magic: 0.3.0
 
   flattie@1.1.1: {}
 
@@ -9353,10 +9282,6 @@ snapshots:
   locate-path@5.0.0:
     dependencies:
       p-locate: 4.1.0
-
-  locate-path@8.0.0:
-    dependencies:
-      p-locate: 6.0.0
 
   lodash.startcase@4.4.0: {}
 
@@ -9964,6 +9889,28 @@ snapshots:
 
   outdent@0.5.0: {}
 
+  oxc-resolver@11.12.0:
+    optionalDependencies:
+      '@oxc-resolver/binding-android-arm-eabi': 11.12.0
+      '@oxc-resolver/binding-android-arm64': 11.12.0
+      '@oxc-resolver/binding-darwin-arm64': 11.12.0
+      '@oxc-resolver/binding-darwin-x64': 11.12.0
+      '@oxc-resolver/binding-freebsd-x64': 11.12.0
+      '@oxc-resolver/binding-linux-arm-gnueabihf': 11.12.0
+      '@oxc-resolver/binding-linux-arm-musleabihf': 11.12.0
+      '@oxc-resolver/binding-linux-arm64-gnu': 11.12.0
+      '@oxc-resolver/binding-linux-arm64-musl': 11.12.0
+      '@oxc-resolver/binding-linux-ppc64-gnu': 11.12.0
+      '@oxc-resolver/binding-linux-riscv64-gnu': 11.12.0
+      '@oxc-resolver/binding-linux-riscv64-musl': 11.12.0
+      '@oxc-resolver/binding-linux-s390x-gnu': 11.12.0
+      '@oxc-resolver/binding-linux-x64-gnu': 11.12.0
+      '@oxc-resolver/binding-linux-x64-musl': 11.12.0
+      '@oxc-resolver/binding-wasm32-wasi': 11.12.0
+      '@oxc-resolver/binding-win32-arm64-msvc': 11.12.0
+      '@oxc-resolver/binding-win32-ia32-msvc': 11.12.0
+      '@oxc-resolver/binding-win32-x64-msvc': 11.12.0
+
   oxlint-tsgolint@0.3.0:
     optionalDependencies:
       '@oxlint-tsgolint/darwin-arm64': 0.3.0
@@ -9993,10 +9940,6 @@ snapshots:
     dependencies:
       p-try: 2.2.0
 
-  p-limit@4.0.0:
-    dependencies:
-      yocto-queue: 1.2.1
-
   p-limit@6.2.0:
     dependencies:
       yocto-queue: 1.2.1
@@ -10004,10 +9947,6 @@ snapshots:
   p-locate@4.1.0:
     dependencies:
       p-limit: 2.3.0
-
-  p-locate@6.0.0:
-    dependencies:
-      p-limit: 4.0.0
 
   p-map@2.1.0: {}
 
@@ -10391,7 +10330,7 @@ snapshots:
 
   reusify@1.1.0: {}
 
-  rolldown-plugin-dts@0.16.12(rolldown@1.0.0-beta.44)(typescript@5.9.3):
+  rolldown-plugin-dts@0.16.12(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.44)(typescript@5.9.3):
     dependencies:
       '@babel/generator': 7.28.3
       '@babel/parser': 7.28.4
@@ -10399,7 +10338,7 @@ snapshots:
       ast-kit: 2.1.3
       birpc: 2.6.1
       debug: 4.4.3
-      dts-resolver: 2.1.2
+      dts-resolver: 2.1.2(oxc-resolver@11.12.0)
       get-tsconfig: 4.12.0
       magic-string: 0.30.21
       rolldown: 1.0.0-beta.44
@@ -10880,7 +10819,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  tsdown@0.15.9(publint@0.3.13)(typescript@5.9.3):
+  tsdown@0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -10890,7 +10829,7 @@ snapshots:
       empathic: 2.0.0
       hookable: 5.5.3
       rolldown: 1.0.0-beta.44
-      rolldown-plugin-dts: 0.16.12(rolldown@1.0.0-beta.44)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.16.12(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.44)(typescript@5.9.3)
       semver: 7.7.3
       tinyexec: 1.0.1
       tinyglobby: 0.2.15
@@ -10956,8 +10895,6 @@ snapshots:
     dependencies:
       pako: 0.2.9
       tiny-inflate: 1.0.3
-
-  unicorn-magic@0.3.0: {}
 
   unified@11.0.5:
     dependencies:

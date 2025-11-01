@@ -1,29 +1,8 @@
-import { findUpSync } from 'find-up';
 import type { Root, RootContent } from 'mdast';
 import { readFileSync } from 'node:fs';
-import { globSync } from 'node:fs';
-import { resolve, extname } from 'node:path';
+import { extname } from 'node:path';
+import { ResolverFactory } from 'oxc-resolver';
 import { visit, SKIP } from 'unist-util-visit';
-
-function loadTsconfigPaths() {
-	const tsconfigPath = findUpSync('tsconfig.json', { cwd: import.meta.dirname });
-	if (!tsconfigPath) {
-		throw new Error('tsconfig.json not found');
-	}
-	const tsconfig = JSON.parse(readFileSync(tsconfigPath, 'utf-8'));
-	const paths = new Map<string, string>();
-	if (tsconfig.compilerOptions?.paths) {
-		for (const [pattern, targets] of Object.entries(tsconfig.compilerOptions.paths)) {
-			if (Array.isArray(targets) && targets.length > 0) {
-				// Remove the /* suffix from pattern and target
-				const cleanPattern = pattern.replace(/\/\*$/, '');
-				const cleanTarget = (targets[0] as string).replace(/\/\*$/, '');
-				paths.set(cleanPattern, cleanTarget);
-			}
-		}
-	}
-	return paths;
-}
 
 function extractImports(root: Root) {
 	const imports = new Map<string, string>();
@@ -41,30 +20,20 @@ function extractImports(root: Root) {
 	return imports;
 }
 
+const resolve = new ResolverFactory({
+	tsconfig: 'auto',
+	extensions: ['.ts', '.tsx', '.js', '.jsx'],
+});
+
 function readFileContents(importPath: string) {
-	const tsconfigPaths = loadTsconfigPaths();
+	const importPathWithoutQuery = importPath.replace(/\?.*$/, '');
+	const resolved = resolve.sync(process.cwd(), importPathWithoutQuery);
 
-	const pathWithTsconfigResolved = Array.from(tsconfigPaths.entries()).reduce(
-		(path, [pattern, target]) => (path.startsWith(pattern) ? path.replace(pattern, target) : path),
-		importPath,
-	);
-
-	const pathWithoutRaw = pathWithTsconfigResolved.replace(/\?raw$/, '');
-	const pathWithoutExtension = pathWithoutRaw.replace(extname(pathWithoutRaw), '');
-	const absolutePath = resolve(process.cwd(), pathWithoutExtension);
-	const matchingFiles = globSync(`${absolutePath}.*`);
-
-	if (matchingFiles.length > 1) {
-		throw new Error(`Multiple files found matching: ${absolutePath}`);
+	if (!resolved.path) {
+		return resolved.error ?? 'Unable to resolve import path';
 	}
 
-	const file = matchingFiles.at(0);
-
-	if (!file) {
-		throw new Error(`No files found matching: ${absolutePath}`);
-	}
-
-	return readFileSync(file, 'utf-8');
+	return readFileSync(resolved.path, 'utf-8');
 }
 
 export function processPreviewComponents(root: Root) {

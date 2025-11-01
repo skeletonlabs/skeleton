@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
-const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
+const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..');
 const PACKAGE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'packages', name);
 
 type TypeKind = 'function' | 'array' | 'object' | 'primitive';
