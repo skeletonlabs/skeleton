@@ -103,7 +103,7 @@
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<a href="/settings" class={anchorRail} title="Settings" aria-label="Settings">
+					<a href="#" class={anchorRail} title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-5" />
 					</a>
 				</Navigation.Footer>

@@ -22,7 +22,7 @@
 		mergeProps(
 			accordion().getItemTriggerProps(itemProps()),
 			{
-				class: classesAccordion.trigger,
+				class: classesAccordion.itemTrigger,
 			},
 			rest,
 		),

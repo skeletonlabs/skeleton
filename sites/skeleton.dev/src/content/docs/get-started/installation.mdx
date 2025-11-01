@@ -4,15 +4,15 @@ description: Learn how to install and setup Skeleton for your project.
 order: 10
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
-{/* --- */}
+## Guides
 
-<NavGrid collection="docs" path="installation/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('installation/')} class="md:grid-cols-2" />
 
 ## Mixing UI Libraries
 
-Skeleton's design system is perfect for complementing headless component libraries, such as [Bits UI](/docs/headless/bits-ui), [Melt UI](/docs/headless/melt-ui), [Radix](/docs/headless/radix-ui), and [Zag.js](https://zagjs.com/). As well as "Tailwind component" libraries such as the [Tailwind Plus](https://tailwindcss.com/plus). Supporting any component system that supports Tailwind, but very specifically allows you to insert or substitute Skeleton-provided utility classes.
+Skeleton's design system is perfect for complementing headless component libraries, such as [Bits UI](/docs/[framework]/integrations/bits-ui), [Melt UI](/docs/[framework]/integrations/melt-ui), [Radix](/docs/[framework]/integrations/radix-ui), and [Zag.js](https://zagjs.com/). As well as "Tailwind component" libraries such as the [Tailwind Plus](https://tailwindcss.com/plus). Supporting any component system that supports Tailwind, but very specifically allows you to insert or substitute Skeleton-provided utility classes.
 
 ### Unsupported Libraries
 

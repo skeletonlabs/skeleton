@@ -22,7 +22,7 @@
 		mergeProps(
 			accordion().getItemIndicatorProps(itemProps()),
 			{
-				class: classesAccordion.indicator,
+				class: classesAccordion.itemIndicator,
 			},
 			rest,
 		),

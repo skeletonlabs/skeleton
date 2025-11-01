@@ -1,16 +1,10 @@
 <script lang="ts">
-	import CodeBlock from '@/components/examples/integrations/code-block/svelte/component.svelte';
-
-	// Source Code
-	const exampleConsole = `npx sv create my-skeleton-app`;
-	const exampleHtml = `<div class="bg-green-500">Hello World</div>`;
-	const exampleCss = `.foobar { background: green; }`;
-	const exampleJavascript = `const foo = 'bar';`;
+	import CodeBlock from './code-block.svelte';
 </script>
 
 <div class="p-10 space-y-4">
-	<CodeBlock code={exampleConsole} />
-	<CodeBlock code={exampleHtml} lang="html" />
-	<CodeBlock code={exampleCss} lang="css" />
-	<CodeBlock code={exampleJavascript} lang="js" />
+	<CodeBlock code="npx sv create my-skeleton-app" lang="bash" />
+	<CodeBlock code="<div class=&quot;bg-green-500&quot;" lang="html" />
+	<CodeBlock code=".foobar &#123; background: green; &#125;" lang="css" />
+	<CodeBlock code="const foot = 'bar';" lang="js" />
 </div>

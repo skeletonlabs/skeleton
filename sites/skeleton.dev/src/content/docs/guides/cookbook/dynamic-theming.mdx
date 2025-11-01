@@ -1,8 +1,6 @@
 ---
 title: Dynamic Theme Loading
 description: Load skeleton themes on demand.
-showDocsUrl: true
-pubDate: 2025-01-18
 tags: ['theme', 'guides']
 ---
 
@@ -10,27 +8,26 @@ tags: ['theme', 'guides']
 
 The most common way to load skeleton themes is by importing them in your root stylesheet.
 
-<Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```css title="app/globals.css"
-		@import 'tailwindcss';
+<Framework id="react">
+	```css
+	@import 'tailwindcss';
 
-    	@import '@skeletonlabs/skeleton';
-    	@import '@skeletonlabs/skeleton/themes/cerberus';
-    	@import '@skeletonlabs/skeleton/themes/catppuccin';
-    	```
-    </Fragment>
-    <Fragment slot="codeSvelte">
-    	```css title="src/app.css"
-    	@import 'tailwindcss';
+    @import '@skeletonlabs/skeleton';
+    @import '@skeletonlabs/skeleton/themes/cerberus';
+    @import '@skeletonlabs/skeleton/themes/catppuccin';
+    ```
 
-    	@import '@skeletonlabs/skeleton';
-    	@import '@skeletonlabs/skeleton/themes/cerberus';
-    	@import '@skeletonlabs/skeleton/themes/catppuccin';
-    	```
-    </Fragment>
+</Framework>
+<Framework id="svelte">
+	```css
+	@import 'tailwindcss';
 
-</Preview>
+    @import '@skeletonlabs/skeleton';
+    @import '@skeletonlabs/skeleton/themes/cerberus';
+    @import '@skeletonlabs/skeleton/themes/catppuccin';
+    ```
+
+</Framework>
 
 This will bundle your themes when you build your application, for that reason you should only import the themes you need because they will increase your CSS bundle size.
 
@@ -44,133 +41,125 @@ This approach assumes the CSS variables of the skeleton theme you want is availa
 
 In this example we will add a default theme that that can be used as a fallback.
 
-<Preview selected="codeReact" client:visible>
-	<Fragment slot="codeReact">
-		```css title="app/globals.css"
-		@import 'tailwindcss';
+<Framework id="react">
+	```css
+	@import 'tailwindcss';
 
-    	@import '@skeletonlabs/skeleton';
-    	@import './default.css';
-    	```
-    </Fragment>
-    <Fragment slot="codeSvelte">
-    	```css title="src/app.css"
-    	@import 'tailwindcss';
+    @import '@skeletonlabs/skeleton';
+    @import './default.css';
+    ```
 
-    	@import '@skeletonlabs/skeleton';
-    	@import './default.css';
-    	```
-    </Fragment>
+</Framework>
+<Framework id="svelte">
+	```css
+	@import 'tailwindcss';
 
-</Preview>
+    @import '@skeletonlabs/skeleton';
+    @import './default.css';
+    ```
 
-<Preview selected="codeReact" client:visible>
-    <Fragment slot="codeReact">
-    	```css title="app/default.css"
-    	[data-theme='default'] {
-    		/* ... */
-    	}
-    	```
-    </Fragment>
-    <Fragment slot="codeSvelte">
-    	```css title="src/default.css"
-    	[data-theme='default'] {
-    		/* ... */
-    	}
-    	```
- </Fragment>
+</Framework>
 
-</Preview>
+<Framework id="react">
 
-<Preview selected="codeReact" client:visible>
-    <Fragment slot="codeReact">
-		To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
+    ```css
+    [data-theme='default'] {/* ... */}
+    ```
 
-    	```tsx title="app/layout.tsx"
-    	import Head from 'next/head';
-    	import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
+</Framework>
+<Framework id="svelte">
 
-    	const getThemes = async () => {
-    		return [
-    			{
-    				name: 'theme-1',
-    				css: `[data-theme='theme-1'] { /* ... */ }`
-    			},
-    			{
-    				name: 'theme-2',
-    				css: `[data-theme='theme-2'] { /* ... */ }`
-    			}
-    		];
-    	};
+    ```css
+    [data-theme='default'] {/* ... */}
+    ```
 
-    	export const getServerSideProps = (async () => {
-    		const themes = getThemes();
-    		return {
-    			props: {
-    				themes: ['default', ...themes.map((t) => t.name)],
-    				css: themes.map((theme) => theme.css).join('\n\n')
-    			}
-    		};
-    	}) satisfies GetServerSideProps<{ repo: Repo }>;
+</Framework>
 
-    	export default function Page({ repo }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    		return (
-    			<>
-    				<Head>
-    					<style dangerouslySetInnerHTML={{ __html: css }} />
-    				</Head>
-    				<main>
-    					<p>{repo.stargazers_count}</p>
-    				</main>
-    			</>
-    		);
-    	}
-    	```
-    </Fragment>
-    <Fragment slot="codeSvelte">
-    	To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
+<Framework id="react">
 
+    To load your themes we will utilize the [NextJS `getServerSideProps` function](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props) function in combination with [Head component](https://nextjs.org/docs/pages/api-reference/components/head):
 
-    	```ts title="src/route/+layout.server.ts"
-    	import type { PageLoad } from './$types';
+    ```tsx
+    import Head from 'next/head';
+    import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 
-    	const getThemes = async () => {
-    		return [
-    			{
-    				name: 'theme-1',
-    				css: `[data-theme='theme-1'] { /* ... */ }`
-    			},
-    			{
-    				name: 'theme-2',
-    				css: `[data-theme='theme-2'] { /* ... */ }`
-    			}
-    		];
-    	};
+    const getThemes = async () => {
+    	return [
+    		{
+    			name: 'theme-1',
+    			css: `[data-theme='theme-1'] { /* ... */ }`
+    		},
+    		{
+    			name: 'theme-2',
+    			css: `[data-theme='theme-2'] { /* ... */ }`
+    		}
+    	];
+    };
 
-    	export const load: PageLoad = async (event) => {
-    		const themes = getThemes();
-    		return {
+    export const getServerSideProps = (async () => {
+    	const themes = getThemes();
+    	return {
+    		props: {
     			themes: ['default', ...themes.map((t) => t.name)],
     			css: themes.map((theme) => theme.css).join('\n\n')
-    		};
+    		}
     	};
-    	```
+    }) satisfies GetServerSideProps<{ repo: Repo }>;
 
-    	<br />
+    export default function Page({ repo }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+    	return (
+    		<>
+    			<Head>
+    				<style dangerouslySetInnerHTML={{ __html: css }} />
+    			</Head>
+    			<main>
+    				<p>{repo.stargazers_count}</p>
+    			</main>
+    		</>
+    	);
+    }
+    ```
 
-    	```svelte title="src/routes/+layout.svelte"
-    	<script>
-    		const { data } = $props();
-    	</script>
+</Framework>
+<Framework id="svelte">
 
-    	<svelte:head>
-    		{@html `<style>${data.css}</style>`}
-    	</svelte:head>
-    	```
+    To load your themes we will utilize the [SvelteKit `load` function](https://svelte.dev/docs/kit/load) function in combination with [`<svelte:head>`](https://svelte.dev/docs/svelte/svelte-head):
 
-     </Fragment>
+    ```ts
+    import type { PageLoad } from './$types';
 
-</Preview>
+    const getThemes = async () => {
+    	return [
+    		{
+    			name: 'theme-1',
+    			css: `[data-theme='theme-1'] { /* ... */ }`
+    		},
+    		{
+    			name: 'theme-2',
+    			css: `[data-theme='theme-2'] { /* ... */ }`
+    		}
+    	];
+    };
+
+    export const load: PageLoad = async (event) => {
+    	const themes = getThemes();
+    	return {
+    		themes: ['default', ...themes.map((t) => t.name)],
+    		css: themes.map((theme) => theme.css).join('\n\n')
+    	};
+    };
+    ```
+    ```svelte
+    <script>
+    	const { data } = $props();
+    </script>
+
+    <svelte:head>
+    	{@html `<style>${data.css}</style>`}
+    </svelte:head>
+    ```
+
+</Framework>
 
 > ⚠️ _Important_ make sure you sanitize the CSS before inserting it or you'll be vulnerable to CSS injection.
 

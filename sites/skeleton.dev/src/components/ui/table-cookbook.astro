@@ -1,12 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from '@/modules/content';
 
-const collection = 'docs';
-const path = 'guides/cookbook/';
-
-// Get Collection
-const tableData = await getCollection(collection, (item) => {
-	if (item.filePath?.includes(path)) {
+const docs = await getCollection('docs', (item) => {
+	if (item.filePath?.includes('guides/cookbook/')) {
 		return item;
 	}
 });
@@ -16,19 +12,18 @@ const tableData = await getCollection(collection, (item) => {
 	<table class="table">
 		<tbody class="[&>tr]:hover:preset-tonal">
 			{
-				tableData.map((row) => (
-					<tr title={row.data.description}>
-						<td class="font-bold">{row.data.title}</td>
+				docs.map((doc) => (
+					<tr title={doc.data.description}>
+						<td class="font-bold">{doc.data.title}</td>
 						<td>
 							<div class="flex flex-wrap gap-2">
-								{row.data.tags?.map((tag: string) => (
+								{doc.data.tags?.map((tag: string) => (
 									<span class="badge preset-tonal-primary">{tag}</span>
 								))}
 							</div>
 						</td>
-						{/* <td class="text-right text-xs opacity-60">{row.data.pubDate?.toLocaleDateString()}</td> */}
 						<td class="text-right">
-							<a href={`/${collection}/${row.id}`} class="btn preset-tonal hover:preset-filled">
+							<a href={`/${doc.collection}/${doc.id}`} class="btn preset-tonal hover:preset-filled">
 								Explore &rarr;
 							</a>
 						</td>

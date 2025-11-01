@@ -22,7 +22,7 @@
 		mergeProps(
 			accordion().getItemContentProps(itemProps()),
 			{
-				class: classesAccordion.content,
+				class: classesAccordion.itemContent,
 			},
 			rest,
 		),

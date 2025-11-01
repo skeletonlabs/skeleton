@@ -1,35 +1,21 @@
 ---
 title: Themes
 description: The Skeleton theme system.
-srcCore: '/themes'
+summary: Skeleton themes utilize CSS custom properties to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme generator to create your own. Enable one or more and quickly switch on-demand.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes'
 order: 0
 ---
 
 import ThemeList from '@/components/ui/theme-list.astro';
 
-{
-
-<p class="text-xl">
-	Skeleton themes utilize{' '}
-	<a className="anchor" href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*" target="_blank" rel="external">
-		CSS custom properties
-	</a>{' '}
-	to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme
-	generator to create your own. Enable one or more and quickly switch on-demand.
-</p>
-}
-
----
-
 ## Preset Themes
 
-Skeleton is provided with high quality set of hand curated themes, as shown below.
+Skeleton is provided with high quality set of hand curated themes. Tap the themes below to preview.
 
 <ThemeList />
 
-Tap the theme preview above to copy the theme name to your clipboard. Then implement any desired theme in your app's global stylesheet.
-
-```css title="app.css" {3}
+```css
 /* @import '@skeletonlabs/skeleton'; */
 @import '@skeletonlabs/skeleton/themes/{theme-name}';
 ```
@@ -90,9 +76,9 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 
 ### Modify Properties
 
-You can modify any [theme property](/docs/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
+You can modify any [theme property](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] {
 	--spacing: 0.22rem;
 	--radius-container: 0.375rem;
@@ -123,9 +109,9 @@ If your application supports multiple themes, you may isolate selection using th
 
 ### Backgrounds
 
-Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/get-started/core-api#colors).
+Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/[framework]/get-started/core-api#colors).
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] body {
 	--body-background-color: pink;
 	--body-background-color-dark: green;
@@ -134,7 +120,7 @@ Your app's light and dark mode background color values can be adjusted using the
 
 Background images are supported, including CSS mesh gradients. The following example adheres to theme colors.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] body {
 	background-image:
 		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
@@ -167,19 +153,19 @@ Skeleton recommends the use of [Fontsource](https://fontsource.org/) for install
 
 Install your font of choice.
 
-```console
+```bash
 npm install @fontsource/open-sans
 ```
 
 Then import each font at the top of your global stylesheet, but below your Tailwind configuration.
 
-```css title="app.css"
+```css
 @import '@fontsource/open-sans';
 ```
 
-Finally, use the following [theme properties](/docs/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
+Finally, use the following [theme properties](/docs/[framework]/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
 
-```css title="app.css"
+```css
 [data-theme='cerberus'] {
 	--heading-font-family: 'Open Sans', sans-serif;
 	--base-font-family: 'Open Sans', sans-serif;
@@ -189,4 +175,4 @@ Finally, use the following [theme properties](/docs/get-started/core-api#base-1)
 
 ## Core API
 
-For more information, please refer to the full [Core API](/docs/get-started/core-api) documentation.
+For more information, please refer to the full [Core API](/docs/[framework]/get-started/core-api) documentation.

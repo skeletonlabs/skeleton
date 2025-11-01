@@ -1,8 +1,6 @@
 ---
 title: Clipboard API
 description: Learn how to integrate the native browser clipboard API.
-showDocsUrl: true
-pubDate: 2024-11-19
 tags: ['native', 'programmatic']
 ---
 
@@ -17,22 +15,12 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 
 ## Programmatic
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview framework="astro" files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## Using Inputs
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Input />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={InputRaw} lang="astro" />
-	</Fragment>
+<Preview framework="astro" files={{ 'app.astro': InputRaw }} client:visible>
+	<Input />
 </Preview>

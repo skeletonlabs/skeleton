@@ -1,15 +1,13 @@
 ---
 title: Floating UI Attachments
 description: A Svelte-focused guide around integrating Floating UI and Svelte attachments.
-showDocsUrl: true
-pubDate: 2025-08-13
 tags: ['integration', 'popovers', 'svelte']
 ---
 
 import PopoverRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover.svelte?raw';
 import PopoverModuleRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/popover?raw';
 import TooltipRaw from '@/components/examples/guides/cookbook/floating-ui-attachments/tooltip.svelte?raw';
-import Alert from '@/components/mdx/alert.astro';
+import Code from '@/components/ui/code.svelte';
 
 <Alert type="info">
 	Please note that this is a Svelte-only guide based around the [attachments](https://svelte.dev/docs/svelte/svelte-attachments) feature
@@ -22,17 +20,17 @@ The following will guide you through integrating [Floating UI](https://floating-
 
 ### Accessibility Warning
 
-This guide is not a drop-in replacement for Skeleton's [Svelte Popovers](/docs/components/popover/svelte) as it does not replicate all recommended accessbility features out of the box (such as ARIA attributes, focus states, keyboard interactions, etc). These features are out of scope of this guide. It will be your responsibility to handle these features before using this in a production environment.
+This guide is not a drop-in replacement for Skeleton's [Svelte Popovers](/docs/[framework]/framework-components/popover) as it does not replicate all recommended accessbility features out of the box (such as ARIA attributes, focus states, keyboard interactions, etc). These features are out of scope of this guide. It will be your responsibility to handle these features before using this in a production environment.
 
 ### Target Audience
 
-This guide is intended for advanced Svelte users that wish to integrate directly with Floating UI, build custom floating interfaces, and go beyond the scope of Skeleton's [Svelte Popovers](/docs/integrations/popover/svelte). This can be used to generate interfaces not covered by Skeleton's Popover components.
+This guide is intended for advanced Svelte users that wish to integrate directly with Floating UI, build custom floating interfaces, and go beyond the scope of Skeleton's [Svelte Popovers](/docs/[framework]/framework-components/popover). This can be used to generate interfaces not covered by Skeleton's Popover components.
 
 ## Installing Floating UI
 
 To begin, install the standard version of Floating UI.
 
-```console
+```bash
 npm install @floating-ui/dom
 ```
 

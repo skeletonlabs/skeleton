@@ -18,7 +18,7 @@ export default function ItemIndicator(props: AccordionItemIndicatorProps) {
 	const attributes = mergeProps(
 		accordion.getItemIndicatorProps(itemProps),
 		{
-			className: classesAccordion.indicator,
+			className: classesAccordion.itemIndicator,
 		},
 		rest,
 	);

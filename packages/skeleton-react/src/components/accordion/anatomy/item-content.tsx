@@ -18,7 +18,7 @@ export default function ItemContent(props: AccordionItemContentProps) {
 	const attributes = mergeProps(
 		accordion.getItemContentProps(itemProps),
 		{
-			className: classesAccordion.content,
+			className: classesAccordion.itemContent,
 		},
 		rest,
 	);
