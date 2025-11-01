@@ -25,15 +25,16 @@ const resolve = new ResolverFactory({
 	extensions: ['.ts', '.tsx', '.js', '.jsx'],
 });
 
-function readFileContents(importPath: string) {
+function resolveImportPath(importPath: string) {
 	const importPathWithoutQuery = importPath.replace(/\?.*$/, '');
 	const resolved = resolve.sync(process.cwd(), importPathWithoutQuery);
-
-	if (!resolved.path) {
-		return resolved.error ?? 'Unable to resolve import path';
+	if (resolved.error) {
+		throw new Error(resolved.error);
 	}
-
-	return readFileSync(resolved.path, 'utf-8');
+	if (!resolved.path) {
+		throw new Error(`Could not resolve import path: ${importPath}`);
+	}
+	return resolved.path;
 }
 
 export function processPreviewComponents(root: Root) {
@@ -60,11 +61,11 @@ export function processPreviewComponents(root: Root) {
 					if (!importPath) {
 						return;
 					}
-					const fileContents = readFileContents(importPath);
+					const resolvedImportPath = resolveImportPath(importPath);
 					return {
 						type: 'code',
 						lang: extname(fileName).substring(1),
-						value: fileContents,
+						value: readFileSync(resolvedImportPath, 'utf-8'),
 					};
 				})
 				.filter(Boolean);
