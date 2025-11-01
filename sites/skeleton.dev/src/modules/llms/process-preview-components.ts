@@ -2,19 +2,27 @@ import type { Root, RootContent } from 'mdast';
 import { readFileSync } from 'node:fs';
 import { extname } from 'node:path';
 import { ResolverFactory } from 'oxc-resolver';
+import { Project } from 'ts-morph';
 import { visit, SKIP } from 'unist-util-visit';
 
-function extractImports(root: Root) {
+function getDefaultImports(root: Root) {
 	const imports = new Map<string, string>();
+	const project = new Project({
+		useInMemoryFileSystem: true,
+		skipAddingFilesFromTsConfig: true,
+	});
 
 	visit(root, 'mdxjsEsm', (node) => {
-		if ('value' in node && typeof node.value === 'string') {
-			const importMatches = node.value.matchAll(/import\s+(\w+)\s+from\s+['"]([^'"]+)['"]/g);
-			for (const match of importMatches) {
-				const [, importName, importPath] = match;
-				imports.set(importName, importPath);
+		const sourceFile = project.createSourceFile('temp.ts', node.value, { overwrite: true });
+		for (const declaration of sourceFile.getImportDeclarations()) {
+			const defaultImport = declaration.getDefaultImport();
+			if (!defaultImport) {
+				continue;
 			}
+			const importPath = declaration.getModuleSpecifierValue();
+			imports.set(defaultImport.getText(), importPath);
 		}
+		project.removeSourceFile(sourceFile);
 	});
 
 	return imports;
@@ -38,7 +46,7 @@ function resolveImportPath(importPath: string) {
 }
 
 export function processPreviewComponents(root: Root) {
-	const imports = extractImports(root);
+	const imports = getDefaultImports(root);
 
 	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
 		if (!index || !parent || node.name !== 'Preview') {
