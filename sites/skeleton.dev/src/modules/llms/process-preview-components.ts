@@ -11,9 +11,9 @@ function getDefaultImports(root: Root) {
 		useInMemoryFileSystem: true,
 		skipAddingFilesFromTsConfig: true,
 	});
-
+	const sourceFile = project.createSourceFile('temp.ts', '', { overwrite: true });
 	visit(root, 'mdxjsEsm', (node) => {
-		const sourceFile = project.createSourceFile('temp.ts', node.value, { overwrite: true });
+		sourceFile.replaceWithText(node.value);
 		for (const declaration of sourceFile.getImportDeclarations()) {
 			const defaultImport = declaration.getDefaultImport();
 			if (!defaultImport) {
@@ -22,9 +22,8 @@ function getDefaultImports(root: Root) {
 			const importPath = declaration.getModuleSpecifierValue();
 			imports.set(defaultImport.getText(), importPath);
 		}
-		project.removeSourceFile(sourceFile);
 	});
-
+	project.removeSourceFile(sourceFile);
 	return imports;
 }
 
