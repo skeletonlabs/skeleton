@@ -26,7 +26,8 @@ function createTablesForComponent(component: CollectionEntry<'components'>) {
 			type.name
 				.replace(kebabToPascal(component.id.split('/').at(-1) ?? ''), '')
 				.replace('Props', '')
-				.trim() || 'Props';
+				.replace('Root', '')
+				.trim() || 'Root';
 		nodes.push({
 			type: 'heading',
 			depth: 3,
@@ -61,16 +62,16 @@ function createTablesForComponent(component: CollectionEntry<'components'>) {
 	return nodes;
 }
 
-export function processApiTableComponents(root: Root) {
+export function processApiReferenceComponents(root: Root) {
 	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
-		if (node.name !== 'ApiTable' || !parent || typeof index !== 'number') {
+		if (node.name !== 'ApiReference' || !parent || typeof index !== 'number') {
 			return;
 		}
-		const componentAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'component');
-		const frameworkAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'framework');
-		const componentId = componentAttribute && typeof componentAttribute.value === 'string' ? componentAttribute.value : '';
-		const frameworkId = frameworkAttribute && typeof frameworkAttribute.value === 'string' ? frameworkAttribute.value : '';
-		const component = components.find((c) => c.id === `${frameworkId}/${componentId}`);
+		const idAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'id');
+		if (!idAttribute) {
+			return;
+		}
+		const component = components.find((comp) => comp.id === idAttribute.value);
 		if (!component) {
 			return;
 		}
