@@ -2,7 +2,7 @@ import { getActiveFramework } from '../framework';
 import { getComponentIdFromURL } from '../get-component-id-from-url';
 import type { GetMarkdownFromDocContext } from './get-markdown-from-doc';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
+import type { Root, Table, TableCell, TableRow, Heading, Node } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
 const components = await getCollection('components');
@@ -21,48 +21,47 @@ function createCell(value: string): TableCell {
 	};
 }
 
-function createTablesForComponent(component: CollectionEntry<'components'>): (Heading | Table)[] {
-	const tables: (Heading | Table)[] = [];
-
+function createTablesForComponent(component: CollectionEntry<'components'>) {
+	const nodes: (Heading | Table)[] = [];
 	for (const type of component.data.types) {
 		// TooltipRootProps -> Root
-		const sectionTitle = type.name.replace(kebabToPascal(component.id), '').replace('Props', '').trim() || 'Props';
-
-		tables.push({
+		const heading =
+			type.name
+				.replace(kebabToPascal(component.id.split('/').at(-1) ?? ''), '')
+				.replace('Props', '')
+				.trim() || 'Props';
+		nodes.push({
 			type: 'heading',
 			depth: 3,
-			children: [{ type: 'text', value: sectionTitle }],
-		} satisfies Heading);
-
-		const headerRow = {
-			type: 'tableRow',
-			children: ['Prop', 'Default', 'Type'].map((val) => ({
-				type: 'tableCell',
-				children: [{ type: 'text', value: val }],
-			})),
-		} satisfies TableRow;
-
-		const bodyRows: TableRow[] = type.props.map((prop) => {
-			const defaultValue = prop.JSDoc?.tags?.find((t) => t.name === 'default')?.value ?? '-';
-
-			const typeWithDescription = prop.JSDoc?.description ? `${prop.type} ${prop.JSDoc.description}` : prop.type;
-
-			return {
-				type: 'tableRow',
-				children: [createCell(prop.name ?? '-'), createCell(defaultValue), createCell(typeWithDescription)],
-			};
+			children: [{ type: 'text', value: heading }],
 		});
-
-		const table: Table = {
+		nodes.push({
 			type: 'table',
 			align: [],
-			children: [headerRow, ...bodyRows],
-		};
-
-		tables.push(table);
+			children: [
+				{
+					type: 'tableRow',
+					children: ['Prop', 'Default', 'Type'].map((val) => ({
+						type: 'tableCell',
+						children: [{ type: 'text', value: val }],
+					})),
+				},
+				...type.props.map(
+					(prop) =>
+						({
+							type: 'tableRow',
+							children: [
+								createCell(prop.name ?? '-'),
+								createCell(prop.JSDoc.description ?? '-'),
+								createCell(prop.type),
+								createCell(prop.JSDoc?.tags?.find((tag) => tag.name === 'default')?.value ?? '-'),
+							],
+						}) satisfies TableRow,
+				),
+			],
+		});
 	}
-
-	return tables;
+	return nodes;
 }
 
 export function processApiTableComponents(root: Root, context: GetMarkdownFromDocContext) {
