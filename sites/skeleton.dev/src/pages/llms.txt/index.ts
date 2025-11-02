@@ -3,10 +3,10 @@ import { getMarkdownFromDoc } from '@/modules/llms/get-markdown-from-doc';
 import { commonSections } from '@/modules/navigation';
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
 	const frameworks = await getCollection('frameworks');
 	return new Response(
-		commonSections.map((section) => section.docs.map((doc) => getMarkdownFromDoc(doc, frameworks)).join('\n')).join('\n'),
+		commonSections.map((section) => section.docs.map((doc) => getMarkdownFromDoc(context, doc, frameworks)).join('\n')).join('\n'),
 		{
 			headers: {
 				'Content-Type': 'text/plain',

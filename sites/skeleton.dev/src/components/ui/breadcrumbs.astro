@@ -1,8 +1,8 @@
 ---
-import { getActiveFrameworkId } from '@/modules/framework';
+import { getActiveFramework } from '@/modules/framework';
 import { getEntry } from 'astro:content';
 
-const base = `/docs/${getActiveFrameworkId(Astro)}`;
+const base = `/docs/${getActiveFramework(Astro.params).id}`;
 const path = Astro.url.pathname.replace(`${base}/`, '');
 
 const segments = path.split('/').filter(Boolean);

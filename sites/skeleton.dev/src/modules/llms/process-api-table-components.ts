@@ -1,3 +1,6 @@
+import { getActiveFramework } from '../framework';
+import { getComponentIdFromURL } from '../get-component-id-from-url';
+import type { APIContext } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
@@ -19,12 +22,12 @@ function createCell(value: string): TableCell {
 	};
 }
 
-function createTablesForComponent(component: CollectionEntry<'components'>, componentId: string): (Heading | Table)[] {
+function createTablesForComponent(component: CollectionEntry<'components'>): (Heading | Table)[] {
 	const tables: (Heading | Table)[] = [];
 
 	for (const type of component.data.types) {
-		//Ex: TooltipRootProps -> Root
-		const sectionTitle = type.name.replace(kebabToPascal(componentId), '').replace('Props', '').trim() || 'Props';
+		// TooltipRootProps -> Root
+		const sectionTitle = type.name.replace(kebabToPascal(component.id), '').replace('Props', '').trim() || 'Props';
 
 		tables.push({
 			type: 'heading',
@@ -63,30 +66,25 @@ function createTablesForComponent(component: CollectionEntry<'components'>, comp
 	return tables;
 }
 
-export function processApiTableComponents(root: Root, frameworks: CollectionEntry<'frameworks'>[], doc: CollectionEntry<'docs'>) {
-	const frameworkId = frameworks[0].id;
-
-	// Extract component name: framework-components/accordion -> accordion
-	const pathParts = doc.id.split('/');
-	const componentId = pathParts[pathParts.length - 1];
-
+export function processApiTableComponents(root: Root, context: APIContext) {
 	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
 		if (node.name !== 'ApiTable' || !parent || typeof index !== 'number') {
 			return;
 		}
+		const componentAttribute = node.attributes.find(
+			(attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'component' && attribute.value,
+		);
+		const frameworkAttribute = node.attributes.find(
+			(attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'framework' && attribute.value,
+		);
 
-		// Extract Component
-		const componentAttr = node.attributes.find((attr: any) => attr.type === 'mdxJsxAttribute' && attr.name === 'component');
-		const targetComponentId =
-			componentAttr && typeof componentAttr.value === 'string' ? componentAttr.value.replace(/['"]/g, '') : componentId;
-		const component = components.find((c) => c.id === `${frameworkId}/${targetComponentId}`);
+		const componentId = componentAttribute ? componentAttribute.value : getComponentIdFromURL(context.url);
+		const frameworkId = frameworkAttribute ? frameworkAttribute.value : getActiveFramework(context.params).id;
+		const component = components.find((c) => c.id === `${frameworkId}/${componentId}`);
 		if (!component) {
-			console.warn(`Component not found: ${frameworkId}/${targetComponentId}`);
-			return;
+			throw new Error(`Component not found: ${frameworkId}/${componentId}`);
 		}
-		// Tables Generation
-		const tables = createTablesForComponent(component, targetComponentId);
-		parent.children.splice(index, 1, ...tables);
+		parent.children.splice(index, 1, ...createTablesForComponent(component));
 		return [SKIP, index];
 	});
 }
