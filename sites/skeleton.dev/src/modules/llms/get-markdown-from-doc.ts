@@ -1,6 +1,6 @@
 import { parseMDX } from './parse-mdx';
 import { printMarkdown } from './print-markdown';
-import { processApiReferenceComponents } from './process-api-table-components';
+import { processApiReferenceComponents } from './process-api-reference-components';
 import { processFrameworkComponents } from './process-framework-components';
 import { processPreviewComponents } from './process-preview-components';
 import { pruneMDXNodes } from './prune-mdx-nodes';
