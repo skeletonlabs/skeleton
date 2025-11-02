@@ -81,7 +81,7 @@ export function processApiTableComponents(root: Root, context: GetMarkdownFromDo
 		const frameworkId = frameworkAttribute ? frameworkAttribute.value : getActiveFramework(context.params).id;
 		const component = components.find((c) => c.id === `${frameworkId}/${componentId}`);
 		if (!component) {
-			throw new Error(`Component not found: ${frameworkId}/${componentId}`);
+			return;
 		}
 		parent.children.splice(index, 1, ...createTablesForComponent(component));
 		return [SKIP, index];
