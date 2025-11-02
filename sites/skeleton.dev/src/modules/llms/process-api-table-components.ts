@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Root, RootContent, Table, TableCell, TableRow, Heading } from 'mdast';
+import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
 // Load components at build time
