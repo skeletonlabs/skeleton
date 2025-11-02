@@ -38,10 +38,7 @@ function createTablesForComponent(component: CollectionEntry<'components'>) {
 			children: [
 				{
 					type: 'tableRow',
-					children: ['Prop', 'Description', 'Type', 'Default'].map((val) => ({
-						type: 'tableCell',
-						children: [{ type: 'text', value: val }],
-					})),
+					children: ['Prop', 'Description', 'Type', 'Default'].map(createCell),
 				},
 				...type.props.map(
 					(prop) =>
