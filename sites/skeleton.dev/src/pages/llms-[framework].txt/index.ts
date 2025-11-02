@@ -19,16 +19,7 @@ export const GET: APIRoute = (context) => {
 	return new Response(
 		`# Skeleton Documentation\n\n${commonSections
 			.map(
-				(section) =>
-					`## ${section.label}\n\n${section.docs
-						.map((doc) =>
-							getMarkdownFromDoc(doc, {
-								url: context.url,
-								params: context.params,
-								frameworks: [context.props.framework],
-							}),
-						)
-						.join('\n')}`,
+				(section) => `## ${section.label}\n\n${section.docs.map((doc) => getMarkdownFromDoc(doc, [context.props.framework])).join('\n')}`,
 			)
 			.join('\n')}`,
 		{

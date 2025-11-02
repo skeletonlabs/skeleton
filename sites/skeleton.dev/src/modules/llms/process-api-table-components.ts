@@ -1,8 +1,5 @@
-import { getActiveFramework } from '../framework';
-import { getComponentIdFromURL } from '../get-component-id-from-url';
-import type { GetMarkdownFromDocContext } from './get-markdown-from-doc';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Root, Table, TableCell, TableRow, Heading, Node } from 'mdast';
+import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
 const components = await getCollection('components');
@@ -64,20 +61,15 @@ function createTablesForComponent(component: CollectionEntry<'components'>) {
 	return nodes;
 }
 
-export function processApiTableComponents(root: Root, context: GetMarkdownFromDocContext) {
+export function processApiTableComponents(root: Root) {
 	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
 		if (node.name !== 'ApiTable' || !parent || typeof index !== 'number') {
 			return;
 		}
-		const componentAttribute = node.attributes.find(
-			(attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'component' && attribute.value,
-		);
-		const frameworkAttribute = node.attributes.find(
-			(attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'framework' && attribute.value,
-		);
-
-		const componentId = componentAttribute ? componentAttribute.value : getComponentIdFromURL(context.url);
-		const frameworkId = frameworkAttribute ? frameworkAttribute.value : getActiveFramework(context.params).id;
+		const componentAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'component');
+		const frameworkAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'framework');
+		const componentId = componentAttribute && typeof componentAttribute.value === 'string' ? componentAttribute.value : '';
+		const frameworkId = frameworkAttribute && typeof frameworkAttribute.value === 'string' ? frameworkAttribute.value : '';
 		const component = components.find((c) => c.id === `${frameworkId}/${componentId}`);
 		if (!component) {
 			return;
