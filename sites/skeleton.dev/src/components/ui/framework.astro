@@ -8,7 +8,7 @@ interface Props {
 
 const { id } = Astro.props;
 
-const framework = getActiveFramework(Astro);
+const framework = getActiveFramework(Astro.params);
 ---
 
 <div class={framework.id === id ? 'contents' : 'hidden'}>

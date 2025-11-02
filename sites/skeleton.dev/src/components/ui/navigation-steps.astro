@@ -16,7 +16,7 @@ const { previousDoc, nextDoc } = Astro.props;
 	{
 		previousDoc && (
 			<a
-				href={resolvePath(Astro, `/docs/[framework]/${previousDoc.id}`)}
+				href={resolvePath(Astro.params, `/docs/[framework]/${previousDoc.id}`)}
 				class="btn justify-start py-6 preset-tonal border border-surface-200-800 col-start-1"
 			>
 				<ArrowLeftIcon />
@@ -31,7 +31,7 @@ const { previousDoc, nextDoc } = Astro.props;
 	{
 		nextDoc && (
 			<a
-				href={resolvePath(Astro, `/docs/[framework]/${nextDoc.id}`)}
+				href={resolvePath(Astro.params, `/docs/[framework]/${nextDoc.id}`)}
 				class="btn justify-end py-6 preset-tonal border border-surface-200-800 col-start-2"
 			>
 				<div class="text-right">

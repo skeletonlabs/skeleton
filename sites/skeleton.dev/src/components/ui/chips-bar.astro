@@ -18,7 +18,7 @@ const path = doc.id.split('/');
 const section = path.at(0) ?? '';
 const feature = path.at(1) ?? '';
 
-const activeFramework = getActiveFramework(Astro);
+const activeFramework = getActiveFramework(Astro.params);
 
 function getSourcePath() {
 	if (doc.data.references.source === false) {
@@ -80,7 +80,7 @@ const references = [
 	references.length > 0 && (
 		<nav class="flex flex-wrap gap-2 overflow-x-auto">
 			{references.map((reference) => (
-				<a class="chip preset-tonal" href={resolvePath(Astro, reference.url.toString())} target="_blank" rel="noopener noreferrer">
+				<a class="chip preset-tonal" href={resolvePath(Astro.params, reference.url.toString())} target="_blank" rel="noopener noreferrer">
 					<reference.icon class="size-4" />
 					<span>{reference.label}</span>
 				</a>

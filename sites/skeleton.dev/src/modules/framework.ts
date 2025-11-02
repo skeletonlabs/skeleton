@@ -1,5 +1,5 @@
-import { getCollection } from './content';
-import type { AstroGlobal } from 'astro';
+import { getCollection } from '@/modules/content';
+import type { Params } from 'astro';
 
 const frameworks = await getCollection('frameworks');
 
@@ -11,12 +11,8 @@ function getDefaultFramework() {
 	return framework;
 }
 
-export function getActiveFrameworkId(Astro: AstroGlobal) {
-	return Astro.params.framework ?? getDefaultFramework().id;
-}
-
-export function getActiveFramework(Astro: AstroGlobal) {
-	const framework = frameworks.find((framework) => framework.id === getActiveFrameworkId(Astro));
+export function getActiveFramework(params: Params) {
+	const framework = frameworks.find((framework) => framework.id === params.framework);
 	if (!framework) {
 		return getDefaultFramework();
 	}

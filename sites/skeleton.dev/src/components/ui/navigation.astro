@@ -19,11 +19,11 @@ const { sections = commonSections } = Astro.props;
 					{section.docs.map((doc) => (
 						<li>
 							<a
-								href={resolvePath(Astro, `/docs/[framework]/${doc.id}`)}
+								href={resolvePath(Astro.params, `/docs/[framework]/${doc.id}`)}
 								title={doc.data.title}
 								class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
 								aria-current={
-									removeTrailingSlash(Astro.url.pathname) === resolvePath(Astro, `/docs/[framework]/${doc.id}`) ? 'page' : 'false'
+									removeTrailingSlash(Astro.url.pathname) === resolvePath(Astro.params, `/docs/[framework]/${doc.id}`) ? 'page' : 'false'
 								}
 							>
 								<span class="text-sm">{doc.data.title}</span>

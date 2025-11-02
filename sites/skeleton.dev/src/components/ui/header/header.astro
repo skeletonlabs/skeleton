@@ -16,11 +16,11 @@ import Navigation from '../navigation.astro';
 import { resolvePath } from '@/modules/resolve-path';
 
 const frameworks = await getCollection('frameworks');
-const activeFramework = getActiveFramework(Astro);
+const activeFramework = getActiveFramework(Astro.params);
 
 const links = [
 	{
-		href: resolvePath(Astro, '/docs/[framework]/get-started/introduction'),
+		href: resolvePath(Astro.params, '/docs/[framework]/get-started/introduction'),
 		title: 'Docs',
 	},
 	{

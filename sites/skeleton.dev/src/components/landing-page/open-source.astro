@@ -37,7 +37,10 @@ const contributors = await getCollection('contributors');
 				<span>View GitHub</span>
 				<ChevronRightIcon class="size-4" />
 			</a>
-			<a href={resolvePath(Astro, '/docs/[framework]/resources/contribute')} class="btn preset-outlined-surface-800-200 hover:preset-tonal">
+			<a
+				href={resolvePath(Astro.params, '/docs/[framework]/resources/contribute')}
+				class="btn preset-outlined-surface-800-200 hover:preset-tonal"
+			>
 				<span>How to Contribute</span>
 			</a>
 		</nav>

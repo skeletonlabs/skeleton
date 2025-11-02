@@ -45,6 +45,7 @@
 		"html-escaper": "catalog:",
 		"lucide-react": "catalog:",
 		"mdast-util-from-markdown": "catalog:",
+		"mdast-util-gfm": "catalog:",
 		"mdast-util-mdx": "catalog:",
 		"mdast-util-to-markdown": "catalog:",
 		"micromark-extension-mdxjs": "catalog:",
