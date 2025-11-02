@@ -2,7 +2,7 @@ import { getCollection } from '@/modules/content';
 import { commonSections } from '@/modules/navigation';
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = async (context) => {
+export const GET: APIRoute = async () => {
 	const frameworks = await getCollection('frameworks');
 	return new Response(
 		[
@@ -15,7 +15,7 @@ export const GET: APIRoute = async (context) => {
 					return [
 						`### ${section.label}`,
 						'',
-						...section.docs.map((doc) => `- [${doc.data.title}](${new URL(`/docs/${framework.id}/${doc.id}`, context.url)})`),
+						...section.docs.map((doc) => `- [${doc.data.title}](/docs/${framework.id}/${doc.id}.md)`),
 						'',
 					].join('\n');
 				}),
