@@ -21,7 +21,6 @@ function createCell(value: string): TableCell {
 function createTablesForComponent(component: CollectionEntry<'components'>) {
 	const nodes: (Heading | Table)[] = [];
 	for (const type of component.data.types) {
-		// TooltipRootProps -> Root
 		const heading =
 			type.name
 				.replace(kebabToPascal(component.id.split('/').at(-1) ?? ''), '')
