@@ -27,50 +27,48 @@ if (!component && process.env.VERCEL_ENV === 'production') {
 		!component ? (
 			<p class="italic text-sm opacity-50">Unable to load component information for {id}</p>
 		) : (
-			<section class="grid gap-4">
-				{component.data.types.map((type) => (
-					<>
-						<h3 class="h3">
-							{type.name
-								.replace(kebabToPascal(id.split('/').at(-1) ?? ''), '')
-								.replace('Props', '')
-								.replace('Root', '') || 'Root'}
-						</h3>
-						{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
-						<div class="table-wrap card border border-surface-200-800 rounded-container">
-							<table class="table">
-								<thead class="bg-surface-100-900/50">
-									<tr>
-										<th>Prop</th>
-										<th>Default</th>
-										<th>Type</th>
+			component.data.types.map((type) => (
+				<>
+					<h3 class="h3">
+						{type.name
+							.replace(kebabToPascal(id.split('/').at(-1) ?? ''), '')
+							.replace('Props', '')
+							.replace('Root', '') || 'Root'}
+					</h3>
+					{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
+					<div class="table-wrap card border border-surface-200-800 rounded-container">
+						<table class="table">
+							<thead class="bg-surface-100-900/50">
+								<tr>
+									<th>Prop</th>
+									<th>Default</th>
+									<th>Type</th>
+								</tr>
+							</thead>
+							<tbody class="[&>tr]:hover:preset-tonal">
+								{type.props.map((property) => (
+									<tr class="align-top text-xs">
+										<td>
+											<code class="code">{property.name}</code>
+										</td>
+										<td>
+											{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
+												<span class="whitespace-nowrap">{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
+											) : (
+												<span class="opacity-50">&mdash;</span>
+											)}
+										</td>
+										<td class="flex flex-col items-start gap-2">
+											<span class="badge preset-tonal whitespace-pre-wrap">{property.type}</span>
+											<p>{property.JSDoc.description}</p>
+										</td>
 									</tr>
-								</thead>
-								<tbody class="[&>tr]:hover:preset-tonal">
-									{type.props.map((property) => (
-										<tr class="align-top text-xs">
-											<td>
-												<code class="code">{property.name}</code>
-											</td>
-											<td>
-												{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-													<span class="whitespace-nowrap">{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
-												) : (
-													<span class="opacity-50">&mdash;</span>
-												)}
-											</td>
-											<td class="flex flex-col items-start gap-2">
-												<span class="badge preset-tonal whitespace-pre-wrap">{property.type}</span>
-												<p>{property.JSDoc.description}</p>
-											</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-					</>
-				))}
-			</section>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</>
+			))
 		)
 	}
 </div>
