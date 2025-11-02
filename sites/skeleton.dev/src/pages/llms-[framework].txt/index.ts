@@ -17,7 +17,20 @@ export async function getStaticPaths() {
 
 export const GET: APIRoute = (context) => {
 	return new Response(
-		`# Skeleton Documentation\n\n${commonSections.map((section) => `## ${section.label}\n\n${section.docs.map((doc) => getMarkdownFromDoc(context, doc, [context.props.framework])).join('\n')}`).join('\n')}`,
+		`# Skeleton Documentation\n\n${commonSections
+			.map(
+				(section) =>
+					`## ${section.label}\n\n${section.docs
+						.map((doc) =>
+							getMarkdownFromDoc(doc, {
+								url: context.url,
+								params: context.params,
+								frameworks: [context.props.framework],
+							}),
+						)
+						.join('\n')}`,
+			)
+			.join('\n')}`,
 		{
 			headers: {
 				'Content-Type': 'text/plain',

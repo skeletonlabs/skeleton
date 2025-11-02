@@ -4,15 +4,21 @@ import { processApiTableComponents } from './process-api-table-components';
 import { processFrameworkComponents } from './process-framework-components';
 import { processPreviewComponents } from './process-preview-components';
 import { pruneMDXNodes } from './prune-mdx-nodes';
-import type { APIContext } from 'astro';
+import type { Params } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 
-export function getMarkdownFromDoc(context: APIContext, doc: CollectionEntry<'docs'>, frameworks: CollectionEntry<'frameworks'>[]) {
+export interface GetMarkdownFromDocContext {
+	url: URL;
+	params: Params;
+	frameworks: CollectionEntry<'frameworks'>[];
+}
+
+export function getMarkdownFromDoc(doc: CollectionEntry<'docs'>, context: GetMarkdownFromDocContext) {
 	if (!doc.body) {
 		return;
 	}
 	const root = parseMDX(doc.body);
-	processFrameworkComponents(root, frameworks);
+	processFrameworkComponents(root, context);
 	processPreviewComponents(root);
 	processApiTableComponents(root, context);
 	pruneMDXNodes(root);

@@ -1,9 +1,9 @@
-import type { CollectionEntry } from 'astro:content';
+import type { GetMarkdownFromDocContext } from './get-markdown-from-doc';
 import type { Root, RootContent } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
-export function processFrameworkComponents(root: Root, frameworks: CollectionEntry<'frameworks'>[]) {
-	const frameworkIds = new Set(frameworks.map((framework) => framework.id));
+export function processFrameworkComponents(root: Root, context: GetMarkdownFromDocContext) {
+	const frameworkIds = new Set(context.frameworks.map((framework) => framework.id));
 	visit(root, (node, index, parent) => {
 		if (node.type !== 'mdxJsxFlowElement' || node.name !== 'Framework') {
 			return;

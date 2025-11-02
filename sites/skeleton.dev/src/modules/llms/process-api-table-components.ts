@@ -1,11 +1,10 @@
 import { getActiveFramework } from '../framework';
 import { getComponentIdFromURL } from '../get-component-id-from-url';
-import type { APIContext } from 'astro';
+import type { GetMarkdownFromDocContext } from './get-markdown-from-doc';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
-// Load components at build time
 const components = await getCollection('components');
 
 function kebabToPascal(str: string) {
@@ -66,7 +65,7 @@ function createTablesForComponent(component: CollectionEntry<'components'>): (He
 	return tables;
 }
 
-export function processApiTableComponents(root: Root, context: APIContext) {
+export function processApiTableComponents(root: Root, context: GetMarkdownFromDocContext) {
 	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
 		if (node.name !== 'ApiTable' || !parent || typeof index !== 'number') {
 			return;

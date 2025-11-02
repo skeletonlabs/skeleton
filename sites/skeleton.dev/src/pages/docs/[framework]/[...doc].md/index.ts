@@ -20,9 +20,16 @@ export async function getStaticPaths() {
 }
 
 export const GET: APIRoute = async (context) => {
-	return new Response(getMarkdownFromDoc(context, context.props.doc, [context.props.framework]), {
-		headers: {
-			'Content-Type': 'text/plain',
+	return new Response(
+		getMarkdownFromDoc(context.props.doc, {
+			url: context.url,
+			params: context.params,
+			frameworks: [context.props.framework],
+		}),
+		{
+			headers: {
+				'Content-Type': 'text/plain',
+			},
 		},
-	});
+	);
 };
