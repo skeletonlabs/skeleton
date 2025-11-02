@@ -86,6 +86,7 @@ catalog:
   lucide-react: 0.548.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.2
+  mdast-util-gfm: 3.1.0
   mdast-util-mdx: 3.0.0
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0

@@ -13,7 +13,7 @@ export function getMarkdownFromDoc(doc: CollectionEntry<'docs'>, frameworks: Col
 	const root = parseMDX(doc.body);
 	processFrameworkComponents(root, frameworks);
 	processPreviewComponents(root);
-	processApiTableComponents(root);
+	processApiTableComponents(root, frameworks, doc);
 	pruneMDXNodes(root);
 	return [`# ${doc.data.title}`, doc.data.description, doc.data.summary, printMarkdown(root)].filter(Boolean).join('\n\n');
 }
