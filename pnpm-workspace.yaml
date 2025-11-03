@@ -5,29 +5,22 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.5
-  '@astrojs/mdx': 4.3.8
+  '@astrojs/mdx': 4.3.9
   '@astrojs/partytown': 2.1.4
-  '@astrojs/react': 4.4.0
-  '@astrojs/sitemap': 3.6.0
-  '@astrojs/svelte': 7.2.0
+  '@astrojs/react': 4.4.1
+  '@astrojs/svelte': 7.2.1
   '@astrojs/vercel': 9.0.0
+  '@atproto/api': 0.17.7
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@internationalized/date': 3.10.0
-  '@lucide/svelte': 0.548.0
-  '@resvg/resvg-js': 2.6.2
-  '@shikijs/core': 3.14.0
-  '@shikijs/engine-javascript': 3.14.0
-  '@shikijs/langs': 3.14.0
-  '@shikijs/themes': 3.14.0
-  '@shikijs/transformers': 3.14.0
-  '@shikijs/types': 3.14.0
-  '@stackblitz/sdk': 1.11.0
+  '@lucide/svelte': 0.552.0
+  '@nanostores/persistent': 1.2.0
   '@sveltejs/adapter-auto': 7.0.0
-  '@sveltejs/adapter-vercel': 5.10.3
-  '@sveltejs/kit': 2.47.3
+  '@sveltejs/adapter-vercel': 6.1.1
+  '@sveltejs/kit': 2.48.4
   '@sveltejs/package': 2.5.4
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
@@ -38,40 +31,40 @@ catalog:
   '@testing-library/react': 16.3.0
   '@testing-library/svelte': 5.2.8
   '@trivago/prettier-plugin-sort-imports': 5.2.2
-  '@types/chroma-js': 3.1.1
+  '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
   '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
-  '@types/node': 24.9.1
+  '@types/node': 24.9.2
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.1.0
-  '@zag-js/accordion': 1.26.4
-  '@zag-js/avatar': 1.26.4
-  '@zag-js/collapsible': 1.26.4
-  '@zag-js/collection': 1.26.4
-  '@zag-js/combobox': 1.26.4
-  '@zag-js/date-picker': 1.26.4
-  '@zag-js/dialog': 1.26.4
-  '@zag-js/file-upload': 1.26.4
-  '@zag-js/listbox': 1.26.4
-  '@zag-js/pagination': 1.26.4
-  '@zag-js/popover': 1.26.4
-  '@zag-js/progress': 1.26.4
-  '@zag-js/radio-group': 1.26.4
-  '@zag-js/rating-group': 1.26.4
-  '@zag-js/react': 1.26.4
-  '@zag-js/slider': 1.26.4
-  '@zag-js/svelte': 1.26.4
-  '@zag-js/switch': 1.26.4
-  '@zag-js/tabs': 1.26.4
-  '@zag-js/tags-input': 1.26.4
-  '@zag-js/toast': 1.26.4
-  '@zag-js/toggle-group': 1.26.4
-  '@zag-js/tooltip': 1.26.4
-  '@zag-js/tree-view': 1.26.4
-  astro: 5.15.1
+  '@zag-js/accordion': 1.27.0
+  '@zag-js/avatar': 1.27.0
+  '@zag-js/collapsible': 1.27.0
+  '@zag-js/collection': 1.27.0
+  '@zag-js/combobox': 1.27.0
+  '@zag-js/date-picker': 1.27.0
+  '@zag-js/dialog': 1.27.0
+  '@zag-js/file-upload': 1.27.0
+  '@zag-js/listbox': 1.27.0
+  '@zag-js/pagination': 1.27.0
+  '@zag-js/popover': 1.27.0
+  '@zag-js/progress': 1.27.0
+  '@zag-js/radio-group': 1.27.0
+  '@zag-js/rating-group': 1.27.0
+  '@zag-js/react': 1.27.0
+  '@zag-js/slider': 1.27.0
+  '@zag-js/svelte': 1.27.0
+  '@zag-js/switch': 1.27.0
+  '@zag-js/tabs': 1.27.0
+  '@zag-js/tags-input': 1.27.0
+  '@zag-js/toast': 1.27.0
+  '@zag-js/toggle-group': 1.27.0
+  '@zag-js/tooltip': 1.27.0
+  '@zag-js/tree-view': 1.27.0
+  astro: 5.15.3
   astro-auto-import: 0.4.5
   astro-pagefind: 1.8.5
   astro-seo: 0.8.4
@@ -80,10 +73,9 @@ catalog:
   commander: 14.0.2
   detect-indent: 7.0.2
   fuse.js: 7.1.0
-  html-escaper: 3.0.3
-  jsdom: 27.0.1
+  jsdom: 27.1.0
   latest-version: 9.0.0
-  lucide-react: 0.548.0
+  lucide-react: 0.552.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.2
   mdast-util-gfm: 3.1.0
@@ -93,10 +85,8 @@ catalog:
   nanoid: 5.1.6
   next: 15.5.6
   node-html-parser: 7.0.1
-  octokit: 5.0.4
-  oxc-resolver: 11.12.0
-  oxlint: 1.24.0
-  oxlint-tsgolint: 0.3.0
+  octokit: 5.0.5
+  oxlint: 1.25.0
   package-manager-detector: 1.5.0
   playwright: 1.56.1
   postcss: 8.5.6
@@ -105,23 +95,23 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
-  sass-embedded: 1.93.2
-  satori: 0.18.3
+  sass-embedded: 1.93.3
   semver: 7.7.3
   sharp: 0.34.4
   shiki: 3.14.0
-  svelte: 5.42.2
+  svelte: 5.43.2
   svelte-check: 4.3.3
   tailwindcss: 4.1.16
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
-  tsdown: 0.15.9
+  tsdown: 0.15.12
   type-fest: 5.1.0
   typescript: 5.9.3
   unist-util-visit: 5.0.0
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
-  vite: 7.1.10
+  vite: 7.1.12
+  vite-plugin-pagefind: 1.0.7
   vite-plugin-transform-lucide-imports: 0.3.0
   vitest: 3.2.4
   zimmerframe: 1.1.4

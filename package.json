@@ -11,8 +11,8 @@
 		"check": "pnpm --recursive --aggregate-output --reporter=append-only --parallel check",
 		"format": "prettier . --cache --write --list-different --ignore-unknown",
 		"format:check": "prettier . --cache --check --ignore-unknown",
-		"lint": "oxlint . --type-aware --fix",
-		"lint:check": "oxlint . --type-aware",
+		"lint": "oxlint --fix",
+		"lint:check": "oxlint",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm format",
 		"postinstall": "pnpm --recursive --parallel sync"
@@ -22,7 +22,6 @@
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
 		"@trivago/prettier-plugin-sort-imports": "catalog:",
 		"oxlint": "catalog:",
-		"oxlint-tsgolint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-astro": "catalog:",
 		"prettier-plugin-svelte": "catalog:"
@@ -31,10 +30,5 @@
 		"node": ">=22.0.0",
 		"pnpm": ">=10.15.0"
 	},
-	"packageManager": "pnpm@10.19.0",
-	"pnpm": {
-		"overrides": {
-			"tsdown>rolldown": "1.0.0-beta.44"
-		}
-	}
+	"packageManager": "pnpm@10.20.0"
 }
