@@ -219,7 +219,8 @@
 							No results found for <code class="code">{search.query}</code>
 						</span>
 					{:else if search.status === 'results'}
-						<Combobox.Content class="px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+						<Combobox.Content class="relative px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+							<span class="h-full bg-red-500 w-2 absolute top-0 left-1"></span>
 							{#each collection.items as item (item)}
 								{#if item.type === 'result'}
 									{@render result(item)}
