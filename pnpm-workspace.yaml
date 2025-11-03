@@ -86,8 +86,7 @@ catalog:
   next: 15.5.6
   node-html-parser: 7.0.1
   octokit: 5.0.5
-  oxlint: 1.24.0
-  oxlint-tsgolint: 0.4.0
+  oxlint: 1.25.0
   package-manager-detector: 1.5.0
   pagefind: 1.4.0
   playwright: 1.56.1
