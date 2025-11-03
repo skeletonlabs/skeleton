@@ -6,8 +6,8 @@ description: A floating label that appears on hover or focus, providing addition
 import DefaultReact from '@/components/examples/framework-components/tooltip/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/tooltip/react/default?raw';
 
-import ProgrammaticReact from '@/components/examples/framework-components/tooltip/react/programmatic';
-import ProgrammaticReactRaw from '@/components/examples/framework-components/tooltip/react/programmatic?raw';
+import ProviderPatternReact from '@/components/examples/framework-components/tooltip/react/provider-pattern';
+import ProviderPatternReactRaw from '@/components/examples/framework-components/tooltip/react/provider-pattern?raw';
 
 import ArrowReact from '@/components/examples/framework-components/tooltip/react/arrow';
 import ArrowReactRaw from '@/components/examples/framework-components/tooltip/react/arrow?raw';
@@ -24,8 +24,8 @@ import HeadlessReactRaw from '@/components/examples/framework-components/tooltip
 import DefaultSvelte from '@/components/examples/framework-components/tooltip/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/default.svelte?raw';
 
-import ProgrammaticSvelte from '@/components/examples/framework-components/tooltip/svelte/programmatic.svelte';
-import ProgrammaticSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/programmatic.svelte?raw';
+import ProviderPatternSvelte from '@/components/examples/framework-components/tooltip/svelte/provider-pattern.svelte';
+import ProviderPatternSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/provider-pattern.svelte?raw';
 
 import ArrowSvelte from '@/components/examples/framework-components/tooltip/svelte/arrow.svelte';
 import ArrowSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/arrow.svelte?raw';
@@ -91,18 +91,18 @@ You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts.
 	</Preview>
 </Framework>
 
-## Programmatic Control
+## Provider Pattern
 
-This is made possible via the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern).
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to programmatically open and close the tooltip.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ProgrammaticReactRaw }} client:visible>
-		<ProgrammaticReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
+		<ProviderPatternReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ProgrammaticSvelteRaw }} client:visible>
-		<ProgrammaticSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': ProviderPatternSvelteRaw }} client:visible>
+		<ProviderPatternSvelte client:visible />
 	</Preview>
 </Framework>
 
