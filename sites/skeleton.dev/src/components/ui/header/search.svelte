@@ -161,9 +161,14 @@
 {/snippet}
 
 {#snippet subresult(item: Subresult)}
-	<Combobox.Item class="p-4 ml-8 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+	<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
 		{#snippet element(attributes)}
 			<a {...attributes as Record<string, unknown>} href={item.href}>
+				<svg viewBox="0 0 24 54">
+					<g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M8 6v42M20 27H8.3"></path>
+					</g>
+				</svg>
 				<HashIcon class="size-4 opacity-50" />
 				<div class="space-y-1">
 					<Combobox.ItemText>{item.title}</Combobox.ItemText>
@@ -220,7 +225,6 @@
 						</span>
 					{:else if search.status === 'results'}
 						<Combobox.Content class="relative px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
-							<span class="h-full bg-red-500 w-2 absolute top-0 left-1"></span>
 							{#each collection.items as item (item)}
 								{#if item.type === 'result'}
 									{@render result(item)}
