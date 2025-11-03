@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Pagefind } from '@/modules/pagefind';
-	import { BookIcon, ChevronRightIcon, HashIcon } from '@lucide/svelte';
-	import SearchIcon from '@lucide/svelte/icons/search';
+	import { BookIcon, ChevronRightIcon, HashIcon, SearchIcon } from '@lucide/svelte';
 	import { Dialog, Portal, Combobox, useListCollection, type ComboboxRootProps, useDialog } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import { prefetch } from 'astro:prefetch';
