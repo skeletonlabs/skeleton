@@ -224,7 +224,7 @@
 							No results found for <code class="code">{search.query}</code>
 						</span>
 					{:else if search.status === 'results'}
-						<Combobox.Content class="relative px-4 py-2 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
+						<Combobox.Content class="relative px-4 border-none bg-transparent max-h-[50dvh] overflow-y-auto">
 							{#each collection.items as item (item)}
 								{#if item.type === 'result'}
 									{@render result(item)}
