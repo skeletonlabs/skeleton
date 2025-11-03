@@ -6,8 +6,8 @@ description: Small overlay panels positioned relative to a trigger.
 import DefaultReact from '@/components/examples/framework-components/popover/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/popover/react/default?raw';
 
-import ProgrammaticReact from '@/components/examples/framework-components/popover/react/programmatic';
-import ProgrammaticReactRaw from '@/components/examples/framework-components/popover/react/programmatic?raw';
+import ProviderPatternReactRaw from '@/components/examples/framework-components/popover/react/programmatic?raw';
+import ProviderPatternReact from '@/components/examples/framework-components/popover/react/provider-pattern';
 
 import ArrowReact from '@/components/examples/framework-components/popover/react/arrow';
 import ArrowReactRaw from '@/components/examples/framework-components/popover/react/arrow?raw';
@@ -24,8 +24,8 @@ import HeadlessReactRaw from '@/components/examples/framework-components/popover
 import DefaultSvelte from '@/components/examples/framework-components/popover/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/popover/svelte/default.svelte?raw';
 
-import ProgrammaticSvelte from '@/components/examples/framework-components/popover/svelte/programmatic.svelte';
-import ProgrammaticSvelteRaw from '@/components/examples/framework-components/popover/svelte/programmatic.svelte?raw';
+import ProviderPatternSvelte from '@/components/examples/framework-components/popover/svelte/programmatic.svelte';
+import ProviderPatternSvelteRaw from '@/components/examples/framework-components/popover/svelte/programmatic.svelte?raw';
 
 import ArrowSvelte from '@/components/examples/framework-components/popover/svelte/arrow.svelte';
 import ArrowSvelteRaw from '@/components/examples/framework-components/popover/svelte/arrow.svelte?raw';
@@ -80,18 +80,18 @@ This component is headless by default. If you find the popover content is being 
 	</Preview>
 </Framework>
 
-## Programmatic Control
+## Provider Pattern
 
-You can programmatically open and close the popover using the exposed API from the component. This is useful for custom interactions and keyboard handling strategies.
+You can programmatically open and close the popover using the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern). This is useful for custom interactions and keyboard handling strategies.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ProgrammaticReactRaw }} client:visible>
-		<ProgrammaticReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
+		<ProviderPatternReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ProgrammaticSvelteRaw }} client:visible>
-		<ProgrammaticSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': ProviderPatternSvelteRaw }} client:visible>
+		<ProviderPatternSvelte client:visible />
 	</Preview>
 </Framework>
 
