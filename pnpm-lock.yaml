@@ -16,28 +16,17 @@ catalogs:
       specifier: 2.1.4
       version: 2.1.4
     '@astrojs/react':
-<<<<<<< HEAD
-      specifier: 4.4.0
-      version: 4.4.0
+      specifier: 4.4.1
+      version: 4.4.1
     '@astrojs/sitemap':
       specifier: 3.6.0
       version: 3.6.0
-=======
-      specifier: 4.4.1
-      version: 4.4.1
->>>>>>> main
     '@astrojs/svelte':
       specifier: 7.2.1
       version: 7.2.1
     '@astrojs/vercel':
       specifier: 9.0.0
       version: 9.0.0
-<<<<<<< HEAD
-=======
-    '@atproto/api':
-      specifier: 0.17.7
-      version: 0.17.7
->>>>>>> main
     '@changesets/cli':
       specifier: 2.29.7
       version: 2.29.7
@@ -54,9 +43,8 @@ catalogs:
       specifier: 3.10.0
       version: 3.10.0
     '@lucide/svelte':
-<<<<<<< HEAD
-      specifier: 0.548.0
-      version: 0.548.0
+      specifier: 0.552.0
+      version: 0.552.0
     '@resvg/resvg-js':
       specifier: 2.6.2
       version: 2.6.2
@@ -81,13 +69,6 @@ catalogs:
     '@stackblitz/sdk':
       specifier: 1.11.0
       version: 1.11.0
-=======
-      specifier: 0.552.0
-      version: 0.552.0
-    '@nanostores/persistent':
-      specifier: 1.2.0
-      version: 1.2.0
->>>>>>> main
     '@sveltejs/adapter-auto':
       specifier: 7.0.0
       version: 7.0.0
@@ -293,16 +274,11 @@ catalogs:
       specifier: 7.0.1
       version: 7.0.1
     octokit:
-<<<<<<< HEAD
-      specifier: 5.0.4
-      version: 5.0.4
+      specifier: 5.0.5
+      version: 5.0.5
     oxc-resolver:
       specifier: 11.12.0
       version: 11.12.0
-=======
-      specifier: 5.0.5
-      version: 5.0.5
->>>>>>> main
     oxlint:
       specifier: 1.25.0
       version: 1.25.0
@@ -331,16 +307,11 @@ catalogs:
       specifier: 19.2.0
       version: 19.2.0
     sass-embedded:
-<<<<<<< HEAD
-      specifier: 1.93.2
-      version: 1.93.2
+      specifier: 1.93.3
+      version: 1.93.3
     satori:
       specifier: 0.18.3
       version: 0.18.3
-=======
-      specifier: 1.93.3
-      version: 1.93.3
->>>>>>> main
     semver:
       specifier: 7.7.3
       version: 7.7.3
@@ -384,16 +355,8 @@ catalogs:
       specifier: 0.6.3
       version: 0.6.3
     vite:
-<<<<<<< HEAD
-      specifier: 7.1.10
-      version: 7.1.10
-=======
       specifier: 7.1.12
       version: 7.1.12
-    vite-plugin-pagefind:
-      specifier: 1.0.7
-      version: 1.0.7
->>>>>>> main
     vite-plugin-transform-lucide-imports:
       specifier: 0.3.0
       version: 0.3.0
@@ -489,11 +452,7 @@ importers:
         version: 7.7.1
       tsdown:
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
-=======
-        version: 0.15.12(typescript@5.9.3)
->>>>>>> main
+        version: 0.15.12(oxc-resolver@11.12.0)(typescript@5.9.3)
       type-fest:
         specifier: 'catalog:'
         version: 5.1.0
@@ -533,11 +492,7 @@ importers:
         version: 4.1.16
       tsdown:
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
-=======
-        version: 0.15.12(typescript@5.9.3)
->>>>>>> main
+        version: 0.15.12(oxc-resolver@11.12.0)(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -652,11 +607,7 @@ importers:
         version: 19.2.0(react@19.2.0)
       tsdown:
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3)
-=======
-        version: 0.15.12(typescript@5.9.3)
->>>>>>> main
+        version: 0.15.12(oxc-resolver@11.12.0)(typescript@5.9.3)
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -883,27 +834,16 @@ importers:
         version: 2.1.4
       '@astrojs/react':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 4.4.0(@types/node@24.9.1)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.4.1(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
       '@astrojs/sitemap':
         specifier: 'catalog:'
         version: 3.6.0
-=======
-        version: 4.4.1(@types/node@24.9.2)(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(jiti@2.6.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
->>>>>>> main
       '@astrojs/svelte':
         specifier: 'catalog:'
         version: 7.2.1(@types/node@24.9.2)(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.2)(typescript@5.9.3)(yaml@2.8.1)
       '@astrojs/vercel':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 9.0.0(@sveltejs/kit@2.47.3(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(astro@5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(next@15.5.6(@babel/core@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.2))(react@19.2.0)(rollup@4.52.4)(svelte@5.42.2)
-=======
         version: 9.0.0(@sveltejs/kit@2.48.4(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.2)(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)))(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)))(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))(next@15.5.6(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(rollup@4.52.5)(svelte@5.43.2)
-      '@atproto/api':
-        specifier: 'catalog:'
-        version: 0.17.7
->>>>>>> main
       '@faker-js/faker':
         specifier: 'catalog:'
         version: 10.1.0
@@ -912,13 +852,8 @@ importers:
         version: 1.7.4
       '@lucide/svelte':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 0.548.0(svelte@5.42.2)
-      '@resvg/resvg-js':
-=======
         version: 0.552.0(svelte@5.43.2)
-      '@nanostores/persistent':
->>>>>>> main
+      '@resvg/resvg-js':
         specifier: 'catalog:'
         version: 2.6.2
       '@shikijs/core':
@@ -956,14 +891,10 @@ importers:
         version: 1.11.0
       '@tailwindcss/vite':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 4.1.16(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
+        version: 4.1.16(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
       '@types/html-escaper':
         specifier: 'catalog:'
         version: 3.0.4
-=======
-        version: 4.1.16(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
->>>>>>> main
       '@types/mdast':
         specifier: 'catalog:'
         version: 4.0.4
@@ -978,20 +909,13 @@ importers:
         version: 5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)
       astro-auto-import:
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 0.4.5(astro@5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+        version: 0.4.5(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))
       astro-pagefind:
         specifier: 'catalog:'
-        version: 1.8.5(astro@5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+        version: 1.8.5(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))
       astro-seo:
         specifier: 'catalog:'
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
-=======
-        version: 0.4.5(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))
-      astro-expressive-code:
-        specifier: 'catalog:'
-        version: 0.41.3(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))
->>>>>>> main
       fuse.js:
         specifier: 'catalog:'
         version: 7.1.0
@@ -1018,13 +942,8 @@ importers:
         version: 3.0.0
       octokit:
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 5.0.4
-      oxc-resolver:
-=======
         version: 5.0.5
-      pagefind:
->>>>>>> main
+      oxc-resolver:
         specifier: 'catalog:'
         version: 11.12.0
       playwright:
@@ -1063,12 +982,6 @@ importers:
       unist-util-visit:
         specifier: 'catalog:'
         version: 5.0.0
-<<<<<<< HEAD
-=======
-      vite-plugin-pagefind:
-        specifier: 'catalog:'
-        version: 1.0.7(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
->>>>>>> main
       vite-plugin-transform-lucide-imports:
         specifier: 'catalog:'
         version: 0.3.0(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
@@ -1206,16 +1119,11 @@ packages:
       react: ^17.0.2 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.2 || ^18.0.0 || ^19.0.0
 
-<<<<<<< HEAD
   '@astrojs/sitemap@3.6.0':
     resolution: {integrity: sha512-4aHkvcOZBWJigRmMIAJwRQXBS+ayoP5z40OklTXYXhUDhwusz+DyDl+nSshY6y9DvkVEavwNcFO8FD81iGhXjg==}
 
-  '@astrojs/svelte@7.2.0':
-    resolution: {integrity: sha512-6AbtExkKc+m0tHR7Plf4bd3Myx0FMHmAICFfp4eAlv8IavjFmZMIjosRvm2+1l8MTH80p+cQxQmo/R3K+RvXlw==}
-=======
   '@astrojs/svelte@7.2.1':
     resolution: {integrity: sha512-ch1hGF9RSHVCFMnneGuEx3aJcdQqk7GDHmqihDrL6OpMCfX9yQSM7EegsDPXv5oCU6PtjbkegGHaSeugghq12w==}
->>>>>>> main
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0}
     peerDependencies:
       astro: ^5.0.0
@@ -1234,24 +1142,6 @@ packages:
   '@astrojs/yaml2ts@0.2.2':
     resolution: {integrity: sha512-GOfvSr5Nqy2z5XiwqTouBBpy5FyI6DEe+/g/Mk5am9SjILN1S5fOEvYK0GuWHg98yS/dobP4m8qyqw/URW35fQ==}
 
-<<<<<<< HEAD
-=======
-  '@atproto/api@0.17.7':
-    resolution: {integrity: sha512-V+OJBZq9chcrD21xk1bUa6oc5DSKfQj5DmUPf5rmZncqL1w9ZEbS38H5cMyqqdhfgo2LWeDRdZHD0rvNyJsIaw==}
-
-  '@atproto/common-web@0.4.3':
-    resolution: {integrity: sha512-nRDINmSe4VycJzPo6fP/hEltBcULFxt9Kw7fQk6405FyAWZiTluYHlXOnU7GkQfeUK44OENG1qFTBcmCJ7e8pg==}
-
-  '@atproto/lexicon@0.5.1':
-    resolution: {integrity: sha512-y8AEtYmfgVl4fqFxqXAeGvhesiGkxiy3CWoJIfsFDDdTlZUC8DFnZrYhcqkIop3OlCkkljvpSJi1hbeC1tbi8A==}
-
-  '@atproto/syntax@0.4.1':
-    resolution: {integrity: sha512-CJdImtLAiFO+0z3BWTtxwk6aY5w4t8orHTMVJgkf++QRJWTxPbIFko/0hrkADB7n2EruDxDSeAgfUGehpH6ngw==}
-
-  '@atproto/xrpc@0.7.5':
-    resolution: {integrity: sha512-MUYNn5d2hv8yVegRL0ccHvTHAVj5JSnW07bkbiaz96UH45lvYNRVwt44z+yYVnb0/mvBzyD3/ZQ55TRGt7fHkA==}
-
->>>>>>> main
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
     engines: {node: '>=6.9.0'}
@@ -2028,7 +1918,6 @@ packages:
   '@oxc-project/types@0.95.0':
     resolution: {integrity: sha512-vACy7vhpMPhjEJhULNxrdR0D943TkA/MigMpJCHmBHvMXxRStRi/dPtTlfQ3uDwWSzRpT8z+7ImjZVf8JWBocQ==}
 
-<<<<<<< HEAD
   '@oxc-resolver/binding-android-arm-eabi@11.12.0':
     resolution: {integrity: sha512-/IfGWLNdmS1kVYM2g+Xw4qXNWtCPZ/i5YMprflA8FC3vAjT4N0VucQcDxUPHxatQwre4qnhbFFWqRa1mz6Cgkw==}
     cpu: [arm]
@@ -2132,12 +2021,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@oxlint-tsgolint/darwin-arm64@0.3.0':
-    resolution: {integrity: sha512-AoK80jrY1DhqnGtpWCyyUuFBl6smiwHXeW25OimCzOHwVy7MFgMMaVU4LTcMFOD524UI4sIBl7aN3PLPa/X92A==}
-=======
   '@oxlint-tsgolint/darwin-arm64@0.4.0':
     resolution: {integrity: sha512-2jNvhxs6JJy93Z4SQ/VErODBzZtFKxQ+sybcKYcw5/K41tXOiBbJSwBMZ2PPvivCVkVcyOkJvfs5UXWW7o79uw==}
->>>>>>> main
     cpu: [arm64]
     os: [darwin]
 
@@ -2358,7 +2243,6 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-<<<<<<< HEAD
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     resolution: {integrity: sha512-FrJibrAk6v29eabIPgcTUMPXiEz8ssrAk7TXxsiZzww9UTQ1Z5KAbFJs+Z0Ez+VZTYgnE5IQJqBcoSiMebtPHA==}
     engines: {node: '>= 10'}
@@ -2439,12 +2323,8 @@ packages:
     resolution: {integrity: sha512-xBaJish5OeGmniDj9cW5PRa/PtmuVU3ziqrbr5xJj901ZDN4TosrVaNZpEiLZAxdfnhAe7uQ7QFWfjPe9d9K2Q==}
     engines: {node: '>= 10'}
 
-  '@rolldown/binding-android-arm64@1.0.0-beta.44':
-    resolution: {integrity: sha512-g9ejDOehJFhxC1DIXQuZQ9bKv4lRDioOTL42cJjFjqKPl1L7DVb9QQQE1FxokGEIMr6FezLipxwnzOXWe7DNPg==}
-=======
   '@rolldown/binding-android-arm64@1.0.0-beta.45':
     resolution: {integrity: sha512-bfgKYhFiXJALeA/riil908+2vlyWGdwa7Ju5S+JgWZYdR4jtiPOGdM6WLfso1dojCh+4ZWeiTwPeV9IKQEX+4g==}
->>>>>>> main
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [android]
@@ -3493,16 +3373,11 @@ packages:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
 
-<<<<<<< HEAD
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
 
-  caniuse-lite@1.0.30001750:
-    resolution: {integrity: sha512-cuom0g5sdX6rw00qOoLNSFCJ9/mYIsuSOA+yzpDw8eopiFqcVwQvZHqov0vmEighRxX++cfC0Vg1G+1Iy/mSpQ==}
-=======
   caniuse-lite@1.0.30001753:
     resolution: {integrity: sha512-Bj5H35MD/ebaOV4iDLqPEtiliTN29qkGtEHCwawWn4cYm+bPJM2NsaP30vtZcnERClMzp52J4+aw2UNbK4o+zw==}
->>>>>>> main
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3813,17 +3688,12 @@ packages:
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
 
-<<<<<<< HEAD
   emoji-regex-xs@2.0.1:
     resolution: {integrity: sha512-1QFuh8l7LqUcKe24LsPUNzjrzJQ7pgRwp1QMcZ5MX6mFplk2zQ08NVCM84++1cveaUUYtcCYHmeFEuNg16sU4g==}
     engines: {node: '>=10.0.0'}
 
-  emoji-regex@10.5.0:
-    resolution: {integrity: sha512-lb49vf1Xzfx080OKA0o6l8DQQpV+6Vg95zyCJX9VB/BqKYlhG7N4wgROUUHRA+ZPUefLnteQOad7z1kT2bV7bg==}
-=======
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
->>>>>>> main
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4726,16 +4596,11 @@ packages:
   outdent@0.5.0:
     resolution: {integrity: sha512-/jHxFIzoMXdqPzTaCpFzAAWhpkSjZPF4Vsn6jAfNpmbH/ymsmd7Qc6VE9BGn0L6YMj6uwpQLxCECpus4ukKS9Q==}
 
-<<<<<<< HEAD
   oxc-resolver@11.12.0:
     resolution: {integrity: sha512-zmS2q2txiB+hS2u0aiIwmvITIJN8c8ThlWoWB762Wx5nUw8WBlttp0rzt8nnuP1cGIq9YJ7sGxfsgokm+SQk5Q==}
 
-  oxlint-tsgolint@0.3.0:
-    resolution: {integrity: sha512-q4ZI3TXwiBZsku1RzVlIyk09HY0lI33No87b/XIHLAGm6+3BeyW4D0kIcMok//O65Z5xINTJNlSNkazmkgx8pA==}
-=======
   oxlint-tsgolint@0.4.0:
     resolution: {integrity: sha512-RpvLxPvSt0Xzr3frTiw5rP6HUW0djZ2uNdzHc8Pv556sbTnFWXmLdK8FRqqy7vVXZTkoVSdY3PsvOsVAqGjc+Q==}
->>>>>>> main
     hasBin: true
 
   oxlint@1.25.0:
@@ -5313,8 +5178,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  sitemap@8.0.1:
-    resolution: {integrity: sha512-4Y8ynSMFAy/DadeAeio8Kx4zfC8/0VcKi7TH0I1SazvBcrU2fpJaGoeWsX1FMRaHoe3VGMA53DqVoLErZrtG9Q==}
+  sitemap@8.0.2:
+    resolution: {integrity: sha512-LwktpJcyZDoa0IL6KT++lQ53pbSrx2c9ge41/SeLTyqy2XUNA6uR4+P9u5IVo5lPeL2arAcOKn1aZAxoYbCKlQ==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     hasBin: true
 
@@ -5495,13 +5360,6 @@ packages:
     resolution: {integrity: sha512-azl+t0z7pw/z958Gy9svOTuzqIk6xq+NSheJzn5MMWtWTFywIacg2wUlzKFGtt3cthx0r2SxMK0yzJOR0IES7Q==}
     engines: {node: '>=14.0.0'}
 
-<<<<<<< HEAD
-=======
-  tlds@1.261.0:
-    resolution: {integrity: sha512-QXqwfEl9ddlGBaRFXIvNKK6OhipSiLXuRuLJX5DErz0o0Q0rYxulWLdFryTkV5PkdZct5iMInwYEGe/eR++1AA==}
-    hasBin: true
-
->>>>>>> main
   tldts-core@7.0.17:
     resolution: {integrity: sha512-DieYoGrP78PWKsrXr8MZwtQ7GLCUeLxihtjC1jZsW1DnvSMdKPitJSe8OSYDM2u5H6g3kWJZpePqkp43TfLh0g==}
 
@@ -6174,7 +6032,7 @@ snapshots:
 
   '@astrojs/check@0.5.10(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)':
     dependencies:
-      '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
+      '@astrojs/language-server': 2.16.0(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
       chokidar: 3.6.0
       fast-glob: 3.3.3
       kleur: 4.1.5
@@ -6302,17 +6160,13 @@ snapshots:
       - tsx
       - yaml
 
-<<<<<<< HEAD
   '@astrojs/sitemap@3.6.0':
     dependencies:
-      sitemap: 8.0.1
+      sitemap: 8.0.2
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/svelte@7.2.0(@types/node@24.9.1)(astro@5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(svelte@5.42.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)':
-=======
   '@astrojs/svelte@7.2.1(@types/node@24.9.2)(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.2)(typescript@5.9.3)(yaml@2.8.1)':
->>>>>>> main
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
       astro: 5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)
@@ -6373,42 +6227,6 @@ snapshots:
     dependencies:
       yaml: 2.8.1
 
-<<<<<<< HEAD
-=======
-  '@atproto/api@0.17.7':
-    dependencies:
-      '@atproto/common-web': 0.4.3
-      '@atproto/lexicon': 0.5.1
-      '@atproto/syntax': 0.4.1
-      '@atproto/xrpc': 0.7.5
-      await-lock: 2.2.2
-      multiformats: 9.9.0
-      tlds: 1.261.0
-      zod: 3.25.76
-
-  '@atproto/common-web@0.4.3':
-    dependencies:
-      graphemer: 1.4.0
-      multiformats: 9.9.0
-      uint8arrays: 3.0.0
-      zod: 3.25.76
-
-  '@atproto/lexicon@0.5.1':
-    dependencies:
-      '@atproto/common-web': 0.4.3
-      '@atproto/syntax': 0.4.1
-      iso-datestring-validator: 2.2.2
-      multiformats: 9.9.0
-      zod: 3.25.76
-
-  '@atproto/syntax@0.4.1': {}
-
-  '@atproto/xrpc@0.7.5':
-    dependencies:
-      '@atproto/lexicon': 0.5.1
-      zod: 3.25.76
-
->>>>>>> main
   '@babel/code-frame@7.27.1':
     dependencies:
       '@babel/helper-validator-identifier': 7.28.5
@@ -6830,34 +6648,6 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-<<<<<<< HEAD
-=======
-  '@expressive-code/core@0.41.3':
-    dependencies:
-      '@ctrl/tinycolor': 4.2.0
-      hast-util-select: 6.0.4
-      hast-util-to-html: 9.0.5
-      hast-util-to-text: 4.0.2
-      hastscript: 9.0.1
-      postcss: 8.5.6
-      postcss-nested: 6.2.0(postcss@8.5.6)
-      unist-util-visit: 5.0.0
-      unist-util-visit-parents: 6.0.2
-
-  '@expressive-code/plugin-frames@0.41.3':
-    dependencies:
-      '@expressive-code/core': 0.41.3
-
-  '@expressive-code/plugin-shiki@0.41.3':
-    dependencies:
-      '@expressive-code/core': 0.41.3
-      shiki: 3.14.0
-
-  '@expressive-code/plugin-text-markers@0.41.3':
-    dependencies:
-      '@expressive-code/core': 0.41.3
-
->>>>>>> main
   '@faker-js/faker@10.1.0': {}
 
   '@floating-ui/core@1.7.3':
@@ -7267,7 +7057,6 @@ snapshots:
 
   '@oxc-project/types@0.95.0': {}
 
-<<<<<<< HEAD
   '@oxc-resolver/binding-android-arm-eabi@11.12.0':
     optional: true
 
@@ -7327,10 +7116,7 @@ snapshots:
   '@oxc-resolver/binding-win32-x64-msvc@11.12.0':
     optional: true
 
-  '@oxlint-tsgolint/darwin-arm64@0.3.0':
-=======
   '@oxlint-tsgolint/darwin-arm64@0.4.0':
->>>>>>> main
     optional: true
 
   '@oxlint-tsgolint/darwin-x64@0.4.0':
@@ -7478,7 +7264,6 @@ snapshots:
     dependencies:
       dotenv: 16.6.1
 
-<<<<<<< HEAD
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     optional: true
 
@@ -7530,10 +7315,7 @@ snapshots:
       '@resvg/resvg-js-win32-ia32-msvc': 2.6.2
       '@resvg/resvg-js-win32-x64-msvc': 2.6.2
 
-  '@rolldown/binding-android-arm64@1.0.0-beta.44':
-=======
   '@rolldown/binding-android-arm64@1.0.0-beta.45':
->>>>>>> main
     optional: true
 
   '@rolldown/binding-darwin-arm64@1.0.0-beta.45':
@@ -7772,21 +7554,12 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-<<<<<<< HEAD
-  '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))':
-=======
   '@sveltejs/vite-plugin-svelte-inspector@4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.2)(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)))(svelte@5.43.2)(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))':
->>>>>>> main
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
       debug: 4.4.3
-<<<<<<< HEAD
-      svelte: 5.42.2
-      vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
-=======
       svelte: 5.43.2
       vite: 6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
->>>>>>> main
     transitivePeerDependencies:
       - supports-color
 
@@ -7801,24 +7574,14 @@ snapshots:
 
   '@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.2)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))':
     dependencies:
-<<<<<<< HEAD
-      '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.42.2)(vite@6.3.6(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.42.2)(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
-=======
       '@sveltejs/vite-plugin-svelte-inspector': 4.0.1(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.2)(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)))(svelte@5.43.2)(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
->>>>>>> main
       debug: 4.4.3
       deepmerge: 4.3.1
       kleur: 4.1.5
       magic-string: 0.30.21
-<<<<<<< HEAD
-      svelte: 5.42.2
-      vite: 7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1))
-=======
       svelte: 5.43.2
       vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
       vitefu: 1.1.1(vite@6.4.1(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1))
->>>>>>> main
     transitivePeerDependencies:
       - supports-color
 
@@ -8084,7 +7847,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 24.9.1
+      '@types/node': 17.0.45
 
   '@types/semver@7.7.1': {}
 
@@ -8634,11 +8397,10 @@ snapshots:
       acorn: 8.15.0
       astro: 5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)
 
-<<<<<<< HEAD
-  astro-pagefind@1.8.5(astro@5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-pagefind@1.8.5(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)):
     dependencies:
       '@pagefind/default-ui': 1.4.0
-      astro: 5.15.1(@types/node@24.9.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.4)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)
       pagefind: 1.4.0
       sirv: 3.0.2
 
@@ -8649,12 +8411,6 @@ snapshots:
       - prettier
       - prettier-plugin-astro
       - typescript
-=======
-  astro-expressive-code@0.41.3(astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)):
-    dependencies:
-      astro: 5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1)
-      rehype-expressive-code: 0.41.3
->>>>>>> main
 
   astro@5.15.3(@types/node@24.9.2)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.52.5)(sass-embedded@1.93.3)(sass@1.93.3)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:
@@ -8832,13 +8588,9 @@ snapshots:
 
   camelcase@8.0.0: {}
 
-<<<<<<< HEAD
   camelize@1.0.1: {}
 
-  caniuse-lite@1.0.30001750: {}
-=======
   caniuse-lite@1.0.30001753: {}
->>>>>>> main
 
   ccount@2.0.1: {}
 
@@ -9089,13 +8841,9 @@ snapshots:
       '@emmetio/abbreviation': 2.3.3
       '@emmetio/css-abbreviation': 2.1.8
 
-<<<<<<< HEAD
   emoji-regex-xs@2.0.1: {}
 
-  emoji-regex@10.5.0: {}
-=======
   emoji-regex@10.6.0: {}
->>>>>>> main
 
   emoji-regex@8.0.0: {}
 
@@ -10329,7 +10077,6 @@ snapshots:
 
   outdent@0.5.0: {}
 
-<<<<<<< HEAD
   oxc-resolver@11.12.0:
     optionalDependencies:
       '@oxc-resolver/binding-android-arm-eabi': 11.12.0
@@ -10352,10 +10099,7 @@ snapshots:
       '@oxc-resolver/binding-win32-ia32-msvc': 11.12.0
       '@oxc-resolver/binding-win32-x64-msvc': 11.12.0
 
-  oxlint-tsgolint@0.3.0:
-=======
   oxlint-tsgolint@0.4.0:
->>>>>>> main
     optionalDependencies:
       '@oxlint-tsgolint/darwin-arm64': 0.4.0
       '@oxlint-tsgolint/darwin-x64': 0.4.0
@@ -10764,11 +10508,7 @@ snapshots:
 
   reusify@1.1.0: {}
 
-<<<<<<< HEAD
-  rolldown-plugin-dts@0.16.12(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.44)(typescript@5.9.3):
-=======
-  rolldown-plugin-dts@0.17.3(rolldown@1.0.0-beta.45)(typescript@5.9.3):
->>>>>>> main
+  rolldown-plugin-dts@0.17.3(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.45)(typescript@5.9.3):
     dependencies:
       '@babel/generator': 7.28.5
       '@babel/parser': 7.28.5
@@ -10776,13 +10516,8 @@ snapshots:
       ast-kit: 2.1.3
       birpc: 2.6.1
       debug: 4.4.3
-<<<<<<< HEAD
       dts-resolver: 2.1.2(oxc-resolver@11.12.0)
-      get-tsconfig: 4.12.0
-=======
-      dts-resolver: 2.1.2
       get-tsconfig: 4.13.0
->>>>>>> main
       magic-string: 0.30.21
       rolldown: 1.0.0-beta.45
     optionalDependencies:
@@ -11044,7 +10779,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  sitemap@8.0.1:
+  sitemap@8.0.2:
     dependencies:
       '@types/node': 17.0.45
       '@types/sax': 1.2.7
@@ -11221,11 +10956,6 @@ snapshots:
 
   tinyspy@4.0.4: {}
 
-<<<<<<< HEAD
-=======
-  tlds@1.261.0: {}
-
->>>>>>> main
   tldts-core@7.0.17: {}
 
   tldts@7.0.17:
@@ -11265,11 +10995,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-<<<<<<< HEAD
-  tsdown@0.15.9(oxc-resolver@11.12.0)(publint@0.3.13)(typescript@5.9.3):
-=======
-  tsdown@0.15.12(typescript@5.9.3):
->>>>>>> main
+  tsdown@0.15.12(oxc-resolver@11.12.0)(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -11278,13 +11004,8 @@ snapshots:
       diff: 8.0.2
       empathic: 2.0.0
       hookable: 5.5.3
-<<<<<<< HEAD
-      rolldown: 1.0.0-beta.44
-      rolldown-plugin-dts: 0.16.12(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.44)(typescript@5.9.3)
-=======
       rolldown: 1.0.0-beta.45
-      rolldown-plugin-dts: 0.17.3(rolldown@1.0.0-beta.45)(typescript@5.9.3)
->>>>>>> main
+      rolldown-plugin-dts: 0.17.3(oxc-resolver@11.12.0)(rolldown@1.0.0-beta.45)(typescript@5.9.3)
       semver: 7.7.3
       tinyexec: 1.0.1
       tinyglobby: 0.2.15
@@ -11512,17 +11233,7 @@ snapshots:
       - tsx
       - yaml
 
-<<<<<<< HEAD
-  vite-plugin-transform-lucide-imports@0.3.0(vite@7.1.10(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.2)(sass@1.93.2)(tsx@4.20.6)(yaml@2.8.1)):
-=======
-  vite-plugin-pagefind@1.0.7(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)):
-    dependencies:
-      colorette: 2.0.20
-      package-manager-detector: 0.2.11
-      vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
-
   vite-plugin-transform-lucide-imports@0.3.0(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)):
->>>>>>> main
     dependencies:
       '@sveltejs/acorn-typescript': 1.0.6(acorn@8.15.0)
       acorn: 8.15.0
