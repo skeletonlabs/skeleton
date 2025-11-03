@@ -46,7 +46,7 @@
 			// @ts-expect-error pagefind is only present during runtime
 			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
 			await pagefind.options({
-				excerptLength: 10,
+				excerptLength: 3,
 			});
 			await pagefind.init();
 			resolve(pagefind);
@@ -163,7 +163,7 @@
 	<Combobox.Item class="p-2 grid grid-cols-[auto_auto_1fr_auto] gap-2 items-center" {item}>
 		{#snippet element(attributes)}
 			<a {...attributes as Record<string, unknown>} href={item.href}>
-				<svg class="size-6" viewBox="0 0 24 54">
+				<svg class="size-full" viewBox="0 0 24 54">
 					<g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M8 6v42M20 27H8.3"></path>
 					</g>
