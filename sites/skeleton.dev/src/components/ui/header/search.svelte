@@ -164,7 +164,7 @@
 	<Combobox.Item class="p-2 grid grid-cols-[auto_auto_1fr_auto] gap-2 items-center" {item}>
 		{#snippet element(attributes)}
 			<a {...attributes as Record<string, unknown>} href={item.href}>
-				<svg class="block" viewBox="0 0 24 54">
+				<svg class="block size-4" viewBox="0 0 24 54">
 					<g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M8 6v42M20 27H8.3"></path>
 					</g>
