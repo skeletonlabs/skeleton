@@ -1,12 +1,12 @@
 {
 	import.meta.env.PROD && (
 		<script
+			is:inline
 			type="text/partytown"
-			async
 			defer
 			data-domain={Astro.site?.hostname}
-			src="https://events.plygrnd.org/js/script.outbound-links.js"
-			is:inline
+			src="https://plausible.malteteichert.de/js/script.outbound-links.js"
+			data-astro-rerun
 		/>
 	)
 }
