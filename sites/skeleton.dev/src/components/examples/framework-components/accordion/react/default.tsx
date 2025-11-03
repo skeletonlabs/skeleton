@@ -1,5 +1,6 @@
 import { Accordion } from '@skeletonlabs/skeleton-react';
-import { Fragment } from 'react/jsx-runtime';
+import { ChevronDownIcon } from 'lucide-react';
+import { Fragment } from 'react';
 
 export default function Default() {
 	/**
@@ -33,7 +34,12 @@ export default function Default() {
 					{i !== 0 && <hr className="hr" />}
 					<Accordion.Item value={item.id}>
 						<h3>
-							<Accordion.ItemTrigger className="font-bold">{item.title}</Accordion.ItemTrigger>
+							<Accordion.ItemTrigger className="font-bold flex items-center justify-between gap-2">
+								{item.title}
+								<Accordion.ItemIndicator className="group">
+									<ChevronDownIcon className="h-5 w-5 transition group-data-[state=open]:rotate-180" />
+								</Accordion.ItemIndicator>
+							</Accordion.ItemTrigger>
 						</h3>
 						<Accordion.ItemContent>{item.description}</Accordion.ItemContent>
 					</Accordion.Item>
