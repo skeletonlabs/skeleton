@@ -146,7 +146,7 @@
 </script>
 
 {#snippet result(item: Result)}
-	<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+	<Combobox.Item class="p-2 grid grid-cols-[auto_1fr_auto] gap-2 items-center" {item}>
 		{#snippet element(attributes)}
 			<a {...attributes as Record<string, unknown>} href={item.href}>
 				<BookIcon class="size-6 opacity-50" />
@@ -161,7 +161,7 @@
 {/snippet}
 
 {#snippet subresult(item: Subresult)}
-	<Combobox.Item class="p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
+	<Combobox.Item class="p-2 grid grid-cols-[auto_auto_1fr_auto] gap-2 items-center" {item}>
 		{#snippet element(attributes)}
 			<a {...attributes as Record<string, unknown>} href={item.href}>
 				<svg viewBox="0 0 24 54">
