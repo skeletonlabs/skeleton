@@ -18,9 +18,9 @@
 
 	const attributes = $derived(
 		mergeProps(
+			pagination().getNextTriggerProps(),
 			{
 				class: classesPagination.nextTrigger,
-				onclick: pagination().getNextTriggerProps(),
 			},
 			rest,
 		),
