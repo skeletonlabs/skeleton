@@ -7,9 +7,6 @@ references:
 order: 30
 ---
 
-import Typescale from '@/components/examples/design/typography/typescale.svelte';
-import TypescaleRaw from '@/components/examples/design/typography/typescale.svelte?raw';
-
 import Anchors from '@/components/examples/design/typography/anchors.astro';
 import AnchorsRaw from '@/components/examples/design/typography/anchors.astro?raw';
 import Blockquotes from '@/components/examples/design/typography/blockquotes.astro';
@@ -29,31 +26,18 @@ import ParagraphsRaw from '@/components/examples/design/typography/paragraphs.as
 import Pre from '@/components/examples/design/typography/pre.astro';
 import PreRaw from '@/components/examples/design/typography/pre.astro?raw';
 
-import ListBasic from '@/components/examples/design/typography/list-basic.astro';
-import ListBasicRaw from '@/components/examples/design/typography/list-basic.astro?raw';
-import ListDesc from '@/components/examples/design/typography/list-desc.astro';
-import ListDescRaw from '@/components/examples/design/typography/list-desc.astro?raw';
-import ListNav from '@/components/examples/design/typography/list-nav.astro';
-import ListNavRaw from '@/components/examples/design/typography/list-nav.astro?raw';
-import ListOrdered from '@/components/examples/design/typography/list-ordered.astro';
-import ListOrderedRaw from '@/components/examples/design/typography/list-ordered.astro?raw';
-import ListUnordered from '@/components/examples/design/typography/list-unordered.astro';
-import ListUnorderedRaw from '@/components/examples/design/typography/list-unordered.astro?raw';
+import Lists from '@/components/examples/design/typography/lists.astro';
+import ListsRaw from '@/components/examples/design/typography/lists.astro?raw';
+
+import Typescale from '@/components/examples/design/typography/typescale.svelte';
+import TypescaleRaw from '@/components/examples/design/typography/typescale.svelte?raw';
 
 import Semantic from '@/components/examples/design/typography/semantic.svelte';
 import SemanticRaw from '@/components/examples/design/typography/semantic.svelte?raw';
 
-## Typographic Scale
+## Native Element Styles
 
-Skeleton introduces customizable [Typographic Scale](https://designcode.io/typographic-scales) to Tailwind's [font-size](https://tailwindcss.com/docs/font-size) properties.
-
-<Preview client:visible>
-	<Typescale client:visible />
-</Preview>
-
-## Utility Classes
-
-Use the following utility classes to quickly style semantic HTML elements. These classes are opt-in by default, providing a simple escape hatch when you need to break from convention.
+Skeleton provides the following utlity classes for styling semantic native HTML elements. These are available for a variety of common typographic elements and opt-in by default, providing an escape hatch to easily to break from convention.
 
 ### Headings
 
@@ -108,43 +92,34 @@ Use the following utility classes to quickly style semantic HTML elements. These
 <Preview files={{ 'app.astro': MarkRaw }} client:visible>
 	<Mark />
 </Preview>
-## Lists
+
+### Lists
 
 Skeleton defers to Tailwind's built-in utility classes for common list styles.
 
-### Unordered
-
-<Preview files={{ 'app.astro': ListUnorderedRaw }} client:visible>
-	<ListUnordered />
+<Preview files={{ 'app.astro': ListsRaw }} client:visible>
+	<Lists />
 </Preview>
 
-### Ordered
+## Advanced Features
 
-<Preview files={{ 'app.astro': ListOrderedRaw }} client:visible>
-	<ListOrdered />
+The following features are optional and intended for professionals with extensive understanding of web-based typography. If you're unfamiliar with these concepts, feel free skip them and use the friendly defaults Skeleton provides out of the box.
+
+### Typographic Scale
+
+Skeleton augments Tailwind's [font-size](https://tailwindcss.com/docs/font-size) utilities to support a customizable [Typographic Scale](https://designcode.io/typographic-scales) system. Put simply, by modifying your theme's `--text-scaling` property, you can control the overall scale of text globally throughout your application. See the [Core API](/docs/get-started/core-api#typography) to review the scaling forumula.
+
+<Preview client:visible>
+	<Typescale client:visible />
 </Preview>
 
-### Basic
+> TIP: the base scale size is `1.0` for `100%`
 
-<Preview files={{ 'app.astro': ListBasicRaw }} client:visible>
-	<ListBasic />
-</Preview>
+### Semantic Typography
 
-### Description
+When working in a professional environment, your designers may craft a semantic set of typography for your project using unique names, canned sizes, adn pre-configured styles. To handle this in Skeleton, we recommend following best practices for [User Generated Presets](/docs/[framework]/design/presets#user-generated), mixing CSS primitives with semantic HTML elements to replicate all required styles.
 
-<Preview files={{ 'app.astro': ListDescRaw }} client:visible>
-	<ListDesc />
-</Preview>
-
-### Navigation
-
-<Preview files={{ 'app.astro': ListNavRaw }} client:visible>
-	<ListNav />
-</Preview>
-
-## Semantic Typography
-
-When working with your designers, they may craft a semantic typography set for your project. To handle this, we recommend implementing [custom presets](/docs/[framework]/design/presets#custom-presets) that mix CSS primitives with semantic HTML elements to replicate all desired styles. Feel free to use the boilerplate below, adding each style to your global stylesheet.
+We've provided a boilerplate set to help you get started. Implement into your global stylesheet, then customize as needed.
 
 <Preview files={{ 'app.svelte': SemanticRaw }} client:visible>
 	<Semantic client:visible />
