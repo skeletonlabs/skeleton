@@ -1,13 +1,12 @@
 ---
 title: Presets
 description: Canned styles for your interface elements.
+summary: Presets are pre-defined utility classes that allow you to quickly and easily style buttons, badges, cards, and more. They are implemented using a combination of Skeleton and Tailwind primitives. A number of presets are available out of the box, with guidelines on how to create your own.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/presets.scss'
 order: 20
 ---
 
-import Custom from '@/components/examples/design/presets/custom.astro';
-import CustomRaw from '@/components/examples/design/presets/custom.astro?raw';
 import Default from '@/components/examples/design/presets/default.astro';
 import DefaultRaw from '@/components/examples/design/presets/default.astro?raw';
 import Filled from '@/components/examples/design/presets/filled.astro';
@@ -16,19 +15,14 @@ import Glass from '@/components/examples/design/presets/glass.astro';
 import GlassRaw from '@/components/examples/design/presets/glass.astro?raw';
 import Gradient from '@/components/examples/design/presets/gradient.astro';
 import GradientRaw from '@/components/examples/design/presets/gradient.astro?raw';
+import Inputs from '@/components/examples/design/presets/inputs.astro';
+import InputsRaw from '@/components/examples/design/presets/inputs.astro?raw';
 import Outlined from '@/components/examples/design/presets/outlined.astro';
 import OutlinedRaw from '@/components/examples/design/presets/outlined.astro?raw';
 import Tonal from '@/components/examples/design/presets/tonal.astro';
 import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
-
-{
-
-<p className="text-xl">
-	Presets are pre-defined styles that allow you to quickly and easily style buttons, badges, cards, and more. These are created by mixing
-	Skeleton and Tailwind primitives.
-</p>
-
-}
+import UserGenerated from '@/components/examples/design/presets/user-generated.astro';
+import UserGeneratedRaw from '@/components/examples/design/presets/user-generated.astro?raw';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
@@ -37,17 +31,14 @@ import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
 1. **Filled** - a filled preset of the primary brand color.
 2. **Tonal** - a tonal preset of the primary brand color.
 3. **Outlined** - an outlined preset of the primary brand color.
-4. **Glass** - a custom preset using background transparency and backdrop blur.
-5. **Elevated** - mixes a filled preset with a shadow.
-6. **Ghost** - has no style by default, but shows a tonal preset on hover.
-7. **Ghost Icon** - has no style by default, but shows a branded tonal preset on hover.
-8. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
 ## Skeleton Presets
 
-Skeleton's provides the following opinionated set of styles, including accessible backgrounds and text colors.
+The following Presets are available to you when using Skeleton. Each comes with a shorthand neutral option.
 
 ### Filled
+
+Has a wide variety of use cases and automatically implements [contrast colors](/docs/design/colors#contrast-colors) automatically.
 
 ```txt
 preset-filled-{color}-{lightModeShade}-{darkModeShade}
@@ -59,6 +50,8 @@ preset-filled-{color}-{lightModeShade}-{darkModeShade}
 
 ### Tonal
 
+Ideal for alerts and axillary buttons and actions.
+
 ```txt
 preset-tonal-{color}
 ```
@@ -69,45 +62,65 @@ preset-tonal-{color}
 
 ### Outlined
 
+Ideal when for minimal interfaces, such as a surrounding card.
+
 ```txt
 preset-outlined-{color}-{shade}-{shade}
 ```
-
-`preset-outlined-{color}-{shade}-{shade}`
 
 <Preview files={{ 'app.astro': OutlinedRaw }} client:visible>
 	<Outlined />
 </Preview>
 
-## Custom Presets
+---
 
-Consider these best practices when creating presets:
+## User Generated
 
-- Custom presets are only limited by your imagination.
-- Use any combination of Skeleton or Tailwind-provided primitive to generate a preset.
-- Apply presets to any relevant element, including: buttons, cards, inputs, and more.
-- Use a set naming convention, such as `preset-{foo}` to keep things standardized.
-- Implement all presets in using Tailwind's [@utility directive](https://tailwindcss.com/docs/functions-and-directives#utility-directive) in your global stylesheet.
-- Abstrast presets to a stylesheet or NPM package for shared used between projects.
+In a nutshell, Presets are just a combination of reused styles that mix Skeleton and Tailwind primitives. This means you can create as many combinations as you wish to help control the aesthetic of your application. See reference examples below. All custom presets should be implemented in your application global stylesheet.
 
-Please be aware the following presets are not included by Skeleton. Rather, these are examples of how you might utilize the Preset pattern.
-
-### Input Presets
-
-<Preview files={{ 'app.astro': CustomRaw }} client:visible>
-	<Custom />
+<Preview files={{ 'app.astro': UserGeneratedRaw }} client:visible>
+	<UserGenerated />
 </Preview>
 
-### Gradient Presets
+1. **Glass** - a custom preset using background transparency and backdrop blur.
+2. **Elevated** - mixes a filled preset with a shadow.
+3. **Ghost** - has no style by default, but shows a tonal preset on hover.
+4. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
-Tailwind provides a number of powerful [Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes that can be used to generate presets.
+### Examples
+
+To help illustrate the concept, a few practicl examples of user generated Presets have been provided below.
+
+#### Input Presets
+
+Use Presets to generate your own custom validation classes for inputs.
+
+<Preview files={{ 'app.astro': InputsRaw }} client:visible>
+	<Inputs />
+</Preview>
+
+#### Gradient Presets
+
+Utilize [Tailwind Gradient](https://tailwindcss.com/docs/gradient-color-stops) utility classes to create fancy buttons or cards.
 
 <Preview files={{ 'app.astro': GradientRaw }} client:visible>
 	<Gradient />
 </Preview>
 
-### Glass Presets
+#### Glass Presets
+
+Fine tune your Presets with special effects, such as the [Tailwind Backdrop Blur](https://tailwindcss.com/docs/backdrop-filter-blur) for a glass-like effect.
 
 <Preview files={{ 'app.astro': GlassRaw }} client:visible>
 	<Glass />
 </Preview>
+
+### Guidelines
+
+- You're only limited by your imagination when creating custom Presets.
+- Use any combination of Skeleton or Tailwind-provided primitive to generate a Preset.
+- Apply Presets to any relevant element, including: buttons, badges, chips, cards, inputs, and more.
+- Use a set naming convention, such as `preset-{foo}-{bar}` to keep things standardized.
+- Consider implementing Presets using Tailwind's [@utility directive](https://tailwindcss.com/docs/functions-and-directives#utility-directive) in your stylesheet.
+- Abstrast Presets to a stylesheet or NPM package for shared used between projects.
+- Use Presets to apply styling for your components via the `class` attribute.

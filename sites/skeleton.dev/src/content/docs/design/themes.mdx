@@ -1,13 +1,17 @@
 ---
 title: Themes
 description: The Skeleton theme system.
-summary: Skeleton themes utilize CSS custom properties to define core settings for your design system. Provided with a number of presets theme out of the box, as well as a powerful theme generator to create your own. Enable one or more and quickly switch on-demand.
+summary: Skeleton themes utilize CSS custom properties to define core settings for your design system. A number of preset themes are offered out of the box. As well as access to a powerful theme generator to create your own. Enable one or more and quickly switch on-demand.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes'
 order: 0
 ---
 
 import ThemeList from '@/components/ui/theme-list.astro';
+
+## How Themes Work
+
+Skeleton themes are CSS files you import into your global stylesheet. They contain a number of [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) (aka variables). Skeleton's core package and CSS import sets the the default values for the [Tailwind @theme directive](https://tailwindcss.com/docs/functions-and-directives#theme-directive), while themes override these variable values, specifically for your active theme.
 
 ## Preset Themes
 
@@ -20,11 +24,11 @@ Skeleton is provided with high quality set of hand curated themes. Tap the theme
 @import '@skeletonlabs/skeleton/themes/{theme-name}';
 ```
 
-> Make sure to replace `{theme-name}` with your desired theme names.
+> Make sure to replace `{theme-name}` with your desired theme names. All lower-case, such as `cerberus`.
 
 ## Custom Themes
 
-Use our powerful Theme Generator app to create your own themes.
+Use our powerful Theme Generator to create your own themes.
 
 <figure class="linker bg-noise">
 	<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
@@ -35,14 +39,14 @@ Use our powerful Theme Generator app to create your own themes.
 1. Open the Theme Generator and customize to your preference.
 2. Make sure to set a unique name for your theme.
 3. Tap the "code" view from the menu at top-right corner.
-4. Tap the "copy" button at the top of copy the theme contents.
+4. Tap the "copy" button just above the code block.
 5. Paste the contents into a new file at your project root, such as `my-theme-name.css` (any name is fine).
 
-Follow the step below to register any number of custom themes. Take care to match each theme's file name.
+Then proceed below to learn how to register and activate each theme.
 
 ## Register Themes
 
-You may register any number of themes by adding addition theme imports to your global stylesheet. Please note that each theme will slightly increase the final CSS bundle size.
+You may register any number of themes by adding addition theme imports to your global stylesheet. Please note that each theme will slightly increase the final CSS bundle size, so avoid including unused themes.
 
 ```css
 /* @import '@skeletonlabs/skeleton'; */
@@ -76,7 +80,7 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 
 ### Modify Properties
 
-You can modify any [theme property](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet, following all Tailwind and Skeleton configuration. Use this to override preset theme properties.
+You can modify any preset theme's [CSS custom properties](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet. For custom themes, modify the properties within the theme file directly.
 
 ```css
 [data-theme='cerberus'] {
@@ -88,7 +92,7 @@ You can modify any [theme property](/docs/[framework]/get-started/core-api) on d
 
 ### Target Themes
 
-If your application supports multiple themes, you may isolate selection using the `data-theme` attribute. Just make sure to account for light and dark mode color values.
+If your application supports multiple themes, you may isolate selection using the `data-theme` attribute. Just make sure to account for light and dark mode color values using [Tailwind @variant directives](https://tailwindcss.com/docs/functions-and-directives#variant-directive).
 
 ```css title="app.css"
 /** Target only Cerberus .h1 elements. */
@@ -118,7 +122,7 @@ Your app's light and dark mode background color values can be adjusted using the
 }
 ```
 
-Background images are supported, including CSS mesh gradients. The following example adheres to theme colors.
+Background images are supported, including mesh gradients. The following example is shown using theme-specific colors.
 
 ```css
 [data-theme='cerberus'] body {
