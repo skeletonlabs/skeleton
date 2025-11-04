@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.2.4
+
+### Patch Changes
+
+- fix: pagination `NextTrigger` caused an error to be thrown when clicking ([#4056](https://github.com/skeletonlabs/skeleton/pull/4056))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.2.4
+
 ## 4.2.3
 
 ### Patch Changes
