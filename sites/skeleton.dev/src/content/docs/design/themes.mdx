@@ -11,11 +11,11 @@ import ThemeList from '@/components/ui/theme-list.astro';
 
 ## How Themes Work
 
-Skeleton themes are CSS files you import into your global stylesheet. They contain a number of [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) (aka variables). Skeleton's core package and CSS import sets the the default values for the [Tailwind @theme directive](https://tailwindcss.com/docs/functions-and-directives#theme-directive), while themes override these variable values, specifically for your active theme.
+Skeleton themes are CSS files you import into your global stylesheet. They contain a number of [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) (aka variables). Skeleton's core package and CSS import sets the the default values for the [Tailwind @theme directive](https://tailwindcss.com/docs/functions-and-directives#theme-directive), while themes override the defined values using your active theme.
 
 ## Preset Themes
 
-Skeleton is provided with high quality set of hand curated themes. Tap the themes below to preview.
+Skeleton ships with an an array of hand curated themes. Tap the themes below to preview it live.
 
 <ThemeList />
 
@@ -24,7 +24,7 @@ Skeleton is provided with high quality set of hand curated themes. Tap the theme
 @import '@skeletonlabs/skeleton/themes/{theme-name}';
 ```
 
-> Make sure to replace `{theme-name}` with your desired theme names. All lower-case, such as `cerberus`.
+> Make sure to replace `{theme-name}` with your desired theme names. Set all lower-case, such as `cerberus`.
 
 ## Custom Themes
 
@@ -41,12 +41,11 @@ Use our powerful Theme Generator to create your own themes.
 3. Tap the "code" view from the menu at top-right corner.
 4. Tap the "copy" button just above the code block.
 5. Paste the contents into a new file at your project root, such as `my-theme-name.css` (any name is fine).
-
-Then proceed below to learn how to register and activate each theme.
+6. Proceed below to learn how to register and activate each theme.
 
 ## Register Themes
 
-You may register any number of themes by adding addition theme imports to your global stylesheet. Please note that each theme will slightly increase the final CSS bundle size, so avoid including unused themes.
+You may register any number of themes by including multiple imports to your global stylesheet. Please note that each theme will slightly increase your project's CSS bundle size, so avoid including unused themes.
 
 ```css
 /* @import '@skeletonlabs/skeleton'; */
@@ -72,7 +71,7 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 </html>
 ```
 
-> TIP: If you wish to create a theme switcher, this is the value you should aim to modify.
+> TIP: If you wish to create a [theme switcher](/docs/guides/cookbook/dynamic-theming), this is the value you should aim to modify.
 
 ---
 
@@ -80,7 +79,7 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 
 ### Modify Properties
 
-You can modify any preset theme's [CSS custom properties](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet. For custom themes, modify the properties within the theme file directly.
+You can modify any preset theme's [CSS custom properties](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet. For custom themes, modify each property directly in the theme file.
 
 ```css
 [data-theme='cerberus'] {
@@ -137,7 +136,7 @@ Background images are supported, including mesh gradients. The following example
 }
 ```
 
-We recommend Mesher for generating custom mesh gradients. This will generate colors using RGB, but can be migrated to utilize `var()` for colors and `color-mix()` for transparency, per the example above.
+We recommend Mesher for generating custom mesh gradients. This will generate colors using an RGB color format, but can be migrated to utilize `var()` for colors and `color-mix()` for transparency, per the example above.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://csshero.org/mesher/" target="_blank">

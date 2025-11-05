@@ -1,7 +1,7 @@
 ---
 title: Colors
 description: The Skeleton color system.
-summary: Skeleton provides guardrails and utilities to create a powerful color system. This includes a number of colors, shades, and contrast values that work together seamlessly. Including a visually appealing and accessible color palette for each theme.
+summary: Skeleton provides guardrails and utilities to help you craft your custom color system. This includes a number of colors, shades, and contrast values that work together seamlessly. Providing a visually appealing and accessible palette for each theme.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/theme.scss'
 order: 10
@@ -11,7 +11,6 @@ import Contrast from '@/components/examples/design/colors/contrast.astro';
 import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
 import Default from '@/components/examples/design/colors/default.astro';
 import DefaultRaw from '@/components/examples/design/colors/default.astro?raw';
-import PairingsDynamic from '@/components/examples/design/colors/pairings-dynamic.astro';
 import PairingsStack from '@/components/examples/design/colors/pairings-stack.astro';
 import Pairings from '@/components/examples/design/colors/pairings.astro';
 
@@ -41,21 +40,23 @@ Supports <u>all</u> Tailwind color utility classes using the following pattern.
 
 ## Contrast Colors
 
-Contrast color values are available for every shade. Use these to set accessible text color and icon fill values. See also the [Preset system](/docs/[framework]/design/presets) for utility classes that automatically mix each color and contrast tone.
-
-```txt
-{property}-{color}-contrast-{shade}
-```
-
-View the example below while you test different combinations of themes and dark mode. In all scenarios the contrast tones will maintain an accessible contrast ratio for the icon and text labels.
+Test the following with different themes and dark mode combinations.
 
 <Preview files={{ 'app.astro': ContrastRaw }} client:visible>
 	<Contrast />
 </Preview>
 
+Contrast color values are available for every shade in the color ramp. Use these to set accessible text color and icon fill values. You may also refer to the [Preset system](/docs/[framework]/design/presets) for utility classes that automatically mix each color and contrast tone.
+
+```txt
+{property}-{color}-contrast-{shade}
+```
+
 ---
 
 ## Color Pairings
+
+<Pairings />
 
 Provides a condensed syntax for dual-tone color values, evenly balanced to swap between light and dark mode. Pairings are supported for all Tailwind utility color classes (`bg`, `border`, `fill`, etc).
 
@@ -92,16 +93,6 @@ This will then be implemented into your CSS bundle as follows:
 ```
 
 Plus, as a benefit to using the CSS `light-dark()` function, this also enables use of Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) utilities. Learn more about [using Color Scheme](/docs/guides/mode#color-scheme).
-
-### Pairing Previews
-
-The following is a static representation of each pairing. Only `primary` is shown, but all Skeleton colors are supported. Note that shade `500` does not have a pairing, and instead represents your key brand shade per each color ramp.
-
-<Pairings />
-
-To see the Color Pairing in action, toggle this website between light and dark mode and monitor the following. The top number represents the light mode shade, while the bottom the dark mode shade.
-
-<PairingsDynamic />
 
 ### When to Use Pairings
 

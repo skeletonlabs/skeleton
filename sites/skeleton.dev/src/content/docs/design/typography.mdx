@@ -1,7 +1,7 @@
 ---
 title: Typography
 description: The Skeleton typography system.
-summary: Skeleton provides an array of opt-in utility classes for common typographic elements, with a fully functional typography scale based on your theme settings. As well as a number of primitives for generating a semantic typography set for your project's individual needs.
+summary: Skeleton provides an array of opt-in utility classes for common typographic elements. As well as providing a fully functional typography scale base on theme settings. With guidance on crafting a custom semantic typography set tailored for your project's individual needs.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/typography.css'
 order: 30
@@ -37,7 +37,7 @@ import SemanticRaw from '@/components/examples/design/typography/semantic.svelte
 
 ## Native Element Styles
 
-Skeleton provides the following utlity classes for styling semantic native HTML elements. These are available for a variety of common typographic elements and opt-in by default, providing an escape hatch to easily to break from convention.
+Skeleton provides the following utlity classes for styling semantic native HTML elements. All styles are opt-in by default, providing an escape hatch when you need to break from convention.
 
 ### Headings
 
@@ -103,11 +103,11 @@ Skeleton defers to Tailwind's built-in utility classes for common list styles.
 
 ## Advanced Features
 
-The following features are optional and intended for professionals with extensive understanding of web-based typography. If you're unfamiliar with these concepts, feel free skip them and use the friendly defaults Skeleton provides out of the box.
+The following features are optional and intended for professionals with moderate understanding of web-based typography. If you're unfamiliar with these concepts, feel free skip them and use the friendly defaults Skeleton provides out of the box.
 
 ### Typographic Scale
 
-Skeleton augments Tailwind's [font-size](https://tailwindcss.com/docs/font-size) utilities to support a customizable [Typographic Scale](https://designcode.io/typographic-scales) system. Put simply, by modifying your theme's `--text-scaling` property, you can control the overall scale of text globally throughout your application. See the [Core API](/docs/get-started/core-api#typography) to review the scaling forumula.
+Skeleton augments [Tailwind's font-size](https://tailwindcss.com/docs/font-size) utilities to support a customizable [Typographic Scale](https://designcode.io/typographic-scales). Put simply, by modifying your theme's `--text-scaling` property, you can control the overall scale of text sizing globally throughout your application. See the [Core API](/docs/get-started/core-api#typography) to review the scaling forumula.
 
 <Preview client:visible>
 	<Typescale client:visible />
@@ -117,9 +117,9 @@ Skeleton augments Tailwind's [font-size](https://tailwindcss.com/docs/font-size)
 
 ### Semantic Typography
 
-When working in a professional environment, your designers may craft a semantic set of typography for your project using unique names, canned sizes, adn pre-configured styles. To handle this in Skeleton, we recommend following best practices for [User Generated Presets](/docs/[framework]/design/presets#user-generated), mixing CSS primitives with semantic HTML elements to replicate all required styles.
+When working with a designer, they may craft a semantic set of typography for your project. These might include semantic names, canned sizes, and pre-configured styling. To handle this in Skeleton, we recommend following best practices for [User Generated Presets](/docs/[framework]/design/presets#user-generated), while mixing CSS primitives with semantic HTML elements to replicate all required styles.
 
-We've provided a boilerplate set to help you get started. Implement into your global stylesheet, then customize as needed.
+We've provided a boilerplate below to help you get started. Implement in your global stylesheet, and customize as needed.
 
 <Preview files={{ 'app.svelte': SemanticRaw }} client:visible>
 	<Semantic client:visible />

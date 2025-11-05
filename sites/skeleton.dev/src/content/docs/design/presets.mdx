@@ -1,7 +1,7 @@
 ---
 title: Presets
 description: Canned styles for your interface elements.
-summary: Presets are pre-defined utility classes that allow you to quickly and easily style buttons, badges, cards, and more. They are implemented using a combination of Skeleton and Tailwind primitives. A number of presets are available out of the box, with guidelines on how to create your own.
+summary: Presets are pre-defined utility classes that allow you to quickly and easily style buttons, badges, cards, and more. They are implemented using a combination of Skeleton and Tailwind primitives. A number of presets are available out of the box, with guidelines provided for crafting your own.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/presets.scss'
 order: 20
@@ -24,6 +24,10 @@ import TonalRaw from '@/components/examples/design/presets/tonal.astro?raw';
 import UserGenerated from '@/components/examples/design/presets/user-generated.astro';
 import UserGeneratedRaw from '@/components/examples/design/presets/user-generated.astro?raw';
 
+## Skeleton Presets
+
+The following Presets are available to you when using Skeleton. Each comes with a shorthand neutral option.
+
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
 </Preview>
@@ -32,15 +36,12 @@ import UserGeneratedRaw from '@/components/examples/design/presets/user-generate
 2. **Tonal** - a tonal preset of the primary brand color.
 3. **Outlined** - an outlined preset of the primary brand color.
 
-## Skeleton Presets
-
-The following Presets are available to you when using Skeleton. Each comes with a shorthand neutral option.
-
 ### Filled
 
 Has a wide variety of use cases and automatically implements [contrast colors](/docs/design/colors#contrast-colors) automatically.
 
 ```txt
+preset-filled
 preset-filled-{color}-{lightModeShade}-{darkModeShade}
 ```
 
@@ -53,6 +54,7 @@ preset-filled-{color}-{lightModeShade}-{darkModeShade}
 Ideal for alerts and axillary buttons and actions.
 
 ```txt
+preset-tonal
 preset-tonal-{color}
 ```
 
@@ -65,6 +67,7 @@ preset-tonal-{color}
 Ideal when for minimal interfaces, such as a surrounding card.
 
 ```txt
+preset-outlined
 preset-outlined-{color}-{shade}-{shade}
 ```
 
@@ -76,7 +79,7 @@ preset-outlined-{color}-{shade}-{shade}
 
 ## User Generated
 
-In a nutshell, Presets are just a combination of reused styles that mix Skeleton and Tailwind primitives. This means you can create as many combinations as you wish to help control the aesthetic of your application. See reference examples below. All custom presets should be implemented in your application global stylesheet.
+In a nutshell, Presets are a resuable combination of styles that mix Skeleton and Tailwind primitives. This means you can create as many combinations as you wish to help control the aesthetic of your application. All custom presets should be implemented in your application's global stylesheet. See our reference examples below.
 
 <Preview files={{ 'app.astro': UserGeneratedRaw }} client:visible>
 	<UserGenerated />
@@ -87,9 +90,7 @@ In a nutshell, Presets are just a combination of reused styles that mix Skeleton
 3. **Ghost** - has no style by default, but shows a tonal preset on hover.
 4. **Gradient** - a custom preset generated using Tailwind gradient primitives.
 
-### Examples
-
-To help illustrate the concept, a few practicl examples of user generated Presets have been provided below.
+### Pratical Examples
 
 #### Input Presets
 
@@ -117,8 +118,8 @@ Fine tune your Presets with special effects, such as the [Tailwind Backdrop Blur
 
 ### Guidelines
 
-- You're only limited by your imagination when creating custom Presets.
-- Use any combination of Skeleton or Tailwind-provided primitive to generate a Preset.
+- When creating custom Presets, you're only limited by your imagination.
+- Use any combination of Skeleton or Tailwind primitives to generate a Preset.
 - Apply Presets to any relevant element, including: buttons, badges, chips, cards, inputs, and more.
 - Use a set naming convention, such as `preset-{foo}-{bar}` to keep things standardized.
 - Consider implementing Presets using Tailwind's [@utility directive](https://tailwindcss.com/docs/functions-and-directives#utility-directive) in your stylesheet.

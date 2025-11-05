@@ -1,7 +1,7 @@
 ---
 title: Spacing
 description: Set a dynamic scale for application whitespace.
-summary: Skeleton utilizes the power of Tailwind to provide a universal system for customizing spacing throughout your application. Enabling customization of this setting per each theme.
+summary: Skeleton utilizes the power of Tailwind to provide a universal system for customizing spacing throughout your application. While enabling this customization per each theme.
 order: 40
 ---
 
@@ -13,7 +13,7 @@ import Default from '@/components/examples/design/spacing/default.svelte';
 
 ## How It Works
 
-In legacy versions of Skeleton, this was implement using custom mechanisms. However, starting Skeleton `v3.0.0` and Tailwind `4.0.0`, this now utilizes the official [Tailwind Spacing](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants) property.
+In recent versions of Skeleton, this is implemented using the official [Tailwind Spacing](https://tailwindcss.com/blog/tailwindcss-v4#dynamic-utility-values-and-variants) property.
 
 ```css
 @layer theme {
@@ -23,11 +23,14 @@ In legacy versions of Skeleton, this was implement using custom mechanisms. Howe
 }
 ```
 
-With the added benefit this can be easily customized per Skeleton theme.
+However, this can be customized to each Skeleton theme.
 
 ```css
 [data-theme='cerberus'] {
 	--spacing: 0.25rem;
+}
+[data-theme='mona'] {
+	--spacing: 0.2rem;
 }
 ```
 
