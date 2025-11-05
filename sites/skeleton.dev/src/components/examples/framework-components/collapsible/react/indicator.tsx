@@ -12,8 +12,8 @@ export default function Default() {
 				</Collapsible.Indicator>
 			</Collapsible.Trigger>
 			<Collapsible.Content>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam assumenda veritatis modi repellendus enim accusantium inventore
-				architecto maxime voluptates quibusdam velit perferendis mollitia, quas, aliquam sapiente adipisci illo nostrum vitae?
+				The world dies over and over again, but the skeleton always gets up and walks. Every heart has its own skeletons. The bones of the
+				skeleton which support the body can become the bars of the cage which imprison the spirit.
 			</Collapsible.Content>
 		</Collapsible>
 	);

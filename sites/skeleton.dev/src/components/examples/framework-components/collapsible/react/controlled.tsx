@@ -8,8 +8,8 @@ export default function Controlled() {
 		<Collapsible open={open} onOpenChange={(details) => setOpen(details.open)}>
 			<Collapsible.Trigger className="btn preset-filled">{open ? 'Close' : 'Open'}</Collapsible.Trigger>
 			<Collapsible.Content>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit pariatur error soluta voluptate, accusantium modi repudiandae omnis
-				eligendi, suscipit repellat impedit architecto neque sequi mollitia autem dicta quae ipsum et?
+				The world dies over and over again, but the skeleton always gets up and walks. Every heart has its own skeletons. The bones of the
+				skeleton which support the body can become the bars of the cage which imprison the spirit.
 			</Collapsible.Content>
 		</Collapsible>
 	);
