@@ -10,8 +10,8 @@
 			<ArrowUpDownIcon class="size-4" />
 		</Collapsible.Trigger>
 	</div>
-	<Collapsible.Content>
-		<nav class="flex flex-col gap-2">
+	<Collapsible.Content class="flex flex-col gap-2">
+		<nav class="contents">
 			<a class="anchor" href="/docs/design/themes">Themes</a>
 			<a class="anchor" href="/docs/design/colors">Colors</a>
 			<a class="anchor" href="/docs/design/presets">Presets</a>

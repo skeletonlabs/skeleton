@@ -10,8 +10,8 @@ export default function Default() {
 					<ArrowUpDownIcon className="size-4" />
 				</Collapsible.Trigger>
 			</div>
-			<Collapsible.Content>
-				<nav className="flex flex-col gap-2">
+			<Collapsible.Content className="flex flex-col gap-2">
+				<nav className="contents">
 					<a className="anchor" href="/docs/design/themes">
 						Themes
 					</a>
