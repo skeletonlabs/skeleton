@@ -10,40 +10,26 @@ export default function Default() {
 					<ArrowUpDownIcon className="size-4" />
 				</Collapsible.Trigger>
 			</div>
-			<Collapsible.Content className="flex justify-start items-stretch">
-				<nav className="space-y-2">
-					<ul className="space-y-2">
-						<li>
-							<a className="anchor" href="/docs/design/themes">
-								Themes
-							</a>
-						</li>
-						<li>
-							<a className="anchor" href="/docs/design/colors">
-								Colors
-							</a>
-						</li>
-						<li>
-							<a className="anchor" href="/docs/design/presets">
-								Presets
-							</a>
-						</li>
-						<li>
-							<a className="anchor" href="/docs/design/typography">
-								Typography
-							</a>
-						</li>
-						<li>
-							<a className="anchor" href="/docs/design/spacing">
-								Spacing
-							</a>
-						</li>
-						<li>
-							<a className="anchor" href="/docs/design/iconography">
-								Iconography
-							</a>
-						</li>
-					</ul>
+			<Collapsible.Content>
+				<nav className="flex flex-col gap-2">
+					<a className="anchor" href="/docs/design/themes">
+						Themes
+					</a>
+					<a className="anchor" href="/docs/design/colors">
+						Colors
+					</a>
+					<a className="anchor" href="/docs/design/presets">
+						Presets
+					</a>
+					<a className="anchor" href="/docs/design/typography">
+						Typography
+					</a>
+					<a className="anchor" href="/docs/design/spacing">
+						Spacing
+					</a>
+					<a className="anchor" href="/docs/design/iconography">
+						Iconography
+					</a>
 				</nav>
 			</Collapsible.Content>
 		</Collapsible>

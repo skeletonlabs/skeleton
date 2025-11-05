@@ -10,16 +10,14 @@
 			<ArrowUpDownIcon class="size-4" />
 		</Collapsible.Trigger>
 	</div>
-	<Collapsible.Content class="flex justify-start items-stretch">
-		<nav class="space-y-2">
-			<ul class="space-y-2">
-				<li><a class="anchor" href="/docs/design/themes">Themes</a></li>
-				<li><a class="anchor" href="/docs/design/colors">Colors</a></li>
-				<li><a class="anchor" href="/docs/design/presets">Presets</a></li>
-				<li><a class="anchor" href="/docs/design/typography">Typography</a></li>
-				<li><a class="anchor" href="/docs/design/spacing">Spacing</a></li>
-				<li><a class="anchor" href="/docs/design/iconography">Iconography</a></li>
-			</ul>
+	<Collapsible.Content class="transition-[max-height] transition-discrete data-[state=closed]:max-h-0 data-[state=open]:max-h-full">
+		<nav class="flex flex-col gap-2">
+			<a class="anchor" href="/docs/design/themes">Themes</a>
+			<a class="anchor" href="/docs/design/colors">Colors</a>
+			<a class="anchor" href="/docs/design/presets">Presets</a>
+			<a class="anchor" href="/docs/design/typography">Typography</a>
+			<a class="anchor" href="/docs/design/spacing">Spacing</a>
+			<a class="anchor" href="/docs/design/iconography">Iconography</a>
 		</nav>
 	</Collapsible.Content>
 </Collapsible>
