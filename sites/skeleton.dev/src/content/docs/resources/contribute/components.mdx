@@ -4,34 +4,22 @@ description: Guidelines for contributing new Skeleton components.
 order: 10
 ---
 
-### Dev Server
+## Development Server
 
-To run all packages/playgrounds/sites in watch mode, use the following command in the monorepo root:
-
-```bash
-pnpm dev
-```
-
-We've also provide a number of sub-commands for a more limited set of packages:
+To run the development server for a specific project, use the following command:
 
 ```bash
-pnpm dev:{command}
+pnpm dev:{project}
 ```
 
-- `dev:docs` - runs all dependencies for the Documentation website.
-- `dev:themes` - runs all dependencies for the Theme Generator website.
-- `dev:svelte` - runs all dependencies for the Svelte Playground.
-- `dev:react` - runs all dependencies for the React Playground.
+| Command           | Description                                | Also runs                                                          |
+| ----------------- | ------------------------------------------ | ------------------------------------------------------------------ |
+| `pnpm dev:docs`   | Runs the Documentation website dev server. | `skeleton`, `skeleton-svelte`, `skeleton-react`, `skeleton-common` |
+| `pnpm dev:themes` | Runs the Themes website dev server.        | `skeleton`                                                         |
+| `pnpm dev:react`  | Runs the React Playground dev server.      | `skeleton`, `skeleton-react`, `skeleton-common`                    |
+| `pnpm dev:svelte` | Runs the Svelte Playground dev server.     | `skeleton`, `skeleton-svelte`, `skeleton-common`                   |
 
-### Server Ports
-
-The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
-
-- Documentation Site: `http://localhost:4321/`
-- Svelte Playground: `http://localhost:5173/`
-- React Playground: `http://localhost:3000/`
-
-You may run the sites and playgrounds in parallel at the same time. If a server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address for each.
+## Adding Components
 
 ### Zag.js
 
@@ -43,10 +31,6 @@ When introducing a new Skeleton component, please refer to the documentation for
 - Avatar (Svelte): https://zagjs.com/components/svelte/avatar
 
 Continue reading below to learn how implement the Zag primitives as components using Skeleton-specific conventions.
-
----
-
-## Adding Components
 
 ### Anatomy
 
