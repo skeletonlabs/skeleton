@@ -4,7 +4,7 @@ export default function Filter() {
 	return (
 		<>
 			<Avatar>
-				<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="filter-[url(#apollo)]" />
+				<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="filter-[url(#apollo)]" alt="filtered" />
 				<Avatar.Fallback>SK</Avatar.Fallback>
 			</Avatar>
 			<svg className="absolute -left-full w-0 h-0">

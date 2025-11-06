@@ -24,6 +24,12 @@
 	<!-- --- -->
 	<Navigation layout={layoutRail ? 'rail' : 'sidebar'} class={layoutRail ? '' : 'grid grid-rows-[1fr_auto] gap-4'}>
 		<Navigation.Content>
+			<Navigation.Header>
+				<button type="button" class={layoutRail ? anchorRail : anchorSidebar} onclick={toggleLayout}>
+					<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
+					{#if !layoutRail}<span>Resize</span>{/if}
+				</button>
+			</Navigation.Header>
 			<Navigation.Menu>
 				{#each links as link (link)}
 					{@const Icon = link.icon}
@@ -34,12 +40,6 @@
 				{/each}
 			</Navigation.Menu>
 		</Navigation.Content>
-		<Navigation.Footer>
-			<button type="button" class={layoutRail ? anchorRail : anchorSidebar} onclick={toggleLayout}>
-				<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
-				{#if !layoutRail}<span>Resize</span>{/if}
-			</button>
-		</Navigation.Footer>
 	</Navigation>
 	<!-- --- -->
 	<div class="flex justify-center items-center">

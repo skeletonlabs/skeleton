@@ -6,9 +6,6 @@ description: Allows input of multiple values.
 import DefaultReact from '@/components/examples/framework-components/tags-input/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
 
-import ControlledReact from '@/components/examples/framework-components/tags-input/react/default';
-import ControlledReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
-
 import CustomIconReact from '@/components/examples/framework-components/tags-input/react/custom-icon';
 import CustomIconReactRaw from '@/components/examples/framework-components/tags-input/react/custom-icon?raw';
 
@@ -23,9 +20,6 @@ import DirReactRaw from '@/components/examples/framework-components/tags-input/r
 
 import DefaultSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
-
-import ControlledSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
-import ControlledSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
 
 import CustomIconSvelte from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte';
 import CustomIconSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte?raw';
@@ -50,20 +44,11 @@ import DirSvelteRaw from '@/components/examples/framework-components/tags-input/
 	</Preview>
 </Framework>
 
-## Controlled
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
-		<ControlledReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
-		<ControlledSvelte client:visible />
-	</Preview>
-</Framework>
+Double tap each tag to quickly and easily edit in place.
 
 ## Custom Icon
+
+Implemen custom icons for the remove action.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': CustomIconReactRaw }} client:visible>
@@ -77,6 +62,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/tags-input/
 </Framework>
 
 ## Color
+
+Change the tag color using utility classes or custom CSS variables to match your design system.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
@@ -105,6 +92,8 @@ Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-p
 </Framework>
 
 ## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

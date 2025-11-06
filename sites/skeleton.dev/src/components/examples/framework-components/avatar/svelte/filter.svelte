@@ -3,7 +3,7 @@
 </script>
 
 <Avatar>
-	<Avatar.Image src="https://i.pravatar.cc/150?img=48" class="filter-[url(#apollo)]" />
+	<Avatar.Image src="https://i.pravatar.cc/150?img=48" class="filter-[url(#apollo)]" alt="filtered" />
 	<Avatar.Fallback>SK</Avatar.Fallback>
 </Avatar>
 

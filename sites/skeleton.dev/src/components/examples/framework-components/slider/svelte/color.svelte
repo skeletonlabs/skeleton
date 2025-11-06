@@ -5,10 +5,10 @@
 <div class="space-y-8 w-full">
 	<Slider defaultValue={[50]}>
 		<Slider.Control>
-			<Slider.Track>
+			<Slider.Track class="bg-primary-50-950">
 				<Slider.Range class="bg-primary-500" />
 			</Slider.Track>
-			<Slider.Thumb index={0}>
+			<Slider.Thumb index={0} class="ring-primary-500">
 				<Slider.HiddenInput />
 			</Slider.Thumb>
 		</Slider.Control>
@@ -16,10 +16,10 @@
 
 	<Slider defaultValue={[50]}>
 		<Slider.Control>
-			<Slider.Track>
+			<Slider.Track class="bg-secondary-50-950">
 				<Slider.Range class="bg-secondary-500" />
 			</Slider.Track>
-			<Slider.Thumb index={0}>
+			<Slider.Thumb index={0} class="ring-secondary-500">
 				<Slider.HiddenInput />
 			</Slider.Thumb>
 		</Slider.Control>
@@ -27,10 +27,10 @@
 
 	<Slider defaultValue={[50]}>
 		<Slider.Control>
-			<Slider.Track>
+			<Slider.Track class="bg-tertiary-50-950">
 				<Slider.Range class="bg-tertiary-500" />
 			</Slider.Track>
-			<Slider.Thumb index={0}>
+			<Slider.Thumb index={0} class="ring-tertiary-500">
 				<Slider.HiddenInput />
 			</Slider.Thumb>
 		</Slider.Control>

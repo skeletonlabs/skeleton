@@ -1,10 +1,12 @@
 import { FileUpload } from '@skeletonlabs/skeleton-react';
+import { FileIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
 		<FileUpload>
-			<FileUpload.Label>Label</FileUpload.Label>
 			<FileUpload.Dropzone>
+				<FileIcon className="size-10" />
+				<span>Select file or drag here.</span>
 				<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 				<FileUpload.HiddenInput />
 			</FileUpload.Dropzone>

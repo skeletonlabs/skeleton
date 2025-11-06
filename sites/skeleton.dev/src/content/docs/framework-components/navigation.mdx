@@ -31,12 +31,6 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 
 ## Bar
 
-- Recommended for small sized screens (ex: mobile).
-- Ideal for vertical screen layouts.
-- Should be fixed to the bottom of the viewport.
-- Supports 3-5 tiles based on contents and viewport width.
-- Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -48,12 +42,13 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 	</Preview>
 </Framework>
 
-## Rail
+- Recommended for small sized screens (ex: mobile).
+- Ideal for vertical screen layouts.
+- Should be fixed to the bottom of the viewport.
+- Supports 3-5 tiles based on contents and viewport width.
+- Consider progressive enhancement with the [Virtual Keyboard API](https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard_API).
 
-- Recommended for medium sized screens (ex: tablet).
-- Ideal for horizontal screen layouts.
-- Should be fixed to the left or right of the viewport.
-- Supports 3-7 tiles based on contents and viewport height.
+## Rail
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': RailReactRaw }} client:visible>
@@ -66,14 +61,12 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 	</Preview>
 </Framework>
 
-## Sidebar
-
-- Recommended for large sized screens (ex: desktop).
+- Recommended for medium sized screens (ex: tablet).
 - Ideal for horizontal screen layouts.
 - Should be fixed to the left or right of the viewport.
-- Supports multiple groups of links for deep navigation.
-- Supports a label field per each group.
-- Can scroll vertically if contents extend beyond the viewport height.
+- Supports 3-7 tiles based on contents and viewport height.
+
+## Sidebar
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': SidebarReactRaw }} client:visible>
@@ -85,6 +78,13 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 		<SidebarSvelte client:visible />
 	</Preview>
 </Framework>
+
+- Recommended for large sized screens (ex: desktop).
+- Ideal for horizontal screen layouts.
+- Should be fixed to the left or right of the viewport.
+- Supports multiple groups of links for deep navigation.
+- Supports a label field per each group.
+- Can scroll vertically if contents extend beyond the viewport height.
 
 ## Toggle Layout
 

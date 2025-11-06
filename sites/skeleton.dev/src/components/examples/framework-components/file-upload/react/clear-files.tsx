@@ -25,9 +25,13 @@ export default function ClearFiles() {
 					</FileUpload.Context>
 				</FileUpload.ItemGroup>
 			</FileUpload.Provider>
-			<button className="btn preset-filled hover:preset-filled-error-500 w-fit" onClick={() => fileUpload.clearFiles()}>
-				Clear Files
-			</button>
+
+			{/* Clear Button */}
+			<div className="card p-4 preset-outlined-primary-200-800 flex justify-center items-center">
+				<button className="btn preset-filled-primary-500" onClick={() => fileUpload.clearFiles()}>
+					Clear Files
+				</button>
+			</div>
 		</div>
 	);
 }

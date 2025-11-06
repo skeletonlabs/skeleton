@@ -1,24 +1,34 @@
 import { SegmentedControl } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
 
 export default function Default() {
+	const [value, setValue] = useState<string | null>('music');
+
 	return (
-		<SegmentedControl defaultValue="item-1">
-			<SegmentedControl.Label>Label</SegmentedControl.Label>
-			<SegmentedControl.Control>
-				<SegmentedControl.Indicator />
-				<SegmentedControl.Item value="item-1">
-					<SegmentedControl.ItemText>Item 1</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-				<SegmentedControl.Item value="item-2">
-					<SegmentedControl.ItemText>Item 2</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-				<SegmentedControl.Item value="item-3">
-					<SegmentedControl.ItemText>Item 3</SegmentedControl.ItemText>
-					<SegmentedControl.ItemHiddenInput />
-				</SegmentedControl.Item>
-			</SegmentedControl.Control>
-		</SegmentedControl>
+		<div className="flex flex-col items-center gap-4">
+			<SegmentedControl value={value} onValueChange={(details) => setValue(details.value)}>
+				<SegmentedControl.Label>Label</SegmentedControl.Label>
+				<SegmentedControl.Control>
+					<SegmentedControl.Indicator />
+					<SegmentedControl.Item value="music">
+						<SegmentedControl.ItemText>Music</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="images">
+						<SegmentedControl.ItemText>Images</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+					<SegmentedControl.Item value="videos">
+						<SegmentedControl.ItemText>Videos</SegmentedControl.ItemText>
+						<SegmentedControl.ItemHiddenInput />
+					</SegmentedControl.Item>
+				</SegmentedControl.Control>
+			</SegmentedControl>
+
+			{/* Message */}
+			<p>
+				<span className="opacity-60">You selected</span> <code className="code">{value}</code>
+			</p>
+		</div>
 	);
 }

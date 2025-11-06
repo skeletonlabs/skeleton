@@ -6,9 +6,6 @@ description: Capture input for a limited set of options.
 import DefaultReact from '@/components/examples/framework-components/segmented-control/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/segmented-control/react/default?raw';
 
-import ControlledReact from '@/components/examples/framework-components/segmented-control/react/controlled';
-import ControlledReactRaw from '@/components/examples/framework-components/segmented-control/react/controlled?raw';
-
 import IconsReact from '@/components/examples/framework-components/segmented-control/react/icons';
 import IconsReactRaw from '@/components/examples/framework-components/segmented-control/react/icons?raw';
 
@@ -29,9 +26,6 @@ import DirReactRaw from '@/components/examples/framework-components/segmented-co
 
 import DefaultSvelte from '@/components/examples/framework-components/segmented-control/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/segmented-control/svelte/default.svelte?raw';
-
-import ControlledSvelte from '@/components/examples/framework-components/segmented-control/svelte/controlled.svelte';
-import ControlledSvelteRaw from '@/components/examples/framework-components/segmented-control/svelte/controlled.svelte?raw';
 
 import IconsSvelte from '@/components/examples/framework-components/segmented-control/svelte/icons.svelte';
 import IconsSvelteRaw from '@/components/examples/framework-components/segmented-control/svelte/icons.svelte?raw';
@@ -62,20 +56,9 @@ import DirSvelteRaw from '@/components/examples/framework-components/segmented-c
 	</Preview>
 </Framework>
 
-## Controlled
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
-		<ControlledReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
-		<ControlledSvelte client:visible />
-	</Preview>
-</Framework>
-
 ## Icons
+
+To adhere to accessibility best practices, include `title` and `aria-label` when using icon labels.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': IconsReactRaw }} client:visible>
@@ -89,6 +72,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/segmented-c
 </Framework>
 
 ## Orientation
+
+Using the `orientation` prop to control the layout.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>

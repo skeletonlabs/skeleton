@@ -6,13 +6,8 @@ export default function Arrow() {
 			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>
 			<Portal>
 				<Popover.Positioner>
-					<Popover.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl space-y-2">
-						<Popover.Title className="font-bold">Title</Popover.Title>
-						<Popover.Description>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
-							nesciunt enim.
-						</Popover.Description>
-						<Popover.CloseTrigger className="btn preset-tonal">Close</Popover.CloseTrigger>
+					<Popover.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl">
+						<Popover.Description>This example will have a small arrow.</Popover.Description>
 						<Popover.Arrow
 							style={{
 								['--arrow-size' as string]: 'calc(var(--spacing) * 2)',

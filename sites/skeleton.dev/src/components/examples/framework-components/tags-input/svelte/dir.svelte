@@ -20,6 +20,5 @@
 		</TagsInput.Context>
 		<TagsInput.Input placeholder="Add a flavor..." />
 	</TagsInput.Control>
-	<TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger>
 	<TagsInput.HiddenInput />
 </TagsInput>

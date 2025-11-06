@@ -6,9 +6,6 @@ description: File upload dropzone and input patterns for selecting files.
 import DefaultReact from '@/components/examples/framework-components/file-upload/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/file-upload/react/default?raw';
 
-import CustomContentReact from '@/components/examples/framework-components/file-upload/react/custom-content';
-import CustomContentReactRaw from '@/components/examples/framework-components/file-upload/react/custom-content?raw';
-
 import DisabledReact from '@/components/examples/framework-components/file-upload/react/disabled';
 import DisabledReactRaw from '@/components/examples/framework-components/file-upload/react/disabled?raw';
 
@@ -23,9 +20,6 @@ import DirReactRaw from '@/components/examples/framework-components/file-upload/
 
 import DefaultSvelte from '@/components/examples/framework-components/file-upload/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/default.svelte?raw';
-
-import CustomContentSvelte from '@/components/examples/framework-components/file-upload/svelte/custom-content.svelte';
-import CustomContentSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/custom-content.svelte?raw';
 
 import DisabledSvelte from '@/components/examples/framework-components/file-upload/svelte/disabled.svelte';
 import DisabledSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/disabled.svelte?raw';
@@ -47,21 +41,6 @@ import DirSvelteRaw from '@/components/examples/framework-components/file-upload
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
-	</Preview>
-</Framework>
-
-## Custom Content
-
-Supply your own text and icons within the dropzone.
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': CustomContentReactRaw }} client:visible>
-		<CustomContentReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': CustomContentSvelteRaw }} client:visible>
-		<CustomContentSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -91,7 +70,9 @@ Supply your own text and icons within the dropzone.
 	</Preview>
 </Framework>
 
-## Clear Files
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ClearFilesReactRaw }} client:visible>
@@ -105,6 +86,8 @@ Supply your own text and icons within the dropzone.
 </Framework>
 
 ## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

@@ -4,9 +4,9 @@
 
 <Tabs defaultValue="overview" orientation="vertical">
 	<Tabs.List>
-		<Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-		<Tabs.Trigger value="features">Key features</Tabs.Trigger>
-		<Tabs.Trigger value="activity">Activity</Tabs.Trigger>
+		<Tabs.Trigger value="overview" class="justify-start">Overview</Tabs.Trigger>
+		<Tabs.Trigger value="features" class="justify-start">Key features</Tabs.Trigger>
+		<Tabs.Trigger value="activity" class="justify-start">Activity</Tabs.Trigger>
 		<Tabs.Indicator />
 	</Tabs.List>
 	<Tabs.Content value="overview">

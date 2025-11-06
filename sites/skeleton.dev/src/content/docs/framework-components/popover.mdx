@@ -18,9 +18,6 @@ import ZIndexReactRaw from '@/components/examples/framework-components/popover/r
 import DirReact from '@/components/examples/framework-components/popover/react/dir';
 import DirReactRaw from '@/components/examples/framework-components/popover/react/dir?raw';
 
-import HeadlessReact from '@/components/examples/framework-components/popover/react/headless';
-import HeadlessReactRaw from '@/components/examples/framework-components/popover/react/headless?raw';
-
 import DefaultSvelte from '@/components/examples/framework-components/popover/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/popover/svelte/default.svelte?raw';
 
@@ -36,9 +33,6 @@ import ZIndexSvelteRaw from '@/components/examples/framework-components/popover/
 import DirSvelte from '@/components/examples/framework-components/popover/svelte/dir.svelte';
 import DirSvelteRaw from '@/components/examples/framework-components/popover/svelte/dir.svelte?raw';
 
-import HeadlessSvelte from '@/components/examples/framework-components/popover/svelte/headless.svelte';
-import HeadlessSvelteRaw from '@/components/examples/framework-components/popover/svelte/headless.svelte?raw';
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -49,6 +43,8 @@ import HeadlessSvelteRaw from '@/components/examples/framework-components/popove
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
+
+Unlike most components in Skeleton, this is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
 
 ## Arrow
 
@@ -67,7 +63,7 @@ Visually connects the popover content to the trigger element. Will automatically
 
 ## Z-Index
 
-This component is headless by default. If you find the popover content is being clipped, try increasing the z-index on the Positioner part. In some rare cases you may need to use `!important` to override library defaults.
+By default Skeleton does not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
@@ -82,7 +78,7 @@ This component is headless by default. If you find the popover content is being 
 
 ## Provider Pattern
 
-You can programmatically open and close the popover using the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern). This is useful for custom interactions and keyboard handling strategies.
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
@@ -97,6 +93,8 @@ You can programmatically open and close the popover using the [Provider Pattern]
 
 ## Direction
 
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
 		<DirReact client:visible />
@@ -105,19 +103,6 @@ You can programmatically open and close the popover using the [Provider Pattern]
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
-	</Preview>
-</Framework>
-
-## Headless
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': HeadlessReactRaw }} client:visible>
-		<HeadlessReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
-		<HeadlessSvelte client:visible />
 	</Preview>
 </Framework>
 

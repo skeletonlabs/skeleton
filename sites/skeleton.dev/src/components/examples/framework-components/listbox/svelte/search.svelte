@@ -23,7 +23,7 @@
 
 <Listbox class="w-full max-w-md" {collection}>
 	<Listbox.Label>Label</Listbox.Label>
-	<Listbox.Input placeholder="Type to search..." value={query} onchange={(e) => (query = e.currentTarget.value)} />
+	<Listbox.Input placeholder="Type to search..." value={query} oninput={(e) => (query = e.currentTarget.value)} />
 	<Listbox.Content>
 		{#each collection.items as item (item.value)}
 			<Listbox.Item {item}>

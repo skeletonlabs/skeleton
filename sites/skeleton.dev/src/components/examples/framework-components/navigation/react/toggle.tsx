@@ -28,6 +28,12 @@ export default function Default() {
 		<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
 			<Navigation layout={layoutRail ? 'rail' : 'sidebar'} className={layoutRail ? '' : 'grid grid-rows-[1fr_auto] gap-4'}>
 				<Navigation.Content>
+					<Navigation.Header>
+						<button type="button" className={layoutRail ? anchorRail : anchorSidebar} onClick={toggleLayout}>
+							<ArrowLeftRightIcon className={layoutRail ? 'size-5' : 'size-4'} />
+							{!layoutRail ? <span>Resize</span> : ''}
+						</button>
+					</Navigation.Header>
 					<Navigation.Menu>
 						{links.map((link) => {
 							const Icon = link.icon;
@@ -40,12 +46,6 @@ export default function Default() {
 						})}
 					</Navigation.Menu>
 				</Navigation.Content>
-				<Navigation.Footer>
-					<button type="button" className={layoutRail ? anchorRail : anchorSidebar} onClick={toggleLayout}>
-						<ArrowLeftRightIcon className={layoutRail ? 'size-5' : 'size-4'} />
-						{!layoutRail ? <span>Resize</span> : ''}
-					</button>
-				</Navigation.Footer>
 			</Navigation>
 			<div className="flex justify-center items-center">
 				<p className="opacity-50">Contents</p>

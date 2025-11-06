@@ -21,7 +21,7 @@ export default function Search() {
 	return (
 		<Listbox className="w-full max-w-md" collection={collection}>
 			<Listbox.Label>Label</Listbox.Label>
-			<Listbox.Input placeholder="Type to search..." value={query} onChange={(e) => setQuery(e.currentTarget.value)} />
+			<Listbox.Input placeholder="Type to search..." value={query} onInput={(e) => setQuery(e.currentTarget.value)} />
 			<Listbox.Content>
 				{collection.items.map((item) => (
 					<Listbox.Item key={item.value} item={item}>

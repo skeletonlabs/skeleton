@@ -1,0 +1,10 @@
+{/* Any Page or Component */}
+
+import toaster from '/some/path/toaster.ts';
+
+export default function Page() {
+	function onClickHandler() {
+		toaster.info({ title: 'Example', description: 'This is a toast message.' });
+	}
+	return ();
+}

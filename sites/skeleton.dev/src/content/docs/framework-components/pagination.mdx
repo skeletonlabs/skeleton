@@ -34,6 +34,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/pagination/
 
 ## Page Size
 
+Implement a custom page `pageSize` amount using a select element.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw }} client:visible>
 		<DynamicPageSizeReact client:visible />
@@ -46,6 +48,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/pagination/
 </Framework>
 
 ## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
@@ -73,8 +77,15 @@ const res = {
 }
 ```
 
-```astro
-<Pagination page={res.pagination.page} count={res.pagination.count} pageSize={res.pagination.limit}>...</Pagination>
+{/* prettier-ignore */}
+```html
+<Pagination
+	page={res.pagination.page}
+	count={res.pagination.count}
+	pageSize={res.pagination.limit}
+>
+	<!-- ... -->
+</Pagination>
 ```
 
 ## API Reference

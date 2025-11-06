@@ -3,7 +3,7 @@
 </script>
 
 <Switch>
-	<Switch.Control class="data-[state=checked]:preset-filled-success-500">
+	<Switch.Control class="preset-filled-secondary-50-950 data-[state=checked]:preset-filled-secondary-500">
 		<Switch.Thumb />
 	</Switch.Control>
 	<Switch.HiddenInput />

@@ -29,5 +29,8 @@
 		</FileUpload.ItemGroup>
 	</FileUpload.Provider>
 
-	<button class="btn preset-filled hover:preset-filled-error-500 w-fit" onclick={() => fileUpload().clearFiles()}>Clear Files</button>
+	<!-- Clear Button -->
+	<div class="card p-4 preset-outlined-primary-200-800 flex justify-center items-center">
+		<button class="btn preset-filled-primary-500" onclick={() => fileUpload().clearFiles()}>Clear Files</button>
+	</div>
 </div>

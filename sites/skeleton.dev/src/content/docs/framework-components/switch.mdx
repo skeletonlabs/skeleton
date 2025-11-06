@@ -44,9 +44,9 @@ import DirSvelteRaw from '@/components/examples/framework-components/switch/svel
 	</Preview>
 </Framework>
 
-## Checked Color
+## Color
 
-Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the active state using `data-[state=checked]`
+Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) to target the state using `data-[state=checked]`
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ColorsReactRaw }} client:visible>
@@ -61,6 +61,8 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 
 ## List
 
+Use the `Label` component to create a list layout.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ListReactRaw }} client:visible>
 		<ListReact client:visible />
@@ -74,6 +76,8 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 
 ## Icons
 
+Add icons to act as state indicators.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ThumbIconsReactRaw }} client:visible>
 		<ThumbIconsReact client:visible />
@@ -86,6 +90,8 @@ Use the [Tailwind data attribute syntax](https://tailwindcss.com/docs/hover-focu
 </Framework>
 
 ## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

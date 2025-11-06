@@ -1,10 +1,12 @@
 <script lang="ts">
+	import { FileIcon } from '@lucide/svelte';
 	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <FileUpload>
-	<FileUpload.Label>Label</FileUpload.Label>
 	<FileUpload.Dropzone>
+		<FileIcon class="size-10" />
+		<span>Select file or drag here.</span>
 		<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 		<FileUpload.HiddenInput />
 	</FileUpload.Dropzone>

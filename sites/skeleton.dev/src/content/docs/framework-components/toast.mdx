@@ -45,6 +45,9 @@ import PromiseSvelteRaw from '@/components/examples/framework-components/toast/s
 import TypeSvelte from '@/components/examples/framework-components/toast/svelte/type.svelte';
 import TypeSvelteRaw from '@/components/examples/framework-components/toast/svelte/type.svelte?raw';
 
+import UsageReact from '@/components/examples/framework-components/toast/svelte/usage.txt?raw';
+import UsageSvelte from '@/components/examples/framework-components/toast/svelte/usage.txt?raw';
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -58,9 +61,34 @@ import TypeSvelteRaw from '@/components/examples/framework-components/toast/svel
 
 ## Usage
 
-This component acts as a Singleton - meaning you only implement a single instance (typically at the root scope of your app) and then reuse it over and over. To do this, implement the `<Toast.Group>` at the root scope of your app (the root layout), and use a shared `createToaster()` instance to trigger messages to that group from anywhere in your application.
+This component acts as a Singleton. Implement a single instance of `<Toast.Group>` in the root scope your application, then trigger it anywhere on demand using a shared `createToaster()` instance.
 
-## Type
+```html
+<!-- Root Layout -->
+
+<Toast.Group></Toast.Group>
+```
+
+```ts
+// toaster.ts
+
+export const toaster = createToaster({});
+```
+
+{/* prettier-ignore */}
+<Framework id="react">
+	{/* <Code code={UsageReact} lang="tsx" /> */}
+	(code block here)
+</Framework>
+{/* prettier-ignore */}
+<Framework id="svelte">
+	{/* <Code code={UsageSvelte} lang="svelte" /> */}
+	(code block here)
+</Framework>
+
+## Triggers
+
+Shorthand methods are available for toast triggers, including: `info()`, `success()`, `warning()`, and `error()`.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': TypeReactRaw }} client:visible>
@@ -72,6 +100,17 @@ This component acts as a Singleton - meaning you only implement a single instanc
 		<TypeSvelte client:visible />
 	</Preview>
 </Framework>
+
+Or use the generic `create()` method to trigger toasts of any type: `info|success|warning|error`.
+
+{/* prettier-ignore */}
+```ts
+toaster.create({
+	type: 'info',
+	title: 'This is a toast',
+	description: 'This is a toast description.'
+});
+```
 
 ## Placement
 

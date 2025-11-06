@@ -2,19 +2,19 @@
 	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<SegmentedControl defaultValue="item-1" orientation="vertical">
+<SegmentedControl defaultValue="music" orientation="vertical">
 	<SegmentedControl.Control>
 		<SegmentedControl.Indicator />
-		<SegmentedControl.Item value="item-1">
-			<SegmentedControl.ItemText>Item 1</SegmentedControl.ItemText>
+		<SegmentedControl.Item value="music">
+			<SegmentedControl.ItemText>Music</SegmentedControl.ItemText>
 			<SegmentedControl.ItemHiddenInput />
 		</SegmentedControl.Item>
-		<SegmentedControl.Item value="item-2">
-			<SegmentedControl.ItemText>Item 2</SegmentedControl.ItemText>
+		<SegmentedControl.Item value="images">
+			<SegmentedControl.ItemText>Images</SegmentedControl.ItemText>
 			<SegmentedControl.ItemHiddenInput />
 		</SegmentedControl.Item>
-		<SegmentedControl.Item value="item-3">
-			<SegmentedControl.ItemText>Item 3</SegmentedControl.ItemText>
+		<SegmentedControl.Item value="videos">
+			<SegmentedControl.ItemText>Videos</SegmentedControl.ItemText>
 			<SegmentedControl.ItemHiddenInput />
 		</SegmentedControl.Item>
 	</SegmentedControl.Control>
