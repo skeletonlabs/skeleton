@@ -18,7 +18,7 @@ export default function Default() {
 								</Avatar>
 								<div>
 									<Popover.Title className="text-lg font-bold">Skeleton Labs</Popover.Title>
-									<a href="https://bsky.app/profile/skeleton.dev" target="_blank" className="anchor">
+									<a href="https://bsky.app/profile/skeleton.dev" target="_blank" rel="noopener noreferrer" className="anchor">
 										@skeletonlabs.dev
 									</a>
 								</div>
