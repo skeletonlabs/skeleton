@@ -98,23 +98,24 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     	import type { Snippet } from 'svelte';
 
     	interface Props {
-    		children: Snippet;
+    		children?: Snippet;
     	}
 
     	const props: Props = $props();
     </script>
 
+    {@render props.children?.()}
+
     <Toast.Group {toaster}>
     	{#snippet children(toast)}
-    					<Toast toast={toast}>
-    						<Toast.Message>
-    						<Toast.Title>{toast.title}</Toast.Title>
-    						<Toast.Description>{toast.description}</Toast.Description>
-    						</Toast.Message>
-    						<Toast.CloseTrigger />
-    					</Toast>
+    		<Toast toast={toast}>
+    			<Toast.Message>
+    			<Toast.Title>{toast.title}</Toast.Title>
+    			<Toast.Description>{toast.description}</Toast.Description>
+    			</Toast.Message>
+    			<Toast.CloseTrigger />
+    		</Toast>
     	{/snippet}
-
     </Toast.Group>
     ```
 
