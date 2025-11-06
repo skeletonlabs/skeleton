@@ -1,9 +1,0 @@
-<!-- Any Page or Component -->
-
-<script lang="ts">
-	import toaster from '/some/path/toaster.ts';
-
-	function onClickHandler() {
-		toaster.info({ title: 'Example', description: 'This is a toast message.' });
-	}
-</script>
