@@ -30,38 +30,16 @@ Skeleton makes use of [PNPM](https://pnpm.io/) and [PNPM workspaces](https://pnp
 5. Point your terminal at one of the `/sites`, `/packages` or `/playgrounds` projects detailed below.
 6. Run `pnpm dev` to start a local dev server for each project.
 
-> NOTE: Make sure you're running PNPM version `9.5.0` or higher to ensure support for [PNPM catalogs](https://pnpm.io/catalogs). You can check your version with `pnpm --version`.
-
-### Adding Dependencies
-
-As a courtesy, please consult with Skeleton maintainers before adding dependencies. Third-party dependencies come with some level of risk, and we may be able to offer alternatives that limit the scope of changes.
-
-Dependencies may be installed using the standard `pnpm i` command. However, in some cases it may be beneficial to maintain a uniform version shared across multiple projects or within each `package.json`. For this we can make use of [PNPM Catalogs](https://pnpm.io/catalogs).
-
-The main version is maintained in the monorepo root in `pnpm-workspace.yaml`:
-
-```yaml
-catalog:
-	# ...
-	<package>: <version>
-```
-
-Use the following convention to link each project's dependency to the shared Catalog version:
-
-```bash
-pnpm add <package>@catalog:
-```
-
 ## Monorepo Structure
 
 ### Sites
 
 Public facing websites that are deployed and hosted for users to browse.
 
-| Path                         | Description                           |
-| ---------------------------- | ------------------------------------- |
-| `/sites/skeleton.dev`        | The production documentation website. |
-| `/sites/themes.skeleton.dev` | The Skeleton themes generator website |
+| Path                         | Description                 |
+| ---------------------------- | --------------------------- |
+| `/sites/skeleton.dev`        | The documentation website   |
+| `/sites/themes.skeleton.dev` | The theme generator website |
 
 ### Packages
 
@@ -72,7 +50,7 @@ Modular Skeleton packages distributed via NPM.
 | `/packages/skeleton`        | The Skeleton core package, contains Skeleton's Tailwind-specific features. |
 | `/packages/skeleton-react`  | The Skeleton React package, contains Skeleton React components.            |
 | `/packages/skeleton-svelte` | The Skeleton Svelte package, contains Skeleton Svelte components.          |
-| `/packages/skeleton-common` | The Skeleton common package, contains shared internal only utilities.      |
+| `/packages/skeleton-common` | The Skeleton common package, contains shared modules.                      |
 | `/packages/cli`             | The Skeleton CLI, contains Skeleton's migrations.                          |
 
 ## Playgrounds
@@ -96,56 +74,51 @@ Create and target all pull requests against the `main` branch unless otherwise i
 
 Please use the following naming convention when creating your pull request.
 
-| Branch      | Role                                  |
-| ----------- | ------------------------------------- |
-| `docs/*`    | When updating the documentation site. |
-| `feature/*` | When implementing a new feature.      |
-| `task/*`    | When implementing a small task.       |
-| `bugfix/*`  | When implementing a fix for a bug.    |
+| Branch      | Role                                                         |
+| ----------- | ------------------------------------------------------------ |
+| `docs/*`    | When making edits to the docs.                               |
+| `feature/*` | When adding a new feature.                                   |
+| `chore/*`   | When making changes to the build process or auxiliary tools. |
+| `fix/*`     | When fixing a bug.                                           |
 
-Keep branch names short and semantic, and use snake-case to separate words.
+Keep branch names short and semantic, and use kebab-case to separate words:
 
 ```
-docs/get-started-typo-fix
+docs/get-started-typo
 bugfix/accordion-render-issue
 ```
-
-## Documentation Schema
-
-Before your first run of the `/sites/skeleton.dev` documentation project, make sure to run `pnpm generate:types` at least one time. This will generate the assets required to populate API Reference tables on each component's documentation page.
 
 ## Changesets
 
 [Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release.
 
 - Any contributions made within `/packages` _must_ contain a Changeset
-- Any contributions made within `/sites` should <u>not</u> include a Changeset.
+- Any contributions made within `/sites` should **not** include a Changeset.
 
 Follow these instructions to generate a changeset:
 
-1. Make sure you're within your local pull request feature branch.
-2. Navigate to the root of the Skeleton monorepo.
-3. Run `pnpm changeset` to trigger the Changeset CLI.
-4. Follow the instructions when prompted.
-5. Changeset are added as `.md` files within the `.changeset/` directory.
-6. You may edit or revise a Changeset before your PR is merged.
+1. Navigate to the root of the Skeleton monorepo.
+2. Run `pnpm changeset` to trigger the Changeset CLI.
+3. Select the packages that are affected by your changes.
+4. Select the type of version bump required (major, minor, patch).
+5. Provide a short description of the changes made.
 
 Changesets use semantic versioning. We recommend the following convention.
 
-| Version | Role                                        |
-| ------- | ------------------------------------------- |
-| `major` | Do not use. Reserved for maintainers only.  |
-| `minor` | For notable changes, such as a new feature. |
-| `patch` | For small changes, such as a fixing a bug.  |
+| Version | Role                                                                       |
+| ------- | -------------------------------------------------------------------------- |
+| `major` | For breaking changes, such as changing the API of a component or function. |
+| `minor` | For notable changes, such as a new feature.                                |
+| `patch` | For small changes, such as a fixing a bug.                                 |
 
 Changeset descriptions will appear verbatim on the corresponding CHANGELOG.md. Keep it short, semantic, and and include the same [branch prefix](/docs/[framework]/resources/contribute/get-started#pr-branch-conventions).
 
-```mdx
+```md
 ---
 '@skeletonlabs/skeleton-svelte': minor
 ---
 
-feature: Added a new Avatar component.
+feat: Added `Avatar` component.
 ```
 
 ## Tooling
@@ -156,26 +129,9 @@ Skeleton makes use of the following technology to improve the developer experien
 
 Run the following commands in the monorepo root. Each will run recursively for supported packages.
 
-- `pnpm format` - Formats the monorepo using [Prettier](https://prettier.io/).
-- `pnpm lint` - Finds (and attempts to fix) any issues within the monorepo using [ESLint](https://eslint.org/).
-- `pnpm test` - Runs all unit tests using [Vitest](https://vitest.dev/).
-- `pnpm check` - Runs framework specific diagnostics, such as [Svelte Check](https://svelte.dev/docs/cli/sv-check), [Astro Check](https://docs.astro.build/en/reference/cli-reference/#astro-check), etc.
-
-### Local Commands
-
-Additionally, you may also run the local instance of each command. Consult the local `package.json` for available options. For `format` and `lint` commands, use the following syntax to draw from the root `package.json`:
-
-```bash
-pnpm -w <command>
-```
-
-### VS Code Extensions
-
-We recommend the use of [VSCode](https://code.visualstudio.com/) for contributions, and the following VSCode extensions.
-
-- [Tailwind](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
-- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
-- [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+| Command       | Description           | Tool                                                                                                                           |
+| ------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `pnpm format` | Runs the formatter    | [Prettier](https://prettier.io/)                                                                                               |
+| `pnpm lint`   | Runs the linter       | [Oxlint](https://oxc.rs/docs/guide/usage/linter)                                                                               |
+| `pnpm test`   | Runs all unit tests   | [Vitest](https://vitest.dev/)                                                                                                  |
+| `pnpm check`  | Runs the type checker | [TypeScript](https://www.typescriptlang.org/), [Svelte Check](https://svelte.dev/docs) and [Astro Check](https://astro.build/) |
