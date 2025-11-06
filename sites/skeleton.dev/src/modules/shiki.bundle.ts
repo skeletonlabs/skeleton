@@ -17,7 +17,10 @@ type BundledLanguage =
 	| 'zsh'
 	| 'diff'
 	| 'json'
-	| 'css';
+	| 'css'
+	| 'yaml'
+	| 'md'
+	| 'mdx';
 type BundledTheme = 'github-light' | 'github-dark';
 
 const bundledLanguages = {
@@ -35,8 +38,9 @@ const bundledLanguages = {
 	diff: () => import('@shikijs/langs/diff'),
 	json: () => import('@shikijs/langs/json'),
 	css: () => import('@shikijs/langs/css'),
-	mdx: () => import('@shikijs/langs/mdx'),
 	yaml: () => import('@shikijs/langs/yaml'),
+	md: () => import('@shikijs/langs/md'),
+	mdx: () => import('@shikijs/langs/mdx'),
 } as Record<BundledLanguage, DynamicImportLanguageRegistration>;
 
 const bundledThemes = {
