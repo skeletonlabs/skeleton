@@ -19,7 +19,7 @@
 	<Slider class="w-full" value={[value]} onValueChange={(e) => (value = e.value[0])} step={10}>
 		<Slider.Control>
 			<Slider.Track>
-				<Slider.Range />
+				<Slider.Range class="bg-transparent" />
 			</Slider.Track>
 			<Slider.Thumb index={0}>
 				<Slider.HiddenInput />

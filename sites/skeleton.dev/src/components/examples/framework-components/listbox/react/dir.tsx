@@ -18,7 +18,7 @@ export default function Dir() {
 
 	return (
 		<Listbox className="w-full max-w-md" collection={collection} dir="rtl">
-			<Listbox.Label>Label</Listbox.Label>
+			<Listbox.Label>Select a food</Listbox.Label>
 			<Listbox.Content>
 				{collection.items.map((item) => (
 					<Listbox.Item key={item.value} item={item}>

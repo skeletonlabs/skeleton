@@ -18,9 +18,6 @@ import ZIndexReactRaw from '@/components/examples/framework-components/tooltip/r
 import DirReact from '@/components/examples/framework-components/tooltip/react/dir';
 import DirReactRaw from '@/components/examples/framework-components/tooltip/react/dir?raw';
 
-import HeadlessReact from '@/components/examples/framework-components/tooltip/react/headless';
-import HeadlessReactRaw from '@/components/examples/framework-components/tooltip/react/headless?raw';
-
 import DefaultSvelte from '@/components/examples/framework-components/tooltip/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/default.svelte?raw';
 
@@ -36,9 +33,6 @@ import ZIndexSvelteRaw from '@/components/examples/framework-components/tooltip/
 import DirSvelte from '@/components/examples/framework-components/tooltip/svelte/dir.svelte';
 import DirSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/dir.svelte?raw';
 
-import HeadlessSvelte from '@/components/examples/framework-components/tooltip/svelte/headless.svelte';
-import HeadlessSvelteRaw from '@/components/examples/framework-components/tooltip/svelte/headless.svelte?raw';
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -50,9 +44,11 @@ import HeadlessSvelteRaw from '@/components/examples/framework-components/toolti
 	</Preview>
 </Framework>
 
+Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+
 ## Arrow
 
-You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts. Note that Zag.js opts to style these with CSS custom properties, which can be adjusted using a `style` attribute.
+Visually connects the popover content to the trigger element. Will automatically align based on the selected side.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ArrowReactRaw }} client:visible>
@@ -67,6 +63,8 @@ You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts.
 
 ## Z-Index
 
+By default Skeleton does not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
 		<ZIndexReact client:visible />
@@ -78,22 +76,9 @@ You may optionally enable arrows via the `Arrow` and `ArrowTip` component parts.
 	</Preview>
 </Framework>
 
-## Headless
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': HeadlessReactRaw }} client:visible>
-		<HeadlessReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': HeadlessSvelteRaw }} client:visible>
-		<HeadlessSvelte client:visible />
-	</Preview>
-</Framework>
-
 ## Provider Pattern
 
-Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to programmatically open and close the tooltip.
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
@@ -107,6 +92,8 @@ Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-p
 </Framework>
 
 ## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

@@ -50,7 +50,7 @@ import DirSvelteRaw from '@/components/examples/framework-components/dialog/svel
 	</Preview>
 </Framework>
 
-Unlike most components in Skeleton, this is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
 
 ## Alert Dialog
 
@@ -69,8 +69,9 @@ The [alertdialog](https://w3c.github.io/aria/#alertdialog) role enables assistiv
 
 ## Interaction
 
-If desired, you can disable click to close interactions for the backdrop. We recommend using this sparingly, as this traps the
-user in this experience.
+If desired, you can disable click to close interactions for the backdrop.
+
+> TIP: use this sparingly, as this can trap users in this experience without a dedicated close action.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': InteractionReactRaw }} client:visible>
@@ -85,7 +86,7 @@ user in this experience.
 
 ## Drawer
 
-This example repurposes the Dialog for use as a side-panel Drawer. It pairs well with the [Navigation Sidebar](/docs/svelte/framework-components/navigation#sidebar).
+This example repurposes the Dialog for use as a side-panel Drawer. This pairs well with the [Navigation Sidebar](/docs/svelte/framework-components/navigation#sidebar).
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DrawerReactRaw }} client:visible>

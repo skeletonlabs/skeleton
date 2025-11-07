@@ -41,6 +41,8 @@ import DirSvelteRaw from '@/components/examples/framework-components/toggle-grou
 
 ## Controlled
 
+Use the `value` and `onValueChange` props to control state programmatically.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
@@ -54,7 +56,7 @@ import DirSvelteRaw from '@/components/examples/framework-components/toggle-grou
 
 ## Orientation
 
-Use the `orientation` prop to change the layout direction of the Toggle Group.
+Using the `orientation` prop to control the layout.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
@@ -69,7 +71,7 @@ Use the `orientation` prop to change the layout direction of the Toggle Group.
 
 ## Direction
 
-Use the `dir` prop to change the text direction (LTR/RTL).
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>

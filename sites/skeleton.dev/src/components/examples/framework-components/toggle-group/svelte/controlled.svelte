@@ -17,5 +17,7 @@
 			<UnderlineIcon class="size-4" />
 		</ToggleGroup.Item>
 	</ToggleGroup>
-	<pre class="pre">{JSON.stringify(value)}</pre>
+
+	<!-- Message -->
+	<p><span class="opacity-60">You selected</span> <code class="code">{value.length > 0 ? value.join(', ') : 'none'}</code></p>
 </div>

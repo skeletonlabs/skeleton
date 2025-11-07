@@ -19,7 +19,6 @@
 </script>
 
 <Listbox class="w-full max-w-md" {collection}>
-	<Listbox.Label>Label</Listbox.Label>
 	<Listbox.Content>
 		{#each collection.items as item (item.value)}
 			<Listbox.Item {item}>

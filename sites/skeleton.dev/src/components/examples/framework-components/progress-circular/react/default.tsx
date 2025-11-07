@@ -20,7 +20,7 @@ export default function Default() {
 			<Slider className="w-full" value={[value]} onValueChange={(e) => setValue(e.value[0])} step={10}>
 				<Slider.Control>
 					<Slider.Track>
-						<Slider.Range />
+						<Slider.Range className="bg-transparent" />
 					</Slider.Track>
 					<Slider.Thumb index={0}>
 						<Slider.HiddenInput />

@@ -18,7 +18,7 @@ export default function Default() {
 
 	return (
 		<Listbox className="w-full max-w-md" collection={collection}>
-			<Listbox.Label>Label</Listbox.Label>
+			<Listbox.Label>Select a food</Listbox.Label>
 			<Listbox.Content>
 				{collection.items.map((item) => (
 					<Listbox.Item key={item.value} item={item}>
