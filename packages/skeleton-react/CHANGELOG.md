@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.3.0
+
+### Minor Changes
+
+- Added the TreeView.NodeContext component ([#4058](https://github.com/skeletonlabs/skeleton/pull/4058))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.3.0
+
 ## 4.2.4
 
 ### Patch Changes
