@@ -7,9 +7,7 @@ export default function ZIndex() {
 				<Tooltip.Trigger>Default (auto)</Tooltip.Trigger>
 				<Portal>
 					<Tooltip.Positioner>
-						<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
-							This example will be below the sibling.
-						</Tooltip.Content>
+						<Tooltip.Content className="card bg-surface-100-900 p-2  shadow-xl">This example will be below the sibling.</Tooltip.Content>
 					</Tooltip.Positioner>
 				</Portal>
 			</Tooltip>
@@ -18,9 +16,7 @@ export default function ZIndex() {
 				<Tooltip.Trigger>Above (20)</Tooltip.Trigger>
 				<Portal>
 					<Tooltip.Positioner className="z-20!">
-						<Tooltip.Content className="card max-w-md p-2 bg-surface-100-900 shadow-xl">
-							This example will be above the sibling.
-						</Tooltip.Content>
+						<Tooltip.Content className="card bg-surface-100-900 p-2  shadow-xl">This example will be above the sibling.</Tooltip.Content>
 					</Tooltip.Positioner>
 				</Portal>
 			</Tooltip>

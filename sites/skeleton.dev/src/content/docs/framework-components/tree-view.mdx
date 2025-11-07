@@ -47,6 +47,8 @@ import LazyLoadingSvelteRaw from '@/components/examples/framework-components/tre
 
 ## Controlled
 
+Reactively set and control the state values.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
@@ -74,7 +76,7 @@ import LazyLoadingSvelteRaw from '@/components/examples/framework-components/tre
 	</Preview>
 </Framework>
 
-## Collapse and Expand
+## Provider Pattern
 
 Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the `collapse` and `expand` methods on the `TreeView` instance.
 
@@ -90,6 +92,8 @@ Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-p
 </Framework>
 
 ## Lazy Loading
+
+Utilize promises to asynchronously load large node lists.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': LazyLoadingReactRaw }} client:visible>

@@ -19,7 +19,6 @@ export default function DisabledItem() {
 
 	return (
 		<Listbox className="w-full max-w-md" collection={collection}>
-			<Listbox.Label>Label</Listbox.Label>
 			<Listbox.Content>
 				{collection.items.map((item) => (
 					<Listbox.Item key={item.value} item={item}>

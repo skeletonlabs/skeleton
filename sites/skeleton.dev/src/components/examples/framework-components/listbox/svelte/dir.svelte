@@ -18,7 +18,7 @@
 </script>
 
 <Listbox class="w-full max-w-md" {collection} dir="rtl">
-	<Listbox.Label>Label</Listbox.Label>
+	<Listbox.Label>Select a food</Listbox.Label>
 	<Listbox.Content>
 		{#each collection.items as item (item.value)}
 			<Listbox.Item {item}>

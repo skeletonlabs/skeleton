@@ -11,10 +11,7 @@
 		<Tooltip.Trigger>Anchor ({tooltip().open ? 'open' : 'closed'})</Tooltip.Trigger>
 		<Portal>
 			<Tooltip.Positioner>
-				<Tooltip.Content class="card max-w-md p-2 bg-surface-100-900 shadow-xl">
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente magni distinctio explicabo quisquam. Rerum impedit culpa
-					nesciunt enim.
-				</Tooltip.Content>
+				<Tooltip.Content class="card bg-surface-100-900 p-2  shadow-xl">Hello Skeleton</Tooltip.Content>
 			</Tooltip.Positioner>
 		</Portal>
 	</Tooltip.Provider>

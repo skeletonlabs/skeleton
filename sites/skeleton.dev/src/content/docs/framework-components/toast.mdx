@@ -88,7 +88,6 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     ```
 
 </Framework>
-
 <Framework id="svelte">
 
     ```svelte
@@ -135,7 +134,6 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     ```
 
 </Framework>
-
 <Framework id="svelte">
 	
 	```svelte
@@ -178,6 +176,8 @@ toaster.create({
 
 ## Placement
 
+Set the `placement` value in your `createToaster` instance to define the global screen position.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': PlacementReactRaw }} client:visible>
 		<PlacementReact client:visible />
@@ -190,6 +190,8 @@ toaster.create({
 </Framework>
 
 ## Action
+
+Use the `action` to define a custom button for each toast instance.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ActionReactRaw }} client:visible>
@@ -204,6 +206,8 @@ toaster.create({
 
 ## Closable
 
+Use the `closable` prop to toggle display of the close button.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ClosableReactRaw }} client:visible>
 		<ClosableReact client:visible />
@@ -217,6 +221,8 @@ toaster.create({
 
 ## Meta
 
+Use the `meta` key to pass arbitrary data along with the toast instance. This can be used to display an icon for example.
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': MetaReactRaw }} client:visible>
 		<MetaReact client:visible />
@@ -229,6 +235,8 @@ toaster.create({
 </Framework>
 
 ## Promise
+
+Toasts support asynchronous updates using promises.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': PromiseReactRaw }} client:visible>

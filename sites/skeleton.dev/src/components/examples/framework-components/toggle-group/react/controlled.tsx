@@ -18,7 +18,11 @@ export default function Controlled() {
 					<UnderlineIcon className="size-4" />
 				</ToggleGroup.Item>
 			</ToggleGroup>
-			<pre className="pre">{JSON.stringify(value)}</pre>
+
+			{/* Message */}
+			<p>
+				<span className="opacity-60">You selected</span> <code className="code">{value.length > 0 ? value.join(', ') : 'none'}</code>
+			</p>
 		</div>
 	);
 }

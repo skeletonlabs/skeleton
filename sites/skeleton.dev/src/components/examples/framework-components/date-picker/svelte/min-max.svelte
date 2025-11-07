@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-svelte';
+
+	const currentDate = new Date();
+	const currentYear = currentDate.getFullYear();
 </script>
 
-<DatePicker min={parseDate('2024-01-01')} max={parseDate('2024-12-31')}>
+<DatePicker min={parseDate(`${currentYear}-01-01`)} max={parseDate(`${currentYear}-12-31`)}>
 	<DatePicker.Label>Label</DatePicker.Label>
 	<DatePicker.Control>
 		<DatePicker.Input placeholder="mm/dd/yyyy" />

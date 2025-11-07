@@ -16,42 +16,54 @@ The Skeleton documentation website is maintained using the Astro framework.
 	</a>
 </figure>
 
+### Integrations
+
+Review the full list of integrations in `astro.config.js`.
+
+- [AutoImport](https://github.com/delucis/astro-auto-import)
+- [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
+- [React](https://docs.astro.build/en/guides/integrations-guide/react/)
+- [MDX](https://docs.astro.build/en/guides/markdown-content/)
+- [Partytown](https://docs.astro.build/en/guides/integrations-guide/partytown/)
+- [Sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- [PageFind](https://github.com/shishkin/astro-pagefind)
+
 ## Project Structure
 
 Navigate the project structure within the `src` directory. This includes the following directories:
 
-| Path             | Description                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| `src/components` | Contains our components.                                                                     |
-| `src/content`    | Contains our [Content Collections](https://docs.astro.build/en/guides/content-collections/). |
-| `src/modules`    | Contains our modules.                                                                        |
-| `src/pages`      | Contains our pages and endpoints.                                                            |
-| `src/assets`     | Contains our images, vector graphics and other assets.                                       |
+| Path             | Description                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| `src/components` | Contains the documentation components.                                                                     |
+| `src/content`    | Contains the documentation [Content Collections](https://docs.astro.build/en/guides/content-collections/). |
+| `src/modules`    | Contains the documentation modules.                                                                        |
+| `src/pages`      | Contains the documentation pages and endpoints.                                                            |
+| `src/assets`     | Contains the documentation images, vector graphics and other assets.                                       |
 
 ### src/components
 
-#### src/components/examples
+#### Example Components
 
 The `src/components/examples` directory contains all example components used within the documentation pages.
 
-#### src/components/layouts
+#### Astro Layout Components
 
 The `src/components/layouts` directory contains all layout components used throughout the docs.
 
 - `root-layout.astro`: The root layout for the documentation website containing the globally used `<head>`.
 - `docs-layout.astro`: The layout for all documentation pages within the `/docs` section.
 
-#### src/components/typography
+#### MDX Typography Components
 
-The `src/components/typography` directory contains all typography components used throughout the docs, such as headings, lists and anchors.
+The `src/components/typography` directory contains all [MDX typography components](https://mdxjs.com/table-of-components/) used throughout the docs, such as headings, lists, and anchors.
 
-#### src/components/ui
+#### Documentation Components
 
 The `src/components/ui` directory contains all global UI components used throughout the docs.
 
-##### The `Framework` Component
+##### The Framework Component
 
-Allows you to display framework specific content.
+The `<Framework>` component you to display framework-aware content. Tailored specifically for that framework.
 
 ```mdx
 <Framework id="react">This is React specific content.</Framework>
@@ -60,7 +72,7 @@ Allows you to display framework specific content.
 
 > This component shows content based on the url parameter, e.g. `/docs/react` or `/docs/svelte`.
 
-##### The `Preview` Component
+##### The Preview Component
 
 Allows you to quickly toggle between an example component and its source code.
 
@@ -75,7 +87,7 @@ import DefaultRaw from '@/components/examples/foo/default?raw';
 
 > This component is auto-imported in all mdx files, so you do not need to manually import it.
 
-##### The `ApiReference` Component
+##### The API Reference Component
 
 Allows you to display an API reference table for a specific component.
 
@@ -87,15 +99,15 @@ Allows you to display an API reference table for a specific component.
 
 ### src/content
 
-#### src/content/docs
+#### Documentation
 
 The `src/content/docs` directory contains all the documentation pages, any `.md`/`.mdx` files placed here will automatically be routed within the `/docs` section of the website.
 
-#### src/content/frameworks
+#### Frameworks
 
 The `src/content/frameworks` directory contains a JSON collection of all supported frameworks for Skeleton, used to power framework switchers and other framework specific content.
 
-#### src/content/showcase-projects
+#### Showcase
 
 The `src/content/showcase-projects` directory contains a JSON collection of all showcased projects on the [Showcase](/showcase) page.
 
@@ -111,14 +123,34 @@ The `src/pages` directory contains all pages and routes for the documentation we
 
 The `src/assets` directory contains all assets for the documentation website, including images and SVGs.
 
-## Icons
+## Global Components
 
-### Lucide
+A suite of global components are automatically imported within MDX pages via [astro-auto-importer](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import). These components are configure via `astro.config.mjs` > `AutoImport()` in the project root.
 
-This documentation app uses [Lucide](https://lucide.dev/guide/packages/lucide-svelte) for its icons.
+- `<Framework>` - Allows for implementing content specific for one framework.
+- `<ApiReference>` - Displays the table of API reference data per component.
+- `<Preview>` - Shows a live preview of a Skeleton feature.
+- `<Alert>` - Display a very simple alert message.
 
-```mdx
-import { FooIcon } from '@lucide/svelte';
+## Iconography
 
-<FooIcon class="size-4" />
+This documentation application utilizes [Lucide](https://lucide.dev/guide/packages/lucide-svelte) for its icons.
+
+<Framework id="svelte">
+```svelte
+<script>
+	import { SkullIcon } from '@lucide/svelte';
+</script>
+
+<SkullIcon stroke="pink" class="size-8" />
 ```
+</Framework>
+<Framework id="react">
+```tsx
+import { SkullIcon } from 'lucide-react';
+
+export default function App() {
+	return <SkullIcon stroke="pink" className="size-8" />;
+}
+```
+</Framework>
