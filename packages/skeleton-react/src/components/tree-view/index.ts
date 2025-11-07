@@ -12,5 +12,6 @@ export type { TreeViewBranchTextProps } from './anatomy/branch-text.jsx';
 export type { TreeViewBranchIndicatorProps } from './anatomy/branch-indicator.jsx';
 export type { TreeViewBranchContentProps } from './anatomy/branch-content.jsx';
 export type { TreeViewBranchIndentGuideProps } from './anatomy/branch-indent-guide.jsx';
+export type { TreeViewNodeContextProps } from './anatomy/node-context.jsx';
 export type { TreeViewNodeProviderProps } from './anatomy/node-provider.jsx';
 export type { TreeViewLabelProps } from './anatomy/label.jsx';

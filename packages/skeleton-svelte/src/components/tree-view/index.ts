@@ -12,5 +12,6 @@ export type { TreeViewBranchTextProps } from './anatomy/branch-text.svelte';
 export type { TreeViewBranchIndicatorProps } from './anatomy/branch-indicator.svelte';
 export type { TreeViewBranchContentProps } from './anatomy/branch-content.svelte';
 export type { TreeViewBranchIndentGuideProps } from './anatomy/branch-indent-guide.svelte';
+export type { TreeViewNodeContextProps } from './anatomy/node-context.svelte';
 export type { TreeViewNodeProviderProps } from './anatomy/node-provider.svelte';
 export type { TreeViewLabelProps } from './anatomy/label.svelte';
