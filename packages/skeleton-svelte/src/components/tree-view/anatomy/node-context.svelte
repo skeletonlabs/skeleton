@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
 	import type { NodeProps } from '@zag-js/tree-view';
+	import type { Snippet } from 'svelte';
 
 	export interface TreeViewRootContextProps {
 		children: Snippet<[() => NodeProps]>;
