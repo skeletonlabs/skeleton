@@ -12,13 +12,13 @@
 
 	const props: StepsNextTriggerProps = $props();
 
-	const tabs = RootContext.consume();
+	const steps = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			tabs().getNextTriggerProps(),
+			steps().getNextTriggerProps(),
 			{
 				class: classesSteps.nextTrigger,
 			},

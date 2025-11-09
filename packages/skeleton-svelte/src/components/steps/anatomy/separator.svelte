@@ -13,14 +13,14 @@
 
 	const props: StepsSeparatorProps = $props();
 
-	const tabs = RootContext.consume();
+	const steps = RootContext.consume();
 	const itemProps = ItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			tabs().getSeparatorProps(itemProps()),
+			steps().getSeparatorProps(itemProps()),
 			{
 				class: classesSteps.separator,
 			},

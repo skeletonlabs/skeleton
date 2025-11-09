@@ -14,7 +14,7 @@
 
 	const props: StepsItemProps = $props();
 
-	const tabs = RootContext.consume();
+	const steps = RootContext.consume();
 
 	const { index, ...componentProps } = $derived(props);
 	const itemProps = $derived({ index });
@@ -22,7 +22,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			tabs().getItemProps({ index }),
+			steps().getItemProps({ index }),
 			{
 				class: classesSteps.item,
 			},

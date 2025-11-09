@@ -12,13 +12,13 @@
 
 	const props: StepsPrevTriggerProps = $props();
 
-	const tabs = RootContext.consume();
+	const steps = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			tabs().getPrevTriggerProps(),
+			steps().getPrevTriggerProps(),
 			{
 				class: classesSteps.prevTrigger,
 			},

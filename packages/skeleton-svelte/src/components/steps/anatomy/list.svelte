@@ -12,13 +12,13 @@
 
 	const props: StepsListProps = $props();
 
-	const tabs = RootContext.consume();
+	const steps = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			tabs().getListProps(),
+			steps().getListProps(),
 			{
 				class: classesSteps.list,
 			},
