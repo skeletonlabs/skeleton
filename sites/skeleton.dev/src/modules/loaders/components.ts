@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
-const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..');
+const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
 const PACKAGE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'packages', name);
 
 type TypeKind = 'function' | 'array' | 'object' | 'primitive';
@@ -196,10 +196,10 @@ function getComponentPartNameFromPath(path: string): string {
 	return componentPart;
 }
 
-export const componentsLoader = async () => {
+export const components = async () => {
 	const frameworks = ['svelte', 'react'] as const;
 
-	const allEntries = await Promise.all(
+	const entries = await Promise.all(
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
 
@@ -210,6 +210,13 @@ export const componentsLoader = async () => {
 
 			const componentEntries = await Promise.all(
 				components.map(async (component) => {
+					if (process.env.VERCEL_ENV === 'production') {
+						return {
+							id: `${framework}/${component}`,
+							name: component,
+							types: [],
+						};
+					}
 					try {
 						const paths = await glob(`**/anatomy/*.d.ts`, {
 							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components', component),
@@ -258,5 +265,5 @@ export const componentsLoader = async () => {
 		}),
 	);
 
-	return allEntries.flat();
+	return entries.flat();
 };
