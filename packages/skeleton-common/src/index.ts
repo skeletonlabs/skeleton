@@ -14,6 +14,7 @@ export * from './classes/progress.js';
 export * from './classes/rating-group.js';
 export * from './classes/segmented-control.js';
 export * from './classes/slider.js';
+export * from './classes/steps.js';
 export * from './classes/switch.js';
 export * from './classes/tabs.js';
 export * from './classes/tags-input.js';

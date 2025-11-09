@@ -1,0 +1,38 @@
+<script lang="ts" module>
+	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { ItemProps } from '@zag-js/steps';
+
+	export interface StepsContentProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+</script>
+
+<script lang="ts">
+	import { RootContext } from '../modules/root-context.js';
+	import { classesSteps } from '@skeletonlabs/skeleton-common';
+	import { mergeProps } from '@zag-js/svelte';
+
+	const props: StepsContentProps = $props();
+
+	const switch_ = RootContext.consume();
+
+	const { index, ...componentProps } = $derived(props);
+	const { element, children, ...rest } = $derived(componentProps);
+
+	const attributes = $derived(
+		mergeProps(
+			switch_().getContentProps({ index }),
+			{
+				class: classesSteps.control,
+			},
+			rest,
+		),
+	);
+</script>
+
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<span {...attributes}>
+		{@render children?.()}
+	</span>
+{/if}

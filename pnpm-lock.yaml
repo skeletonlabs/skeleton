@@ -162,6 +162,9 @@ catalogs:
     '@zag-js/slider':
       specifier: 1.27.0
       version: 1.27.0
+    '@zag-js/steps':
+      specifier: 1.27.0
+      version: 1.27.0
     '@zag-js/svelte':
       specifier: 1.27.0
       version: 1.27.0
@@ -535,6 +538,9 @@ importers:
       '@zag-js/slider':
         specifier: 'catalog:'
         version: 1.27.0
+      '@zag-js/steps':
+        specifier: 'catalog:'
+        version: 1.27.0
       '@zag-js/switch':
         specifier: 'catalog:'
         version: 1.27.0
@@ -645,6 +651,9 @@ importers:
         specifier: 'catalog:'
         version: 1.27.0
       '@zag-js/slider':
+        specifier: 'catalog:'
+        version: 1.27.0
+      '@zag-js/steps':
         specifier: 'catalog:'
         version: 1.27.0
       '@zag-js/svelte':
@@ -2905,6 +2914,9 @@ packages:
 
   '@zag-js/slider@1.27.0':
     resolution: {integrity: sha512-XRccFvA5Grflp0HRLCo+Ru2zUGr9Sk7/RNI2O+RSLKbdifFVQnLFK9WTyHHw1ns0qxMZbU1/lNGk4NFg5hh3UQ==}
+
+  '@zag-js/steps@1.27.0':
+    resolution: {integrity: sha512-vaiZBPtgQpPNwDPEXRH7KL/UMc/uvPCal5pbVUZYJlA/QbXSIkfWWaaXY1dQHMN92IbNRYWpfvBPEbMHOvwXwQ==}
 
   '@zag-js/store@1.27.0':
     resolution: {integrity: sha512-LDK02t58I5YerVpW0t4Q3Jvu/NLv6fufeVo2WuGvYw5T6VJ/aGaPoRV8ENRyoSXuW4DSkVVDrm1jQNXuahK8Jg==}
@@ -7882,6 +7894,14 @@ snapshots:
       '@zag-js/dom-query': 1.27.0
 
   '@zag-js/slider@1.27.0':
+    dependencies:
+      '@zag-js/anatomy': 1.27.0
+      '@zag-js/core': 1.27.0
+      '@zag-js/dom-query': 1.27.0
+      '@zag-js/types': 1.27.0
+      '@zag-js/utils': 1.27.0
+
+  '@zag-js/steps@1.27.0':
     dependencies:
       '@zag-js/anatomy': 1.27.0
       '@zag-js/core': 1.27.0
