@@ -56,6 +56,7 @@ catalog:
   '@zag-js/rating-group': 1.27.0
   '@zag-js/react': 1.27.0
   '@zag-js/slider': 1.27.0
+  '@zag-js/steps': 1.27.0
   '@zag-js/svelte': 1.27.0
   '@zag-js/switch': 1.27.0
   '@zag-js/tabs': 1.27.0

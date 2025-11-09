@@ -15,6 +15,7 @@ export * from './components/progress/index.js';
 export * from './components/rating-group/index.js';
 export * from './components/segmented-control/index.js';
 export * from './components/slider/index.js';
+export * from './components/steps/index.js';
 export * from './components/switch/index.js';
 export * from './components/tabs/index.js';
 export * from './components/tags-input/index.js';
