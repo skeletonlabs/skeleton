@@ -8,14 +8,15 @@ import tailwindcss from '@tailwindcss/vite';
 import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
+import { VERCEL_ENV } from 'astro:env/server';
 import { execSync } from 'node:child_process';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
-export function getSite() {
+function getSite() {
 	if (import.meta.env.DEV) {
 		return 'http://localhost:4321';
 	}
-	if (process.env.VERCEL_ENV === 'production') {
+	if (VERCEL_ENV === 'production') {
 		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
 	}
 	return `https://${process.env.VERCEL_URL}`;
@@ -59,6 +60,11 @@ export default defineConfig({
 				context: 'server',
 				access: 'public',
 				default: process.env.VERCEL_GIT_COMMIT_REF ?? execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
+			}),
+			VERCEL_ENV: envField.string({
+				context: 'server',
+				access: 'public',
+				default: process.env.VERCEL_ENV ?? 'development',
 			}),
 		},
 	},
