@@ -114,7 +114,7 @@ export function openReactStackblitzProject(files: Record<string, string>) {
 			},
 		},
 		{
-			openFile: 'src/app.tsx',
+			openFile: Object.keys(srcFiles).at(0),
 			showSidebar: false,
 		},
 	);

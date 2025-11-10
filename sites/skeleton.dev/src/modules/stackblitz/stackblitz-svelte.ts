@@ -115,7 +115,7 @@ export function openSvelteStackblitzProject(files: Record<string, string>) {
 			},
 		},
 		{
-			openFile: 'src/app.svelte',
+			openFile: Object.keys(srcFiles).at(0),
 			showSidebar: false,
 		},
 	);
