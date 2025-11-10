@@ -25,7 +25,7 @@ const cli = new Command()
 		log.message(dim(`Running "${`${ctx.name()}${args ? ` ${args}` : ''}`}"...`));
 	});
 
-async function main() {
+async function skeleton() {
 	intro(bgBlueBright(black(' Welcome to the Skeleton CLI 💀 ')));
 	if (process.argv.length === 2) {
 		cli.error('error: no command provided');
@@ -34,6 +34,4 @@ async function main() {
 	outro(bgGreenBright(black(' All Done! ')));
 }
 
-await main();
-
-export { cli };
+await skeleton();
