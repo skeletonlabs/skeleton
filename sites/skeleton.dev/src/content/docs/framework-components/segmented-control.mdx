@@ -82,16 +82,20 @@ Here's an overview of how the SegmentedControl component is structured in code:
 ```tsx
 import { SegmentedControl } from '@skeletonlabs/skeleton-react';
 
-<SegmentedControl>
-	<SegmentedControl.Label />
-	<SegmentedControl.Control>
-		<SegmentedControl.Indicator />
-		<SegmentedControl.Item>
-			<SegmentedControl.ItemText />
-			<SegmentedControl.ItemHiddenInput />
-		</SegmentedControl.Item>
-	</SegmentedControl.Control>
-</SegmentedControl>
+export default function Anatomy() {
+	return (
+		<SegmentedControl>
+			<SegmentedControl.Label />
+			<SegmentedControl.Control>
+				<SegmentedControl.Indicator />
+				<SegmentedControl.Item>
+					<SegmentedControl.ItemText />
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+			</SegmentedControl.Control>
+		</SegmentedControl>
+	);
+}
 ```
 
 </Framework>

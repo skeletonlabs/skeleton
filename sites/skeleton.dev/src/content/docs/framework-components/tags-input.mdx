@@ -106,23 +106,27 @@ Here's an overview of how the TagsInput component is structured in code:
 ```tsx
 import { TagsInput } from '@skeletonlabs/skeleton-react';
 
-<TagsInput>
-	<TagsInput.Label />
-	<TagsInput.Control>
-		<TagsInput.Context>
-			<TagsInput.Item>
-				<TagsInput.ItemPreview>
-					<TagsInput.ItemText />
-					<TagsInput.ItemDeleteTrigger />
-				</TagsInput.ItemPreview>
-				<TagsInput.ItemInput />
-			</TagsInput.Item>
-		</TagsInput.Context>
-		<TagsInput.Input />
-	</TagsInput.Control>
-	<TagsInput.HiddenInput />
-	<TagsInput.ClearTrigger />
-</TagsInput>
+export default function Anatomy() {
+	return (
+		<TagsInput>
+			<TagsInput.Label />
+			<TagsInput.Control>
+				<TagsInput.Context>
+					<TagsInput.Item>
+						<TagsInput.ItemPreview>
+							<TagsInput.ItemText />
+							<TagsInput.ItemDeleteTrigger />
+						</TagsInput.ItemPreview>
+						<TagsInput.ItemInput />
+					</TagsInput.Item>
+				</TagsInput.Context>
+				<TagsInput.Input />
+			</TagsInput.Control>
+			<TagsInput.HiddenInput />
+			<TagsInput.ClearTrigger />
+		</TagsInput>
+	);
+}
 ```
 
 </Framework>

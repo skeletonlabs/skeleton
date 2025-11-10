@@ -245,15 +245,19 @@ Here's an overview of how the Toast component is structured in code:
 ```tsx
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
-<Toast.Group>
-	<Toast>
-		<Toast.Message>
-			<Toast.Title />
-			<Toast.Description />
-		</Toast.Message>
-		<Toast.CloseTrigger />
-	</Toast>
-</Toast.Group>
+export default function Anatomy() {
+	return (
+		<Toast.Group>
+			<Toast>
+				<Toast.Message>
+					<Toast.Title />
+					<Toast.Description />
+				</Toast.Message>
+				<Toast.CloseTrigger />
+			</Toast>
+		</Toast.Group>
+	);
+}
 ```
 
 </Framework>

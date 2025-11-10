@@ -127,19 +127,23 @@ Here's an overview of how the Dialog component is structured in code:
 ```tsx
 import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
 
-<Dialog>
-	<Dialog.Trigger />
-	<Portal>
-		<Dialog.Backdrop />
-		<Dialog.Positioner>
-			<Dialog.Content>
-				<Dialog.Title />
-				<Dialog.Description />
-				<Dialog.CloseTrigger />
-			</Dialog.Content>
-		</Dialog.Positioner>
-	</Portal>
-</Dialog>
+export default function Anatomy() {
+	return (
+		<Dialog>
+			<Dialog.Trigger />
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content>
+						<Dialog.Title />
+						<Dialog.Description />
+						<Dialog.CloseTrigger />
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
+		</Dialog>
+	);
+}
 ```
 
 </Framework>

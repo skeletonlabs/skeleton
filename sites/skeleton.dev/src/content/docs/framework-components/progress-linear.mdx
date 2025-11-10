@@ -163,13 +163,17 @@ Here's an overview of how the Progress (Linear) component is structured in code:
 ```tsx
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-<Progress>
-	<Progress.Label />
-	<Progress.Track>
-		<Progress.Range />
-	</Progress.Track>
-	<Progress.ValueText />
-</Progress>
+export default function Anatomy() {
+	return (
+		<Progress>
+			<Progress.Label />
+			<Progress.Track>
+				<Progress.Range />
+			</Progress.Track>
+			<Progress.ValueText />
+		</Progress>
+	);
+}
 ```
 
 </Framework>

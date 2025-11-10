@@ -123,15 +123,19 @@ Here's an overview of how the RatingGroup component is structured in code:
 ```tsx
 import { RatingGroup } from '@skeletonlabs/skeleton-react';
 
-<RatingGroup>
-	<RatingGroup.Label />
-	<RatingGroup.Control>
-		<RatingGroup.Context>
-			<RatingGroup.Item />
-		</RatingGroup.Context>
-	</RatingGroup.Control>
-	<RatingGroup.HiddenInput />
-</RatingGroup>
+export default function Anatomy() {
+	return (
+		<RatingGroup>
+			<RatingGroup.Label />
+			<RatingGroup.Control>
+				<RatingGroup.Context>
+					<RatingGroup.Item />
+				</RatingGroup.Context>
+			</RatingGroup.Control>
+			<RatingGroup.HiddenInput />
+		</RatingGroup>
+	);
+}
 ```
 
 </Framework>

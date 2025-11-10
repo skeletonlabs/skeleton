@@ -104,19 +104,23 @@ Here's an overview of how the FileUpload component is structured in code:
 ```tsx
 import { FileUpload } from '@skeletonlabs/skeleton-react';
 
-<FileUpload>
-	<FileUpload.Dropzone>
-		<FileUpload.Trigger />
-		<FileUpload.HiddenInput />
-	</FileUpload.Dropzone>
-	<FileUpload.ItemGroup>
-		<FileUpload.Item>
-			<FileUpload.ItemName />
-			<FileUpload.ItemSizeText />
-			<FileUpload.ItemDeleteTrigger />
-		</FileUpload.Item>
-	</FileUpload.ItemGroup>
-</FileUpload>
+export default function Anatomy() {
+	return (
+		<FileUpload>
+			<FileUpload.Dropzone>
+				<FileUpload.Trigger />
+				<FileUpload.HiddenInput />
+			</FileUpload.Dropzone>
+			<FileUpload.ItemGroup>
+				<FileUpload.Item>
+					<FileUpload.ItemName />
+					<FileUpload.ItemSizeText />
+					<FileUpload.ItemDeleteTrigger />
+				</FileUpload.Item>
+			</FileUpload.ItemGroup>
+		</FileUpload>
+	);
+}
 ```
 
 </Framework>

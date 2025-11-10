@@ -141,15 +141,19 @@ Here's an overview of how the Listbox component is structured in code:
 ```tsx
 import { Listbox } from '@skeletonlabs/skeleton-react';
 
-<Listbox>
-	<Listbox.Label />
-	<Listbox.Content>
-		<Listbox.Item>
-			<Listbox.ItemText />
-			<Listbox.ItemIndicator />
-		</Listbox.Item>
-	</Listbox.Content>
-</Listbox>
+export default function Anatomy() {
+	return (
+		<Listbox>
+			<Listbox.Label />
+			<Listbox.Content>
+				<Listbox.Item>
+					<Listbox.ItemText />
+					<Listbox.ItemIndicator />
+				</Listbox.Item>
+			</Listbox.Content>
+		</Listbox>
+	);
+}
 ```
 
 </Framework>

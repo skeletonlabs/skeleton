@@ -94,14 +94,18 @@ Here's an overview of how the Pagination component is structured in code:
 ```tsx
 import { Pagination } from '@skeletonlabs/skeleton-react';
 
-<Pagination>
-	<Pagination.PrevTrigger />
-	<Pagination.Context>
-		<Pagination.Item />
-		<Pagination.Ellipsis />
-	</Pagination.Context>
-	<Pagination.NextTrigger />
-</Pagination>
+export default function Anatomy() {
+	return (
+		<Pagination>
+			<Pagination.PrevTrigger />
+			<Pagination.Context>
+				<Pagination.Item />
+				<Pagination.Ellipsis />
+			</Pagination.Context>
+			<Pagination.NextTrigger />
+		</Pagination>
+	);
+}
 ```
 
 </Framework>

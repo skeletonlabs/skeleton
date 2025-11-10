@@ -142,13 +142,17 @@ Here's an overview of how the Accordion component is structured in code:
 ```tsx
 import { Accordion } from '@skeletonlabs/skeleton-react';
 
-<Accordion>
-	<Accordion.Item>
-		<Accordion.ItemTrigger />
-		<Accordion.ItemIndicator />
-		<Accordion.ItemContent />
-	</Accordion.Item>
-</Accordion>
+export default function Anatomy() {
+	return (
+		<Accordion>
+			<Accordion.Item>
+				<Accordion.ItemTrigger />
+				<Accordion.ItemIndicator />
+				<Accordion.ItemContent />
+			</Accordion.Item>
+		</Accordion>
+	);
+}
 ```
 
 </Framework>

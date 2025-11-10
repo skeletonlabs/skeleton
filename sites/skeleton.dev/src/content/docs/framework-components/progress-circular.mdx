@@ -150,14 +150,18 @@ Here's an overview of how the Progress (Circular) component is structured in cod
 ```tsx
 import { Progress } from '@skeletonlabs/skeleton-react';
 
-<Progress>
-	<Progress.Label />
-	<Progress.Circle>
-		<Progress.CircleTrack />
-		<Progress.CircleRange />
-	</Progress.Circle>
-	<Progress.ValueText />
-</Progress>
+export default function Anatomy() {
+	return (
+		<Progress>
+			<Progress.Label />
+			<Progress.Circle>
+				<Progress.CircleTrack />
+				<Progress.CircleRange />
+			</Progress.Circle>
+			<Progress.ValueText />
+		</Progress>
+	);
+}
 ```
 
 </Framework>

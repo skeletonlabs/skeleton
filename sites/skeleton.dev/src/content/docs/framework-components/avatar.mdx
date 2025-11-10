@@ -66,10 +66,14 @@ Here's an overview of how the Avatar component is structured in code:
 ```tsx
 import { Avatar } from '@skeletonlabs/skeleton-react';
 
-<Avatar>
-	<Avatar.Image />
-	<Avatar.Fallback />
-</Avatar>
+export default function Anatomy() {
+	return (
+		<Avatar>
+			<Avatar.Image />
+			<Avatar.Fallback />
+		</Avatar>
+	);
+}
 ```
 
 </Framework>

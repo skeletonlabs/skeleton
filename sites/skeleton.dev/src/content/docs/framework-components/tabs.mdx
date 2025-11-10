@@ -123,13 +123,17 @@ Here's an overview of how the Tabs component is structured in code:
 ```tsx
 import { Tabs } from '@skeletonlabs/skeleton-react';
 
-<Tabs>
-	<Tabs.List>
-		<Tabs.Trigger />
-		<Tabs.Indicator />
-	</Tabs.List>
-	<Tabs.Content />
-</Tabs>
+export default function Anatomy() {
+	return (
+		<Tabs>
+			<Tabs.List>
+				<Tabs.Trigger />
+				<Tabs.Indicator />
+			</Tabs.List>
+			<Tabs.Content />
+		</Tabs>
+	);
+}
 ```
 
 </Framework>

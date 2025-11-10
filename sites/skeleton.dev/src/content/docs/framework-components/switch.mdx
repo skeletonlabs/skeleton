@@ -104,13 +104,17 @@ Here's an overview of how the Switch component is structured in code:
 ```tsx
 import { Switch } from '@skeletonlabs/skeleton-react';
 
-<Switch>
-	<Switch.Control>
-		<Switch.Thumb />
-	</Switch.Control>
-	<Switch.Label />
-	<Switch.HiddenInput />
-</Switch>
+export default function Anatomy() {
+	return (
+		<Switch>
+			<Switch.Control>
+				<Switch.Thumb />
+			</Switch.Control>
+			<Switch.Label />
+			<Switch.HiddenInput />
+		</Switch>
+	);
+}
 ```
 
 </Framework>

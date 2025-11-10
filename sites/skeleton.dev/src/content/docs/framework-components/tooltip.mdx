@@ -106,18 +106,22 @@ Here's an overview of how the Tooltip component is structured in code:
 ```tsx
 import { Tooltip, Portal } from '@skeletonlabs/skeleton-react';
 
-<Tooltip>
-	<Tooltip.Trigger />
-	<Portal>
-		<Tooltip.Positioner>
-			<Tooltip.Content>
-				<Tooltip.Arrow>
-					<Tooltip.ArrowTip />
-				</Tooltip.Arrow>
-			</Tooltip.Content>
-		</Tooltip.Positioner>
-	</Portal>
-</Tooltip>
+export default function Anatomy() {
+	return (
+		<Tooltip>
+			<Tooltip.Trigger />
+			<Portal>
+				<Tooltip.Positioner>
+					<Tooltip.Content>
+						<Tooltip.Arrow>
+							<Tooltip.ArrowTip />
+						</Tooltip.Arrow>
+					</Tooltip.Content>
+				</Tooltip.Positioner>
+			</Portal>
+		</Tooltip>
+	);
+}
 ```
 
 </Framework>
