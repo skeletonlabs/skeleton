@@ -147,45 +147,45 @@ Here's an overview of how the DatePicker component is structured in code:
 
 ```svelte
 <script lang="ts">
-  import { DatePicker, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { DatePicker, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <DatePicker>
-  <DatePicker.Label />
-  <DatePicker.Control>
-    <DatePicker.Input />
-    <DatePicker.Trigger />
-    <DatePicker.ClearTrigger />
-  </DatePicker.Control>
-  <Portal>
-    <DatePicker.Positioner>
-      <DatePicker.Content>
-        <DatePicker.View>
-          <DatePicker.ViewControl>
-            <DatePicker.PrevTrigger />
-            <DatePicker.ViewTrigger>
-              <DatePicker.RangeText />
-            </DatePicker.ViewTrigger>
-            <DatePicker.NextTrigger />
-          </DatePicker.ViewControl>
-          <DatePicker.Table>
-            <DatePicker.TableHead>
-              <DatePicker.TableRow>
-                <DatePicker.TableHeader />
-              </DatePicker.TableRow>
-            </DatePicker.TableHead>
-            <DatePicker.TableBody>
-              <DatePicker.TableRow>
-                <DatePicker.TableCell>
-                  <DatePicker.TableCellTrigger />
-                </DatePicker.TableCell>
-              </DatePicker.TableRow>
-            </DatePicker.TableBody>
-          </DatePicker.Table>
-        </DatePicker.View>
-      </DatePicker.Content>
-    </DatePicker.Positioner>
-  </Portal>
+	<DatePicker.Label />
+	<DatePicker.Control>
+		<DatePicker.Input />
+		<DatePicker.Trigger />
+		<DatePicker.ClearTrigger />
+	</DatePicker.Control>
+	<Portal>
+		<DatePicker.Positioner>
+			<DatePicker.Content>
+				<DatePicker.View>
+					<DatePicker.ViewControl>
+						<DatePicker.PrevTrigger />
+						<DatePicker.ViewTrigger>
+							<DatePicker.RangeText />
+						</DatePicker.ViewTrigger>
+						<DatePicker.NextTrigger />
+					</DatePicker.ViewControl>
+					<DatePicker.Table>
+						<DatePicker.TableHead>
+							<DatePicker.TableRow>
+								<DatePicker.TableHeader />
+							</DatePicker.TableRow>
+						</DatePicker.TableHead>
+						<DatePicker.TableBody>
+							<DatePicker.TableRow>
+								<DatePicker.TableCell>
+									<DatePicker.TableCellTrigger />
+								</DatePicker.TableCell>
+							</DatePicker.TableRow>
+						</DatePicker.TableBody>
+					</DatePicker.Table>
+				</DatePicker.View>
+			</DatePicker.Content>
+		</DatePicker.Positioner>
+	</Portal>
 </DatePicker>
 ```
 

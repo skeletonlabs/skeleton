@@ -103,25 +103,25 @@ Here's an overview of how the TreeView component is structured in code:
 
 ```svelte
 <script lang="ts">
-  import { TreeView } from '@skeletonlabs/skeleton-svelte';
+	import { TreeView } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <TreeView>
-  <TreeView.Label />
-  <TreeView.Tree>
-    <TreeView.Branch>
-      <TreeView.BranchControl>
-        <TreeView.BranchTrigger />
-        <TreeView.BranchIndicator />
-        <TreeView.BranchText />
-      </TreeView.BranchControl>
-      <TreeView.BranchContent>
-        <TreeView.Item>
-          <TreeView.ItemText />
-        </TreeView.Item>
-      </TreeView.BranchContent>
-    </TreeView.Branch>
-  </TreeView.Tree>
+	<TreeView.Label />
+	<TreeView.Tree>
+		<TreeView.Branch>
+			<TreeView.BranchControl>
+				<TreeView.BranchTrigger />
+				<TreeView.BranchIndicator />
+				<TreeView.BranchText />
+			</TreeView.BranchControl>
+			<TreeView.BranchContent>
+				<TreeView.Item>
+					<TreeView.ItemText />
+				</TreeView.Item>
+			</TreeView.BranchContent>
+		</TreeView.Branch>
+	</TreeView.Tree>
 </TreeView>
 ```
 

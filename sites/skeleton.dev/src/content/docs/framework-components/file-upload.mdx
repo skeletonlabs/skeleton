@@ -101,21 +101,21 @@ Here's an overview of how the FileUpload component is structured in code:
 
 ```svelte
 <script lang="ts">
-  import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <FileUpload>
-  <FileUpload.Dropzone>
-    <FileUpload.Trigger />
-    <FileUpload.HiddenInput />
-  </FileUpload.Dropzone>
-  <FileUpload.ItemGroup>
-    <FileUpload.Item>
-      <FileUpload.ItemName />
-      <FileUpload.ItemSizeText />
-      <FileUpload.ItemDeleteTrigger />
-    </FileUpload.Item>
-  </FileUpload.ItemGroup>
+	<FileUpload.Dropzone>
+		<FileUpload.Trigger />
+		<FileUpload.HiddenInput />
+	</FileUpload.Dropzone>
+	<FileUpload.ItemGroup>
+		<FileUpload.Item>
+			<FileUpload.ItemName />
+			<FileUpload.ItemSizeText />
+			<FileUpload.ItemDeleteTrigger />
+		</FileUpload.Item>
+	</FileUpload.ItemGroup>
 </FileUpload>
 ```
 

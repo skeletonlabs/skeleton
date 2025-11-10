@@ -151,29 +151,29 @@ Here's an overview of how the Combobox component is structured in code:
 
 ```svelte
 <script lang="ts">
-  import { Combobox, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Combobox, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <Combobox>
-  <Combobox.Label />
-  <Combobox.Control>
-    <Combobox.Input />
-    <Combobox.Trigger />
-    <Combobox.ClearTrigger />
-  </Combobox.Control>
-  <Portal>
-    <Combobox.Positioner>
-      <Combobox.Content>
-        <Combobox.ItemGroup>
-          <Combobox.ItemGroupLabel />
-          <Combobox.Item>
-            <Combobox.ItemText />
-            <Combobox.ItemIndicator />
-          </Combobox.Item>
-        </Combobox.ItemGroup>
-      </Combobox.Content>
-    </Combobox.Positioner>
-  </Portal>
+	<Combobox.Label />
+	<Combobox.Control>
+		<Combobox.Input />
+		<Combobox.Trigger />
+		<Combobox.ClearTrigger />
+	</Combobox.Control>
+	<Portal>
+		<Combobox.Positioner>
+			<Combobox.Content>
+				<Combobox.ItemGroup>
+					<Combobox.ItemGroupLabel />
+					<Combobox.Item>
+						<Combobox.ItemText />
+						<Combobox.ItemIndicator />
+					</Combobox.Item>
+				</Combobox.ItemGroup>
+			</Combobox.Content>
+		</Combobox.Positioner>
+	</Portal>
 </Combobox>
 ```
 

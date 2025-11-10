@@ -103,23 +103,23 @@ Here's an overview of how the Popover component is structured in code:
 
 ```svelte
 <script lang="ts">
-  import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <Popover>
-  <Popover.Trigger />
-  <Portal>
-    <Popover.Positioner>
-      <Popover.Content>
-        <Popover.Title />
-        <Popover.Description />
-        <Popover.CloseTrigger />
-        <Popover.Arrow>
-          <Popover.ArrowTip />
-        </Popover.Arrow>
-      </Popover.Content>
-    </Popover.Positioner>
-  </Portal>
+	<Popover.Trigger />
+	<Portal>
+		<Popover.Positioner>
+			<Popover.Content>
+				<Popover.Title />
+				<Popover.Description />
+				<Popover.CloseTrigger />
+				<Popover.Arrow>
+					<Popover.ArrowTip />
+				</Popover.Arrow>
+			</Popover.Content>
+		</Popover.Positioner>
+	</Portal>
 </Popover>
 ```
 
