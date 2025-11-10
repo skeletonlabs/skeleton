@@ -3,11 +3,9 @@ import { vi } from 'vitest';
 
 vi.stubGlobal(
 	'ResizeObserver',
-	vi.fn(
-		class {
-			observe() {}
-			unobserve() {}
-			disconnect() {}
-		},
-	),
+	class {
+		observe() {}
+		unobserve() {}
+		disconnect() {}
+	},
 );
