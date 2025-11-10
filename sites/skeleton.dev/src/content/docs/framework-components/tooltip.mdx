@@ -101,6 +101,28 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 Here's an overview of how the Tooltip component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Tooltip, Portal } from '@skeletonlabs/skeleton-react';
+
+<Tooltip>
+	<Tooltip.Trigger />
+	<Portal>
+		<Tooltip.Positioner>
+			<Tooltip.Content>
+				<Tooltip.Arrow>
+					<Tooltip.ArrowTip />
+				</Tooltip.Arrow>
+			</Tooltip.Content>
+		</Tooltip.Positioner>
+	</Portal>
+</Tooltip>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Tooltip, Portal } from '@skeletonlabs/skeleton-svelte';
@@ -119,6 +141,8 @@ Here's an overview of how the Tooltip component is structured in code:
 	</Portal>
 </Tooltip>
 ```
+
+</Framework>
 
 ## API Reference
 

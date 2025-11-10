@@ -82,6 +82,23 @@ Modify the layout based on responsive breakpoints.
 
 Here's an overview of how the AppBar component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { AppBar } from '@skeletonlabs/skeleton-react';
+
+<AppBar>
+	<AppBar.Toolbar>
+		<AppBar.Lead />
+		<AppBar.Headline />
+		<AppBar.Trail />
+	</AppBar.Toolbar>
+</AppBar>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
@@ -95,6 +112,8 @@ Here's an overview of how the AppBar component is structured in code:
 	</AppBar.Toolbar>
 </AppBar>
 ```
+
+</Framework>
 
 ## API Reference
 

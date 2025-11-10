@@ -240,6 +240,25 @@ Toasts support asynchronous updates using promises.
 
 Here's an overview of how the Toast component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+
+<Toast.Group>
+	<Toast>
+		<Toast.Message>
+			<Toast.Title />
+			<Toast.Description />
+		</Toast.Message>
+		<Toast.CloseTrigger />
+	</Toast>
+</Toast.Group>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
@@ -255,6 +274,8 @@ Here's an overview of how the Toast component is structured in code:
 	</Toast>
 </Toast.Group>
 ```
+
+</Framework>
 
 ## API Reference
 

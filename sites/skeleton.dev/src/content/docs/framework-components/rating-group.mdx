@@ -118,6 +118,25 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 Here's an overview of how the RatingGroup component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { RatingGroup } from '@skeletonlabs/skeleton-react';
+
+<RatingGroup>
+	<RatingGroup.Label />
+	<RatingGroup.Control>
+		<RatingGroup.Context>
+			<RatingGroup.Item />
+		</RatingGroup.Context>
+	</RatingGroup.Control>
+	<RatingGroup.HiddenInput />
+</RatingGroup>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
@@ -133,6 +152,8 @@ Here's an overview of how the RatingGroup component is structured in code:
 	<RatingGroup.HiddenInput />
 </RatingGroup>
 ```
+
+</Framework>
 
 ## API Reference
 

@@ -99,6 +99,23 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 Here's an overview of how the Switch component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Switch } from '@skeletonlabs/skeleton-react';
+
+<Switch>
+	<Switch.Control>
+		<Switch.Thumb />
+	</Switch.Control>
+	<Switch.Label />
+	<Switch.HiddenInput />
+</Switch>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
@@ -112,6 +129,8 @@ Here's an overview of how the Switch component is structured in code:
 	<Switch.HiddenInput />
 </Switch>
 ```
+
+</Framework>
 
 ## API Reference
 

@@ -101,6 +101,31 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 Here's an overview of how the Popover component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Popover, Portal } from '@skeletonlabs/skeleton-react';
+
+<Popover>
+	<Popover.Trigger />
+	<Portal>
+		<Popover.Positioner>
+			<Popover.Content>
+				<Popover.Title />
+				<Popover.Description />
+				<Popover.CloseTrigger />
+				<Popover.Arrow>
+					<Popover.ArrowTip />
+				</Popover.Arrow>
+			</Popover.Content>
+		</Popover.Positioner>
+	</Portal>
+</Popover>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
@@ -122,6 +147,8 @@ Here's an overview of how the Popover component is structured in code:
 	</Portal>
 </Popover>
 ```
+
+</Framework>
 
 ## API Reference
 

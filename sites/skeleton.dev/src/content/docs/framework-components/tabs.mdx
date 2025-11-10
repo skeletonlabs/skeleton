@@ -118,6 +118,23 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 Here's an overview of how the Tabs component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Tabs } from '@skeletonlabs/skeleton-react';
+
+<Tabs>
+	<Tabs.List>
+		<Tabs.Trigger />
+		<Tabs.Indicator />
+	</Tabs.List>
+	<Tabs.Content />
+</Tabs>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
@@ -131,6 +148,8 @@ Here's an overview of how the Tabs component is structured in code:
 	<Tabs.Content />
 </Tabs>
 ```
+
+</Framework>
 
 ## API Reference
 

@@ -61,6 +61,20 @@ Apply [SVG Filters](/docs/[framework]/guides/cookbook/svg-filters) to avatar ima
 
 Here's an overview of how the Avatar component is structured in code:
 
+<Framework id="react">
+
+```tsx
+import { Avatar } from '@skeletonlabs/skeleton-react';
+
+<Avatar>
+	<Avatar.Image />
+	<Avatar.Fallback />
+</Avatar>
+```
+
+</Framework>
+<Framework id="svelte">
+
 ```svelte
 <script lang="ts">
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
@@ -71,6 +85,8 @@ Here's an overview of how the Avatar component is structured in code:
 	<Avatar.Fallback />
 </Avatar>
 ```
+
+</Framework>
 
 ## API Reference
 
