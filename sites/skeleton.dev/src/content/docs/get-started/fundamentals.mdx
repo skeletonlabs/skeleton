@@ -151,7 +151,7 @@ import { slide } from 'svelte/transition';
 		<Accordion.ItemContent>
 			{#snippet element(attributes)}
 				{#if !attributes.hidden}
-					<div {...attributes} hidden={false} transition:slide>Content 1</div>
+					<div {...attributes} transition:slide>Content 1</div>
 				{/if}
 			{/snippet}
 		</Accordion.ItemContent>
