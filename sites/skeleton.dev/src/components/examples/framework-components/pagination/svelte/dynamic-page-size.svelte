@@ -1,15 +1,5 @@
-<script lang="ts" module>
-	import { faker } from '@faker-js/faker';
-
-	const users = Array.from({ length: 500 }, (_, i) => ({
-		id: i + 1,
-		name: faker.person.fullName(),
-		email: faker.internet.email(),
-		country: faker.location.country(),
-	}));
-</script>
-
-<script>
+<script lang="ts">
+	import { users } from '../react/data';
 	import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
 	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 
@@ -18,7 +8,7 @@
 
 	const start = $derived((page - 1) * pageSize);
 	const end = $derived(start + pageSize);
-	const data = $derived(users.slice(start, end));
+	const paginatedUsers = $derived(users.slice(start, end));
 </script>
 
 <div class="grid gap-4 w-full place-items-center">
@@ -32,7 +22,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each data as user}
+			{#each paginatedUsers as user}
 				<tr>
 					<td>{user.id}</td>
 					<td>{user.name}</td>

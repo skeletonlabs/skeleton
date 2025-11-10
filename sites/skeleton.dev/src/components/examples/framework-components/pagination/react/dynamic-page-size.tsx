@@ -1,14 +1,7 @@
-import { faker } from '@faker-js/faker';
+import { users } from './data';
 import { Pagination } from '@skeletonlabs/skeleton-react';
 import { ArrowRightIcon, ArrowLeftIcon } from 'lucide-react';
 import { useState } from 'react';
-
-const users = Array.from({ length: 500 }, (_, i) => ({
-	id: i + 1,
-	name: faker.person.fullName(),
-	email: faker.internet.email(),
-	country: faker.location.country(),
-}));
 
 export default function Default() {
 	const [page, setPage] = useState(1);
@@ -16,7 +9,7 @@ export default function Default() {
 
 	const start = (page - 1) * pageSize;
 	const end = start + pageSize;
-	const data = users.slice(start, end);
+	const paginatedUsers = users.slice(start, end);
 
 	return (
 		<div className="grid gap-4 w-full place-items-center">
@@ -30,7 +23,7 @@ export default function Default() {
 					</tr>
 				</thead>
 				<tbody>
-					{data.map((user) => (
+					{paginatedUsers.map((user) => (
 						<tr key={user.id}>
 							<td>{user.id}</td>
 							<td>{user.name}</td>

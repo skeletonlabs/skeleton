@@ -3,12 +3,14 @@ title: Pagination
 description: Client and server-side pagination controls.
 ---
 
+import DataReact from '@/components/examples/framework-components/pagination/react/data?raw';
 import DefaultReact from '@/components/examples/framework-components/pagination/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/pagination/react/default?raw';
 import DirReact from '@/components/examples/framework-components/pagination/react/dir';
 import DirReactRaw from '@/components/examples/framework-components/pagination/react/dir?raw';
 import DynamicPageSizeReact from '@/components/examples/framework-components/pagination/react/dynamic-page-size';
 import DynamicPageSizeReactRaw from '@/components/examples/framework-components/pagination/react/dynamic-page-size?raw';
+import DataSvelte from '@/components/examples/framework-components/pagination/svelte/data?raw';
 import DefaultSvelte from '@/components/examples/framework-components/pagination/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/pagination/svelte/default.svelte?raw';
 import DirSvelte from '@/components/examples/framework-components/pagination/svelte/dir.svelte';
@@ -17,12 +19,12 @@ import DynamicPageSizeSvelte from '@/components/examples/framework-components/pa
 import DynamicPageSizeSvelteRaw from '@/components/examples/framework-components/pagination/svelte/dynamic-page-size.svelte?raw';
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw, 'data.ts': DataReact }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw, 'data.ts': DataSvelte }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -32,12 +34,12 @@ import DynamicPageSizeSvelteRaw from '@/components/examples/framework-components
 Implement a custom page `pageSize` amount using a select element.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw, 'data.ts': DataReact }} client:visible>
 		<DynamicPageSizeReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw, 'data.ts': DataSvelte }} client:visible>
 		<DynamicPageSizeSvelte client:visible />
 	</Preview>
 </Framework>
@@ -47,12 +49,12 @@ Implement a custom page `pageSize` amount using a select element.
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw, 'data.ts': DataReact }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw, 'data.ts': DataSvelte }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
