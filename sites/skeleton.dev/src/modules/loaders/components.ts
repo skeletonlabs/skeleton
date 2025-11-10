@@ -210,7 +210,7 @@ export const components = async () => {
 
 			const componentEntries = await Promise.all(
 				components.map(async (component) => {
-					if (process.env.VERCEL_ENV !== 'production') {
+					if (!['preview', 'production'].includes(process.env.VERCEL_ENV ?? 'development')) {
 						return {
 							id: `${framework}/${component}`,
 							name: component,
