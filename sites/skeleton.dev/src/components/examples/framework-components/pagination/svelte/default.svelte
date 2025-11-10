@@ -3,7 +3,7 @@
 </script>
 
 <script>
-	import { users } from '../react/data';
+	import { users } from './data';
 	import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
 	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 
