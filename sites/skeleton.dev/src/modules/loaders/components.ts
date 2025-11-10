@@ -1,4 +1,3 @@
-import { VERCEL_ENV } from 'astro:env/server';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -211,7 +210,7 @@ export const components = async () => {
 
 			const componentEntries = await Promise.all(
 				components.map(async (component) => {
-					if (!['preview', 'production'].includes(VERCEL_ENV)) {
+					if (!['preview', 'production'].includes(process.env.VERCEL_ENV ?? '')) {
 						return {
 							id: `${framework}/${component}`,
 							name: component,

@@ -1,7 +1,6 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
 import Code from '@/components/ui/code.svelte';
-import { VERCEL_ENV } from 'astro:env/server';
 
 interface Props {
 	id: CollectionEntry<'components'>['id'];
@@ -18,7 +17,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!component && VERCEL_ENV === 'production') {
+if (!component && process.env.VERCEL_ENV === 'production') {
 	throw new Error(`Unable to load component information for ${id}`);
 }
 ---

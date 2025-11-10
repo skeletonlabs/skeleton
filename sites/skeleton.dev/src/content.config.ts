@@ -1,7 +1,6 @@
 import { components } from '@/modules/loaders/components';
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
-import { VERCEL_ENV } from 'astro:env/server';
 import { Octokit } from 'octokit';
 
 export const collections = {
@@ -42,7 +41,7 @@ export const collections = {
 	}),
 	contributors: defineCollection({
 		loader: async () => {
-			if (VERCEL_ENV !== 'production') {
+			if (process.env.VERCEL_ENV !== 'production') {
 				return Array.from({ length: 100 }).map((_, index) => ({
 					id: String(index),
 					html_url: `https://github.com/user-${index}`,
