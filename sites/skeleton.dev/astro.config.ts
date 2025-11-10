@@ -1,60 +1,35 @@
-import { generateTypeDocumentation } from './scripts/generate-type-documentation';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 import svelte, { vitePreprocess } from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
-import type { AstroIntegration } from 'astro';
-import AutoImport from 'astro-auto-import';
-import expressiveCode from 'astro-expressive-code';
-import { defineConfig } from 'astro/config';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { createIndex } from 'pagefind';
-import { pagefind } from 'vite-plugin-pagefind';
-import transformLucideImports from 'vite-plugin-transform-lucide-imports';
+import autoImport from 'astro-auto-import';
+import pagefind from 'astro-pagefind';
+import { defineConfig, envField } from 'astro/config';
+import { execSync } from 'node:child_process';
+import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
-function skeleton(): AstroIntegration {
-	return {
-		name: 'skeleton',
-		hooks: {
-			'astro:config:setup': async (ctx) => {
-				if (ctx.command !== 'build') {
-					return;
-				}
-				ctx.logger.info('Generating type documentation...');
-				await generateTypeDocumentation();
-				ctx.logger.info('Type documentation generated.');
-			},
-			'astro:build:done': async (ctx) => {
-				ctx.logger.info('Generating search index...');
-				const pagefind = await createIndex({
-					excludeSelectors: ['.expressive-code'],
-				});
-				if (!pagefind.index || pagefind.errors.length > 0) {
-					throw new Error(`Failed to create search index: ${pagefind.errors.join(', ')}`);
-				}
-				await pagefind.index.addDirectory({
-					path: fileURLToPath(ctx.dir),
-				});
-				const response = await pagefind.index.writeFiles({
-					outputPath: join(fileURLToPath(ctx.dir), 'pagefind'),
-				});
-				if (response.errors.length > 0) {
-					ctx.logger.error(`Failed to write search index.: ${response.errors.join(', ')}`);
-				} else {
-					ctx.logger.info('Search index generated.');
-				}
-			},
-		},
-	};
+function getSite() {
+	if (import.meta.env.DEV) {
+		return 'http://localhost:4321';
+	}
+	if (process.env.VERCEL_ENV === 'production') {
+		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+	}
+	return `https://${process.env.VERCEL_URL}`;
 }
 
 export default defineConfig({
+	site: getSite(),
+	prefetch: true,
+	trailingSlash: 'never',
+	markdown: {
+		syntaxHighlight: false,
+	},
 	integrations: [
-		skeleton(),
-		partytown(),
+		react(),
 		svelte({
 			preprocess: vitePreprocess(),
 			compilerOptions: {
@@ -63,37 +38,43 @@ export default defineConfig({
 				},
 			},
 		}),
-		react(),
-		expressiveCode({
-			defaultProps: { wrap: true },
-			themes: ['dark-plus', 'github-dark'],
-		}),
-		AutoImport({
+		autoImport({
 			imports: [
 				{
-					'astro-expressive-code/components': ['Code'],
-					'@/components/ui/api-table.astro': [['default', 'ApiTable']],
-					'@/components/ui/preview.tsx': [['default', 'Preview']],
-					'@/components/ui/framework-tabs.tsx': [['default', 'FrameworkTabs']],
+					'./src/components/ui/framework.astro': [['default', 'Framework']],
+					'./src/components/ui/api-reference.astro': [['default', 'ApiReference']],
+					'./src/components/ui/preview.svelte': [['default', 'Preview']],
+					'./src/components/ui/alert.astro': [['default', 'Alert']],
 				},
 			],
 		}),
-		/**
-		 * Note: Keep this as the last integration so that framework components are available in MDX.
-		 */
 		mdx(),
+		partytown(),
+		sitemap(),
+		pagefind(),
 	],
-
-	vite: {
-		plugins: [
-			// @ts-expect-error - vite version mismatch
-			tailwindcss(),
-			// @ts-expect-error - vite version mismatch
-			pagefind({
-				outputDirectory: 'dist',
+	env: {
+		schema: {
+			GIT_BRANCH: envField.string({
+				context: 'server',
+				access: 'public',
+				default: process.env.VERCEL_GIT_COMMIT_REF ?? execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
 			}),
-			// @ts-expect-error - vite version mismatch
+		},
+	},
+	vite: {
+		build: {
+			rollupOptions: {
+				external: ['/pagefind/pagefind.js'],
+			},
+		},
+		assetsInclude: '**/pagefind.js',
+		plugins: [
+			/* @ts-expect-error vite version mismatch */
+			tailwindcss(),
+			/* @ts-expect-error vite version mismatch */
 			transformLucideImports({
+				extensions: [...SUPPORTED_EXTENSIONS, '.astro'],
 				onwarn(warning, defaultHandler) {
 					if (warning.message.match(/Skipping optimization of (\S+) because \1 is already a tree shaken package/)) {
 						return;
@@ -103,6 +84,5 @@ export default defineConfig({
 			}),
 		],
 	},
-
 	adapter: vercel(),
 });

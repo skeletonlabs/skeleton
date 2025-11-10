@@ -7,66 +7,65 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- preset-typo-display-4 -->
 			<tr>
 				<td><code class="code">preset-typo-display-4</code></td>
 				<td><h1 class="preset-typo-display-4">Aa</h1></td>
 			</tr>
-			<!-- preset-typo-display-3 -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-display-3</code></td>
 				<td><h2 class="preset-typo-display-3">Aa</h2></td>
 			</tr>
-			<!-- preset-typo-display-2 -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-display-2</code></td>
 				<td><h3 class="preset-typo-display-2">Aa</h3></td>
 			</tr>
-			<!-- preset-typo-display-1 -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-display-1</code></td>
 				<td><h4 class="preset-typo-display-1">Aa</h4></td>
 			</tr>
-			<!-- preset-typo-headline -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-headline</code></td>
 				<td><p class="preset-typo-headline">Headline</p></td>
 			</tr>
-			<!-- preset-typo-title -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-title</code></td>
 				<td><p class="preset-typo-title">Title</p></td>
 			</tr>
-			<!-- preset-typo-subtitle -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-subtitle</code></td>
 				<td><p class="preset-typo-subtitle">Subtitle</p></td>
 			</tr>
-			<!-- preset-typo-body-1 -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-body-1</code></td>
 				<td>
 					<p class="preset-typo-body-1">Body 1</p>
 				</td>
 			</tr>
-			<!-- preset-typo-body-2 -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-body-2</code></td>
 				<td>
 					<p class="preset-typo-body-2">Body 2</p>
 				</td>
 			</tr>
-			<!-- preset-typo-caption -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-caption</code></td>
 				<td><span class="preset-typo-caption">Caption</span></td>
 			</tr>
-			<!-- preset-typo-menu -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-menu</code></td>
 				<td><span class="preset-typo-menu">Menu</span></td>
 			</tr>
-			<!-- preset-typo-button -->
+			<!-- --- -->
 			<tr>
 				<td><code class="code">preset-typo-button</code></td>
 				<td><span class="preset-typo-button">Button</span></td>
@@ -81,8 +80,11 @@
 	@reference "@/app.css";
 
 	/*
-		Copy the following classes to your global stylesheet. Rename and modify as desired.
-		Reference: http://skeleton.dev/docs/get-started/core-api#typography
+		In a real world project, copy the following into your global stylesheet.
+		Then rename, adjust the styles, and otherwise modify as desired.
+
+		For a quick reference for these theme variables, see the Core API:
+		http://skeleton.dev/docs/get-started/core-api#typography
 	*/
 
 	/* Headings */

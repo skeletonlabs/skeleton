@@ -5,7 +5,7 @@ export const classesDatePicker = defineSkeletonClasses({
 	label: 'label-text',
 	control: 'relative flex flex-col gap-2',
 	input: 'input',
-	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-[calc(var(--spacing)*1.25)]',
+	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-1.25',
 	clearTrigger: '',
 	presetTrigger: '',
 	positioner: '',

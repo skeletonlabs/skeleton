@@ -1,37 +1,19 @@
 ---
 title: Fundamentals
 description: An introduction to the core concepts of Skeleton.
+summary: Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
 order: 20
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
-
-{
-
-<p className="text-xl">
-	Skeleton is comprised of three pillars - the design system, our extensions to Tailwind, and an optional suite of framework-specific
-	components. Together these form a comprehensive solution for designing and implementing complex web interfaces at scale.
-</p>
-
-}
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 ---
 
 ## Design System
 
-### Figma UI Kit
+Explore each pillar of the Skeleton design system. Provided via the Skeleton core.
 
-A fully featured [Figma UI Kit](/figma) is available to designers, allowing them to quickly draft visual concept of your project.
-
-### Iconography
-
-Skeleton is icon agnostic, meaning you may bring your own iconography solution. However, we highly recommend [Lucide](https://lucide.dev/) and utilize it for all examples in our documentation. Refer to our integration guides for [React](/docs/integrations/iconography/react) and [Svelte](/docs/integrations/iconography/svelte).
-
-### Core Features
-
-The following features fall under the umbrella of our design system. Provided via the Skeleton core.
-
-<NavGrid collection="docs" path="design/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('design/')} class="md:grid-cols-2" />
 
 ---
 
@@ -39,13 +21,15 @@ The following features fall under the umbrella of our design system. Provided vi
 
 Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
 
-<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('tailwind-components/')} class="md:grid-cols-2" />
 
 ---
 
-## Functional Components
+## Framework Components
 
 Skeleton also offers optional component packages for select component frameworks. Each component automatically adapts to Skeleton's design system. While still allowing a high level of customization.
+
+### Supported Frameworks
 
 | Framework | NPM Package                     | Description                     |
 | --------- | ------------------------------- | ------------------------------- |
@@ -112,8 +96,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 
 Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and show not be needed for normal usage.
 
-**React:**
-
+<Framework id="react">
 ```tsx
 export default function () {
 	return (
@@ -130,9 +113,8 @@ export default function () {
 	);
 }
 ```
-
-**Svelte:**
-
+</Framework>
+<Framework id="svelte">
 ```svelte
 <Accordion>
 	<!-- ... -->
@@ -149,6 +131,7 @@ export default function () {
 	<!-- ... -->
 </Accordion>
 ```
+</Framework>
 
 ### Custom Animations
 
@@ -211,4 +194,4 @@ Most Skeleton components also support the Provider Pattern. This utilizes a prov
 
 ### Learn More
 
-For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/resources/contribute/components).
+For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/[framework]/resources/contribute/components).

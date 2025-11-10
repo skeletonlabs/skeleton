@@ -1,10 +1,56 @@
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-	<!-- Standard Colors -->
-	<div class="bg-primary-500 text-primary-contrast-500">
-		<p class="text-center p-4">Standard Colors</p>
+---
+import { SwatchBookIcon } from 'lucide-react';
+---
+
+<section class="space-y-8">
+	<div class="grid grid-cols-3 gap-6">
+		<!-- Standard Colors -->
+		<div class="flex flex-col space-y-2">
+			<p class="text-xs">Direct Use</p>
+			<div class="badge justify-start bg-primary-500 text-primary-contrast-500">
+				<SwatchBookIcon className="size-4" />
+				<span>Primary</span>
+			</div>
+			<div class="badge justify-start bg-secondary-500 text-secondary-contrast-500">
+				<SwatchBookIcon className="size-4" />
+				<span>Secondary</span>
+			</div>
+			<div class="badge justify-start bg-tertiary-500 text-tertiary-contrast-500">
+				<SwatchBookIcon className="size-4" />
+				<span>Tertiary</span>
+			</div>
+		</div>
+		<!-- Presets -->
+		<div class="flex flex-col space-y-2">
+			<p class="text-xs">Presets</p>
+			<div class="badge justify-start preset-filled-primary-950-50">
+				<SwatchBookIcon className="size-4" />
+				<span>Primary</span>
+			</div>
+			<div class="badge justify-start preset-filled-secondary-950-50">
+				<SwatchBookIcon className="size-4" />
+				<span>Secondary</span>
+			</div>
+			<div class="badge justify-start preset-filled-tertiary-950-50">
+				<SwatchBookIcon className="size-4" />
+				<span>Tertiary</span>
+			</div>
+		</div>
+		<!-- Preset + Pairings -->
+		<div class="flex flex-col space-y-2">
+			<p class="text-xs">Preset + Pairings</p>
+			<div class="badge justify-start preset-filled-primary-50-950">
+				<SwatchBookIcon className="size-4" />
+				<span>Primary</span>
+			</div>
+			<div class="badge justify-start preset-filled-secondary-50-950">
+				<SwatchBookIcon className="size-4" />
+				<span>Secondary</span>
+			</div>
+			<div class="badge justify-start preset-filled-tertiary-50-950">
+				<SwatchBookIcon className="size-4" />
+				<span>Tertiary</span>
+			</div>
+		</div>
 	</div>
-	<!-- Color Pairings -->
-	<div class="bg-secondary-200-800 text-secondary-contrast-200-800">
-		<p class="text-center p-4">Color Pairings</p>
-	</div>
-</div>
+</section>

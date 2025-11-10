@@ -1,17 +1,15 @@
 ---
 title: Migrate from v3
 description: Learn how to migrate from Skeleton v3 to the latest version.
-showDocsUrl: false
+summary: Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabilized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time. It also aims to make Skeleton's components as simple and intuitive to use as possible for new users.
 order: 8888
 ---
-
-Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabilized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time. It also aims to make Skeleton's components as simple and intuitive to use as possible for new users.
 
 ## Prerequisites
 
 We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop and revert if anything goes wrong.
 
-```console
+```bash
 git checkout -b migration
 ```
 
@@ -27,11 +25,11 @@ Make sure you've accounted for the following:
 
 To begin, we will run a quick automated migration.
 
-```console
+```bash
 npx skeleton migrate skeleton-4
 ```
 
-This will handle the package and stylesheet updates in the next couple steps. If you opt for the CLI, feel free to skip down to the [Manual Migration](/docs/get-started/migrate-from-v3#manual-migration) steps below. Note the manual steps are required for all migrations.
+This will handle the package and stylesheet updates in the next couple steps. If you opt for the CLI, feel free to skip down to the [Manual Migration](/docs/[framework]/get-started/migrate-from-v3#manual-migration) steps below. Note the manual steps are required for all migrations.
 
 ### Update NPM Packages
 
@@ -39,13 +37,13 @@ For the Release Candidate, please update each Skeleton package to the early acce
 
 **React**
 
-```console
+```bash
 npm install @skeletonlabs/skeleton@latest @skeletonlabs/skeleton-react@latest
 ```
 
 **Svelte**
 
-```console
+```bash
 npm install @skeletonlabs/skeleton@latest @skeletonlabs/skeleton-svelte@latest
 ```
 
@@ -55,15 +53,15 @@ The following migration steps apply to your global stylesheet (ex: `app.css`).
 
 The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
 
-```diff
-- @source '../node_modules/@skeletonlabs/skeleton-{framework}/dist';
-+ @import '@skeletonlabs/skeleton-{framework}';
+```css
+@source '../node_modules/@skeletonlabs/skeleton-{framework}/dist'; /* [!code --] */
+@import '@skeletonlabs/skeleton-{framework}'; /* [!code ++] */
 ```
 
-In Skeleton v3 the [Preset styles](/docs/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
+In Skeleton v3 the [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
 
-```diff
-- @import '@skeletonlabs/skeleton/optional/presets';
+```css
+@import '@skeletonlabs/skeleton/optional/presets'; /* [!code --] */
 ```
 
 ---
@@ -91,7 +89,7 @@ Below is an example of that process specifically tailored for the Avatar compone
 </Avatar>
 ```
 
-1. Consult the Avatar documentation for [React](/docs/components/avatar/react) or [Svelte](/docs/components/avatar/svelte).
+1. Consult the documentation for the [Avatar component](/docs/[framework]/framework-components/avatar)
 2. Keep the import as is; no changes are required for this component.
 3. The root component `<Avatar>` remains; remove the `src`, `alt`, and or `name` props.
 4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
@@ -103,15 +101,15 @@ Below is an example of that process specifically tailored for the Avatar compone
 
 As part of this update, select components have been renamed. We now aim to follow the [Zag.js](https://zagjs.com/) naming conventions.
 
-| Was (v3)            | Now (v4)                     | v4 Docs                                                                                                 |
-| ------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `<Modal>`           | `<Dialog>`                   | [React](/docs/components/dialog/react) / [Svelte](/docs/components/dialog/svelte)                       |
-| `<Navigation.Bar>`  | `<Navigation layout="bar">`  | [React](/docs/components/navigation/react) / [Svelte](/docs/components/navigation/svelte)               |
-| `<Navigation.Rail>` | `<Navigation layout="rail">` | [React](/docs/components/navigation/react) / [Svelte](/docs/components/navigation/svelte)               |
-| `<ProgressRing>`    | `<Progress>`                 | [React](/docs/components/progress-circular/react) / [Svelte](/docs/components/progress-circular/svelte) |
-| `<Ratings>`         | `<RatingGroup>`              | [React](/docs/components/rating-group/react) / [Svelte](/docs/components/rating-group/svelte)           |
-| `<Segment>`         | `<SegmentedControl>`         | [React](/docs/components/segmented-control/react) / [Svelte](/docs/components/segmented-control/svelte) |
-| `<Toaster>`         | `<Toast.Group>`              | [React](/docs/components/toast/react) / [Svelte](/docs/components/toast/svelte)                         |
+| Was (v3)            | Now (v4)                     | v4 Docs                                                          |
+| ------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| `<Modal>`           | `<Dialog>`                   | [View](/docs/[framework]/framework-components/dialog)            |
+| `<Navigation.Bar>`  | `<Navigation layout="bar">`  | [View](/docs/[framework]/framework-components/navigation)        |
+| `<Navigation.Rail>` | `<Navigation layout="rail">` | [View](/docs/[framework]/framework-components/navigation)        |
+| `<ProgressRing>`    | `<Progress>`                 | [View](/docs/[framework]/framework-components/progress-circular) |
+| `<Ratings>`         | `<RatingGroup>`              | [View](/docs/[framework]/framework-components/rating-group)      |
+| `<Segment>`         | `<SegmentedControl>`         | [View](/docs/[framework]/framework-components/segmented-control) |
+| `<Toaster>`         | `<Toast.Group>`              | [View](/docs/[framework]/framework-components/toast)             |
 
 ---
 

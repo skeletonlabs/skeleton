@@ -26,9 +26,16 @@ import { themes } from '@skeletonlabs/skeleton-common';
 </div>
 
 <script>
-	for (const button of document.querySelectorAll<HTMLButtonElement>('button[data-theme]')) {
-		button.addEventListener('click', async () => {
-			await navigator.clipboard.writeText(button.dataset.theme!);
-		});
-	}
+	document.addEventListener('astro:page-load', () => {
+		for (const button of document.querySelectorAll<HTMLButtonElement>('button[data-theme]')) {
+			button.addEventListener('click', () => {
+				const theme = button.getAttribute('data-theme');
+				if (!theme) {
+					return;
+				}
+				localStorage.setItem('theme', theme);
+				document.documentElement.setAttribute('data-theme', theme);
+			});
+		}
+	});
 </script>

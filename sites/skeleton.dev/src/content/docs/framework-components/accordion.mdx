@@ -1,0 +1,143 @@
+---
+title: Accordion
+description: Divide content into collapsible sections.
+---
+
+import CollapsibleReact from '@/components/examples/framework-components/accordion/react/collapsible';
+import CollapsibleReactRaw from '@/components/examples/framework-components/accordion/react/collapsible?raw';
+import ControlledReact from '@/components/examples/framework-components/accordion/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/accordion/react/controlled?raw';
+import DefaultReact from '@/components/examples/framework-components/accordion/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/accordion/react/default?raw';
+import DirReact from '@/components/examples/framework-components/accordion/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/accordion/react/dir?raw';
+import IndicatorReact from '@/components/examples/framework-components/accordion/react/indicator';
+import IndicatorReactRaw from '@/components/examples/framework-components/accordion/react/indicator?raw';
+import MultipleReact from '@/components/examples/framework-components/accordion/react/multiple';
+import MultipleReactRaw from '@/components/examples/framework-components/accordion/react/multiple?raw';
+import OrientationReact from '@/components/examples/framework-components/accordion/react/orientation';
+import OrientationReactRaw from '@/components/examples/framework-components/accordion/react/orientation?raw';
+import CollapsibleSvelte from '@/components/examples/framework-components/accordion/svelte/collapsible.svelte';
+import CollapsibleSvelteRaw from '@/components/examples/framework-components/accordion/svelte/collapsible.svelte?raw';
+import ControlledSvelte from '@/components/examples/framework-components/accordion/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/accordion/svelte/controlled.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/accordion/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/accordion/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/accordion/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/accordion/svelte/dir.svelte?raw';
+import IndicatorSvelte from '@/components/examples/framework-components/accordion/svelte/indicator.svelte';
+import IndicatorSvelteRaw from '@/components/examples/framework-components/accordion/svelte/indicator.svelte?raw';
+import MultipleSvelte from '@/components/examples/framework-components/accordion/svelte/multiple.svelte';
+import MultipleSvelteRaw from '@/components/examples/framework-components/accordion/svelte/multiple.svelte?raw';
+import OrientationSvelte from '@/components/examples/framework-components/accordion/svelte/orientation.svelte';
+import OrientationSvelteRaw from '@/components/examples/framework-components/accordion/svelte/orientation.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+Use the `open` and `onOpenChange` props to control the state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple
+
+Allow multiple accordion items to stay open at once using the `multiple` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleReactRaw }} client:visible>
+		<MultipleReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
+		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Collapsible
+
+Allow closing all items when one is open using the `collapsible` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CollapsibleReactRaw }} client:visible>
+		<CollapsibleReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CollapsibleSvelteRaw }} client:visible>
+		<CollapsibleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Indicator
+
+Add a custom indicator to accordion triggers.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': IndicatorReactRaw }} client:visible>
+		<IndicatorReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': IndicatorSvelteRaw }} client:visible>
+		<IndicatorSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Orientation
+
+Render the accordion vertically or horizontally using the `orientation` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
+		<OrientationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+		<OrientationSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Dir
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/accordion" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/accordion" />
+</Framework>

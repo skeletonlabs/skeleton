@@ -1,8 +1,6 @@
 ---
 title: Breadcrumbs
 description: Displays the current navigation hierarchy.
-showDocsUrl: true
-pubDate: 2024-11-18
 tags: ['blocks', 'navigation']
 ---
 
@@ -11,24 +9,14 @@ import DefaultRaw from '@/components/examples/guides/cookbook/breadcrumbs/defaul
 import Icons from '@/components/examples/guides/cookbook/breadcrumbs/icons.astro';
 import IconsRaw from '@/components/examples/guides/cookbook/breadcrumbs/icons.astro?raw';
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## Icons
 
 Feel free to mix in icons for the anchor labels or separators.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Icons />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={IconsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': IconsRaw }} client:visible>
+	<Icons />
 </Preview>

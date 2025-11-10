@@ -1,0 +1,101 @@
+---
+import '@/app.css';
+import { SEO } from 'astro-seo';
+import favicon from '@/assets/favicon.png';
+import { ClientRouter } from 'astro:transitions';
+import Analytics from '@/components/ui/analytics.astro';
+import ThemeLoader from '@/components/ui/theme-loader.astro';
+import ModeLoader from '@/components/ui/mode-loader.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	classList?: string;
+}
+
+const {
+	title = 'Skeleton',
+	description = 'Skeleton uses Tailwind as the foundation for building adaptive design systems. Including turnkey components for your favorite web frameworks.',
+	classList,
+} = Astro.props;
+
+const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skeleton`;
+
+const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
+---
+
+<html lang="en" transition:animate="none">
+	<head>
+		<SEO
+			title={titleWithSkeletonSuffix}
+			description={description}
+			canonical={Astro.site}
+			charset="UTF-8"
+			theme-color="#111111"
+			openGraph={{
+				basic: {
+					title: titleWithSkeletonSuffix,
+					type: 'website',
+					url: Astro.site,
+					image: skeletonImage.toString(),
+				},
+				image: {
+					url: skeletonImage.toString(),
+					secureUrl: skeletonImage.toString(),
+					type: `image/png`,
+					width: 1200,
+					height: 630,
+					alt: titleWithSkeletonSuffix,
+				},
+				optional: {
+					locale: 'en_US',
+					siteName: 'Skeleton',
+					description: description,
+				},
+			}}
+			twitter={{
+				title: titleWithSkeletonSuffix,
+				description: description,
+				image: skeletonImage.toString(),
+				imageAlt: titleWithSkeletonSuffix,
+				card: 'summary_large_image',
+				site: Astro.site?.toString(),
+			}}
+			extend={{
+				meta: [
+					{
+						name: 'viewport',
+						content: 'width=device-width, initial-scale=1',
+					},
+					{
+						name: 'keywords',
+						content:
+							'design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, a11y, accessibility, typescript, javascript, css, open source, adaptive, theme',
+					},
+					{
+						name: 'generator',
+						content: Astro.generator,
+					},
+				],
+				link: [
+					{
+						rel: 'icon',
+						type: `image/${favicon.format}`,
+						href: favicon.src,
+					},
+					{
+						rel: 'sitemap',
+						href: '/sitemap-index.xml',
+					},
+				],
+			}}
+		/>
+		<ModeLoader />
+		<ThemeLoader />
+		<Analytics />
+		<ClientRouter />
+	</head>
+	<body class:list={[classList]}>
+		<slot />
+	</body>
+</html>

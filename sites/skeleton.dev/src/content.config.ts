@@ -1,43 +1,42 @@
+import { components } from '@/modules/loaders/components';
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 import { Octokit } from 'octokit';
 
 export const collections = {
+	frameworks: defineCollection({
+		loader: glob({
+			base: './src/content/frameworks',
+			pattern: '*.json',
+		}),
+		schema: z.object({
+			name: z.string().nonempty(),
+			logo: z.string().nonempty(),
+			default: z.boolean().optional().default(false),
+		}),
+	}),
 	docs: defineCollection({
 		loader: glob({
 			base: './src/content/docs',
-			pattern: ['**/*.mdx', '!**/_*.mdx'],
+			pattern: '**/*.{md,mdx}',
 		}),
 		schema: z.object({
-			title: z.string().optional().default('(Title)'),
-			description: z.string().optional().default('(Description)'),
-			srcCore: z.string().optional(),
-			srcCss: z.string().optional(),
-			srcSvelte: z.string().optional(),
-			srcReact: z.string().optional(),
-			srcAlly: z.string().optional(),
-			srcZag: z.string().optional(),
+			title: z.string().nonempty(),
+			description: z.string().nonempty(),
+			summary: z.string().optional(),
+			features: z.array(z.string()).optional(),
 			stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
-			showDocsUrl: z.boolean().optional().default(false),
-			pubDate: z.date().optional(),
-			tags: z.array(z.string()).optional(),
-			order: z.number().optional().default(0),
-		}),
-	}),
-	'showcase-projects': defineCollection({
-		loader: glob({
-			base: './src/content/showcase-projects',
-			pattern: '**/*.json',
-		}),
-		schema: z.object({
-			name: z.string(),
-			description: z.string(),
-			url: z.string(),
-			playwright: z
+			order: z.number().nonnegative().optional().default(0),
+			tags: z.array(z.string()).optional().default([]),
+			references: z
 				.object({
-					instructions: z.array(z.string()),
+					source: z.union([z.string().url(), z.literal(false)]).optional(),
+					styles: z.union([z.string().url(), z.literal(false)]).optional(),
+					a11y: z.union([z.string().url(), z.literal(false)]).optional(),
+					zag: z.union([z.string().url(), z.literal(false)]).optional(),
 				})
-				.optional(),
+				.optional()
+				.default({}),
 		}),
 	}),
 	contributors: defineCollection({
@@ -46,7 +45,7 @@ export const collections = {
 				return Array.from({ length: 100 }).map((_, index) => ({
 					id: String(index),
 					html_url: `https://github.com/user-${index}`,
-					avatar_url: `https://picsum.photos/100?random=${index}`,
+					avatar_url: `https://picsum.photos/100`,
 					login: `user-${index}`,
 				}));
 			}
@@ -69,11 +68,24 @@ export const collections = {
 			login: z.string(),
 		}),
 	}),
-	types: defineCollection({
+	'showcase-projects': defineCollection({
 		loader: glob({
-			base: './src/content/types',
-			pattern: '**/*.json',
+			base: './src/content/showcase-projects',
+			pattern: '*.json',
 		}),
+		schema: z.object({
+			name: z.string(),
+			description: z.string(),
+			url: z.string(),
+			playwright: z
+				.object({
+					instructions: z.array(z.string()),
+				})
+				.optional(),
+		}),
+	}),
+	components: defineCollection({
+		loader: components,
 		schema: z.object({
 			name: z.string(),
 			types: z.array(

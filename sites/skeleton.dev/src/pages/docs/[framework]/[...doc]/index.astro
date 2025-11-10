@@ -1,0 +1,29 @@
+---
+import RootLayout from '@/components/layouts/root-layout.astro';
+import DocsLayout from '@/components/layouts/docs-layout.astro';
+import { getCollection, getSiblingDoc } from '@/modules/content';
+
+export async function getStaticPaths() {
+	const frameworks = await getCollection('frameworks');
+	const docs = await getCollection('docs');
+	return frameworks.flatMap((framework) =>
+		docs.map((doc) => ({
+			params: {
+				framework: framework.id,
+				doc: doc.id,
+			},
+			props: {
+				previousDoc: getSiblingDoc(doc, 'previous'),
+				doc,
+				nextDoc: getSiblingDoc(doc, 'next'),
+			},
+		})),
+	);
+}
+
+const { doc } = Astro.props;
+---
+
+<RootLayout title={doc.data.title} description={doc.data.description}>
+	<DocsLayout doc={doc} previousDoc={Astro.props.previousDoc} nextDoc={Astro.props.nextDoc} />
+</RootLayout>

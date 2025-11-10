@@ -1,25 +1,13 @@
 ---
 title: Dark Mode
 description: Learn how to use Tailwind's dark mode feature for your Skeleton project.
-srcCore: '/base/globals.css'
+summary: Skeleton makes use of Tailwind's Dark Mode to enable multiple strategies to control the overall app or page mode, as well as Color Scheme to selectively toggle light or dark interfaces at any scope.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/globals.css'
 order: 40
 ---
 
-{
-
-<p class="text-xl">
-	Skeleton makes use of{' '}
-	<a className="anchor" href="https://tailwindcss.com/docs/dark-mode" target="_blank" rel="external">
-		Tailwind's Dark Mode
-	</a>{' '}
-	to enable multiple strategies to control the overall app or page mode, as well as{' '}
-	<a className="anchor" href="https://tailwindcss.com/docs/color-scheme" target="_blank" rel="external">
-		Color Scheme
-	</a>{' '}
-	to selectively toggle light or dark interfaces at any scope.
-</p>
-
-}
+import { resolvePath } from '@/modules/resolve-path';
 
 ## Dark Mode
 
@@ -33,13 +21,13 @@ Enable by default. Uses CSS's [prefers-color-scheme](https://developer.mozilla.o
 
 Activates dark mode by adding or removing the `.dark` class to your application's `<html>` element.
 
-```css title="app.css"
+```css
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-```html title="app.html"
+```html
 <html class="dark">
-	...
+	<!-- ... -->
 </html>
 ```
 
@@ -47,13 +35,13 @@ Activates dark mode by adding or removing the `.dark` class to your application'
 
 Uses a data attribute instead of a class to activate dark mode.
 
-```css title="app.css"
+```css
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 ```
 
-```html title="app.html"
+```html
 <html data-mode="dark">
-	...
+	<!-- ... -->
 </html>
 ```
 
@@ -61,7 +49,7 @@ Uses a data attribute instead of a class to activate dark mode.
 
 Apply a base style, then with Tailwind's `dark:` variant.
 
-```html title="app.html"
+```html
 <!-- Light Mode: White | Dark Mode: Black -->
 <div class="bg-white dark:bg-black">...</div>
 ```
@@ -70,7 +58,7 @@ Apply a base style, then with Tailwind's `dark:` variant.
 
 ## Color Scheme
 
-Skeleton now supports Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) feature, which enables toggling light or dark interfaces at any scope. By default, the scheme matches the current Dark Mode setting. This feature is enabled by [Color Pairings](/docs/design/colors#color-pairings), which implement the native CSS property [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark).
+Skeleton now supports Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) feature, which enables toggling light or dark interfaces at any scope. By default, the scheme matches the current Dark Mode setting. This feature is enabled by [Color Pairings](/docs/[framework]/design/colors#color-pairings), which implement the native CSS property [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark).
 
 ```html
 <div class="bg-primary-50-950">Light or Dark</div>
@@ -97,7 +85,7 @@ Legacy versions of Skeleton offer a unique Light Switch component for controllin
 We now recommend you generate your own component following [Tailwind's best practices](https://tailwindcss.com/docs/dark-mode). To help you get started, we've provided a Cookbook recipe covering the basics.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="/docs/guides/cookbook/light-switch">
+	<a class="btn preset-filled" href={resolvePath(props.Astro, '/docs/[framework]/guides/cookbook/light-switch')}>
 		Light Switch Recipe &rarr;
 	</a>
 </figure>

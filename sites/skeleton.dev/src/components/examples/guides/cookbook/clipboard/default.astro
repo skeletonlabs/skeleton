@@ -1,19 +1,12 @@
-<button class="btn preset-filled" data-button>Copy to Clipboard</button>
+<button class="btn preset-filled" data-copy-button-default>Copy to Clipboard</button>
 
 <script>
-	// Define your source data
-	const sourceData = 'Hello world';
+	const data = 'Hello World!';
 
-	// Select your trigger element
-	const elemButton: HTMLButtonElement | null = document.querySelector('[data-button]');
+	const copyButton = document.querySelector<HTMLButtonElement>('[data-copy-button-default]');
 
-	// Add a click event handler to the trigger
-	elemButton?.addEventListener('click', () => {
-		// Call the Clipboard API
-		navigator.clipboard
-			// Use the `writeText` method write content to the clipboard
-			.writeText(sourceData)
-			// Handle confirmation
-			.then(() => console.log('Source data copied to clipboard!'));
+	copyButton?.addEventListener('click', async () => {
+		await navigator.clipboard.writeText(data);
+		alert(`Copied "${data}" to clipboard!`);
 	});
 </script>

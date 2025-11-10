@@ -1,0 +1,124 @@
+---
+title: Slider
+description: Capture input from a range of values.
+---
+
+import ColorReact from '@/components/examples/framework-components/slider/react/color';
+import ColorReactRaw from '@/components/examples/framework-components/slider/react/color?raw';
+import DefaultReact from '@/components/examples/framework-components/slider/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/slider/react/default?raw';
+import DirReact from '@/components/examples/framework-components/slider/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/slider/react/dir?raw';
+import DisabledReact from '@/components/examples/framework-components/slider/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/slider/react/disabled?raw';
+import MultipleThumbsReact from '@/components/examples/framework-components/slider/react/multiple-thumbs';
+import MultipleThumbsReactRaw from '@/components/examples/framework-components/slider/react/multiple-thumbs?raw';
+import ReadonlyReact from '@/components/examples/framework-components/slider/react/readonly';
+import ReadonlyReactRaw from '@/components/examples/framework-components/slider/react/readonly?raw';
+import ColorSvelte from '@/components/examples/framework-components/slider/svelte/color.svelte';
+import ColorSvelteRaw from '@/components/examples/framework-components/slider/svelte/color.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/slider/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/slider/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/slider/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/slider/svelte/dir.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/slider/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/slider/svelte/disabled.svelte?raw';
+import MultipleThumbsSvelte from '@/components/examples/framework-components/slider/svelte/multiple-thumbs.svelte';
+import MultipleThumbsSvelteRaw from '@/components/examples/framework-components/slider/svelte/multiple-thumbs.svelte?raw';
+import ReadonlySvelte from '@/components/examples/framework-components/slider/svelte/readonly.svelte';
+import ReadonlySvelteRaw from '@/components/examples/framework-components/slider/svelte/readonly.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Color
+
+Change the track, range, and thumb color using utility classes or custom CSS variables to match your design system.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
+		<ColorReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<ColorSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+Set the `disabled` prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Read-Only
+
+Set the `readOnly` prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ReadonlyReactRaw }} client:visible>
+		<ReadonlyReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ReadonlySvelteRaw }} client:visible>
+		<ReadonlySvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple Thumbs
+
+Set a `value` array of two values to enable start and end thumbs.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleThumbsReactRaw }} client:visible>
+		<MultipleThumbsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleThumbsSvelteRaw }} client:visible>
+		<MultipleThumbsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/slider" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/slider" />
+</Framework>

@@ -1,0 +1,20 @@
+---
+import { getActiveFramework } from '@/modules/framework';
+
+const props = Astro.props;
+
+const activeFramework = getActiveFramework(Astro.params);
+
+const isExternal = !props.href.includes(import.meta.env.SITE) && !props.href.startsWith('/') && !props.href.startsWith('#');
+
+if (isExternal) {
+	props.target = '_blank';
+	props.rel = 'noopener noreferrer';
+}
+
+props.href = decodeURIComponent(props.href).replaceAll('[framework]', activeFramework.id);
+---
+
+<a class="anchor inline-flex items-center gap-1" {...props}>
+	<slot />
+</a>

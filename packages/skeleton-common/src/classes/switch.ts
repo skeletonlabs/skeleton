@@ -6,7 +6,7 @@ export const classesSwitch = defineSkeletonClasses({
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
 	],
 	control: [
-		'block preset-filled-surface-200-800 h-6 w-10 p-0.5 rounded-full flex justify-start',
+		'preset-filled-surface-200-800 h-6 w-10 p-0.5 rounded-full flex justify-start',
 		'data-[state=checked]:preset-filled-primary-500',
 	],
 	thumb: [

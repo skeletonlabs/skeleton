@@ -8,16 +8,23 @@ catalog:
   '@astrojs/mdx': 4.3.10
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.2
+  '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.2
   '@astrojs/vercel': 9.0.0
-  '@atproto/api': 0.18.0
   '@changesets/cli': 2.29.7
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@internationalized/date': 3.10.0
   '@lucide/svelte': 0.553.0
-  '@nanostores/persistent': 1.2.0
+  '@resvg/resvg-js': 2.6.2
+  '@shikijs/core': 3.15.0
+  '@shikijs/engine-javascript': 3.15.0
+  '@shikijs/langs': 3.15.0
+  '@shikijs/themes': 3.15.0
+  '@shikijs/transformers': 3.15.0
+  '@shikijs/types': 3.15.0
+  '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 6.1.1
   '@sveltejs/kit': 2.48.4
@@ -33,12 +40,12 @@ catalog:
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
+  '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
   '@types/node': 24.10.0
   '@types/react': 19.2.2
   '@types/react-dom': 19.2.2
   '@types/semver': 7.7.1
-  '@types/unist': 3.0.3
   '@vitejs/plugin-react': 5.1.0
   '@zag-js/accordion': 1.27.1
   '@zag-js/avatar': 1.27.1
@@ -66,12 +73,14 @@ catalog:
   '@zag-js/tree-view': 1.27.1
   astro: 5.15.4
   astro-auto-import: 0.4.5
-  astro-expressive-code: 0.41.3
+  astro-pagefind: 1.8.5
+  astro-seo: 0.8.4
   chroma-js: 3.1.2
   colorette: 2.0.20
   commander: 14.0.2
   detect-indent: 7.0.2
   fuse.js: 7.1.0
+  html-escaper: 3.0.3
   jsdom: 27.1.0
   latest-version: 9.0.0
   lucide-react: 0.553.0
@@ -82,13 +91,12 @@ catalog:
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
-  nanostores: 1.0.1
-  next: 15.5.6
+  next: 16.0.1
   node-html-parser: 7.0.1
   octokit: 5.0.5
+  oxc-resolver: 11.13.1
   oxlint: 1.26.0
   package-manager-detector: 1.5.0
-  pagefind: 1.4.0
   playwright: 1.56.1
   postcss: 8.5.6
   prettier: 3.6.2
@@ -97,6 +105,7 @@ catalog:
   react: 19.2.0
   react-dom: 19.2.0
   sass-embedded: 1.93.3
+  satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.5
   shiki: 3.15.0
@@ -112,9 +121,8 @@ catalog:
   unplugin-macros: 0.18.2
   unplugin-raw: 0.6.3
   vite: 7.2.2
-  vite-plugin-pagefind: 1.0.7
   vite-plugin-transform-lucide-imports: 0.3.0
-  vitest: 3.2.4
+  vitest: 4.0.8
   zimmerframe: 1.1.4
 
 catalogMode: strict

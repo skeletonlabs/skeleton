@@ -1,0 +1,123 @@
+---
+import { getActiveFramework } from '@/modules/framework';
+import { getCollection } from '@/modules/content';
+import Skeleton from '@/assets/branding/skeleton.svg';
+import LogoGitHub from '@/assets/logos/github.svg';
+import LogoDiscord from '@/assets/logos/discord.svg';
+import LogoBluesky from '@/assets/logos/bluesky.svg';
+import DrawerTrigger from '@/components/ui/header/drawer.svelte';
+import SearchTrigger from '@/components/ui/header/search.svelte';
+import FrameworkPicker from '@/components/ui/header/framework.svelte';
+import VersionPicker from '@/components/ui/header/version.svelte';
+import ThemePicker from '@/components/ui/header/theme.svelte';
+import PlusPicker from '@/components/ui/header/plus.svelte';
+import SponsorPicker from '@/components/ui/header/sponsor.svelte';
+import Navigation from '../navigation.astro';
+import { resolvePath } from '@/modules/resolve-path';
+
+const frameworks = await getCollection('frameworks');
+const activeFramework = getActiveFramework(Astro.params);
+
+const links = [
+	{
+		href: resolvePath(Astro.params, '/docs/[framework]/get-started/introduction'),
+		title: 'Docs',
+	},
+	{
+		href: '/showcase',
+		title: 'Showcase',
+	},
+];
+
+const socialLinks = [
+	{
+		href: 'https://github.com/skeletonlabs/skeleton',
+		icon: LogoGitHub,
+		title: 'GitHub',
+	},
+	{
+		href: 'https://discord.gg/EXqV7W8MtY',
+		icon: LogoDiscord,
+		title: 'Discord',
+	},
+	{
+		href: 'https://bsky.app/profile/skeleton.dev',
+		icon: LogoBluesky,
+		title: 'Bluesky',
+	},
+];
+---
+
+<header
+	class="z-50 sticky top-0 border-b border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg h-(--header-height) flex items-center"
+>
+	<div class="container mx-auto px-4 flex items-center justify-between gap-2">
+		<!-- Drawer -->
+		<div class="xl:hidden">
+			<DrawerTrigger client:visible>
+				<Navigation />
+			</DrawerTrigger>
+		</div>
+		<!-- Logo -->
+		<a class="hidden xl:flex mr-2" href="/" title="Skeleton" aria-label="Skeleton">
+			<Skeleton class="size-8 fill-current hover:rotate-[-10deg] transition-transform duration-200" />
+		</a>
+		<!-- Navigation -->
+		<nav class="hidden xl:flex items-center gap-1">
+			{
+				links.map((link) => (
+					<a class="btn hover:preset-tonal" href={link.href}>
+						{link.title}
+					</a>
+				))
+			}
+			<PlusPicker client:visible />
+		</nav>
+		<!-- Search -->
+		{
+			import.meta.env.PROD && (
+				<nav>
+					<SearchTrigger {activeFramework} client:visible />
+				</nav>
+			)
+		}
+		<!-- Pickers -->
+		<nav class="flex justify-center items-center ml-auto gap-1">
+			{Astro.params.framework && <FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />}
+			<ThemePicker client:visible />
+			<VersionPicker client:visible />
+		</nav>
+		<span class="vr h-5 hidden xl:inline"></span>
+		<!-- Sponsor -->
+		<nav class="flex justify-center items-center">
+			<SponsorPicker client:visible />
+		</nav>
+		<span class="vr h-5 hidden xl:inline"></span>
+		<!-- Social -->
+		<nav class="hidden xl:flex justify-center items-center">
+			{
+				socialLinks.map((link) => {
+					const BrandIcon = link.icon;
+					return (
+						<a href={link.href} target="_blank" class="btn py-2 hover:preset-tonal" title={link.title} aria-label={link.title}>
+							<BrandIcon />
+						</a>
+					);
+				})
+			}
+		</nav>
+	</div>
+</header>
+
+<style is:global>
+	@reference '../../../app.css';
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		scroll-margin-top: calc(var(--header-height) + --spacing(4));
+	}
+</style>

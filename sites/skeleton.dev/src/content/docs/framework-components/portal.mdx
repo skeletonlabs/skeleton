@@ -1,0 +1,36 @@
+---
+title: Portal
+description: Renders children into a DOM node that exists outside the DOM hierarchy.
+references:
+  zag: false
+  styles: false
+---
+
+import DefaultReact from '@/components/examples/framework-components/portal/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/portal/react/default?raw';
+import DefaultSvelte from '@/components/examples/framework-components/portal/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/portal/svelte/default.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## How It Works
+
+When enabled, the content will move from the source to the target element.
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/portal" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/portal" />
+</Framework>
