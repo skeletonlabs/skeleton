@@ -13,7 +13,7 @@ export const classesProgress = defineSkeletonClasses({
 
 	// Linear
 	track: [
-		' bg-surface-200-800 rounded-base overflow-hidden',
+		'bg-surface-200-800 rounded-base overflow-hidden',
 		// Horizontal Orientation
 		'data-[orientation=horizontal]:w-full data-[orientation=horizontal]:h-2',
 		// Vertical Orientation
