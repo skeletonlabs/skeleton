@@ -332,7 +332,7 @@
 							<th>Selected</th>
 							<th>Symbol</th>
 							<th>Name</th>
-							<th class="!text-right">Weight</th>
+							<th class="text-right!">Weight</th>
 						</tr>
 					</thead>
 					<tbody class="[&>tr]:hover:preset-tonal">
