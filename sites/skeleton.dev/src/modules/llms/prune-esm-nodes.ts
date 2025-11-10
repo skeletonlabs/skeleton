@@ -1,16 +1,11 @@
 import type { Root, Node } from 'mdast';
 import { visit } from 'unist-util-visit';
 
-export function pruneMDXNodes(root: Root) {
+export function pruneESMNodes(root: Root) {
 	const nodesToRemove = new WeakSet<Node>();
 	visit(root, (node) => {
-		if (
-			node.type === 'mdxjsEsm' ||
-			node.type === 'mdxFlowExpression' ||
-			node.type === 'mdxTextExpression' ||
-			node.type === 'mdxJsxFlowElement' ||
-			node.type === 'mdxJsxTextElement'
-		) {
+		if (node.type === 'mdxjsEsm') {
+			console.log(node);
 			nodesToRemove.add(node);
 		}
 	});
