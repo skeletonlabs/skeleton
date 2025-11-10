@@ -13,7 +13,7 @@
 
 	const props: StepsContentProps = $props();
 
-	const switch_ = RootContext.consume();
+	const steps = RootContext.consume();
 
 	const { index, ...componentProps } = $derived(props);
 	const { element, children, ...rest } = $derived(componentProps);
