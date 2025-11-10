@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.3.2
+
+### Patch Changes
+
+- fix: reverse vertical progress bar (old: top -> down, new: down -> top) ([#4066](https://github.com/skeletonlabs/skeleton/pull/4066))
+
 ## 4.3.1
 
 ### Patch Changes
