@@ -106,7 +106,14 @@ import { Navigation } from '@skeletonlabs/skeleton-react';
 export default function Anatomy() {
 	return (
 		<Navigation>
-			<Navigation.Menu />
+			<Navigation.Header />
+			<Navigation.Content>
+				<Navigation.Group>
+					<Navigation.Label />
+					<Navigation.Menu />
+				</Navigation.Group>
+			</Navigation.Content>
+			<Navigation.Footer />
 		</Navigation>
 	);
 }
@@ -121,7 +128,14 @@ export default function Anatomy() {
 </script>
 
 <Navigation>
-	<Navigation.Menu />
+	<Navigation.Header />
+	<Navigation.Content>
+		<Navigation.Group>
+			<Navigation.Label />
+			<Navigation.Menu />
+		</Navigation.Group>
+	</Navigation.Content>
+	<Navigation.Footer />
 </Navigation>
 ```
 
