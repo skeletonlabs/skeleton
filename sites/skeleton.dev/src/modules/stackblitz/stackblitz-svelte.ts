@@ -40,6 +40,7 @@ const packageJson = JSON.stringify(
 			dev: 'vite',
 		},
 		devDependencies: {
+			'@faker-js/faker': '^10',
 			'@skeletonlabs/skeleton': '^4',
 			'@skeletonlabs/skeleton-svelte': '^4',
 			'@sveltejs/vite-plugin-svelte': '^6',

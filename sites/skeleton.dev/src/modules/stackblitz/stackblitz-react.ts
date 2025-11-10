@@ -45,6 +45,7 @@ const packageJson = JSON.stringify(
 			'react-dom': '^19',
 		},
 		devDependencies: {
+			'@faker-js/faker': '^10',
 			'@skeletonlabs/skeleton': '^4',
 			'@skeletonlabs/skeleton-react': '^4',
 			'@tailwindcss/vite': '^4',
