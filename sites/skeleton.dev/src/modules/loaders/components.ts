@@ -119,7 +119,7 @@ class Parser {
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'tsconfig.json'),
 		});
-		this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components/*/anatomy/*.d.ts'));
+		this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components/*/anatomy/*.d.{mts,ts}'));
 	}
 
 	public getSourceFile(path: string): SourceFile {
@@ -173,7 +173,7 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 
 async function getClassValue(component: string, part: string) {
 	try {
-		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.js`)).href;
+		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.mjs`)).href;
 		// oxlint-disable-next-line no-eval hack to get around Vite import analysis
 		const module = await eval(`import(${JSON.stringify(path)})`);
 		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
@@ -203,7 +203,7 @@ export const components = async () => {
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
 
-			const anatomyPaths = await glob('src/components/*/modules/anatomy.ts', {
+			const anatomyPaths = await glob('src/components/*/modules/anatomy.{mts,ts}', {
 				cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`)),
 			});
 			const components = anatomyPaths.map((p) => p.split('/')[2]);
@@ -218,7 +218,7 @@ export const components = async () => {
 						};
 					}
 					try {
-						const paths = await glob(`**/anatomy/*.d.ts`, {
+						const paths = await glob(`**/anatomy/*.d.{mts,ts}`, {
 							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components', component),
 							absolute: true,
 						});

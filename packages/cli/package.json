@@ -1,7 +1,7 @@
 {
 	"name": "skeleton",
 	"description": "The CLI for Skeleton related tooling.",
-	"version": "4.2.4",
+	"version": "4.3.1",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
@@ -9,11 +9,11 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js"
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
 		}
 	},
-	"bin": "./dist/index.js",
+	"bin": "./dist/index.mjs",
 	"files": [
 		"dist",
 		"!dist/**/*.map"
