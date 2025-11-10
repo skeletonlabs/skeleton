@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.3.1
+
+### Patch Changes
+
+- chore: bump zag ([#4070](https://github.com/skeletonlabs/skeleton/pull/4070))
+
+- Updated dependencies [[`c205f85`](https://github.com/skeletonlabs/skeleton/commit/c205f85cd605c598e78d42dac04ff4d5225dfd5e)]:
+  - @skeletonlabs/skeleton-common@4.3.1
+
 ## 4.3.0
 
 ### Minor Changes
