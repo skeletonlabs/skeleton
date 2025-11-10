@@ -214,7 +214,7 @@ export async function generateTypeDocumentation() {
 		await rm(join(OUTPUT_DIRECTORY, framework), { recursive: true, force: true });
 		await mkdir(join(OUTPUT_DIRECTORY, framework), { recursive: true });
 
-		const paths = await glob(`**/anatomy/*.d.ts`, {
+		const paths = await glob(`**/anatomy/*.d.{mts,ts}`, {
 			cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components'),
 			absolute: true,
 		});
