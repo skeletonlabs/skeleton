@@ -1,13 +1,6 @@
-import { en_US, Faker, generateMersenne32Randomizer } from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
-const randomizer = generateMersenne32Randomizer();
-
-randomizer.seed(0);
-
-const faker = new Faker({
-	locale: en_US,
-	randomizer: randomizer,
-});
+faker.seed(0);
 
 export const users = Array.from({ length: 500 }, (_, i) => ({
 	id: i + 1,
