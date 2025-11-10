@@ -85,8 +85,8 @@ catalogs:
       specifier: 5.2.8
       version: 5.2.8
     '@trivago/prettier-plugin-sort-imports':
-      specifier: 5.2.2
-      version: 5.2.2
+      specifier: 6.0.0
+      version: 6.0.0
     '@types/chroma-js':
       specifier: 3.1.2
       version: 3.1.2
@@ -355,7 +355,7 @@ importers:
         version: 1.2.0
       '@trivago/prettier-plugin-sort-imports':
         specifier: 'catalog:'
-        version: 5.2.2(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2)(svelte@5.43.2)
+        version: 6.0.0(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2)(svelte@5.43.2)
       oxlint:
         specifier: 'catalog:'
         version: 1.25.0(oxlint-tsgolint@0.4.0)
@@ -2584,16 +2584,19 @@ packages:
       vitest:
         optional: true
 
-  '@trivago/prettier-plugin-sort-imports@5.2.2':
-    resolution: {integrity: sha512-fYDQA9e6yTNmA13TLVSA+WMQRc5Bn/c0EUBditUHNfMMxN7M82c38b1kEggVE3pLpZ0FwkwJkUEKMiOi52JXFA==}
-    engines: {node: '>18.12'}
+  '@trivago/prettier-plugin-sort-imports@6.0.0':
+    resolution: {integrity: sha512-Xarx55ow0R8oC7ViL5fPmDsg1EBa1dVhyZFVbFXNtPPJyW2w9bJADIla8YFSaNG9N06XfcklA9O9vmw4noNxkQ==}
+    engines: {node: '>= 20'}
     peerDependencies:
       '@vue/compiler-sfc': 3.x
       prettier: 2.x - 3.x
+      prettier-plugin-ember-template-tag: '>= 2.0.0'
       prettier-plugin-svelte: 3.x
       svelte: 4.x || 5.x
     peerDependenciesMeta:
       '@vue/compiler-sfc':
+        optional: true
+      prettier-plugin-ember-template-tag:
         optional: true
       prettier-plugin-svelte:
         optional: true
@@ -3992,6 +3995,9 @@ packages:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
 
+  lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+
   lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
 
@@ -4421,8 +4427,14 @@ packages:
   parse-entities@4.0.2:
     resolution: {integrity: sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw==}
 
+  parse-imports-exports@0.2.4:
+    resolution: {integrity: sha512-4s6vd6dx1AotCx/RCI2m7t7GCh5bDRUtGNvRfHSP2wbBQdMi67pPe7mtzmgwcaQ8VKK/6IB7Glfyu3qdZJPybQ==}
+
   parse-latin@7.0.0:
     resolution: {integrity: sha512-mhHgobPPua5kZ98EF4HWiH167JWBfl4pvAIXXdbaVohtK7a6YBOy56kvhCqduqyo/f3yrHFWmqmiMg/BkBkYYQ==}
+
+  parse-statements@1.0.11:
+    resolution: {integrity: sha512-HlsyYdMBnbPQ9Jr/VgJ1YF4scnldvJpJxCVx6KgqPL4dxppsWrJHCIIxQXMJrqGnsRkNPATbeMJ8Yxu7JMsYcA==}
 
   parse5@7.3.0:
     resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
@@ -7403,14 +7415,16 @@ snapshots:
       vite: 7.1.12(@types/node@24.9.2)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
       vitest: 3.2.4(@types/debug@4.1.12)(@types/node@24.9.2)(jiti@2.6.1)(jsdom@27.1.0)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(yaml@2.8.1)
 
-  '@trivago/prettier-plugin-sort-imports@5.2.2(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2)(svelte@5.43.2)':
+  '@trivago/prettier-plugin-sort-imports@6.0.0(prettier-plugin-svelte@3.4.0(prettier@3.6.2)(svelte@5.43.2))(prettier@3.6.2)(svelte@5.43.2)':
     dependencies:
       '@babel/generator': 7.28.5
       '@babel/parser': 7.28.5
       '@babel/traverse': 7.28.5
       '@babel/types': 7.28.5
       javascript-natural-sort: 0.7.1
-      lodash: 4.17.21
+      lodash-es: 4.17.21
+      minimatch: 9.0.5
+      parse-imports-exports: 0.2.4
       prettier: 3.6.2
     optionalDependencies:
       prettier-plugin-svelte: 3.4.0(prettier@3.6.2)(svelte@5.43.2)
@@ -9117,6 +9131,8 @@ snapshots:
     dependencies:
       p-locate: 4.1.0
 
+  lodash-es@4.17.21: {}
+
   lodash.startcase@4.4.0: {}
 
   lodash@4.17.21: {}
@@ -9812,6 +9828,10 @@ snapshots:
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
 
+  parse-imports-exports@0.2.4:
+    dependencies:
+      parse-statements: 1.0.11
+
   parse-latin@7.0.0:
     dependencies:
       '@types/nlcst': 2.0.3
@@ -9820,6 +9840,8 @@ snapshots:
       unist-util-modify-children: 4.0.0
       unist-util-visit-children: 3.0.0
       vfile: 6.0.3
+
+  parse-statements@1.0.11: {}
 
   parse5@7.3.0:
     dependencies:
