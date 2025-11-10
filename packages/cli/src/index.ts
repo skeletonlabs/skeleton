@@ -35,3 +35,5 @@ async function skeleton() {
 }
 
 await skeleton();
+
+export { cli };
