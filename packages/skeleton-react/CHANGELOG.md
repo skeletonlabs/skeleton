@@ -1,5 +1,12 @@
 # @skeletonlabs/skeleton-react
 
+## 4.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`94c16ae`](https://github.com/skeletonlabs/skeleton/commit/94c16ae59b51c6c0b6de9a24546c02d5437ee154)]:
+  - @skeletonlabs/skeleton-common@4.3.2
+
 ## 4.3.1
 
 ### Patch Changes
