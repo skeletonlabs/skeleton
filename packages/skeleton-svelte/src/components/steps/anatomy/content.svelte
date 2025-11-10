@@ -20,7 +20,7 @@
 
 	const attributes = $derived(
 		mergeProps(
-			switch_().getContentProps({ index }),
+			steps().getContentProps({ index }),
 			{
 				class: classesSteps.control,
 			},
