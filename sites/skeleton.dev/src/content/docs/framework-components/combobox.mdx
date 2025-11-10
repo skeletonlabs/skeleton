@@ -145,6 +145,38 @@ By default we do not take an opinionated stance regarding z-index stacking. The 
 
 We recommend no more than 500 items max. For normal usage, a few dozen will provide the best performance.
 
+## Anatomy
+
+Here's an overview of how the Combobox component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { Combobox, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Combobox>
+  <Combobox.Label />
+  <Combobox.Control>
+    <Combobox.Input />
+    <Combobox.Trigger />
+    <Combobox.ClearTrigger />
+  </Combobox.Control>
+  <Portal>
+    <Combobox.Positioner>
+      <Combobox.Content>
+        <Combobox.ItemGroup>
+          <Combobox.ItemGroupLabel />
+          <Combobox.Item>
+            <Combobox.ItemText />
+            <Combobox.ItemIndicator />
+          </Combobox.Item>
+        </Combobox.ItemGroup>
+      </Combobox.Content>
+    </Combobox.Positioner>
+  </Portal>
+</Combobox>
+```
+
 ## API Reference
 
 <Framework id="react">

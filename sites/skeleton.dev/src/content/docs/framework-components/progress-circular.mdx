@@ -141,6 +141,25 @@ Provide a custom renderer for the `ValueText` if you need to show a different la
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Progress (Circular) component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { Progress } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Progress>
+  <Progress.Label />
+  <Progress.Circle>
+    <Progress.CircleTrack />
+    <Progress.CircleRange />
+  </Progress.Circle>
+  <Progress.ValueText />
+</Progress>
+```
+
 ## API Reference
 
 <Framework id="react">

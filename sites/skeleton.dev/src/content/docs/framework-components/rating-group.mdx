@@ -114,6 +114,26 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the RatingGroup component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<RatingGroup>
+  <RatingGroup.Label />
+  <RatingGroup.Control>
+    <RatingGroup.Context>
+      <RatingGroup.Item />
+    </RatingGroup.Context>
+  </RatingGroup.Control>
+  <RatingGroup.HiddenInput />
+</RatingGroup>
+```
+
 ## API Reference
 
 <Framework id="react">

@@ -85,6 +85,25 @@ const res = {
 </Pagination>
 ```
 
+## Anatomy
+
+Here's an overview of how the Pagination component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { Pagination } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Pagination>
+  <Pagination.PrevTrigger />
+  <Pagination.Context>
+    <Pagination.Item />
+    <Pagination.Ellipsis />
+  </Pagination.Context>
+  <Pagination.NextTrigger />
+</Pagination>
+```
+
 ## API Reference
 
 <Framework id="react">

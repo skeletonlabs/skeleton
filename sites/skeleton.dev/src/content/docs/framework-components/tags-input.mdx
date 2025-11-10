@@ -97,6 +97,34 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the TagsInput component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<TagsInput>
+  <TagsInput.Label />
+  <TagsInput.Control>
+    <TagsInput.Context>
+      <TagsInput.Item>
+        <TagsInput.ItemPreview>
+          <TagsInput.ItemText />
+          <TagsInput.ItemDeleteTrigger />
+        </TagsInput.ItemPreview>
+        <TagsInput.ItemInput />
+      </TagsInput.Item>
+    </TagsInput.Context>
+    <TagsInput.Input />
+  </TagsInput.Control>
+  <TagsInput.HiddenInput />
+  <TagsInput.ClearTrigger />
+</TagsInput>
+```
+
 ## API Reference
 
 <Framework id="react">

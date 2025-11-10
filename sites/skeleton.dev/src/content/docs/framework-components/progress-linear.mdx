@@ -154,6 +154,24 @@ Skeleton also provides styles for the native [Progress](https://developer.mozill
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Progress (Linear) component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { Progress } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Progress>
+  <Progress.Label />
+  <Progress.Track>
+    <Progress.Range />
+  </Progress.Track>
+  <Progress.ValueText />
+</Progress>
+```
+
 ## API Reference
 
 <Framework id="react">

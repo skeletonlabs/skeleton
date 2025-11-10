@@ -132,6 +132,26 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Listbox component is structured in code:
+
+```svelte
+<script lang="ts">
+  import { Listbox } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Listbox>
+  <Listbox.Label />
+  <Listbox.Content>
+    <Listbox.Item>
+      <Listbox.ItemText />
+      <Listbox.ItemIndicator />
+    </Listbox.Item>
+  </Listbox.Content>
+</Listbox>
+```
+
 ## API Reference
 
 <Framework id="react">
