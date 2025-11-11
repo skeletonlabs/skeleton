@@ -84,6 +84,8 @@ Use [Dark Mode](/docs/[framework]/guides/mode) to make use of either a base or `
     	}
     	```
 
+    	> Note: For Next.js users, you will need to set [suppressHydrationWarning](https://nextjs.org/docs/messages/react-hydration-error#solution-3-using-suppresshydrationwarning) to `true` on the root `<html>` element. This will suppress hydration warnings for the `data-mode` attribute.
+
     	</Framework>
 
     	<Framework id="svelte">
@@ -161,7 +163,3 @@ Use [Dark Mode](/docs/[framework]/guides/mode) to make use of either a base or `
 ## User Interface
 
 While we utilize a primitive Switch for the minimal example above, feel free to adjust the logic and interface to your preference. We provide a more detailed [Switch example](/docs/[framework]/framework-components/switch#icons).
-
-## Next.js Users
-
-For Next.js users, you will need to [suppressHydrationWarning](https://nextjs.org/docs/messages/react-hydration-error#solution-3-using-suppresshydrationwarning) to `true` on the root `<html>` element. This will suppress hydration warnings.
