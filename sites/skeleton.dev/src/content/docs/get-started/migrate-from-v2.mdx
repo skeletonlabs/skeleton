@@ -279,6 +279,16 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 | Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/[framework]/guides/cookbook/table-of-contents) | Provided via Cookbook guide    |
 | Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                                          | Incompatible with Svelte 5     |
 
+### Migrating Classes
+
+Although the automated migration script will handle the majority of class updates, there are some classes that require manual intervention. Review the following classes that may require your attention.
+
+| Old Class             | New Class  |
+| --------------------- | ---------- |
+| `input-group-shim`    | `ig-cell`  |
+| `input-group > input` | `ig-input` |
+| `input-group-divider` | (removed)  |
+
 ### Migration Complete
 
 If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm, and remember to merge all changes into your primary branch.
