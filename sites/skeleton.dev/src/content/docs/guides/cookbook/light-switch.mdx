@@ -9,7 +9,7 @@ import Process from '@/components/ui/process.astro';
 
 import DefaultReact from '@/components/examples/guides/cookbook/light-switch/react/default';
 import DefaultReactRaw from '@/components/examples/guides/cookbook/light-switch/react/default?raw';
-import DefaultSvelte from '@/components/examples/guides/cookbook/light-switch/svelte/default';
+import DefaultSvelte from '@/components/examples/guides/cookbook/light-switch/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/guides/cookbook/light-switch/svelte/default.svelte?raw';
 
 Use [Dark Mode](/docs/[framework]/guides/mode) to make use of either a base or `dark:` variant for your utility class styles. By default, Tailwind uses the `prefers-color-scheme` media query to determine and match the user's operating system settings. However, if you wish to provide your users manual control, you'll need to adjust the Dark Mode strategy for Tailwind, as well as provide the toggle interface (aka a light switch). This guide will show you how to fulfill both requirements.
@@ -45,14 +45,88 @@ Use [Dark Mode](/docs/[framework]/guides/mode) to make use of either a base or `
         We'll create a implementation of the Switch component that can toggle the mode on demand.
 
     	<Framework id="react">
-    		<Preview files={{ 'lightswitch.tsx': DefaultReactRaw }} client:visible>
-    			<DefaultReactRaw client:visible />
-    		</Preview>
+
+    	```tsx
+    	import { Switch } from '@skeletonlabs/skeleton-react';
+
+    	import { useEffect, useState } from 'react';
+
+    	export default function Lightswitch() {
+    		const [checked, setChecked] = useState(false);
+
+    		useEffect(() => {
+    			const mode = localStorage.getItem('mode') || 'light';
+    			setChecked(mode === 'dark');
+    		}, []);
+
+    		const onCheckedChange = (event: { checked: boolean }) => {
+    			const mode = event.checked ? 'dark' : 'light';
+    			document.documentElement.setAttribute('data-mode', mode);
+    			localStorage.setItem('mode', mode);
+    			setChecked(event.checked);
+    		};
+
+    		return (
+    			<>
+    				<script
+    					dangerouslySetInnerHTML={{
+    						__html: `
+    			const mode = localStorage.getItem('mode') || 'light';
+    			document.documentElement.setAttribute('data-mode', mode);
+    			`,
+    					}}
+    				/>
+    				<Switch checked={checked} onCheckedChange={onCheckedChange}>
+    					<Switch.Control>
+    						<Switch.Thumb />
+    					</Switch.Control>
+    					<Switch.Label>Label</Switch.Label>
+    					<Switch.HiddenInput />
+    				</Switch>
+    			</>
+    		);
+
+    	}
+    	```
+
     	</Framework>
+
     	<Framework id="svelte">
-    		<Preview files={{ 'lightswitch.svelte': DefaultSvelteRaw }} client:visible>
-    			<DefaultSvelte client:visible />
-    		</Preview>
+
+    	```svelte
+    	<script lang="ts">
+    		import { Switch } from '@skeletonlabs/skeleton-svelte';
+
+    		let checked = $state(false);
+
+    		$effect(() => {
+    			const mode = localStorage.getItem('mode') || 'light';
+    			checked = mode === 'dark';
+    		});
+
+    		const onCheckedChange = (event: { checked: boolean }) => {
+    			const mode = event.checked ? 'dark' : 'light';
+    			document.documentElement.setAttribute('data-mode', mode);
+    			localStorage.setItem('mode', mode);
+    			checked = event.checked;
+    		};
+    	</script>
+
+    	<svelte:head>
+    		<script>
+    			const mode = localStorage.getItem('mode') || 'light';
+    			document.documentElement.setAttribute('data-mode', mode);
+    		</script>
+    	</svelte:head>
+
+    	<Switch {checked} {onCheckedChange}>
+    		<Switch.Control>
+    			<Switch.Thumb />
+    		</Switch.Control>
+    		<Switch.HiddenInput />
+    	</Switch>
+    	```
+
     	</Framework>
 
     </ProcessStep>
@@ -96,3 +170,11 @@ While we utilize a primitive Switch for the minimal example above, feel free to 
 ## Next.js Users
 
 For Next.js users, you will need to [suppressHydrationWarning](https://nextjs.org/docs/messages/react-hydration-error#solution-3-using-suppresshydrationwarning) to `true` on the root `<html>` element. This will suppress hydration warnings.
+
+```
+
+```
+
+```
+
+```
