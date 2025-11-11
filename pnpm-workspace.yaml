@@ -90,6 +90,7 @@ catalog:
   mdast-util-mdx: 3.0.0
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
+  motion: 12.23.24
   nanoid: 5.1.6
   next: 16.0.1
   node-html-parser: 7.0.1

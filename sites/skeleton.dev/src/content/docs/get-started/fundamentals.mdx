@@ -50,17 +50,58 @@ Skeleton's components are built on **Zag.js**, which provides a collection of fr
 
 You may import components per each Skeleton framework as follows.
 
+<Framework id="react">
+
 ```ts
-import { Avatar } from '@skeletonlabs/skeleton-{react|svelte}';
+import { Avatar } from '@skeletonlabs/skeleton-react';
 ```
+
+</Framework>
+
+<Framework id="svelte">
+
+```ts
+import { Avatar } from '@skeletonlabs/skeleton-svelte';
+```
+
+</Framework>
 
 This also includes access to the component prop types.
 
+<Framework id="react">
+
 ```ts
-import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-{react|svelte}';
+import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-react';
 ```
 
+<Framework id="svelte">
+
+```ts
+import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-svelte';
+```
+
+</Framework>
+
 ### Composed Pattern
+
+<Framework id="react">
+
+Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-*`, `style`, `class`, and more.
+
+```tsx
+export default function Avatar() {
+	return (
+		<Avatar>
+			<Avatar.Image src="https://i.pravatar.cc/150?img=48" />
+			<Avatar.Fallback>SK</Avatar.Fallback>
+		</Avatar>
+	);
+}
+```
+
+</Framework>
+
+<Framework id="svelte">
 
 Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-*`, `style`, `class`, and more.
 
@@ -71,7 +112,28 @@ Skeleton components are granular. This offers direct access to all children with
 </Avatar>
 ```
 
+</Framework>
+
 ### Styling Components
+
+<Framework id="react">
+
+Skeleton components implement a universal convention for accepting CSS utility classes via the `className` attribute. Use this to pass any CSS utility class.
+
+```tsx
+export default function Avatar() {
+	return (
+		<Avatar className="rounded-2xl">
+			<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="greyscale" />
+			<Avatar.Fallback>SK</Avatar.Fallback>
+		</Avatar>
+	);
+}
+```
+
+</Framework>
+
+<Framework id="svelte">
 
 Skeleton components implement a universal convention for accepting CSS utility classes via the `class` attribute. Use this to pass any CSS utility class.
 
@@ -81,6 +143,8 @@ Skeleton components implement a universal convention for accepting CSS utility c
 	<Avatar.Fallback>SK</Avatar.Fallback>
 </Avatar>
 ```
+
+</Framework>
 
 By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer in the Tailwind bundle. This ensures any classes you pass through the `class` attribute are automatically given precedence. No mental overhead, it just works.
 
@@ -97,6 +161,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and show not be needed for normal usage.
 
 <Framework id="react">
+
 ```tsx
 export default function () {
 	return (
@@ -113,8 +178,11 @@ export default function () {
 	);
 }
 ```
+
 </Framework>
+
 <Framework id="svelte">
+
 ```svelte
 <Accordion>
 	<!-- ... -->
@@ -131,17 +199,62 @@ export default function () {
 	<!-- ... -->
 </Accordion>
 ```
+
 </Framework>
 
 ### Custom Animations
 
-However, using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
+<Framework id="react">
 
-```ts
-import { slide } from 'svelte/transition';
+Using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Motion](https://motion.dev/), but you could also use framework agnostic solutions such as [Anime.js](https://animejs.com/) or [Animate.css](https://animate.style/).
+
+```tsx
+import { Accordion } from '@skeletonlabs/skeleton-react';
+import { motion, AnimatePresence } from 'motion/react';
+
+export default function CustomAnimation() {
+	return (
+		<Accordion collapsible>
+			{['1', '2', '3'].map((item) => (
+				<Accordion.Item key={item} value={item}>
+					<h3>
+						<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>
+					</h3>
+					<Accordion.ItemContent
+						element={(attributes) => (
+							<AnimatePresence initial={false}>
+								{!attributes.hidden && (
+									<motion.div
+										className="overflow-hidden"
+										initial={{ height: 0, opacity: 0 }}
+										animate={{ height: 'auto', opacity: 1 }}
+										exit={{ height: 0, opacity: 0 }}
+									>
+										<div {...attributes}>Content for item {item}</div>
+									</motion.div>
+								)}
+							</AnimatePresence>
+						)}
+					/>
+				</Accordion.Item>
+			))}
+		</Accordion>
+	);
+}
 ```
 
+</Framework>
+
+<Framework id="svelte">
+
+Using the extensible markup pattern, you may implement custom animations. While we showcase this below with [Svelte Transitions](https://svelte.dev/docs/svelte/transition), but you could also use framework agnostic solutions such as [Motion](https://motion.dev/), [Anime.js](https://animejs.com/), or [Animate.css](https://animate.style/).
+
 ```svelte
+<script lang="ts">
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import { slide } from 'svelte/transition';
+</script>
+
 <Accordion>
 	<!-- ... -->
 	<Accordion.Item value="item-1">
@@ -165,9 +278,42 @@ import { slide } from 'svelte/transition';
 3. Add the `transition:slide` and configure your preferred options.
 4. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
 
+</Framework>
+
 ### Provider Pattern
 
-Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root and provides access to the inner component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
+Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root and provides access to the underlying component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
+
+<Framework id="react">
+
+```tsx
+import { Portal, Tooltip, useTooltip } from '@skeletonlabs/skeleton-react';
+
+export default function TooltipExample() {
+	const tooltip = useTooltip();
+
+	return (
+		<>
+			<button type="button" onClick={() => tooltip.setOpen(!tooltip.open)}>
+				Trigger
+			</button>
+
+			<Tooltip.Provider value={tooltip}>
+				<Tooltip.Trigger>Anchor</Tooltip.Trigger>
+				<Portal>
+					<Tooltip.Positioner>
+						<Tooltip.Content>Content</Tooltip.Content>
+					</Tooltip.Positioner>
+				</Portal>
+			</Tooltip.Provider>
+		</>
+	);
+}
+```
+
+</Framework>
+
+<Framework id="svelte">
 
 ```svelte
 <script lang="ts">
@@ -177,10 +323,8 @@ Most Skeleton components also support the Provider Pattern. This utilizes a prov
 	const tooltip = useTooltip({ id });
 </script>
 
-<!-- External trigger using the Zag.js `open` state and `setOpen()` method -->
 <button type="button" onclick={() => tooltip().setOpen(!tooltip().open)}>Trigger</button>
 
-<!-- Tooltip provider and reference value -->
 <Tooltip.Provider value={tooltip}>
 	<Tooltip.Trigger>Anchor</Tooltip.Trigger>
 	<Portal>
@@ -190,6 +334,10 @@ Most Skeleton components also support the Provider Pattern. This utilizes a prov
 	</Portal>
 </Tooltip.Provider>
 ```
+
+> Note: Svelte requires passing `id` because `$props.id` is not available outside the components `<script>` block.
+
+</Framework>
 
 ### Learn More
 
