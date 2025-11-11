@@ -85,6 +85,49 @@ const res = {
 </Pagination>
 ```
 
+## Anatomy
+
+Here's an overview of how the Pagination component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Pagination } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Pagination>
+			<Pagination.FirstTrigger />
+			<Pagination.PrevTrigger />
+			<Pagination.Item />
+			<Pagination.Ellipsis />
+			<Pagination.NextTrigger />
+			<Pagination.LastTrigger />
+		</Pagination>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Pagination } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Pagination>
+	<Pagination.FirstTrigger />
+	<Pagination.PrevTrigger />
+	<Pagination.Item />
+	<Pagination.Ellipsis />
+	<Pagination.NextTrigger />
+	<Pagination.LastTrigger />
+</Pagination>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

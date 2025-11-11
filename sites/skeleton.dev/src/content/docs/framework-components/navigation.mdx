@@ -94,6 +94,53 @@ Using reactive state we can dynamically switch between multiple layouts. Tap the
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Navigation component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Navigation } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Navigation>
+			<Navigation.Header />
+			<Navigation.Content>
+				<Navigation.Group>
+					<Navigation.Label />
+					<Navigation.Menu />
+				</Navigation.Group>
+			</Navigation.Content>
+			<Navigation.Footer />
+		</Navigation>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Navigation } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Navigation>
+	<Navigation.Header />
+	<Navigation.Content>
+		<Navigation.Group>
+			<Navigation.Label />
+			<Navigation.Menu />
+		</Navigation.Group>
+	</Navigation.Content>
+	<Navigation.Footer />
+</Navigation>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

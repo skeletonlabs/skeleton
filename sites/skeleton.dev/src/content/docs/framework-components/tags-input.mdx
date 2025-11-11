@@ -97,6 +97,63 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the TagsInput component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { TagsInput } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<TagsInput>
+			<TagsInput.Label />
+			<TagsInput.Control>
+				<TagsInput.Item>
+					<TagsInput.ItemPreview>
+						<TagsInput.ItemText />
+						<TagsInput.ItemDeleteTrigger />
+					</TagsInput.ItemPreview>
+					<TagsInput.ItemInput />
+				</TagsInput.Item>
+				<TagsInput.Input />
+			</TagsInput.Control>
+			<TagsInput.HiddenInput />
+			<TagsInput.ClearTrigger />
+		</TagsInput>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<TagsInput>
+	<TagsInput.Label />
+	<TagsInput.Control>
+		<TagsInput.Item>
+			<TagsInput.ItemPreview>
+				<TagsInput.ItemText />
+				<TagsInput.ItemDeleteTrigger />
+			</TagsInput.ItemPreview>
+			<TagsInput.ItemInput />
+		</TagsInput.Item>
+		<TagsInput.Input />
+	</TagsInput.Control>
+	<TagsInput.HiddenInput />
+	<TagsInput.ClearTrigger />
+</TagsInput>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

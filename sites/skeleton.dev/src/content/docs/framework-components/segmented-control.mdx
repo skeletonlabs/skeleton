@@ -73,6 +73,53 @@ Using the `orientation` prop to control the layout.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the SegmentedControl component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { SegmentedControl } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<SegmentedControl>
+			<SegmentedControl.Label />
+			<SegmentedControl.Control>
+				<SegmentedControl.Indicator />
+				<SegmentedControl.Item>
+					<SegmentedControl.ItemText />
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+			</SegmentedControl.Control>
+		</SegmentedControl>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<SegmentedControl>
+	<SegmentedControl.Label />
+	<SegmentedControl.Control>
+		<SegmentedControl.Indicator />
+		<SegmentedControl.Item>
+			<SegmentedControl.ItemText />
+			<SegmentedControl.ItemHiddenInput />
+		</SegmentedControl.Item>
+	</SegmentedControl.Control>
+</SegmentedControl>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

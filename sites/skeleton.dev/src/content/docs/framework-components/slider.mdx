@@ -114,6 +114,63 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Slider component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Slider } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Slider>
+			<Slider.Label />
+			<Slider.Control>
+				<Slider.Track>
+					<Slider.Range />
+				</Slider.Track>
+				<Slider.Thumb>
+					<Slider.HiddenInput />
+				</Slider.Thumb>
+			</Slider.Control>
+			<Slider.MarkerGroup>
+				<Slider.Marker />
+			</Slider.MarkerGroup>
+			<Slider.ValueText />
+		</Slider>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Slider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Slider>
+	<Slider.Label />
+	<Slider.Control>
+		<Slider.Track>
+			<Slider.Range />
+		</Slider.Track>
+		<Slider.Thumb>
+			<Slider.HiddenInput />
+		</Slider.Thumb>
+	</Slider.Control>
+	<Slider.MarkerGroup>
+		<Slider.Marker />
+	</Slider.MarkerGroup>
+	<Slider.ValueText />
+</Slider>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

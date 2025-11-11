@@ -118,6 +118,59 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Dialog component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Dialog>
+			<Dialog.Trigger />
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content>
+						<Dialog.Title />
+						<Dialog.Description />
+						<Dialog.CloseTrigger />
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
+		</Dialog>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Dialog>
+	<Dialog.Trigger />
+	<Portal>
+		<Dialog.Backdrop />
+		<Dialog.Positioner>
+			<Dialog.Content>
+				<Dialog.Title />
+				<Dialog.Description />
+				<Dialog.CloseTrigger />
+			</Dialog.Content>
+		</Dialog.Positioner>
+	</Portal>
+</Dialog>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

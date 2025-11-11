@@ -133,6 +133,47 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Accordion component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Accordion } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Accordion>
+			<Accordion.Item>
+				<Accordion.ItemTrigger />
+				<Accordion.ItemIndicator />
+				<Accordion.ItemContent />
+			</Accordion.Item>
+		</Accordion>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Accordion>
+	<Accordion.Item>
+		<Accordion.ItemTrigger />
+		<Accordion.ItemIndicator />
+		<Accordion.ItemContent />
+	</Accordion.Item>
+</Accordion>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

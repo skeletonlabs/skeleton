@@ -78,6 +78,47 @@ Modify the layout based on responsive breakpoints.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the AppBar component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { AppBar } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<AppBar>
+			<AppBar.Toolbar>
+				<AppBar.Lead />
+				<AppBar.Headline />
+				<AppBar.Trail />
+			</AppBar.Toolbar>
+		</AppBar>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { AppBar } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<AppBar>
+	<AppBar.Toolbar>
+		<AppBar.Lead />
+		<AppBar.Headline />
+		<AppBar.Trail />
+	</AppBar.Toolbar>
+</AppBar>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

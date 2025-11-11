@@ -26,6 +26,35 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/portal/
 
 When enabled, the content will move from the source to the target element.
 
+## Anatomy
+
+Here's an overview of how the Portal component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return <Portal>{/* Content */}</Portal>;
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Portal>
+	<!-- Content -->
+</Portal>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

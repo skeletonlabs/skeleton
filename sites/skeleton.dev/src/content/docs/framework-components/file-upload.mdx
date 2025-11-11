@@ -95,6 +95,59 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the FileUpload component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { FileUpload } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<FileUpload>
+			<FileUpload.Dropzone>
+				<FileUpload.Trigger />
+				<FileUpload.HiddenInput />
+			</FileUpload.Dropzone>
+			<FileUpload.ItemGroup>
+				<FileUpload.Item>
+					<FileUpload.ItemName />
+					<FileUpload.ItemSizeText />
+					<FileUpload.ItemDeleteTrigger />
+				</FileUpload.Item>
+			</FileUpload.ItemGroup>
+		</FileUpload>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<FileUpload>
+	<FileUpload.Dropzone>
+		<FileUpload.Trigger />
+		<FileUpload.HiddenInput />
+	</FileUpload.Dropzone>
+	<FileUpload.ItemGroup>
+		<FileUpload.Item>
+			<FileUpload.ItemName />
+			<FileUpload.ItemSizeText />
+			<FileUpload.ItemDeleteTrigger />
+		</FileUpload.Item>
+	</FileUpload.ItemGroup>
+</FileUpload>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">

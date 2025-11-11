@@ -114,6 +114,47 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Anatomy
+
+Here's an overview of how the Tabs component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Tabs } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Tabs>
+			<Tabs.List>
+				<Tabs.Trigger />
+				<Tabs.Indicator />
+			</Tabs.List>
+			<Tabs.Content />
+		</Tabs>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Tabs>
+	<Tabs.List>
+		<Tabs.Trigger />
+		<Tabs.Indicator />
+	</Tabs.List>
+	<Tabs.Content />
+</Tabs>
+```
+
+</Framework>
+
 ## API Reference
 
 <Framework id="react">
