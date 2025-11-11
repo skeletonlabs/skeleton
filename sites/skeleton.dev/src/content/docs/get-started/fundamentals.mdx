@@ -74,6 +74,7 @@ This also includes access to the component prop types.
 import type { AvatarRootProps, ... } from '@skeletonlabs/skeleton-react';
 ```
 
+</Framework>
 <Framework id="svelte">
 
 ```ts
@@ -124,7 +125,7 @@ Skeleton components implement a universal convention for accepting CSS utility c
 export default function Avatar() {
 	return (
 		<Avatar className="rounded-2xl">
-			<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="greyscale" />
+			<Avatar.Image src="https://i.pravatar.cc/150?img=48" className="grayscale" />
 			<Avatar.Fallback>SK</Avatar.Fallback>
 		</Avatar>
 	);
@@ -158,7 +159,7 @@ By default, all internal styles are auto-prefixed to ensure they are assigned to
 
 ### Extensible Markup
 
-Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and show not be needed for normal usage.
+Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop in React, and the `element` snippet in Svelte to obtain the internal `attributes`. Then spread these to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
 
 <Framework id="react">
 
@@ -340,7 +341,7 @@ export default function TooltipExample() {
 </Tooltip.Provider>
 ```
 
-> Note: Svelte requires passing `id` because `$props.id` is not available outside the components `<script>` block.
+> Note: Svelte requires passing `id` because `$props.id` is not available outside the component's `<script>` block.
 
 </Framework>
 
