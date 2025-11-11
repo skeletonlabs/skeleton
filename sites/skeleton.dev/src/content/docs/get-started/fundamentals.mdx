@@ -167,14 +167,12 @@ Skeleton components provide a mechanism for overwriting the internal HTML with c
 export default function () {
 	return (
 		<Accordion>
-			{/* ... */}
 			<Accordion.Item value="item-1">
 				<h3>
 					<Accordion.ItemTrigger element={(attributes) => <button {...attributes}>My Own Button</button>} />
 				</h3>
 				<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 			</Accordion.Item>
-			{/* ... */}
 		</Accordion>
 	);
 }
@@ -186,7 +184,6 @@ export default function () {
 
 ```svelte
 <Accordion>
-	<!-- ... -->
 	<Accordion.Item value="item-1">
 		<h3>
 			<Accordion.ItemTrigger>
@@ -197,7 +194,6 @@ export default function () {
 		</h3>
 		<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 	</Accordion.Item>
-	<!-- ... -->
 </Accordion>
 ```
 
@@ -215,7 +211,7 @@ import { motion, AnimatePresence } from 'motion/react';
 
 export default function CustomAnimation() {
 	return (
-		<Accordion collapsible>
+		<Accordion>
 			{['1', '2', '3'].map((item) => (
 				<Accordion.Item key={item} value={item}>
 					<h3>
@@ -262,20 +258,20 @@ Using the extensible markup pattern, you may implement custom animations. While 
 </script>
 
 <Accordion>
-	<!-- ... -->
-	<Accordion.Item value="item-1">
-		<h3>
-			<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
-		</h3>
-		<Accordion.ItemContent>
-			{#snippet element(attributes)}
-				{#if !attributes.hidden}
-					<div {...attributes} transition:slide>Content 1</div>
-				{/if}
-			{/snippet}
-		</Accordion.ItemContent>
-	</Accordion.Item>
-	<!-- ... -->
+	{#each ['1', '2', '3'] as item (item)}
+		<Accordion.Item value="item-{item}">
+			<h3>
+				<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>
+			</h3>
+			<Accordion.ItemContent>
+				{#snippet element(attributes)}
+					{#if !attributes.hidden}
+						<div {...attributes} transition:slide>Content for item {item}</div>
+					{/if}
+				{/snippet}
+			</Accordion.ItemContent>
+		</Accordion.Item>
+	{/each}
 </Accordion>
 ```
 
