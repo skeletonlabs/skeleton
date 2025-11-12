@@ -1,0 +1,169 @@
+---
+title: Menu
+description: Accessible dropdown and context menus for actions and navigation.
+---
+
+import ContextMenuReact from '@/components/examples/framework-components/menu/react/context-menu';
+import ContextMenuReactRaw from '@/components/examples/framework-components/menu/react/context-menu?raw';
+import DefaultReact from '@/components/examples/framework-components/menu/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
+import GroupedItemsReact from '@/components/examples/framework-components/menu/react/grouped-items';
+import GroupedItemsReactRaw from '@/components/examples/framework-components/menu/react/grouped-items?raw';
+import OptionItemsReact from '@/components/examples/framework-components/menu/react/option-items';
+import OptionItemsReactRaw from '@/components/examples/framework-components/menu/react/option-items?raw';
+import ContextMenuSvelte from '@/components/examples/framework-components/menu/svelte/context-menu.svelte';
+import ContextMenuSvelteRaw from '@/components/examples/framework-components/menu/svelte/context-menu.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
+import GroupedItemsSvelte from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte';
+import GroupedItemsSvelteRaw from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte?raw';
+import OptionItemsSvelte from '@/components/examples/framework-components/menu/svelte/option-items.svelte';
+import OptionItemsSvelteRaw from '@/components/examples/framework-components/menu/svelte/option-items.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+
+## Grouped Items
+
+Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical sections.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupedItemsReactRaw }} client:visible>
+		<GroupedItemsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupedItemsSvelteRaw }} client:visible>
+		<GroupedItemsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Option Items
+
+Use `OptionItem` with `type="checkbox"` or `type="radio"` to create selectable menu items.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OptionItemsReactRaw }} client:visible>
+		<OptionItemsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OptionItemsSvelteRaw }} client:visible>
+		<OptionItemsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Context Menu
+
+Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ContextMenuReactRaw }} client:visible>
+		<ContextMenuReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ContextMenuSvelteRaw }} client:visible>
+		<ContextMenuSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Menu component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Menu, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Menu>
+			<Menu.Trigger />
+			{/* or <Menu.ContextTrigger /> for right-click */}
+			<Portal>
+				<Menu.Positioner>
+					<Menu.Content>
+						{/* Simple items */}
+						<Menu.Item value="..." />
+						<Menu.Separator />
+						
+						{/* Grouped items */}
+						<Menu.ItemGroup>
+							<Menu.ItemGroupLabel />
+							<Menu.Item value="..." />
+						</Menu.ItemGroup>
+						
+						{/* Option items (checkbox/radio) */}
+						<Menu.OptionItem type="checkbox" name="..." value="..." />
+						
+						{/* Optional arrow */}
+						<Menu.Arrow>
+							<Menu.ArrowTip />
+						</Menu.Arrow>
+					</Menu.Content>
+				</Menu.Positioner>
+			</Portal>
+		</Menu>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Menu>
+	<Menu.Trigger />
+	<!-- or <Menu.ContextTrigger /> for right-click -->
+	<Portal>
+		<Menu.Positioner>
+			<Menu.Content>
+				<!-- Simple items -->
+				<Menu.Item value="..." />
+				<Menu.Separator />
+				
+				<!-- Grouped items -->
+				<Menu.ItemGroup>
+					<Menu.ItemGroupLabel />
+					<Menu.Item value="..." />
+				</Menu.ItemGroup>
+				
+				<!-- Option items (checkbox/radio) -->
+				<Menu.OptionItem type="checkbox" name="..." value="..." />
+				
+				<!-- Optional arrow -->
+				<Menu.Arrow>
+					<Menu.ArrowTip />
+				</Menu.Arrow>
+			</Menu.Content>
+		</Menu.Positioner>
+	</Portal>
+</Menu>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/menu" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/menu" />
+</Framework>
