@@ -5,19 +5,21 @@ stability: beta
 ---
 
 import ControlledReact from '@/components/examples/framework-components/date-picker/react/controlled';
-import ControlledReactRaw from '@/components/examples/framework-components/date-picker/react/controlled.tsx?raw';
+import ControlledReactRaw from '@/components/examples/framework-components/date-picker/react/controlled?raw';
 import DefaultReact from '@/components/examples/framework-components/date-picker/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/date-picker/react/default.tsx?raw';
+import DefaultReactRaw from '@/components/examples/framework-components/date-picker/react/default?raw';
 import DisabledReact from '@/components/examples/framework-components/date-picker/react/disabled';
-import DisabledReactRaw from '@/components/examples/framework-components/date-picker/react/disabled.tsx?raw';
+import DisabledReactRaw from '@/components/examples/framework-components/date-picker/react/disabled?raw';
 import InlineReact from '@/components/examples/framework-components/date-picker/react/inline';
-import InlineReactRaw from '@/components/examples/framework-components/date-picker/react/inline.tsx?raw';
+import InlineReactRaw from '@/components/examples/framework-components/date-picker/react/inline?raw';
 import MinMaxReact from '@/components/examples/framework-components/date-picker/react/min-max';
-import MinMaxReactRaw from '@/components/examples/framework-components/date-picker/react/min-max.tsx?raw';
+import MinMaxReactRaw from '@/components/examples/framework-components/date-picker/react/min-max?raw';
+import PresetsReact from '@/components/examples/framework-components/date-picker/react/presets';
+import PresetsReactRaw from '@/components/examples/framework-components/date-picker/react/presets?raw';
 import RangeReact from '@/components/examples/framework-components/date-picker/react/range';
-import RangeReactRaw from '@/components/examples/framework-components/date-picker/react/range.tsx?raw';
+import RangeReactRaw from '@/components/examples/framework-components/date-picker/react/range?raw';
 import WithSelectsReact from '@/components/examples/framework-components/date-picker/react/with-selects';
-import WithSelectsReactRaw from '@/components/examples/framework-components/date-picker/react/with-selects.tsx?raw';
+import WithSelectsReactRaw from '@/components/examples/framework-components/date-picker/react/with-selects?raw';
 import ControlledSvelte from '@/components/examples/framework-components/date-picker/svelte/controlled.svelte';
 import ControlledSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/controlled.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/date-picker/svelte/default.svelte';
@@ -28,6 +30,8 @@ import InlineSvelte from '@/components/examples/framework-components/date-picker
 import InlineSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/inline.svelte?raw';
 import MinMaxSvelte from '@/components/examples/framework-components/date-picker/svelte/min-max.svelte';
 import MinMaxSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/min-max.svelte?raw';
+import PresetsSvelte from '@/components/examples/framework-components/date-picker/svelte/presets.svelte';
+import PresetsSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/presets.svelte?raw';
 import RangeSvelte from '@/components/examples/framework-components/date-picker/svelte/range.svelte';
 import RangeSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/range.svelte?raw';
 import WithSelectsSvelte from '@/components/examples/framework-components/date-picker/svelte/with-selects.svelte';
@@ -108,6 +112,21 @@ Enable range selection by setting `selectionMode="range"` on the root component.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': RangeSvelteRaw }} client:visible>
 		<RangeSvelte client:visible />
+	</Preview>
+</Framework>
+
+### Presets
+
+Use the `PresetTrigger` component to allow users to quickly select predefined date ranges.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': PresetsReactRaw }} client:visible>
+		<PresetsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': PresetsSvelteRaw }} client:visible>
+		<PresetsSvelte client:visible />
 	</Preview>
 </Framework>
 

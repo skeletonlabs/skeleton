@@ -7,7 +7,7 @@ export const classesDatePicker = defineSkeletonClasses({
 	input: 'input',
 	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-1.25',
 	clearTrigger: '',
-	presetTrigger: '',
+	presetTrigger: 'btn hover:preset-tonal',
 	positioner: '',
 	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 flex flex-col gap-2',
 	yearSelect: 'select',
