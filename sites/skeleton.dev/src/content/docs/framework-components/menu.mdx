@@ -91,24 +91,17 @@ export default function Anatomy() {
 	return (
 		<Menu>
 			<Menu.Trigger />
-			{/* or <Menu.ContextTrigger /> for right-click */}
+			<Menu.ContextTrigger />
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content>
-						{/* Simple items */}
-						<Menu.Item value="..." />
+						<Menu.Item />
 						<Menu.Separator />
-						
-						{/* Grouped items */}
 						<Menu.ItemGroup>
 							<Menu.ItemGroupLabel />
-							<Menu.Item value="..." />
+							<Menu.Item />
+							<Menu.OptionItem />
 						</Menu.ItemGroup>
-						
-						{/* Option items (checkbox/radio) */}
-						<Menu.OptionItem type="checkbox" name="..." value="..." />
-						
-						{/* Optional arrow */}
 						<Menu.Arrow>
 							<Menu.ArrowTip />
 						</Menu.Arrow>
@@ -130,24 +123,17 @@ export default function Anatomy() {
 
 <Menu>
 	<Menu.Trigger />
-	<!-- or <Menu.ContextTrigger /> for right-click -->
+	<Menu.ContextTrigger />
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content>
-				<!-- Simple items -->
-				<Menu.Item value="..." />
+				<Menu.Item />
 				<Menu.Separator />
-				
-				<!-- Grouped items -->
 				<Menu.ItemGroup>
 					<Menu.ItemGroupLabel />
-					<Menu.Item value="..." />
+					<Menu.Item />
+					<Menu.OptionItem />
 				</Menu.ItemGroup>
-				
-				<!-- Option items (checkbox/radio) -->
-				<Menu.OptionItem type="checkbox" name="..." value="..." />
-				
-				<!-- Optional arrow -->
 				<Menu.Arrow>
 					<Menu.ArrowTip />
 				</Menu.Arrow>
