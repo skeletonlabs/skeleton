@@ -14,6 +14,8 @@
 
 	const props: MenuRootProps = $props();
 
+	const parentMenu = RootContext.consume();
+
 	const [menuProps, componentProps] = $derived(splitProps(props));
 	const { children } = $derived(componentProps);
 
@@ -24,12 +26,15 @@
 	}));
 
 	$effect(() => {
-		// TODO: Set parent menut if nested
-		// TODO: Set child menu if nested
+		if (!parentMenu()) {
+			return;
+		}
+		menu().setParent(parentMenu().service);
+		parentMenu().setChild(menu().service);
 	});
 
 	RootContext.provide(() => menu());
-	TriggerItemContext.provide(() => menu().getTriggerItemProps(menu()));
+	TriggerItemContext.provide(() => parentMenu().getTriggerItemProps(menu()));
 </script>
 
 {@render children?.()}
