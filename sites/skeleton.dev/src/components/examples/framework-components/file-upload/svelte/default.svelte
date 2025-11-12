@@ -4,6 +4,7 @@
 </script>
 
 <FileUpload>
+	<FileUpload.Label>Upload your files</FileUpload.Label>
 	<FileUpload.Dropzone>
 		<FileIcon class="size-10" />
 		<span>Select file or drag here.</span>
