@@ -1,5 +1,6 @@
 import { useMenu } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
+import { TriggerItemContext } from '../modules/trigger-item-context.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { splitProps } from '@zag-js/menu';
@@ -27,5 +28,9 @@ export default function Root(props: MenuRootProps) {
 		menu.setParent(parentMenu.service);
 	}, [menu, parentMenu]);
 
-	return <RootContext.Provider value={menu}>{children}</RootContext.Provider>;
+	return (
+		<RootContext.Provider value={menu}>
+			<TriggerItemContext.Provider value={() => parentMenu.getTriggerItemProps(menu)}>{children}</TriggerItemContext.Provider>
+		</RootContext.Provider>
+	);
 }
