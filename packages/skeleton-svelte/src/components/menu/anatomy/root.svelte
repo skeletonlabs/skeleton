@@ -26,7 +26,7 @@
 	}));
 
 	$effect(() => {
-		if (!parentMenu()) {
+		if (!parentMenu) {
 			return;
 		}
 		menu().setParent(parentMenu().service);
