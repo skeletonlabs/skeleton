@@ -20,5 +20,6 @@
 		"css": "css"
 	},
 	"tailwindCSS.classFunctions": ["defineSkeletonClasses"],
+	"css.lint.unknownAtRules": "ignore",
 	"workbench.editor.languageDetection": false
 }
