@@ -1,12 +1,9 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
-	import type { ItemGroupLabelProps as ZagItemGroupLabelProps } from '@zag-js/menu';
-	import type { Snippet } from 'svelte';
+	import type { ItemGroupLabelProps } from '@zag-js/menu';
 
-	export interface MenuItemGroupLabelProps extends ZagItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		children?: Snippet;
-	}
+	export interface MenuItemGroupLabelProps extends ItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">

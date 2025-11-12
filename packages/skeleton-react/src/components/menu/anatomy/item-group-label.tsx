@@ -3,11 +3,11 @@ import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesMenu } from '@skeletonlabs/skeleton-common';
 import { splitItemGroupLabelProps } from '@zag-js/menu';
-import type { ItemGroupLabelProps as ZagItemGroupLabelProps } from '@zag-js/menu';
+import type { ItemGroupLabelProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuItemGroupLabelProps extends ZagItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuItemGroupLabelProps extends ItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function ItemGroupLabel(props: MenuItemGroupLabelProps) {
 	const menu = use(RootContext);

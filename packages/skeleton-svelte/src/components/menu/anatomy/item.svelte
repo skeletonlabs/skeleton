@@ -2,11 +2,8 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/menu';
-	import type { Snippet } from 'svelte';
 
-	export interface MenuItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		children?: Snippet;
-	}
+	export interface MenuItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">

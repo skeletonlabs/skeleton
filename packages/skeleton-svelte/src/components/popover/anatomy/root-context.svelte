@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 
 	const props: PopoverRootContextProps = $props();
 
-	const popover = PopoverRootContext.consume();
+	const popover = RootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -3,7 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { Props } from '@zag-js/menu';
 
-	export interface MenuRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface MenuRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'aria-label'> {}
 </script>
 
 <script lang="ts">

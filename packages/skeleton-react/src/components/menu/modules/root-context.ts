@@ -1,4 +1,4 @@
 import type { useMenu } from './provider.js';
-import { createContext } from 'react';
+import { createContext } from '@/internal/create-context.js';
 
-export const RootContext = createContext<ReturnType<typeof useMenu> | null>(null);
+export const RootContext = createContext<ReturnType<typeof useMenu>>();

@@ -1,16 +1,8 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
-	import type { Api, PropTypes } from '@zag-js/menu';
-	import type { Snippet } from 'svelte';
 
-	export interface MenuTriggerItemProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		/**
-		 * The child menu API for the nested menu
-		 */
-		childMenu: Api<PropTypes>;
-		children?: Snippet;
-	}
+	export interface MenuTriggerItemProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
@@ -22,11 +14,11 @@
 
 	const menu = RootContext.consume();
 
-	const { element, children, childMenu, ...rest } = $derived(props);
+	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			menu().getTriggerItemProps(childMenu),
+			menu().getTriggerItemProps(),
 			{
 				class: classesMenu.triggerItem,
 			},
