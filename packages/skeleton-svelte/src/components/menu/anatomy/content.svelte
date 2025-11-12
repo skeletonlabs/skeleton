@@ -9,13 +9,13 @@
 </script>
 
 <script lang="ts">
-	import { MenuRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesMenu } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuContentProps = $props();
 
-	const menu = MenuRootContext.consume();
+	const menu = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -10,14 +10,14 @@
 </script>
 
 <script lang="ts">
-	import { MenuRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesMenu } from '@skeletonlabs/skeleton-common';
 	import { splitOptionItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuOptionItemProps = $props();
 
-	const menu = MenuRootContext.consume();
+	const menu = RootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitOptionItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useMenu } from '../modules/provider.svelte';
-	import { MenuRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/menu';
 
 	const props: MenuRootProps = $props();
@@ -22,7 +22,7 @@
 		id: id,
 	}));
 
-	MenuRootContext.provide(() => menu());
+	RootContext.provide(() => menu());
 </script>
 
 {@render children?.()}

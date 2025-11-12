@@ -2,21 +2,24 @@ import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesMenu } from '@skeletonlabs/skeleton-common';
-import { splitTriggerItemProps } from '@zag-js/menu';
-import type { TriggerItemProps as ZagTriggerItemProps } from '@zag-js/menu';
+import type { Api, PropTypes } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuTriggerItemProps extends ZagTriggerItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuTriggerItemProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	/**
+	 * The child menu API for the nested menu
+	 */
+	childMenu: Api<PropTypes>;
+}
 
 export default function TriggerItem(props: MenuTriggerItemProps) {
 	const menu = use(RootContext);
 
-	const [itemProps, componentProps] = splitTriggerItemProps(props);
-	const { element, children, ...rest } = componentProps;
+	const { element, children, childMenu, ...rest } = props;
 
 	const attributes = mergeProps(
-		menu.getTriggerItemProps(itemProps),
+		menu.getTriggerItemProps(childMenu),
 		{
 			className: classesMenu.triggerItem,
 		},

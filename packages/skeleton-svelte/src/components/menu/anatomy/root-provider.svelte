@@ -9,13 +9,13 @@
 </script>
 
 <script lang="ts">
-	import { MenuRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 
 	const props: MenuRootProviderProps = $props();
 
 	const { children, value: menu } = $derived(props);
 
-	MenuRootContext.provide(() => menu());
+	RootContext.provide(() => menu());
 </script>
 
 {@render children?.()}
