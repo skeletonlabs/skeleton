@@ -112,3 +112,14 @@ html {
 .spin-360 {
 	animation: spin 5s linear infinite; /* Shorthand */
 }
+
+/* Temporary Bugfix */
+/* https://github.com/skeletonlabs/skeleton/issues/3993 */
+/* Remove these bugfix styles in Skeleton v5+ */
+.select,
+.input,
+.textarea,
+.input-group {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+}

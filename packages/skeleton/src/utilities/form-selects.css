@@ -7,14 +7,15 @@
 	We've styled this element within the confines of that browser's capabilities.
 */
 
-/* FIXME: Remove this after debugging is complete */
-/* select,
-::picker(select) {
-	appearance: base-select;
-} */
-
 @utility select {
 	background-color: transparent;
+
+	/* FIXME: */
+	/* Style fix for Firefox/Chrome on Windows */
+	/* Replace transparent bg/color with set values. */
+	/* background-color: var(--color-surface-50-950); */
+	/* color: var(--color-surface-950-50); */
+
 	border-radius: var(--radius-base);
 	display: block;
 	width: 100%;
@@ -59,6 +60,8 @@
 	}
 
 	/* Multiple & Size --- */
+
+	/* FIXME: slated for removal in next major release. */
 
 	& > * + * {
 		margin-top: --spacing(2);
@@ -107,10 +110,5 @@
 	& option {
 		background-color: var(--color-surface-50-950);
 		color: var(--color-surface-950-50);
-		border-radius: var(--radius-base);
-		font-size: var(--text-base);
-		line-height: --spacing(9);
-		height: --spacing(9);
-		padding: --spacing(2);
 	}
 }

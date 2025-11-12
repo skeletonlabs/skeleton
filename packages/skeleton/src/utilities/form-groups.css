@@ -73,7 +73,7 @@
 }
 
 @utility ig-select {
-	background-color: transparent;
+	background-color: transparent; /* FIXME: see fix in core select */
 	display: block;
 	width: 100%;
 
@@ -81,6 +81,23 @@
 	font-size: var(--text-base);
 	line-height: var(--text-base--line-height);
 	padding-block: --spacing(1);
+	padding-inline: --spacing(3);
+	padding-right: --spacting(40px); /* arrow offset */
+
+	/* Remove Native Arrow */
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	/* Draw Gradint-Based Arrows */
+	background-image: linear-gradient(45deg, #0000 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, #0000 50%);
+	background-position:
+		calc(100% - 20px) calc(1px + 50%),
+		calc(100% - 16.1px) calc(1px + 50%);
+	background-size:
+		4px 4px,
+		4px 4px;
+	background-repeat: no-repeat;
 
 	/* Edges */
 	outline-color: transparent;
@@ -102,11 +119,6 @@
 	& option {
 		background-color: var(--color-surface-50-950);
 		color: var(--color-surface-950-50);
-		border-radius: var(--radius-base);
-		font-size: var(--text-base);
-		line-height: --spacing(9);
-		height: --spacing(9);
-		padding: --spacing(2);
 	}
 }
 
