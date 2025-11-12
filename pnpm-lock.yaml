@@ -162,6 +162,9 @@ catalogs:
     '@zag-js/listbox':
       specifier: 1.27.1
       version: 1.27.1
+    '@zag-js/menu':
+      specifier: 1.27.1
+      version: 1.27.1
     '@zag-js/pagination':
       specifier: 1.27.1
       version: 1.27.1
@@ -538,6 +541,9 @@ importers:
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.27.1
+      '@zag-js/menu':
+        specifier: 'catalog:'
+        version: 1.27.1
       '@zag-js/pagination':
         specifier: 'catalog:'
         version: 1.27.1
@@ -651,6 +657,9 @@ importers:
         specifier: 'catalog:'
         version: 1.27.1
       '@zag-js/listbox':
+        specifier: 'catalog:'
+        version: 1.27.1
+      '@zag-js/menu':
         specifier: 'catalog:'
         version: 1.27.1
       '@zag-js/pagination':
@@ -3119,6 +3128,9 @@ packages:
   '@zag-js/live-region@1.27.1':
     resolution: {integrity: sha512-T5cMSazmWC9AYKHinJQPZSc2bnokF8zK8ly4NGApv6ExM6Mf5wQoH6sJIcv7dhRFfPUFVRndVdKHnWxZjTb8Og==}
 
+  '@zag-js/menu@1.27.1':
+    resolution: {integrity: sha512-e4U7zbfOF6fXphJvP2xaIKTmnKR75pp6gYGUqJUVQo0VIqQh2Ax5VcPq6JcUQE8UWGRQxwuMn9tzEpXGDWm6QA==}
+
   '@zag-js/pagination@1.27.1':
     resolution: {integrity: sha512-tg23cP07weOtjNeEqOqS3Ilic3ikaIYQ7s9wi/JjvKUPMS+bi/LZRM12cfLD1tIwSUYjjLkr/reTnrYU3s2lZQ==}
 
@@ -3142,6 +3154,9 @@ packages:
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
+
+  '@zag-js/rect-utils@1.27.1':
+    resolution: {integrity: sha512-BYq+dVrNt+H4hX7wkS3j9ZK+BNKrb1f9vm52D5+TnNs61coidfY5zmhOqQjkgSVBWblDqYWrLskNCymW7t5MVA==}
 
   '@zag-js/remove-scroll@1.27.1':
     resolution: {integrity: sha512-MOnQXzifbeEuW/XgDMbb76wbWdaq++DEwE6CLmMQZhAR4rJUNIYVhcOFVqBWwMcMIJkvK8ROZucTPxOPmTHz1Q==}
@@ -8181,6 +8196,17 @@ snapshots:
 
   '@zag-js/live-region@1.27.1': {}
 
+  '@zag-js/menu@1.27.1':
+    dependencies:
+      '@zag-js/anatomy': 1.27.1
+      '@zag-js/core': 1.27.1
+      '@zag-js/dismissable': 1.27.1
+      '@zag-js/dom-query': 1.27.1
+      '@zag-js/popper': 1.27.1
+      '@zag-js/rect-utils': 1.27.1
+      '@zag-js/types': 1.27.1
+      '@zag-js/utils': 1.27.1
+
   '@zag-js/pagination@1.27.1':
     dependencies:
       '@zag-js/anatomy': 1.27.1
@@ -8241,6 +8267,8 @@ snapshots:
       '@zag-js/utils': 1.27.1
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
+
+  '@zag-js/rect-utils@1.27.1': {}
 
   '@zag-js/remove-scroll@1.27.1':
     dependencies:
