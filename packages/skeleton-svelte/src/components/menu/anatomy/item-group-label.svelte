@@ -3,10 +3,14 @@
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { ItemGroupLabelProps } from '@zag-js/menu';
 
-	export interface MenuItemGroupLabelProps extends ItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface MenuItemGroupLabelProps
+		extends Omit<ItemGroupLabelProps, 'htmlFor'>,
+			PropsWithElement<'div'>,
+			HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
+	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
 	import { classesMenu } from '@skeletonlabs/skeleton-common';
 	import { splitItemGroupLabelProps } from '@zag-js/menu';
@@ -15,8 +19,14 @@
 	const props: MenuItemGroupLabelProps = $props();
 
 	const menu = RootContext.consume();
+	const itemGroupProps = ItemGroupContext.consume();
 
-	const [labelProps, componentProps] = $derived(splitItemGroupLabelProps(props));
+	const [labelProps, componentProps] = $derived(
+		splitItemGroupLabelProps({
+			htmlFor: itemGroupProps().id,
+			...props,
+		}),
+	);
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(

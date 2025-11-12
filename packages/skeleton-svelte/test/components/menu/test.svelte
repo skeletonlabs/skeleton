@@ -6,8 +6,8 @@
 	<Menu.Trigger data-testid="trigger" />
 	<Menu.Positioner data-testid="positioner">
 		<Menu.Content data-testid="content">
-			<Menu.ItemGroup id="group" data-testid="item-group">
-				<Menu.ItemGroupLabel htmlFor="group" data-testid="item-group-label" />
+			<Menu.ItemGroup data-testid="item-group">
+				<Menu.ItemGroupLabel data-testid="item-group-label" />
 				<Menu.Item value="item" data-testid="item" />
 			</Menu.ItemGroup>
 			<Menu.Separator data-testid="separator" />
