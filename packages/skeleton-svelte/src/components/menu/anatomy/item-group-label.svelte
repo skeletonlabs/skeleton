@@ -4,10 +4,7 @@
 	import type { ItemGroupLabelProps as ZagItemGroupLabelProps } from '@zag-js/menu';
 	import type { Snippet } from 'svelte';
 
-	export interface MenuItemGroupLabelProps
-		extends ZagItemGroupLabelProps,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface MenuItemGroupLabelProps extends ZagItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		children?: Snippet;
 	}
 </script>

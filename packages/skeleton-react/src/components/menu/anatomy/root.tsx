@@ -9,7 +9,7 @@ export interface MenuRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'
 
 export default function Root(props: MenuRootProps) {
 	const [menuProps, componentProps] = splitProps(props);
-	const { element, children } = componentProps;
+	const { children } = componentProps;
 
 	const menu = useMenu(menuProps);
 

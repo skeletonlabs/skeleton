@@ -7,10 +7,7 @@ import type { TriggerItemProps as ZagTriggerItemProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuTriggerItemProps
-	extends ZagTriggerItemProps,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuTriggerItemProps extends ZagTriggerItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function TriggerItem(props: MenuTriggerItemProps) {
 	const menu = use(RootContext);

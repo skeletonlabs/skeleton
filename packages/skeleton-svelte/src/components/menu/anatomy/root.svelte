@@ -14,7 +14,7 @@
 	const props: MenuRootProps = $props();
 
 	const [menuProps, componentProps] = $derived(splitProps(props));
-	const { element, children } = $derived(componentProps);
+	const { children } = $derived(componentProps);
 
 	const id = $props.id();
 	const menu = useMenu(() => ({

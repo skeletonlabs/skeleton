@@ -7,10 +7,7 @@ import type { ItemGroupLabelProps as ZagItemGroupLabelProps } from '@zag-js/menu
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuItemGroupLabelProps
-	extends ZagItemGroupLabelProps,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuItemGroupLabelProps extends ZagItemGroupLabelProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function ItemGroupLabel(props: MenuItemGroupLabelProps) {
 	const menu = use(RootContext);

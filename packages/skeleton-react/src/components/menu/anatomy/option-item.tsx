@@ -7,10 +7,7 @@ import type { OptionItemProps as ZagOptionItemProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuOptionItemProps
-	extends ZagOptionItemProps,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuOptionItemProps extends ZagOptionItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function OptionItem(props: MenuOptionItemProps) {
 	const menu = use(RootContext);

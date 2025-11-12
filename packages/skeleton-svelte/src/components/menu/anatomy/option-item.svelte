@@ -4,10 +4,7 @@
 	import type { OptionItemProps as ZagOptionItemProps } from '@zag-js/menu';
 	import type { Snippet } from 'svelte';
 
-	export interface MenuOptionItemProps
-		extends ZagOptionItemProps,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface MenuOptionItemProps extends ZagOptionItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		children?: Snippet;
 	}
 </script>

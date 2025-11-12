@@ -4,10 +4,7 @@
 	import type { TriggerItemProps as ZagTriggerItemProps } from '@zag-js/menu';
 	import type { Snippet } from 'svelte';
 
-	export interface MenuTriggerItemProps
-		extends ZagTriggerItemProps,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface MenuTriggerItemProps extends ZagTriggerItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		children?: Snippet;
 	}
 </script>
