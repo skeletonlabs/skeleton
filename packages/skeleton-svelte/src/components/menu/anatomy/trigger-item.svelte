@@ -6,19 +6,19 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TriggerItemContext } from '../modules/trigger-item-context.js';
 	import { classesMenu } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuTriggerItemProps = $props();
 
-	const menu = RootContext.consume();
+	const getTriggerItemProps = TriggerItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			menu().getTriggerItemProps(),
+			getTriggerItemProps(),
 			{
 				class: classesMenu.triggerItem,
 			},

@@ -9,6 +9,7 @@
 <script lang="ts">
 	import { useMenu } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
+	import { TriggerItemContext } from '../modules/trigger-item-context.js';
 	import { splitProps } from '@zag-js/menu';
 
 	const props: MenuRootProps = $props();
@@ -22,7 +23,13 @@
 		id: id,
 	}));
 
+	$effect(() => {
+		// TODO: Set parent menut if nested
+		// TODO: Set child menu if nested
+	});
+
 	RootContext.provide(() => menu());
+	TriggerItemContext.provide(() => menu().getTriggerItemProps(menu()));
 </script>
 
 {@render children?.()}
