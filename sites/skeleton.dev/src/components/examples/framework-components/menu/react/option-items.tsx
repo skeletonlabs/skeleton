@@ -6,10 +6,7 @@ export default function OptionItems() {
 	const [options, setOptions] = useState({ showLineNumbers: true, showMinimap: false, wordWrap: true });
 
 	return (
-		<Menu
-			value={options}
-			onValueChange={(details) => setOptions(details.value as typeof options)}
-		>
+		<Menu value={options} onValueChange={(details) => setOptions(details.value as typeof options)}>
 			<Menu.Trigger className="btn preset-filled">Editor Settings</Menu.Trigger>
 			<Portal>
 				<Menu.Positioner>
@@ -23,21 +20,11 @@ export default function OptionItems() {
 							Show Line Numbers
 							<CheckIcon className="size-4" />
 						</Menu.OptionItem>
-						<Menu.OptionItem
-							type="checkbox"
-							name="showMinimap"
-							value="showMinimap"
-							className="menu-item flex items-center justify-between"
-						>
+						<Menu.OptionItem type="checkbox" name="showMinimap" value="showMinimap" className="menu-item flex items-center justify-between">
 							Show Minimap
 							<CheckIcon className="size-4" />
 						</Menu.OptionItem>
-						<Menu.OptionItem
-							type="checkbox"
-							name="wordWrap"
-							value="wordWrap"
-							className="menu-item flex items-center justify-between"
-						>
+						<Menu.OptionItem type="checkbox" name="wordWrap" value="wordWrap" className="menu-item flex items-center justify-between">
 							Word Wrap
 							<CheckIcon className="size-4" />
 						</Menu.OptionItem>

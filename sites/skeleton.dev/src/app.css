@@ -48,37 +48,6 @@
 	color: var(--color-primary-contrast-500);
 }
 
-@utility menu-item {
-	border-radius: var(--radius-container);
-	padding-inline: var(--spacing-3);
-	padding-block: var(--spacing-2);
-	cursor: pointer;
-	transition: background-color 150ms ease-in-out;
-	
-	&:hover {
-		background-color: var(--color-surface-200-800);
-	}
-	
-	&[data-disabled] {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-	
-	&[data-highlighted] {
-		background-color: var(--color-surface-200-800);
-	}
-	
-	&[data-checked] {
-		& [data-indicator] {
-			opacity: 1;
-		}
-	}
-	
-	& [data-indicator] {
-		opacity: 0;
-	}
-}
-
 @utility linker {
 	border-radius: var(--radius-container);
 	display: flex;
