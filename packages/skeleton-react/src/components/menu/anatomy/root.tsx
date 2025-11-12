@@ -5,7 +5,10 @@ import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { splitProps } from '@zag-js/menu';
 import type { Props } from '@zag-js/menu';
 
-export interface MenuRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuRootProps
+	extends Omit<Props, 'id'>,
+		PropsWithElement<'div'>,
+		Omit<HTMLAttributes<'div', 'id' | 'dir'>, 'onSelect' | 'aria-label'> {}
 
 export default function Root(props: MenuRootProps) {
 	const [menuProps, componentProps] = splitProps(props);

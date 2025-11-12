@@ -1,14 +1,14 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
-	import type { Api, PropTypes } from '@zag-js/menu';
+	import type { Api } from '@zag-js/menu';
 	import type { Snippet } from 'svelte';
 
 	export interface MenuTriggerItemProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		/**
 		 * The child menu API for the nested menu
 		 */
-		childMenu: Api<PropTypes>;
+		childMenu: Api;
 		children?: Snippet;
 	}
 </script>

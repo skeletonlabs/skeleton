@@ -2,7 +2,7 @@ import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesMenu } from '@skeletonlabs/skeleton-common';
-import type { Api, PropTypes } from '@zag-js/menu';
+import type { Api } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -10,7 +10,7 @@ export interface MenuTriggerItemProps extends PropsWithElement<'div'>, HTMLAttri
 	/**
 	 * The child menu API for the nested menu
 	 */
-	childMenu: Api<PropTypes>;
+	childMenu: Api;
 }
 
 export default function TriggerItem(props: MenuTriggerItemProps) {
