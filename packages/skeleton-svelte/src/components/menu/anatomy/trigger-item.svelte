@@ -14,14 +14,14 @@
 
 	const props: MenuTriggerItemProps = $props();
 
-	const getTriggerItemProps = TriggerItemContext.consume();
+	const triggerItemProps = TriggerItemContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(
 		mergeProps(
-			getTriggerItemProps(),
+			triggerItemProps(),
 			{
 				class: classesMenu.item,
 			},

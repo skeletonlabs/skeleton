@@ -10,13 +10,13 @@ import { use } from 'react';
 export interface MenuTriggerItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function TriggerItem(props: MenuTriggerItemProps) {
-	const getTriggerItemProps = use(TriggerItemContext);
+	const triggerItemProps = use(TriggerItemContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
 	const attributes = mergeProps(
-		getTriggerItemProps(),
+		triggerItemProps,
 		{
 			className: classesMenu.item,
 		},
