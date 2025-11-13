@@ -3,12 +3,20 @@
 </script>
 
 <Menu>
-	<Menu.Trigger data-testid="trigger" />
+	<Menu.Trigger data-testid="trigger">
+		<Menu.Indicator data-testid="indicator" />
+	</Menu.Trigger>
+	<Menu.ContextTrigger data-testid="context-trigger">
+		<Menu.Indicator data-testid="indicator" />
+	</Menu.ContextTrigger>
 	<Menu.Positioner data-testid="positioner">
 		<Menu.Content data-testid="content">
 			<Menu.ItemGroup data-testid="item-group">
 				<Menu.ItemGroupLabel data-testid="item-group-label" />
-				<Menu.Item value="item" data-testid="item" />
+				<Menu.Item value="item" data-testid="item">
+					<Menu.ItemIndicator data-testid="item-indicator" />
+					<Menu.ItemText data-testid="item-text" />
+				</Menu.Item>
 			</Menu.ItemGroup>
 			<Menu.Separator data-testid="separator" />
 			<Menu.Arrow data-testid="arrow">

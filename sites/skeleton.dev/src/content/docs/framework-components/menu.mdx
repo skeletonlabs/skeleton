@@ -90,23 +90,31 @@ import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 export default function Anatomy() {
 	return (
 		<Menu>
-			<Menu.Trigger />
-			<Menu.ContextTrigger />
-			<Portal>
-				<Menu.Positioner>
-					<Menu.Content>
-						<Menu.ItemGroup>
-							<Menu.ItemGroupLabel />
-							<Menu.Item />
-							<Menu.OptionItem />
-						</Menu.ItemGroup>
-						<Menu.Separator />
-						<Menu.Arrow>
-							<Menu.ArrowTip />
-						</Menu.Arrow>
-					</Menu.Content>
-				</Menu.Positioner>
-			</Portal>
+			<Menu.Trigger>
+				<Menu.Indicator />
+			</Menu.Trigger>
+			<Menu.ContextTrigger>
+				<Menu.Indicator />
+			</Menu.ContextTrigger>
+			<Menu.Positioner>
+				<Menu.Content>
+					<Menu.ItemGroup>
+						<Menu.ItemGroupLabel />
+						<Menu.Item>
+							<Menu.ItemIndicator />
+							<Menu.ItemText />
+						</Menu.Item>
+						<Menu.TriggerItem>
+							<Menu.ItemIndicator />
+							<Menu.ItemText />
+						</Menu.TriggerItem>
+					</Menu.ItemGroup>
+					<Menu.Separator />
+					<Menu.Arrow>
+						<Menu.ArrowTip />
+					</Menu.Arrow>
+				</Menu.Content>
+			</Menu.Positioner>
 		</Menu>
 	);
 }
@@ -121,23 +129,31 @@ export default function Anatomy() {
 </script>
 
 <Menu>
-	<Menu.Trigger />
-	<Menu.ContextTrigger />
-	<Portal>
-		<Menu.Positioner>
-			<Menu.Content>
-				<Menu.ItemGroup>
-					<Menu.ItemGroupLabel />
-					<Menu.Item />
-					<Menu.OptionItem />
-				</Menu.ItemGroup>
-				<Menu.Separator />
-				<Menu.Arrow>
-					<Menu.ArrowTip />
-				</Menu.Arrow>
-			</Menu.Content>
-		</Menu.Positioner>
-	</Portal>
+	<Menu.Trigger>
+		<Menu.Indicator />
+	</Menu.Trigger>
+	<Menu.ContextTrigger>
+		<Menu.Indicator />
+	</Menu.ContextTrigger>
+	<Menu.Positioner>
+		<Menu.Content>
+			<Menu.ItemGroup>
+				<Menu.ItemGroupLabel />
+				<Menu.Item>
+					<Menu.ItemIndicator />
+					<Menu.ItemText />
+				</Menu.Item>
+				<Menu.TriggerItem>
+					<Menu.ItemIndicator />
+					<Menu.ItemText />
+				</Menu.TriggerItem>
+			</Menu.ItemGroup>
+			<Menu.Separator />
+			<Menu.Arrow>
+				<Menu.ArrowTip />
+			</Menu.Arrow>
+		</Menu.Content>
+	</Menu.Positioner>
 </Menu>
 ```
 

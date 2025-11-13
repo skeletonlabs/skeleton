@@ -2,10 +2,12 @@ import ArrowTip from '../anatomy/arrow-tip.svelte';
 import Arrow from '../anatomy/arrow.svelte';
 import Content from '../anatomy/content.svelte';
 import ContextTrigger from '../anatomy/context-trigger.svelte';
+import Indicator from '../anatomy/indicator.svelte';
 import ItemGroupLabel from '../anatomy/item-group-label.svelte';
 import ItemGroup from '../anatomy/item-group.svelte';
+import ItemIndicator from '../anatomy/item-indicator.svelte';
+import ItemText from '../anatomy/item-text.svelte';
 import Item from '../anatomy/item.svelte';
-import OptionItem from '../anatomy/option-item.svelte';
 import Positioner from '../anatomy/positioner.svelte';
 import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
@@ -19,14 +21,16 @@ export const Menu = Object.assign(Root, {
 	Context: RootContext,
 	Trigger: Trigger,
 	ContextTrigger: ContextTrigger,
+	Indicator: Indicator,
 	Positioner: Positioner,
 	Content: Content,
-	Arrow: Arrow,
-	ArrowTip: ArrowTip,
-	Item: Item,
-	OptionItem: OptionItem,
-	TriggerItem: TriggerItem,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
+	Item: Item,
+	TriggerItem: TriggerItem,
+	ItemText: ItemText,
+	ItemIndicator: ItemIndicator,
 	Separator: Separator,
+	Arrow: Arrow,
+	ArrowTip: ArrowTip,
 });

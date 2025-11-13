@@ -10,6 +10,20 @@ describe('Menu', () => {
 		});
 	});
 
+	describe('ContextTrigger', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('context-trigger')).toBeInTheDocument();
+		});
+	});
+
+	describe('Indicator', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+		});
+	});
+
 	describe('Positioner', () => {
 		it('renders', () => {
 			render(<Test />);
@@ -24,20 +38,6 @@ describe('Menu', () => {
 		});
 	});
 
-	describe('Item', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
-		});
-	});
-
-	describe('Separator', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('separator')).toBeInTheDocument();
-		});
-	});
-
 	describe('ItemGroup', () => {
 		it('renders', () => {
 			render(<Test />);
@@ -49,6 +49,34 @@ describe('Menu', () => {
 		it('renders', () => {
 			render(<Test />);
 			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
+		});
+	});
+
+	describe('Item', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('item')).toBeInTheDocument();
+		});
+	});
+
+	describe('ItemText', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('item-text')).toBeInTheDocument();
+		});
+	});
+
+	describe('ItemIndicator', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+		});
+	});
+
+	describe('Separator', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('separator')).toBeInTheDocument();
 		});
 	});
 

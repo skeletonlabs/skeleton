@@ -2,10 +2,12 @@ import ArrowTip from '../anatomy/arrow-tip.jsx';
 import Arrow from '../anatomy/arrow.jsx';
 import Content from '../anatomy/content.jsx';
 import ContextTrigger from '../anatomy/context-trigger.jsx';
+import Indicator from '../anatomy/indicator.js';
 import ItemGroupLabel from '../anatomy/item-group-label.jsx';
 import ItemGroup from '../anatomy/item-group.jsx';
+import ItemIndicator from '../anatomy/item-indicator.js';
+import ItemText from '../anatomy/item-text.js';
 import Item from '../anatomy/item.jsx';
-import OptionItem from '../anatomy/option-item.jsx';
 import Positioner from '../anatomy/positioner.jsx';
 import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
@@ -19,14 +21,16 @@ export const Menu = Object.assign(Root, {
 	Context: RootContext,
 	Trigger: Trigger,
 	ContextTrigger: ContextTrigger,
+	Indicator: Indicator,
 	Positioner: Positioner,
 	Content: Content,
-	Arrow: Arrow,
-	ArrowTip: ArrowTip,
-	Item: Item,
-	OptionItem: OptionItem,
-	TriggerItem: TriggerItem,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
+	Item: Item,
+	TriggerItem: TriggerItem,
+	ItemText: ItemText,
+	ItemIndicator: ItemIndicator,
 	Separator: Separator,
+	Arrow: Arrow,
+	ArrowTip: ArrowTip,
 });
