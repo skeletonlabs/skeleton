@@ -11,7 +11,7 @@ export const classesMenu = defineSkeletonClasses({
 	itemGroup: '',
 	itemGroupLabel: '',
 	item: [
-		'btn hover:preset-tonal',
+		'btn cursor-pointer hover:preset-tonal',
 		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50 data-highlighted:preset-tonal',
 	],
 	itemText: '',
