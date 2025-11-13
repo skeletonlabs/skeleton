@@ -1,3 +1,4 @@
+import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
@@ -23,5 +24,7 @@ export default function Item(props: MenuItemProps) {
 		rest,
 	);
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return (
+		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ItemContext.Provider>
+	);
 }

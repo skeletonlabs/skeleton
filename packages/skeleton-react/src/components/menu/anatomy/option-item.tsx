@@ -6,6 +6,7 @@ import { splitOptionItemProps } from '@zag-js/menu';
 import type { OptionItemProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
+import { ItemContext } from '../modules/item-context.js';
 
 export interface MenuOptionItemProps extends OptionItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
@@ -23,5 +24,7 @@ export default function OptionItem(props: MenuOptionItemProps) {
 		rest,
 	);
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return (
+		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ItemContext.Provider>
+	);
 }

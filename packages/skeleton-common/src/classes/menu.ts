@@ -4,6 +4,7 @@ export const classesMenu = defineSkeletonClasses({
 	trigger: '',
 	contextTrigger: '',
 	positioner: '',
+	indicator: '',
 	content: '',
 	arrow: '',
 	arrowTip: '',
@@ -11,6 +12,8 @@ export const classesMenu = defineSkeletonClasses({
 	itemGroupLabel: '',
 	item: '',
 	optionItem: '',
+	itemIndicator: '',
+	itemText: '',
 	triggerItem: '',
 	separator: '',
 });
