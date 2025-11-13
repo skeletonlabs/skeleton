@@ -8,7 +8,9 @@ export default function Default() {
 				<Menu.Positioner>
 					<Menu.Content>
 						<Menu>
-							<Menu.TriggerItem>New</Menu.TriggerItem>
+							<Menu.TriggerItem value="new">
+								<Menu.ItemText>New</Menu.ItemText>
+							</Menu.TriggerItem>
 							<Portal>
 								<Menu.Positioner>
 									<Menu.Content>
