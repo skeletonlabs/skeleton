@@ -1,3 +1,5 @@
+'use client';
+
 import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
