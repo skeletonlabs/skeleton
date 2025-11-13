@@ -21,14 +21,11 @@ export default function Root(props: MenuRootProps) {
 	const menu = useMenu(menuProps);
 
 	useEffect(() => {
-		const timeout = setTimeout(() => {
-			if (!parentMenu) {
-				return;
-			}
-			parentMenu.setChild(menu.service);
-			menu.setParent(parentMenu.service);
-		});
-		return () => clearTimeout(timeout);
+		if (!parentMenu) {
+			return;
+		}
+		parentMenu.setChild(menu.service);
+		menu.setParent(parentMenu.service);
 	}, [parentMenu, menu]);
 
 	return (

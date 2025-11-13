@@ -9,8 +9,6 @@ export function useMenu(props: Omit<Props, 'id'> = {}): Api<PropTypes> & { servi
 	});
 	return {
 		...connect(service, normalizeProps),
-		get service() {
-			return service;
-		},
+		service,
 	};
 }
