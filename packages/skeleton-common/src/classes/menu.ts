@@ -10,8 +10,10 @@ export const classesMenu = defineSkeletonClasses({
 	arrowTip: '',
 	itemGroup: '',
 	itemGroupLabel: '',
-	item: 'btn hover:preset-tonal',
-	triggerItem: 'btn hover:preset-tonal',
+	item: [
+		'btn hover:preset-tonal',
+		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50 data-highlighted:preset-tonal',
+	],
 	itemText: '',
 	itemIndicator: '',
 	separator: 'hr',

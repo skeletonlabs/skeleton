@@ -23,7 +23,7 @@
 		mergeProps(
 			getTriggerItemProps(),
 			{
-				class: classesMenu.triggerItem,
+				class: classesMenu.item,
 			},
 			rest,
 		),

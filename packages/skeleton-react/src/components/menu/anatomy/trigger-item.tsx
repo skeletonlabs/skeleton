@@ -18,7 +18,7 @@ export default function TriggerItem(props: MenuTriggerItemProps) {
 	const attributes = mergeProps(
 		getTriggerItemProps(),
 		{
-			className: classesMenu.triggerItem,
+			className: classesMenu.item,
 		},
 		rest,
 	);
