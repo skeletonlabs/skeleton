@@ -30,7 +30,7 @@ export default function Root(props: MenuRootProps) {
 
 	return (
 		<RootContext.Provider value={menu}>
-			<TriggerItemContext.Provider value={parentMenu.getTriggerItemProps(menu)}>{children}</TriggerItemContext.Provider>
+			<TriggerItemContext.Provider value={parentMenu?.getTriggerItemProps(menu)}>{children}</TriggerItemContext.Provider>
 		</RootContext.Provider>
 	);
 }

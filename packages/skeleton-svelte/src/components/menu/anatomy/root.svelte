@@ -34,7 +34,7 @@
 	});
 
 	RootContext.provide(() => menu());
-	TriggerItemContext.provide(() => parentMenu().getTriggerItemProps(menu()));
+	TriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));
 </script>
 
 {@render children?.()}
