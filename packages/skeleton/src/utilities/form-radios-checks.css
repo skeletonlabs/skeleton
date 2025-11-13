@@ -1,10 +1,18 @@
 /* Components: Forms > Radio / Checkbox */
 
+/*
+	NOTE:
+	`background-color` is used when the Forms plugin is present.
+	`accent-color` is a fallback when the Forms plugin is missing.
+	It's recommended to use the Forms plugin for cross-browser consistency.
+*/
+
 @utility checkbox {
 	--tw-ring-color: var(--color-surface-200-800);
 
 	cursor: pointer;
 	background-color: var(--color-surface-300-700);
+	accent-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);
 	height: --spacing(5);
 	width: --spacing(5);
@@ -21,24 +29,30 @@
 
 	&:checked {
 		background-color: var(--color-primary-500);
+		accent-color: var(--color-primary-500);
 
 		@variant hover {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 		}
 		@variant focus {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 			border: 0;
 		}
 	}
 
 	&:indeterminate {
 		background-color: var(--color-primary-500);
+		accent-color: var(--color-primary-500);
 
 		@variant hover {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 		}
 		@variant focus {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 			border: 0;
 		}
 	}
@@ -49,6 +63,7 @@
 
 	cursor: pointer;
 	background-color: var(--color-surface-300-700);
+	accent-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);
 	height: --spacing(5);
 	width: --spacing(5);
@@ -70,12 +85,15 @@
 
 	&:checked {
 		background-color: var(--color-primary-500);
+		accent-color: var(--color-primary-500);
 
 		@variant hover {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 		}
 		@variant focus {
 			background-color: var(--color-primary-500);
+			accent-color: var(--color-primary-500);
 			border: 0;
 		}
 	}
