@@ -18,7 +18,7 @@
 					<Menu.ItemIndicator data-testid="item-indicator" />
 				</Menu.Item>
 				<Menu>
-					<Menu.TriggerItem data-testid="trigger-item">
+					<Menu.TriggerItem value="trigger-item" data-testid="trigger-item">
 						<Menu.ItemText data-testid="item-text" />
 						<Menu.ItemIndicator data-testid="item-indicator" />
 					</Menu.TriggerItem>
