@@ -3,12 +3,12 @@ import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 export default function GroupedItems() {
 	return (
 		<Menu>
-			<Menu.Trigger className="btn preset-filled">View Options</Menu.Trigger>
+			<Menu.Trigger>View Options</Menu.Trigger>
 			<Portal>
 				<Menu.Positioner>
-					<Menu.Content className="card w-56 p-2 bg-surface-100-900 shadow-xl space-y-1">
+					<Menu.Content>
 						<Menu.ItemGroup>
-							<Menu.ItemGroupLabel className="px-3 py-1 text-sm font-semibold opacity-60">View</Menu.ItemGroupLabel>
+							<Menu.ItemGroupLabel>View</Menu.ItemGroupLabel>
 							<Menu.Item value="split">
 								<Menu.ItemText>Split View</Menu.ItemText>
 							</Menu.Item>
@@ -16,9 +16,9 @@ export default function GroupedItems() {
 								<Menu.ItemText>Fullscreen</Menu.ItemText>
 							</Menu.Item>
 						</Menu.ItemGroup>
-						<Menu.Separator className="hr" />
+						<Menu.Separator />
 						<Menu.ItemGroup>
-							<Menu.ItemGroupLabel className="px-3 py-1 text-sm font-semibold opacity-60">Appearance</Menu.ItemGroupLabel>
+							<Menu.ItemGroupLabel>Appearance</Menu.ItemGroupLabel>
 							<Menu.Item value="theme">
 								<Menu.ItemText>Change Theme</Menu.ItemText>
 							</Menu.Item>
