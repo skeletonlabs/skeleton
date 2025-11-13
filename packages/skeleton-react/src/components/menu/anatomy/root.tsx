@@ -21,11 +21,13 @@ export default function Root(props: MenuRootProps) {
 	const menu = useMenu(menuProps);
 
 	useEffect(() => {
-		if (!parentMenu) {
-			return;
-		}
-		parentMenu.setChild(menu.service);
-		menu.setParent(parentMenu.service);
+		requestAnimationFrame(() => {
+			if (!parentMenu) {
+				return;
+			}
+			parentMenu.setChild(menu.service);
+			menu.setParent(parentMenu.service);
+		});
 	}, [menu, parentMenu]);
 
 	return (
