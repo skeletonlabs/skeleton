@@ -7,19 +7,11 @@ export default function ContextMenu() {
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content className="card w-48 p-2 bg-surface-100-900 shadow-xl space-y-1">
-						<Menu.Item value="cut" className="menu-item">
-							Cut
-						</Menu.Item>
-						<Menu.Item value="copy" className="menu-item">
-							Copy
-						</Menu.Item>
-						<Menu.Item value="paste" className="menu-item">
-							Paste
-						</Menu.Item>
-						<Menu.Separator className="border-t border-surface-300-700 my-1" />
-						<Menu.Item value="delete" className="menu-item text-error-500">
-							Delete
-						</Menu.Item>
+						<Menu.Item value="cut">Cut</Menu.Item>
+						<Menu.Item value="copy">Copy</Menu.Item>
+						<Menu.Item value="paste">Paste</Menu.Item>
+						<Menu.Separator className="hr" />
+						<Menu.Item value="delete">Delete</Menu.Item>
 					</Menu.Content>
 				</Menu.Positioner>
 			</Portal>
