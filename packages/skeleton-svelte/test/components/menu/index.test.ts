@@ -20,7 +20,7 @@ describe('Menu', () => {
 	describe('Indicator', () => {
 		it('renders', () => {
 			render(Test);
-			expect(screen.getAllByTestId('indicator')).toBeInTheDocument();
+			expect(screen.getAllByTestId('indicator')).toHaveLength(2);
 		});
 	});
 
@@ -59,17 +59,24 @@ describe('Menu', () => {
 		});
 	});
 
+	describe('TriggerItem', () => {
+		it('renders', () => {
+			render(Test);
+			expect(screen.getByTestId('trigger-item')).toBeInTheDocument();
+		});
+	});
+
 	describe('ItemText', () => {
 		it('renders', () => {
 			render(Test);
-			expect(screen.getByTestId('item-text')).toBeInTheDocument();
+			expect(screen.getAllByTestId('item-text')).toHaveLength(2);
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', () => {
 			render(Test);
-			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+			expect(screen.getAllByTestId('item-indicator')).toHaveLength(2);
 		});
 	});
 
