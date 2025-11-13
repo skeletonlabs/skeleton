@@ -20,7 +20,7 @@ describe('Menu', () => {
 	describe('Indicator', () => {
 		it('renders', () => {
 			render(Test);
-			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+			expect(screen.getAllByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
