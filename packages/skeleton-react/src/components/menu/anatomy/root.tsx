@@ -5,7 +5,7 @@ import type { HTMLAttributes } from '@/internal/html-attributes.js';
 import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { splitProps } from '@zag-js/menu';
 import type { Props } from '@zag-js/menu';
-import { use, useLayoutEffect } from 'react';
+import { use, useEffect } from 'react';
 
 export interface MenuRootProps
 	extends Omit<Props, 'id'>,
@@ -20,13 +20,16 @@ export default function Root(props: MenuRootProps) {
 
 	const menu = useMenu(menuProps);
 
-	useLayoutEffect(() => {
-		if (!parentMenu) {
-			return;
-		}
-		parentMenu.setChild(menu.service);
-		menu.setParent(parentMenu.service);
-	});
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			if (!parentMenu) {
+				return;
+			}
+			parentMenu.setChild(menu.service);
+			menu.setParent(parentMenu.service);
+		});
+		return () => clearTimeout(timeout);
+	}, [parentMenu, menu]);
 
 	return (
 		<RootContext.Provider value={menu}>
