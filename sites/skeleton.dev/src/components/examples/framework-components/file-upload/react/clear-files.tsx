@@ -7,6 +7,7 @@ export default function ClearFiles() {
 	return (
 		<div className="grid gap-4 w-full">
 			<FileUpload.Provider value={fileUpload}>
+				<FileUpload.Label>Upload your files</FileUpload.Label>
 				<FileUpload.Dropzone>
 					<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 					<FileUpload.HiddenInput />

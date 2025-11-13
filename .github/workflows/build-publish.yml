@@ -32,6 +32,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
+          title: 'chore: release'
           version: pnpm changeset:version
           publish: pnpm changeset:publish
         env:
