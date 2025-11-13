@@ -17,10 +17,12 @@
 					<Menu.ItemText data-testid="item-text" />
 					<Menu.ItemIndicator data-testid="item-indicator" />
 				</Menu.Item>
-				<Menu.TriggerItem data-testid="trigger-item">
-					<Menu.ItemText data-testid="item-text" />
-					<Menu.ItemIndicator data-testid="item-indicator" />
-				</Menu.TriggerItem>
+				<Menu>
+					<Menu.TriggerItem data-testid="trigger-item">
+						<Menu.ItemText data-testid="item-text" />
+						<Menu.ItemIndicator data-testid="item-indicator" />
+					</Menu.TriggerItem>
+				</Menu>
 			</Menu.ItemGroup>
 			<Menu.Separator data-testid="separator" />
 			<Menu.Arrow data-testid="arrow">
