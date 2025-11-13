@@ -71,7 +71,7 @@ catalog:
   '@zag-js/toggle-group': 1.27.1
   '@zag-js/tooltip': 1.27.1
   '@zag-js/tree-view': 1.27.1
-  astro: 5.15.4
+  astro: 5.15.6
   astro-auto-import: 0.4.5
   astro-pagefind: 1.8.5
   astro-seo: 0.8.4
