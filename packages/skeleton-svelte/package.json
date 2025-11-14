@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "4.3.2",
+	"version": "4.3.3",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -9,8 +9,8 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"dev": "svelte-package --input src --output dist --watch",
-		"build": "svelte-package --input src --output dist",
+		"dev": "svelte-package --input src --output dist --preserve-output --watch",
+		"build": "svelte-package --input src --output dist --preserve-output",
 		"test": "vitest run",
 		"check": "svelte-check",
 		"sync": "svelte-kit sync && pnpm build"
