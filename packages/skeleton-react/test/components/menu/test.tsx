@@ -17,6 +17,10 @@ export default function Test() {
 							<Menu.ItemText data-testid="item-text" />
 							<Menu.ItemIndicator data-testid="item-indicator" />
 						</Menu.Item>
+						<Menu.OptionItem value="option-item" data-testid="option-item">
+							<Menu.ItemText data-testid="item-text" />
+							<Menu.ItemIndicator data-testid="item-indicator" />
+						</Menu.OptionItem>
 						<Menu>
 							<Menu.TriggerItem value="trigger-item" data-testid="trigger-item">
 								<Menu.ItemText data-testid="item-text" />

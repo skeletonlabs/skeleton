@@ -8,6 +8,7 @@ import ItemGroup from '../anatomy/item-group.jsx';
 import ItemIndicator from '../anatomy/item-indicator.js';
 import ItemText from '../anatomy/item-text.js';
 import Item from '../anatomy/item.jsx';
+import OptionItem from '../anatomy/option-item.js';
 import Positioner from '../anatomy/positioner.jsx';
 import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
@@ -27,6 +28,7 @@ export const Menu = Object.assign(Root, {
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
 	Item: Item,
+	OptionItem: OptionItem,
 	TriggerItem: TriggerItem,
 	ItemText: ItemText,
 	ItemIndicator: ItemIndicator,

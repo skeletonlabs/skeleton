@@ -5,6 +5,7 @@ export type { MenuContextTriggerProps } from './anatomy/context-trigger.jsx';
 export type { MenuItemProps } from './anatomy/item.jsx';
 export type { MenuItemGroupProps } from './anatomy/item-group.jsx';
 export type { MenuItemGroupLabelProps } from './anatomy/item-group-label.jsx';
+export type { MenuOptionItemProps } from './anatomy/option-item.js';
 export type { MenuItemTextProps } from './anatomy/item-text.jsx';
 export type { MenuItemIndicatorProps } from './anatomy/item-indicator.jsx';
 export type { MenuIndicatorProps } from './anatomy/indicator.jsx';

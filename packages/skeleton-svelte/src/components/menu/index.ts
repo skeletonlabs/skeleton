@@ -9,6 +9,7 @@ export type { MenuItemIndicatorProps } from './anatomy/item-indicator.svelte';
 export type { MenuItemTextProps } from './anatomy/item-text.svelte';
 export type { MenuPositionerProps } from './anatomy/positioner.svelte';
 export type { MenuRootProps } from './anatomy/root.svelte';
+export type { MenuOptionItemProps } from './anatomy/option-item.svelte';
 export type { MenuRootContextProps } from './anatomy/root-context.svelte';
 export type { MenuRootProviderProps } from './anatomy/root-provider.svelte';
 export type { MenuSeparatorProps } from './anatomy/separator.svelte';

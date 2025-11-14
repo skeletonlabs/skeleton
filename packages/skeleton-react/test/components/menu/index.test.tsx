@@ -59,6 +59,13 @@ describe('Menu', () => {
 		});
 	});
 
+	describe('OptionItem', () => {
+		it('renders', () => {
+			render(<Test />);
+			expect(screen.getByTestId('option-item')).toBeInTheDocument();
+		});
+	});
+
 	describe('TriggerItem', () => {
 		it('renders', () => {
 			render(<Test />);
