@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
-		"check": "astro check --noSync",
-		"sync": "astro sync",
+		"check": "astro check",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
 	},
 	"dependencies": {

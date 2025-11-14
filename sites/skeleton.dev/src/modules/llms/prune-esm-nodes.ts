@@ -5,7 +5,6 @@ export function pruneESMNodes(root: Root) {
 	const nodesToRemove = new WeakSet<Node>();
 	visit(root, (node) => {
 		if (node.type === 'mdxjsEsm') {
-			console.log(node);
 			nodesToRemove.add(node);
 		}
 	});
