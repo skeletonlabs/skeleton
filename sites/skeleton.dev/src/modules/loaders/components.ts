@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import * as svelte from 'svelte/compiler';
-import { glob, globSync } from 'tinyglobby';
+import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
 const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
