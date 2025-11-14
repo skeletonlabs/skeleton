@@ -3,7 +3,7 @@
 </script>
 
 <DatePicker>
-	<DatePicker.Label>Label</DatePicker.Label>
+	<DatePicker.Label>Choose Date</DatePicker.Label>
 	<DatePicker.Control>
 		<DatePicker.Input placeholder="mm/dd/yyyy" />
 		<DatePicker.Trigger />

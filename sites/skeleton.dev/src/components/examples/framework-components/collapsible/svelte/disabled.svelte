@@ -3,6 +3,6 @@
 </script>
 
 <Collapsible disabled>
-	<Collapsible.Trigger class="btn preset-filled">Toggle</Collapsible.Trigger>
 	<Collapsible.Content>Hidden!</Collapsible.Content>
+	<Collapsible.Trigger class="btn preset-filled">Toggle</Collapsible.Trigger>
 </Collapsible>

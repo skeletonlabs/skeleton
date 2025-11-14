@@ -6,7 +6,7 @@
 </script>
 
 <DatePicker min={parseDate(`${currentYear}-01-01`)} max={parseDate(`${currentYear}-12-31`)}>
-	<DatePicker.Label>Label</DatePicker.Label>
+	<DatePicker.Label>Choose Date</DatePicker.Label>
 	<DatePicker.Control>
 		<DatePicker.Input placeholder="mm/dd/yyyy" />
 		<DatePicker.Trigger />
