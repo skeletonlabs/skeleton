@@ -8,16 +8,16 @@ import ContextMenuReact from '@/components/examples/framework-components/menu/re
 import ContextMenuReactRaw from '@/components/examples/framework-components/menu/react/context-menu?raw';
 import DefaultReact from '@/components/examples/framework-components/menu/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
-import GroupedItemsReact from '@/components/examples/framework-components/menu/react/grouped-items';
-import GroupedItemsReactRaw from '@/components/examples/framework-components/menu/react/grouped-items?raw';
+import GroupReact from '@/components/examples/framework-components/menu/react/group';
+import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
 import NestedMenuReact from '@/components/examples/framework-components/menu/react/nested-menu';
 import NestedMenuReactRaw from '@/components/examples/framework-components/menu/react/nested-menu?raw';
 import ContextMenuSvelte from '@/components/examples/framework-components/menu/svelte/context-menu.svelte';
 import ContextMenuSvelteRaw from '@/components/examples/framework-components/menu/svelte/context-menu.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
-import GroupedItemsSvelte from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte';
-import GroupedItemsSvelteRaw from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte?raw';
+import GroupSvelte from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte';
+import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/grouped-items.svelte?raw';
 import NestedMenuSvelte from '@/components/examples/framework-components/menu/svelte/nested-menu.svelte';
 import NestedMenuSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested-menu.svelte?raw';
 
@@ -39,13 +39,13 @@ Breaking convention in Skeleton, this component is provided "headless". Meaning 
 Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical sections.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': GroupedItemsReactRaw }} client:visible>
-		<GroupedItemsReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRAw }} client:visible>
+		<GroupReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': GroupedItemsSvelteRaw }} client:visible>
-		<GroupedItemsSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -66,7 +66,7 @@ Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
 
 ## Nested Menu
 
-Use multiple `Menu` components inside a root `Menu` to create nested menus using the `ItemTrigger` component.
+Use the `TriggerItem` component to create nested menus within a parent menu.
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': NestedMenuReactRaw }} client:visible>

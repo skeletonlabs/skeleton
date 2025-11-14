@@ -9,6 +9,7 @@ export default function GroupedItems() {
 					<Menu.Content>
 						<Menu.ItemGroup>
 							<Menu.ItemGroupLabel>View</Menu.ItemGroupLabel>
+							<Menu.Separator />
 							<Menu.Item value="split">
 								<Menu.ItemText>Split View</Menu.ItemText>
 							</Menu.Item>
@@ -19,6 +20,8 @@ export default function GroupedItems() {
 						<Menu.Separator />
 						<Menu.ItemGroup>
 							<Menu.ItemGroupLabel>Appearance</Menu.ItemGroupLabel>
+							<Menu.Separator />
+
 							<Menu.Item value="theme">
 								<Menu.ItemText>Change Theme</Menu.ItemText>
 							</Menu.Item>
