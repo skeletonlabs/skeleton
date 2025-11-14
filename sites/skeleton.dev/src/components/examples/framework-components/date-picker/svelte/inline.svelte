@@ -3,7 +3,7 @@
 </script>
 
 <DatePicker inline>
-	<DatePicker.Label>Label</DatePicker.Label>
+	<DatePicker.Label>Choose Date</DatePicker.Label>
 	<DatePicker.Content>
 		<DatePicker.View view="day">
 			<DatePicker.Context>
