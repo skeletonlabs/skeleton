@@ -31,6 +31,7 @@
 		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@stackblitz/sdk": "catalog:",
+		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/html-escaper": "catalog:",
 		"@types/mdast": "catalog:",

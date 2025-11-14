@@ -1,7 +1,12 @@
 @import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+/* Skeleton */
 @import '@skeletonlabs/skeleton';
 @import '@skeletonlabs/skeleton-svelte';
 @import '@skeletonlabs/skeleton-react';
+
+/* Skeleton Themes */
 @import '@skeletonlabs/skeleton/themes/catppuccin';
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/themes/concord';
@@ -111,4 +116,16 @@ html {
 
 .spin-360 {
 	animation: spin 5s linear infinite; /* Shorthand */
+}
+
+/* Temporary Bugfix */
+/* https://github.com/skeletonlabs/skeleton/issues/3993 */
+/* Remove these bugfix styles in Skeleton v5+ */
+.select,
+.input,
+.textarea,
+.ig-input,
+.ig-select {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
 }
