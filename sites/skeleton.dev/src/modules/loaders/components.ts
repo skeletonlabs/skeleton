@@ -245,16 +245,15 @@ function getComponentPartNameFromPath(path: string): string {
 
 async function getFrameworks() {
 	return (
-		await glob('packages/skeleton-*', {
+		await glob('packages/skeleton-*/src/components', {
 			cwd: MONOREPO_DIRECTORY,
 			onlyDirectories: true,
 		})
-	).map((dir) => dir.split(sep).pop()!.replace('skeleton-', '')) as string[];
+	).map((directory) => directory.split(sep).at(-2)!.replace('skeleton-', ''));
 }
 
 export async function components() {
 	const frameworks = await getFrameworks();
-	console.log({ frameworks });
 	const entries = await Promise.all(
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
