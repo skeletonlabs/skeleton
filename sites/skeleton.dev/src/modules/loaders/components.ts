@@ -119,7 +119,7 @@ class Parser {
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'tsconfig.json'),
 		});
-		this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components/*/anatomy/*.d.{mts,ts}'));
+		// this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components/*/anatomy/*.ts'));
 	}
 
 	public getSourceFile(path: string): SourceFile {
@@ -137,11 +137,6 @@ function capitalize(str: string) {
 
 function kebabToPascal(str: string) {
 	return str.split('-').map(capitalize).join('');
-}
-
-function kebabToCamel(str: string) {
-	const pascal = kebabToPascal(str);
-	return pascal.charAt(0).toLowerCase() + pascal.slice(1);
 }
 
 const ROOT_PARTS = ['Context', 'Provider'];
@@ -172,19 +167,47 @@ async function getPartOrderFromAnatomy(framework: string, component: string) {
 }
 
 async function getClassValue(component: string, part: string) {
-	try {
-		const path = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'dist', 'classes', `${component}.mjs`)).href;
-		// oxlint-disable-next-line no-eval hack to get around Vite import analysis
-		const module = await eval(`import(${JSON.stringify(path)})`);
-		const value = module[`classes${kebabToPascal(component)}`][kebabToCamel(part)];
-		if (!value || typeof value !== 'string') {
-			return;
-		}
-		return value
-			.split(' ')
-			.map((str) => str.replace('skb:', ''))
-			.join(' ');
-	} catch {}
+	const filePath = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'src', 'classes', `${component}.ts`)).href;
+
+	const project = new tsMorph.Project({
+		useInMemoryFileSystem: false,
+		skipAddingFilesFromTsConfig: true,
+	});
+
+	const sourceFile = project.addSourceFileAtPath(filePath);
+
+	const variableDeclaration = sourceFile.getVariableDeclarations().find((declaration) => declaration.getName().startsWith('classes'));
+
+	if (!variableDeclaration) {
+		throw new Error('Could not find classes export');
+	}
+
+	const initializerCallExpression = variableDeclaration.getInitializerIfKind(tsMorph.SyntaxKind.CallExpression);
+
+	if (!initializerCallExpression) {
+		throw new Error('Initializer is not a call expression');
+	}
+
+	const argument = initializerCallExpression.getArguments()[0];
+
+	if (!argument || !argument.isKind(tsMorph.SyntaxKind.ObjectLiteralExpression)) {
+		throw new Error('Expected object literal as first argument');
+	}
+
+	const propertyAssignment = argument.getPropertyOrThrow(kebabToPascal(part)).asKindOrThrow(tsMorph.SyntaxKind.PropertyAssignment);
+
+	const initializer = propertyAssignment.getInitializerOrThrow();
+
+	if (initializer.isKind(tsMorph.SyntaxKind.StringLiteral)) {
+		return initializer.getLiteralText();
+	}
+
+	if (initializer.isKind(tsMorph.SyntaxKind.ArrayLiteralExpression)) {
+		const values = initializer.getElements().map((element) => element.getText().replace(/['"`]/g, ''));
+		return values.join(' ');
+	}
+
+	throw new Error('Part is not a string literal or array');
 }
 
 function getComponentPartNameFromPath(path: string): string {
@@ -218,8 +241,8 @@ export const components = async () => {
 						};
 					}
 					try {
-						const paths = await glob(`**/anatomy/*.d.{mts,ts}`, {
-							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'dist', 'components', component),
+						const paths = await glob(`**/anatomy/*.ts`, {
+							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components', component),
 							absolute: true,
 						});
 						if (!paths.length) {
