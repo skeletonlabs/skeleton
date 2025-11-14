@@ -1,4 +1,5 @@
 import { Menu, Portal } from '@skeletonlabs/skeleton-react';
+import { ChevronRightIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
@@ -10,6 +11,9 @@ export default function Default() {
 						<Menu>
 							<Menu.TriggerItem value="new">
 								<Menu.ItemText>New</Menu.ItemText>
+								<Menu.ItemIndicator>
+									<ChevronRightIcon className="size-4" />
+								</Menu.ItemIndicator>
 							</Menu.TriggerItem>
 							<Portal>
 								<Menu.Positioner>

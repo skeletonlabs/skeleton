@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { ChevronRightIcon } from '@lucide/svelte';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
@@ -10,6 +11,9 @@
 				<Menu>
 					<Menu.TriggerItem value="new">
 						<Menu.ItemText>New</Menu.ItemText>
+						<Menu.ItemIndicator>
+							<ChevronRightIcon class="size-4" />
+						</Menu.ItemIndicator>
 					</Menu.TriggerItem>
 					<Portal>
 						<Menu.Positioner>
