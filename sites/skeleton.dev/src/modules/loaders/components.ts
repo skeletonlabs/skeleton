@@ -254,6 +254,7 @@ async function getFrameworks() {
 
 export async function components() {
 	const frameworks = await getFrameworks();
+	console.log({ frameworks });
 	const entries = await Promise.all(
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
