@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
-	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	const skeletonTools = [
 		{
@@ -22,29 +22,33 @@
 </script>
 
 {#snippet links(links: typeof skeletonTools | typeof communityTools)}
-	<div class="grid grid-cols-1 gap-2">
-		{#each links as link (link)}
-			<a href={link.href} target="_blank" rel="noopener noreferrer" class="btn justify-between hover:preset-tonal">
-				<span>{link.title}</span>
-				<ArrowUpRightIcon class="size-4" />
-			</a>
-		{/each}
-	</div>
+	{#each links as link (link)}
+		<Menu.Item value={link.title}>
+			{#snippet element(attributes: Record<string, unknown>)}
+				<a {...attributes} href={link.href} target="_blank" rel="noopener noreferrer">
+					<Menu.ItemText>{link.title}</Menu.ItemText>
+					<ArrowUpRightIcon class="size-4" />
+				</a>
+			{/snippet}
+		</Menu.Item>
+	{/each}
 {/snippet}
 
-<Popover>
-	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal">
+<Menu class="hidden xl:block" positioning={{ placement: 'bottom-start' }}>
+	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal">
 		<span>More</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
-	</Popover.Trigger>
+	</Menu.Trigger>
 	<Portal>
-		<Popover.Positioner class="z-51!">
-			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 shadow-xl">
+		<Menu.Positioner>
+			<Menu.Content class="z-50">
 				{@render links(skeletonTools)}
-				<hr class="hr" />
-				<p class="text-xs ml-4 opacity-60">Community Tools</p>
-				{@render links(communityTools)}
-			</Popover.Content>
-		</Popover.Positioner>
+				<Menu.Separator />
+				<Menu.ItemGroup>
+					<Menu.ItemGroupLabel>Community Tools</Menu.ItemGroupLabel>
+					{@render links(communityTools)}
+				</Menu.ItemGroup>
+			</Menu.Content>
+		</Menu.Positioner>
 	</Portal>
-</Popover>
+</Menu>
