@@ -4,22 +4,22 @@ description: Accessible dropdown and context menus for actions and navigation.
 stability: beta
 ---
 
-import ContextMenuReact from '@/components/examples/framework-components/menu/react/context-menu';
-import ContextMenuReactRaw from '@/components/examples/framework-components/menu/react/context-menu?raw';
+import ContextReact from '@/components/examples/framework-components/menu/react/context';
+import ContextReactRaw from '@/components/examples/framework-components/menu/react/context?raw';
 import DefaultReact from '@/components/examples/framework-components/menu/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
 import GroupReact from '@/components/examples/framework-components/menu/react/group';
 import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
-import NestedMenuReact from '@/components/examples/framework-components/menu/react/nested-menu';
-import NestedMenuReactRaw from '@/components/examples/framework-components/menu/react/nested-menu?raw';
-import ContextMenuSvelte from '@/components/examples/framework-components/menu/svelte/context-menu.svelte';
-import ContextMenuSvelteRaw from '@/components/examples/framework-components/menu/svelte/context-menu.svelte?raw';
+import NestedReact from '@/components/examples/framework-components/menu/react/nested';
+import NestedReactRaw from '@/components/examples/framework-components/menu/react/nested?raw';
+import ContextSvelte from '@/components/examples/framework-components/menu/svelte/context.svelte';
+import ContextSvelteRaw from '@/components/examples/framework-components/menu/svelte/context.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
 import GroupSvelte from '@/components/examples/framework-components/menu/svelte/group.svelte';
 import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/group.svelte?raw';
-import NestedMenuSvelte from '@/components/examples/framework-components/menu/svelte/nested-menu.svelte';
-import NestedMenuSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested-menu.svelte?raw';
+import NestedSvelte from '@/components/examples/framework-components/menu/svelte/nested.svelte';
+import NestedSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -54,13 +54,13 @@ Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical section
 Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ContextMenuReactRaw }} client:visible>
-		<ContextMenuReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': ContextReactRaw }} client:visible>
+		<ContextReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ContextMenuSvelteRaw }} client:visible>
-		<ContextMenuSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': ContextSvelteRaw }} client:visible>
+		<ContextSvelte client:visible />
 	</Preview>
 </Framework>
 
@@ -69,13 +69,13 @@ Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
 Use the `TriggerItem` component to create nested menus within a parent menu.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': NestedMenuReactRaw }} client:visible>
-		<NestedMenuReact client:visible />
+	<Preview framework="react" files={{ 'app.tsx': NestedReactRaw }} client:visible>
+		<NestedReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': NestedMenuSvelteRaw }} client:visible>
-		<NestedMenuSvelte client:visible />
+	<Preview framework="svelte" files={{ 'app.svelte': NestedSvelteRaw }} client:visible>
+		<NestedSvelte client:visible />
 	</Preview>
 </Framework>
 
