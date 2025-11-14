@@ -27,7 +27,7 @@
 			{#snippet element(attributes: Record<string, unknown>)}
 				<a {...attributes} href={link.href} target="_blank" rel="noopener noreferrer">
 					<Menu.ItemText>{link.title}</Menu.ItemText>
-					<ArrowUpRightIcon class="size-4" />
+					<ArrowUpRightIcon class="size-4 opacity-60" />
 				</a>
 			{/snippet}
 		</Menu.Item>

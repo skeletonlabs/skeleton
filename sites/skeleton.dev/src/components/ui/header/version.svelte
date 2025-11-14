@@ -21,7 +21,7 @@
 							{#snippet element(attributes: Record<string, unknown>)}
 								<a {...attributes} href={`https://${version}.skeleton.dev`} target="_blank" rel="noopener noreferrer">
 									<Menu.ItemText>{version} Docs</Menu.ItemText>
-									<ArrowUpRightIcon class="size-4" />
+									<ArrowUpRightIcon class="size-4 opacity-60" />
 								</a>
 							{/snippet}
 						</Menu.Item>
