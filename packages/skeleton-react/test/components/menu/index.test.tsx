@@ -76,14 +76,14 @@ describe('Menu', () => {
 	describe('ItemText', () => {
 		it('renders', () => {
 			render(<Test />);
-			expect(screen.getAllByTestId('item-text')).toHaveLength(2);
+			expect(screen.getAllByTestId('item-text')).toHaveLength(3);
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', () => {
 			render(<Test />);
-			expect(screen.getAllByTestId('item-indicator')).toHaveLength(2);
+			expect(screen.getAllByTestId('item-indicator')).toHaveLength(3);
 		});
 	});
 
