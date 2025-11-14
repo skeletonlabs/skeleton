@@ -1,6 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { extname, join, sep } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { extname, join } from 'node:path';
 import * as svelte from 'svelte/compiler';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
@@ -130,7 +129,7 @@ class Parser {
 					modern: true,
 				});
 				return new SourceFile(
-					this.project.createSourceFile(path.replace('.svelte', '.ts'), content.slice(ast.instance?.start ?? 0, ast.instance?.end ?? 0)),
+					this.project.createSourceFile(path.replace('.svelte', '.ts'), content.slice(ast.module?.start ?? 0, ast.module?.end ?? 0)),
 				);
 			case '.tsx':
 				return new SourceFile(this.project.addSourceFileAtPath(path));
@@ -147,128 +146,149 @@ function kebabToPascal(str: string) {
 	return str.split('-').map(capitalize).join('');
 }
 
-// const ROOT_PARTS = ['Context', 'Provider'];
+function kebabToCamel(str: string) {
+	const pascal = kebabToPascal(str);
+	return pascal.charAt(0).toLowerCase() + pascal.slice(1);
+}
 
-// async function getPartOrderFromAnatomy(framework: string, component: string) {
-// 	const project = new tsMorph.Project({ useInMemoryFileSystem: true });
-// 	const sourceFile = project.createSourceFile(
-// 		`anatomy.ts`,
-// 		await readFile(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components', component, 'modules', `anatomy.ts`), 'utf-8'),
-// 	);
-// 	const order = [`${kebabToPascal(component)}Root`];
-// 	const anatomy = sourceFile.getFirstDescendantByKind(tsMorph.SyntaxKind.ObjectLiteralExpression);
-// 	if (anatomy) {
-// 		order.push(
-// 			...anatomy
-// 				.getProperties()
-// 				.filter(tsMorph.Node.isPropertyAssignment)
-// 				.map((p) => {
-// 					const name = p.getName();
-// 					if (ROOT_PARTS.includes(name)) {
-// 						return `${kebabToPascal(component)}Root${name}`;
-// 					}
-// 					return `${kebabToPascal(component)}${name}`;
-// 				}),
-// 		);
-// 	}
-// 	return order;
-// }
+const ROOT_PARTS = ['Context', 'Provider'];
 
-async function getClassValue(component: string, part: string) {
-	const filePath = pathToFileURL(join(PACKAGE_DIRECTORY('skeleton-common'), 'src', 'classes', `${component}.ts`)).href;
+async function getPartOrder(frameworkName: string, componentName: string) {
+	const project = new tsMorph.Project({
+		useInMemoryFileSystem: true,
+		skipAddingFilesFromTsConfig: true,
+	});
+	const sourceFile = project.createSourceFile(
+		`anatomy.ts`,
+		readFileSync(
+			join(PACKAGE_DIRECTORY(`skeleton-${frameworkName}`), 'src', 'components', componentName, 'modules', `anatomy.ts`),
+			'utf-8',
+		),
+	);
+	const order = [`${kebabToPascal(componentName)}Root`];
+	const anatomy = sourceFile.getFirstDescendantByKind(tsMorph.SyntaxKind.ObjectLiteralExpression);
+	if (anatomy) {
+		order.push(
+			...anatomy
+				.getProperties()
+				.filter(tsMorph.Node.isPropertyAssignment)
+				.map((p) => {
+					const name = p.getName();
+					if (ROOT_PARTS.includes(name)) {
+						return `${kebabToPascal(componentName)}Root${name}`;
+					}
+					return `${kebabToPascal(componentName)}${name}`;
+				}),
+		);
+	}
+	return order;
+}
 
+async function getClassValue(componentName: string, partName: string) {
+	const filePath = join(PACKAGE_DIRECTORY('skeleton-common'), 'src', 'classes', `${componentName}.ts`);
 	const project = new tsMorph.Project({
 		useInMemoryFileSystem: false,
 		skipAddingFilesFromTsConfig: true,
 	});
-
-	const sourceFile = project.addSourceFileAtPath(filePath);
-
+	const sourceFile = project.addSourceFileAtPathIfExists(filePath);
+	if (!sourceFile) {
+		return;
+	}
 	const variableDeclaration = sourceFile.getVariableDeclarations().find((declaration) => declaration.getName().startsWith('classes'));
-
 	if (!variableDeclaration) {
 		throw new Error('Could not find classes export');
 	}
-
 	const initializerCallExpression = variableDeclaration.getInitializerIfKind(tsMorph.SyntaxKind.CallExpression);
-
 	if (!initializerCallExpression) {
 		throw new Error('Initializer is not a call expression');
 	}
-
 	const argument = initializerCallExpression.getArguments()[0];
-
 	if (!argument || !argument.isKind(tsMorph.SyntaxKind.ObjectLiteralExpression)) {
 		throw new Error('Expected object literal as first argument');
 	}
-
-	const propertyAssignment = argument.getPropertyOrThrow(kebabToPascal(part)).asKindOrThrow(tsMorph.SyntaxKind.PropertyAssignment);
-
+	const propertyAssignment = argument.getProperty(kebabToCamel(partName))?.asKind(tsMorph.SyntaxKind.PropertyAssignment);
+	if (!propertyAssignment) {
+		return;
+	}
 	const initializer = propertyAssignment.getInitializerOrThrow();
-
 	if (initializer.isKind(tsMorph.SyntaxKind.StringLiteral)) {
 		return initializer.getLiteralText();
 	}
-
 	if (initializer.isKind(tsMorph.SyntaxKind.ArrayLiteralExpression)) {
 		const values = initializer.getElements().map((element) => element.getText().replace(/['"`]/g, ''));
 		return values.join(' ');
 	}
-
 	throw new Error('Part is not a string literal or array');
 }
 
-export async function components() {
-	const components = [];
+async function processFramework(frameworkName: string) {
+	const path = PACKAGE_DIRECTORY(`skeleton-${frameworkName}`);
+	const parser = new Parser(join(path, 'tsconfig.json'));
+	const componentPaths = await glob('src/components/*', {
+		cwd: path,
+		onlyDirectories: true,
+		absolute: true,
+	});
+	const components = await Promise.all(componentPaths.map((componentPath) => processComponent(frameworkName, componentPath, parser)));
+	return components.filter(Boolean);
+}
 
-	const frameworks = ['svelte', 'react'] as const;
-
-	for (const frameworkPath of frameworks.map((framework) => PACKAGE_DIRECTORY(`skeleton-${framework}`))) {
-		const parser = new Parser(join(frameworkPath, 'tsconfig.json'));
-		const componentPaths = await glob('src/components/*', {
-			cwd: frameworkPath,
-			onlyDirectories: true,
-			absolute: true,
-		});
-		for (const componentPath of componentPaths) {
-			const componentName = componentPath.split(sep).pop();
-
-			if (!componentName) {
-				continue;
-			}
-
-			const partPaths = await glob('/anatomy/*.{svelte,tsx}', {
-				cwd: componentPath,
-				absolute: true,
-			});
-
-			const types = [];
-
-			for (const partPath of partPaths) {
-				const partName = partPath.split(sep).pop()?.replace(extname(partPath), '');
-
-				if (!partName) {
-					continue;
-				}
-
-				const sourceFile = parser.createSourceFile(partPath);
-				const _interface = sourceFile.getInterface(`${kebabToPascal(componentName)}${kebabToPascal(partName)}Props`);
-				const classValue = await getClassValue(componentName, partName);
-				types.push({
-					name: _interface.name,
-					props: _interface.props,
-					metadata: {
-						classValue,
-					},
-				});
-			}
-
-			components.push({
-				id: `${frameworkPath.split(sep).pop()?.replace('skeleton-', '')}/${componentName}`,
-				name: componentName,
-				types,
-			});
-		}
+async function processComponent(frameworkName: string, componentPath: string, parser: Parser) {
+	const componentName = componentPath.split('/').filter(Boolean).pop();
+	if (!componentName) {
+		return;
 	}
-	return components;
+	if (!['preview', 'production'].includes(process.env.VERCEL_ENV ?? '')) {
+		return {
+			id: `${frameworkName}/${componentName}`,
+			name: componentName,
+			types: [],
+		};
+	}
+	const partPaths = await glob(`${componentPath}/anatomy/*.{svelte,tsx}`, {
+		absolute: true,
+	});
+	const types = (await Promise.all(partPaths.map((p) => processPart(componentName, p, parser)))).filter(Boolean) as Array<{
+		name: string;
+		props: unknown;
+		metadata: unknown;
+	}>;
+	const partOrder = await getPartOrder(frameworkName, componentName);
+	types.sort((a, b) => {
+		const aName = a.name.replace(/Props$/, '');
+		const bName = b.name.replace(/Props$/, '');
+		return partOrder.indexOf(aName) - partOrder.indexOf(bName);
+	});
+	return {
+		id: `${frameworkName}/${componentName}`,
+		name: componentName,
+		types,
+	};
+}
+
+async function processPart(componentName: string, partPath: string, parser: Parser) {
+	const partName = partPath.split('/').pop()?.replace(extname(partPath), '');
+	if (!partName) {
+		return;
+	}
+	const sourceFile = parser.createSourceFile(partPath);
+	const typeName = `${kebabToPascal(componentName)}${kebabToPascal(partName)}Props`;
+	const iface = sourceFile.getInterface(typeName);
+	if (!iface) {
+		return;
+	}
+	const classValue = await getClassValue(componentName, partName);
+	return {
+		name: iface.name,
+		props: iface.props,
+		metadata: {
+			classValue,
+		},
+	};
+}
+
+export async function components() {
+	const frameworks = ['svelte', 'react'] as const;
+	const results = await Promise.all(frameworks.map(async (framework) => processFramework(framework)));
+	return results.flat();
 }
