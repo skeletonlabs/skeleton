@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.3.4
+
+### Patch Changes
+
+- task: Finalize styling for Collapsible, Data Picker, and Listbox ([#4102](https://github.com/skeletonlabs/skeleton/pull/4102))
+
 ## 4.3.3
 
 ### Patch Changes
