@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev --host",
+		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check --noSync",
 		"sync": "astro sync",
