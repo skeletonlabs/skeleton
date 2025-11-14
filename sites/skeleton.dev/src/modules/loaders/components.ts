@@ -1,7 +1,9 @@
+import { readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { extname, join, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { glob } from 'tinyglobby';
+import * as svelte from 'svelte/compiler';
+import { glob, globSync } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
 const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
@@ -119,7 +121,29 @@ class Parser {
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'tsconfig.json'),
 		});
-		// this.project.addSourceFilesAtPaths(join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components/*/anatomy/*.ts'));
+		const filePaths = globSync('src/components/*/anatomy/*.{svelte,tsx}', {
+			cwd: PACKAGE_DIRECTORY(`skeleton-${framework}`),
+			absolute: true,
+		});
+
+		for (const filePath of filePaths) {
+			switch (extname(filePath)) {
+				case '.svelte':
+					const content = readFileSync(filePath, 'utf-8');
+					const ast = svelte.parse(content, {
+						modern: true,
+					});
+					this.project.createSourceFile(
+						filePath.replace('.svelte', '.ts'),
+						content.slice(ast.instance?.start ?? 0, ast.instance?.end ?? 0),
+					);
+					break;
+				case '.tsx':
+				case '.ts':
+					this.project.addSourceFileAtPathIfExists(filePath);
+					break;
+			}
+		}
 	}
 
 	public getSourceFile(path: string): SourceFile {
@@ -219,9 +243,17 @@ function getComponentPartNameFromPath(path: string): string {
 	return componentPart;
 }
 
-export const components = async () => {
-	const frameworks = ['svelte', 'react'] as const;
+async function getFrameworks() {
+	return (
+		await glob('packages/skeleton-*', {
+			cwd: MONOREPO_DIRECTORY,
+			onlyDirectories: true,
+		})
+	).map((dir) => dir.split(sep).pop()!.replace('skeleton-', '')) as string[];
+}
 
+export async function components() {
+	const frameworks = await getFrameworks();
 	const entries = await Promise.all(
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
@@ -289,4 +321,4 @@ export const components = async () => {
 	);
 
 	return entries.flat();
-};
+}
