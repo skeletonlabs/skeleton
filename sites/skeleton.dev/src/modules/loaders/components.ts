@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { extname, join, sep } from 'node:path';
+import { extname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import * as svelte from 'svelte/compiler';
 import { glob, globSync } from 'tinyglobby';
@@ -121,37 +121,22 @@ class Parser {
 			skipAddingFilesFromTsConfig: true,
 			tsConfigFilePath: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'tsconfig.json'),
 		});
-		const filePaths = globSync('src/components/*/anatomy/*.{svelte,tsx}', {
-			cwd: PACKAGE_DIRECTORY(`skeleton-${framework}`),
-			absolute: true,
-		});
-
-		for (const filePath of filePaths) {
-			switch (extname(filePath)) {
-				case '.svelte':
-					const content = readFileSync(filePath, 'utf-8');
-					const ast = svelte.parse(content, {
-						modern: true,
-					});
-					this.project.createSourceFile(
-						filePath.replace('.svelte', '.ts'),
-						content.slice(ast.instance?.start ?? 0, ast.instance?.end ?? 0),
-					);
-					break;
-				case '.tsx':
-				case '.ts':
-					this.project.addSourceFileAtPathIfExists(filePath);
-					break;
-			}
-		}
 	}
 
-	public getSourceFile(path: string): SourceFile {
-		const sourceFile = this.project.getSourceFile(path);
-		if (!sourceFile) {
-			throw new Error(`Source file not found: ${path}`);
+	public createSourceFile(path: string): SourceFile {
+		switch (extname(path)) {
+			case '.svelte':
+				const content = readFileSync(path, 'utf-8');
+				const ast = svelte.parse(content, {
+					modern: true,
+				});
+				return new SourceFile(
+					this.project.createSourceFile(path.replace('.svelte', '.ts'), content.slice(ast.instance?.start ?? 0, ast.instance?.end ?? 0)),
+				);
+			case '.tsx':
+				return new SourceFile(this.project.addSourceFileAtPath(path));
 		}
-		return new SourceFile(sourceFile);
+		throw new Error(`Unsupported file extension: ${extname(path)}`);
 	}
 }
 
@@ -264,7 +249,7 @@ export async function components() {
 						};
 					}
 					try {
-						const paths = await glob(`**/anatomy/*.ts`, {
+						const paths = await glob(`**/anatomy/*.{svelte,tsx}`, {
 							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components', component),
 							absolute: true,
 						});
@@ -277,7 +262,7 @@ export async function components() {
 						const types = (
 							await Promise.all(
 								paths.map(async (part) => {
-									const sourceFile = parser.getSourceFile(part);
+									const sourceFile = parser.createSourceFile(part);
 									const componentPartName = getComponentPartNameFromPath(part);
 									const _interface = sourceFile.getInterface(`${kebabToPascal(component)}${kebabToPascal(componentPartName)}Props`);
 									const classValue = await getClassValue(component, componentPartName);
