@@ -17,7 +17,7 @@
 					<Menu.ItemText data-testid="item-text" />
 					<Menu.ItemIndicator data-testid="item-indicator" />
 				</Menu.Item>
-				<Menu.OptionItem value="option-item" data-testid="option-item">
+				<Menu.OptionItem value="option-item" data-testid="option-item" type="checkbox" checked={false}>
 					<Menu.ItemText data-testid="item-text" />
 					<Menu.ItemIndicator data-testid="item-indicator" />
 				</Menu.OptionItem>
