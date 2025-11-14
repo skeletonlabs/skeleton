@@ -249,8 +249,8 @@ export async function components() {
 						};
 					}
 					try {
-						const paths = await glob(`**/anatomy/*.{svelte,tsx}`, {
-							cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`), 'src', 'components', component),
+						const paths = await glob(`src/components/*/anatomy/*.{svelte,tsx}`, {
+							cwd: PACKAGE_DIRECTORY(`skeleton-${framework}`),
 							absolute: true,
 						});
 						if (!paths.length) {
