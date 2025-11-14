@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.3.3
+
+### Patch Changes
+
+- bugfix: add missing DatePicker.PresetTrigger styles ([#4093](https://github.com/skeletonlabs/skeleton/pull/4093))
+
 ## 4.3.2
 
 ### Patch Changes

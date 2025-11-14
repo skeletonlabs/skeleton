@@ -8,7 +8,9 @@ interface Props {
 
 const { id } = Astro.props;
 
-const component = await getEntry('components', id);
+const componentShouldLoad = ['preview', 'production'].includes(process.env.VERCEL_ENV ?? '');
+
+const component = componentShouldLoad && (await getEntry('components', id));
 
 function kebabToPascal(str: string) {
 	return str
@@ -17,7 +19,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (!component && process.env.VERCEL_ENV === 'production') {
+if (componentShouldLoad && !component) {
 	throw new Error(`Unable to load component information for ${id}`);
 }
 ---
