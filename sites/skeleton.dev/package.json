@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
+		"dev": "astro dev --noSync",
+		"build": "astro build --noSync",
 		"check": "astro check --noSync",
 		"sync": "astro sync",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
