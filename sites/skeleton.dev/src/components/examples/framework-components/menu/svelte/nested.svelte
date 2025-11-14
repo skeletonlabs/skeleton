@@ -4,7 +4,7 @@
 </script>
 
 <Menu>
-	<Menu.Trigger>Open Menu</Menu.Trigger>
+	<Menu.Trigger class="btn preset-filled">Open Menu</Menu.Trigger>
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content>

@@ -3,7 +3,7 @@ import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 export default function GroupedItems() {
 	return (
 		<Menu>
-			<Menu.Trigger>View Options</Menu.Trigger>
+			<Menu.Trigger className="btn preset-filled">View Options</Menu.Trigger>
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content>

@@ -3,7 +3,7 @@
 </script>
 
 <Menu>
-	<Menu.Trigger>View Options</Menu.Trigger>
+	<Menu.Trigger class="btn preset-filled">View Options</Menu.Trigger>
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content>

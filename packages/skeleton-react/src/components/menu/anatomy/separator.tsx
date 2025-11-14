@@ -5,12 +5,12 @@ import { classesMenu } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface MenuSeparatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuSeparatorProps extends PropsWithElement<'hr'>, HTMLAttributes<'hr', 'id' | 'dir' | 'children'> {}
 
 export default function Separator(props: MenuSeparatorProps) {
 	const menu = use(RootContext);
 
-	const { element, children, ...rest } = props;
+	const { element, ...rest } = props;
 
 	const attributes = mergeProps(
 		menu.getSeparatorProps(),
@@ -20,5 +20,5 @@ export default function Separator(props: MenuSeparatorProps) {
 		rest,
 	);
 
-	return element ? element(attributes) : <div {...attributes}>{children}</div>;
+	return element ? element(attributes) : <hr {...attributes} />;
 }

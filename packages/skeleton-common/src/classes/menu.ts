@@ -5,7 +5,7 @@ export const classesMenu = defineSkeletonClasses({
 	contextTrigger: '',
 	positioner: '',
 	indicator: '',
-	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 flex flex-col gap-2',
+	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 flex flex-col items-stretch gap-2 shadow-lg min-w-48',
 	arrow: '',
 	arrowTip: '',
 	itemGroup: '',

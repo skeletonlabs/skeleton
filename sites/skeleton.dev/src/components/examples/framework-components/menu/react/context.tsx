@@ -3,9 +3,7 @@ import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 export default function ContextMenu() {
 	return (
 		<Menu>
-			<Menu.ContextTrigger className="card bg-surface-200-800 border-dashed border-surface-950-50 p-8">
-				Right-click here
-			</Menu.ContextTrigger>
+			<Menu.ContextTrigger className="card border border-dashed border-surface-200-800 p-8">Right-click here</Menu.ContextTrigger>
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content>
