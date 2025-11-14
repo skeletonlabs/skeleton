@@ -53,6 +53,21 @@ Then implement in your global stylesheet using the the `@plugin` directive.
 /* ...Skeleton config here... */
 ```
 
+### Windows Bugfix
+
+To avoid a [breaking style issue in Windows-based browsers](https://github.com/skeletonlabs/skeleton/issues/3993), it's recommended you include this temporary fix into your global stylesheet. Please note this change will be automatically and permanently applied for you in Skeleton v5+.
+
+```css
+.select,
+.input,
+.textarea,
+.ig-input,
+.ig-select {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+}
+```
+
 ### Browser Support
 
 The quality and appearance of native and semantic HTML form elements can vary between both operating systems and browser vendors. Skeleton does its best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
