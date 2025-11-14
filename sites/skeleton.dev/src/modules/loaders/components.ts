@@ -243,22 +243,13 @@ function getComponentPartNameFromPath(path: string): string {
 	return componentPart;
 }
 
-async function getFrameworks() {
-	return (
-		await glob('packages/skeleton-*/src/components', {
-			cwd: MONOREPO_DIRECTORY,
-			onlyDirectories: true,
-		})
-	).map((directory) => directory.split(sep).at(-2)!.replace('skeleton-', ''));
-}
-
 export async function components() {
-	const frameworks = await getFrameworks();
+	const frameworks = ['svelte', 'react'] as const;
 	const entries = await Promise.all(
 		frameworks.map(async (framework) => {
 			const parser = new Parser(framework);
 
-			const anatomyPaths = await glob('src/components/*/modules/anatomy.{mts,ts}', {
+			const anatomyPaths = await glob('src/components/*/modules/anatomy.ts', {
 				cwd: join(PACKAGE_DIRECTORY(`skeleton-${framework}`)),
 			});
 			const components = anatomyPaths.map((p) => p.split('/')[2]);
