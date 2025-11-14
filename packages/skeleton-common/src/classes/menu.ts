@@ -9,7 +9,7 @@ export const classesMenu = defineSkeletonClasses({
 	arrow: '',
 	arrowTip: '',
 	itemGroup: '',
-	itemGroupLabel: 'label-text',
+	itemGroupLabel: 'text-surface-600-400 text-xs px-2 py-1',
 	item: ['flex justify-between items-center px-2 py-1 rounded cursor-pointer', 'data-highlighted:preset-tonal'],
 	itemText: '',
 	itemIndicator: '',
