@@ -11,6 +11,7 @@
 	import { RootContext } from '../modules/root-context.js';
 	import { TriggerItemContext } from '../modules/trigger-item-context.js';
 	import { splitProps } from '@zag-js/menu';
+	import { untrack } from 'svelte';
 
 	const props: MenuRootProps = $props();
 
@@ -25,13 +26,15 @@
 		id: id,
 	}));
 
-	$effect(() => {
-		if (!parentMenu) {
-			return;
-		}
-		menu().setParent(parentMenu().service);
-		parentMenu().setChild(menu().service);
-	});
+	$effect(() =>
+		untrack(() => {
+			if (!parentMenu) {
+				return;
+			}
+			menu().setParent(parentMenu().service);
+			parentMenu().setChild(menu().service);
+		}),
+	);
 
 	RootContext.provide(() => menu());
 	TriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));

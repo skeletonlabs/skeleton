@@ -26,7 +26,8 @@ export default function Root(props: MenuRootProps) {
 		}
 		parentMenu.setChild(menu.service);
 		menu.setParent(parentMenu.service);
-	}, [parentMenu, menu]);
+		// oxlint-disable-next-line exhaustive-deps
+	}, []);
 
 	return (
 		<RootContext.Provider value={menu}>
