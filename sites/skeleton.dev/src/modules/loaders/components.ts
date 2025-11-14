@@ -1,3 +1,4 @@
+import type { Loader, LoaderContext } from 'astro/loaders';
 import { readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 import * as svelte from 'svelte/compiler';
@@ -221,7 +222,7 @@ async function getClassValue(componentName: string, partName: string) {
 	throw new Error('Part is not a string literal or array');
 }
 
-async function processFramework(frameworkName: string) {
+async function processFramework(context: LoaderContext, frameworkName: string) {
 	const path = PACKAGE_DIRECTORY(`skeleton-${frameworkName}`);
 	const parser = new Parser(join(path, 'tsconfig.json'));
 	const componentPaths = await glob('src/components/*', {
@@ -229,11 +230,10 @@ async function processFramework(frameworkName: string) {
 		onlyDirectories: true,
 		absolute: true,
 	});
-	const components = await Promise.all(componentPaths.map((componentPath) => processComponent(frameworkName, componentPath, parser)));
-	return components.filter(Boolean);
+	await Promise.all(componentPaths.map((componentPath) => processComponent(context, frameworkName, componentPath, parser)));
 }
 
-async function processComponent(frameworkName: string, componentPath: string, parser: Parser) {
+async function processComponent(context: LoaderContext, frameworkName: string, componentPath: string, parser: Parser) {
 	const componentName = componentPath.split('/').filter(Boolean).pop();
 	if (!componentName) {
 		return;
@@ -259,11 +259,13 @@ async function processComponent(frameworkName: string, componentPath: string, pa
 		const bName = b.name.replace(/Props$/, '');
 		return partOrder.indexOf(aName) - partOrder.indexOf(bName);
 	});
-	return {
+	context.store.set({
 		id: `${frameworkName}/${componentName}`,
-		name: componentName,
-		types,
-	};
+		data: {
+			name: componentName,
+			types,
+		},
+	});
 }
 
 async function processPart(componentName: string, partPath: string, parser: Parser) {
@@ -287,8 +289,12 @@ async function processPart(componentName: string, partPath: string, parser: Pars
 	};
 }
 
-export async function components() {
-	const frameworks = ['svelte', 'react'] as const;
-	const results = await Promise.all(frameworks.map(async (framework) => processFramework(framework)));
-	return results.flat();
+export function createComponentsLoader(): Loader {
+	return {
+		name: 'components-loader',
+		async load(context) {
+			const frameworks = ['svelte', 'react'] as const;
+			await Promise.all(frameworks.map(async (framework) => processFramework(context, framework)));
+		},
+	};
 }
