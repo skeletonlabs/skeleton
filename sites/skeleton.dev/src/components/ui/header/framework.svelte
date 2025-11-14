@@ -21,23 +21,26 @@
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content class="z-50">
-				{#each frameworks as framework (framework)}
-					<Menu.Item class="aria-[current=page]:preset-filled" value={framework.id}>
-						{#snippet element(attributes: Record<string, unknown>)}
-							<a
-								{...attributes}
-								href={url.pathname.replace(activeFramework.id, framework.id)}
-								aria-current={activeFramework.id === framework.id ? 'page' : undefined}
-								data-astro-history="replace"
-							>
-								<Menu.ItemText>{framework.data.name}</Menu.ItemText>
-								<Menu.ItemIndicator>
-									<img src={framework.data.logo} alt={framework.data.name} class="size-5 grayscale" />
-								</Menu.ItemIndicator>
-							</a>
-						{/snippet}
-					</Menu.Item>
-				{/each}
+				<Menu.ItemGroup>
+					<Menu.ItemGroupLabel>Select Framework</Menu.ItemGroupLabel>
+					{#each frameworks as framework (framework)}
+						<Menu.Item class="aria-[current=page]:preset-filled" value={framework.id}>
+							{#snippet element(attributes: Record<string, unknown>)}
+								<a
+									{...attributes}
+									href={url.pathname.replace(activeFramework.id, framework.id)}
+									aria-current={activeFramework.id === framework.id ? 'page' : undefined}
+									data-astro-history="replace"
+								>
+									<Menu.ItemText>{framework.data.name}</Menu.ItemText>
+									<Menu.ItemIndicator>
+										<img src={framework.data.logo} alt={framework.data.name} class="size-5 grayscale" />
+									</Menu.ItemIndicator>
+								</a>
+							{/snippet}
+						</Menu.Item>
+					{/each}
+				</Menu.ItemGroup>
 			</Menu.Content>
 		</Menu.Positioner>
 	</Portal>

@@ -42,7 +42,10 @@
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content class="z-50">
-				{@render links(skeletonTools)}
+				<Menu.ItemGroup>
+					<Menu.ItemGroupLabel>Skeleton Tools</Menu.ItemGroupLabel>
+					{@render links(skeletonTools)}
+				</Menu.ItemGroup>
 				<Menu.Separator />
 				<Menu.ItemGroup>
 					<Menu.ItemGroupLabel>Community Tools</Menu.ItemGroupLabel>
