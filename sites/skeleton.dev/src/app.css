@@ -124,8 +124,8 @@ html {
 .select,
 .input,
 .textarea,
-.input-input,
-.input-select {
+.ig-input,
+.ig-select {
 	background-color: var(--color-surface-50-950);
 	color: var(--color-surface-950-50);
 }
