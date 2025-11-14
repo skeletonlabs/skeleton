@@ -2,9 +2,6 @@
 	import { CheckIcon } from '@lucide/svelte';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	let sort = $state('');
-	let filters = $state<string[]>([]);
-
 	const sortOptions = [
 		{ value: 'newest', label: 'Newest' },
 		{ value: 'popular', label: 'Most Popular' },
@@ -16,6 +13,9 @@
 		{ value: 'in-stock', label: 'In Stock' },
 		{ value: 'on-sale', label: 'On Sale' },
 	];
+
+	let sort = $state('newest');
+	let filters = $state<string[]>(['free-shipping', 'in-stock']);
 </script>
 
 <Menu closeOnSelect={false}>

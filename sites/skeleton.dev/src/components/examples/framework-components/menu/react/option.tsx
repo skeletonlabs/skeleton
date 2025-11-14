@@ -3,9 +3,6 @@ import { CheckIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Option() {
-	const [sort, setSort] = useState('');
-	const [filters, setFilters] = useState<string[]>([]);
-
 	const sortOptions = [
 		{ value: 'newest', label: 'Newest' },
 		{ value: 'popular', label: 'Most Popular' },
@@ -17,6 +14,9 @@ export default function Option() {
 		{ value: 'in-stock', label: 'In Stock' },
 		{ value: 'on-sale', label: 'On Sale' },
 	];
+
+	const [sort, setSort] = useState('newest');
+	const [filters, setFilters] = useState<string[]>(['free-shipping', 'in-stock']);
 
 	return (
 		<Menu closeOnSelect={false}>
