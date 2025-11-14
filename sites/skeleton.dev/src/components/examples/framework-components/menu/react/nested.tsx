@@ -1,7 +1,7 @@
 import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 import { ChevronRightIcon } from 'lucide-react';
 
-export default function Default() {
+export default function Nested() {
 	return (
 		<Menu>
 			<Menu.Trigger className="btn preset-filled">Open Menu</Menu.Trigger>

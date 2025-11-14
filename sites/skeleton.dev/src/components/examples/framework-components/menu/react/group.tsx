@@ -1,6 +1,6 @@
 import { Menu, Portal } from '@skeletonlabs/skeleton-react';
 
-export default function GroupedItems() {
+export default function Group() {
 	return (
 		<Menu>
 			<Menu.Trigger className="btn preset-filled">View Options</Menu.Trigger>

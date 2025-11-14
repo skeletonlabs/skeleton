@@ -12,6 +12,8 @@ import GroupReact from '@/components/examples/framework-components/menu/react/gr
 import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
 import NestedReact from '@/components/examples/framework-components/menu/react/nested';
 import NestedReactRaw from '@/components/examples/framework-components/menu/react/nested?raw';
+import OptionReact from '@/components/examples/framework-components/menu/react/option';
+import OptionReactRaw from '@/components/examples/framework-components/menu/react/option?raw';
 import ContextSvelte from '@/components/examples/framework-components/menu/svelte/context.svelte';
 import ContextSvelteRaw from '@/components/examples/framework-components/menu/svelte/context.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
@@ -20,6 +22,8 @@ import GroupSvelte from '@/components/examples/framework-components/menu/svelte/
 import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/group.svelte?raw';
 import NestedSvelte from '@/components/examples/framework-components/menu/svelte/nested.svelte';
 import NestedSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested.svelte?raw';
+import OptionSvelte from '@/components/examples/framework-components/menu/svelte/option.svelte';
+import OptionSvelteRaw from '@/components/examples/framework-components/menu/svelte/option.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -74,6 +78,21 @@ Use the `TriggerItem` component to create nested menus within a parent menu.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': NestedSvelteRaw }} client:visible>
 		<NestedSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Option Items
+
+Use `OptionItem` to create menu items that can be toggled on or off with checkbox or radio group like behavior.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OptionReactRaw }} client:visible>
+		<OptionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OptionSvelteRaw }} client:visible>
+		<OptionSvelte client:visible />
 	</Preview>
 </Framework>
 
