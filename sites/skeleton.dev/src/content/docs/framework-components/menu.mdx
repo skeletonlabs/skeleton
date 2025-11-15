@@ -1,0 +1,195 @@
+---
+title: Menu
+description: Accessible dropdown and context menus for actions and navigation.
+stability: beta
+---
+
+import ContextReact from '@/components/examples/framework-components/menu/react/context';
+import ContextReactRaw from '@/components/examples/framework-components/menu/react/context?raw';
+import DefaultReact from '@/components/examples/framework-components/menu/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
+import GroupReact from '@/components/examples/framework-components/menu/react/group';
+import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
+import NestedReact from '@/components/examples/framework-components/menu/react/nested';
+import NestedReactRaw from '@/components/examples/framework-components/menu/react/nested?raw';
+import OptionReact from '@/components/examples/framework-components/menu/react/option';
+import OptionReactRaw from '@/components/examples/framework-components/menu/react/option?raw';
+import ContextSvelte from '@/components/examples/framework-components/menu/svelte/context.svelte';
+import ContextSvelteRaw from '@/components/examples/framework-components/menu/svelte/context.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
+import GroupSvelte from '@/components/examples/framework-components/menu/svelte/group.svelte';
+import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/group.svelte?raw';
+import NestedSvelte from '@/components/examples/framework-components/menu/svelte/nested.svelte';
+import NestedSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested.svelte?raw';
+import OptionSvelte from '@/components/examples/framework-components/menu/svelte/option.svelte';
+import OptionSvelteRaw from '@/components/examples/framework-components/menu/svelte/option.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Grouped Items
+
+Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical sections.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+		<GroupReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Context Menu
+
+Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ContextReactRaw }} client:visible>
+		<ContextReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ContextSvelteRaw }} client:visible>
+		<ContextSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Nested Menu
+
+Use the `TriggerItem` component to create nested menus within a parent menu.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': NestedReactRaw }} client:visible>
+		<NestedReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': NestedSvelteRaw }} client:visible>
+		<NestedSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Option Items
+
+Use `OptionItem` to create menu items that can be toggled on or off with checkbox or radio group like behavior.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OptionReactRaw }} client:visible>
+		<OptionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OptionSvelteRaw }} client:visible>
+		<OptionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Menu component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Menu } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Menu>
+			<Menu.Trigger>
+				<Menu.Indicator />
+			</Menu.Trigger>
+			<Menu.ContextTrigger>
+				<Menu.Indicator />
+			</Menu.ContextTrigger>
+			<Menu.Positioner>
+				<Menu.Content>
+					<Menu.ItemGroup>
+						<Menu.ItemGroupLabel />
+						<Menu.Item>
+							<Menu.ItemIndicator />
+							<Menu.ItemText />
+						</Menu.Item>
+						<Menu.OptionItem>
+							<Menu.ItemIndicator />
+							<Menu.ItemText />
+						</Menu.OptionItem>
+						<Menu.TriggerItem>
+							<Menu.ItemIndicator />
+							<Menu.ItemText />
+						</Menu.TriggerItem>
+					</Menu.ItemGroup>
+					<Menu.Separator />
+					<Menu.Arrow>
+						<Menu.ArrowTip />
+					</Menu.Arrow>
+				</Menu.Content>
+			</Menu.Positioner>
+		</Menu>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Menu } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Menu>
+	<Menu.Trigger>
+		<Menu.Indicator />
+	</Menu.Trigger>
+	<Menu.ContextTrigger>
+		<Menu.Indicator />
+	</Menu.ContextTrigger>
+	<Menu.Positioner>
+		<Menu.Content>
+			<Menu.ItemGroup>
+				<Menu.ItemGroupLabel />
+				<Menu.Item>
+					<Menu.ItemIndicator />
+					<Menu.ItemText />
+				</Menu.Item>
+				<Menu.OptionItem>
+					<Menu.ItemIndicator />
+					<Menu.ItemText />
+				</Menu.OptionItem>
+				<Menu.TriggerItem>
+					<Menu.ItemIndicator />
+					<Menu.ItemText />
+				</Menu.TriggerItem>
+			</Menu.ItemGroup>
+			<Menu.Separator />
+			<Menu.Arrow>
+				<Menu.ArrowTip />
+			</Menu.Arrow>
+		</Menu.Content>
+	</Menu.Positioner>
+</Menu>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/menu" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/menu" />
+</Framework>

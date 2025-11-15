@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-	export interface ComboboxInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input'> {}
+	export interface ComboboxInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 </script>
 
 <script lang="ts">

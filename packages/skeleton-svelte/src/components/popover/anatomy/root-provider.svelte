@@ -8,13 +8,13 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 
 	const props: PopoverRootProviderProps = $props();
 
 	const { children, value: popover } = $derived(props);
 
-	PopoverRootContext.provide(() => popover());
+	RootContext.provide(() => popover());
 </script>
 
 {@render children?.()}

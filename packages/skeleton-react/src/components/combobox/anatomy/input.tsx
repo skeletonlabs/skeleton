@@ -5,7 +5,7 @@ import { classesCombobox } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface ComboboxInputProps extends PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface ComboboxInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
 export default function Input(props: ComboboxInputProps) {
 	const combobox = use(RootContext);

@@ -31,9 +31,9 @@
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Popover.Trigger>
 	<Portal>
-		<Popover.Positioner class="z-[51]!">
+		<Popover.Positioner>
 			<Popover.Content
-				class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 shadow-xl max-h-[75vh] lg:max-h-none overflow-y-auto"
+				class="card bg-surface-50-950 border border-surface-200-800 p-2 space-y-4 shadow-xl max-h-[75vh] lg:max-h-none overflow-y-auto z-50"
 			>
 				<!-- Mode Selection -->
 				<div>

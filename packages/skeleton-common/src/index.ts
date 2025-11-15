@@ -7,6 +7,7 @@ export * from './classes/date-picker.js';
 export * from './classes/dialog.js';
 export * from './classes/file-upload.js';
 export * from './classes/listbox.js';
+export * from './classes/menu.js';
 export * from './classes/navigation.js';
 export * from './classes/pagination.js';
 export * from './classes/popover.js';

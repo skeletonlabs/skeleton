@@ -6,13 +6,13 @@
 </script>
 
 <script lang="ts">
-	import { PopoverRootContext } from '../modules/root-context.js';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PopoverDescriptionProps = $props();
 
-	const popover = PopoverRootContext.consume();
+	const popover = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
