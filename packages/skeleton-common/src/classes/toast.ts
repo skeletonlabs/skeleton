@@ -2,7 +2,7 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesToast = defineSkeletonClasses({
 	root: [
-		'card p-3 w-md max-w-full ring flex items-center gap-2',
+		'card p-3 w-md ring flex items-center gap-2',
 		'preset-filled-surface-50-950 ring-surface-200-800',
 		'data-[type=success]:preset-filled-success-500',
 		'data-[type=warning]:preset-filled-warning-500',
