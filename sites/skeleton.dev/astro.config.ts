@@ -2,7 +2,7 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import svelte, { vitePreprocess } from '@astrojs/svelte';
+import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import autoImport from 'astro-auto-import';
@@ -30,14 +30,7 @@ export default defineConfig({
 	},
 	integrations: [
 		react(),
-		svelte({
-			preprocess: vitePreprocess(),
-			compilerOptions: {
-				experimental: {
-					async: true,
-				},
-			},
-		}),
+		svelte(),
 		autoImport({
 			imports: [
 				{

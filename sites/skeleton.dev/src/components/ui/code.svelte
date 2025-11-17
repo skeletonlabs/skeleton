@@ -42,7 +42,7 @@
 <div class="relative" data-pagefind-ignore>
 	<header class="absolute select-none top-0 left-0 w-full h-10 px-5 text-xs flex justify-between items-center">
 		<span class="opacity-50 font-mono">{lang}</span>
-		<button onclick={copyCode} class="flex items-center gap-2 h-full" data-copied={hasCopied}>
+		<button onclick={copyCode} class="flex items-center gap-2 h-full">
 			{#if hasCopied}
 				<CheckIcon class="size-3" />
 				Copied
