@@ -39,6 +39,7 @@
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/listbox": "catalog:",
+		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",

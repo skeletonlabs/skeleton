@@ -10,7 +10,7 @@ export const classesListbox = defineSkeletonClasses({
 	item: [
 		'flex justify-between items-center px-2 py-1 rounded cursor-pointer hover:preset-tonal',
 		'data-selected:preset-filled',
-		'data-highlighted:outline-2 data-highlighted:outline-offset-1 data-highlighted:outline-surface-950-50 data-highlighted:preset-tonal',
+		'data-highlighted:preset-tonal',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
 	itemText: '',

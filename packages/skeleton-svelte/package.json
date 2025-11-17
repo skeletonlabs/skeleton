@@ -12,7 +12,7 @@
 		"dev": "svelte-package --input src --output dist --preserve-output --watch",
 		"build": "svelte-package --input src --output dist --preserve-output",
 		"test": "vitest run",
-		"check": "svelte-check",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"sync": "svelte-kit sync && pnpm build"
 	},
 	"exports": {
@@ -40,6 +40,7 @@
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/listbox": "catalog:",
+		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",

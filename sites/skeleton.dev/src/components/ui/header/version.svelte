@@ -1,28 +1,33 @@
-<script>
+<script lang="ts">
 	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
-	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 	import packageJson from '@skeletonlabs/skeleton/package.json';
 
 	const versions = ['v3', 'v2', 'v1'];
 </script>
 
-<Popover class="hidden xl:block">
-	<Popover.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2 hidden xl:flex">
+<Menu class="hidden xl:block" positioning={{ placement: 'bottom-end' }}>
+	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2 hidden xl:flex">
 		<span>v{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
-	</Popover.Trigger>
+	</Menu.Trigger>
 	<Portal>
-		<Popover.Positioner class="z-[51]!">
-			<Popover.Content class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-2 shadow-xl">
-				<div class="grid grid-cols-1 gap-2">
+		<Menu.Positioner>
+			<Menu.Content class="z-50">
+				<Menu.ItemGroup>
+					<Menu.ItemGroupLabel>Previous Versions</Menu.ItemGroupLabel>
 					{#each versions as version (version)}
-						<a href="https://{version}.skeleton.dev" target="_blank" class="btn justify-start hover:preset-tonal">
-							<span>{version} Docs</span>
-							<ArrowUpRightIcon class="size-4" />
-						</a>
+						<Menu.Item value={version}>
+							{#snippet element(attributes: Record<string, unknown>)}
+								<a {...attributes} href={`https://${version}.skeleton.dev`} target="_blank" rel="noopener noreferrer">
+									<Menu.ItemText>{version} Docs</Menu.ItemText>
+									<ArrowUpRightIcon class="size-4 opacity-60" />
+								</a>
+							{/snippet}
+						</Menu.Item>
 					{/each}
-				</div>
-			</Popover.Content>
-		</Popover.Positioner>
+				</Menu.ItemGroup>
+			</Menu.Content>
+		</Menu.Positioner>
 	</Portal>
-</Popover>
+</Menu>
