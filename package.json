@@ -30,5 +30,5 @@
 		"node": ">=22.0.0",
 		"pnpm": ">=10.15.0"
 	},
-	"packageManager": "pnpm@10.20.0"
+	"packageManager": "pnpm@10.22.0"
 }
