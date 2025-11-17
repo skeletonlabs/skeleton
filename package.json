@@ -27,8 +27,8 @@
 		"prettier-plugin-svelte": "catalog:"
 	},
 	"engines": {
-		"node": ">=22.0.0",
-		"pnpm": ">=10.15.0"
+		"node": "24.11.1",
+		"pnpm": "10.22.0"
 	},
 	"packageManager": "pnpm@10.22.0"
 }
