@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.4.0
+
+### Minor Changes
+
+- feature: `Menu` component ([#4097](https://github.com/skeletonlabs/skeleton/pull/4097))
+
+### Patch Changes
+
+- chore: bump zag ([#4106](https://github.com/skeletonlabs/skeleton/pull/4106))
+
+- Updated dependencies [[`44d62ac`](https://github.com/skeletonlabs/skeleton/commit/44d62ace9f4b59477873765a294f271f898f3465)]:
+  - @skeletonlabs/skeleton-common@4.4.0
+
 ## 4.3.4
 
 ### Patch Changes
