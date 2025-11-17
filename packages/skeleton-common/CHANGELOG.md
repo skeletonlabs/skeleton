@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.4.0
+
+### Minor Changes
+
+- feature: `Menu` component ([#4097](https://github.com/skeletonlabs/skeleton/pull/4097))
+
 ## 4.3.4
 
 ### Patch Changes
