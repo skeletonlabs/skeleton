@@ -1,16 +1,18 @@
 import { RootContext } from '../modules/root-context.js';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
-import { type ComponentPropsWithoutRef, type ElementType, useContext } from 'react';
+import { use } from 'react';
 
-export interface FloatingPanelTriggerProps extends ComponentPropsWithoutRef<'button'> {
-	element?: ElementType;
-}
+export interface FloatingPanelTriggerProps
+	extends PropsWithElement<'button'>,
+		HTMLAttributes<'button'> {}
 
 export default function Trigger(props: FloatingPanelTriggerProps) {
-	const { element: Element = 'button', children, ...rest } = props;
-	const floatingPanel = useContext(RootContext);
-	if (!floatingPanel) throw new Error('FloatingPanel.Trigger must be used within FloatingPanel.Root');
+	const floatingPanel = use(RootContext);
+
+	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(
 		floatingPanel.getTriggerProps(),
@@ -20,5 +22,5 @@ export default function Trigger(props: FloatingPanelTriggerProps) {
 		rest,
 	);
 
-	return <Element {...attributes}>{children}</Element>;
+	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

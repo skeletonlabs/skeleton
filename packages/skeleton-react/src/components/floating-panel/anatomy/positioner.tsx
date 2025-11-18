@@ -1,18 +1,19 @@
 import { RootContext } from '../modules/root-context.js';
+import type { HTMLAttributes } from '@/internal/html-attributes.js';
+import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { Portal } from '@/components/portal/portal.jsx';
-import { type ComponentPropsWithoutRef, type ElementType, useContext } from 'react';
+import { use } from 'react';
 
-export interface FloatingPanelPositionerProps extends ComponentPropsWithoutRef<'div'> {
-	element?: ElementType;
-}
+export interface FloatingPanelPositionerProps
+	extends PropsWithElement<'div'>,
+		HTMLAttributes<'div'> {}
 
 export default function Positioner(props: FloatingPanelPositionerProps) {
-	const { element: Element = 'div', children, ...rest } = props;
-	const floatingPanel = useContext(RootContext);
-	if (!floatingPanel)
-		throw new Error('FloatingPanel.Positioner must be used within FloatingPanel.Root');
+	const floatingPanel = use(RootContext);
+
+	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(
 		floatingPanel.getPositionerProps(),
@@ -22,9 +23,5 @@ export default function Positioner(props: FloatingPanelPositionerProps) {
 		rest,
 	);
 
-	return (
-		<Portal>
-			<Element {...attributes}>{children}</Element>
-		</Portal>
-	);
+	return <Portal>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Portal>;
 }
