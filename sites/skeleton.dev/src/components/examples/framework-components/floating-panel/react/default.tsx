@@ -3,7 +3,7 @@ import { XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
-		<FloatingPanel defaultOpen>
+		<FloatingPanel>
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 			<Portal>
 				<FloatingPanel.Positioner className="z-50">
