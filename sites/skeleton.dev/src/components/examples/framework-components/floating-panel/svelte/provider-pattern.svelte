@@ -1,6 +1,6 @@
 <script>
-	import { FloatingPanel, Portal, useFloatingPanel } from '@skeletonlabs/skeleton-svelte';
 	import { XIcon } from '@lucide/svelte';
+	import { FloatingPanel, Portal, useFloatingPanel } from '@skeletonlabs/skeleton-svelte';
 
 	const id = $props.id();
 	const floatingPanel = useFloatingPanel({

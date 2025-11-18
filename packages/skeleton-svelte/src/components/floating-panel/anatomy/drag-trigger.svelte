@@ -2,9 +2,7 @@
 	import type { HTMLAttributes } from '@/internal/html-attributes.js';
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
-	export interface FloatingPanelDragTriggerProps
-		extends PropsWithElement<'div'>,
-			HTMLAttributes<'div'> {}
+	export interface FloatingPanelDragTriggerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

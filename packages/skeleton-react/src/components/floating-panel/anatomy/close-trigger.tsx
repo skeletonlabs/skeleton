@@ -5,9 +5,7 @@ import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface FloatingPanelCloseTriggerProps
-	extends PropsWithElement<'button'>,
-		HTMLAttributes<'button'> {}
+export interface FloatingPanelCloseTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function CloseTrigger(props: FloatingPanelCloseTriggerProps) {
 	const floatingPanel = use(RootContext);

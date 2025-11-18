@@ -1,6 +1,6 @@
 <script>
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
 	import { XIcon, MinusIcon, MaximizeIcon } from '@lucide/svelte';
+	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
 <FloatingPanel defaultOpen>

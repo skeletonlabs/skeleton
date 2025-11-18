@@ -5,9 +5,7 @@ import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface FloatingPanelDragTriggerProps
-	extends PropsWithElement<'div'>,
-		HTMLAttributes<'div'> {}
+export interface FloatingPanelDragTriggerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function DragTrigger(props: FloatingPanelDragTriggerProps) {
 	const floatingPanel = use(RootContext);

@@ -3,10 +3,7 @@
 	import type { PropsWithElement } from '@/internal/props-with-element.js';
 	import type { StageTriggerProps } from '@zag-js/floating-panel';
 
-	export interface FloatingPanelStageTriggerProps
-		extends PropsWithElement<'button'>,
-			HTMLAttributes<'button'>,
-			StageTriggerProps {}
+	export interface FloatingPanelStageTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'>, StageTriggerProps {}
 </script>
 
 <script lang="ts">

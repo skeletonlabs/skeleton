@@ -5,9 +5,7 @@ import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface FloatingPanelPositionerProps
-	extends PropsWithElement<'div'>,
-		HTMLAttributes<'div'> {}
+export interface FloatingPanelPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Positioner(props: FloatingPanelPositionerProps) {
 	const floatingPanel = use(RootContext);
