@@ -11,7 +11,6 @@
 	import { RootContext } from '../modules/root-context.js';
 	import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
-	import Portal from '@/components/portal/portal.svelte';
 
 	const props: FloatingPanelPositionerProps = $props();
 
@@ -30,12 +29,10 @@
 	);
 </script>
 
-<Portal>
-	{#if element}
-		{@render element(attributes)}
-	{:else}
-		<div {...attributes}>
-			{@render children?.()}
-		</div>
-	{/if}
-</Portal>
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}
