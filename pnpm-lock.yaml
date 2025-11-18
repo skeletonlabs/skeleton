@@ -159,6 +159,9 @@ catalogs:
     '@zag-js/file-upload':
       specifier: 1.28.0
       version: 1.28.0
+    '@zag-js/floating-panel':
+      specifier: 1.28.0
+      version: 1.28.0
     '@zag-js/listbox':
       specifier: 1.28.0
       version: 1.28.0
@@ -538,6 +541,9 @@ importers:
       '@zag-js/file-upload':
         specifier: 'catalog:'
         version: 1.28.0
+      '@zag-js/floating-panel':
+        specifier: 'catalog:'
+        version: 1.28.0
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.28.0
@@ -654,6 +660,9 @@ importers:
         specifier: 'catalog:'
         version: 1.28.0
       '@zag-js/file-upload':
+        specifier: 'catalog:'
+        version: 1.28.0
+      '@zag-js/floating-panel':
         specifier: 'catalog:'
         version: 1.28.0
       '@zag-js/listbox':
@@ -3112,6 +3121,9 @@ packages:
 
   '@zag-js/file-utils@1.28.0':
     resolution: {integrity: sha512-wC5z7Ebp2/nwl2kkFSpOo7RifzS5W1IS2ekca6in2I7zk0c/i8MFZeKQxPYvcY1eP/d08/iNe4NytOdNR2Iz3A==}
+
+  '@zag-js/floating-panel@1.28.0':
+    resolution: {integrity: sha512-RjcofLy3CTOO+qRGX6JUoVabGKfjx5+mr3IpoDYP2U9eez5U//OZAQI29Y6nStgjyHohyGvtkiiytyfmX+/GBA==}
 
   '@zag-js/focus-trap@1.28.0':
     resolution: {integrity: sha512-WJJKFJCoJY8cvjNzTzsfnzJvf6A8tuiwpMsbTVCNYWhXl8c0i5nPRonZgep5B7h7IzLc6yLEwQ+XxaWvJasWAg==}
@@ -8177,6 +8189,17 @@ snapshots:
   '@zag-js/file-utils@1.28.0':
     dependencies:
       '@zag-js/i18n-utils': 1.28.0
+
+  '@zag-js/floating-panel@1.28.0':
+    dependencies:
+      '@zag-js/anatomy': 1.28.0
+      '@zag-js/core': 1.28.0
+      '@zag-js/dom-query': 1.28.0
+      '@zag-js/popper': 1.28.0
+      '@zag-js/rect-utils': 1.28.0
+      '@zag-js/store': 1.28.0
+      '@zag-js/types': 1.28.0
+      '@zag-js/utils': 1.28.0
 
   '@zag-js/focus-trap@1.28.0':
     dependencies:
