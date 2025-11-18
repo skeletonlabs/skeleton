@@ -1,5 +1,5 @@
 <script>
-	import { XIcon, MinusIcon, MaximizeIcon } from '@lucide/svelte';
+	import { ArrowDownLeft, XIcon, MinusIcon, MaximizeIcon } from '@lucide/svelte';
 	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
@@ -7,7 +7,7 @@
 	<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 	<Portal>
 		<FloatingPanel.Positioner class="z-50">
-			<FloatingPanel.Content class="card w-96 bg-surface-100-900 shadow-xl overflow-hidden">
+			<FloatingPanel.Content class="card w-96 bg-surface-100-900 shadow-xl">
 				<FloatingPanel.Header class="bg-surface-200-800 p-2">
 					<div class="grid grid-cols-[1fr_auto] items-center gap-2">
 						<FloatingPanel.DragTrigger class="cursor-move">
@@ -19,6 +19,9 @@
 							</FloatingPanel.StageTrigger>
 							<FloatingPanel.StageTrigger stage="maximized" class="btn-icon btn-sm hover:preset-tonal">
 								<MaximizeIcon class="size-4" />
+							</FloatingPanel.StageTrigger>
+							<FloatingPanel.StageTrigger stage="default" class="btn-icon btn-sm hover:preset-tonal">
+								<ArrowDownLeft class="size-4" />
 							</FloatingPanel.StageTrigger>
 							<FloatingPanel.CloseTrigger class="btn-icon btn-sm hover:preset-tonal">
 								<XIcon class="size-4" />

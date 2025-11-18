@@ -1,5 +1,5 @@
 import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
+import { ArrowDownLeft, XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
 
 export default function Default() {
 	return (
@@ -7,7 +7,7 @@ export default function Default() {
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 			<Portal>
 				<FloatingPanel.Positioner className="z-50">
-					<FloatingPanel.Content className="card w-96 bg-surface-100-900 shadow-xl overflow-hidden">
+					<FloatingPanel.Content className="card w-96 bg-surface-100-900 shadow-xl">
 						<FloatingPanel.Header className="bg-surface-200-800 p-2">
 							<div className="grid grid-cols-[1fr_auto] items-center gap-2">
 								<FloatingPanel.DragTrigger className="cursor-move">
@@ -19,6 +19,9 @@ export default function Default() {
 									</FloatingPanel.StageTrigger>
 									<FloatingPanel.StageTrigger stage="maximized" className="btn-icon btn-sm hover:preset-tonal">
 										<MaximizeIcon className="size-4" />
+									</FloatingPanel.StageTrigger>
+									<FloatingPanel.StageTrigger stage="default" className="btn-icon btn-sm hover:preset-tonal">
+										<ArrowDownLeft className="size-4" />
 									</FloatingPanel.StageTrigger>
 									<FloatingPanel.CloseTrigger className="btn-icon btn-sm hover:preset-tonal">
 										<XIcon className="size-4" />

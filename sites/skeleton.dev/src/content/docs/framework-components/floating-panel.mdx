@@ -20,8 +20,6 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/floatin
 	</Preview>
 </Framework>
 
-Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
-
 ## Anatomy
 
 Here's an overview of how the Floating Panel component is structured in code:
@@ -45,6 +43,7 @@ export default function Anatomy() {
 							<FloatingPanel.Control>
 								<FloatingPanel.StageTrigger stage="minimized" />
 								<FloatingPanel.StageTrigger stage="maximized" />
+								<FloatingPanel.StageTrigger stage="default" />
 								<FloatingPanel.CloseTrigger />
 							</FloatingPanel.Control>
 						</FloatingPanel.Header>
@@ -78,6 +77,7 @@ export default function Anatomy() {
 					<FloatingPanel.Control>
 						<FloatingPanel.StageTrigger stage="minimized" />
 						<FloatingPanel.StageTrigger stage="maximized" />
+						<FloatingPanel.StageTrigger stage="default" />
 						<FloatingPanel.CloseTrigger />
 					</FloatingPanel.Control>
 				</FloatingPanel.Header>
