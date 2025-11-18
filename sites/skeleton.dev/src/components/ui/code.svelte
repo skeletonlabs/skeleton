@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { codeToHtml } from '@/modules/shiki.bundle';
+	import { stripShikiComments } from '@/modules/strip-shiki-comments';
 	import { CheckIcon, CopyIcon } from '@lucide/svelte';
 	import { transformerNotationHighlight, transformerNotationWordHighlight, transformerNotationDiff } from '@shikijs/transformers';
 
@@ -31,7 +32,7 @@
 		if (hasCopied) {
 			return;
 		}
-		await navigator.clipboard.writeText(code);
+		await navigator.clipboard.writeText(stripShikiComments(code.trim()));
 		hasCopied = true;
 		setTimeout(() => {
 			hasCopied = false;
