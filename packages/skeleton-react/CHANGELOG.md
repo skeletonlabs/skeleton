@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.4.1
+
+### Patch Changes
+
+- bugfix: `Toast` width collapsing on smaller screens when `position` is not centered ([#4116](https://github.com/skeletonlabs/skeleton/pull/4116))
+
+- Updated dependencies [[`7d5845c`](https://github.com/skeletonlabs/skeleton/commit/7d5845c926cea4b28192b33e2f7ce18c422507cd)]:
+  - @skeletonlabs/skeleton-common@4.4.1
+
 ## 4.4.0
 
 ### Minor Changes
