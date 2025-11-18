@@ -6,12 +6,8 @@ stability: beta
 
 import DefaultReact from '@/components/examples/framework-components/floating-panel/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/floating-panel/react/default?raw';
-import ProviderPatternReact from '@/components/examples/framework-components/floating-panel/react/provider-pattern';
-import ProviderPatternReactRaw from '@/components/examples/framework-components/floating-panel/react/provider-pattern?raw';
 import DefaultSvelte from '@/components/examples/framework-components/floating-panel/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/default.svelte?raw';
-import ProviderPatternSvelte from '@/components/examples/framework-components/floating-panel/svelte/provider-pattern.svelte';
-import ProviderPatternSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/provider-pattern.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -25,21 +21,6 @@ import ProviderPatternSvelteRaw from '@/components/examples/framework-components
 </Framework>
 
 Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
-
-## Provider Pattern
-
-Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
-		<ProviderPatternReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ProviderPatternSvelteRaw }} client:visible>
-		<ProviderPatternSvelte client:visible />
-	</Preview>
-</Framework>
 
 ## Anatomy
 
