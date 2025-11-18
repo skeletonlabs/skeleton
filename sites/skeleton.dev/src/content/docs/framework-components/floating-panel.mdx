@@ -1,0 +1,123 @@
+---
+title: Floating Panel
+description: A draggable, resizable floating panel with minimize/maximize controls.
+---
+
+import DefaultReact from '@/components/examples/framework-components/floating-panel/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/floating-panel/react/default?raw';
+import ProviderPatternReact from '@/components/examples/framework-components/floating-panel/react/provider-pattern';
+import ProviderPatternReactRaw from '@/components/examples/framework-components/floating-panel/react/provider-pattern?raw';
+import DefaultSvelte from '@/components/examples/framework-components/floating-panel/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/default.svelte?raw';
+import ProviderPatternSvelte from '@/components/examples/framework-components/floating-panel/svelte/provider-pattern.svelte';
+import ProviderPatternSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/provider-pattern.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
+		<ProviderPatternReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ProviderPatternSvelteRaw }} client:visible>
+		<ProviderPatternSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Floating Panel component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<FloatingPanel>
+			<FloatingPanel.Trigger />
+			<Portal>
+				<FloatingPanel.Positioner>
+					<FloatingPanel.Content>
+						<FloatingPanel.Header>
+							<FloatingPanel.DragTrigger>
+								<FloatingPanel.Title />
+							</FloatingPanel.DragTrigger>
+							<FloatingPanel.Control>
+								<FloatingPanel.StageTrigger stage="minimized" />
+								<FloatingPanel.StageTrigger stage="maximized" />
+								<FloatingPanel.CloseTrigger />
+							</FloatingPanel.Control>
+						</FloatingPanel.Header>
+						<FloatingPanel.Body />
+						<FloatingPanel.ResizeTrigger axis="se" />
+					</FloatingPanel.Content>
+				</FloatingPanel.Positioner>
+			</Portal>
+		</FloatingPanel>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<FloatingPanel>
+	<FloatingPanel.Trigger />
+	<Portal>
+		<FloatingPanel.Positioner>
+			<FloatingPanel.Content>
+				<FloatingPanel.Header>
+					<FloatingPanel.DragTrigger>
+						<FloatingPanel.Title />
+					</FloatingPanel.DragTrigger>
+					<FloatingPanel.Control>
+						<FloatingPanel.StageTrigger stage="minimized" />
+						<FloatingPanel.StageTrigger stage="maximized" />
+						<FloatingPanel.CloseTrigger />
+					</FloatingPanel.Control>
+				</FloatingPanel.Header>
+				<FloatingPanel.Body />
+				<FloatingPanel.ResizeTrigger axis="se" />
+			</FloatingPanel.Content>
+		</FloatingPanel.Positioner>
+	</Portal>
+</FloatingPanel>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+
+Please refer to the [Zag.js Floating Panel documentation](https://zagjs.com/components/react/floating-panel) for a full list of props.
+
+</Framework>
+<Framework id="svelte">
+
+Please refer to the [Zag.js Floating Panel documentation](https://zagjs.com/components/svelte/floating-panel) for a full list of props.
+
+</Framework>
