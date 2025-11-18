@@ -27,8 +27,11 @@
 
 	let hasCopied = $state(false);
 
-	// Strip Shiki control comments from code
-	// Based on: https://github.com/tailwindlabs/tailwindcss.com/blob/main/src/components/shiki.ts
+	/**
+	 * Strip Shiki control comments from code before copying
+	 * Removes comments like [!code ++], [!code --], [!code word:...], etc.
+	 * Based on: https://github.com/tailwindlabs/tailwindcss.com/blob/main/src/components/shiki.ts
+	 */
 	function stripShikiComments(code: string): string {
 		const commentPattern = /\/\*\s*(?=\[!)(.*?)\s*\*\/\s*$|<!--\s*(?=\[!)(.*?)\s*-->\s*$|(?:#|\/\/)\s*(?=\[!)(.*)\s*$/g;
 		const controlPattern = /^\[!code\s+([^:]+)(?::(.*))?\]$/;
