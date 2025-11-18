@@ -3,9 +3,7 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
 export default function Page() {
-	const toaster = createToaster({
-		placement: 'bottom-end',
-	});
+	const toaster = createToaster();
 	return (
 		<>
 			<button
