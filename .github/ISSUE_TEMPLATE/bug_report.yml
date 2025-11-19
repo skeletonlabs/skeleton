@@ -29,31 +29,34 @@ body:
   - type: input
     id: reproduction
     attributes:
-      label: Link to Reproduction / Stackblitz
+      label: Stackblitz or Reproduction URL
+      description: To create a Stackblitz reproduction, view our docs, find a relevant example, then tap the Stackblitz button at the top-right corner. Modify as needed, then share a link to this here.
+    validations:
+      require: true
   - type: textarea
     attributes:
       label: Environment Information
       description: Relevant information about your environment. Use `npx envinfo --system --npmPackages "@skeletonlabs/*" --binaries --browsers` to get this information.
       placeholder: |
         System:
-          OS: Windows 11 10.0.26100
+          OS: Windows 11 X.X.XXXXX
           CPU: (12) x64 12th Gen Intel(R) Core(TM) i5-12400
           Memory: 4.72 GB / 15.78 GB
         Binaries:
-          Node: 22.11.0 - C:\Program Files\nodejs\node.EXE
-          Yarn: 1.22.19 - ~\AppData\Roaming\npm\yarn.CMD
-          npm: 10.2.0 - C:\Program Files\nodejs\npm.CMD
-          pnpm: 9.6.0 - ~\AppData\Local\pnpm\pnpm.CMD
+          Node: XX.XX.X - C:\Program Files\nodejs\node.EXE
+          Yarn: X.XX.XX - ~\AppData\Roaming\npm\yarn.CMD
+          npm: XX.X.X - C:\Program Files\nodejs\npm.CMD
+          pnpm: X.X.X - ~\AppData\Local\pnpm\pnpm.CMD
         Browsers:
-          Edge: Chromium (130.0.2849.46)
-          Internet Explorer: 11.0.26100.1882
+          Edge: Chromium (XXX.X.XXXX.XX)
+          Internet Explorer: XX.X.XXXXX.XXXX
         npmPackages:
-          @skeletonlabs/skeleton: ^3.0.0-next.10 => 3.0.0-next.10
-          @skeletonlabs/skeleton-react: ^1.0.0-next.13 => 1.0.0-next.13
+          @skeletonlabs/skeleton: ^X.X.X => X.X.X
+          @skeletonlabs/skeleton-svelte: ^X.X.X => X.X.X
   - type: textarea
     attributes:
       label: More Information
       description: |
-        Provide relevant links or additional information.
+        Provide additional information, videos, gifs, or screenshots here.
     validations:
       required: false
