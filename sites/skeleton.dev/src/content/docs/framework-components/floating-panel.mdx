@@ -36,19 +36,18 @@ export default function Anatomy() {
 			<Portal>
 				<FloatingPanel.Positioner>
 					<FloatingPanel.Content>
-						<FloatingPanel.Header>
-							<FloatingPanel.DragTrigger>
+						<FloatingPanel.DragTrigger>
+							<FloatingPanel.Header>
 								<FloatingPanel.Title />
-							</FloatingPanel.DragTrigger>
-							<FloatingPanel.Control>
-								<FloatingPanel.StageTrigger stage="minimized" />
-								<FloatingPanel.StageTrigger stage="maximized" />
-								<FloatingPanel.StageTrigger stage="default" />
-								<FloatingPanel.CloseTrigger />
-							</FloatingPanel.Control>
-						</FloatingPanel.Header>
-						<FloatingPanel.Body />
-						<FloatingPanel.ResizeTrigger axis="se" />
+								<FloatingPanel.Control>
+									<FloatingPanel.StageTrigger />
+									<FloatingPanel.CloseTrigger />
+								</FloatingPanel.Control>
+							</FloatingPanel.Header>
+						</FloatingPanel.DragTrigger>
+						<FloatingPanel.Body>
+							<FloatingPanel.ResizeTrigger />
+						</FloatingPanel.Body>
 					</FloatingPanel.Content>
 				</FloatingPanel.Positioner>
 			</Portal>
@@ -70,19 +69,18 @@ export default function Anatomy() {
 	<Portal>
 		<FloatingPanel.Positioner>
 			<FloatingPanel.Content>
-				<FloatingPanel.Header>
-					<FloatingPanel.DragTrigger>
+				<FloatingPanel.DragTrigger>
+					<FloatingPanel.Header>
 						<FloatingPanel.Title />
-					</FloatingPanel.DragTrigger>
-					<FloatingPanel.Control>
-						<FloatingPanel.StageTrigger stage="minimized" />
-						<FloatingPanel.StageTrigger stage="maximized" />
-						<FloatingPanel.StageTrigger stage="default" />
-						<FloatingPanel.CloseTrigger />
-					</FloatingPanel.Control>
-				</FloatingPanel.Header>
-				<FloatingPanel.Body />
-				<FloatingPanel.ResizeTrigger axis="se" />
+						<FloatingPanel.Control>
+							<FloatingPanel.StageTrigger />
+							<FloatingPanel.CloseTrigger />
+						</FloatingPanel.Control>
+					</FloatingPanel.Header>
+				</FloatingPanel.DragTrigger>
+				<FloatingPanel.Body>
+					<FloatingPanel.ResizeTrigger />
+				</FloatingPanel.Body>
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>
