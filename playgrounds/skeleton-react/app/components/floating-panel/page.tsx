@@ -1,7 +1,9 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { MinimizeIcon, XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
+'use client';
 
-export default function Default() {
+import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
+import { XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
+
+export default function Page() {
 	return (
 		<FloatingPanel>
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
