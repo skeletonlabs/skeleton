@@ -14,6 +14,8 @@ import DirReact from '@/components/examples/framework-components/floating-panel/
 import DirReactRaw from '@/components/examples/framework-components/floating-panel/react/dir?raw';
 import DisableDraggingReact from '@/components/examples/framework-components/floating-panel/react/disable-dragging';
 import DisableDraggingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-dragging?raw';
+import DisableResizingReact from '@/components/examples/framework-components/floating-panel/react/disable-resizing';
+import DisableResizingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-resizing?raw';
 import SizeConstraintsReact from '@/components/examples/framework-components/floating-panel/react/size-constraints';
 import SizeConstraintsReactRaw from '@/components/examples/framework-components/floating-panel/react/size-constraints?raw';
 import AnchorPositionSvelte from '@/components/examples/framework-components/floating-panel/svelte/anchor-position.svelte';
@@ -26,6 +28,8 @@ import DirSvelte from '@/components/examples/framework-components/floating-panel
 import DirSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/dir.svelte?raw';
 import DisableDraggingSvelte from '@/components/examples/framework-components/floating-panel/svelte/disable-dragging.svelte';
 import DisableDraggingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-dragging.svelte?raw';
+import DisableResizingSvelte from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte';
+import DisableResizingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte?raw';
 import SizeConstraintsSvelte from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte';
 import SizeConstraintsSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte?raw';
 
@@ -101,6 +105,22 @@ Disable dragging by setting the `draggable` prop to `false`. The panel will rema
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DisableDraggingSvelteRaw }} client:visible>
 		<DisableDraggingSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disable Resizing
+
+Disable resizing by setting the `resizable` prop to `false`. The panel will have a fixed size but can still be dragged.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisableResizingReactRaw }} client:visible>
+		<DisableResizingReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisableResizingSvelteRaw }} client:visible>
+		<DisableResizingSvelte client:visible />
 	</Preview>
 </Framework>
 

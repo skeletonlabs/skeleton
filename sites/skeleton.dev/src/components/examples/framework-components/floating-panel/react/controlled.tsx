@@ -47,7 +47,6 @@ export default function Controlled() {
 				size={size}
 				onSizeChange={(details) => setSize(details.size)}
 			>
-				<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 				<Portal>
 					<FloatingPanel.Positioner className="z-50">
 						<FloatingPanel.Content>
