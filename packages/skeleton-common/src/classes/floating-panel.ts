@@ -10,6 +10,6 @@ export const classesFloatingPanel = defineSkeletonClasses({
 	control: 'flex gap-1',
 	stageTrigger: 'btn-icon hover:preset-tonal',
 	closeTrigger: 'btn-icon hover:preset-tonal',
-	resizeTrigger: 'size-2 w-0 h-0 border-8 border-surface-300-700 border-l-transparent border-t-transparent',
+	resizeTrigger: 'size-2',
 	body: 'h-full bg-surface-100-900 p-4 overflow-y-auto',
 });

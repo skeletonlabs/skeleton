@@ -16,6 +16,8 @@ import DisableDraggingReact from '@/components/examples/framework-components/flo
 import DisableDraggingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-dragging?raw';
 import DisableResizingReact from '@/components/examples/framework-components/floating-panel/react/disable-resizing';
 import DisableResizingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-resizing?raw';
+import ResizeTriggersReact from '@/components/examples/framework-components/floating-panel/react/resize-triggers';
+import ResizeTriggersReactRaw from '@/components/examples/framework-components/floating-panel/react/resize-triggers?raw';
 import SizeConstraintsReact from '@/components/examples/framework-components/floating-panel/react/size-constraints';
 import SizeConstraintsReactRaw from '@/components/examples/framework-components/floating-panel/react/size-constraints?raw';
 import AnchorPositionSvelte from '@/components/examples/framework-components/floating-panel/svelte/anchor-position.svelte';
@@ -30,6 +32,8 @@ import DisableDraggingSvelte from '@/components/examples/framework-components/fl
 import DisableDraggingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-dragging.svelte?raw';
 import DisableResizingSvelte from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte';
 import DisableResizingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte?raw';
+import ResizeTriggersSvelte from '@/components/examples/framework-components/floating-panel/svelte/resize-triggers.svelte';
+import ResizeTriggersSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/resize-triggers.svelte?raw';
 import SizeConstraintsSvelte from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte';
 import SizeConstraintsSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte?raw';
 
@@ -89,6 +93,21 @@ Position the panel relative to another element using the `defaultPosition` prop.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': AnchorPositionSvelteRaw }} client:visible>
 		<AnchorPositionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Resize Triggers
+
+Add resize triggers on all sides and corners of the Floating Panel using the `axis` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ResizeTriggersReactRaw }} client:visible>
+		<ResizeTriggersReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ResizeTriggersSvelteRaw }} client:visible>
+		<ResizeTriggersSvelte client:visible />
 	</Preview>
 </Framework>
 

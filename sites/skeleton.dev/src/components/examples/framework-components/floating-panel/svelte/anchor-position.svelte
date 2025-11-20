@@ -5,10 +5,13 @@
 
 <div class="space-y-4">
 	<FloatingPanel
-		getAnchorPosition={({ boundaryRect }) => ({
-			x: boundaryRect.x + boundaryRect.width / 2 - 150,
-			y: boundaryRect.y + boundaryRect.height / 2 - 100,
-		})}
+		getAnchorPosition={(ctx) => {
+			if (!ctx.triggerRect) return { x: 0, y: 0 };
+			return {
+				x: ctx.triggerRect.x + ctx.triggerRect.width / 2,
+				y: ctx.triggerRect.y + ctx.triggerRect.height / 2,
+			};
+		}}
 	>
 		<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 		<Portal>
