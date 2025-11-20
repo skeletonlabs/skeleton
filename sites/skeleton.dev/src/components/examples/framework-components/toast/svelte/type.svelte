@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
-	const toaster = createToaster({});
+	const toaster = createToaster();
 </script>
 
 <div class="grid grid-cols-2 gap-2">

@@ -2,7 +2,7 @@
 	import { SkullIcon } from '@lucide/svelte';
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
-	const toaster = createToaster({});
+	const toaster = createToaster();
 </script>
 
 {#snippet skull()}
