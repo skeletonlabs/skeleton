@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.5.0
+
+### Minor Changes
+
+- feature: toast styling requirements set inline, react 18 users no longer have to set these seperately ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
+### Patch Changes
+
+- task: bump zag ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
+- Updated dependencies [[`a085b38`](https://github.com/skeletonlabs/skeleton/commit/a085b382a9970a08d049f23e4dcb8c11f3eb4126)]:
+  - @skeletonlabs/skeleton-common@4.5.0
+
 ## 4.4.1
 
 ### Patch Changes
