@@ -9,18 +9,18 @@
 	});
 </script>
 
-<div class="flex gap-2 items-center justify-center">
-	<label class="label">
-		<span class="label-text">Open:</span>
+<div class="card bg-surface-100-900 p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+	<label class="label flex items-center gap-2">
 		<input type="checkbox" class="checkbox" bind:checked={open} />
+		<span class="label-text">Open</span>
 	</label>
-	<label class="label">
+	<label class="label flex items-center gap-2">
 		<span class="label-text">Width:</span>
-		<input type="number" class="input" bind:value={size.width} />
+		<input type="number" class="input w-24" bind:value={size.width} />
 	</label>
-	<label class="label">
+	<label class="label flex items-center gap-2">
 		<span class="label-text">Height:</span>
-		<input type="number" class="input" bind:value={size.height} />
+		<input type="number" class="input w-24" bind:value={size.height} />
 	</label>
 </div>
 

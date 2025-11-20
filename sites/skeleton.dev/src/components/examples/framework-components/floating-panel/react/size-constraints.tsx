@@ -31,10 +31,8 @@ export default function SizeConstraints() {
 							</FloatingPanel.Header>
 						</FloatingPanel.DragTrigger>
 						<FloatingPanel.Body>
-							<p>
-								This is a floating panel that can be dragged, resized, minimized, and maximized. Try dragging from the header or resizing
-								from the bottom-right corner.
-							</p>
+							<p>This panel has size constraints applied: minimum 300x200 pixels and maximum 900x600 pixels.</p>
+							<p>Try resizing from the bottom-right corner - the panel will respect these boundaries.</p>
 							<FloatingPanel.ResizeTrigger axis="se" />
 						</FloatingPanel.Body>
 					</FloatingPanel.Content>
