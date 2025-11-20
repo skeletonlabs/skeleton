@@ -143,6 +143,22 @@ Disable resizing by setting the `resizable` prop to `false`. The panel will have
 	</Preview>
 </Framework>
 
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
 ## Anatomy
 
 Here's an overview of how the Floating Panel component is structured in code:
@@ -210,22 +226,6 @@ export default function Anatomy() {
 </FloatingPanel>
 ```
 
-</Framework>
-
-## Direction
-
-Set the text direction (`ltr` or `rtl`) using the `dir` prop.
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
-		<DirReact client:visible />
-	</Preview>
-</Framework>
-
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
-		<DirSvelte client:visible />
-	</Preview>
 </Framework>
 
 ## API Reference
