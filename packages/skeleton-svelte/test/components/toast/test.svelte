@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Toast, createToaster } from '@/index.js';
 
-	const toaster = createToaster({});
+	const toaster = createToaster();
 
 	$effect(() => {
 		toaster.create({});
