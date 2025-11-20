@@ -1,7 +1,7 @@
 import { ItemContext } from '../modules/item-context.js';
 import { TriggerItemContext } from '../modules/trigger-item-context.js';
-import type { HTMLAttributes } from '@/internal/html-attributes.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { classesMenu } from '@skeletonlabs/skeleton-common';
 import { splitItemProps, type ItemProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Tabs } from '@/index.js';
+	import { Tabs } from '../../../src/index.js';
 </script>
 
 <Tabs data-testid="root">

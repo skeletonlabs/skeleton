@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/toggle-group';
 
 	export interface ToggleGroupItemProps extends ItemProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}

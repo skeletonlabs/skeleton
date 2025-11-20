@@ -1,4 +1,4 @@
-import { Menu } from '@/index.js';
+import { Menu } from '../../../src/index.js';
 
 export default function Test() {
 	return (

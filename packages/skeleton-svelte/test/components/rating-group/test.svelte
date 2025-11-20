@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RatingGroup } from '@/index.js';
+	import { RatingGroup } from '../../../src/index.js';
 </script>
 
 <RatingGroup data-testid="root">

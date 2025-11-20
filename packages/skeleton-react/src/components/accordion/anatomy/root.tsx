@@ -1,7 +1,7 @@
 import { useAccordion } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import type { HTMLAttributes } from '@/internal/html-attributes.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
+import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { classesAccordion } from '@skeletonlabs/skeleton-common';
 import { splitProps } from '@zag-js/accordion';
 import type { Props } from '@zag-js/accordion';
