@@ -3,10 +3,13 @@
 	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	let open = $state(false);
-	let size = $state({ width: 400, height: 300 });
+	let size = $state({
+		width: 400,
+		height: 300,
+	});
 </script>
 
-<div class="card bg-surface-100-900 p-4 flex gap-4 items-center">
+<div class="flex gap-2 items-center justify-center">
 	<label class="label">
 		<span class="label-text">Open:</span>
 		<input type="checkbox" class="checkbox" bind:checked={open} />

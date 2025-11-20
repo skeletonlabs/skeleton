@@ -4,11 +4,14 @@ import { useState } from 'react';
 
 export default function Controlled() {
 	const [open, setOpen] = useState(false);
-	const [size, setSize] = useState({ width: 400, height: 300 });
+	const [size, setSize] = useState({
+		width: 400,
+		height: 300,
+	});
 
 	return (
 		<>
-			<div className="card bg-surface-100-900 p-4 flex gap-4 items-center">
+			<div className="flex gap-2 items-center justify-center">
 				<label className="label">
 					<span className="label-text">Open:</span>
 					<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.currentTarget.checked)} />
