@@ -11,7 +11,7 @@ import DefaultReact from '@/components/examples/framework-components/toast/react
 import DefaultReactRaw from '@/components/examples/framework-components/toast/react/default?raw';
 import MetaReact from '@/components/examples/framework-components/toast/react/meta';
 import MetaReactRaw from '@/components/examples/framework-components/toast/react/meta?raw';
-import OverlapReact from '@/components/examples/framework-components/toast/react/overlap';
+import Placemimport OverlapReact from '@/components/examples/framework-components/toast/react/overlap';
 import OverlapReactRaw from '@/components/examples/framework-components/toast/react/overlap?raw';
 import PlacementReact from '@/components/examples/framework-components/toast/react/placement';
 import PlacementReactRaw from '@/components/examples/framework-components/toast/react/placement?raw';
@@ -192,15 +192,7 @@ Use the `overlap` option in your `createToaster` instance to enable overlapping 
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': OverlapSvelteRaw }} client:visible>
 		<OverlapSvelte client:visible />
-	</Preview>
-</Framework>
-
-## Action
-
-Use the `action` to define a custom button for each toast instance.
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ActionReactRaw }} client:visible>
+		: ActionReactRaw }} client:visible>
 		<ActionReact client:visible />
 	</Preview>
 </Framework>
@@ -209,6 +201,8 @@ Use the `action` to define a custom button for each toast instance.
 		<ActionSvelte client:visible />
 	</Preview>
 </Framework>
+
+> Note: Hovering over the toast group will expand all the toasts.
 
 ## Closable
 
