@@ -19,10 +19,7 @@
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
-		"types": ["@testing-library/jest-dom/vitest"],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
+		"types": ["@testing-library/jest-dom/vitest"]
 	},
 	"include": ["src", "test"]
 }

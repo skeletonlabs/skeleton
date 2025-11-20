@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@/index.js';
+	import { Toast, createToaster } from '../../../src/index.js';
 
 	const toaster = createToaster();
 
