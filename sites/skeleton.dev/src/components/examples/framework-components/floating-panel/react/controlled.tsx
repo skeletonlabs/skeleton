@@ -7,34 +7,25 @@ export default function Controlled() {
 	const [size, setSize] = useState({ width: 400, height: 300 });
 
 	return (
-		<div className="space-y-4">
-			<div className="card p-4 space-y-4">
-				<div className="flex items-center gap-4">
-					<label className="label">
-						<span className="label-text">Open:</span>
-						<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.target.checked)} />
-					</label>
-				</div>
-				<div className="flex items-center gap-4">
-					<label className="label">
-						<span className="label-text">Width:</span>
-						<input
-							type="number"
-							className="input"
-							value={size.width}
-							onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
-						/>
-					</label>
-					<label className="label">
-						<span className="label-text">Height:</span>
-						<input
-							type="number"
-							className="input"
-							value={size.height}
-							onChange={(e) => setSize({ ...size, height: Number(e.target.value) })}
-						/>
-					</label>
-				</div>
+		<>
+			<div className="card bg-surface-100-900 p-4 flex gap-4 items-center">
+				<label className="label">
+					<span className="label-text">Open:</span>
+					<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.currentTarget.checked)} />
+				</label>
+				<label className="label">
+					<span className="label-text">Width:</span>
+					<input type="number" className="input" value={size.width} onChange={(e) => setSize({ ...size, width: Number(e.target.value) })} />
+				</label>
+				<label className="label">
+					<span className="label-text">Height:</span>
+					<input
+						type="number"
+						className="input"
+						value={size.height}
+						onChange={(e) => setSize({ ...size, height: Number(e.target.value) })}
+					/>
+				</label>
 			</div>
 
 			<FloatingPanel
@@ -77,6 +68,6 @@ export default function Controlled() {
 					</FloatingPanel.Positioner>
 				</Portal>
 			</FloatingPanel>
-		</div>
+		</>
 	);
 }
