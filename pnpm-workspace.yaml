@@ -47,31 +47,31 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.1.1
-  '@zag-js/accordion': 1.28.0
-  '@zag-js/avatar': 1.28.0
-  '@zag-js/collapsible': 1.28.0
-  '@zag-js/collection': 1.28.0
-  '@zag-js/combobox': 1.28.0
-  '@zag-js/date-picker': 1.28.0
-  '@zag-js/dialog': 1.28.0
-  '@zag-js/file-upload': 1.28.0
-  '@zag-js/listbox': 1.28.0
-  '@zag-js/menu': 1.28.0
-  '@zag-js/pagination': 1.28.0
-  '@zag-js/popover': 1.28.0
-  '@zag-js/progress': 1.28.0
-  '@zag-js/radio-group': 1.28.0
-  '@zag-js/rating-group': 1.28.0
-  '@zag-js/react': 1.28.0
-  '@zag-js/slider': 1.28.0
-  '@zag-js/svelte': 1.28.0
-  '@zag-js/switch': 1.28.0
-  '@zag-js/tabs': 1.28.0
-  '@zag-js/tags-input': 1.28.0
-  '@zag-js/toast': 1.28.0
-  '@zag-js/toggle-group': 1.28.0
-  '@zag-js/tooltip': 1.28.0
-  '@zag-js/tree-view': 1.28.0
+  '@zag-js/accordion': 1.29.0
+  '@zag-js/avatar': 1.29.0
+  '@zag-js/collapsible': 1.29.0
+  '@zag-js/collection': 1.29.0
+  '@zag-js/combobox': 1.29.0
+  '@zag-js/date-picker': 1.29.0
+  '@zag-js/dialog': 1.29.0
+  '@zag-js/file-upload': 1.29.0
+  '@zag-js/listbox': 1.29.0
+  '@zag-js/menu': 1.29.0
+  '@zag-js/pagination': 1.29.0
+  '@zag-js/popover': 1.29.0
+  '@zag-js/progress': 1.29.0
+  '@zag-js/radio-group': 1.29.0
+  '@zag-js/rating-group': 1.29.0
+  '@zag-js/react': 1.29.0
+  '@zag-js/slider': 1.29.0
+  '@zag-js/svelte': 1.29.0
+  '@zag-js/switch': 1.29.0
+  '@zag-js/tabs': 1.29.0
+  '@zag-js/tags-input': 1.29.0
+  '@zag-js/toast': 1.29.0
+  '@zag-js/toggle-group': 1.29.0
+  '@zag-js/tooltip': 1.29.0
+  '@zag-js/tree-view': 1.29.0
   astro: 5.15.9
   astro-auto-import: 0.4.5
   astro-pagefind: 1.8.5
