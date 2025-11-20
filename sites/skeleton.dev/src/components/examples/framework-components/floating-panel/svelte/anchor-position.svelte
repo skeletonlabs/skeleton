@@ -1,0 +1,57 @@
+<script lang="ts">
+	import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from '@lucide/svelte';
+	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+
+	let buttonEl: HTMLButtonElement;
+	$effect(() => {
+		if (buttonEl) {
+			// Force update when button is mounted
+		}
+	});
+</script>
+
+<div class="space-y-4">
+	<button bind:this={buttonEl} class="btn preset-filled">Anchor Element</button>
+
+	<FloatingPanel
+		defaultPosition={{
+			x: buttonEl ? buttonEl.offsetLeft + buttonEl.offsetWidth + 10 : 100,
+			y: buttonEl ? buttonEl.offsetTop : 100,
+		}}
+	>
+		<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
+		<Portal>
+			<FloatingPanel.Positioner class="z-50">
+				<FloatingPanel.Content>
+					<FloatingPanel.DragTrigger>
+						<FloatingPanel.Header>
+							<FloatingPanel.Title>
+								<GripVerticalIcon class="size-4" />
+								Anchored Panel
+							</FloatingPanel.Title>
+							<FloatingPanel.Control>
+								<FloatingPanel.StageTrigger stage="minimized">
+									<MinusIcon class="size-4" />
+								</FloatingPanel.StageTrigger>
+								<FloatingPanel.StageTrigger stage="maximized">
+									<MaximizeIcon class="size-4" />
+								</FloatingPanel.StageTrigger>
+								<FloatingPanel.StageTrigger stage="default">
+									<MinimizeIcon class="size-4" />
+								</FloatingPanel.StageTrigger>
+								<FloatingPanel.CloseTrigger>
+									<XIcon class="size-4" />
+								</FloatingPanel.CloseTrigger>
+							</FloatingPanel.Control>
+						</FloatingPanel.Header>
+					</FloatingPanel.DragTrigger>
+					<FloatingPanel.Body>
+						<p>This panel starts positioned next to the anchor element above.</p>
+						<p>Try dragging it to a new position.</p>
+						<FloatingPanel.ResizeTrigger axis="se" />
+					</FloatingPanel.Body>
+				</FloatingPanel.Content>
+			</FloatingPanel.Positioner>
+		</Portal>
+	</FloatingPanel>
+</div>
