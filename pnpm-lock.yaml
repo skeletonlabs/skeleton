@@ -157,16 +157,11 @@ catalogs:
       specifier: 1.29.0
       version: 1.29.0
     '@zag-js/file-upload':
-<<<<<<< HEAD
-      specifier: 1.28.0
-      version: 1.28.0
-    '@zag-js/floating-panel':
-      specifier: 1.28.0
-      version: 1.28.0
-=======
       specifier: 1.29.0
       version: 1.29.0
->>>>>>> main
+    '@zag-js/floating-panel':
+      specifier: 1.29.0
+      version: 1.29.0
     '@zag-js/listbox':
       specifier: 1.29.0
       version: 1.29.0
@@ -545,14 +540,10 @@ importers:
         version: 1.29.0
       '@zag-js/file-upload':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.28.0
+        version: 1.29.0
       '@zag-js/floating-panel':
         specifier: 'catalog:'
-        version: 1.28.0
-=======
         version: 1.29.0
->>>>>>> main
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.29.0
@@ -670,14 +661,10 @@ importers:
         version: 1.29.0
       '@zag-js/file-upload':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.28.0
+        version: 1.29.0
       '@zag-js/floating-panel':
         specifier: 'catalog:'
-        version: 1.28.0
-=======
         version: 1.29.0
->>>>>>> main
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.29.0
@@ -3141,16 +3128,11 @@ packages:
   '@zag-js/file-utils@1.29.0':
     resolution: {integrity: sha512-T9etdsDPrCYTUQmy6/D6Tz2AteK6FVRfJRecxG3OJ7OVv1F6B4zH2SCJgpwnqJj6NBKjXLK1rVYuGzphJXNZ4g==}
 
-<<<<<<< HEAD
-  '@zag-js/floating-panel@1.28.0':
-    resolution: {integrity: sha512-RjcofLy3CTOO+qRGX6JUoVabGKfjx5+mr3IpoDYP2U9eez5U//OZAQI29Y6nStgjyHohyGvtkiiytyfmX+/GBA==}
+  '@zag-js/floating-panel@1.29.0':
+    resolution: {integrity: sha512-7jT0h3jvOdKjEdBFhXb6vdUmeZTt5o5+d+mEdRCWWm5be35TdkenJw5FoRlzS6CF3e0Xhm7iROl86x2hM9c2Zw==}
 
-  '@zag-js/focus-trap@1.28.0':
-    resolution: {integrity: sha512-WJJKFJCoJY8cvjNzTzsfnzJvf6A8tuiwpMsbTVCNYWhXl8c0i5nPRonZgep5B7h7IzLc6yLEwQ+XxaWvJasWAg==}
-=======
   '@zag-js/focus-trap@1.29.0':
     resolution: {integrity: sha512-eZCKUT7VJzCHCeIyCdX9hG+c5a4uMnHLA0CBDGFsB69On5wQ3v8N5febbdpEFvJMfOrf93HVK1cNHCZ+rvvQNA==}
->>>>>>> main
 
   '@zag-js/focus-visible@1.29.0':
     resolution: {integrity: sha512-srd/3bNge1EnnanH8yd/S2xiOaREO2w3RFt0Em7oRqRGqtEwuNEd0IS66LpZ4PdgiBrzfxha9yDjY2Co3/4a8A==}
@@ -3685,9 +3667,6 @@ packages:
     resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
     engines: {node: '>=18'}
 
-  devalue@5.4.2:
-    resolution: {integrity: sha512-MwPZTKEPK2k8Qgfmqrd48ZKVvzSQjgW0lXLxiIBA8dQjtf/6mw6pggHNLcyDKyf+fI6eXxlQwPsfaCMTU5U+Bw==}
-
   devalue@5.5.0:
     resolution: {integrity: sha512-69sM5yrHfFLJt0AZ9QqZXGCPfJ7fQjvpln3Rq5+PS03LD32Ost1Q9N+eEnaQwGRIriKkMImXD56ocjQmfjbV3w==}
 
@@ -4169,10 +4148,6 @@ packages:
 
   js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
-    hasBin: true
-
-  js-yaml@4.1.0:
-    resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
   js-yaml@4.1.1:
@@ -5267,10 +5242,6 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
 
-  smol-toml@1.4.2:
-    resolution: {integrity: sha512-rInDH6lCNiEyn3+hH8KVGFdbjc099j47+OSgbMrfDYX1CmXLfdKd7qi6IfcWj2wFxvSVkuI46M+wPGYfEOEj6g==}
-    engines: {node: '>= 18'}
-
   smol-toml@1.5.2:
     resolution: {integrity: sha512-QlaZEqcAH3/RtNyet1IPIYPsEWAaYyXXv1Krsi+1L/QHppjX4Ifm8MQsBISz9vE8cHicIq3clogsheili5vhaQ==}
     engines: {node: '>= 18'}
@@ -6186,7 +6157,7 @@ snapshots:
       hast-util-from-html: 2.0.3
       hast-util-to-text: 4.0.2
       import-meta-resolve: 4.2.0
-      js-yaml: 4.1.0
+      js-yaml: 4.1.1
       mdast-util-definitions: 6.0.0
       rehype-raw: 7.0.0
       rehype-stringify: 10.0.1
@@ -6195,7 +6166,7 @@ snapshots:
       remark-rehype: 11.1.2
       remark-smartypants: 3.0.2
       shiki: 3.15.0
-      smol-toml: 1.4.2
+      smol-toml: 1.5.2
       unified: 11.0.5
       unist-util-remove-position: 5.0.0
       unist-util-visit: 5.0.0
@@ -7643,7 +7614,7 @@ snapshots:
       '@types/cookie': 0.6.0
       acorn: 8.15.0
       cookie: 0.6.0
-      devalue: 5.4.2
+      devalue: 5.5.0
       esm-env: 1.2.2
       kleur: 4.1.5
       magic-string: 0.30.21
@@ -7663,7 +7634,7 @@ snapshots:
       '@types/cookie': 0.6.0
       acorn: 8.15.0
       cookie: 0.6.0
-      devalue: 5.4.2
+      devalue: 5.5.0
       esm-env: 1.2.2
       kleur: 4.1.5
       magic-string: 0.30.21
@@ -8253,22 +8224,18 @@ snapshots:
     dependencies:
       '@zag-js/i18n-utils': 1.29.0
 
-<<<<<<< HEAD
-  '@zag-js/floating-panel@1.28.0':
+  '@zag-js/floating-panel@1.29.0':
     dependencies:
-      '@zag-js/anatomy': 1.28.0
-      '@zag-js/core': 1.28.0
-      '@zag-js/dom-query': 1.28.0
-      '@zag-js/popper': 1.28.0
-      '@zag-js/rect-utils': 1.28.0
-      '@zag-js/store': 1.28.0
-      '@zag-js/types': 1.28.0
-      '@zag-js/utils': 1.28.0
+      '@zag-js/anatomy': 1.29.0
+      '@zag-js/core': 1.29.0
+      '@zag-js/dom-query': 1.29.0
+      '@zag-js/popper': 1.29.0
+      '@zag-js/rect-utils': 1.29.0
+      '@zag-js/store': 1.29.0
+      '@zag-js/types': 1.29.0
+      '@zag-js/utils': 1.29.0
 
-  '@zag-js/focus-trap@1.28.0':
-=======
   '@zag-js/focus-trap@1.29.0':
->>>>>>> main
     dependencies:
       '@zag-js/dom-query': 1.29.0
 
@@ -8932,8 +8899,6 @@ snapshots:
     dependencies:
       base-64: 1.0.0
 
-  devalue@5.4.2: {}
-
   devalue@5.5.0: {}
 
   devlop@1.1.0:
@@ -9500,10 +9465,6 @@ snapshots:
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
-
-  js-yaml@4.1.0:
-    dependencies:
-      argparse: 2.0.1
 
   js-yaml@4.1.1:
     dependencies:
@@ -10949,8 +10910,6 @@ snapshots:
       sax: 1.4.3
 
   slash@3.0.0: {}
-
-  smol-toml@1.4.2: {}
 
   smol-toml@1.5.2: {}
 
