@@ -11,31 +11,27 @@ export default function Controlled() {
 			<div className="card p-4 space-y-4">
 				<div className="flex items-center gap-4">
 					<label className="label">
-						<span>Open:</span>
+						<span className="label-text">Open:</span>
 						<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.target.checked)} />
 					</label>
 				</div>
 				<div className="flex items-center gap-4">
 					<label className="label">
-						<span>Width:</span>
+						<span className="label-text">Width:</span>
 						<input
 							type="number"
 							className="input"
 							value={size.width}
 							onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
-							min={200}
-							max={800}
 						/>
 					</label>
 					<label className="label">
-						<span>Height:</span>
+						<span className="label-text">Height:</span>
 						<input
 							type="number"
 							className="input"
 							value={size.height}
 							onChange={(e) => setSize({ ...size, height: Number(e.target.value) })}
-							min={150}
-							max={600}
 						/>
 					</label>
 				</div>

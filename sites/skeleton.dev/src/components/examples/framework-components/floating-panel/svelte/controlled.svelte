@@ -10,18 +10,18 @@
 	<div class="card p-4 space-y-4">
 		<div class="flex items-center gap-4">
 			<label class="label">
-				<span>Open:</span>
+				<span class="label-text">Open:</span>
 				<input type="checkbox" class="checkbox" bind:checked={open} />
 			</label>
 		</div>
 		<div class="flex items-center gap-4">
 			<label class="label">
-				<span>Width:</span>
-				<input type="number" class="input" bind:value={size.width} min={200} max={800} />
+				<span class="label-text">Width:</span>
+				<input type="number" class="input" bind:value={size.width} />
 			</label>
 			<label class="label">
-				<span>Height:</span>
-				<input type="number" class="input" bind:value={size.height} min={150} max={600} />
+				<span class="label-text">Height:</span>
+				<input type="number" class="input" bind:value={size.height} />
 			</label>
 		</div>
 	</div>
