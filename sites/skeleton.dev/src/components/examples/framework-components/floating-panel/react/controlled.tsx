@@ -11,7 +11,7 @@ export default function Controlled() {
 
 	return (
 		<>
-			<div className="card bg-surface-100-900 p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+			<div className="card bg-surface-100-900 p-4 flex flex-col flex-wrap gap-4 items-center">
 				<label className="label flex items-center gap-2">
 					<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.currentTarget.checked)} />
 					<span className="label-text">Open</span>
