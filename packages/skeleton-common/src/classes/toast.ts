@@ -2,13 +2,16 @@ import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' w
 
 export const classesToast = defineSkeletonClasses({
 	root: [
-		'card p-3 w-full md:w-md ring flex items-center gap-2',
+		'card p-3 w-full max-w-sm ring flex items-center gap-2',
 		'preset-filled-surface-50-950 ring-surface-200-800',
 		'data-[type=success]:preset-filled-success-500',
 		'data-[type=warning]:preset-filled-warning-500',
 		'data-[type=error]:preset-filled-error-500',
 	],
-	group: '',
+	// TODO:
+	// Replace `32px` with `calc(2*var(--viewport-offset))` (or similar variable)
+	//  when this launches: https://github.com/chakra-ui/zag/issues/2859
+	group: 'w-[calc(100%-32px)]',
 	message: 'flex-1',
 	title: 'font-medium text-sm',
 	description: 'text-sm',

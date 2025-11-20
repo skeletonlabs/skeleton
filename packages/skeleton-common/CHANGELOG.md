@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.4.1
+
+### Patch Changes
+
+- bugfix: `Toast` width collapsing on smaller screens when `position` is not centered ([#4116](https://github.com/skeletonlabs/skeleton/pull/4116))
+
 ## 4.4.0
 
 ### Minor Changes
