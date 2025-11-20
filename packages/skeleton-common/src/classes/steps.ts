@@ -10,10 +10,8 @@ export const classesSteps = defineSkeletonClasses({
 		'data-complete:preset-filled-primary-500',
 		'data-current:preset-filled-primary-500',
 	],
-	itemText: '',
 	separator: 'h-0 border-t border-t-surface-200-800 grow',
 	content: '',
-	control: '',
 	prevTrigger: 'btn preset-filled',
 	nextTrigger: 'btn preset-filled',
 });

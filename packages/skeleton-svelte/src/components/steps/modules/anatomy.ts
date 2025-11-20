@@ -1,7 +1,5 @@
 import Content from '../anatomy/content.svelte';
-import Control from '../anatomy/control.svelte';
 import Indicator from '../anatomy/indicator.svelte';
-import ItemText from '../anatomy/item-text.svelte';
 import Item from '../anatomy/item.svelte';
 import List from '../anatomy/list.svelte';
 import NextTrigger from '../anatomy/next-trigger.svelte';
@@ -19,10 +17,8 @@ export const Steps = Object.assign(Root, {
 	Item: Item,
 	Trigger: Trigger,
 	Indicator: Indicator,
-	ItemText: ItemText,
 	Separator: Separator,
 	Content: Content,
-	Control: Control,
 	PrevTrigger: PrevTrigger,
 	NextTrigger: NextTrigger,
 });

@@ -6,22 +6,19 @@
 	<Steps.List>
 		<Steps.Item index={0}>
 			<Steps.Trigger>
-				<Steps.Indicator>1</Steps.Indicator>
-				<Steps.ItemText>First</Steps.ItemText>
+				<Steps.Indicator>1</Steps.Indicator> First
 			</Steps.Trigger>
 			<Steps.Separator />
 		</Steps.Item>
 		<Steps.Item index={1}>
 			<Steps.Trigger>
-				<Steps.Indicator>2</Steps.Indicator>
-				<Steps.ItemText>Then</Steps.ItemText>
+				<Steps.Indicator>2</Steps.Indicator> Then
 			</Steps.Trigger>
 			<Steps.Separator />
 		</Steps.Item>
 		<Steps.Item index={2}>
 			<Steps.Trigger>
-				<Steps.Indicator>3</Steps.Indicator>
-				<Steps.ItemText>Finally</Steps.ItemText>
+				<Steps.Indicator>3</Steps.Indicator> Finally
 			</Steps.Trigger>
 		</Steps.Item>
 	</Steps.List>
@@ -30,9 +27,8 @@
 	<Steps.Content index={1}>Then do that.</Steps.Content>
 	<Steps.Content index={2}>Almost there...</Steps.Content>
 	<Steps.Content index={3}>All done!</Steps.Content>
-
-	<Steps.Control>
+	<div class="flex justify-between items-center gap-2">
 		<Steps.PrevTrigger>Previous</Steps.PrevTrigger>
 		<Steps.NextTrigger>Next</Steps.NextTrigger>
-	</Steps.Control>
+	</div>
 </Steps>
