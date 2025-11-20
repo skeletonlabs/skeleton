@@ -35,15 +35,15 @@
 						This is a floating panel that can be dragged, resized, minimized, and maximized. Try dragging from the header or resizing from
 						the bottom-right corner.
 					</p>
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="n" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="e" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="w" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="s" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="ne" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="se" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="sw" />
-					<FloatingPanel.ResizeTrigger class="bg-error-500/50" axis="nw" />
 				</FloatingPanel.Body>
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="n" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="e" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="w" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="s" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="ne" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="se" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="sw" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="nw" />
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>

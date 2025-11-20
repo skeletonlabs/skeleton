@@ -33,8 +33,8 @@
 				<FloatingPanel.Body>
 					<p>This is a floating panel with right-to-left (RTL) direction.</p>
 					<p>You can drag it from the header or resize it from the bottom-right corner.</p>
-					<FloatingPanel.ResizeTrigger axis="se" />
 				</FloatingPanel.Body>
+				<FloatingPanel.ResizeTrigger axis="se" />
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>

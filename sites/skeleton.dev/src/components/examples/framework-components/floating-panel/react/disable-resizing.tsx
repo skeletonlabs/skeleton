@@ -34,6 +34,7 @@ export default function DisableResizing() {
 							<p>This panel cannot be resized.</p>
 							<p>Try dragging the edges - they won't respond.</p>
 						</FloatingPanel.Body>
+						<FloatingPanel.ResizeTrigger axis="se" />
 					</FloatingPanel.Content>
 				</FloatingPanel.Positioner>
 			</Portal>

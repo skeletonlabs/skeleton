@@ -53,8 +53,8 @@
 				<FloatingPanel.Body>
 					<p>This panel's open state and size are controlled via the inputs above.</p>
 					<p>Try changing the values or resizing/closing the panel to see the inputs update.</p>
-					<FloatingPanel.ResizeTrigger axis="se" />
 				</FloatingPanel.Body>
+				<FloatingPanel.ResizeTrigger axis="se" />
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>
