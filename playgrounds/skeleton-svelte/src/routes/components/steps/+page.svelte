@@ -28,7 +28,7 @@
 	<Steps.Content index={2}>Almost there...</Steps.Content>
 	<Steps.Content index={3}>All done!</Steps.Content>
 	<div class="flex justify-between items-center gap-2">
-		<Steps.PrevTrigger>Previous</Steps.PrevTrigger>
-		<Steps.NextTrigger>Next</Steps.NextTrigger>
+		<Steps.PrevTrigger class="btn preset-filled">Previous</Steps.PrevTrigger>
+		<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>
 	</div>
 </Steps>

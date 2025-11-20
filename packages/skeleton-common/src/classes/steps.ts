@@ -12,6 +12,6 @@ export const classesSteps = defineSkeletonClasses({
 	],
 	separator: 'h-0 border-t border-t-surface-200-800 grow',
 	content: '',
-	prevTrigger: 'btn preset-filled',
-	nextTrigger: 'btn preset-filled',
+	prevTrigger: '',
+	nextTrigger: '',
 });
