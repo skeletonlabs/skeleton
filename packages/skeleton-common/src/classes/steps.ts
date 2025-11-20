@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesSteps = defineSkeletonClasses({
-	root: '',
+	root: 'space-y-4',
 	list: 'flex items-center gap-2',
 	item: 'flex items-center gap-2 grow',
 	trigger: 'flex items-center gap-1',
