@@ -9,17 +9,18 @@
 		"directory": "packages/skeleton-react"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"test": "vitest run",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"sync": "pnpm build",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
-			"style": "./dist/index.css"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
@@ -74,5 +75,16 @@
 		"vitest": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.mts",
+					"import": "./dist/index.mjs",
+					"style": "./dist/index.css"
+				}
+			}
+		}
+	}
 }

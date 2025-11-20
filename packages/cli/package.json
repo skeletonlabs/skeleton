@@ -9,8 +9,8 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts"
 		}
 	},
 	"bin": "./dist/index.mjs",
@@ -20,16 +20,18 @@
 	],
 	"sideEffects": false,
 	"scripts": {
-		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"test": "vitest run",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"sync": "pnpm build",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"devDependencies": {
 		"@types/estree": "catalog:",
 		"@types/node": "catalog:",
 		"@types/semver": "catalog:",
+		"clean-package": "catalog:",
 		"tsdown": "catalog:",
 		"type-fest": "catalog:",
 		"typescript": "catalog:",
@@ -54,5 +56,15 @@
 		"zimmerframe": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.mts",
+					"import": "./dist/index.mjs"
+				}
+			}
+		}
+	}
 }

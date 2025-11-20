@@ -9,18 +9,18 @@
 		"directory": "packages/skeleton"
 	},
 	"scripts": {
-		"dev": "vite build --watch",
 		"build": "vite build",
-		"sync": "pnpm build"
+		"sync": "pnpm build",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"style": "./dist/index.css",
-			"default": "./dist/index.css"
+			"style": "./src/index.css"
 		},
 		"./themes/*": {
-			"style": "./dist/themes/*.css",
-			"default": "./dist/themes/*.css"
+			"style": "./src/themes/*.css",
+			"default": "./src/themes/*.css"
 		},
 		"./package.json": "./package.json"
 	},
@@ -36,5 +36,18 @@
 		"vite": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"style": "./dist/index.css"
+				},
+				"./themes/*": {
+					"style": "./src/themes/*.css"
+				},
+				"./package.json": "./package.json"
+			}
+		}
+	}
 }

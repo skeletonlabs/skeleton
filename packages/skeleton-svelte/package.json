@@ -9,18 +9,19 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"dev": "svelte-package --input src --output dist --preserve-output --watch",
-		"build": "svelte-package --input src --output dist --preserve-output",
+		"build": "svelte-package --input src --preserve-output",
 		"test": "vitest run",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync && pnpm build"
+		"sync": "svelte-kit sync && pnpm build",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"style": "./dist/index.css",
-			"svelte": "./dist/index.js",
-			"default": "./dist/index.js"
+			"types": "./src/index.ts",
+			"style": "./src/index.css",
+			"svelte": "./src/index.ts",
+			"default": "./src/index.ts"
 		}
 	},
 	"files": [
@@ -74,5 +75,17 @@
 		"vitest": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"style": "./dist/index.css",
+					"svelte": "./dist/index.js",
+					"default": "./dist/index.js"
+				}
+			}
+		}
+	}
 }

@@ -9,16 +9,17 @@
 		"directory": "packages/skeleton-common"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"sync": "pnpm build",
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
-			"style": "./dist/index.css"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
@@ -35,5 +36,16 @@
 		"unplugin-raw": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.mts",
+					"import": "./dist/index.mjs",
+					"style": "./dist/index.css"
+				}
+			}
+		}
+	}
 }
