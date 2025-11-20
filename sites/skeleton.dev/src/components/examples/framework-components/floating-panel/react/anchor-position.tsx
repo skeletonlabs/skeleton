@@ -1,21 +1,14 @@
 import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
 import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
-import { useRef } from 'react';
 
 export default function AnchorPosition() {
-	const buttonRef = useRef<HTMLButtonElement>(null);
-
 	return (
 		<div className="space-y-4">
-			<button ref={buttonRef} className="btn preset-filled">
-				Anchor Element
-			</button>
-
 			<FloatingPanel
-				defaultPosition={{
-					x: buttonRef.current ? buttonRef.current.offsetLeft + buttonRef.current.offsetWidth + 10 : 100,
-					y: buttonRef.current ? buttonRef.current.offsetTop : 100,
-				}}
+				getAnchorPosition={({ boundaryRect }) => ({
+					x: boundaryRect.x + boundaryRect.width / 2 - 150,
+					y: boundaryRect.y + boundaryRect.height / 2 - 100,
+				})}
 			>
 				<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 				<Portal>
@@ -44,8 +37,8 @@ export default function AnchorPosition() {
 								</FloatingPanel.Header>
 							</FloatingPanel.DragTrigger>
 							<FloatingPanel.Body>
-								<p>This panel starts positioned next to the anchor element above.</p>
-								<p>Try dragging it to a new position.</p>
+								<p>This panel is centered in the viewport using getAnchorPosition.</p>
+								<p>The position is calculated based on the boundary rectangle.</p>
 								<FloatingPanel.ResizeTrigger axis="se" />
 							</FloatingPanel.Body>
 						</FloatingPanel.Content>
