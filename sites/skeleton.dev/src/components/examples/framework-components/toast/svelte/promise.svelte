@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
-	const toaster = createToaster({});
+	const toaster = createToaster();
 
 	function generatePositiveNumber() {
 		return new Promise<number>((resolve, reject) => {

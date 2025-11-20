@@ -1,7 +1,7 @@
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 
 export default function Closable() {
-	const toaster = createToaster({});
+	const toaster = createToaster();
 
 	return (
 		<>

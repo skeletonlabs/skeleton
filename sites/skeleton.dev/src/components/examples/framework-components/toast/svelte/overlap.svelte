@@ -1,25 +1,17 @@
 <script lang="ts">
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
-	const toaster = createToaster();
+	const toaster = createToaster({
+		overlap: true,
+	});
 </script>
 
 <button
 	class="btn preset-filled"
 	onclick={() =>
 		toaster.info({
-			title: 'Toast',
-			description: 'This is a toast message.',
-			duration: Infinity,
-			action: {
-				label: 'Undo',
-				onClick: () => {
-					toaster.success({
-						title: 'Task undone',
-						description: 'The task has been undone.',
-					});
-				},
-			},
+			title: 'Title',
+			description: 'This is a description.',
 		})}
 >
 	Toast
@@ -32,9 +24,6 @@
 				<Toast.Title>{toast.title}</Toast.Title>
 				<Toast.Description>{toast.description}</Toast.Description>
 			</Toast.Message>
-			{#if toast.action}
-				<Toast.ActionTrigger>{toast.action.label}</Toast.ActionTrigger>
-			{/if}
 			<Toast.CloseTrigger />
 		</Toast>
 	{/snippet}
