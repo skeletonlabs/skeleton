@@ -7,17 +7,7 @@ body:
     id: description
     attributes:
       label: Describe the feature in detail (code, mocks, or screenshots encouraged)
-  - type: dropdown
-    id: category
-    attributes:
-      label: What type of pull request would this be?
-      options:
-        - 'New Feature'
-        - 'Enhancement'
-        - 'Guide'
-        - 'Docs'
-        - 'Other'
   - type: textarea
     id: references
     attributes:
-      label: Provide relevant links or additional information.
+      label: Provide relevant links, wireframes, prototypes, or additional information.

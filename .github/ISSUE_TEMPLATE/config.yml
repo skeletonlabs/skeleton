@@ -1,8 +1,5 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Having problems with the Skeleton CLI?
-    url: https://github.com/skeletonlabs/skeleton/issues/new?template=bug_report.yml
-    about: Please report issues using the bug report template.
   - name: Get support on Discord
     url: https://discord.com/channels/1003691521280856084/1151213014721241128
     about: Get help from the maintainers on Discord.

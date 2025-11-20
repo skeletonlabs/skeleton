@@ -10,4 +10,4 @@ body:
   - type: textarea
     id: quote
     attributes:
-      label: Describe the Issue (screenshots encouraged!)
+      label: Describe this issue. Screenshots are encouraged.
