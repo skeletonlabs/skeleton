@@ -18,7 +18,12 @@ export default function Controlled() {
 				</label>
 				<label className="label flex items-center gap-2">
 					<span className="label-text">Width:</span>
-					<input type="number" className="input w-24" value={size.width} onChange={(e) => setSize({ ...size, width: Number(e.target.value) })} />
+					<input
+						type="number"
+						className="input w-24"
+						value={size.width}
+						onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
+					/>
 				</label>
 				<label className="label flex items-center gap-2">
 					<span className="label-text">Height:</span>
