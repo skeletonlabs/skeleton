@@ -5,7 +5,7 @@ export const classesFloatingPanel = defineSkeletonClasses({
 	positioner: '',
 	content: 'card overflow-hidden shadow-lg border border-surface-300-700',
 	dragTrigger: '',
-	header: 'p-2 grid grid-cols-[1fr_auto] gap-2 items-center bg-surface-200-800 overflow-y-hidden',
+	header: 'px-4 py-2 grid grid-cols-[1fr_auto] gap-2 items-center bg-surface-200-800 overflow-y-hidden',
 	title: 'flex justify-start items-center gap-2 whitespace-nowrap',
 	control: 'flex gap-1',
 	stageTrigger: 'btn-icon hover:preset-tonal',
