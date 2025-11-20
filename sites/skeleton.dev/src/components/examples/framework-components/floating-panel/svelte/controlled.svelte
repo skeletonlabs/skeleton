@@ -9,18 +9,18 @@
 	});
 </script>
 
-<div class="card bg-surface-100-900 p-4 flex flex-col flex-wrap gap-4 items-center">
-	<label class="label flex items-center gap-2">
-		<input type="checkbox" class="checkbox" bind:checked={open} />
+<div class="card bg-surface-100-900 p-4 flex flex-col gap-4">
+	<label class="label">
 		<span class="label-text">Open</span>
+		<input type="checkbox" class="checkbox" bind:checked={open} />
 	</label>
-	<label class="label flex items-center gap-2">
+	<label class="label">
 		<span class="label-text">Width:</span>
-		<input type="number" class="input w-24" bind:value={size.width} />
+		<input type="number" class="input" bind:value={size.width} />
 	</label>
-	<label class="label flex items-center gap-2">
+	<label class="label">
 		<span class="label-text">Height:</span>
-		<input type="number" class="input w-24" bind:value={size.height} />
+		<input type="number" class="input" bind:value={size.height} />
 	</label>
 </div>
 
