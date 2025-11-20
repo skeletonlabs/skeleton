@@ -6,9 +6,9 @@
 </script>
 
 <script lang="ts">
+	import ChevronRightIcon from '../../../internal/components/chevron-right.svelte';
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import ChevronRightIcon from '../../../internal/components/chevron-right.svelte';
 	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

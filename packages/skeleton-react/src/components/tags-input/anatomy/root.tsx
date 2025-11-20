@@ -1,7 +1,7 @@
-import { useTagsInput } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import { useTagsInput } from '../modules/provider.js';
+import { RootContext } from '../modules/root-context.js';
 import { classesTagsInput } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 import { type Props, splitProps } from '@zag-js/tags-input';

@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
 	import ChevronDownIcon from '../../../internal/components/chevron-down.svelte';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesCombobox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

@@ -1,7 +1,7 @@
-import { ItemGroupContext } from '../modules/item-group-context.js';
-import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
+import { ItemGroupContext } from '../modules/item-group-context.js';
+import { RootContext } from '../modules/root-context.js';
 import { classesMenu } from '@skeletonlabs/skeleton-common';
 import { splitItemGroupProps } from '@zag-js/menu';
 import type { ItemGroupProps } from '@zag-js/menu';

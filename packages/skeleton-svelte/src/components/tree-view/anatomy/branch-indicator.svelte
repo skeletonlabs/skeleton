@@ -6,9 +6,9 @@
 </script>
 
 <script lang="ts">
+	import ChevronRight from '../../../internal/components/chevron-right.svelte';
 	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import ChevronRight from '../../../internal/components/chevron-right.svelte';
 	import { classesTreeView } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

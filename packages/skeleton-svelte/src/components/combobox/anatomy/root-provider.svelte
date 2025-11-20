@@ -1,7 +1,7 @@
 <script lang="ts" module>
-	import type { useCombobox } from '../modules/provider.svelte';
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { useCombobox } from '../modules/provider.svelte';
 
 	export interface ComboboxRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {
 		value: ReturnType<typeof useCombobox>;
