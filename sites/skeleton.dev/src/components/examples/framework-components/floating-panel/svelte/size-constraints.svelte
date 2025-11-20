@@ -3,7 +3,7 @@
 	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<FloatingPanel>
+<FloatingPanel maxSize={{ width: 900, height: 600 }} minSize={{ width: 300, height: 200 }}>
 	<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 	<Portal>
 		<FloatingPanel.Positioner class="z-50">

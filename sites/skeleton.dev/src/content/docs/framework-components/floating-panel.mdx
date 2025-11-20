@@ -6,8 +6,12 @@ stability: beta
 
 import DefaultReact from '@/components/examples/framework-components/floating-panel/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/floating-panel/react/default?raw';
+import SizeConstraintsReact from '@/components/examples/framework-components/floating-panel/react/size-constraints';
+import SizeConstraintsReactRaw from '@/components/examples/framework-components/floating-panel/react/size-constraints?raw';
 import DefaultSvelte from '@/components/examples/framework-components/floating-panel/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/default.svelte?raw';
+import SizeConstraintsSvelte from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte';
+import SizeConstraintsSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -17,6 +21,22 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/floatin
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Size Constraints
+
+Use the `minSize` and `maxSize` props to set size constraints on the Floating Panel.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SizeConstraintsReactRaw }} client:visible>
+		<SizeConstraintsReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SizeConstraintsSvelteRaw }} client:visible>
+		<SizeConstraintsSvelte client:visible />
 	</Preview>
 </Framework>
 

@@ -1,9 +1,9 @@
 import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
 import { GripVerticalIcon, MinimizeIcon, XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
 
-export default function Default() {
+export default function SizeConstraints() {
 	return (
-		<FloatingPanel>
+		<FloatingPanel maxSize={{ width: 900, height: 600 }} minSize={{ width: 300, height: 200 }}>
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 			<Portal>
 				<FloatingPanel.Positioner className="z-50">
