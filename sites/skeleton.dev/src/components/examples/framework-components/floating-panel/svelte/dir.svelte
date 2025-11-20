@@ -4,7 +4,7 @@
 </script>
 
 <FloatingPanel dir="rtl">
-	<FloatingPanel.Trigger class="btn preset-filled">فتح اللوحة</FloatingPanel.Trigger>
+	<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 	<Portal>
 		<FloatingPanel.Positioner class="z-50">
 			<FloatingPanel.Content>
@@ -12,7 +12,7 @@
 					<FloatingPanel.Header>
 						<FloatingPanel.Title>
 							<GripVerticalIcon class="size-4" />
-							لوحة عائمة
+							Floating Panel
 						</FloatingPanel.Title>
 						<FloatingPanel.Control>
 							<FloatingPanel.StageTrigger stage="minimized">
@@ -31,8 +31,8 @@
 					</FloatingPanel.Header>
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
-					<p>هذه لوحة عائمة بدعم النص من اليمين إلى اليسار (RTL).</p>
-					<p>يمكنك سحبها من العنوان أو تغيير حجمها من الزاوية السفلية اليمنى.</p>
+					<p>This is a floating panel with right-to-left (RTL) direction.</p>
+					<p>You can drag it from the header or resize it from the bottom-right corner.</p>
 					<FloatingPanel.ResizeTrigger axis="se" />
 				</FloatingPanel.Body>
 			</FloatingPanel.Content>
