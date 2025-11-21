@@ -1,6 +1,6 @@
 ---
 title: Migrate from v3
-description: Learn how to migrate from Skeleton v3 to the latest version.
+description: Learn how to migrate from Skeleton v3 to the latest release.
 summary: Skeleton v4 introduces a top-to-bottom overhaul of the component APIs. The goal has been to stabilized the internal and external APIs of our component system and ensure we can continue to introduce new components and new component frameworks over time. It also aims to make Skeleton's components as simple and intuitive to use as possible for new users.
 order: 8888
 ---
@@ -58,7 +58,7 @@ The `@source` rules for sourcing component styles have been replaced with simple
 @import '@skeletonlabs/skeleton-{framework}'; /* [!code ++] */
 ```
 
-In Skeleton v3 the [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been combined back into the core package. If this optional import is present, please remove it:
+In Skeleton v3 the [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been merged back into the core package. If this optional import is present, please remove it:
 
 ```css
 @import '@skeletonlabs/skeleton/optional/presets'; /* [!code --] */
@@ -80,7 +80,7 @@ Below is an example of that process specifically tailored for the Avatar compone
 <Avatar src="https://i.pravatar.cc/150?img=48" name="Jane Doe" />
 ```
 
-**Now (v4 RC)**
+**Now (v4)**
 
 ```svelte
 <Avatar>
@@ -95,7 +95,13 @@ Below is an example of that process specifically tailored for the Avatar compone
 4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
 5. Initials are no longer generated via the `name`; instead specify a fallback with `<Avatar.Fallback>`
 
-> TIP: To locate components, search your project by the v3 component name, such `<Avat...` for Avatar. We recommend commenting out each Skeleton component instance, then enabling them one-by-one as you migrate to the new format.
+Until your components are migrated to the new syntax and APIs they will cause errors when trying to run your local developement server. As such, we recommend using the following technique to hanlde this in a progressive manner:
+
+1. Use your editor of choice to search for Skeleton components via the import path (`@skeletonlabs/skeleton`)
+2. Comment out each component one-by-one until all are disabled.
+3. Consider adding messages such as `<p>(avatar)</p>` as visible placeholders for components on each page.
+4. Uncomment each component individually as you migrate it forward to the new syntax.
+5. Once all components are migrated, you should no longer receive errors when running the dev server.
 
 ### Rename Components
 

@@ -1,7 +1,7 @@
 ---
 title: Migrate from v2
-description: Learn how to migrate from Skeleton v2 to the latest version.
-summary: Version 3 represents a major overhaul to Skeleton. This includes a ground up rewrite of quite literally every feature in the library. We have provided a migration CLI to help automate this process. However, some portions of this migration will still require manual intervention. This is not a trivial migration from prior versions, so please use caution when updating and ensure you follow this guide very carefully.
+description: Learn how to migrate from Skeleton v2 to the latest release.
+summary: Skeleton v3 represented a major overhaul to Skeleton. This includes a ground up rewrite of every feature in the library. Note that some portions of this guide will be automated, while others require manual intervention. This is not a trivial migration from prior versions, so please ensure you follow this guide very carefully. This guide will help you travese both the v3 and v4 updates.
 order: 8888
 ---
 
@@ -9,11 +9,11 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 ## Prerequisites
 
-While Skeleton v3 introduces support for multiple frameworks, we’ve historically only supported SvelteKit. As such, this guide is only intended for users migrating from Skeleton v2 and SvelteKit. If you you are coming from another meta-framework, this will be outside the scope of this guide. However, this may still provide a valuable insight to the primary objectives for migration.
+While Skeleton v3 introduced support for multiple frameworks, we’ve historically only supported SvelteKit. As such, this guide is only intended for users migrating from Skeleton v2 and SvelteKit. If you you are coming from another meta-framework, this will be outside the scope of this guide. However, this may still provide a valuable insight to the primary objectives for the overall migration process.
 
 ### Create a Migration Branch
 
-We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
+As always, we recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
 
 ```bash
 git checkout -b migration
@@ -25,13 +25,13 @@ Please make sure you have accounted for the following:
 
 - Your app is running the latest release of Skeleton v2.x
 - All critical dependencies have been updated (optional but recommended)
-- Your app is in a functional state before you proceed
+- Your app is in a fully functional state before you proceed
 
 ---
 
 ## Migrate Core Technologies
 
-Skeleton is built on top of the following technologies. These must be migrated individually before proceeding with the Skeleton-specific migration. Note that Svelte and Tailwind provide dedicated CLIs to automate this process.
+Skeleton is built atop a number of core technologies. These must be migrated individually before proceeding with the Skeleton-specific migration. Note that Svelte and Tailwind provide dedicated CLIs to help automate this process. Please ensure you adhere to their accompany migration guides linked below.
 
 ### Svelte v5
 
@@ -55,7 +55,7 @@ Migrate to the latest release of SvelteKit v2.
 
 ### Tailwind v4
 
-Before migration to tailwind v4 using their upgrade guide some manual steps are required:
+Before migrating to Tailwind v4, please follow these steps:
 
 1. Remove the `skeleton` plugin from your `tailwind.config` file.
 2. Rename your `app.postcss` or `app.pcss` to `app.css`.
@@ -63,7 +63,7 @@ Before migration to tailwind v4 using their upgrade guide some manual steps are 
 
 Migrate to the latest release of Tailwind v4.
 
-> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Remove the classes temporarily, then follow [these steps](/docs/[framework]/get-started/migrate-from-v2#replacing-apply) to adapt to native CSS custom properties and Tailwind's new utilities.
+> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Comment or remove the classes temporarily, run the migration CLI, then follow [these steps](/docs/[framework]/get-started/migrate-from-v2#replacing-apply) to adapt to use native CSS properties and Tailwind's new utilities. Ideally you should avoid the use of `@apply` going forward.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://tailwindcss.com/docs/upgrade-guide" target="_blank" rel="noopener noreferrer">
@@ -71,18 +71,17 @@ Migrate to the latest release of Tailwind v4.
 	</a>
 </figure>
 
----
-
-## Migrate to the Tailwind Vite Plugin
+#### Migrate to the Tailwind Vite Plugin
 
 Use the following steps to migrate to from PostCSS to the Vite plugin:
 
-1. Delete `postcss.config.mjs`
-2. Run `npm uninstall postcss @tailwindcss/postcss`
-3. Run `npm install @tailwindcss/vite`
-4. Open your `vite.config` in the root of your project
-5. Import the following at the top of the file: `import tailwindcss from '@tailwindcss/vite'`
-6. Finally, add the Vite plugin ABOVE your specific framework plugin:
+1. Delete `postcss.config.{js|mjs}`
+2. Run `npm uninstall postcss` (skip if not present)
+3. Run `npm uninstall @tailwindcss/postcss` (skip if not present)
+4. Run `npm install @tailwindcss/vite`
+5. Open your `vite.config` in the root of your project
+6. Import the following at the top of the file: `import tailwindcss from '@tailwindcss/vite'`
+7. Finally, add the Vite plugin ABOVE your specific framework plugin:
 
 ```ts
 plugins: [
@@ -91,47 +90,72 @@ plugins: [
 ];
 ```
 
+> TIP: Please ensure you've committed all pending changes before proceeding.
+
 ---
 
 ## Automated Migration
 
-We’ve provided a dedicated migration script as part of the Skeleton CLI to help automate much of this process.
-
-> TIP: Please ensure you've committed all pending changes before proceeding.
+We’ve provided a dedicated migration script as part of the Skeleton CLI to help automate much of this process. First, migrate to handle Skeleton v3 changes:
 
 ```bash
 npx skeleton migrate skeleton-3
 ```
 
+Commit all pending changes. Then run the following to migrate for Skeleton v4 changes:
+
+```bash
+npx skeleton migrate skeleton-4
+```
+
 What WILL be migrated...
 
-- Update all required `package.json` dependencies
-- Implement all required Skeleton imports in your global stylesheet `app.css`
-- Modify `data-theme` in `app.html` if you’re using a Skeleton preset theme.
-- Temporarily disable custom theme imports to allow for theme migration.
+- Update all required `package.json` dependencies.
+- Implement all required Skeleton imports in your global stylesheet `app.css`.
+- Modify `data-theme` in `app.html` (if you’re using a Skeleton preset theme)
+- Temporarily disable custom theme imports to allow for manual theme migration.
 - Migrate all modified Skeleton utility classes (ex: `variant-*` to `preset-*`)
-- Update all Skeleton imports throughout your entire project
-- Renames all relevant Skeleton components
-- Some Component imports will also be pruned as they are no longer supported. We’ll cover these features in detail below.
+- Update all Skeleton imports throughout your entire project.
+- Rename all relevant Skeleton components (as possible)
+- Some Component imports will be pruned as they are no longer supported. We’ll cover these below.
 
 What will NOT be migrated...
 
-- Component props will not be updated. Unfortunately there’s too many permutations.
-- Most v2 Utility features will not be migrated (ex: popovers, code blocks, etc)
+- Component structure and props will not be updated. Unfortunately there’s too many permutations.
+- Most v2 Utility features will not be migrated (ex: popovers, code blocks, etc). See our recommendations below.
 
-Make sure to consult your local Git Diff to compare what has been modified before progressing forward or committing these automated changes.
+Make sure to consult your local Git Diff (difference) to compare what has been modified before progressing forward or committing these automated changes.
 
 ---
 
 ## Manual Migration
 
-With automated migration complete, please follow the remaining manual migration steps.
+With automated migration complete, please follow the remaining manual migration steps. The following steps are not optional, and must be handled as part of the overall migration process.
+
+### Update Stylesheet Imports
+
+> NOTE: The Skeleton CLI may handle these specific changes for you.
+
+The following migration steps apply to your global stylesheet (ex: `app.css`).
+
+The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
+
+```css
+@source '../node_modules/@skeletonlabs/skeleton-{framework}/dist'; /* [!code --] */
+@import '@skeletonlabs/skeleton-{framework}'; /* [!code ++] */
+```
+
+In Skeleton v3 the canned [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been merged back into the core package in Skeleton v4.
+
+```css
+@import '@skeletonlabs/skeleton/optional/presets'; /* [!code --] */
+```
 
 ### Migrate Themes
 
 #### For Preset Themes
 
-Your preset theme should be automatically migrated by the CLI, you're all set!
+Your preset theme should be automatically migrated by the CLI. If so, this process is complete.
 
 #### For Custom Themes
 
@@ -146,13 +170,11 @@ Your preset theme should be automatically migrated by the CLI, you're all set!
 
 ### Replace AppShell with Custom Layouts
 
-Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a [Layouts](/docs/[framework]/guides/layouts) guide for replicating common page structures using only semantic HTML and Tailwind - no Skeleton specific features needed!
+Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a [Layouts](/docs/[framework]/guides/layouts) guide for replicating common page structures using only semantic HTML and Tailwind - no Skeleton specific features required.
 
 ### Migrating Components
 
-> NOTE: if you're aiming to migrate to Skeleton v4, we recommend you skip this specific step and follow [the v4 migration guide instead](/docs/[framework]/get-started/migrate-from-v3). Once complete, resume from the "Tailwind 4 Changes" section below, and continue through the remainder of this guide.
-
-Components have undergone the biggest update in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's equivalent v3 documentation. We’ve highlighted a few of the key changes below:
+Components have underwent a major overhaul in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's current production documentation. We’ve highlighted a few of the key changes below:
 
 - Changes to adopt the new [Svelte 5 APIs](https://svelte.dev/docs/svelte/v5-migration-guide) like runes, snippets, event handlers, etc.
 - Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation of our cross-framework components.
@@ -161,47 +183,70 @@ Components have undergone the biggest update in Skeleton v3. Given the sheer num
 - Changes based on newly introduces features and properties.
 - Changes to adopt the new [component fundamentals](/docs/[framework]/get-started/fundamentals#functional-components).
 
-Here's an example of changes for a single component from v2 to the new equivalent:
+Below is an example of migrating a single component - the Avatar in this case.
+
+**Was (v2)**
 
 ```svelte
-<!-- Skeleton v2 -->
-
-<script lang="ts">
-	import { RangeSlider } from '@skeletonlabs/skeleton';
-
-	let value = 15;
-</script>
-
-<RangeSlider name="amount" bind:value ticked />
+<Avatar src="https://i.pravatar.cc/150?img=48" />
 ```
+
+**Now (v4)**
 
 ```svelte
-<!-- Skeleton v3 -->
-
-<script lang="ts">
-	import { Slider } from '@skeletonlabs/skeleton-svelte';
-
-	let value = $state([15]);
-</script>
-
-<Slider name="amount" {value} onValueChange={(e) => (value = e.value)} markers={[25, 50, 75]} />
+<Avatar>
+	<Avatar.Image src="https://i.pravatar.cc/150?img=48" alt="Jane Doe" />
+	<Avatar.Fallback>SK</Avatar.Fallback>
+</Avatar>
 ```
 
-We’ve recorded the most notable changes to each component in the table below:
+Here's how this was handled:
 
-| Name               | v2                                                          | v3                                                                   | Notes                                                     |
-| ------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `<AppRail>`        | [Link](https://v2.skeleton.dev/components/app-rail)         | [Link](https://v3.skeleton.dev/docs/components/navigation/svelte)    | Renamed `<Navigation>` - greatly expanded features        |
-| `<FileButton>`     | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](https://v3.skeleton.dev/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileDropzone>` features |
-| `<FileDropzone>`   | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](https://v3.skeleton.dev/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileButton>` features   |
-| `<InputChip>`      | [Link](https://v2.skeleton.dev/components/input-chips)      | [Link](https://v3.skeleton.dev/docs/components/tags-input/svelte)    | Renamed `<TagsInput>`                                     |
-| `<Paginator>`      | [Link](https://v2.skeleton.dev/components/paginators)       | [Link](https://v3.skeleton.dev/docs/components/pagination/svelte)    | Renamed `<Pagination>`                                    |
-| `<ProgressBar>`    | [Link](https://v2.skeleton.dev/components/progress-bars)    | [Link](https://v3.skeleton.dev/docs/components/progress/svelte)      | Renamed `<Progress>`                                      |
-| `<ProgressRadial>` | [Link](https://v2.skeleton.dev/components/progress-radials) | [Link](https://v3.skeleton.dev/docs/components/progress-ring/svelte) | Renamed `<ProgressRing>`                                  |
-| `<RadioGroup>`     | [Link](https://v2.skeleton.dev/components/radio-groups)     | [Link](https://v3.skeleton.dev/docs/components/segment/svelte)       | Renamed `<SegmentedControl>`                              |
-| `<RangeSlider>`    | [Link](https://v2.skeleton.dev/components/range-sliders)    | [Link](https://v3.skeleton.dev/docs/components/slider/svelte)        | Renamed `<Slider>`                                        |
-| `<Slider>`         | [Link](https://v2.skeleton.dev/components/slide-toggles)    | [Link](https://v3.skeleton.dev/docs/components/switch/svelte)        | Renamed `<Switch>`                                        |
-| `<TabGroup>`       | [Link](https://v2.skeleton.dev/components/tabs)             | [Link](https://v3.skeleton.dev/docs/components/tabs/svelte)          | Renamed `<Tabs>`                                          |
+1. Consult the documentation for the [Avatar component](/docs/[framework]/framework-components/avatar)
+2. The Skeleton migration CLI should have updated all component imports automatically.
+3. The root component `<Avatar>` remains; remove `src` and other unsupported props.
+4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
+5. Implement the new `<Avatar.Fallback>` child and pass a fallback value, icon, image, etc.
+
+Until your components are migrated to the new syntax and APIs they will cause errors when trying to run your local developement server. As such, we recommend using the following technique to hanlde this in a progressive manner:
+
+1. Use your editor of choice to search for Skeleton components via the import path (`@skeletonlabs/skeleton`)
+2. Comment out each component one-by-one until all are disabled.
+3. Consider adding messages such as `<p>(avatar)</p>` as visible placeholders for components on each page.
+4. Uncomment each component individually as you migrate it forward to the new syntax.
+5. Once all components are migrated, you should no longer receive errors when running the dev server.
+
+### Renamed Components in v3
+
+As part of the Skeleton v3 update, several components were renamed to be more semantic.
+
+| Name               | v2                                                          | v3                                                               | Notes                                                     |
+| ------------------ | ----------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
+| `<AppRail>`        | [Link](https://v2.skeleton.dev/components/app-rail)         | [Link](https:/skeleton.dev/docs/components/navigation/svelte)    | Renamed `<Navigation>` - greatly expanded features        |
+| `<FileButton>`     | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](https:/skeleton.dev/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileDropzone>` features |
+| `<FileDropzone>`   | [Link](https://v2.skeleton.dev/components/file-buttons)     | [Link](https:/skeleton.dev/docs/components/file-upload/svelte)   | Renamed `<FileUpload>` - merges `<FileButton>` features   |
+| `<InputChip>`      | [Link](https://v2.skeleton.dev/components/input-chips)      | [Link](https:/skeleton.dev/docs/components/tags-input/svelte)    | Renamed `<TagsInput>`                                     |
+| `<Paginator>`      | [Link](https://v2.skeleton.dev/components/paginators)       | [Link](https:/skeleton.dev/docs/components/pagination/svelte)    | Renamed `<Pagination>`                                    |
+| `<ProgressBar>`    | [Link](https://v2.skeleton.dev/components/progress-bars)    | [Link](https:/skeleton.dev/docs/components/progress/svelte)      | Renamed `<Progress>`                                      |
+| `<ProgressRadial>` | [Link](https://v2.skeleton.dev/components/progress-radials) | [Link](https:/skeleton.dev/docs/components/progress-ring/svelte) | Renamed `<ProgressRing>`                                  |
+| `<RadioGroup>`     | [Link](https://v2.skeleton.dev/components/radio-groups)     | [Link](https:/skeleton.dev/docs/components/segment/svelte)       | Renamed `<SegmentedControl>`                              |
+| `<RangeSlider>`    | [Link](https://v2.skeleton.dev/components/range-sliders)    | [Link](https:/skeleton.dev/docs/components/slider/svelte)        | Renamed `<Slider>`                                        |
+| `<Slider>`         | [Link](https://v2.skeleton.dev/components/slide-toggles)    | [Link](https:/skeleton.dev/docs/components/switch/svelte)        | Renamed `<Switch>`                                        |
+| `<TabGroup>`       | [Link](https://v2.skeleton.dev/components/tabs)             | [Link](https:/skeleton.dev/docs/components/tabs/svelte)          | Renamed `<Tabs>`                                          |
+
+### Renamed Components in v4
+
+Then again as part of the Skeleton v4 update, select components were once again renamed. These now follow the [Zag.js](https://zagjs.com/) naming conventions, which serves as the permanent standard going forward.
+
+| v3                  | v4                           | v4 Docs                                                          |
+| ------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| `<Modal>`           | `<Dialog>`                   | [View](/docs/[framework]/framework-components/dialog)            |
+| `<Navigation.Bar>`  | `<Navigation layout="bar">`  | [View](/docs/[framework]/framework-components/navigation)        |
+| `<Navigation.Rail>` | `<Navigation layout="rail">` | [View](/docs/[framework]/framework-components/navigation)        |
+| `<ProgressRing>`    | `<Progress>`                 | [View](/docs/[framework]/framework-components/progress-circular) |
+| `<Ratings>`         | `<RatingGroup>`              | [View](/docs/[framework]/framework-components/rating-group)      |
+| `<Segment>`         | `<SegmentedControl>`         | [View](/docs/[framework]/framework-components/segmented-control) |
+| `<Toaster>`         | `<Toast.Group>`              | [View](/docs/[framework]/framework-components/toast)             |
 
 ### Tailwind v4 Changes
 
@@ -244,15 +289,15 @@ We strongly encourage you take this opportunity to move away from any usage of `
 
 ### Replace Unsupported Features
 
-Skeleton v3 represents a point of reflection on what features should remain as part of the core experience. As such, we've identified a number of features that fall outside of this scope. Don't fret though, we've gone out of our way to detail each feature and provide the best alternative available.
+Skeleton v3 represented a point of reflection on what features should remain as part of the core experience. As such, we identified a number of features that fall outside of this scope. Don't fret though, we've gone out of our way to detail each feature and provide the best alternative available.
 
 #### Svelte Actions
 
-| Name       | v2                                                 | Alternative                                            | Notes                              |
-| ---------- | -------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
-| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/[framework]/guides/cookbook/clipboard)    | Provided via Cookbook guide        |
-| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/[framework]/guides/cookbook/svg-filters)  | Provided via Cookbook guide        |
-| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/[framework]/framework-components/popover) | Built-into v4+ overlay components. |
+| Name       | v2                                                 | Alternative                                            | Notes                                  |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------ | -------------------------------------- |
+| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/[framework]/guides/cookbook/clipboard)    | Provided via Cookbook guide            |
+| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/[framework]/guides/cookbook/svg-filters)  | Provided via Cookbook guide            |
+| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/[framework]/framework-components/popover) | Not built-into modal-style components. |
 
 > TIP: We also recommend [Runed](https://runed.dev/docs) for a similar approach to small composable features for Svelte 5.
 
@@ -263,25 +308,25 @@ Skeleton v3 represents a point of reflection on what features should remain as p
 | `<AppShell>`      | [Link](https://v2.skeleton.dev/components/app-shell)            | [Link](/docs/[framework]/guides/layouts)                                       | Replaced with custom layouts             |
 | `<Autocomplete>`  | [Link](https://v2.skeleton.dev/components/autocomplete)         | [Link](/docs/[framework]/framework-components/combobox)                        | Replaced with Combobox                   |
 | `<ConicGradient>` | [Link](https://v2.skeleton.dev/components/conic-gradients)      | [Link](https://tailwindcss.com/docs/background-image#adding-a-radial-gradient) | Now built into Tailwind                  |
-| `<Lightswitch>`   | [Link](https://v2.skeleton.dev/docs/dark-mode#custom-component) | [Link](/docs/[framework]/guides/mode#lightswitch)                              | Removed in favor of custom components    |
+| `<Lightswitch>`   | [Link](https://v2.skeleton.dev/docs/dark-mode#custom-component) | [Link](/docs/[framework]/guides/mode#light-switch)                             | Provided via Cookbook guide              |
 | `<Stepper>`       | [Link](https://v2.skeleton.dev/components/steppers)             | [Link](/docs/[framework]/guides/cookbook/stepper)                              | Provided via Cookbook guide              |
 | `<Table>`         | [Link](https://v2.skeleton.dev/components/tables)               | [Link](/docs/[framework]/tailwind-components/tables)                           | Removed in favor of a Tailwind component |
 
 #### Utilities
 
-| Name              | v2                                                             | Alternative                                                 | Notes                          |
-| ----------------- | -------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------ |
-| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/[framework]/integrations/code-block)           | Provided via Integration guide |
-| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/[framework]/framework-components/dialog)       | Replace with new component     |
-| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/[framework]/framework-components/dialog)       | Replace with new component     |
-| Popups            | [Link](https://v2.skeleton.dev/utilities/popups)               | [Link](/docs/[framework]/framework-components/popover)      | Replace with new component     |
-| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/[framework]/framework-components/toast)        | Replace with new component     |
-| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/[framework]/guides/cookbook/table-of-contents) | Provided via Cookbook guide    |
-| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                                          | Incompatible with Svelte 5     |
+| Name              | v2                                                             | Alternative                                                  | Notes                            |
+| ----------------- | -------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------- |
+| Code Blocks       | [Link](https://v2.skeleton.dev/utilities/codeblocks)           | [Link](/docs/[framework]/integrations/code-block)            | Provided via Integration guide   |
+| Drawers           | [Link](https://v2.skeleton.dev/utilities/drawers)              | [Link](/docs/[framework]/framework-components/dialog#drawer) | Replaced with new component      |
+| Modals            | [Link](https://v2.skeleton.dev/utilities/modals)               | [Link](/docs/[framework]/framework-components/dialog)        | Replaced with new component      |
+| Popups            | [Link](https://v2.skeleton.dev/utilities/popups)               | [Link](/docs/[framework]/framework-components/popover)       | Replaced with new component      |
+| Toasts            | [Link](https://v2.skeleton.dev/utilities/toasts)               | [Link](/docs/[framework]/framework-components/toast)         | Replaced with new component      |
+| Table of Contents | [Link](https://v2.skeleton.dev/utilities/table-of-contents)    | [Link](/docs/[framework]/guides/cookbook/table-of-contents)  | Provided via Cookbook guide      |
+| Persisted Store   | [Link](https://v2.skeleton.dev/utilities/local-storage-stores) | --                                                           | Incompatible with Svelte 5 Runes |
 
-### Migrating Classes
+### Migrate Input Groups
 
-Although the automated migration script will handle the majority of class updates, there are some classes that require manual intervention. Review the following classes that may require your attention.
+Although the automated migration script will handle the majority of class updates, [Input Groups](/docs/[framework]/tailwind-components/forms#groups) and the exception and will need to be migrated manually. See the new documentation page for updated examples.
 
 | Old Class             | New Class  |
 | --------------------- | ---------- |
@@ -291,7 +336,7 @@ Although the automated migration script will handle the majority of class update
 
 ### Migration Complete
 
-If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm, and remember to merge all changes into your primary branch.
+If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm. Remember to merge all changes into your primary branch.
 
 ```bash
 npm run dev
@@ -299,10 +344,6 @@ npm run dev
 
 ---
 
-## Troubleshooting
+## Support and Feedback
 
-If you’re receiving errors, they may indicate components or features that require additional manual migration on your part. Use each error to identify the location of the feature and make any required changes. Consult each component’s documentation for the most current usage examples and API reference. In many cases this may just involve adding/removing/renaming a prop.
-
-## Reporting Issues
-
-If you get stuck or need to report an issue with either Skeleton v3 or this migration guide, please reach out via either the Skeleton [GitHub](https://github.com/skeletonlabs/skeleton/) or [Discord](https://discord.gg/EXqV7W8MtY) support channels.
+If you have any questions or issues about the migration process, please contact us on Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!
