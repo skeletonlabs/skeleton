@@ -1,6 +1,6 @@
 import Test from './test.jsx';
-import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
 
 describe('Menu', () => {
 	describe('Trigger', () => {
