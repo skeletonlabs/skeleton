@@ -4,11 +4,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [react()],
-	resolve: {
-		alias: {
-			'@': resolve(__dirname, 'src'),
-		},
-	},
 	test: {
 		setupFiles: './test/setup.ts',
 		globals: true,
