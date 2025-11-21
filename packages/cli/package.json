@@ -22,7 +22,6 @@
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"test": "vitest run",
 		"check": "tsc",
 		"sync": "pnpm build"
 	},
