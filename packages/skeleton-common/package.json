@@ -16,9 +16,9 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
-			"style": "./dist/index.css"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [

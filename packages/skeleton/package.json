@@ -15,12 +15,12 @@
 	},
 	"exports": {
 		".": {
-			"style": "./dist/index.css",
-			"default": "./dist/index.css"
+			"style": "./src/index.css",
+			"default": "./src/index.css"
 		},
 		"./themes/*": {
-			"style": "./dist/themes/*.css",
-			"default": "./dist/themes/*.css"
+			"style": "./src/themes/*.css",
+			"default": "./src/themes/*.css"
 		},
 		"./package.json": "./package.json"
 	},

@@ -17,10 +17,10 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"style": "./dist/index.css",
-			"svelte": "./dist/index.js",
-			"default": "./dist/index.js"
+			"types": "./src/index.ts",
+			"style": "./src/index.css",
+			"svelte": "./src/index.ts",
+			"default": "./src/index.ts"
 		}
 	},
 	"files": [
