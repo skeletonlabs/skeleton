@@ -17,6 +17,13 @@ describe('Tooltip', () => {
 		});
 	});
 
+	describe('Content', () => {
+		it('renders', () => {
+			const { getByTestId } = render(Test);
+			expect(getByTestId('content')).toBeInTheDocument();
+		});
+	});
+
 	describe('Arrow', () => {
 		it('renders', () => {
 			const { getByTestId } = render(Test);
