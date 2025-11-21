@@ -1,6 +1,6 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
-import { render, waitFor } from 'vitest-browser-svelte';
+import { render } from 'vitest-browser-svelte';
 
 describe('Toast', () => {
 	describe('Group', () => {
@@ -13,45 +13,35 @@ describe('Toast', () => {
 	describe('Root', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(Test);
-			await waitFor(() => {
-				expect(getByTestId('root')).toBeInTheDocument();
-			});
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Title', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(Test);
-			await waitFor(() => {
-				expect(getByTestId('title')).toBeInTheDocument();
-			});
+			expect(getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
 	describe('Description', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(Test);
-			await waitFor(() => {
-				expect(getByTestId('description')).toBeInTheDocument();
-			});
+			expect(getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
 	describe('ActionTrigger', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(Test);
-			await waitFor(() => {
-				expect(getByTestId('action-trigger')).toBeInTheDocument();
-			});
+			expect(getByTestId('action-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('CloseTrigger', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(Test);
-			await waitFor(() => {
-				expect(getByTestId('close-trigger')).toBeInTheDocument();
-			});
+			expect(getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});
 });

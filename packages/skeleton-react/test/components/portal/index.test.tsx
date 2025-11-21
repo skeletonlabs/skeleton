@@ -11,12 +11,12 @@ describe('Portal', () => {
 
 		it('renders in the target', async () => {
 			const { getByTestId } = await render(<Test target={document.body} />);
-			expect(getByTestId('child').parentElement).toBe(document.body);
+			expect(getByTestId('child').element().parentElement).toBe(document.body);
 		});
 
 		it('renders in the parent when disabled', async () => {
 			const { getByTestId } = await render(<Test disabled />);
-			expect(getByTestId('child').parentElement).toBe(getByTestId('parent'));
+			expect(getByTestId('child').element().parentElement).toBe(getByTestId('parent').element());
 		});
 	});
 });
