@@ -17,8 +17,7 @@
 		"declaration": true,
 		"declarationMap": true,
 		"noEmit": true,
-		"lib": ["es2022", "dom", "dom.iterable"],
-		"types": ["@testing-library/jest-dom/vitest"]
+		"lib": ["es2022", "dom", "dom.iterable"]
 	},
 	"include": ["src", "test"]
 }

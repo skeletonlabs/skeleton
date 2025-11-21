@@ -18,8 +18,7 @@
 		"noEmit": true,
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"types": ["@testing-library/jest-dom/vitest"]
+		"jsxImportSource": "react"
 	},
 	"include": ["src", "test"]
 }
