@@ -1,5 +1,5 @@
 import Test from './test.jsx';
-import { render,  waitFor } from 'vitest-browser-react';
+import { render, waitFor } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('SegmentedControl', () => {

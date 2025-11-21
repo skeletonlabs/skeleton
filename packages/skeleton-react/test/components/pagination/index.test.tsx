@@ -48,7 +48,7 @@ describe('Pagination', () => {
 	describe('LastTrigger', () => {
 		it('renders', () => {
 			const { getByTestId } = render(<Test />);
-			expect(getByTestId('first-trigger')).toBeInTheDocument();
+			expect(getByTestId('last-trigger')).toBeInTheDocument();
 		});
 	});
 });
