@@ -1,94 +1,94 @@
 import Test from './test.jsx';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, waitFor } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Slider', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('root')).toBeInTheDocument();
+				expect(getByTestId('root')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('label')).toBeInTheDocument();
+				expect(getByTestId('label')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('ValueText', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('value-text')).toBeInTheDocument();
+				expect(getByTestId('value-text')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Control', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('control')).toBeInTheDocument();
+				expect(getByTestId('control')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Track', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('track')).toBeInTheDocument();
+				expect(getByTestId('track')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Range', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('range')).toBeInTheDocument();
+				expect(getByTestId('range')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Thumb', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('thumb')).toBeInTheDocument();
+				expect(getByTestId('thumb')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('HiddenInput', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+				expect(getByTestId('hidden-input')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('MarkerGroup', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('marker-group')).toBeInTheDocument();
+				expect(getByTestId('marker-group')).toBeInTheDocument();
 			});
 		});
 	});
 
 	describe('Marker', () => {
 		it('renders', async () => {
-			render(<Test />);
+			const { getByTestId } = render(<Test />);
 			await waitFor(() => {
-				expect(screen.getByTestId('marker')).toBeInTheDocument();
+				expect(getByTestId('marker')).toBeInTheDocument();
 			});
 		});
 	});

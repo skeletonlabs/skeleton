@@ -1,26 +1,26 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
-import { render, screen } from 'vitest-browser-svelte';
+import { render } from 'vitest-browser-svelte';
 
 describe('Portal', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('child')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('child')).toBeInTheDocument();
 		});
 
 		it('renders in the target', () => {
-			render(Test, {
+			const { getByTestId } = render(Test, {
 				target: document.body,
 			});
-			expect(screen.getByTestId('child').parentElement).toBe(document.body);
+			expect(getByTestId('child').parentElement).toBe(document.body);
 		});
 
 		it('renders in the parent when disabled', () => {
-			render(Test, {
+			const { getByTestId } = render(Test, {
 				disabled: true,
 			});
-			expect(screen.getByTestId('child').parentElement).toBe(screen.getByTestId('parent'));
+			expect(getByTestId('child').parentElement).toBe(getByTestId('parent'));
 		});
 	});
 });

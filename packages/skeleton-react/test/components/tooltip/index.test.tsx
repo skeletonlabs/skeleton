@@ -1,33 +1,33 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Tooltip', () => {
 	describe('Trigger', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('positioner')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Arrow', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('arrow')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
 
 	describe('ArrowTip', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
 });

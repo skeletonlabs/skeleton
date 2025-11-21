@@ -1,40 +1,40 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Switch', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('control')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Thumb', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('thumb')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('label')).toBeInTheDocument();
 		});
 	});
 });

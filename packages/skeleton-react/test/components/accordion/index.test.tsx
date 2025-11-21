@@ -1,40 +1,40 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Accordion', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemTrigger', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-trigger')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('item-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('item-indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemContent', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-content')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('item-content')).toBeInTheDocument();
 		});
 	});
 });
