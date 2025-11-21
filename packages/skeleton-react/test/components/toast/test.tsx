@@ -1,13 +1,8 @@
-import { Toast, createToaster } from '../../../src/index.js';
-import { useEffect } from 'react';
+import { Toast, type createToaster } from '../../../src/index.js';
 
-export default function Test() {
-	const toaster = createToaster();
-	useEffect(() => {
-		toaster.create({});
-	});
+export default function Test(props: { toaster: ReturnType<typeof createToaster> }) {
 	return (
-		<Toast.Group toaster={toaster} data-testid="group">
+		<Toast.Group toaster={props.toaster} data-testid="group">
 			{(toast) => (
 				<Toast key={toast.id} toast={toast} data-testid="root">
 					<Toast.Title data-testid="title" />
