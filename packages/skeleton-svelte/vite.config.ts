@@ -1,12 +1,14 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { svelteTesting } from '@testing-library/svelte/vite';
+import { playwright } from '@vitest/browser-playwright';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	logLevel: 'error',
-	plugins: [svelte(), svelteTesting()],
+	plugins: [svelte()],
 	test: {
-		environment: 'jsdom',
-		setupFiles: './test/setup.ts',
+		browser: {
+			enabled: true,
+			provider: playwright(),
+			instances: [{ browser: 'chromium' }],
+		},
 	},
 });

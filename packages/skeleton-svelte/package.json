@@ -13,7 +13,8 @@
 		"build": "svelte-package --input src --output dist --preserve-output",
 		"test": "vitest run",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync && pnpm build"
+		"sync": "svelte-kit sync && pnpm build",
+		"test:browser": "vitest --config=vitest.browser.config.ts"
 	},
 	"exports": {
 		".": {
@@ -64,13 +65,12 @@
 		"@sveltejs/kit": "catalog:",
 		"@sveltejs/package": "catalog:",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
-		"@testing-library/jest-dom": "catalog:",
-		"@testing-library/svelte": "catalog:",
-		"jsdom": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:"
+		"vite": "catalog:",
+		"vitest-browser-svelte": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module"

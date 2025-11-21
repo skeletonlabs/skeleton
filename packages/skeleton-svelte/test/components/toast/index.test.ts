@@ -1,6 +1,6 @@
 import Test from './test.svelte';
-import { render, screen, waitFor } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render, screen, waitFor } from 'vitest-browser-svelte';
 
 describe('Toast', () => {
 	describe('Group', () => {

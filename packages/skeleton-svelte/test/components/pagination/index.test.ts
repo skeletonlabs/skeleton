@@ -1,6 +1,6 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render, screen } from 'vitest-browser-svelte';
 
 describe('Pagination', () => {
 	describe('Root', () => {

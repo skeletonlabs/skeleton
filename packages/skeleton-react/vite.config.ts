@@ -1,11 +1,14 @@
 import react from '@vitejs/plugin-react';
+import { playwright } from '@vitest/browser-playwright';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [react() as unknown as any],
+	plugins: [react()],
 	test: {
-		setupFiles: './test/setup.ts',
-		globals: true,
-		environment: 'jsdom',
+		browser: {
+			enabled: true,
+			provider: playwright(),
+			instances: [{ browser: 'chromium' }],
+		},
 	},
 });

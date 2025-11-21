@@ -65,12 +65,14 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
 		"jsdom": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:"
+		"vite": "catalog:",
+		"vitest-browser-react": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module"
