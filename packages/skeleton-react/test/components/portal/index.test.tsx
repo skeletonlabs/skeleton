@@ -1,22 +1,22 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Portal', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('child')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('child')).toBeInTheDocument();
 		});
 
 		it('renders in the target', () => {
-			render(<Test target={document.body} />);
-			expect(screen.getByTestId('child').parentElement).toBe(document.body);
+			const { getByTestId } = render(<Test target={document.body} />);
+			expect(getByTestId('child').parentElement).toBe(document.body);
 		});
 
 		it('renders in the parent when disabled', () => {
-			render(<Test disabled />);
-			expect(screen.getByTestId('child').parentElement).toBe(screen.getByTestId('parent'));
+			const { getByTestId } = render(<Test disabled />);
+			expect(getByTestId('child').parentElement).toBe(getByTestId('parent'));
 		});
 	});
 });

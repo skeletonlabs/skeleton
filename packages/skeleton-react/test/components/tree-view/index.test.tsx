@@ -1,68 +1,68 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('TreeView', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Tree', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('tree')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('tree')).toBeInTheDocument();
 		});
 	});
 
 	describe('Branch', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('branch')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('branch')).toBeInTheDocument();
 		});
 	});
 
 	describe('BranchControl', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('branch-control')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('branch-control')).toBeInTheDocument();
 		});
 	});
 
 	describe('BranchIndentGuide', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('branch-indent-guide')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('branch-indent-guide')).toBeInTheDocument();
 		});
 	});
 
 	describe('BranchIndicator', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('branch-indicator')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('branch-indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('BranchText', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('branch-text')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('branch-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('item')).toBeInTheDocument();
 		});
 	});
 });

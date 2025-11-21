@@ -1,89 +1,89 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, expect, it } from 'vitest';
 
 describe('Navigation', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('root')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Header', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('header')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('header')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('header')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('header')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('content')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('content')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('content')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Group', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('group')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('group')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('group')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('group')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('label')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('label')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Menu', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('menu')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('menu')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('menu')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('menu')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('footer', () => {
 		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('footer')).toBeInTheDocument();
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('footer')).toBeInTheDocument();
 		});
 
 		it('sets the data-layout attribute', () => {
-			render(<Test />);
-			expect(screen.getByTestId('footer')).toHaveAttribute('data-layout');
+			const { getByTestId } = render(<Test />);
+			expect(getByTestId('footer')).toHaveAttribute('data-layout');
 		});
 	});
 });

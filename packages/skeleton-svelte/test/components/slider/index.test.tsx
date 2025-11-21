@@ -1,75 +1,75 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
-import { render, screen } from 'vitest-browser-svelte';
+import { render } from 'vitest-browser-svelte';
 
 describe('Slider', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('ValueText', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('value-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('control')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Track', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('track')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
 	describe('Range', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('range')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('range')).toBeInTheDocument();
 		});
 	});
 
 	describe('Thumb', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('thumb')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
 	describe('MarkerGroup', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('marker-group')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('marker-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('Marker', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('marker')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('marker')).toBeInTheDocument();
 		});
 	});
 });

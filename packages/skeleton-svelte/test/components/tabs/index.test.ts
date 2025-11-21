@@ -1,40 +1,40 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
-import { render, screen } from 'vitest-browser-svelte';
+import { render } from 'vitest-browser-svelte';
 
 describe('Tabs', () => {
 	describe('Root', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('List', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('list')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('list')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', () => {
-			render(Test);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			const { getByTestId } = render(Test);
+			expect(getByTestId('content')).toBeInTheDocument();
 		});
 	});
 });
