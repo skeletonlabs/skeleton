@@ -1,4 +1,4 @@
-import { Dialog } from '@/index.js';
+import { Dialog } from '../../../src/index.js';
 
 export default function Test() {
 	return (
