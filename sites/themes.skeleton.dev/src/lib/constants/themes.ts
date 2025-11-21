@@ -1,27 +1,25 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import catpuccin from '@skeletonlabs/skeleton/themes/catppuccin?raw';
-import cerberus from '@skeletonlabs/skeleton/themes/cerberus?raw';
-import concord from '@skeletonlabs/skeleton/themes/concord?raw';
-import crimson from '@skeletonlabs/skeleton/themes/crimson?raw';
-import fennec from '@skeletonlabs/skeleton/themes/fennec?raw';
-import hamlindigo from '@skeletonlabs/skeleton/themes/hamlindigo?raw';
-import legacy from '@skeletonlabs/skeleton/themes/legacy?raw';
-import mint from '@skeletonlabs/skeleton/themes/mint?raw';
-import modern from '@skeletonlabs/skeleton/themes/modern?raw';
-import mona from '@skeletonlabs/skeleton/themes/mona?raw';
-import nosh from '@skeletonlabs/skeleton/themes/nosh?raw';
-import nouveau from '@skeletonlabs/skeleton/themes/nouveau?raw';
-import pine from '@skeletonlabs/skeleton/themes/pine?raw';
-import reign from '@skeletonlabs/skeleton/themes/reign?raw';
-import rocket from '@skeletonlabs/skeleton/themes/rocket?raw';
-import rose from '@skeletonlabs/skeleton/themes/rose?raw';
-import sahara from '@skeletonlabs/skeleton/themes/sahara?raw';
-import seafoam from '@skeletonlabs/skeleton/themes/seafoam?raw';
-import terminus from '@skeletonlabs/skeleton/themes/terminus?raw';
-import vintage from '@skeletonlabs/skeleton/themes/vintage?raw';
-import vox from '@skeletonlabs/skeleton/themes/vox?raw';
-import wintry from '@skeletonlabs/skeleton/themes/wintry?raw';
+import catpuccin from '@skeletonlabs/skeleton/themes/catppuccin?inline';
+import cerberus from '@skeletonlabs/skeleton/themes/cerberus?inline';
+import concord from '@skeletonlabs/skeleton/themes/concord?inline';
+import crimson from '@skeletonlabs/skeleton/themes/crimson?inline';
+import fennec from '@skeletonlabs/skeleton/themes/fennec?inline';
+import hamlindigo from '@skeletonlabs/skeleton/themes/hamlindigo?inline';
+import legacy from '@skeletonlabs/skeleton/themes/legacy?inline';
+import mint from '@skeletonlabs/skeleton/themes/mint?inline';
+import modern from '@skeletonlabs/skeleton/themes/modern?inline';
+import mona from '@skeletonlabs/skeleton/themes/mona?inline';
+import nosh from '@skeletonlabs/skeleton/themes/nosh?inline';
+import nouveau from '@skeletonlabs/skeleton/themes/nouveau?inline';
+import pine from '@skeletonlabs/skeleton/themes/pine?inline';
+import reign from '@skeletonlabs/skeleton/themes/reign?inline';
+import rocket from '@skeletonlabs/skeleton/themes/rocket?inline';
+import rose from '@skeletonlabs/skeleton/themes/rose?inline';
+import sahara from '@skeletonlabs/skeleton/themes/sahara?inline';
+import seafoam from '@skeletonlabs/skeleton/themes/seafoam?inline';
+import terminus from '@skeletonlabs/skeleton/themes/terminus?inline';
+import vintage from '@skeletonlabs/skeleton/themes/vintage?inline';
+import vox from '@skeletonlabs/skeleton/themes/vox?inline';
+import wintry from '@skeletonlabs/skeleton/themes/wintry?inline';
 
 export const themes = [
 	{
