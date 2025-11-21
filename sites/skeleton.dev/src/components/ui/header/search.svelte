@@ -49,13 +49,6 @@
 				excerptLength: 3,
 			});
 			await pagefind.init();
-
-			// EXPOSE PAGEFIND TO WINDOW FOR DEBUGGING
-			if (typeof window !== 'undefined') {
-				// @ts-ignore
-				window.pagefind = pagefind;
-			}
-
 			resolve(pagefind);
 		})(),
 	);
