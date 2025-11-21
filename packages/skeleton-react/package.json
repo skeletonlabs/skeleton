@@ -70,8 +70,7 @@
 		"react-dom": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:",
-		"vitest": "catalog:"
+		"vite": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module"

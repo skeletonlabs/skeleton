@@ -26,10 +26,10 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
 	import StarEmpty from '../../../internal/components/star-empty.svelte';
 	import StarFull from '../../../internal/components/star-full.svelte';
 	import StarHalf from '../../../internal/components/star-half.svelte';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';

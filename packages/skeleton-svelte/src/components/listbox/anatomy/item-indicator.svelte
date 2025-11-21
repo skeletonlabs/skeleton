@@ -6,9 +6,9 @@
 </script>
 
 <script lang="ts">
+	import Check from '../../../internal/components/check.svelte';
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import Check from '../../../internal/components/check.svelte';
 	import { classesListbox } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 

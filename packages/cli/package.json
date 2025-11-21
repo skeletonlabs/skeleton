@@ -33,8 +33,7 @@
 		"tsdown": "catalog:",
 		"type-fest": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:",
-		"vitest": "catalog:"
+		"vite": "catalog:"
 	},
 	"dependencies": {
 		"@clack/prompts": "catalog:",

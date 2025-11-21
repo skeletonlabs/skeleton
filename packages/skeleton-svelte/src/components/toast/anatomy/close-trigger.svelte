@@ -6,8 +6,8 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
 	import X from '../../../internal/components/x.svelte';
+	import { RootContext } from '../modules/root-context.js';
 	import { classesToast } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
