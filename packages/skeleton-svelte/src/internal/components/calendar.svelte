@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
+	import type { HTMLAttributes } from '../html-attributes.js';
 
 	export interface CalendarProps extends HTMLAttributes<'svg', 'children'> {}
 </script>

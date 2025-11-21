@@ -1,4 +1,4 @@
-import { TreeView, createTreeViewCollection } from '@/index.js';
+import { TreeView, createTreeViewCollection } from '../../../src/index.js';
 
 export default function Test() {
 	const collection = createTreeViewCollection({
