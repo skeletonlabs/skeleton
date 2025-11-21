@@ -15,9 +15,11 @@
 	},
 	"exports": {
 		".": {
+			"import": "./dist/index.css",
 			"style": "./dist/index.css"
 		},
 		"./themes/*": {
+			"import": "./dist/themes/*.css",
 			"style": "./dist/themes/*.css"
 		},
 		"./package.json": "./package.json"
