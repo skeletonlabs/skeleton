@@ -4,154 +4,154 @@ import { render } from 'vitest-browser-react';
 
 describe('DatePicker', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Input', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('YearSelect', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('year-select')).toBeInTheDocument();
 		});
 	});
 
 	describe('MonthSelect', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('month-select')).toBeInTheDocument();
 		});
 	});
 
 	describe('View', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('view')).toBeInTheDocument();
 		});
 	});
 
 	describe('ViewControl', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('view-control')).toBeInTheDocument();
 		});
 	});
 
 	describe('PrevTrigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('prev-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ViewTrigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('view-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('RangeText', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('range-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('NextTrigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('next-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Table', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableHead', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table-head')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableRow', () => {
-		it('renders', () => {
-			const { getAllByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getAllByTestId } = await render(<Test />);
 			expect(getAllByTestId('table-row')[0]).toBeInTheDocument();
 		});
 	});
 
 	describe('TableHeader', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table-header')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableBody', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table-body')).toBeInTheDocument();
 		});
 	});
 	describe('TableCell', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table-cell')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableCellTrigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(<Test />);
+		it('renders', async () => {
+			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('table-cell-trigger')).toBeInTheDocument();
 		});
 	});

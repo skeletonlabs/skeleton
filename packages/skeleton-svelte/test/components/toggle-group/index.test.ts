@@ -4,15 +4,15 @@ import { render } from 'vitest-browser-svelte';
 
 describe('ToggleGroup', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
+		it('renders', async () => {
+			const { getByTestId } = await render(Test);
 			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
+		it('renders', async () => {
+			const { getByTestId } = await render(Test);
 			expect(getByTestId('item')).toBeInTheDocument();
 		});
 	});

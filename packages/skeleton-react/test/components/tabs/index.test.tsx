@@ -5,7 +5,7 @@ import { render, waitFor } from 'vitest-browser-react';
 describe('Tabs', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('root')).toBeInTheDocument();
 			});
@@ -14,7 +14,7 @@ describe('Tabs', () => {
 
 	describe('List', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('list')).toBeInTheDocument();
 			});
@@ -23,7 +23,7 @@ describe('Tabs', () => {
 
 	describe('Trigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('trigger')).toBeInTheDocument();
 			});
@@ -32,7 +32,7 @@ describe('Tabs', () => {
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('indicator')).toBeInTheDocument();
 			});
@@ -41,7 +41,7 @@ describe('Tabs', () => {
 
 	describe('Content', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('content')).toBeInTheDocument();
 			});
