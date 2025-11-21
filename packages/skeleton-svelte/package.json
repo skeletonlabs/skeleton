@@ -11,10 +11,8 @@
 	"scripts": {
 		"dev": "svelte-package --input src --output dist --preserve-output --watch",
 		"build": "svelte-package --input src --output dist --preserve-output",
-		"test": "vitest run",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync && pnpm build",
-		"test:browser": "vitest --config=vitest.browser.config.ts"
+		"sync": "svelte-kit sync && pnpm build"
 	},
 	"exports": {
 		".": {

@@ -34,8 +34,6 @@ catalog:
   '@tailwindcss/forms': 0.5.10
   '@tailwindcss/postcss': 4.1.17
   '@tailwindcss/vite': 4.1.17
-  '@testing-library/jest-dom': 6.9.1
-  '@testing-library/react': 16.3.0
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
@@ -82,7 +80,6 @@ catalog:
   detect-indent: 7.0.2
   fuse.js: 7.1.0
   html-escaper: 3.0.3
-  jsdom: 27.2.0
   latest-version: 9.0.0
   lucide-react: 0.553.0
   magic-string: 0.30.21
