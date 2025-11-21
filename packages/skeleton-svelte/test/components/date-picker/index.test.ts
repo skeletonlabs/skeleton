@@ -124,8 +124,8 @@ describe('DatePicker', () => {
 
 	describe('TableRow', () => {
 		it('renders', async () => {
-			const { getAllByTestId } = await render(Test);
-			expect(getAllByTestId('table-row')[0]).toBeInTheDocument();
+			const { getByTestId } = await render(Test);
+			expect(getByTestId('table-row')[0]).toBeInTheDocument();
 		});
 	});
 

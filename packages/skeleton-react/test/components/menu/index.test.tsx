@@ -19,8 +19,8 @@ describe('Menu', () => {
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			const { getAllByTestId } = await render(<Test />);
-			expect(getAllByTestId('indicator')).toHaveLength(2);
+			const { getByTestId } = await render(<Test />);
+			expect(getByTestId('indicator')).toHaveLength(2);
 		});
 	});
 
@@ -75,15 +75,15 @@ describe('Menu', () => {
 
 	describe('ItemText', () => {
 		it('renders', async () => {
-			const { getAllByTestId } = await render(<Test />);
-			expect(getAllByTestId('item-text')).toHaveLength(3);
+			const { getByTestId } = await render(<Test />);
+			expect(getByTestId('item-text')).toHaveLength(3);
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', async () => {
-			const { getAllByTestId } = await render(<Test />);
-			expect(getAllByTestId('item-indicator')).toHaveLength(3);
+			const { getByTestId } = await render(<Test />);
+			expect(getByTestId('item-indicator')).toHaveLength(3);
 		});
 	});
 
