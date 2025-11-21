@@ -1,11 +1,7 @@
 <script lang="ts">
 	import { Toast, createToaster } from '../../../src/index.js';
 
-	const toaster = createToaster();
-
-	$effect(() => {
-		toaster.create({});
-	});
+	const { toaster }: { toaster: ReturnType<typeof createToaster> } = $props();
 </script>
 
 <Toast.Group {toaster} data-testid="group">
