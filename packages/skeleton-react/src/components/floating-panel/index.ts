@@ -1,0 +1,16 @@
+export type { FloatingPanelBodyProps } from './anatomy/body.jsx';
+export type { FloatingPanelCloseTriggerProps } from './anatomy/close-trigger.jsx';
+export type { FloatingPanelContentProps } from './anatomy/content.jsx';
+export type { FloatingPanelControlProps } from './anatomy/control.jsx';
+export type { FloatingPanelDragTriggerProps } from './anatomy/drag-trigger.jsx';
+export type { FloatingPanelHeaderProps } from './anatomy/header.jsx';
+export type { FloatingPanelPositionerProps } from './anatomy/positioner.jsx';
+export type { FloatingPanelResizeTriggerProps } from './anatomy/resize-trigger.jsx';
+export type { FloatingPanelRootProps } from './anatomy/root.jsx';
+export type { FloatingPanelRootContextProps } from './anatomy/root-context.jsx';
+export type { FloatingPanelRootProviderProps } from './anatomy/root-provider.jsx';
+export type { FloatingPanelStageTriggerProps } from './anatomy/stage-trigger.jsx';
+export type { FloatingPanelTitleProps } from './anatomy/title.jsx';
+export type { FloatingPanelTriggerProps } from './anatomy/trigger.jsx';
+export { FloatingPanel } from './modules/anatomy.js';
+export { useFloatingPanel } from './modules/provider.js';

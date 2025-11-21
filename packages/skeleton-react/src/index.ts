@@ -6,6 +6,7 @@ export * from './components/combobox/index.js';
 export * from './components/date-picker/index.js';
 export * from './components/dialog/index.js';
 export * from './components/file-upload/index.js';
+export * from './components/floating-panel/index.js';
 export * from './components/listbox/index.js';
 export * from './components/menu/index.js';
 export * from './components/navigation/index.js';
