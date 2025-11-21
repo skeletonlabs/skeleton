@@ -38,9 +38,9 @@ const { Content, headings } = await render(doc);
 		<Navigation />
 	</aside>
 	<!-- Main -->
-	<main class="px-4 xl:px-10 py-10 space-y-8">
+	<main class="px-4 xl:px-10 py-10 space-y-8" data-pagefind-body>
 		<!-- header -->
-		<header class="space-y-4" data-pagefind-body>
+		<header class="space-y-4">
 			<div class="flex justify-between items-start">
 				<Breadcrumbs />
 				<LlmMenu url={Astro.url} client:visible />
@@ -60,7 +60,7 @@ const { Content, headings } = await render(doc);
 		<!-- Chips -->
 		<ChipsBar {doc} />
 		<!-- Content -->
-		<article class="grid gap-8" data-pagefind-body>
+		<article class="grid gap-8">
 			<!-- Summary -->
 			<p class="text-lg">{doc.data.summary}</p>
 			<!-- Key Features -->
