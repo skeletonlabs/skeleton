@@ -12,7 +12,7 @@
 		"dev": "svelte-package --input src --output dist --preserve-output --watch",
 		"build": "svelte-package --input src --output dist --preserve-output",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync && pnpm build"
+		"sync": "svelte-kit sync && pnpm build && pnpm exec playwright install"
 	},
 	"exports": {
 		".": {
