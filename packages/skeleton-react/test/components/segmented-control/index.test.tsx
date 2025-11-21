@@ -5,7 +5,7 @@ import { render, waitFor } from 'vitest-browser-react';
 describe('SegmentedControl', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('root')).toBeInTheDocument();
 			});
@@ -14,7 +14,7 @@ describe('SegmentedControl', () => {
 
 	describe('Label', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('label')).toBeInTheDocument();
 			});
@@ -23,7 +23,7 @@ describe('SegmentedControl', () => {
 
 	describe('Control', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('control')).toBeInTheDocument();
 			});
@@ -32,7 +32,7 @@ describe('SegmentedControl', () => {
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('indicator')).toBeInTheDocument();
 			});
@@ -41,7 +41,7 @@ describe('SegmentedControl', () => {
 
 	describe('Item', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('item')).toBeInTheDocument();
 			});
@@ -50,7 +50,7 @@ describe('SegmentedControl', () => {
 
 	describe('ItemText', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('item-text')).toBeInTheDocument();
 			});
@@ -59,7 +59,7 @@ describe('SegmentedControl', () => {
 
 	describe('ItemHiddenInput', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('item-hidden-input')).toBeInTheDocument();
 			});

@@ -4,15 +4,15 @@ import { render, waitFor } from 'vitest-browser-svelte';
 
 describe('Toast', () => {
 	describe('Group', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
+		it('renders', async () => {
+			const { getByTestId } = await render(Test);
 			expect(getByTestId('group')).toBeInTheDocument();
 		});
 	});
 
 	describe('Root', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(Test);
+			const { getByTestId } = await render(Test);
 			await waitFor(() => {
 				expect(getByTestId('root')).toBeInTheDocument();
 			});
@@ -21,7 +21,7 @@ describe('Toast', () => {
 
 	describe('Title', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(Test);
+			const { getByTestId } = await render(Test);
 			await waitFor(() => {
 				expect(getByTestId('title')).toBeInTheDocument();
 			});
@@ -30,7 +30,7 @@ describe('Toast', () => {
 
 	describe('Description', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(Test);
+			const { getByTestId } = await render(Test);
 			await waitFor(() => {
 				expect(getByTestId('description')).toBeInTheDocument();
 			});
@@ -39,7 +39,7 @@ describe('Toast', () => {
 
 	describe('ActionTrigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(Test);
+			const { getByTestId } = await render(Test);
 			await waitFor(() => {
 				expect(getByTestId('action-trigger')).toBeInTheDocument();
 			});
@@ -48,7 +48,7 @@ describe('Toast', () => {
 
 	describe('CloseTrigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(Test);
+			const { getByTestId } = await render(Test);
 			await waitFor(() => {
 				expect(getByTestId('close-trigger')).toBeInTheDocument();
 			});

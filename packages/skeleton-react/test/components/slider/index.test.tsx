@@ -5,7 +5,7 @@ import { render, waitFor } from 'vitest-browser-react';
 describe('Slider', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('root')).toBeInTheDocument();
 			});
@@ -14,7 +14,7 @@ describe('Slider', () => {
 
 	describe('Label', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('label')).toBeInTheDocument();
 			});
@@ -23,7 +23,7 @@ describe('Slider', () => {
 
 	describe('ValueText', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('value-text')).toBeInTheDocument();
 			});
@@ -32,7 +32,7 @@ describe('Slider', () => {
 
 	describe('Control', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('control')).toBeInTheDocument();
 			});
@@ -41,7 +41,7 @@ describe('Slider', () => {
 
 	describe('Track', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('track')).toBeInTheDocument();
 			});
@@ -50,7 +50,7 @@ describe('Slider', () => {
 
 	describe('Range', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('range')).toBeInTheDocument();
 			});
@@ -59,7 +59,7 @@ describe('Slider', () => {
 
 	describe('Thumb', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('thumb')).toBeInTheDocument();
 			});
@@ -68,7 +68,7 @@ describe('Slider', () => {
 
 	describe('HiddenInput', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('hidden-input')).toBeInTheDocument();
 			});
@@ -77,7 +77,7 @@ describe('Slider', () => {
 
 	describe('MarkerGroup', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('marker-group')).toBeInTheDocument();
 			});
@@ -86,7 +86,7 @@ describe('Slider', () => {
 
 	describe('Marker', () => {
 		it('renders', async () => {
-			const { getByTestId } = render(<Test />);
+			const { getByTestId } = await render(<Test />);
 			await waitFor(() => {
 				expect(getByTestId('marker')).toBeInTheDocument();
 			});
