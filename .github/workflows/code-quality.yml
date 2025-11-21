@@ -59,4 +59,5 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install
+      - run: pnpm dlx playwright install
       - run: pnpm test
