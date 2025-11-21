@@ -15,7 +15,7 @@
 		"lint:check": "oxlint",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm format",
-		"postinstall": "pnpm --recursive --parallel sync"
+		"postinstall": "pnpm --recursive --parallel sync && pnpm dlx playwright install --with-deps"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
