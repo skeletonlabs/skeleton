@@ -10,35 +10,35 @@ describe('Toast', () => {
 		});
 	});
 
-	describe.skip('Root', () => {
+	describe('Root', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('Title', () => {
+	describe('Title', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('Description', () => {
+	describe('Description', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('ActionTrigger', () => {
+	describe('ActionTrigger', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('action-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('CloseTrigger', () => {
+	describe('CloseTrigger', () => {
 		it('renders', async () => {
 			const { getByTestId } = await render(<Test />);
 			expect(getByTestId('close-trigger')).toBeInTheDocument();
