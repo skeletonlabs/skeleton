@@ -4,20 +4,20 @@ import { render } from 'vitest-browser-svelte';
 
 describe('Portal', () => {
 	describe('Root', () => {
-		it('renders', async () => {
-			const { getByTestId } = await render(Test);
+		it('renders', () => {
+			const { getByTestId } = render(Test);
 			expect(getByTestId('child')).toBeInTheDocument();
 		});
 
-		it('renders in the target', async () => {
-			const { getByTestId } = await render(Test, {
+		it('renders in the target', () => {
+			const { getByTestId } = render(Test, {
 				target: document.body,
 			});
 			expect(getByTestId('child').element().parentElement).toBe(document.body);
 		});
 
-		it('renders in the parent when disabled', async () => {
-			const { getByTestId } = await render(Test, {
+		it('renders in the parent when disabled', () => {
+			const { getByTestId } = render(Test, {
 				disabled: true,
 			});
 			expect(getByTestId('child').element().parentElement).toBe(getByTestId('parent'));
