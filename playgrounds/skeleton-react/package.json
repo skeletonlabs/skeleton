@@ -3,16 +3,12 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack"
+		"dev": "vite dev"
 	},
 	"dependencies": {
-		"@skeletonlabs/skeleton": "workspace:*",
-		"@skeletonlabs/skeleton-react": "workspace:*",
-		"@tailwindcss/forms": "catalog:",
-		"@tailwindcss/postcss": "catalog:",
+		"@tanstack/react-router": "catalog:",
+		"@tanstack/react-start": "catalog:",
 		"lucide-react": "catalog:",
-		"next": "catalog:",
-		"postcss": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:"
 	},
@@ -21,6 +17,13 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"tailwindcss": "catalog:",
-		"typescript": "catalog:"
-	}
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@vitejs/plugin-react": "catalog:",
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:"
+	},
+	"type": "module"
 }

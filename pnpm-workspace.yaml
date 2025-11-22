@@ -32,8 +32,9 @@ catalog:
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.10
-  '@tailwindcss/postcss': 4.1.17
   '@tailwindcss/vite': 4.1.17
+  '@tanstack/react-router': 1.139.1
+  '@tanstack/react-start': 1.139.2
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
@@ -90,7 +91,6 @@ catalog:
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
-  next: 16.0.3
   node-html-parser: 7.0.1
   octokit: 5.0.5
   oxc-resolver: 11.13.2

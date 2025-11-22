@@ -5,6 +5,7 @@ export default defineConfig({
 	logLevel: 'error',
 	build: {
 		cssCodeSplit: true,
+		cssMinify: false,
 		emptyOutDir: false,
 		lib: {
 			formats: ['es'],
