@@ -1,7 +1,6 @@
 import type { Loader, LoaderContext } from 'astro/loaders';
 import { globSync, lstatSync, readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
-import { cwd } from 'node:process';
 import * as svelte from 'svelte/compiler';
 import * as tsMorph from 'ts-morph';
 
@@ -227,7 +226,7 @@ async function processFramework(context: LoaderContext, frameworkName: string) {
 	const parser = new Parser(join(path, 'tsconfig.json'));
 	const componentPaths = globSync('src/components/*', {
 		cwd: path,
-	}).filter((p) => lstatSync(join(path, p)).isDirectory());
+	}).filter((path) => lstatSync(path).isDirectory());
 	await Promise.all(componentPaths.map((componentPath) => processComponent(context, frameworkName, componentPath, parser)));
 }
 
