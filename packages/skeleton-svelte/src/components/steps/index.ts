@@ -1,8 +1,6 @@
 export type { StepsContentProps } from './anatomy/content.svelte';
-export type { StepsControlProps } from './anatomy/control.svelte';
 export type { StepsIndicatorProps } from './anatomy/indicator.svelte';
 export type { StepsItemProps } from './anatomy/item.svelte';
-export type { StepsItemTextProps } from './anatomy/item-text.svelte';
 export type { StepsListProps } from './anatomy/list.svelte';
 export type { StepsNextTriggerProps } from './anatomy/next-trigger.svelte';
 export type { StepsPrevTriggerProps } from './anatomy/prev-trigger.svelte';

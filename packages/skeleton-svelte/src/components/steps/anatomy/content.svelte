@@ -22,7 +22,7 @@
 		mergeProps(
 			steps().getContentProps({ index }),
 			{
-				class: classesSteps.control,
+				class: classesSteps.content,
 			},
 			rest,
 		),
