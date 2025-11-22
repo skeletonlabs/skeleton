@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "pnpm --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common build && vite build",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+		"build": "vite build",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "catalog:",

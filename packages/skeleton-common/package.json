@@ -13,7 +13,8 @@
 		"build": "tsdown",
 		"check": "tsc",
 		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore"
+		"postpack": "clean-package restore",
+		"postinstall": "pnpm build"
 	},
 	"exports": {
 		".": {
