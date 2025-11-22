@@ -4,6 +4,9 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	plugins: [svelte()],
+	optimizeDeps: {
+		exclude: ['@zag-js/svelte'],
+	},
 	test: {
 		browser: {
 			enabled: true,
