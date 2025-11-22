@@ -42,6 +42,7 @@
 		"postcss": "catalog:",
 		"semver": "catalog:",
 		"svelte": "catalog:",
+		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"zimmerframe": "catalog:"
 	},

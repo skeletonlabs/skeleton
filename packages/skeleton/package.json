@@ -35,6 +35,7 @@
 	"devDependencies": {
 		"clean-package": "catalog:",
 		"sass-embedded": "catalog:",
+		"tinyglobby": "catalog:",
 		"vite": "catalog:"
 	},
 	"license": "MIT",
