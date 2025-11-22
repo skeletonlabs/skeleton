@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "pnpm --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common build && vite build",
-		"check": "sveltekit-sync && svelte-check --tsconfig ./tsconfig.json"
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "catalog:",
