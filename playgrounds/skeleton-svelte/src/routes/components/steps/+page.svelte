@@ -2,7 +2,7 @@
 	import { Steps } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<Steps defaultStep={0} count={3}>
+<Steps defaultStep={0} count={3} orientation="vertical" class="w-ful h-48">
 	<Steps.List>
 		<Steps.Item index={0}>
 			<Steps.Trigger>
@@ -23,12 +23,14 @@
 		</Steps.Item>
 	</Steps.List>
 
-	<Steps.Content index={0}>First do this.</Steps.Content>
-	<Steps.Content index={1}>Then do that.</Steps.Content>
-	<Steps.Content index={2}>Almost there...</Steps.Content>
-	<Steps.Content index={3}>All done!</Steps.Content>
-	<div class="flex justify-between items-center gap-2">
-		<Steps.PrevTrigger class="btn preset-filled">Previous</Steps.PrevTrigger>
-		<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>
+	<div class="flex flex-col grow">
+		<Steps.Content class="grow" index={0}>First do this.</Steps.Content>
+		<Steps.Content class="grow" index={1}>Then do that.</Steps.Content>
+		<Steps.Content class="grow" index={2}>Almost there...</Steps.Content>
+		<Steps.Content class="grow" index={3}>All done!</Steps.Content>
+		<div class="flex justify-between items-center gap-2">
+			<Steps.PrevTrigger class="btn preset-filled">Previous</Steps.PrevTrigger>
+			<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>
+		</div>
 	</div>
 </Steps>
