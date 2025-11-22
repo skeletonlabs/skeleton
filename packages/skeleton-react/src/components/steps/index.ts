@@ -1,0 +1,13 @@
+export type { StepsContentProps } from './anatomy/content.jsx';
+export type { StepsIndicatorProps } from './anatomy/indicator.jsx';
+export type { StepsItemProps } from './anatomy/item.jsx';
+export type { StepsListProps } from './anatomy/list.jsx';
+export type { StepsNextTriggerProps } from './anatomy/next-trigger.jsx';
+export type { StepsPrevTriggerProps } from './anatomy/prev-trigger.jsx';
+export type { StepsRootProps } from './anatomy/root.jsx';
+export type { StepsRootContextProps } from './anatomy/root-context.jsx';
+export type { StepsRootProviderProps } from './anatomy/root-provider.jsx';
+export type { StepsSeparatorProps } from './anatomy/separator.jsx';
+export type { StepsTriggerProps } from './anatomy/trigger.jsx';
+export { Steps } from './modules/anatomy.js';
+export { useSteps } from './modules/provider.js';
