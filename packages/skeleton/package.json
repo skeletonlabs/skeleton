@@ -11,7 +11,8 @@
 	"scripts": {
 		"dev": "vite build --watch",
 		"build": "vite build",
-		"sync": "pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
@@ -31,10 +32,18 @@
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
+		"clean-package": "catalog:",
 		"sass-embedded": "catalog:",
 		"tinyglobby": "catalog:",
 		"vite": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		]
+	}
 }

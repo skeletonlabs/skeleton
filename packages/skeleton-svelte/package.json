@@ -9,11 +9,9 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"dev": "svelte-package --input src --output dist --preserve-output --watch",
 		"build": "svelte-package --input src --output dist --preserve-output",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync",
-		"prepack": "clean-package && pnpm build",
+		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
 	},
 	"exports": {
@@ -75,6 +73,11 @@
 	"license": "MIT",
 	"type": "module",
 	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		],
 		"replace": {
 			"exports": {
 				".": {

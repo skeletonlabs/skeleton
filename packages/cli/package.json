@@ -21,12 +21,15 @@
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"check": "tsc"
+		"check": "tsc",
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"devDependencies": {
 		"@types/estree": "catalog:",
 		"@types/node": "catalog:",
 		"@types/semver": "catalog:",
+		"clean-package": "catalog:",
 		"tsdown": "catalog:",
 		"type-fest": "catalog:",
 		"typescript": "catalog:",
@@ -50,5 +53,12 @@
 		"zimmerframe": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		]
+	}
 }

@@ -12,7 +12,8 @@
 		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
@@ -28,6 +29,7 @@
 	"sideEffects": false,
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
+		"clean-package": "catalog:",
 		"tailwindcss": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
@@ -35,5 +37,12 @@
 		"unplugin-raw": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		]
+	}
 }

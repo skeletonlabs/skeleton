@@ -9,10 +9,9 @@
 		"directory": "packages/skeleton-react"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"check": "tsc",
-		"prepack": "clean-package && pnpm build",
+		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
 	},
 	"exports": {
@@ -73,6 +72,11 @@
 	"license": "MIT",
 	"type": "module",
 	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		],
 		"replace": {
 			"exports": {
 				".": {
