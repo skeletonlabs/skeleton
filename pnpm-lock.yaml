@@ -487,9 +487,6 @@ importers:
       sass-embedded:
         specifier: 'catalog:'
         version: 1.93.3
-      tinyglobby:
-        specifier: 'catalog:'
-        version: 0.2.15
       vite:
         specifier: 'catalog:'
         version: rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)
