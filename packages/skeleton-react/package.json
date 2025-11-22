@@ -12,18 +12,18 @@
 		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"prepack": "clean-package && pnpm build",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
-			"style": "./dist/index.css"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"dist"
 	],
 	"sideEffects": false,
 	"dependencies": {
@@ -71,5 +71,16 @@
 		"vitest-browser-react": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js",
+					"style": "./dist/index.css"
+				}
+			}
+		}
+	}
 }

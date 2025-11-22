@@ -15,15 +15,13 @@
 	},
 	"bin": "./dist/index.mjs",
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"dist"
 	],
 	"sideEffects": false,
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"check": "tsc",
-		"sync": "pnpm build"
+		"check": "tsc"
 	},
 	"devDependencies": {
 		"@types/estree": "catalog:",
