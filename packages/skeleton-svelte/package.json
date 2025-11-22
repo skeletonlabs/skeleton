@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"build": "svelte-package --input src --output dist --preserve-output",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check": "pnpm --filter @skeletonlabs/skeleton-common build && svelte-check --tsconfig ./tsconfig.json",
 		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
 	},
