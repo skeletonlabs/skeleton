@@ -7,12 +7,6 @@
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/cli"
 	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs"
-		}
-	},
 	"bin": "./dist/index.mjs",
 	"files": [
 		"dist"
