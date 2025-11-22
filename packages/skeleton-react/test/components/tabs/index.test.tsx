@@ -2,40 +2,41 @@ import Test from './test.jsx';
 import { act } from 'react';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Tabs', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			const { getByTestId } = await act(() => render(<Test />));
-			expect(getByTestId('root')).toBeInTheDocument();
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('List', () => {
 		it('renders', async () => {
-			const { getByTestId } = await act(() => render(<Test />));
-			expect(getByTestId('list')).toBeInTheDocument();
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('list')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = await act(() => render(<Test />));
-			expect(getByTestId('trigger')).toBeInTheDocument();
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			const { getByTestId } = await act(() => render(<Test />));
-			expect(getByTestId('indicator')).toBeInTheDocument();
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', async () => {
-			const { getByTestId } = await act(() => render(<Test />));
-			expect(getByTestId('content')).toBeInTheDocument();
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 });

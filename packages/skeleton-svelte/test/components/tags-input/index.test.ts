@@ -1,82 +1,82 @@
-import Test from './test.jsx';
+import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
+import { render } from 'vitest-browser-svelte';
 import { page } from 'vitest/browser';
 
 describe('TagsInput', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
-	describe('item preview', () => {
+	describe('ItemPreview', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('item-preview')).toBeInTheDocument();
 		});
 	});
 
-	describe('item text', () => {
+	describe('ItemText', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('item delete trigger', () => {
+	describe('ItemDeleteTrigger', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('item input', () => {
+	describe('ItemInput', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('item-input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Input', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
-	describe('clear trigger', () => {
+	describe('ClearTrigger', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('clear-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('hidden input', () => {
+	describe('HiddenInput', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			render(Test);
 			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});

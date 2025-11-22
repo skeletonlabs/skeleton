@@ -1,61 +1,62 @@
 import Test from './test.jsx';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Popover', () => {
 	describe('Trigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('trigger')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('positioner')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('content')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('Arrow', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('arrow')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
 
 	describe('ArrowTip', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('arrow-tip')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
 
 	describe('Title', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('title')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
 	describe('Description', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('description')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
 	describe('CloseTrigger', () => {
 		it('renders', async () => {
-			const { getByTestId } = await render(<Test />);
-			expect(getByTestId('close-trigger')).toBeInTheDocument();
+			await render(<Test />);
+			await expect.element(page.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});
 });

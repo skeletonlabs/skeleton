@@ -1,61 +1,62 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Popover', () => {
 	describe('Trigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('positioner')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('content')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('Arrow', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('arrow')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
 
 	describe('ArrowTip', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('arrow-tip')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
 
 	describe('Title', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('title')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
 	describe('Description', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('description')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
 	describe('CloseTrigger', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('close-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});
 });

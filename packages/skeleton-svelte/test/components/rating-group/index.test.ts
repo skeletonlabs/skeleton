@@ -1,40 +1,41 @@
 import Test from './test.svelte';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('RatingGroup', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('label')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('control')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Items', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('item')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
-		it('renders', () => {
-			const { getByTestId } = render(Test);
-			expect(getByTestId('hidden-input')).toBeInTheDocument();
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 });

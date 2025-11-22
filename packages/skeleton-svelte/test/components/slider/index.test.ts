@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import { page } from 'vitest/browser';
 
-describe('Progress', () => {
+describe('Slider', () => {
 	describe('Root', () => {
 		it('renders', async () => {
 			render(Test);
@@ -25,6 +25,13 @@ describe('Progress', () => {
 		});
 	});
 
+	describe('Control', () => {
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('control')).toBeInTheDocument();
+		});
+	});
+
 	describe('Track', () => {
 		it('renders', async () => {
 			render(Test);
@@ -39,24 +46,31 @@ describe('Progress', () => {
 		});
 	});
 
-	describe('Circle', () => {
+	describe('Thumb', () => {
 		it('renders', async () => {
 			render(Test);
-			await expect.element(page.getByTestId('circle')).toBeInTheDocument();
+			await expect.element(page.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
-	describe('CircleTrack', () => {
+	describe('HiddenInput', () => {
 		it('renders', async () => {
 			render(Test);
-			await expect.element(page.getByTestId('circle-track')).toBeInTheDocument();
+			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
-	describe('CircleRange', () => {
+	describe('MarkerGroup', () => {
 		it('renders', async () => {
 			render(Test);
-			await expect.element(page.getByTestId('circle-range')).toBeInTheDocument();
+			await expect.element(page.getByTestId('marker-group')).toBeInTheDocument();
+		});
+	});
+
+	describe('Marker', () => {
+		it('renders', async () => {
+			render(Test);
+			await expect.element(page.getByTestId('marker')).toBeInTheDocument();
 		});
 	});
 });
