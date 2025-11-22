@@ -29,5 +29,5 @@ function Page() {
 				</Popover.Positioner>
 			</Portal>
 		</Popover>
-	)
+	);
 }

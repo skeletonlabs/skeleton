@@ -30,5 +30,5 @@ function Page() {
 			<TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger>
 			<TagsInput.HiddenInput />
 		</TagsInput>
-	)
+	);
 }

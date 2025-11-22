@@ -22,5 +22,5 @@ function Page() {
 				</Dialog.Positioner>
 			</Portal>
 		</Dialog>
-	)
+	);
 }

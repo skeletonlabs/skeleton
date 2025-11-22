@@ -27,5 +27,5 @@ function Page() {
 				</Tooltip.Positioner>
 			</Portal>
 		</Tooltip>
-	)
+	);
 }

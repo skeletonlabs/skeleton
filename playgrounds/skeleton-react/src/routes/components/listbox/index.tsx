@@ -37,5 +37,5 @@ function Page() {
 				))}
 			</Listbox.Content>
 		</Listbox>
-	)
+	);
 }

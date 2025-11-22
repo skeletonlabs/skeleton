@@ -17,5 +17,5 @@ function Page() {
 			</Progress.Circle>
 			<Progress.ValueText />
 		</Progress>
-	)
+	);
 }

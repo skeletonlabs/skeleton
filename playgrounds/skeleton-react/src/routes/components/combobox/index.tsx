@@ -53,12 +53,12 @@ function Page() {
 
 	const onOpenChange = () => {
 		setItems(data);
-	}
+	};
 
 	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
 		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
 		setItems(filtered.length > 0 ? filtered : data);
-	}
+	};
 
 	return (
 		<Combobox collection={collection} onOpenChange={onOpenChange} onInputValueChange={onInputValueChange} inputBehavior="autohighlight">
@@ -85,5 +85,5 @@ function Page() {
 				</Combobox.Positioner>
 			</Portal>
 		</Combobox>
-	)
+	);
 }

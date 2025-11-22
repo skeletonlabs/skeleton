@@ -115,5 +115,5 @@ function Page() {
 				</DatePicker.Positioner>
 			</Portal>
 		</DatePicker>
-	)
+	);
 }

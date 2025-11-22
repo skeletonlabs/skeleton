@@ -20,5 +20,5 @@ function Page() {
 			<Tabs.Content value="tab-2">Content for Tab 2</Tabs.Content>
 			<Tabs.Content value="tab-3">Content for Tab 3</Tabs.Content>
 		</Tabs>
-	)
+	);
 }

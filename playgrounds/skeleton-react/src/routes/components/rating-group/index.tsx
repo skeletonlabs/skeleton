@@ -18,5 +18,5 @@ function Page() {
 			</RatingGroup.Control>
 			<RatingGroup.HiddenInput />
 		</RatingGroup>
-	)
+	);
 }

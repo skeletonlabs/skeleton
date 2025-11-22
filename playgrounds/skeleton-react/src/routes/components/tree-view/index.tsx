@@ -36,7 +36,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				</TreeView.Item>
 			)}
 		</TreeView.NodeProvider>
-	)
+	);
 }
 
 export const Route = createFileRoute('/components/tree-view/')({
@@ -84,5 +84,5 @@ function Page() {
 				))}
 			</TreeView.Tree>
 		</TreeView>
-	)
+	);
 }

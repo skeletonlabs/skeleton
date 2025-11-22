@@ -27,5 +27,5 @@ function Page() {
 				</SegmentedControl.Item>
 			</SegmentedControl.Control>
 		</SegmentedControl>
-	)
+	);
 }

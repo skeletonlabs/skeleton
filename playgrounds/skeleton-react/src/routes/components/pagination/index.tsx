@@ -30,5 +30,5 @@ function Page() {
 			<Pagination.NextTrigger>Next</Pagination.NextTrigger>
 			<Pagination.LastTrigger>Last</Pagination.LastTrigger>
 		</Pagination>
-	)
+	);
 }

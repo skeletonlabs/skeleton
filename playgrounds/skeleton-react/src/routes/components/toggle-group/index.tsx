@@ -14,5 +14,5 @@ function Page() {
 			<ToggleGroup.Item value="center">Center</ToggleGroup.Item>
 			<ToggleGroup.Item value="right">Right</ToggleGroup.Item>
 		</ToggleGroup>
-	)
+	);
 }

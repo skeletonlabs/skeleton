@@ -13,5 +13,5 @@ function Page() {
 			<Avatar.Image src="https://picsum.photos/100/100" />
 			<Avatar.Fallback>SK</Avatar.Fallback>
 		</Avatar>
-	)
+	);
 }

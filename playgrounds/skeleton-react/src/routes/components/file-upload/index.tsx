@@ -39,5 +39,5 @@ function Page() {
 				Clear Files
 			</button>
 		</>
-	)
+	);
 }

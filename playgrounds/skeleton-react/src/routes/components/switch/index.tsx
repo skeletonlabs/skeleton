@@ -16,5 +16,5 @@ function Page() {
 			</Switch.Control>
 			<Switch.Label>Label</Switch.Label>
 		</Switch>
-	)
+	);
 }

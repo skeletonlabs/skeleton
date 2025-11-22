@@ -21,17 +21,17 @@ function Page() {
 							<Portal>
 								<Menu.Positioner>
 									<Menu.Content>
-										<Menu.Item value='new'>
+										<Menu.Item value="new">
 											<Menu.ItemText>New File</Menu.ItemText>
 										</Menu.Item>
-										<Menu.Item value='open'>
+										<Menu.Item value="open">
 											<Menu.ItemText>Open File</Menu.ItemText>
 										</Menu.Item>
 										<Menu.Separator />
-										<Menu.Item value='save'>
+										<Menu.Item value="save">
 											<Menu.ItemText>Save</Menu.ItemText>
 										</Menu.Item>
-										<Menu.Item value='export'>
+										<Menu.Item value="export">
 											<Menu.ItemText>Export</Menu.ItemText>
 										</Menu.Item>
 									</Menu.Content>
@@ -52,5 +52,5 @@ function Page() {
 				</Menu.Positioner>
 			</Portal>
 		</Menu>
-	)
+	);
 }

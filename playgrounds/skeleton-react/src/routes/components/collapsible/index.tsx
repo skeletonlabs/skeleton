@@ -13,5 +13,5 @@ function Page() {
 			<Collapsible.Trigger>Toggle</Collapsible.Trigger>
 			<Collapsible.Content>Content</Collapsible.Content>
 		</Collapsible>
-	)
+	);
 }

@@ -97,5 +97,5 @@ function Page() {
 				</Progress>
 			</section>
 		</div>
-	)
+	);
 }
