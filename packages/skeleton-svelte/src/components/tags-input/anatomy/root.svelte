@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { Props } from '@zag-js/tags-input';
 
 	export interface TagsInputRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}

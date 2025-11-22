@@ -1,40 +1,41 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('AppBar', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Toolbar', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('toolbar')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('toolbar')).toBeInTheDocument();
 		});
 	});
 
 	describe('Lead', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('lead')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('lead')).toBeInTheDocument();
 		});
 	});
 
 	describe('Headline', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('headline')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('headline')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trail', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('trail')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('trail')).toBeInTheDocument();
 		});
 	});
 });

@@ -1,40 +1,41 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Switch', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('control')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Thumb', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('thumb')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('thumb')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 });

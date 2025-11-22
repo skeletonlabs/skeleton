@@ -1,68 +1,57 @@
 import Test from './test.jsx';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('SegmentedControl', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('root')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('label')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('control')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('indicator')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('item')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemText', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('item-text')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemHiddenInput', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('item-hidden-input')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('item-hidden-input')).toBeInTheDocument();
 		});
 	});
 });

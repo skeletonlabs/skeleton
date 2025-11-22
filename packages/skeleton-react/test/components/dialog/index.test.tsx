@@ -1,54 +1,55 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Dialog', () => {
 	describe('Trigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Backdrop', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('backdrop')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('backdrop')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('positioner')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('Title', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('title')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
 	describe('Description', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('description')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
 	describe('CloseTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('close-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});
 });

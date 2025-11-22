@@ -1,40 +1,41 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Tabs', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('List', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('list')).toBeInTheDocument();
+			await expect.element(page.getByTestId('list')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 });

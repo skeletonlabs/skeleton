@@ -1,54 +1,55 @@
 import Test from './test.js';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Pagination', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('FirstTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('first-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('first-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('PrevTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('prev-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('prev-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('Ellipsis', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('ellipsis')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('ellipsis')).toBeInTheDocument();
 		});
 	});
 
 	describe('NextTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('next-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('next-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('LastTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('first-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('last-trigger')).toBeInTheDocument();
 		});
 	});
 });

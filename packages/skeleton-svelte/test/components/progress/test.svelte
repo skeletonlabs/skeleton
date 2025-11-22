@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Progress } from '@/index.js';
+	import { Progress } from '../../../src/index.js';
 </script>
 
 <Progress data-testid="root">

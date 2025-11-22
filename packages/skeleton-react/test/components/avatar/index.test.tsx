@@ -1,26 +1,27 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Avatar', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Image', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('image')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('image')).toBeInTheDocument();
 		});
 	});
 
 	describe('Fallback', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('fallback')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('fallback')).toBeInTheDocument();
 		});
 	});
 });

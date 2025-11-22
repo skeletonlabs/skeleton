@@ -1,26 +1,27 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Avatar', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Image', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('image')).toBeInTheDocument();
+			await expect.element(page.getByTestId('image')).toBeInTheDocument();
 		});
 	});
 
 	describe('Fallback', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('fallback')).toBeInTheDocument();
+			await expect.element(page.getByTestId('fallback')).toBeInTheDocument();
 		});
 	});
 });

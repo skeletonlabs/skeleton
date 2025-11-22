@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Menu } from '@/index.js';
+	import { Menu } from '../../../src/index.js';
 </script>
 
 <Menu>

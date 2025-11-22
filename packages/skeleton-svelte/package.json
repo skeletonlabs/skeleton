@@ -9,23 +9,21 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"dev": "svelte-package --input src --output dist --preserve-output --watch",
 		"build": "svelte-package --input src --output dist --preserve-output",
-		"test": "vitest run",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync && pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"style": "./dist/index.css",
-			"svelte": "./dist/index.js",
-			"default": "./dist/index.js"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"svelte": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"dist"
 	],
 	"sideEffects": false,
 	"dependencies": {
@@ -64,15 +62,31 @@
 		"@sveltejs/kit": "catalog:",
 		"@sveltejs/package": "catalog:",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
-		"@testing-library/jest-dom": "catalog:",
-		"@testing-library/svelte": "catalog:",
-		"jsdom": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
+		"clean-package": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
-		"vitest": "catalog:"
+		"vitest-browser-svelte": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		],
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.ts",
+					"import": "./dist/index.js",
+					"svelte": "./dist/index.js",
+					"style": "./dist/index.css"
+				}
+			}
+		}
+	}
 }

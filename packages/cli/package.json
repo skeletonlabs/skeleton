@@ -7,34 +7,27 @@
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/cli"
 	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs"
-		}
-	},
 	"bin": "./dist/index.mjs",
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"dist"
 	],
 	"sideEffects": false,
 	"scripts": {
 		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"test": "vitest run",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"devDependencies": {
 		"@types/estree": "catalog:",
 		"@types/node": "catalog:",
 		"@types/semver": "catalog:",
+		"clean-package": "catalog:",
 		"tsdown": "catalog:",
 		"type-fest": "catalog:",
 		"typescript": "catalog:",
-		"vite": "catalog:",
-		"vitest": "catalog:"
+		"vite": "catalog:"
 	},
 	"dependencies": {
 		"@clack/prompts": "catalog:",
@@ -54,5 +47,12 @@
 		"zimmerframe": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		]
+	}
 }

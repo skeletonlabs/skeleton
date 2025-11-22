@@ -1,33 +1,34 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Collapsible', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('indicator')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 });

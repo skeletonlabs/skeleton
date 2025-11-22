@@ -1,110 +1,111 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Menu', () => {
 	describe('Trigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ContextTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('context-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('context-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getAllByTestId('indicator')).toHaveLength(2);
+			await expect.element(page.getByTestId('indicator')).toHaveLength(2);
 		});
 	});
 
 	describe('Positioner', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('positioner')).toBeInTheDocument();
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroup', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-group')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroupLabel', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-group-label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('OptionItem', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('option-item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('option-item')).toBeInTheDocument();
 		});
 	});
 
 	describe('TriggerItem', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trigger-item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trigger-item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemText', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getAllByTestId('item-text')).toHaveLength(3);
+			await expect.element(page.getByTestId('item-text')).toHaveLength(3);
 		});
 	});
 
 	describe('ItemIndicator', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getAllByTestId('item-indicator')).toHaveLength(3);
+			await expect.element(page.getByTestId('item-indicator')).toHaveLength(3);
 		});
 	});
 
 	describe('Separator', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('separator')).toBeInTheDocument();
+			await expect.element(page.getByTestId('separator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Arrow', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('arrow')).toBeInTheDocument();
+			await expect.element(page.getByTestId('arrow')).toBeInTheDocument();
 		});
 	});
 
 	describe('ArrowTip', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('arrow-tip')).toBeInTheDocument();
+			await expect.element(page.getByTestId('arrow-tip')).toBeInTheDocument();
 		});
 	});
 });

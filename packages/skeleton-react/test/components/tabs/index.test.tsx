@@ -1,50 +1,42 @@
 import Test from './test.jsx';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Tabs', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('root')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('List', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('list')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('list')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('trigger')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('indicator')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('content')).toBeInTheDocument();
-			});
+			await act(() => render(<Test />));
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 });

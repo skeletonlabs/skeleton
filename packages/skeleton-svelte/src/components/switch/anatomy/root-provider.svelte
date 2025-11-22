@@ -1,7 +1,7 @@
 <script lang="ts" module>
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { useSwitch } from '../modules/provider.svelte';
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
 
 	export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir' | 'form'> {
 		value: ReturnType<typeof useSwitch>;

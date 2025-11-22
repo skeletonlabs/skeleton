@@ -1,4 +1,4 @@
-import { Progress } from '@/index.js';
+import { Progress } from '../../../src/index.js';
 
 export default function Test() {
 	return (

@@ -1,75 +1,76 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('FileUpload', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Dropzone', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('dropzone')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('dropzone')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroup', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-group')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemName', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-name')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-name')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemSizeText', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-size-text')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-size-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemDeleteTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-delete-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 });

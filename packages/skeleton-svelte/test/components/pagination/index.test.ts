@@ -1,54 +1,55 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Pagination', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('FirstTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('first-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('first-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('PrevTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('prev-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('prev-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('Ellipsis', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('ellipsis')).toBeInTheDocument();
+			await expect.element(page.getByTestId('ellipsis')).toBeInTheDocument();
 		});
 	});
 
 	describe('NextTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('next-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('next-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('LastTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('last-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('last-trigger')).toBeInTheDocument();
 		});
 	});
 });

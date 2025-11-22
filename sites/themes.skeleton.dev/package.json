@@ -1,12 +1,12 @@
 {
 	"name": "@skeletonlabs/themes.skeleton.dev",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"sync": "svelte-kit sync"
+		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "catalog:",

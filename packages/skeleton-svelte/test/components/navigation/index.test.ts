@@ -1,89 +1,90 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Navigation', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('root')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Header', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('header')).toBeInTheDocument();
+			await expect.element(page.getByTestId('header')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('header')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('header')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('content')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('content')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Group', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('group')).toBeInTheDocument();
+			await expect.element(page.getByTestId('group')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('group')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('group')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('label')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('label')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Menu', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('menu')).toBeInTheDocument();
+			await expect.element(page.getByTestId('menu')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('menu')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('menu')).toHaveAttribute('data-layout');
 		});
 	});
 
 	describe('Footer', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('footer')).toBeInTheDocument();
+			await expect.element(page.getByTestId('footer')).toBeInTheDocument();
 		});
 
-		it('sets the data-layout attribute', () => {
+		it('sets the data-layout attribute', async () => {
 			render(Test);
-			expect(screen.getByTestId('footer')).toHaveAttribute('data-layout');
+			await expect.element(page.getByTestId('footer')).toHaveAttribute('data-layout');
 		});
 	});
 });

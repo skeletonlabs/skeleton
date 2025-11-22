@@ -45,7 +45,7 @@ interface PagefindSearchResult {
 	data: () => Promise<PagefindSearchFragment>;
 }
 
-export interface PagefindSearchFragment {
+interface PagefindSearchFragment {
 	url: string;
 	raw_url?: string;
 	content: string;

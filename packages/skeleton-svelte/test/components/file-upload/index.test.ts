@@ -1,75 +1,76 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('FileUpload', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Dropzone', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('dropzone')).toBeInTheDocument();
+			await expect.element(page.getByTestId('dropzone')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroup', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-group')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemName', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-name')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-name')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemSizeText', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-size-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-size-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemDeleteTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('item-delete-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('item-delete-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('HiddenInput', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('hidden-input')).toBeInTheDocument();
+			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
 		});
 	});
 });

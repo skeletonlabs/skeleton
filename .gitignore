@@ -6,8 +6,8 @@ dist/
 # generated
 .astro/
 .svelte-kit/
-.next/
-next-env.d.ts
+.tanstack/
+routeTree.gen.ts
 **/pagefind
 
 # dependencies

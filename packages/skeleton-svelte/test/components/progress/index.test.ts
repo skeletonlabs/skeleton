@@ -1,61 +1,62 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('Progress', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('ValueText', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId('value-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('Track', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('track')).toBeInTheDocument();
+			await expect.element(page.getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
 	describe('Range', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('range')).toBeInTheDocument();
+			await expect.element(page.getByTestId('range')).toBeInTheDocument();
 		});
 	});
 
 	describe('Circle', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('circle')).toBeInTheDocument();
+			await expect.element(page.getByTestId('circle')).toBeInTheDocument();
 		});
 	});
 
 	describe('CircleTrack', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('circle-track')).toBeInTheDocument();
+			await expect.element(page.getByTestId('circle-track')).toBeInTheDocument();
 		});
 	});
 
 	describe('CircleRange', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('circle-range')).toBeInTheDocument();
+			await expect.element(page.getByTestId('circle-range')).toBeInTheDocument();
 		});
 	});
 });

@@ -1,61 +1,62 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Progress', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('ValueText', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('value-text')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('value-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('Track', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('track')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('track')).toBeInTheDocument();
 		});
 	});
 
 	describe('Range', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('range')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('range')).toBeInTheDocument();
 		});
 	});
 
 	describe('Circle', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('circle')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('circle')).toBeInTheDocument();
 		});
 	});
 
 	describe('CircleTrack', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('circle-track')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('circle-track')).toBeInTheDocument();
 		});
 	});
 
 	describe('CircleRange', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('circle-range')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('circle-range')).toBeInTheDocument();
 		});
 	});
 });

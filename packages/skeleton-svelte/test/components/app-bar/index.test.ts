@@ -1,40 +1,41 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('AppBar', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Toolbar', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('toolbar')).toBeInTheDocument();
+			await expect.element(page.getByTestId('toolbar')).toBeInTheDocument();
 		});
 	});
 
 	describe('Lead', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('lead')).toBeInTheDocument();
+			await expect.element(page.getByTestId('lead')).toBeInTheDocument();
 		});
 	});
 
 	describe('Headline', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('headline')).toBeInTheDocument();
+			await expect.element(page.getByTestId('headline')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trail', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trail')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trail')).toBeInTheDocument();
 		});
 	});
 });

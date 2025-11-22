@@ -1,68 +1,69 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Listbox', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Input', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('input')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroup', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-group')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemGroupLabel', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-group-label')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-group-label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemText', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-text')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemIndicator', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-indicator')).toBeInTheDocument();
 		});
 	});
 });

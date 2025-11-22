@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import { splitItemProps, type ItemProps } from '@zag-js/pagination';
 
 	export interface PaginationItemProps extends ItemProps, PropsWithElement<'a'>, HTMLAttributes<'a', 'type'> {}

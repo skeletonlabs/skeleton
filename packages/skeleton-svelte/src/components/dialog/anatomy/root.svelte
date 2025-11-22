@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children.js';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 	import type { Props } from '@zag-js/dialog';
 
 	export interface DialogRootProps extends Omit<Props, 'id'>, PropsWithChildren {}

@@ -1,57 +1,71 @@
+import { createToaster } from '../../../src/index.js';
 import Test from './test.jsx';
-import { render, screen, waitFor } from '@testing-library/react';
+import { act } from 'react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Toast', () => {
 	describe('Group', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('group')).toBeInTheDocument();
+		it('renders', async () => {
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			await expect.element(page.getByTestId('group')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('Root', () => {
+	describe('Root', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('root')).toBeInTheDocument();
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			act(() => {
+				toaster.create({});
 			});
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('Title', () => {
+	describe('Title', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('title')).toBeInTheDocument();
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			act(() => {
+				toaster.create({});
 			});
+			await expect.element(page.getByTestId('title')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('Description', () => {
+	describe('Description', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('description')).toBeInTheDocument();
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			act(() => {
+				toaster.create({});
 			});
+			await expect.element(page.getByTestId('description')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('ActionTrigger', () => {
+	describe('ActionTrigger', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('action-trigger')).toBeInTheDocument();
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			act(() => {
+				toaster.create({});
 			});
+			await expect.element(page.getByTestId('action-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe.skip('CloseTrigger', () => {
+	describe('CloseTrigger', () => {
 		it('renders', async () => {
-			render(<Test />);
-			await waitFor(() => {
-				expect(screen.getByTestId('close-trigger')).toBeInTheDocument();
+			const toaster = createToaster();
+			await render(<Test toaster={toaster} />);
+			act(() => {
+				toaster.create({});
 			});
+			await expect.element(page.getByTestId('close-trigger')).toBeInTheDocument();
 		});
 	});
 });

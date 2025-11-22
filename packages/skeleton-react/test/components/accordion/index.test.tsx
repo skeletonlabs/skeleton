@@ -1,40 +1,41 @@
 import Test from './test.jsx';
-import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
 
 describe('Accordion', () => {
 	describe('Root', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemTrigger', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-trigger')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemIndicator', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-indicator')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemContent', () => {
-		it('renders', () => {
-			render(<Test />);
-			expect(screen.getByTestId('item-content')).toBeInTheDocument();
+		it('renders', async () => {
+			await render(<Test />);
+			await expect.element(page.getByTestId('item-content')).toBeInTheDocument();
 		});
 	});
 });

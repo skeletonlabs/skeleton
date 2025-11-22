@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import { splitEllipsisProps, type EllipsisProps } from '@zag-js/pagination';
 
 	export interface PaginationEllipsisProps extends EllipsisProps, PropsWithElement<'span'>, HTMLAttributes<'span'> {}

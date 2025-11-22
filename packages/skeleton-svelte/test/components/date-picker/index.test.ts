@@ -1,159 +1,162 @@
 import Test from './test.svelte';
-import { render, screen } from '@testing-library/svelte';
 import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-svelte';
+import { page } from 'vitest/browser';
 
 describe('DatePicker', () => {
 	describe('Root', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Label', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId('label')).toBeInTheDocument();
 		});
 	});
 
 	describe('Control', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('control')).toBeInTheDocument();
+			await expect.element(page.getByTestId('control')).toBeInTheDocument();
 		});
 	});
 
 	describe('Input', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('input')).toBeInTheDocument();
+			await expect.element(page.getByTestId('input')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Positioner', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('positioner')).toBeInTheDocument();
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
 
 	describe('YearSelect', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('year-select')).toBeInTheDocument();
+			await expect.element(page.getByTestId('year-select')).toBeInTheDocument();
 		});
 	});
 
 	describe('MonthSelect', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('month-select')).toBeInTheDocument();
+			await expect.element(page.getByTestId('month-select')).toBeInTheDocument();
 		});
 	});
 
 	describe('View', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('view')).toBeInTheDocument();
+			await expect.element(page.getByTestId('view')).toBeInTheDocument();
 		});
 	});
 
 	describe('ViewControl', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('view-control')).toBeInTheDocument();
+			await expect.element(page.getByTestId('view-control')).toBeInTheDocument();
 		});
 	});
 
 	describe('PrevTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('prev-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('prev-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ViewTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('view-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('view-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('RangeText', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('range-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId('range-text')).toBeInTheDocument();
 		});
 	});
 
 	describe('NextTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('next-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('next-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Table', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableHead', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table-head')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table-head')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableRow', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getAllByTestId('table-row')[0]).toBeInTheDocument();
+			for (const element of page.getByTestId('table-row').all()) {
+				await expect.element(element).toBeInTheDocument();
+			}
 		});
 	});
 
 	describe('TableHeader', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table-header')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table-header')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableBody', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table-body')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table-body')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableCell', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table-cell')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table-cell')).toBeInTheDocument();
 		});
 	});
 
 	describe('TableCellTrigger', () => {
-		it('renders', () => {
+		it('renders', async () => {
 			render(Test);
-			expect(screen.getByTestId('table-cell-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId('table-cell-trigger')).toBeInTheDocument();
 		});
 	});
 });
