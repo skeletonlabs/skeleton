@@ -1,8 +1,7 @@
 import type { Loader, LoaderContext } from 'astro/loaders';
-import { readFileSync } from 'node:fs';
+import { globSync, lstatSync, readFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 import * as svelte from 'svelte/compiler';
-import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
 
 const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
@@ -225,11 +224,9 @@ async function getClassValue(componentName: string, partName: string) {
 async function processFramework(context: LoaderContext, frameworkName: string) {
 	const path = PACKAGE_DIRECTORY(`skeleton-${frameworkName}`);
 	const parser = new Parser(join(path, 'tsconfig.json'));
-	const componentPaths = await glob('src/components/*', {
+	const componentPaths = globSync('src/components/*', {
 		cwd: path,
-		onlyDirectories: true,
-		absolute: true,
-	});
+	}).filter((path) => lstatSync(path).isDirectory());
 	await Promise.all(componentPaths.map((componentPath) => processComponent(context, frameworkName, componentPath, parser)));
 }
 
@@ -245,10 +242,8 @@ async function processComponent(context: LoaderContext, frameworkName: string, c
 			types: [],
 		};
 	}
-	const partPaths = await glob(`${componentPath}/anatomy/*.{svelte,tsx}`, {
-		absolute: true,
-	});
-	const types = (await Promise.all(partPaths.map((p) => processPart(componentName, p, parser)))).filter(Boolean) as Array<{
+	const partPaths = globSync(`${componentPath}/anatomy/*.{svelte,tsx}`);
+	const types = (await Promise.all(partPaths.map((path) => processPart(componentName, path, parser)))).filter(Boolean) as Array<{
 		name: string;
 		props: unknown;
 		metadata: unknown;

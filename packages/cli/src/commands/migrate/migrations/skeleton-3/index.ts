@@ -13,9 +13,9 @@ import { THEME_MAPPINGS } from './utility/theme-mappings.js';
 import type { Theme } from './utility/types.js';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import getLatestVersion from 'latest-version';
+import { globSync, lstatSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
-import { extname } from 'node:path';
-import { glob } from 'tinyglobby';
+import { extname, join } from 'node:path';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -24,15 +24,15 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd }),
+		paths: globSync('package.json', { cwd }),
 	};
 	const appHtml = {
 		name: 'src/app.html',
-		paths: await glob('src/app.html', { cwd }),
+		paths: globSync('src/app.html', { cwd }),
 	};
 	const appCss = {
 		name: 'src/app.css',
-		paths: await glob('src/app.css', { cwd }),
+		paths: globSync('src/app.css', { cwd }),
 	};
 
 	// Validate file existence
@@ -46,11 +46,11 @@ export default async function (options: MigrateOptions) {
 	}
 
 	// Get source folders
-	const availableSourceFolders = await glob('*', {
+	const availableSourceFolders = globSync('*', {
 		cwd: cwd,
-		onlyDirectories: true,
-		ignore: ['node_modules'],
-	});
+		exclude: ['node_modules'],
+	}).filter((path) => lstatSync(join(cwd, path)).isDirectory());
+
 	const sourceFolders = await multiselect({
 		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
@@ -113,11 +113,11 @@ export default async function (options: MigrateOptions) {
 
 	// Migrate source files
 	if (sourceFolders.length > 0) {
-		const sourceFiles = await glob(
+		const sourceFiles = globSync(
 			sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 			{
 				cwd: cwd,
-				ignore: ['node_modules', 'src/app.css'],
+				exclude: ['node_modules', 'src/app.css'],
 			},
 		);
 		const sourceFilesSpinner = spinner();

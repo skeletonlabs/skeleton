@@ -7,9 +7,9 @@ import { transformPackageJson } from './transformers/transform-package.json.js';
 import { transformStylesheet } from './transformers/transform-stylesheet.js';
 import { transformSvelte } from './transformers/transform-svelte.js';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
-import { readFile, writeFile } from 'fs/promises';
-import { extname } from 'path';
-import { glob } from 'tinyglobby';
+import { globSync, lstatSync } from 'node:fs';
+import { readFile, writeFile } from 'node:fs/promises';
+import { join, extname } from 'node:path';
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -18,7 +18,7 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd }),
+		paths: globSync('package.json', { cwd }),
 	};
 
 	// Validate file existence
@@ -31,11 +31,11 @@ export default async function (options: MigrateOptions) {
 		}
 	}
 
-	const availableSourceFolders = await glob('*', {
+	const availableSourceFolders = globSync('*', {
 		cwd: cwd,
-		onlyDirectories: true,
-		ignore: ['node_modules'],
-	});
+		exclude: ['node_modules'],
+	}).filter((path) => lstatSync(join(cwd, path)).isDirectory());
+
 	const sourceFolders = await multiselect({
 		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
@@ -64,11 +64,11 @@ export default async function (options: MigrateOptions) {
 	}
 
 	// Migrate source files
-	const sourceFiles = await glob(
+	const sourceFiles = globSync(
 		sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 		{
 			cwd: cwd,
-			ignore: ['node_modules'],
+			exclude: ['node_modules'],
 		},
 	);
 	const sourceFilesSpinner = spinner();

@@ -1,8 +1,8 @@
+import { globSync } from 'node:fs';
 import { mkdir, readFile, rm } from 'node:fs/promises';
 import { basename, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
-import { glob } from 'tinyglobby';
 
 const ROOT_DIRECTORY = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SHOWCASE_PROJECTS_DIRECTORY = join(ROOT_DIRECTORY, 'src', 'content', 'showcase-projects');
@@ -12,7 +12,7 @@ async function generateShowcaseProjectThumbnails() {
 	const browser = await chromium.launch();
 
 	const projects = await Promise.all(
-		(await glob('*.json', { cwd: SHOWCASE_PROJECTS_DIRECTORY })).map(async (file) => {
+		globSync('*.json', { cwd: SHOWCASE_PROJECTS_DIRECTORY }).map(async (file) => {
 			const content = JSON.parse(await readFile(join(SHOWCASE_PROJECTS_DIRECTORY, file), 'utf-8'));
 			return {
 				slug: basename(file, '.json'),

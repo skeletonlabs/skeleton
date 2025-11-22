@@ -327,9 +327,6 @@ catalogs:
     tailwindcss:
       specifier: 4.1.17
       version: 4.1.17
-    tinyglobby:
-      specifier: 0.2.15
-      version: 0.2.15
     ts-morph:
       specifier: 27.0.2
       version: 27.0.2
@@ -440,9 +437,6 @@ importers:
       svelte:
         specifier: 'catalog:'
         version: 5.43.7
-      tinyglobby:
-        specifier: 'catalog:'
-        version: 0.2.15
       ts-morph:
         specifier: 'catalog:'
         version: 27.0.2
@@ -487,9 +481,6 @@ importers:
       sass-embedded:
         specifier: 'catalog:'
         version: 1.93.3
-      tinyglobby:
-        specifier: 'catalog:'
-        version: 0.2.15
       vite:
         specifier: 'catalog:'
         version: rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)
@@ -991,9 +982,6 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.17
-      tinyglobby:
-        specifier: 'catalog:'
-        version: 0.2.15
       ts-morph:
         specifier: 'catalog:'
         version: 27.0.2
