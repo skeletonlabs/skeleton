@@ -1,13 +1,9 @@
 /// <reference types="vite/client" />
+import appCss from '../app.css?url';
 import LightSwitch from '../components/light-switch';
-import { getComponents } from '../get-components';
-import appCss from '../styles/app.css?url';
 import { createRootRoute, Outlet, Scripts, HeadContent } from '@tanstack/react-router';
 
-console.log(appCss);
-
 export const Route = createRootRoute({
-	loader: () => getComponents(),
 	head: () => ({
 		meta: [
 			{ charSet: 'utf-8' },
@@ -28,12 +24,19 @@ export const Route = createRootRoute({
 });
 
 function RootLayout() {
-	const components = Route.useLoaderData();
-
-	console.log({ components });
+	const components = Object.keys(import.meta.glob('/src/routes/components/*/index.tsx')).map((path) => {
+		const href = path.replace('/src/routes', '').replace('/index.tsx', '');
+		const name = href
+			.split('/')
+			.pop()!
+			.split('-')
+			.map((str) => str.charAt(0).toUpperCase() + str.slice(1))
+			.join(' ');
+		return { href, name };
+	});
 
 	return (
-		<html lang="en" data-theme="cerberus" suppressHydrationWarning>
+		<html lang="en" data-theme="cerberus">
 			<head>
 				<HeadContent />
 			</head>
