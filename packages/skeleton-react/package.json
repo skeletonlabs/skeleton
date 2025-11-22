@@ -10,7 +10,7 @@
 	},
 	"scripts": {
 		"build": "tsdown",
-		"check": "pnpm --filter @skeletonlabs/skeleton-common build && tsc",
+		"check": "tsc",
 		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
 	},
