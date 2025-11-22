@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "pnpm --workspace-root --recursive --parallel --filter \"packages/*\" build && astro build",
+		"build": "pnpm --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common build && astro build",
 		"check": "astro check",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
 	},
