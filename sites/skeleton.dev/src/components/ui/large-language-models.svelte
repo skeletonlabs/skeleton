@@ -4,7 +4,6 @@
 	import markdown from '@/assets/logos/markdown.svg?raw';
 	import { ChevronDownIcon, FileTextIcon } from '@lucide/svelte';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
-	import { link } from 'node_modules/mdast-util-to-markdown/lib/handle/link';
 
 	interface Props {
 		url: URL;

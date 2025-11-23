@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.0
+
+### Patch Changes
+
+- bugfix: toast group width now respects the viewport offset ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
 ## 4.4.1
 
 ### Patch Changes

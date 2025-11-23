@@ -1,0 +1,55 @@
+import Dialog from './dialog.jsx';
+import { describe, expect, it } from 'vitest';
+import { render } from 'vitest-browser-react';
+import { page } from 'vitest/browser';
+
+describe('Dialog', () => {
+	describe('Trigger', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+		});
+	});
+
+	describe('Backdrop', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('backdrop')).toBeInTheDocument();
+		});
+	});
+
+	describe('Positioner', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
+		});
+	});
+
+	describe('Content', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+		});
+	});
+
+	describe('Title', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('title')).toBeInTheDocument();
+		});
+	});
+
+	describe('Description', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('description')).toBeInTheDocument();
+		});
+	});
+
+	describe('CloseTrigger', () => {
+		it('renders', async () => {
+			await render(<Dialog />);
+			await expect.element(page.getByTestId('close-trigger')).toBeInTheDocument();
+		});
+	});
+});
