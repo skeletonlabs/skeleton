@@ -1,4 +1,4 @@
-import { Steps } from '@/index.js';
+import { Steps } from '../../src/index.js';
 
 export default function Test() {
 	return (
