@@ -1,4 +1,5 @@
 {
+	"$schema": "https://www.schemastore.org/prettierrc.json",
 	"plugins": ["prettier-plugin-astro", "prettier-plugin-svelte", "@trivago/prettier-plugin-sort-imports", "@prettier/plugin-oxc"],
 	"overrides": [
 		{
