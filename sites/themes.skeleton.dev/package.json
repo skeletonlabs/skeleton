@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"check": "svelte-check --tsconfig ./tsconfig.json"
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "catalog:",
