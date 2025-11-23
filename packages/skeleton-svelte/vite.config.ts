@@ -8,7 +8,6 @@ export default defineConfig({
 		exclude: ['@zag-js/svelte'],
 	},
 	test: {
-		dir: '/test',
 		browser: {
 			enabled: true,
 			provider: playwright(),

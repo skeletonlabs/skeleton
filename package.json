@@ -7,6 +7,7 @@
 		"dev:themes": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/themes.skeleton.dev dev",
 		"dev:svelte": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-svelte dev",
 		"dev:react": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-react dev",
+		"pretest": "pnpm playwright install chromium --with-deps",
 		"test": "vitest run",
 		"check": "pnpm --recursive --aggregate-output --reporter=append-only --parallel check",
 		"format": "prettier . --cache --write --ignore-unknown --experimental-cli",
@@ -18,6 +19,7 @@
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
+		"@playwright/test": "catalog:",
 		"@prettier/plugin-oxc": "catalog:",
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
 		"@trivago/prettier-plugin-sort-imports": "catalog:",
