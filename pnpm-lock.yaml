@@ -370,6 +370,9 @@ catalogs:
       specifier: 1.1.4
       version: 1.1.4
 
+overrides:
+  astro>vite: npm:rolldown-vite@7.2.7
+
 importers:
 
   .:
@@ -843,7 +846,7 @@ importers:
         version: 0.9.5(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
       '@astrojs/mdx':
         specifier: 'catalog:'
-        version: 4.3.10(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+        version: 4.3.10(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
       '@astrojs/partytown':
         specifier: 'catalog:'
         version: 2.1.4
@@ -855,10 +858,10 @@ importers:
         version: 3.6.0
       '@astrojs/svelte':
         specifier: 'catalog:'
-        version: 7.2.2(@types/node@24.10.1)(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.7)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 7.2.2(@types/node@24.10.1)(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.7)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       '@astrojs/vercel':
         specifier: 'catalog:'
-        version: 9.0.0(@sveltejs/kit@2.48.5(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.7)(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(rollup@4.53.1)(svelte@5.43.7)
+        version: 9.0.0(@sveltejs/kit@2.48.5(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.7)(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(rollup@4.53.1)(svelte@5.43.7)
       '@faker-js/faker':
         specifier: 'catalog:'
         version: 10.1.0
@@ -924,13 +927,13 @@ importers:
         version: 19.2.3(@types/react@19.2.5)
       astro:
         specifier: 'catalog:'
-        version: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+        version: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       astro-auto-import:
         specifier: 'catalog:'
-        version: 0.4.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+        version: 0.4.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
       astro-pagefind:
         specifier: 'catalog:'
-        version: 1.8.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+        version: 1.8.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
       astro-seo:
         specifier: 'catalog:'
         version: 0.8.4(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.3)
@@ -6505,12 +6508,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.10(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))':
+  '@astrojs/mdx@4.3.10(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.8
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -6562,10 +6565,10 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/svelte@7.2.2(@types/node@24.10.1)(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.7)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)':
+  '@astrojs/svelte@7.2.2(@types/node@24.10.1)(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(svelte@5.43.7)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 5.1.1(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1))
-      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       svelte: 5.43.7
       svelte2tsx: 0.7.45(svelte@5.43.7)(typescript@5.9.3)
       typescript: 5.9.3
@@ -6596,14 +6599,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@9.0.0(@sveltejs/kit@2.48.5(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.7)(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(rollup@4.53.1)(svelte@5.43.7)':
+  '@astrojs/vercel@9.0.0(@sveltejs/kit@2.48.5(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.7)(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(rollup@4.53.1)(svelte@5.43.7)':
     dependencies:
       '@astrojs/internal-helpers': 0.7.4
       '@vercel/analytics': 1.5.0(@sveltejs/kit@2.48.5(@sveltejs/vite-plugin-svelte@5.1.1(svelte@5.43.7)(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(svelte@5.43.7)(vite@7.2.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)))(next@16.0.3(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.93.3))(react@19.2.0)(svelte@5.43.7)
       '@vercel/functions': 2.2.13
       '@vercel/nft': 0.30.3(rollup@4.53.1)
       '@vercel/routing-utils': 5.2.1
-      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       esbuild: 0.25.12
       tinyglobby: 0.2.15
     transitivePeerDependencies:
@@ -9181,16 +9184,16 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-auto-import@0.4.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-auto-import@0.4.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
     dependencies:
       '@types/node': 18.19.130
       acorn: 8.15.0
-      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
 
-  astro-pagefind@1.8.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-pagefind@1.8.5(astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
     dependencies:
       '@pagefind/default-ui': 1.4.0
-      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
       pagefind: 1.4.0
       sirv: 3.0.2
 
@@ -9202,7 +9205,7 @@ snapshots:
       - prettier-plugin-astro
       - typescript
 
-  astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1):
+  astro@5.15.9(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -9258,8 +9261,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.17.2(@vercel/functions@2.2.13)
       vfile: 6.0.3
-      vite: 6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)
-      vitefu: 1.1.1(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1))
+      vite: rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1)
+      vitefu: 1.1.1(rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -9290,7 +9293,6 @@ snapshots:
       - ioredis
       - jiti
       - less
-      - lightningcss
       - rollup
       - sass
       - sass-embedded
