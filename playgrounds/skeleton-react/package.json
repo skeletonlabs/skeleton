@@ -1,26 +1,32 @@
 {
 	"name": "@skeletonlabs/playground-skeleton-react",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --turbopack"
+		"dev": "vite dev",
+		"check": "tsc",
+		"postinstall": "tsr generate"
 	},
 	"dependencies": {
-		"@skeletonlabs/skeleton": "workspace:*",
-		"@skeletonlabs/skeleton-react": "workspace:*",
-		"@tailwindcss/forms": "catalog:",
-		"@tailwindcss/postcss": "catalog:",
+		"@tanstack/react-router": "catalog:",
+		"@tanstack/react-start": "catalog:",
 		"lucide-react": "catalog:",
-		"next": "catalog:",
-		"postcss": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:"
 	},
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"@tanstack/router-cli": "catalog:",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
+		"@vitejs/plugin-react": "catalog:",
 		"tailwindcss": "catalog:",
-		"typescript": "catalog:"
-	}
+		"typescript": "catalog:",
+		"vite": "catalog:"
+	},
+	"type": "module"
 }

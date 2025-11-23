@@ -1,4 +1,4 @@
+import { createContext } from '../../../internal/create-context.js';
 import type { useTabs } from './provider.js';
-import { createContext } from '@/internal/create-context.js';
 
 export const RootContext = createContext<ReturnType<typeof useTabs>>();

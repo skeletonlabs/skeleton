@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children.js';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 	import type { Props } from '@zag-js/popover';
 
 	export interface PopoverRootProps extends Omit<Props, 'id'>, PropsWithChildren {}

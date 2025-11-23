@@ -14,15 +14,10 @@
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
 		"declaration": true,
-		"declarationMap": true,
 		"noEmit": true,
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"types": ["@testing-library/jest-dom/vitest"],
-		"paths": {
-			"@/*": ["./src/*"]
-		}
+		"jsxImportSource": "react"
 	},
 	"include": ["src", "test"]
 }
