@@ -45,6 +45,7 @@ export default function Default() {
 				<Combobox.Input />
 				<Combobox.Trigger />
 			</Combobox.Control>
+			<Combobox.ClearTrigger>Clear All</Combobox.ClearTrigger>
 			<Portal>
 				<Combobox.Positioner className="z-[1]!">
 					<Combobox.Content>
