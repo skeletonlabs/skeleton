@@ -1,4 +1,4 @@
-import { Navigation } from '../../../src/index.js';
+import { Navigation } from '../../src/index.js';
 
 export default function Test() {
 	return (

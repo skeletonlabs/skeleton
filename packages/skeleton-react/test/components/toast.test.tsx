@@ -1,4 +1,4 @@
-import { createToaster } from '../../../src/index.js';
+import { createToaster } from '../../src/index.js';
 import Toast from './toast.jsx';
 import { act } from 'react';
 import { describe, expect, it } from 'vitest';

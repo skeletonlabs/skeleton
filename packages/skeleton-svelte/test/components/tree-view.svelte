@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TreeView, createTreeViewCollection } from '../../../src/index.js';
+	import { TreeView, createTreeViewCollection } from '../../src/index.js';
 
 	const collection = createTreeViewCollection({
 		rootNode: '',

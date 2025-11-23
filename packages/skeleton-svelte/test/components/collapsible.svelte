@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Collapsible } from '../../../src/index.js';
+	import { Collapsible } from '../../src/index.js';
 </script>
 
 <Collapsible data-testid="root">

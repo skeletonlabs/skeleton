@@ -1,4 +1,4 @@
-import { Toast, type createToaster } from '../../../src/index.js';
+import { Toast, type createToaster } from '../../src/index.js';
 
 export default function Test(props: { toaster: ReturnType<typeof createToaster> }) {
 	return (

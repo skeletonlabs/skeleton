@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Dialog } from '../../../src/index.js';
+	import { Dialog } from '../../src/index.js';
 </script>
 
 <Dialog>

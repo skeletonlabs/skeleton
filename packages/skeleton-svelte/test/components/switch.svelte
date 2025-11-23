@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch } from '../../../src/index.js';
+	import { Switch } from '../../src/index.js';
 </script>
 
 <Switch data-testid="root">
