@@ -35,14 +35,12 @@
 </script>
 
 <Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
-	<header class="flex justify-between items-end">
-		<Combobox.Label>Label</Combobox.Label>
-		<Combobox.ClearTrigger>Clear</Combobox.ClearTrigger>
-	</header>
+	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>
 		<Combobox.Input />
 		<Combobox.Trigger />
 	</Combobox.Control>
+	<Combobox.ClearTrigger>Clear All</Combobox.ClearTrigger>
 	<Portal>
 		<Combobox.Positioner class="z-[1]!">
 			<Combobox.Content>
