@@ -12,12 +12,12 @@ To run the development server for a specific project, use the following command:
 pnpm dev:{project}
 ```
 
-| Command           | Description                                | Also runs                                                          |
-| ----------------- | ------------------------------------------ | ------------------------------------------------------------------ |
-| `pnpm dev:docs`   | Runs the Documentation website dev server. | `skeleton`, `skeleton-svelte`, `skeleton-react`, `skeleton-common` |
-| `pnpm dev:themes` | Runs the Themes website dev server.        | `skeleton`                                                         |
-| `pnpm dev:react`  | Runs the React Playground dev server.      | `skeleton`, `skeleton-react`, `skeleton-common`                    |
-| `pnpm dev:svelte` | Runs the Svelte Playground dev server.     | `skeleton`, `skeleton-svelte`, `skeleton-common`                   |
+| Command           | Description                                | Also runs                     |
+| ----------------- | ------------------------------------------ | ----------------------------- |
+| `pnpm dev:docs`   | Runs the Documentation website dev server. | `skeleton`, `skeleton-common` |
+| `pnpm dev:themes` | Runs the Themes website dev server.        | `skeleton`                    |
+| `pnpm dev:react`  | Runs the React Playground dev server.      | `skeleton`, `skeleton-common` |
+| `pnpm dev:svelte` | Runs the Svelte Playground dev server.     | `skeleton`, `skeleton-common` |
 
 ## Adding Components
 
@@ -124,8 +124,8 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 #### Extend
 
-- `PropsWithElement<Tag>` - via Skeleton's `@/internal/props-with-element`; allows for HTML template overrides.
-- `HTMLAttributes<Tag, Omit>` - via Skeleton's `@/internal/html-attributes`; allows for standard HTML attributes.
+- `PropsWithElement<Tag>` - via Skeleton's `src/internal/props-with-element`; allows for HTML template overrides.
+- `HTMLAttributes<Tag, Omit>` - via Skeleton's `src/internal/html-attributes`; allows for standard HTML attributes.
 
 #### Omit
 
@@ -158,8 +158,8 @@ The `{part}-context.ts` file contains the exported context for each component pa
 For most components this will only be necessary for the root component, some components however may require context for their children well. Reference existing components for real world examples.
 
 ```ts
-import type { useAvatar } from './use-avatar';
-import { createContext } from '@/internal/create-context';
+import type { useAvatar } from './provider';
+import { createContext } from '../../../internal/create-context';
 
 export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 ```
@@ -314,8 +314,8 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
 ```tsx
-import type { HTMLAttributes } from '@/internal/html-attributes';
-import type { PropsWithElement } from '@/internal/props-with-element';
+import type { HTMLAttributes } from '../../../internal/html-attributes';
+import type { PropsWithElement } from '../../../internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
 import type { Props } from '@zag-js/avatar';
 import { mergeProps } from '@zag-js/react';
