@@ -82,7 +82,7 @@
 			"exports": {
 				".": {
 					"types": "./dist/index.d.ts",
-					"default": "./dist/index.js",
+					"import": "./dist/index.js",
 					"svelte": "./dist/index.js",
 					"style": "./dist/index.css"
 				}

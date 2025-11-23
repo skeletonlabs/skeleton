@@ -17,11 +17,11 @@
 	},
 	"exports": {
 		".": {
-			"default": "./dist/index.css",
+			"import": "./dist/index.css",
 			"style": "./dist/index.css"
 		},
 		"./themes/*": {
-			"default": "./dist/*.css",
+			"import": "./dist/*.css",
 			"style": "./dist/*.css"
 		},
 		"./package.json": "./package.json"
