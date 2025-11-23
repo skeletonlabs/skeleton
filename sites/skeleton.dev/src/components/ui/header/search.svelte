@@ -47,6 +47,9 @@
 			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
 			await pagefind.options({
 				excerptLength: 3,
+				ranking: {
+					termFrequency: 0,
+				},
 			});
 			await pagefind.init();
 			resolve(pagefind);
