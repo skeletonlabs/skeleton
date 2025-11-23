@@ -2,11 +2,11 @@
 	// Themes
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
+	import { themes } from '$lib/constants/themes';
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
 	import { FileUpIcon } from '@lucide/svelte';
-	import { themes } from '@skeletonlabs/skeleton-common';
 	import { FileUpload, type FileUploadRootProps } from '@skeletonlabs/skeleton-svelte';
 
 	const defaultThemeName = 'cerberus';

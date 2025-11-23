@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { themes } from '@/modules/themes';
 	import { ArrowUpRightIcon, ChevronDownIcon, LaptopMinimalCheckIcon, MoonIcon, PaletteIcon, SunIcon } from '@lucide/svelte';
-	import { themes } from '@skeletonlabs/skeleton-common';
 	import { Popover, Portal, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
 	let activeMode: string | undefined = $state();

@@ -1,8 +1,8 @@
+import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useMenu } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
 import { TriggerItemContext } from '../modules/trigger-item-context.js';
-import type { HTMLAttributes } from '@/internal/html-attributes.js';
-import type { PropsWithElement } from '@/internal/props-with-element.js';
 import { splitProps } from '@zag-js/menu';
 import type { Props } from '@zag-js/menu';
 import { use, useEffect } from 'react';

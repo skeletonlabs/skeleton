@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { OptionItemProps } from '@zag-js/menu';
 
 	export interface MenuOptionItemProps extends OptionItemProps, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}

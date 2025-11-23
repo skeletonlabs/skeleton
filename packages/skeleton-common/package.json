@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "4.4.1",
+	"version": "4.5.0",
 	"description": "The common package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -12,7 +12,9 @@
 		"dev": "tsdown --watch",
 		"build": "tsdown",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore",
+		"postinstall": "pnpm build"
 	},
 	"exports": {
 		".": {
@@ -28,6 +30,7 @@
 	"sideEffects": false,
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
+		"clean-package": "catalog:",
 		"tailwindcss": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
@@ -35,5 +38,12 @@
 		"unplugin-raw": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		]
+	}
 }
