@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '@/internal/props-with-children.js';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 	import type { Props } from '@zag-js/floating-panel';
 
 	export interface FloatingPanelRootProps extends Omit<Props, 'id'>, PropsWithChildren {}

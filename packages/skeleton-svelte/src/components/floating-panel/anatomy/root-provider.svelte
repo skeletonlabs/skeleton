@@ -1,6 +1,6 @@
 <script lang="ts" module>
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
 	import type { useFloatingPanel } from '../modules/provider.svelte';
-	import type { PropsWithChildren } from '@/internal/props-with-children.js';
 
 	export interface FloatingPanelRootProviderProps extends PropsWithChildren {
 		value: ReturnType<typeof useFloatingPanel>;
