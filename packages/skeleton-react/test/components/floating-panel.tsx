@@ -1,8 +1,8 @@
-import { FloatingPanel } from '@/index.js';
+import { FloatingPanel } from '../../src/index.js';
 
 export default function Test() {
 	return (
-		<FloatingPanel defaultOpen>
+		<FloatingPanel>
 			<FloatingPanel.Trigger data-testid="trigger" />
 			<FloatingPanel.Positioner data-testid="positioner">
 				<FloatingPanel.Content data-testid="content">
