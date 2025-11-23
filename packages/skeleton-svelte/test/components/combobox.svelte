@@ -7,6 +7,7 @@
 	<Combobox.Control data-testid="control">
 		<Combobox.Input data-testid="input" />
 		<Combobox.Trigger data-testid="trigger" />
+		<Combobox.ClearTrigger data-testid="clear-trigger" />
 	</Combobox.Control>
 	<Combobox.Positioner data-testid="positioner">
 		<Combobox.Content data-testid="content">
