@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"check": "tsc",
-		"postinstall": "tsr sync"
+		"postinstall": "tsr generate"
 	},
 	"dependencies": {
 		"@tanstack/react-router": "catalog:",
