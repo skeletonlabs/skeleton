@@ -34,7 +34,7 @@
 	};
 </script>
 
-<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} dir="rtl">
+<Combobox class="max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} dir="rtl">
 	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>
 		<Combobox.Input />

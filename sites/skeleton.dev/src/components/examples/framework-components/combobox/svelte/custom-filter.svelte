@@ -40,7 +40,7 @@
 	};
 </script>
 
-<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+<Combobox class="max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
 	<Combobox.Control>
 		<Combobox.Input />
 		<Combobox.Trigger />

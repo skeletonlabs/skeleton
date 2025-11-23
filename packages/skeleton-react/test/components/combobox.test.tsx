@@ -39,6 +39,13 @@ describe('Combobox', () => {
 		});
 	});
 
+	describe('ClearTrigger', () => {
+		it('renders', async () => {
+			await render(<Combobox />);
+			await expect.element(page.getByTestId('clear-trigger')).toBeInTheDocument();
+		});
+	});
+
 	describe('Positioner', () => {
 		it('renders', async () => {
 			await render(<Combobox />);

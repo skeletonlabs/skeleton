@@ -1,3 +1,4 @@
+export type { ComboboxClearTriggerProps } from './anatomy/clear-trigger.svelte';
 export type { ComboboxContentProps } from './anatomy/content.svelte';
 export type { ComboboxControlProps } from './anatomy/control.svelte';
 export type { ComboboxInputProps } from './anatomy/input.svelte';
