@@ -12,8 +12,8 @@
 		"check": "pnpm --recursive --aggregate-output --reporter=append-only --parallel check",
 		"format": "prettier . --cache --write --ignore-unknown --experimental-cli",
 		"format:check": "prettier . --cache --check --ignore-unknown --experimental-cli",
-		"lint": "oxlint --fix",
-		"lint:check": "oxlint",
+		"lint": "oxlint --type-aware --fix",
+		"lint:check": "oxlint --type-aware",
 		"changeset:publish": "changeset publish",
 		"changeset:version": "changeset version && pnpm format"
 	},
@@ -24,6 +24,7 @@
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
 		"@trivago/prettier-plugin-sort-imports": "catalog:",
 		"oxlint": "catalog:",
+		"oxlint-tsgolint": "catalog:",
 		"prettier": "catalog:",
 		"prettier-plugin-astro": "catalog:",
 		"prettier-plugin-svelte": "catalog:",
