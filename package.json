@@ -29,7 +29,7 @@
 	},
 	"pnpm": {
 		"overrides": {
-			"astro > vite": "catalog:"
+			"astro>vite": "catalog:"
 		}
 	},
 	"engines": {
