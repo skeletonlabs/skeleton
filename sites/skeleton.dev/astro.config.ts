@@ -11,8 +11,6 @@ import { defineConfig, envField } from 'astro/config';
 import { execSync } from 'node:child_process';
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
-// rebuild trigger
-
 function getSite() {
 	if (import.meta.env.DEV) {
 		return 'http://localhost:4321';
