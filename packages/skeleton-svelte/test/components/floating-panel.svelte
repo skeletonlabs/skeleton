@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FloatingPanel } from '@/index.js';
+	import { FloatingPanel } from '../../src/index.js';
 </script>
 
 <FloatingPanel defaultOpen>
