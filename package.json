@@ -27,11 +27,6 @@
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
-	"pnpm": {
-		"overrides": {
-			"astro>vite": "catalog:"
-		}
-	},
 	"engines": {
 		"node": "22.21.1",
 		"pnpm": "10.22.0"
