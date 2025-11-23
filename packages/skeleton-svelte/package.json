@@ -9,7 +9,7 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"build": "svelte-package --input src --output dist --preserve-output",
+		"build": "svelte-package --input src --output dist",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"

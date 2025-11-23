@@ -9,7 +9,7 @@ export const Route = createFileRoute('/components/accordion/')({
 
 function Page() {
 	return (
-		<Accordion orientation="horizontal">
+		<Accordion>
 			<Accordion.Item value="item-1">
 				<Accordion.ItemTrigger>Item 1</Accordion.ItemTrigger>
 				<Accordion.ItemContent>Content 1</Accordion.ItemContent>

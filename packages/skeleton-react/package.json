@@ -62,6 +62,7 @@
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
 		"@vitest/browser-playwright": "catalog:",
+		"clean-package": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"tsdown": "catalog:",
@@ -80,8 +81,8 @@
 		"replace": {
 			"exports": {
 				".": {
-					"types": "./dist/index.d.ts",
-					"import": "./dist/index.js",
+					"types": "./dist/index.d.mts",
+					"import": "./dist/index.mjs",
 					"style": "./dist/index.css"
 				}
 			}

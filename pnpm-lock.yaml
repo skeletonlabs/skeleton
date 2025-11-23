@@ -629,6 +629,9 @@ importers:
       '@vitest/browser-playwright':
         specifier: 'catalog:'
         version: 4.0.12(playwright@1.56.1)(rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1))(vitest@4.0.12)
+      clean-package:
+        specifier: 'catalog:'
+        version: 2.2.0
       react:
         specifier: 'catalog:'
         version: 19.2.0
