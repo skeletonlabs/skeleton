@@ -6,6 +6,7 @@ export const classesCombobox = defineSkeletonClasses({
 	control: 'relative',
 	input: 'input',
 	trigger: 'btn-icon btn-icon-sm preset-tonal absolute end-1.5 top-1/2 -translate-y-1/2',
+	clearTrigger: 'btn btn-sm preset-tonal hover:preset-filled-error-500',
 	positioner: '',
 	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 flex flex-col gap-2',
 	itemGroup: '',
