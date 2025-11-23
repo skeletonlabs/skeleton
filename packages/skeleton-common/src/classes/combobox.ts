@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesCombobox = defineSkeletonClasses({
-	root: 'flex flex-col gap-2',
+	root: 'w-full space-y-2',
 	label: 'label-text',
 	control: 'relative',
 	input: 'input',
