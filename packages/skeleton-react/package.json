@@ -62,6 +62,7 @@
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
 		"@vitest/browser-playwright": "catalog:",
+		"clean-package": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"tsdown": "catalog:",
