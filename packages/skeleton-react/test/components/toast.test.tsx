@@ -1,5 +1,5 @@
 import { createToaster } from '../../../src/index.js';
-import Test from './toast.jsx';
+import Toast from './toast.jsx';
 import { act } from 'react';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-react';
@@ -9,7 +9,7 @@ describe('Toast', () => {
 	describe('Group', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			await expect.element(page.getByTestId('group')).toBeInTheDocument();
 		});
 	});
@@ -17,7 +17,7 @@ describe('Toast', () => {
 	describe('Root', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			act(() => {
 				toaster.create({});
 			});
@@ -28,7 +28,7 @@ describe('Toast', () => {
 	describe('Title', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			act(() => {
 				toaster.create({});
 			});
@@ -39,7 +39,7 @@ describe('Toast', () => {
 	describe('Description', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			act(() => {
 				toaster.create({});
 			});
@@ -50,7 +50,7 @@ describe('Toast', () => {
 	describe('ActionTrigger', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			act(() => {
 				toaster.create({});
 			});
@@ -61,7 +61,7 @@ describe('Toast', () => {
 	describe('CloseTrigger', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			await render(<Test toaster={toaster} />);
+			await render(<Toast toaster={toaster} />);
 			act(() => {
 				toaster.create({});
 			});

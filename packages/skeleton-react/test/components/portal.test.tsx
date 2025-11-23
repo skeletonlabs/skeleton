@@ -1,4 +1,4 @@
-import Test from './portal.jsx';
+import Portal from './portal.jsx';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-react';
 import { page } from 'vitest/browser';
@@ -6,7 +6,7 @@ import { page } from 'vitest/browser';
 describe('Portal', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Portal />);
 			await expect.element(page.getByTestId('child')).toBeInTheDocument();
 		});
 

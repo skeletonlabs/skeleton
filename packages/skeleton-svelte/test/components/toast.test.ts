@@ -1,5 +1,5 @@
 import { createToaster } from '../../../src/index.js';
-import Test from './toast.svelte';
+import Toast from './toast.svelte';
 import { flushSync } from 'svelte';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-svelte';
@@ -9,7 +9,7 @@ describe('Toast', () => {
 	describe('Group', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			await expect.element(page.getByTestId('group')).toBeInTheDocument();
 		});
 	});
@@ -17,7 +17,7 @@ describe('Toast', () => {
 	describe('Root', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			flushSync(() => {
 				toaster.create({});
 			});
@@ -28,7 +28,7 @@ describe('Toast', () => {
 	describe('Title', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			flushSync(() => {
 				toaster.create({});
 			});
@@ -39,7 +39,7 @@ describe('Toast', () => {
 	describe('Description', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			flushSync(() => {
 				toaster.create({});
 			});
@@ -50,7 +50,7 @@ describe('Toast', () => {
 	describe('ActionTrigger', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			flushSync(() => {
 				toaster.create({});
 			});
@@ -61,7 +61,7 @@ describe('Toast', () => {
 	describe('CloseTrigger', () => {
 		it('renders', async () => {
 			const toaster = createToaster();
-			render(Test, { toaster });
+			render(Toast, { toaster });
 			flushSync(() => {
 				toaster.create({});
 			});

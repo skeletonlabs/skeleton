@@ -1,4 +1,4 @@
-import Test from './accordion.jsx';
+import Accordion from './accordion.jsx';
 import { describe, expect, it } from 'vitest';
 import { render } from 'vitest-browser-react';
 import { page } from 'vitest/browser';
@@ -6,35 +6,35 @@ import { page } from 'vitest/browser';
 describe('Accordion', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Accordion />);
 			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Accordion />);
 			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemTrigger', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Accordion />);
 			await expect.element(page.getByTestId('item-trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Accordion />);
 			await expect.element(page.getByTestId('item-indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('ItemContent', () => {
 		it('renders', async () => {
-			await render(<Test />);
+			await render(<Accordion />);
 			await expect.element(page.getByTestId('item-content')).toBeInTheDocument();
 		});
 	});
