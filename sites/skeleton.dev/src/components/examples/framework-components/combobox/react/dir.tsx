@@ -34,7 +34,7 @@ export default function Dir() {
 
 	return (
 		<Combobox
-			className="w-full max-w-md"
+			className="max-w-md"
 			placeholder="Search..."
 			collection={collection}
 			onOpenChange={onOpenChange}

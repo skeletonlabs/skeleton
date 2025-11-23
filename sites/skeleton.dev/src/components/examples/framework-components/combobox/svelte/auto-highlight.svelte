@@ -34,7 +34,7 @@
 	};
 </script>
 
-<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} inputBehavior="autohighlight">
+<Combobox class="max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} inputBehavior="autohighlight">
 	<Combobox.Control>
 		<Combobox.Input />
 		<Combobox.Trigger />
