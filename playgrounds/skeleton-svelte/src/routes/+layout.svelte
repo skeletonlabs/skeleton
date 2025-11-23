@@ -6,7 +6,7 @@
 	const { children } = $props();
 
 	const components = Object.keys(import.meta.glob('/src/routes/components/*/+page.svelte')).map((path) => {
-		const href = path.replace('/src/routes', '').replace('/index.tsx', '');
+		const href = path.replace('/src/routes', '').replace('/+page.svelte', '');
 		const name = href
 			.split('/')
 			.pop()!

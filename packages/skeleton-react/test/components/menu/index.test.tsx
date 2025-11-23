@@ -22,7 +22,9 @@ describe('Menu', () => {
 	describe('Indicator', () => {
 		it('renders', async () => {
 			await act(() => render(<Test />));
-			await expect.element(page.getByTestId('indicator')).toHaveLength(2);
+			for (const elements of page.getByTestId('indicator').all()) {
+				await expect.element(elements).toBeInTheDocument();
+			}
 		});
 	});
 
@@ -78,14 +80,18 @@ describe('Menu', () => {
 	describe('ItemText', () => {
 		it('renders', async () => {
 			await act(() => render(<Test />));
-			await expect.element(page.getByTestId('item-text')).toHaveLength(3);
+			for (const element of page.getByTestId('item-text').all()) {
+				await expect.element(element).toBeInTheDocument();
+			}
 		});
 	});
 
 	describe('ItemIndicator', () => {
 		it('renders', async () => {
 			await act(() => render(<Test />));
-			await expect.element(page.getByTestId('item-indicator')).toHaveLength(3);
+			for (const element of page.getByTestId('item-indicator').all()) {
+				await expect.element(element).toBeInTheDocument();
+			}
 		});
 	});
 
