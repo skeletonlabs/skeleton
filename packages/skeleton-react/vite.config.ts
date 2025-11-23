@@ -7,7 +7,6 @@ export default defineConfig({
 	plugins: [react() as unknown as Plugin],
 	test: {
 		dir: join(import.meta.dirname, 'test'),
-		pool: 'threads',
 		browser: {
 			enabled: true,
 			provider: playwright(),
