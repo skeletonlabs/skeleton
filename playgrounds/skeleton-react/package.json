@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"check": "tsr generate && tsc"
+		"check": "tsc",
+		"postinstall": "tsr sync"
 	},
 	"dependencies": {
 		"@tanstack/react-router": "catalog:",
