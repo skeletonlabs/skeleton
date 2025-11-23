@@ -3,7 +3,6 @@ interface PagefindIndexOptions {
 	baseUrl?: string;
 	excerptLength?: number;
 	indexWeight?: number;
-	termFrequency?: number;
 	mergeFilter?: Record<string, unknown>;
 	highlightParam?: string;
 	language?: string;

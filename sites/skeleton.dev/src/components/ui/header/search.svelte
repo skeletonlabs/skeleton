@@ -46,8 +46,10 @@
 			// @ts-expect-error pagefind is only present during runtime
 			const pagefind: Pagefind = await import('/pagefind/pagefind.js');
 			await pagefind.options({
-				termFrequency: 0,
 				excerptLength: 3,
+				ranking: {
+					termFrequency: 0,
+				},
 			});
 			await pagefind.init();
 			resolve(pagefind);
