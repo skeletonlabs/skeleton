@@ -9,7 +9,7 @@
 		"directory": "packages/skeleton-svelte"
 	},
 	"scripts": {
-		"build": "svelte-package --input src --output dist --preserve-output",
+		"build": "svelte-package --input src --output dist",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
@@ -82,7 +82,7 @@
 			"exports": {
 				".": {
 					"types": "./dist/index.d.ts",
-					"import": "./dist/index.js",
+					"default": "./dist/index.js",
 					"svelte": "./dist/index.js",
 					"style": "./dist/index.css"
 				}
