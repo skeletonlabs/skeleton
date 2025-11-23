@@ -11,13 +11,13 @@ describe('Portal', () => {
 		});
 
 		it('renders in the target', async () => {
-			await render(<Test target={document.body} />);
+			await render(<Portal target={document.body} />);
 			await expect.element(page.getByTestId('child')).toBeInTheDocument();
 			expect(page.getByTestId('child').element().parentElement).toBe(document.body);
 		});
 
 		it('renders in the parent when disabled', async () => {
-			await render(<Test disabled />);
+			await render(<Portal disabled />);
 			expect(page.getByTestId('child').element().parentElement).toBe(page.getByTestId('parent').element());
 		});
 	});

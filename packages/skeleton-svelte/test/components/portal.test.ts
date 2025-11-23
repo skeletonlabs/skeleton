@@ -11,7 +11,7 @@ describe('Portal', () => {
 		});
 
 		it('renders in the target', async () => {
-			render(Test, {
+			render(Portal, {
 				target: document.body,
 			});
 			await expect.element(page.getByTestId('child')).toBeInTheDocument();
