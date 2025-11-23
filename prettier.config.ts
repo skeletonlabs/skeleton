@@ -1,7 +1,7 @@
 import type { Config } from 'prettier';
 
 export default {
-	plugins: ['prettier-plugin-astro', 'prettier-plugin-svelte', '@trivago/prettier-plugin-sort-imports'],
+	plugins: ['prettier-plugin-astro', 'prettier-plugin-svelte', '@trivago/prettier-plugin-sort-imports', '@prettier/plugin-oxc'],
 	overrides: [
 		{
 			files: '*.astro',

@@ -9,22 +9,20 @@
 		"directory": "packages/skeleton-react"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
 		"build": "tsdown",
-		"test": "vitest run",
 		"check": "tsc",
-		"sync": "pnpm build"
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
-			"style": "./dist/index.css"
+			"types": "./src/index.ts",
+			"import": "./src/index.ts",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"dist"
 	],
 	"sideEffects": false,
 	"dependencies": {
@@ -61,19 +59,34 @@
 		"react-dom": "^18.0.0 || ^19.0.0"
 	},
 	"devDependencies": {
-		"@testing-library/jest-dom": "catalog:",
-		"@testing-library/react": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"@vitejs/plugin-react": "catalog:",
-		"jsdom": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
+		"clean-package": "catalog:",
 		"react": "catalog:",
 		"react-dom": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
-		"vitest": "catalog:"
+		"vitest-browser-react": "catalog:"
 	},
 	"license": "MIT",
-	"type": "module"
+	"type": "module",
+	"clean-package": {
+		"remove": [
+			"scripts",
+			"devDependencies",
+			"clean-package"
+		],
+		"replace": {
+			"exports": {
+				".": {
+					"types": "./dist/index.d.mts",
+					"import": "./dist/index.mjs",
+					"style": "./dist/index.css"
+				}
+			}
+		}
+	}
 }

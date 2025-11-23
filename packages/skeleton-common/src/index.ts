@@ -23,4 +23,3 @@ export * from './classes/toast.js';
 export * from './classes/toggle-group.js';
 export * from './classes/tooltip.js';
 export * from './classes/tree-view.js';
-export * from './themes.js';

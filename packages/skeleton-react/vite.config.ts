@@ -1,17 +1,18 @@
 import react from '@vitejs/plugin-react';
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
+import { playwright } from '@vitest/browser-playwright';
+import { defineConfig, type Plugin } from 'vitest/config';
+import { join } from 'node:path';
 
 export default defineConfig({
-	plugins: [react()],
-	resolve: {
-		alias: {
-			'@': resolve(__dirname, 'src'),
-		},
-	},
+	plugins: [react() as unknown as Plugin],
 	test: {
-		setupFiles: './test/setup.ts',
-		globals: true,
-		environment: 'jsdom',
+		dir: join(import.meta.dirname, 'test'),
+		browser: {
+			enabled: true,
+			provider: playwright(),
+			headless: true,
+			screenshotFailures: false,
+			instances: [{ browser: 'chromium' }],
+		},
 	},
 });

@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '@/internal/html-attributes.js';
-	import type { PropsWithElement } from '@/internal/props-with-element.js';
+	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
+	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { ItemProps } from '@zag-js/rating-group';
 
 	export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'>, HTMLAttributes<'span', 'id' | 'dir'> {
@@ -26,10 +26,10 @@
 </script>
 
 <script lang="ts">
+	import StarEmpty from '../../../internal/components/star-empty.svelte';
+	import StarFull from '../../../internal/components/star-full.svelte';
+	import StarHalf from '../../../internal/components/star-half.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import StarEmpty from '@/internal/components/star-empty.svelte';
-	import StarFull from '@/internal/components/star-full.svelte';
-	import StarHalf from '@/internal/components/star-half.svelte';
 	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';
