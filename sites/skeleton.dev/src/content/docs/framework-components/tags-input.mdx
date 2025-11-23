@@ -1,0 +1,164 @@
+---
+title: Tags Input
+description: Allows input of multiple values.
+---
+
+import ColorReact from '@/components/examples/framework-components/tags-input/react/color';
+import ColorReactRaw from '@/components/examples/framework-components/tags-input/react/color?raw';
+import CustomIconReact from '@/components/examples/framework-components/tags-input/react/custom-icon';
+import CustomIconReactRaw from '@/components/examples/framework-components/tags-input/react/custom-icon?raw';
+import DefaultReact from '@/components/examples/framework-components/tags-input/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/tags-input/react/default?raw';
+import DirReact from '@/components/examples/framework-components/tags-input/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/tags-input/react/dir?raw';
+import ProviderReact from '@/components/examples/framework-components/tags-input/react/provider';
+import ProviderReactRaw from '@/components/examples/framework-components/tags-input/react/provider?raw';
+import ColorSvelte from '@/components/examples/framework-components/tags-input/svelte/color.svelte';
+import ColorSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/color.svelte?raw';
+import CustomIconSvelte from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte';
+import CustomIconSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/custom-icon.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/tags-input/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/tags-input/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/dir.svelte?raw';
+import ProviderSvelte from '@/components/examples/framework-components/tags-input/svelte/provider.svelte';
+import ProviderSvelteRaw from '@/components/examples/framework-components/tags-input/svelte/provider.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+> TIP: Double tap each tag to quickly and easily edit in place.
+
+## Custom Icon
+
+Implement any icon of your choosing for the remove action.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomIconReactRaw }} client:visible>
+		<CustomIconReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomIconSvelteRaw }} client:visible>
+		<CustomIconSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Color
+
+Change the tag color using utility classes or custom CSS variables to match your design system.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorReactRaw }} client:visible>
+		<ColorReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorSvelteRaw }} client:visible>
+		<ColorSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ProviderReactRaw }} client:visible>
+		<ProviderReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ProviderSvelteRaw }} client:visible>
+		<ProviderSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the TagsInput component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { TagsInput } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<TagsInput>
+			<TagsInput.Label />
+			<TagsInput.Control>
+				<TagsInput.Item>
+					<TagsInput.ItemPreview>
+						<TagsInput.ItemText />
+						<TagsInput.ItemDeleteTrigger />
+					</TagsInput.ItemPreview>
+					<TagsInput.ItemInput />
+				</TagsInput.Item>
+				<TagsInput.Input />
+			</TagsInput.Control>
+			<TagsInput.HiddenInput />
+			<TagsInput.ClearTrigger />
+		</TagsInput>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<TagsInput>
+	<TagsInput.Label />
+	<TagsInput.Control>
+		<TagsInput.Item>
+			<TagsInput.ItemPreview>
+				<TagsInput.ItemText />
+				<TagsInput.ItemDeleteTrigger />
+			</TagsInput.ItemPreview>
+			<TagsInput.ItemInput />
+		</TagsInput.Item>
+		<TagsInput.Input />
+	</TagsInput.Control>
+	<TagsInput.HiddenInput />
+	<TagsInput.ClearTrigger />
+</TagsInput>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/tags-input" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/tags-input" />
+</Framework>

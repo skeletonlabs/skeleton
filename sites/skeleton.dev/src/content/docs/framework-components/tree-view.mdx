@@ -1,0 +1,167 @@
+---
+title: Tree View
+description: Used to display hierarchical data.
+---
+
+import CollapseExpandReact from '@/components/examples/framework-components/tree-view/react/collapse-expand';
+import CollapseExpandReactRaw from '@/components/examples/framework-components/tree-view/react/collapse-expand?raw';
+import DefaultReact from '@/components/examples/framework-components/tree-view/react/default';
+import ControlledReact from '@/components/examples/framework-components/tree-view/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/tree-view/react/default?raw';
+import ControlledReactRaw from '@/components/examples/framework-components/tree-view/react/default?raw';
+import LazyLoadingReact from '@/components/examples/framework-components/tree-view/react/lazy-loading';
+import LazyLoadingReactRaw from '@/components/examples/framework-components/tree-view/react/lazy-loading?raw';
+import MultipleSelectionReact from '@/components/examples/framework-components/tree-view/react/multiple-selection';
+import MultipleSelectionReactRaw from '@/components/examples/framework-components/tree-view/react/multiple-selection?raw';
+import CollapseExpandSvelte from '@/components/examples/framework-components/tree-view/svelte/collapse-expand.svelte';
+import CollapseExpandSvelteRaw from '@/components/examples/framework-components/tree-view/svelte/collapse-expand.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/tree-view/svelte/default.svelte';
+import ControlledSvelte from '@/components/examples/framework-components/tree-view/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/tree-view/svelte/default.svelte?raw';
+import ControlledSvelteRaw from '@/components/examples/framework-components/tree-view/svelte/default.svelte?raw';
+import LazyLoadingSvelte from '@/components/examples/framework-components/tree-view/svelte/lazy-loading.svelte';
+import LazyLoadingSvelteRaw from '@/components/examples/framework-components/tree-view/svelte/lazy-loading.svelte?raw';
+import MultipleSelectionSvelte from '@/components/examples/framework-components/tree-view/svelte/multiple-selection.svelte';
+import MultipleSelectionSvelteRaw from '@/components/examples/framework-components/tree-view/svelte/multiple-selection.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+Reactively set and control the state values.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple Selection
+
+- Windows: Hold <kbd class="kbd">Ctrl</kbd> + left click with mouse.
+- MacOS: Hold <kbd class="kbd">⌘</kbd> + left click with mouse.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleSelectionReactRaw }} client:visible>
+		<MultipleSelectionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSelectionSvelteRaw }} client:visible>
+		<MultipleSelectionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the `collapse` and `expand` methods on the `TreeView` instance.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CollapseExpandReactRaw }} client:visible>
+		<CollapseExpandReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CollapseExpandSvelteRaw }} client:visible>
+		<CollapseExpandSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Lazy Loading
+
+Utilize promises to asynchronously load large node lists.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': LazyLoadingReactRaw }} client:visible>
+		<LazyLoadingReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LazyLoadingSvelteRaw }} client:visible>
+		<LazyLoadingSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the TreeView component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { TreeView } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<TreeView>
+			<TreeView.Label />
+			<TreeView.Tree>
+				<TreeView.Branch>
+					<TreeView.BranchControl>
+						<TreeView.BranchTrigger />
+						<TreeView.BranchIndicator />
+						<TreeView.BranchText />
+					</TreeView.BranchControl>
+					<TreeView.BranchContent>
+						<TreeView.Item>
+							<TreeView.ItemText />
+						</TreeView.Item>
+					</TreeView.BranchContent>
+				</TreeView.Branch>
+			</TreeView.Tree>
+		</TreeView>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { TreeView } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<TreeView>
+	<TreeView.Label />
+	<TreeView.Tree>
+		<TreeView.Branch>
+			<TreeView.BranchControl>
+				<TreeView.BranchTrigger />
+				<TreeView.BranchIndicator />
+				<TreeView.BranchText />
+			</TreeView.BranchControl>
+			<TreeView.BranchContent>
+				<TreeView.Item>
+					<TreeView.ItemText />
+				</TreeView.Item>
+			</TreeView.BranchContent>
+		</TreeView.Branch>
+	</TreeView.Tree>
+</TreeView>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/tree-view" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/tree-view" />
+</Framework>

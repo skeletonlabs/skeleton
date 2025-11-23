@@ -1,8 +1,6 @@
 ---
 title: Alerts
 description: General purpose notifications to attract attention and provide critical actions.
-showDocsUrl: true
-pubDate: 2024-11-18
 tags: ['blocks', 'notifications']
 ---
 
@@ -11,24 +9,14 @@ import ColorsRaw from '@/components/examples/guides/cookbook/alerts/colors.astro
 import Default from '@/components/examples/guides/cookbook/alerts/default.astro';
 import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.astro?raw';
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Default />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={DefaultRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
 </Preview>
 
 ## Styling
 
-For even more customization, try mixing and matching various [Presets](/docs/design/presets) classes.
+For even more customization, try mixing and matching various [Presets](/docs/[framework]/design/presets) classes.
 
-<Preview client:visible>
-	<Fragment slot="preview">
-		<Colors />
-	</Fragment>
-	<Fragment slot="code">
-		<Code code={ColorsRaw} lang="astro" />
-	</Fragment>
+<Preview files={{ 'app.astro': ColorsRaw }} client:visible>
+	<Colors />
 </Preview>

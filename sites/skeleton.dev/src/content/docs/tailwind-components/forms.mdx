@@ -1,0 +1,123 @@
+---
+title: Forms and Inputs
+description: Various form and input styles.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/tree/[branch]/packages/skeleton/src/utilities/'
+---
+
+import Checkboxes from '@/components/examples/tailwind-components/forms/checkboxes.astro';
+import CheckboxesRaw from '@/components/examples/tailwind-components/forms/checkboxes.astro?raw';
+import Default from '@/components/examples/tailwind-components/forms/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/forms/default.astro?raw';
+import Groups from '@/components/examples/tailwind-components/forms/groups.astro';
+import GroupsRaw from '@/components/examples/tailwind-components/forms/groups.astro?raw';
+import Input from '@/components/examples/tailwind-components/forms/input.astro';
+import InputRaw from '@/components/examples/tailwind-components/forms/input.astro?raw';
+import Radio from '@/components/examples/tailwind-components/forms/radio.astro';
+import RadioRaw from '@/components/examples/tailwind-components/forms/radio.astro?raw';
+import SelectRaw from '@/components/examples/tailwind-components/forms/select.astro?raw';
+import Selection from '@/components/examples/tailwind-components/forms/selection.astro';
+import SelectionRaw from '@/components/examples/tailwind-components/forms/selection.astro?raw';
+import Special from '@/components/examples/tailwind-components/forms/special.astro';
+import SpecialRaw from '@/components/examples/tailwind-components/forms/special.astro?raw';
+import TextareaRaw from '@/components/examples/tailwind-components/forms/textarea.astro?raw';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Prerequisites
+
+### Tailwind Forms
+
+Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. This plugin is <u>required</u> if you wish to use any form utility classes provided on this page.
+
+<figure class="card-filled-enhanced flex justify-center gap-4 p-8">
+	<a class="btn preset-filled" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">
+		View on Github
+	</a>
+</figure>
+
+To being, install the `@tailwindcss/forms` package.
+
+```sh
+npm install -D @tailwindcss/forms
+```
+
+Then implement in your global stylesheet using the the `@plugin` directive.
+
+```css
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+
+/* ...Skeleton config here... */
+```
+
+### Windows Bugfix
+
+To avoid a [breaking style issue in Windows-based browsers](https://github.com/skeletonlabs/skeleton/issues/3993), it's recommended you include this temporary fix into your global stylesheet. Please note this change will be automatically and permanently applied for you in Skeleton v5+.
+
+```css
+.select,
+.input,
+.textarea,
+.ig-input,
+.ig-select {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+}
+```
+
+### Browser Support
+
+The quality and appearance of native and semantic HTML form elements can vary between both operating systems and browser vendors. Skeleton does its best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
+
+## Inputs
+
+Supports all [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types), within reason.
+
+<Preview files={{ 'app.astro': InputRaw }} client:visible>
+	<Input />
+</Preview>
+
+## Select
+
+<Preview files={{ 'app.astro': SelectionRaw }} client:visible>
+	<Selection />
+</Preview>
+
+## Checkboxes
+
+<Preview files={{ 'app.astro': CheckboxesRaw }} client:visible>
+	<Checkboxes />
+</Preview>
+
+## Radio Groups
+
+<Preview files={{ 'app.astro': RadioRaw }} client:visible>
+	<Radio />
+</Preview>
+
+## Kitchen Sink
+
+Display and functionality of these elements may vary greatly between devices and browsers.
+
+<Preview files={{ 'app.astro': SpecialRaw }} client:visible>
+	<Special />
+</Preview>
+
+## Groups
+
+Input groups support a subset of form elements and button styles. These pair well with [Presets](/docs/[framework]/design/presets).
+
+<Preview files={{ 'app.astro': GroupsRaw }} client:visible>
+	<Groups />
+</Preview>
+
+| Class         | Usage                                   |
+| ------------- | --------------------------------------- |
+| `input-group` | Defines the parent input group set.     |
+| `ig-cell`     | Defines a child cell for text or icons. |
+| `ig-input`    | Defines a child input of `type="text"`. |
+| `ig-select`   | Defines a child select element.         |
+| `ig-btn`      | Defines a child button.                 |

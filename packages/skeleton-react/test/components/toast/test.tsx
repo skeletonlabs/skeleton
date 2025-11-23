@@ -2,7 +2,7 @@ import { Toast, createToaster } from '@/index.js';
 import { useEffect } from 'react';
 
 export default function Test() {
-	const toaster = createToaster({});
+	const toaster = createToaster();
 	useEffect(() => {
 		toaster.create({});
 	});

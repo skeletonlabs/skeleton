@@ -1,0 +1,119 @@
+---
+title: Toggle Group
+description: Grouped buttons for toggling option states.
+---
+
+import ControlledReact from '@/components/examples/framework-components/toggle-group/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/toggle-group/react/controlled?raw';
+import DefaultReact from '@/components/examples/framework-components/toggle-group/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/toggle-group/react/default?raw';
+import DirReact from '@/components/examples/framework-components/toggle-group/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/toggle-group/react/dir?raw';
+import OrientationReact from '@/components/examples/framework-components/toggle-group/react/orientation';
+import OrientationReactRaw from '@/components/examples/framework-components/toggle-group/react/orientation?raw';
+import ControlledSvelte from '@/components/examples/framework-components/toggle-group/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/controlled.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/toggle-group/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/toggle-group/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/dir.svelte?raw';
+import OrientationSvelte from '@/components/examples/framework-components/toggle-group/svelte/orientation.svelte';
+import OrientationSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/orientation.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+Use the `value` and `onValueChange` props to control state programmatically.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Orientation
+
+Using the `orientation` prop to control the layout.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
+		<OrientationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+		<OrientationSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the ToggleGroup component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { ToggleGroup } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<ToggleGroup>
+			<ToggleGroup.Item />
+		</ToggleGroup>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<ToggleGroup>
+	<ToggleGroup.Item />
+</ToggleGroup>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/toggle-group" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/toggle-group" />
+</Framework>

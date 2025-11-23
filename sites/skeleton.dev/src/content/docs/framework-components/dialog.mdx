@@ -1,0 +1,181 @@
+---
+title: Dialog
+description: A modal dialog for displaying content and actions.
+---
+
+import AlertDialogReact from '@/components/examples/framework-components/dialog/react/alert-dialog';
+import AlertDialogReactRaw from '@/components/examples/framework-components/dialog/react/alert-dialog?raw';
+import DefaultReact from '@/components/examples/framework-components/dialog/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/dialog/react/default?raw';
+import DirReact from '@/components/examples/framework-components/dialog/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/dialog/react/dir?raw';
+import DrawerReact from '@/components/examples/framework-components/dialog/react/drawer';
+import DrawerReactRaw from '@/components/examples/framework-components/dialog/react/drawer?raw';
+import InteractionReact from '@/components/examples/framework-components/dialog/react/interaction';
+import InteractionReactRaw from '@/components/examples/framework-components/dialog/react/interaction?raw';
+import ZIndexReact from '@/components/examples/framework-components/dialog/react/z-index';
+import ZIndexReactRaw from '@/components/examples/framework-components/dialog/react/z-index?raw';
+import AlertDialogSvelte from '@/components/examples/framework-components/dialog/svelte/alert-dialog.svelte';
+import AlertDialogSvelteRaw from '@/components/examples/framework-components/dialog/svelte/alert-dialog.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/dialog/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/dialog/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/dialog/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/dialog/svelte/dir.svelte?raw';
+import DrawerSvelte from '@/components/examples/framework-components/dialog/svelte/drawer.svelte';
+import DrawerSvelteRaw from '@/components/examples/framework-components/dialog/svelte/drawer.svelte?raw';
+import InteractionSvelte from '@/components/examples/framework-components/dialog/svelte/interaction.svelte';
+import InteractionSvelteRaw from '@/components/examples/framework-components/dialog/svelte/interaction.svelte?raw';
+import ZIndexSvelte from '@/components/examples/framework-components/dialog/svelte/z-index.svelte';
+import ZIndexSvelteRaw from '@/components/examples/framework-components/dialog/svelte/z-index.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+
+## Alert Dialog
+
+The [alertdialog](https://w3c.github.io/aria/#alertdialog) role enables assistive technologies and browsers to distinguish alert dialogs from other dialogs so they have the option of giving alert dialogs special treatment, such as playing a system alert sound.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AlertDialogReactRaw }} client:visible>
+		<AlertDialogReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AlertDialogSvelteRaw }} client:visible>
+		<AlertDialogSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Interaction
+
+If desired, you can disable click to close interactions for the backdrop.
+
+> TIP: use this sparingly, as this can trap users in this experience without a dedicated close action.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': InteractionReactRaw }} client:visible>
+		<InteractionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InteractionSvelteRaw }} client:visible>
+		<InteractionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Drawer
+
+This example repurposes the Dialog for use as a side-panel Drawer. This pairs well with the [Navigation Sidebar](/docs/svelte/framework-components/navigation#sidebar).
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DrawerReactRaw }} client:visible>
+		<DrawerReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DrawerSvelteRaw }} client:visible>
+		<DrawerSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Z-Index
+
+By default Skeleton does not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
+		<ZIndexReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
+		<ZIndexSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Dialog component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Dialog>
+			<Dialog.Trigger />
+			<Portal>
+				<Dialog.Backdrop />
+				<Dialog.Positioner>
+					<Dialog.Content>
+						<Dialog.Title />
+						<Dialog.Description />
+						<Dialog.CloseTrigger />
+					</Dialog.Content>
+				</Dialog.Positioner>
+			</Portal>
+		</Dialog>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Dialog>
+	<Dialog.Trigger />
+	<Portal>
+		<Dialog.Backdrop />
+		<Dialog.Positioner>
+			<Dialog.Content>
+				<Dialog.Title />
+				<Dialog.Description />
+				<Dialog.CloseTrigger />
+			</Dialog.Content>
+		</Dialog.Positioner>
+	</Portal>
+</Dialog>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/dialog" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/dialog" />
+</Framework>

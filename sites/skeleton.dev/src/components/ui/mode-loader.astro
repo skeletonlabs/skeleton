@@ -1,0 +1,9 @@
+<script is:inline>
+	function applyMode(document = window.document) {
+		document.documentElement.setAttribute('data-mode', localStorage.getItem('mode') ?? 'system');
+	}
+
+	applyMode();
+
+	document.addEventListener('astro:before-swap', (event) => applyMode(event.newDocument));
+</script>

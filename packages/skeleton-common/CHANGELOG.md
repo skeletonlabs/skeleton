@@ -1,5 +1,47 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.0
+
+### Patch Changes
+
+- bugfix: toast group width now respects the viewport offset ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
+## 4.4.1
+
+### Patch Changes
+
+- bugfix: `Toast` width collapsing on smaller screens when `position` is not centered ([#4116](https://github.com/skeletonlabs/skeleton/pull/4116))
+
+## 4.4.0
+
+### Minor Changes
+
+- feature: `Menu` component ([#4097](https://github.com/skeletonlabs/skeleton/pull/4097))
+
+## 4.3.4
+
+### Patch Changes
+
+- task: Finalize styling for Collapsible, Data Picker, and Listbox ([#4102](https://github.com/skeletonlabs/skeleton/pull/4102))
+
+## 4.3.3
+
+### Patch Changes
+
+- bugfix: add missing DatePicker.PresetTrigger styles ([#4093](https://github.com/skeletonlabs/skeleton/pull/4093))
+
+## 4.3.2
+
+### Patch Changes
+
+- fix: reverse vertical progress bar (old: top -> down, new: down -> top) ([#4066](https://github.com/skeletonlabs/skeleton/pull/4066))
+
+## 4.3.1
+
+### Patch Changes
+
+- chore: bump zag ([#4070](https://github.com/skeletonlabs/skeleton/pull/4070))
+
 ## 4.3.0
 
 ## 4.2.4

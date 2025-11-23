@@ -1,0 +1,138 @@
+---
+title: Pagination
+description: Client and server-side pagination controls.
+---
+
+import DataReact from '@/components/examples/framework-components/pagination/react/data?raw';
+import DefaultReact from '@/components/examples/framework-components/pagination/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/pagination/react/default?raw';
+import DirReact from '@/components/examples/framework-components/pagination/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/pagination/react/dir?raw';
+import DynamicPageSizeReact from '@/components/examples/framework-components/pagination/react/dynamic-page-size';
+import DynamicPageSizeReactRaw from '@/components/examples/framework-components/pagination/react/dynamic-page-size?raw';
+import DataSvelte from '@/components/examples/framework-components/pagination/svelte/data?raw';
+import DefaultSvelte from '@/components/examples/framework-components/pagination/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/pagination/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/pagination/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/pagination/svelte/dir.svelte?raw';
+import DynamicPageSizeSvelte from '@/components/examples/framework-components/pagination/svelte/dynamic-page-size.svelte';
+import DynamicPageSizeSvelteRaw from '@/components/examples/framework-components/pagination/svelte/dynamic-page-size.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw, 'data.ts': DataReact }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw, 'data.ts': DataSvelte }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Page Size
+
+Implement a custom page `pageSize` amount using a select element.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DynamicPageSizeReactRaw, 'data.ts': DataReact }} client:visible>
+		<DynamicPageSizeReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DynamicPageSizeSvelteRaw, 'data.ts': DataSvelte }} client:visible>
+		<DynamicPageSizeSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw, 'data.ts': DataReact }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw, 'data.ts': DataSvelte }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Total Count
+
+For server-side pagination, your data source may be truncated. Make sure to specify the total records using `count`.
+
+```ts
+const res = {
+	"results": [...],
+	"pagination": {
+		"page": 1,
+		"limit": 10,
+		"count": 500,
+	}
+}
+```
+
+{/* prettier-ignore */}
+```html
+<Pagination
+	page={res.pagination.page}
+	count={res.pagination.count}
+	pageSize={res.pagination.limit}
+>
+	<!-- ... -->
+</Pagination>
+```
+
+## Anatomy
+
+Here's an overview of how the Pagination component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Pagination } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Pagination>
+			<Pagination.FirstTrigger />
+			<Pagination.PrevTrigger />
+			<Pagination.Item />
+			<Pagination.Ellipsis />
+			<Pagination.NextTrigger />
+			<Pagination.LastTrigger />
+		</Pagination>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Pagination } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Pagination>
+	<Pagination.FirstTrigger />
+	<Pagination.PrevTrigger />
+	<Pagination.Item />
+	<Pagination.Ellipsis />
+	<Pagination.NextTrigger />
+	<Pagination.LastTrigger />
+</Pagination>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/pagination" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/pagination" />
+</Framework>

@@ -7,6 +7,7 @@ export * from './components/date-picker/index.js';
 export * from './components/dialog/index.js';
 export * from './components/file-upload/index.js';
 export * from './components/listbox/index.js';
+export * from './components/menu/index.js';
 export * from './components/navigation/index.js';
 export * from './components/pagination/index.js';
 export * from './components/popover/index.js';

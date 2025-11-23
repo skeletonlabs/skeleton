@@ -1,74 +1,90 @@
 ---
-import { PersonStandingIcon, BookOpenIcon, CodeIcon, BlocksIcon, FileTextIcon } from 'lucide-react';
+import { CodeIcon, BlocksIcon, PersonStandingIcon } from '@lucide/svelte';
+import { getActiveFramework } from '@/modules/framework';
+import type { CollectionEntry } from 'astro:content';
+import { GIT_BRANCH } from 'astro:env/server';
+import { resolvePath } from '@/modules/resolve-path';
 
-// Props
-const { frontmatter, urls } = Astro.props;
+interface Props {
+	doc: CollectionEntry<'docs'>;
+}
+
+const { doc } = Astro.props;
+
+const REPOSITORY_ROOT = new URL(`https://github.com/skeletonlabs/skeleton/tree/${GIT_BRANCH}/`);
+const ZAG_ROOT = new URL('https://zagjs.com/');
+
+const path = doc.id.split('/');
+const section = path.at(0) ?? '';
+const feature = path.at(1) ?? '';
+
+const activeFramework = getActiveFramework(Astro.params);
+
+function getSourcePath() {
+	if (doc.data.references.source === false) {
+		return;
+	}
+	if (doc.data.references.source) {
+		return new URL(doc.data.references.source);
+	}
+	if (section === 'framework-components') {
+		return new URL(`packages/skeleton-${activeFramework.id}/src/components/${feature}`, REPOSITORY_ROOT);
+	}
+	if (section === 'tailwind-components') {
+		return new URL(`packages/skeleton/src/utilities/${feature}.css`, REPOSITORY_ROOT);
+	}
+}
+
+function getStylesUrl() {
+	if (doc.data.references.styles === false) {
+		return;
+	}
+	if (doc.data.references.styles) {
+		return new URL(doc.data.references.styles);
+	}
+	if (section === 'framework-components') {
+		return new URL(`packages/skeleton-common/src/classes/${feature}.ts`, REPOSITORY_ROOT);
+	}
+}
+
+function getA11yUrl() {
+	if (doc.data.references.a11y === false) {
+		return;
+	}
+	if (doc.data.references.a11y) {
+		return new URL(doc.data.references.a11y);
+	}
+}
+
+function getZagUrl() {
+	if (doc.data.references.zag === false) {
+		return;
+	}
+	if (doc.data.references.zag) {
+		return new URL(doc.data.references.zag);
+	}
+	if (section === 'framework-components') {
+		return new URL(`components/${activeFramework.id}/${feature}`, ZAG_ROOT);
+	}
+}
+
+const references = [
+	{ label: 'Source', url: getSourcePath(), icon: CodeIcon },
+	{ label: 'Styles', url: getStylesUrl(), icon: CodeIcon },
+	{ label: 'A11y', url: getA11yUrl(), icon: PersonStandingIcon },
+	{ label: 'Zag', url: getZagUrl(), icon: BlocksIcon },
+].filter((reference): reference is { label: string; url: URL; icon: typeof CodeIcon } => Boolean(reference.url));
 ---
 
-<div class="flex flex-wrap gap-2 overflow-x-auto pb-2">
-	{
-		frontmatter.srcCore && (
-			<a class="chip preset-filled-surface-200-800" href={urls.githubSkeletonUrl + frontmatter.srcCore} target="_blank">
-				<CodeIcon size={16} />
-				<span>Source</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.srcCss && (
-			<a class="chip preset-filled-surface-200-800" href={`${urls.githubSkeletonCommon + frontmatter.srcCss}.ts`} target="_blank">
-				<CodeIcon size={16} />
-				<span>CSS</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.srcReact && (
-			<a class="chip preset-filled-surface-200-800" href={urls.githubReactUrl + frontmatter.srcReact} target="_blank">
-				<CodeIcon size={16} />
-				<span>React</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.srcSvelte && (
-			<a class="chip preset-filled-surface-200-800" href={urls.githubSvelteUrl + frontmatter.srcSvelte} target="_blank">
-				<CodeIcon size={16} />
-				<span>Svelte</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.showDocsUrl && (
-			<a
-				class="chip preset-filled-surface-200-800"
-				href={urls.githubDocsUrl + Astro.url.pathname.replace(/\/$/, '') + '.mdx'}
-				target="_blank"
-			>
-				<BookOpenIcon size={16} />
-				<span>Doc</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.srcAlly && (
-			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcAlly} target="_blank">
-				<PersonStandingIcon size={16} />
-				<span>A11y</span>
-			</a>
-		)
-	}
-	{
-		frontmatter.srcZag && (
-			<a class="chip preset-filled-surface-200-800" href={frontmatter.srcZag} target="_blank">
-				<BlocksIcon size={16} />
-				<span>API</span>
-			</a>
-		)
-	}
-	<!-- LLM.txt Chip -->
-	<a class="chip preset-filled-surface-200-800" href={`${Astro.url.pathname}/llms.txt`}>
-		<FileTextIcon size={16} />
-		<span>LLM</span>
-	</a>
-</div>
+{
+	references.length > 0 && (
+		<nav class="flex flex-wrap gap-2 overflow-x-auto">
+			{references.map((reference) => (
+				<a class="chip preset-tonal" href={resolvePath(Astro.params, reference.url.toString())} target="_blank" rel="noopener noreferrer">
+					<reference.icon class="size-4" />
+					<span>{reference.label}</span>
+				</a>
+			))}
+		</nav>
+	)
+}

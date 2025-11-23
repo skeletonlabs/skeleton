@@ -1,23 +1,14 @@
 ---
 title: Core API
 description: Learn about the specific features Skeleton introduces to Tailwind.
-showDocsUrl: false
-srcCore: '/'
+summary: The heart of Skeleton is our framework agnostic core package. This adapts and extends Tailwind to introduce our global styles, color system, typography, and more. This section details all available Skeleton-provided utility classes and theme properties.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src'
 order: 30
 ---
 
-import NavGrid from '@/components/ui/nav-grid.astro';
-
-{
-
-<p class="text-xl">
-	The heart of Skeleton is our framework agnostic core package. This adapts and extends Tailwind to introduce our global styles, color
-	system, typography, and more. This section details all available Skeleton-provided utility classes and theme properties.
-</p>
-
-}
-
----
+import NavigationGrid from '@/components/ui/navigation-grid.astro';
+import { resolvePath } from '@/modules/resolve-path';
 
 ## @base
 
@@ -55,7 +46,7 @@ Uses Tailwind's `@theme` to implement a variety of new properties and utility cl
 
 ### Colors
 
-Extends colors to include the [Skeleton color palette](/docs/design/colors).
+Extends colors to include the [Skeleton color palette](/docs/[framework]/design/colors).
 
 | Class                                 | Theme Property                       |
 | ------------------------------------- | ------------------------------------ |
@@ -66,7 +57,7 @@ Extends colors to include the [Skeleton color palette](/docs/design/colors).
 
 ### Color Pairings
 
-Extends colors to implement [Color Pairing](/docs/design/colors#color-pairings), which balance colors between light and dark mode.
+Extends colors to implement [Color Pairing](/docs/[framework]/design/colors#color-pairings), which balance colors between light and dark mode.
 
 | Class                                | Theme Property                      |
 | ------------------------------------ | ----------------------------------- |
@@ -74,7 +65,7 @@ Extends colors to implement [Color Pairing](/docs/design/colors#color-pairings),
 
 ### Spacing
 
-Integrates Tailwind's [spacing property](https://tailwindcss.com/docs/functions-and-directives#spacing-function) to modify [dynamic scaling](/docs/design/spacing) for various utility classes.
+Integrates Tailwind's [spacing property](https://tailwindcss.com/docs/functions-and-directives#spacing-function) to modify [dynamic scaling](/docs/[framework]/design/spacing) for various utility classes.
 
 | Class     | Theme Property |
 | --------- | -------------- |
@@ -169,7 +160,7 @@ Sets the default width for border, divide, and ring width to match the active th
 
 Allow you to style semantic HTML elements with utility classes.
 
-<NavGrid collection="docs" path="tailwind/" classes="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes('tailwind/')} class="md:grid-cols-2" />
 
 ## @variant
 
@@ -196,7 +187,7 @@ Enables you to target and style elements for a particular theme.
 Provides a canned set of styles for use with buttons, badges, cards, and more.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/presets" class="btn preset-filled">
+	<a href={resolvePath(props.Astro, '/docs/[framework]/design/presets')} class="btn preset-filled">
 		Browse Presets
 	</a>
 </figure>
@@ -206,7 +197,7 @@ Provides a canned set of styles for use with buttons, badges, cards, and more.
 Provides a hand curated set of themes for Skeleton.
 
 <figure class="linker bg-noise">
-	<a href="/docs/design/themes" class="btn preset-filled">
+	<a href={resolvePath(props.Astro, '/docs/[framework]/design/themes')} class="btn preset-filled">
 		Browse Themes
 	</a>
 </figure>

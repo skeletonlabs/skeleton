@@ -1,0 +1,15 @@
+---
+import RootLayout from '@/components/layouts/root-layout.astro';
+import Header from '@/components/ui/header/header.astro';
+import Skeleton from '@/assets/branding/skeleton-big.svg';
+---
+
+<RootLayout title="404" description="Page Not Found">
+	<Header />
+	<section class="container mx-auto p-4 flex flex-col justify-center items-center gap-4">
+		<Skeleton class="size-48 mx-auto fill-current" />
+		<h2 class="h2">Page Not Found</h2>
+		<p class="opacity-60">Sorry, this page does not appear to exist (anymore).</p>
+		<a href="/" class="btn preset-filled">Go back home</a>
+	</section>
+</RootLayout>

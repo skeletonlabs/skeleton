@@ -1,0 +1,129 @@
+---
+title: App Bar
+description: A header element for the top of your page layout.
+references:
+  zag: false
+---
+
+import CenteredReact from '@/components/examples/framework-components/app-bar/react/centered';
+import CenteredReactRaw from '@/components/examples/framework-components/app-bar/react/centered.tsx?raw';
+import DefaultReact from '@/components/examples/framework-components/app-bar/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/app-bar/react/default.tsx?raw';
+import ExtendedReact from '@/components/examples/framework-components/app-bar/react/extended';
+import ExtendedReactRaw from '@/components/examples/framework-components/app-bar/react/extended.tsx?raw';
+import ResponsiveReact from '@/components/examples/framework-components/app-bar/react/responsive';
+import ResponsiveReactRaw from '@/components/examples/framework-components/app-bar/react/responsive.tsx?raw';
+import CenteredSvelte from '@/components/examples/framework-components/app-bar/svelte/centered.svelte';
+import CenteredSvelteRaw from '@/components/examples/framework-components/app-bar/svelte/centered.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/app-bar/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/app-bar/svelte/default.svelte?raw';
+import ExtendedSvelte from '@/components/examples/framework-components/app-bar/svelte/extended.svelte';
+import ExtendedSvelteRaw from '@/components/examples/framework-components/app-bar/svelte/extended.svelte?raw';
+import ResponsiveSvelte from '@/components/examples/framework-components/app-bar/svelte/responsive.svelte';
+import ResponsiveSvelteRaw from '@/components/examples/framework-components/app-bar/svelte/responsive.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Centered
+
+Control the layout using a [grid-cols-\*](https://tailwindcss.com/docs/grid-column) utility class.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CenteredReactRaw }} client:visible>
+		<CenteredReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CenteredSvelteRaw }} client:visible>
+		<CenteredSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Extended
+
+Move the `<AppBar.Headline>` to a new row within the root.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ExtendedReactRaw }} client:visible>
+		<ExtendedReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ExtendedSvelteRaw }} client:visible>
+		<ExtendedSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Responsive
+
+Modify the layout based on responsive breakpoints.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ResponsiveReactRaw }} client:visible>
+		<ResponsiveReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ResponsiveSvelteRaw }} client:visible>
+		<ResponsiveSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the AppBar component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { AppBar } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<AppBar>
+			<AppBar.Toolbar>
+				<AppBar.Lead />
+				<AppBar.Headline />
+				<AppBar.Trail />
+			</AppBar.Toolbar>
+		</AppBar>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { AppBar } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<AppBar>
+	<AppBar.Toolbar>
+		<AppBar.Lead />
+		<AppBar.Headline />
+		<AppBar.Trail />
+	</AppBar.Toolbar>
+</AppBar>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/app-bar" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/app-bar" />
+</Framework>

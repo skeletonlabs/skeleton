@@ -1,0 +1,186 @@
+---
+title: Listbox
+description: Accessible listbox for single and multi selection.
+---
+
+import DefaultReact from '@/components/examples/framework-components/listbox/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/listbox/react/default?raw';
+import DirReact from '@/components/examples/framework-components/listbox/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/listbox/react/dir?raw';
+import DisabledReact from '@/components/examples/framework-components/listbox/react/disabled';
+import DisabledItemReact from '@/components/examples/framework-components/listbox/react/disabled-item';
+import DisabledItemReactRaw from '@/components/examples/framework-components/listbox/react/disabled-item?raw';
+import DisabledReactRaw from '@/components/examples/framework-components/listbox/react/disabled?raw';
+import GroupReact from '@/components/examples/framework-components/listbox/react/group';
+import GroupReactRaw from '@/components/examples/framework-components/listbox/react/group?raw';
+import MultipleReact from '@/components/examples/framework-components/listbox/react/multiple';
+import MultipleReactRaw from '@/components/examples/framework-components/listbox/react/multiple?raw';
+import SearchReact from '@/components/examples/framework-components/listbox/react/search';
+import SearchReactRaw from '@/components/examples/framework-components/listbox/react/search?raw';
+import DefaultSvelte from '@/components/examples/framework-components/listbox/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/listbox/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/listbox/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/listbox/svelte/dir.svelte?raw';
+import DisabledItemSvelte from '@/components/examples/framework-components/listbox/svelte/disabled-item.svelte';
+import DisabledItemSvelteRaw from '@/components/examples/framework-components/listbox/svelte/disabled-item.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/listbox/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/listbox/svelte/disabled.svelte?raw';
+import GroupSvelte from '@/components/examples/framework-components/listbox/svelte/group.svelte';
+import GroupSvelteRaw from '@/components/examples/framework-components/listbox/svelte/group.svelte?raw';
+import MultipleSvelte from '@/components/examples/framework-components/listbox/svelte/multiple.svelte';
+import MultipleSvelteRaw from '@/components/examples/framework-components/listbox/svelte/multiple.svelte?raw';
+import SearchSvelte from '@/components/examples/framework-components/listbox/svelte/search.svelte';
+import SearchSvelteRaw from '@/components/examples/framework-components/listbox/svelte/search.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Groups
+
+Organize items into categorized groups.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+		<GroupReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple
+
+Set the `multiple` proper to allow selecting more than one item.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleReactRaw }} client:visible>
+		<MultipleReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
+		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+Set the `disabled` prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+Which can also be enabled per item.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledItemReactRaw }} client:visible>
+		<DisabledItemReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledItemSvelteRaw }} client:visible>
+		<DisabledItemSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Search
+
+Utilize the `Input` component to implement simple search.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SearchReactRaw }} client:visible>
+		<SearchReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SearchSvelteRaw }} client:visible>
+		<SearchSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Listbox component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Listbox } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Listbox>
+			<Listbox.Label />
+			<Listbox.Content>
+				<Listbox.Item>
+					<Listbox.ItemText />
+					<Listbox.ItemIndicator />
+				</Listbox.Item>
+			</Listbox.Content>
+		</Listbox>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Listbox } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Listbox>
+	<Listbox.Label />
+	<Listbox.Content>
+		<Listbox.Item>
+			<Listbox.ItemText />
+			<Listbox.ItemIndicator />
+		</Listbox.Item>
+	</Listbox.Content>
+</Listbox>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/listbox" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/listbox" />
+</Framework>

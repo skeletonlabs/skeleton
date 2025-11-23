@@ -1,0 +1,158 @@
+---
+title: File Upload
+description: File upload dropzone and input patterns for selecting files.
+---
+
+import ButtonReact from '@/components/examples/framework-components/file-upload/react/button';
+import ButtonReactRaw from '@/components/examples/framework-components/file-upload/react/button?raw';
+import ClearFilesReact from '@/components/examples/framework-components/file-upload/react/clear-files';
+import ClearFilesReactRaw from '@/components/examples/framework-components/file-upload/react/clear-files?raw';
+import DefaultReact from '@/components/examples/framework-components/file-upload/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/file-upload/react/default?raw';
+import DirReact from '@/components/examples/framework-components/file-upload/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/file-upload/react/dir?raw';
+import DisabledReact from '@/components/examples/framework-components/file-upload/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/file-upload/react/disabled?raw';
+import ButtonSvelte from '@/components/examples/framework-components/file-upload/svelte/button.svelte';
+import ButtonSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/button.svelte?raw';
+import ClearFilesSvelte from '@/components/examples/framework-components/file-upload/svelte/clear-files.svelte';
+import ClearFilesSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/clear-files.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/file-upload/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/file-upload/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/dir.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/file-upload/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/disabled.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+Set the `disabled` prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Button Only
+
+Replace the interface with a simple "browse" button.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ButtonReactRaw }} client:visible>
+		<ButtonReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ButtonSvelteRaw }} client:visible>
+		<ButtonSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Provider Pattern
+
+Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ClearFilesReactRaw }} client:visible>
+		<ClearFilesReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ClearFilesSvelteRaw }} client:visible>
+		<ClearFilesSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the FileUpload component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { FileUpload } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<FileUpload>
+			<FileUpload.Dropzone>
+				<FileUpload.Trigger />
+				<FileUpload.HiddenInput />
+			</FileUpload.Dropzone>
+			<FileUpload.ItemGroup>
+				<FileUpload.Item>
+					<FileUpload.ItemName />
+					<FileUpload.ItemSizeText />
+					<FileUpload.ItemDeleteTrigger />
+				</FileUpload.Item>
+			</FileUpload.ItemGroup>
+		</FileUpload>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<FileUpload>
+	<FileUpload.Dropzone>
+		<FileUpload.Trigger />
+		<FileUpload.HiddenInput />
+	</FileUpload.Dropzone>
+	<FileUpload.ItemGroup>
+		<FileUpload.Item>
+			<FileUpload.ItemName />
+			<FileUpload.ItemSizeText />
+			<FileUpload.ItemDeleteTrigger />
+		</FileUpload.Item>
+	</FileUpload.ItemGroup>
+</FileUpload>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/file-upload" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/file-upload" />
+</Framework>

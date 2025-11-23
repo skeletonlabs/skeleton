@@ -7,8 +7,6 @@ order: 10
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-{/* --- */}
-
 ## Requirements
 
 | Tooling                              | Minimum Supported |
@@ -21,45 +19,69 @@ import Process from '@/components/ui/process.astro';
 
 <Process>
     <ProcessStep step="1">
+
         ### Create a Project
+
         Use the [Svelte CLI](https://svelte.dev/docs/kit/creating-a-project) to generate a new SvelteKit project.
-        ```console
+
+        ```bash
         npx sv create --types ts my-skeleton-app
-		cd my-skeleton-app
+    	cd my-skeleton-app
         ```
-		> NOTE: If you did not select the options to add Tailwind, use `npx sv add tailwindcss` to add it retroactively.
+
+    	> NOTE: If you did not select the options to add Tailwind, use `npx sv add tailwindcss` to add it retroactively.
+
     </ProcessStep>
     <ProcessStep step="2">
+
         ### Install Skeleton
+
         Install the Skeleton core and Svelte component packages.
-        ```console
+
+        ```bash
         npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
         ```
+
     </ProcessStep>
     <ProcessStep step="3">
-		### Configure Tailwind
-        Open your global stylesheet in `/src/app.css` and add the following imports:
-        ```css title="app.css" {3-7}
+
+    	### Configure Tailwind
+
+        Open your global stylesheet in `/src/routes/layout.css` and add the following imports:
+
+        ```css
         @import 'tailwindcss';
 
-        @import '@skeletonlabs/skeleton';
-        @import '@skeletonlabs/skeleton-svelte';
-        @import '@skeletonlabs/skeleton/themes/cerberus';
+        @import '@skeletonlabs/skeleton'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton-svelte'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton/themes/cerberus'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="4">
+
         ### Set Active Theme
+
         Open `/src/app.html`, then set the `data-theme` attribute on the HTML tag to define the active theme.
-        ```html title="app.html" "data-theme="cerberus""
-        <html data-theme="cerberus">...</html>
+
+        ```html
+        <!-- [!code word:data-theme="cerberus"] -->
+        <html data-theme="cerberus">
+            <!-- ... -->
+        </html>
         ```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Done
+
         Start the dev server using the following command.
-    	```console
+
+    	```bash
         npm run dev
         ```
+
     </ProcessStep>
 
 </Process>

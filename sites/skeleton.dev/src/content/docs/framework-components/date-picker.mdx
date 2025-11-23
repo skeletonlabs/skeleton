@@ -1,0 +1,272 @@
+---
+title: Date Picker
+description: Select dates from a calendar interface.
+---
+
+import ControlledReact from '@/components/examples/framework-components/date-picker/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/date-picker/react/controlled?raw';
+import DefaultReact from '@/components/examples/framework-components/date-picker/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/date-picker/react/default?raw';
+import DisabledReact from '@/components/examples/framework-components/date-picker/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/date-picker/react/disabled?raw';
+import InlineReact from '@/components/examples/framework-components/date-picker/react/inline';
+import InlineReactRaw from '@/components/examples/framework-components/date-picker/react/inline?raw';
+import MinMaxReact from '@/components/examples/framework-components/date-picker/react/min-max';
+import MinMaxReactRaw from '@/components/examples/framework-components/date-picker/react/min-max?raw';
+import PresetsReact from '@/components/examples/framework-components/date-picker/react/presets';
+import PresetsReactRaw from '@/components/examples/framework-components/date-picker/react/presets?raw';
+import RangeReact from '@/components/examples/framework-components/date-picker/react/range';
+import RangeReactRaw from '@/components/examples/framework-components/date-picker/react/range?raw';
+import WithSelectsReact from '@/components/examples/framework-components/date-picker/react/with-selects';
+import WithSelectsReactRaw from '@/components/examples/framework-components/date-picker/react/with-selects?raw';
+import ControlledSvelte from '@/components/examples/framework-components/date-picker/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/controlled.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/date-picker/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/default.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/date-picker/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/disabled.svelte?raw';
+import InlineSvelte from '@/components/examples/framework-components/date-picker/svelte/inline.svelte';
+import InlineSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/inline.svelte?raw';
+import MinMaxSvelte from '@/components/examples/framework-components/date-picker/svelte/min-max.svelte';
+import MinMaxSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/min-max.svelte?raw';
+import PresetsSvelte from '@/components/examples/framework-components/date-picker/svelte/presets.svelte';
+import PresetsSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/presets.svelte?raw';
+import RangeSvelte from '@/components/examples/framework-components/date-picker/svelte/range.svelte';
+import RangeSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/range.svelte?raw';
+import WithSelectsSvelte from '@/components/examples/framework-components/date-picker/svelte/with-selects.svelte';
+import WithSelectsSvelteRaw from '@/components/examples/framework-components/date-picker/svelte/with-selects.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Usage
+
+Given the scale and scope of the Date Picker component, consider implementing within a local component to add a layer of abstraction. Then utlize the props and event handlers to pass data to and from the component respectively.
+
+## Controlled
+
+Manage the selected date value with controlled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+Disable the date picker to prevent user interaction.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Minimum and Maximum
+
+Restrict date selection to a specific range using the `min` and `max` props with the `parseDate` helper function.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MinMaxReactRaw }} client:visible>
+		<MinMaxReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MinMaxSvelteRaw }} client:visible>
+		<MinMaxSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Range Selection
+
+Enable range selection by setting `selectionMode="range"` on the root component. Pair with two inputs fields:
+
+- `index={0}` to represent the start dates.
+- `index={1}` to represent the end dates.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': RangeReactRaw }} client:visible>
+		<RangeReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': RangeSvelteRaw }} client:visible>
+		<RangeSvelte client:visible />
+	</Preview>
+</Framework>
+
+### Presets
+
+Use the `PresetTrigger` component to allow users to quickly select predefined date ranges.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': PresetsReactRaw }} client:visible>
+		<PresetsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': PresetsSvelteRaw }} client:visible>
+		<PresetsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Inline calendar
+
+Display the calendar inline without a popover by adding the `inline` prop to the root component. When using inline mode, omit the `Portal` and `Positioner` components.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': InlineReactRaw }} client:visible>
+		<InlineReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InlineSvelteRaw }} client:visible>
+		<InlineSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Month and Year Selection
+
+Add `MonthSelect` and `YearSelect` components to provide selectors for quickly changing the month and year.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': WithSelectsReactRaw }} client:visible>
+		<WithSelectsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': WithSelectsSvelteRaw }} client:visible>
+		<WithSelectsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the DatePicker component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { DatePicker, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<DatePicker>
+			<DatePicker.Label />
+			<DatePicker.Control>
+				<DatePicker.Input />
+				<DatePicker.Trigger />
+			</DatePicker.Control>
+			<Portal>
+				<DatePicker.Positioner>
+					<DatePicker.Content>
+						<DatePicker.YearSelect />
+						<DatePicker.MonthSelect />
+						<DatePicker.View>
+							<DatePicker.ViewControl>
+								<DatePicker.PrevTrigger />
+								<DatePicker.ViewTrigger>
+									<DatePicker.RangeText />
+								</DatePicker.ViewTrigger>
+								<DatePicker.NextTrigger />
+							</DatePicker.ViewControl>
+							<DatePicker.Table>
+								<DatePicker.TableHead>
+									<DatePicker.TableRow>
+										<DatePicker.TableHeader />
+									</DatePicker.TableRow>
+								</DatePicker.TableHead>
+								<DatePicker.TableBody>
+									<DatePicker.TableRow>
+										<DatePicker.TableCell>
+											<DatePicker.TableCellTrigger />
+										</DatePicker.TableCell>
+									</DatePicker.TableRow>
+								</DatePicker.TableBody>
+							</DatePicker.Table>
+						</DatePicker.View>
+					</DatePicker.Content>
+				</DatePicker.Positioner>
+			</Portal>
+		</DatePicker>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { DatePicker, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<DatePicker>
+	<DatePicker.Label />
+	<DatePicker.Control>
+		<DatePicker.Input />
+		<DatePicker.Trigger />
+	</DatePicker.Control>
+	<Portal>
+		<DatePicker.Positioner>
+			<DatePicker.Content>
+				<DatePicker.YearSelect />
+				<DatePicker.MonthSelect />
+				<DatePicker.View>
+					<DatePicker.ViewControl>
+						<DatePicker.PrevTrigger />
+						<DatePicker.ViewTrigger>
+							<DatePicker.RangeText />
+						</DatePicker.ViewTrigger>
+						<DatePicker.NextTrigger />
+					</DatePicker.ViewControl>
+					<DatePicker.Table>
+						<DatePicker.TableHead>
+							<DatePicker.TableRow>
+								<DatePicker.TableHeader />
+							</DatePicker.TableRow>
+						</DatePicker.TableHead>
+						<DatePicker.TableBody>
+							<DatePicker.TableRow>
+								<DatePicker.TableCell>
+									<DatePicker.TableCellTrigger />
+								</DatePicker.TableCell>
+							</DatePicker.TableRow>
+						</DatePicker.TableBody>
+					</DatePicker.Table>
+				</DatePicker.View>
+			</DatePicker.Content>
+		</DatePicker.Positioner>
+	</Portal>
+</DatePicker>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/date-picker" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/date-picker" />
+</Framework>

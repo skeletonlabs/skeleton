@@ -1,0 +1,165 @@
+---
+title: Rating Group
+description: Rating Group allows users to rate something
+---
+
+import CustomIconsReact from '@/components/examples/framework-components/rating-group/react/custom-icons';
+import CustomIconsReactRaw from '@/components/examples/framework-components/rating-group/react/custom-icons?raw';
+import DefaultReact from '@/components/examples/framework-components/rating-group/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/rating-group/react/default?raw';
+import DirReact from '@/components/examples/framework-components/rating-group/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/rating-group/react/dir?raw';
+import DisabledReact from '@/components/examples/framework-components/rating-group/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/rating-group/react/disabled?raw';
+import HalfReact from '@/components/examples/framework-components/rating-group/react/half';
+import HalfReactRaw from '@/components/examples/framework-components/rating-group/react/half?raw';
+import LabelReact from '@/components/examples/framework-components/rating-group/react/label';
+import LabelReactRaw from '@/components/examples/framework-components/rating-group/react/label?raw';
+import CustomIconsSvelte from '@/components/examples/framework-components/rating-group/svelte/custom-icons.svelte';
+import CustomIconsSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/custom-icons.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/rating-group/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/rating-group/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/dir.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/rating-group/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/disabled.svelte?raw';
+import HalfSvelte from '@/components/examples/framework-components/rating-group/svelte/half.svelte';
+import HalfSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/half.svelte?raw';
+import LabelSvelte from '@/components/examples/framework-components/rating-group/svelte/label.svelte';
+import LabelSvelteRaw from '@/components/examples/framework-components/rating-group/svelte/label.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Half Step
+
+Set the `allowHalf` prop to enable half steps.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': HalfReactRaw }} client:visible>
+		<HalfReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': HalfSvelteRaw }} client:visible>
+		<HalfSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Custom Icons
+
+Insert your own custom images or icons for the `empty` and `full` states.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CustomIconsReactRaw }} client:visible>
+		<CustomIconsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CustomIconsSvelteRaw }} client:visible>
+		<CustomIconsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Label
+
+Use the `Label` component to describe the intended usage.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': LabelReactRaw }} client:visible>
+		<LabelReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LabelSvelteRaw }} client:visible>
+		<LabelSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled
+
+Set the `disabled` prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the RatingGroup component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { RatingGroup } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<RatingGroup>
+			<RatingGroup.Label />
+			<RatingGroup.Control>
+				<RatingGroup.Item />
+			</RatingGroup.Control>
+			<RatingGroup.HiddenInput />
+		</RatingGroup>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<RatingGroup>
+	<RatingGroup.Label />
+	<RatingGroup.Control>
+		<RatingGroup.Item />
+	</RatingGroup.Control>
+	<RatingGroup.HiddenInput />
+</RatingGroup>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/rating-group" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/rating-group" />
+</Framework>

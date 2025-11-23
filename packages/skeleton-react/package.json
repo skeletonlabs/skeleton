@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "4.3.0",
+	"version": "4.5.0",
 	"description": "The React package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -17,8 +17,8 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.js",
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs",
 			"style": "./dist/index.css"
 		}
 	},
@@ -39,6 +39,7 @@
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/listbox": "catalog:",
+		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
 		"@zag-js/progress": "catalog:",

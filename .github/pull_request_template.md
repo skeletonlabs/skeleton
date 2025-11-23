@@ -10,7 +10,7 @@ Closes #{issueNumber}
 
 Please read and apply all [contribution requirements](https://skeleton.dev/docs/resources/contribute/).
 
-- [ ] Your branch should be prefixed with: `docs/`, `feature/`, `chore/`, `bugfix/`
+- [ ] Your branch should be prefixed with: `docs/`, `feature/`, `task/`, `bugfix/`
 - [ ] Contributions should target the `main` branch
 - [ ] Documentation should be updated to describe all relevant changes
 - [ ] Run `pnpm check` in the root of the monorepo
@@ -25,4 +25,4 @@ Please read and apply all [contribution requirements](https://skeleton.dev/docs/
 
 1. Navigate to the root of the monorepo in your terminal
 2. Run `pnpm changeset` and follow the prompts
-3. Commit and push the changeset before flagging your PR review for review.
+3. Commit and push the changeset before flagging your PR ready for review.

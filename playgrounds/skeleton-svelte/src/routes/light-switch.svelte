@@ -14,7 +14,6 @@
 		document.documentElement.setAttribute('data-mode', mode);
 		localStorage.setItem('mode', mode);
 		checked = event.checked;
-		console.log(event);
 	};
 </script>
 

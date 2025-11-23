@@ -4,34 +4,22 @@ description: Guidelines for contributing new Skeleton components.
 order: 10
 ---
 
-### Dev Server
+## Development Server
 
-To run all packages/playgrounds/sites in watch mode, use the following command in the monorepo root:
+To run the development server for a specific project, use the following command:
 
-```shell
-pnpm dev
+```bash
+pnpm dev:{project}
 ```
 
-We've also provide a number of sub-commands for a more limited set of packages:
+| Command           | Description                                | Also runs                                                          |
+| ----------------- | ------------------------------------------ | ------------------------------------------------------------------ |
+| `pnpm dev:docs`   | Runs the Documentation website dev server. | `skeleton`, `skeleton-svelte`, `skeleton-react`, `skeleton-common` |
+| `pnpm dev:themes` | Runs the Themes website dev server.        | `skeleton`                                                         |
+| `pnpm dev:react`  | Runs the React Playground dev server.      | `skeleton`, `skeleton-react`, `skeleton-common`                    |
+| `pnpm dev:svelte` | Runs the Svelte Playground dev server.     | `skeleton`, `skeleton-svelte`, `skeleton-common`                   |
 
-```shell
-pnpm dev:{command}
-```
-
-- `dev:docs` - runs all dependencies for the Documentation website.
-- `dev:themes` - runs all dependencies for the Theme Generator website.
-- `dev:svelte` - runs all dependencies for the Svelte Playground.
-- `dev:react` - runs all dependencies for the React Playground.
-
-### Server Ports
-
-The following represents the _default_ localhost address and port for each project. This will be displayed in the terminal when starting each dev server.
-
-- Documentation Site: `http://localhost:4321/`
-- Svelte Playground: `http://localhost:5173/`
-- React Playground: `http://localhost:3000/`
-
-You may run the sites and playgrounds in parallel at the same time. If a server shares a port, this will increment by one for the next server (ex: `5174`, `5175`, etc). Keep your eye on the terminal to retrieve the specific local address for each.
+## Adding Components
 
 ### Zag.js
 
@@ -43,10 +31,6 @@ When introducing a new Skeleton component, please refer to the documentation for
 - Avatar (Svelte): https://zagjs.com/components/svelte/avatar
 
 Continue reading below to learn how implement the Zag primitives as components using Skeleton-specific conventions.
-
----
-
-## Adding Components
 
 ### Anatomy
 
@@ -83,7 +67,7 @@ Components are housed in the following location per framework:
 
 Skeleton uses a consistent naming convention per component:
 
-```
+```txt
 avatar/
 ├── anatomy/
 │   ├── fallback.{tsx|svelte}
@@ -108,7 +92,7 @@ Every component part should export their component as a default export and their
 
 **React**
 
-```tsx title="avatar-root.tsx"
+```tsx
 export interface AvatarRootProps {
 	// ...
 }
@@ -120,7 +104,7 @@ export default function Root(props: AvatarRootProps) {
 
 **Svelte**
 
-```svelte title="avatar-root.svelte"
+```svelte
 <script lang="ts" module>
 	export interface AvatarRootProps {
 		// ...
@@ -153,7 +137,7 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 
 The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
-```ts title="avatar-anatomy.ts"
+```ts
 import Fallback from '../anatomy/fallback';
 import Image from '../anatomy/image';
 import Root from '../anatomy/root';
@@ -169,11 +153,11 @@ export const Avatar = Object.assign(
 
 #### Context Files
 
-The `{part}-context.ts` file contains the exported context for each component part's [context](/docs/resources/contribute/components#context-api). This pattern enables strong typing of the context itself.
+The `{part}-context.ts` file contains the exported context for each component part's [context](/docs/[framework]/resources/contribute/components#context-api). This pattern enables strong typing of the context itself.
 
 For most components this will only be necessary for the root component, some components however may require context for their children well. Reference existing components for real world examples.
 
-```ts title="avatar-root-context.ts"
+```ts
 import type { useAvatar } from './use-avatar';
 import { createContext } from '@/internal/create-context';
 
@@ -228,7 +212,7 @@ In some cases you may need to pass data from parent down to child components. Fo
 | React     | [View Component API docs](https://react.dev/learn/passing-data-deeply-with-context)                         |
 | Svelte    | [View Component API docs](https://svelte.dev/docs/kit/state-management#Using-state-and-stores-with-context) |
 
-Note that Skeleton implements a [set convention for Context API](/docs/resources/contribute/components#context-files) to enable strong typing.
+Note that Skeleton implements a [set convention for Context API](/docs/[framework]/resources/contribute/components#context-files) to enable strong typing.
 
 ### Common Conventions
 
@@ -259,7 +243,7 @@ While each component will present a unique set of challenges, we recommend you r
 
 Component classes are now common and shared between all framework iterations. These reside in `/packages/skeleton-common` and are named to match their respective component.
 
-```
+```txt
 packages/
 └── skeleton-common/
 	└── src/
@@ -272,7 +256,7 @@ packages/
 
 Here's an example of the Avatar styles found in `avatar.ts`:
 
-```ts title="avatar.ts"
+```ts
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesAvatar = defineSkeletonClasses({
@@ -293,7 +277,7 @@ export const classesAvatar = defineSkeletonClasses({
 
 You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
 
-```ts title="avatar.ts"
+```ts
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
 
 export const classesProgress = defineSkeletonClasses({
@@ -313,7 +297,7 @@ export const classesProgress = defineSkeletonClasses({
 
 It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:` (short for "Skeleton Base"). By applying `with { type: 'macro' }` to the import, the import will run `defineSkeletonClasses` specifically at build time. This variant prefix will assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over our internally defined classes. This is accomplished using the following Tailwind custom variant.
 
-```css title="/packages/skeleton/src/variants/base.css"
+```css
 @custom-variant skb {
 	@layer base {
 		@slot;
@@ -329,7 +313,7 @@ If you need to prevent a class from being prefixed at build time, apply a varian
 
 For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
 
-```tsx title="root.tsx"
+```tsx
 import type { HTMLAttributes } from '@/internal/html-attributes';
 import type { PropsWithElement } from '@/internal/props-with-element';
 import { classesAvatar } from '@skeletonlabs/skeleton-common';
@@ -357,7 +341,7 @@ export default function (props: AvatarRootProps) {
 
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility, just without the `api.getPartProps()`.
 
-```tsx title="root.tsx"
+```tsx
 import { classesNavigation } from '@skeletonlabs/skeleton-common';
 import { mergeProps } from '@zag-js/react';
 

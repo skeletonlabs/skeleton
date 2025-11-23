@@ -1,5 +1,70 @@
 # @skeletonlabs/skeleton-react
 
+## 4.5.0
+
+### Minor Changes
+
+- feature: toast styling requirements set inline, react 18 users no longer have to set these seperately ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
+### Patch Changes
+
+- task: bump zag ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
+
+- Updated dependencies [[`a085b38`](https://github.com/skeletonlabs/skeleton/commit/a085b382a9970a08d049f23e4dcb8c11f3eb4126)]:
+  - @skeletonlabs/skeleton-common@4.5.0
+
+## 4.4.1
+
+### Patch Changes
+
+- bugfix: `Toast` width collapsing on smaller screens when `position` is not centered ([#4116](https://github.com/skeletonlabs/skeleton/pull/4116))
+
+- Updated dependencies [[`7d5845c`](https://github.com/skeletonlabs/skeleton/commit/7d5845c926cea4b28192b33e2f7ce18c422507cd)]:
+  - @skeletonlabs/skeleton-common@4.4.1
+
+## 4.4.0
+
+### Minor Changes
+
+- feature: `Menu` component ([#4097](https://github.com/skeletonlabs/skeleton/pull/4097))
+
+### Patch Changes
+
+- chore: bump zag ([#4106](https://github.com/skeletonlabs/skeleton/pull/4106))
+
+- Updated dependencies [[`44d62ac`](https://github.com/skeletonlabs/skeleton/commit/44d62ace9f4b59477873765a294f271f898f3465)]:
+  - @skeletonlabs/skeleton-common@4.4.0
+
+## 4.3.4
+
+### Patch Changes
+
+- Updated dependencies [[`605d673`](https://github.com/skeletonlabs/skeleton/commit/605d67314f55bb961903f92c64c947cffb710e94)]:
+  - @skeletonlabs/skeleton-common@4.3.4
+
+## 4.3.3
+
+### Patch Changes
+
+- Updated dependencies [[`e58fba2`](https://github.com/skeletonlabs/skeleton/commit/e58fba20952fc099fe6f0d408e95b4ecda5fceda)]:
+  - @skeletonlabs/skeleton-common@4.3.3
+
+## 4.3.2
+
+### Patch Changes
+
+- Updated dependencies [[`94c16ae`](https://github.com/skeletonlabs/skeleton/commit/94c16ae59b51c6c0b6de9a24546c02d5437ee154)]:
+  - @skeletonlabs/skeleton-common@4.3.2
+
+## 4.3.1
+
+### Patch Changes
+
+- chore: bump zag ([#4070](https://github.com/skeletonlabs/skeleton/pull/4070))
+
+- Updated dependencies [[`c205f85`](https://github.com/skeletonlabs/skeleton/commit/c205f85cd605c598e78d42dac04ff4d5225dfd5e)]:
+  - @skeletonlabs/skeleton-common@4.3.1
+
 ## 4.3.0
 
 ### Minor Changes

@@ -1,0 +1,56 @@
+---
+title: Buttons
+description: Provide a variety of button, including customizable sizes and types.
+---
+
+import Default from '@/components/examples/tailwind-components/buttons/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/buttons/default.astro?raw';
+import Disabled from '@/components/examples/tailwind-components/buttons/disabled.astro';
+import DisabledRaw from '@/components/examples/tailwind-components/buttons/disabled.astro?raw';
+import Presets from '@/components/examples/tailwind-components/buttons/presets.astro';
+import PresetsRaw from '@/components/examples/tailwind-components/buttons/presets.astro?raw';
+import GroupReact from '@/components/examples/tailwind-components/buttons/react/group';
+import GroupReactRaw from '@/components/examples/tailwind-components/buttons/react/group?raw';
+import Sizes from '@/components/examples/tailwind-components/buttons/sizes.astro';
+import SizesRaw from '@/components/examples/tailwind-components/buttons/sizes.astro?raw';
+import GroupSvelte from '@/components/examples/tailwind-components/buttons/svelte/group.svelte';
+import GroupSvelteRaw from '@/components/examples/tailwind-components/buttons/svelte/group.svelte?raw';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Presets
+
+Provides full support of [Presets](/docs/[framework]/design/presets).
+
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets />
+</Preview>
+
+## Sizes
+
+<Preview files={{ 'app.astro': SizesRaw }} client:visible>
+	<Sizes />
+</Preview>
+
+## Disabled
+
+When applied to a `<button>` element, you can use the `disabled` attribute.
+
+<Preview files={{ 'app.astro': DisabledRaw }} client:visible>
+	<Disabled />
+</Preview>
+
+## Group
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+		<GroupReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+		<GroupSvelte client:visible />
+	</Preview>
+</Framework>

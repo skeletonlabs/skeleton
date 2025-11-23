@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton
 
+## 4.5.0
+
+## 4.4.1
+
+## 4.4.0
+
+## 4.3.4
+
+### Patch Changes
+
+- bugfix: Resolved style issues for Select, Radio, Checkbox utilities ([#4091](https://github.com/skeletonlabs/skeleton/pull/4091))
+
+## 4.3.3
+
+## 4.3.2
+
+## 4.3.1
+
 ## 4.3.0
 
 ## 4.2.4

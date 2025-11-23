@@ -7,8 +7,6 @@ order: 20
 import ProcessStep from '@/components/ui/process-step.astro';
 import Process from '@/components/ui/process.astro';
 
-{/* --- */}
-
 ## Requirements
 
 | Tooling                              | Minimum Supported |
@@ -22,68 +20,94 @@ import Process from '@/components/ui/process.astro';
 <Process>
     <ProcessStep step="1">
         ### Create a Project
+
         Start by creating a new [Vite](https://vite.dev/guide/#scaffolding-your-first-vite-project) project. This will install React and Typescript.
-        ```console
-		npm create vite@latest
-			- Set your project named as desired
-			- Set React as the framework
-			- Set Typescript as the variant
-		cd {yourProjectName}
-		npm install
+
+        ```bash
+    	npm create vite@latest
+    		- Set your project named as desired
+    		- Set React as the framework
+    		- Set Typescript as the variant
+    	cd {yourProjectName}
+    	npm install
         ```
+
     </ProcessStep>
     <ProcessStep step="2">
+
        ### Install Skeleton
+
         Install the Skeleton core and React component packages.
-        ```console
+
+        ```bash
         npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-react
         ```
+
     </ProcessStep>
     <ProcessStep step="3">
         ### Install Tailwind
+
         Install Tailwind and and the Tailwind Vite plugin.
-        ```console
+
+        ```bash
         npm install tailwindcss @tailwindcss/vite
         ```
-		Implement the plugin in `vite.config` in the root of your project.
-		```ts title="vite.config" {3} "tailwindcss()"
-		import { defineConfig } from "vite";
-		import react from "@vitejs/plugin-react";
-		import tailwindcss from "@tailwindcss/vite";
+
+    	Implement the plugin in `vite.config` in the root of your project.
+
+    	```ts
+    	import { defineConfig } from "vite";
+    	import react from "@vitejs/plugin-react";
+    	import tailwindcss from "@tailwindcss/vite"; // [!code ++]
 
     	export default defineConfig({
     		plugins: [
-    			tailwindcss(),
+    			tailwindcss(), // [!code ++]
     			react() // <-- Must come after Tailwind
     		],
     	});
     	```
+
     </ProcessStep>
     <ProcessStep step="4">
+
         ### Configure Tailwind
-       	Open your global styleshset in `/src/index.css` and append the following at the top of the file.
-         ```css title="index.css"
+
+       	Open your global stylesheet in `/src/index.css` and append the following at the top of the file.
+
+         ```css
         @import 'tailwindcss';
 
-        @import '@skeletonlabs/skeleton';
-        @import '@skeletonlabs/skeleton-react';
-        @import '@skeletonlabs/skeleton/themes/cerberus';
+        @import '@skeletonlabs/skeleton'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton-react'; /* [!code ++] */
+        @import '@skeletonlabs/skeleton/themes/cerberus'; /* [!code ++] */
         ```
+
     </ProcessStep>
     <ProcessStep step="5">
+
         ### Set the Active Theme
+
         Open `index.html`, then set the `data-theme` attribute on the HTML tag to define the active theme.
 
-        ```html title="index.html" "data-theme="cerberus""
-        <html data-theme="cerberus">...</html>
+        ```html
+        <!-- [!code word:data-theme="cerberus"] -->
+        <html data-theme="cerberus">
+            <!-- ... -->
+        </html>
         ```
+
     </ProcessStep>
     <ProcessStep step="check">
+
         ### Done
+
         Start the dev server using the following command.
-    	```console
+
+    	```bash
         npm run dev
         ```
+
     </ProcessStep>
 
 </Process>
