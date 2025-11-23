@@ -37,6 +37,7 @@ catalog:
   '@tailwindcss/vite': 4.1.17
   '@tanstack/react-router': 1.139.1
   '@tanstack/react-start': 1.139.2
+  '@tanstack/router-cli': 1.139.3
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8

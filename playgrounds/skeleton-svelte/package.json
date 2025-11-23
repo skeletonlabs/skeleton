@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev"
+		"dev": "vite dev",
+		"check": "svelte-check --tsconfig ./tsconfig.json"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "catalog:",
@@ -15,6 +16,7 @@
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"svelte": "catalog:",
+		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",

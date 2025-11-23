@@ -105,6 +105,9 @@ catalogs:
     '@tanstack/react-start':
       specifier: 1.139.2
       version: 1.139.2
+    '@tanstack/router-cli':
+      specifier: 1.139.3
+      version: 1.139.3
     '@trivago/prettier-plugin-sort-imports':
       specifier: 6.0.0
       version: 6.0.0
@@ -790,6 +793,9 @@ importers:
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.1.17(rolldown-vite@7.2.7(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.1))
+      '@tanstack/router-cli':
+        specifier: 'catalog:'
+        version: 1.139.3
       '@types/node':
         specifier: 'catalog:'
         version: 24.10.1
@@ -841,6 +847,9 @@ importers:
       svelte:
         specifier: 'catalog:'
         version: 5.43.7
+      svelte-check:
+        specifier: 'catalog:'
+        version: 4.3.4(picomatch@4.0.3)(svelte@5.43.7)(typescript@5.9.3)
       tailwindcss:
         specifier: 'catalog:'
         version: 4.1.17
@@ -3067,12 +3076,25 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
+  '@tanstack/router-cli@1.139.3':
+    resolution: {integrity: sha512-HGTe7N0AzXFuteTDRj3RZT3ZfAVJ+XI5uaLGVHMQ0Cmc4wma0k1yyurKDVjsFFLeZk2NZQ+RcaHhNiS8iHRTwQ==}
+    engines: {node: '>=12'}
+    hasBin: true
+
   '@tanstack/router-core@1.139.1':
     resolution: {integrity: sha512-nPcP7mKmX38wOlqRZLITxXSo6y71LkK31Uh4xtLnO8SVEebEsNehO9p+wDYlUKnmQqWHqC+GQX5gLULVlTYmqg==}
     engines: {node: '>=12'}
 
+  '@tanstack/router-core@1.139.3':
+    resolution: {integrity: sha512-j3v1e739jmozBdtnmA45xHQHjCC2aKqBtfkMT3t2ZPijVrueaVP6qNRIAWmDK4ZSqd67TF5wP8vyqeTShJsEQQ==}
+    engines: {node: '>=12'}
+
   '@tanstack/router-generator@1.139.1':
     resolution: {integrity: sha512-HJaJlxilmn/Y2zSLOJ9tCreNaBUJaR2aB4tAJuINcjzd1rvJeB2eKJ5C4kRWD4pcJEznVUvy1sNfeJ3QSBj5Rg==}
+    engines: {node: '>=12'}
+
+  '@tanstack/router-generator@1.139.3':
+    resolution: {integrity: sha512-zq/ZC+1rx7pGNqYOthHSm0jxioNqm7JszYDcZPAZVhHT2Qhen02b7PzW8M7Qx4FU+ldXgnhpenDN5/jqYYClfQ==}
     engines: {node: '>=12'}
 
   '@tanstack/router-plugin@1.139.1':
@@ -8509,7 +8531,25 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
       use-sync-external-store: 1.6.0(react@19.2.0)
 
+  '@tanstack/router-cli@1.139.3':
+    dependencies:
+      '@tanstack/router-generator': 1.139.3
+      chokidar: 3.6.0
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - supports-color
+
   '@tanstack/router-core@1.139.1':
+    dependencies:
+      '@tanstack/history': 1.139.0
+      '@tanstack/store': 0.8.0
+      cookie-es: 2.0.0
+      seroval: 1.4.0
+      seroval-plugins: 1.4.0(seroval@1.4.0)
+      tiny-invariant: 1.3.3
+      tiny-warning: 1.0.3
+
+  '@tanstack/router-core@1.139.3':
     dependencies:
       '@tanstack/history': 1.139.0
       '@tanstack/store': 0.8.0
@@ -8522,6 +8562,19 @@ snapshots:
   '@tanstack/router-generator@1.139.1':
     dependencies:
       '@tanstack/router-core': 1.139.1
+      '@tanstack/router-utils': 1.139.0
+      '@tanstack/virtual-file-routes': 1.139.0
+      prettier: 3.6.2
+      recast: 0.23.11
+      source-map: 0.7.6
+      tsx: 4.20.6
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - supports-color
+
+  '@tanstack/router-generator@1.139.3':
+    dependencies:
+      '@tanstack/router-core': 1.139.3
       '@tanstack/router-utils': 1.139.0
       '@tanstack/virtual-file-routes': 1.139.0
       prettier: 3.6.2

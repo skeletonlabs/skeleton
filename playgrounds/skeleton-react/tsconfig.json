@@ -11,8 +11,8 @@
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
+		"tsBuildInfoFile": null,
 		"jsx": "react-jsx",
-		"incremental": true,
 		"strictNullChecks": true
 	}
 }

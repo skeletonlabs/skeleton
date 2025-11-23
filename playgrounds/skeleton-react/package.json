@@ -3,7 +3,8 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev"
+		"dev": "vite dev",
+		"check": "tsr generate && tsc"
 	},
 	"dependencies": {
 		"@tanstack/react-router": "catalog:",
@@ -13,15 +14,16 @@
 		"react-dom": "catalog:"
 	},
 	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-react": "workspace:*",
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"@tanstack/router-cli": "catalog:",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
-		"tailwindcss": "catalog:",
-		"@skeletonlabs/skeleton": "workspace:*",
-		"@skeletonlabs/skeleton-react": "workspace:*",
 		"@vitejs/plugin-react": "catalog:",
-		"@tailwindcss/forms": "catalog:",
-		"@tailwindcss/vite": "catalog:",
+		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
 	},
