@@ -1,18 +1,22 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { svelteTesting } from '@testing-library/svelte/vite';
-import { resolve } from 'node:path';
-import { defineConfig } from 'vitest/config';
+import { playwright } from '@vitest/browser-playwright';
+import { defineConfig, type Plugin } from 'vitest/config';
+import { join } from 'node:path';
 
 export default defineConfig({
-	logLevel: 'error',
-	plugins: [svelte(), svelteTesting()],
-	resolve: {
-		alias: {
-			'@': resolve(__dirname, 'src'),
-		},
+	plugins: [svelte() as unknown as Plugin],
+	optimizeDeps: {
+		exclude: ['@zag-js/svelte'],
 	},
 	test: {
-		environment: 'jsdom',
-		setupFiles: './test/setup.ts',
+		dir: join(import.meta.dirname, 'test'),
+		pool: 'threads',
+		browser: {
+			enabled: true,
+			provider: playwright(),
+			headless: true,
+			screenshotFailures: false,
+			instances: [{ browser: 'chromium' }],
+		},
 	},
 });
