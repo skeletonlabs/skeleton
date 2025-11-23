@@ -47,7 +47,7 @@ export default function Dir() {
 				<Combobox.Trigger />
 			</Combobox.Control>
 			<Portal>
-				<Combobox.Positioner className="z-[1]!">
+				<Combobox.Positioner>
 					<Combobox.Content>
 						{items.map((item) => (
 							<Combobox.Item key={item.value} item={item}>

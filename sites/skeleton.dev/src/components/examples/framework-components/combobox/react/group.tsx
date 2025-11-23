@@ -48,7 +48,7 @@ export default function Group() {
 				<Combobox.Trigger />
 			</Combobox.Control>
 			<Portal>
-				<Combobox.Positioner className="z-[1]!">
+				<Combobox.Positioner>
 					<Combobox.Content>
 						{collection.group().map(([type, items]) => (
 							<Combobox.ItemGroup key={type}>

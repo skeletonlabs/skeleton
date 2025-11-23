@@ -42,7 +42,7 @@
 	</Combobox.Control>
 	<Combobox.ClearTrigger>Clear All</Combobox.ClearTrigger>
 	<Portal>
-		<Combobox.Positioner class="z-[1]!">
+		<Combobox.Positioner>
 			<Combobox.Content>
 				{#each items as item (item.value)}
 					<Combobox.Item {item}>

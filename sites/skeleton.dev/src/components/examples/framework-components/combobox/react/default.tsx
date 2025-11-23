@@ -47,7 +47,7 @@ export default function Default() {
 			</Combobox.Control>
 			<Combobox.ClearTrigger>Clear All</Combobox.ClearTrigger>
 			<Portal>
-				<Combobox.Positioner className="z-[1]!">
+				<Combobox.Positioner>
 					<Combobox.Content>
 						{items.map((item) => (
 							<Combobox.Item key={item.value} item={item}>
