@@ -49,12 +49,7 @@ export default function Anchor() {
 								</p>
 							</div>
 						</div>
-						<Popover.Arrow
-							style={{
-								['--arrow-size' as string]: 'calc(var(--spacing) * 2)',
-								['--arrow-background' as string]: 'var(--color-surface-100-900)',
-							}}
-						>
+						<Popover.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 							<Popover.ArrowTip />
 						</Popover.Arrow>
 					</Popover.Content>

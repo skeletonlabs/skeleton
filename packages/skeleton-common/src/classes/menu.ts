@@ -6,7 +6,7 @@ export const classesMenu = defineSkeletonClasses({
 	positioner: '',
 	indicator: '',
 	content: 'card bg-surface-50-950 border border-surface-200-800 p-2 flex flex-col items-stretch gap-2 shadow-lg min-w-48',
-	arrow: '',
+	arrow: '[--arrow-size:--spacing(2)] [--arrow-background-:var(--color-surface-50-950)]',
 	arrowTip: '',
 	itemGroup: '',
 	itemGroupLabel: 'text-surface-600-400 text-xs px-2 py-1',

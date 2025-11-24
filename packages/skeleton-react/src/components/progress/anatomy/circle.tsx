@@ -16,10 +16,6 @@ export default function Circle(props: ProgressCircleProps) {
 		progress.getCircleProps(),
 		{
 			className: classesProgress.circle,
-			style: {
-				['--size' as string]: '100px',
-				['--thickness' as string]: '10px',
-			},
 		},
 		rest,
 	);

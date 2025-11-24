@@ -8,7 +8,7 @@
 		<Tooltip.Positioner>
 			<Tooltip.Content class="card p-2 preset-filled-surface-950-50">
 				<span>Hello Skeleton</span>
-				<Tooltip.Arrow style="--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-950-50);">
+				<Tooltip.Arrow class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 					<Tooltip.ArrowTip />
 				</Tooltip.Arrow>
 			</Tooltip.Content>
