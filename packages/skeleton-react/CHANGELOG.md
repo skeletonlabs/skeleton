@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.5.2
+
+### Patch Changes
+
+- bugfix: Add missing `Popover.Anchor` ([#4158](https://github.com/skeletonlabs/skeleton/pull/4158))
+
+- Updated dependencies [[`e8dc070`](https://github.com/skeletonlabs/skeleton/commit/e8dc070e1ea01afba12cdaa113491ba985d3fe41)]:
+  - @skeletonlabs/skeleton-common@4.5.2
+
 ## 4.5.1
 
 ### Patch Changes

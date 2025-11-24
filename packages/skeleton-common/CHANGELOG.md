@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.2
+
+### Patch Changes
+
+- bugfix: Add missing `Popover.Anchor` ([#4158](https://github.com/skeletonlabs/skeleton/pull/4158))
+
 ## 4.5.1
 
 ### Patch Changes
