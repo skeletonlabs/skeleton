@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.5.1
+
+### Patch Changes
+
+- task: bump zag ([#4151](https://github.com/skeletonlabs/skeleton/pull/4151))
+
+- bugfix: Add documented, but missing, `Combobox.ClearTrigger` ([#4147](https://github.com/skeletonlabs/skeleton/pull/4147))
+
+- Updated dependencies [[`0cbcb64`](https://github.com/skeletonlabs/skeleton/commit/0cbcb646f74d617599ed1e23be11a42b85e6854b)]:
+  - @skeletonlabs/skeleton-common@4.5.1
+
 ## 4.5.0
 
 ### Minor Changes

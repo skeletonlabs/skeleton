@@ -34,14 +34,15 @@
 	};
 </script>
 
-<Combobox class="w-full max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
+<Combobox class="max-w-md" placeholder="Search..." {collection} {onOpenChange} {onInputValueChange}>
 	<Combobox.Label>Label</Combobox.Label>
 	<Combobox.Control>
 		<Combobox.Input />
 		<Combobox.Trigger />
 	</Combobox.Control>
+	<Combobox.ClearTrigger>Clear All</Combobox.ClearTrigger>
 	<Portal>
-		<Combobox.Positioner class="z-[1]!">
+		<Combobox.Positioner>
 			<Combobox.Content>
 				{#each items as item (item.value)}
 					<Combobox.Item {item}>
