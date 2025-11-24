@@ -4,7 +4,7 @@ export default function Size() {
 	return (
 		<div className="flex gap-4 justify-evenly items-center w-full">
 			<Progress value={75} className="w-fit">
-				<Progress.Circle className="[--size:--spacing(16)] [--thickness:--spacing(1.5)]">
+				<Progress.Circle className="[--size:--spacing(16)]">
 					<Progress.CircleTrack />
 					<Progress.CircleRange />
 				</Progress.Circle>
@@ -16,7 +16,7 @@ export default function Size() {
 				</Progress.Circle>
 			</Progress>
 			<Progress value={75} className="w-fit">
-				<Progress.Circle className="[--size:--spacing(32)] [--thickness:--spacing(3)]">
+				<Progress.Circle className="[--size:--spacing(32)]">
 					<Progress.CircleTrack />
 					<Progress.CircleRange />
 				</Progress.Circle>
