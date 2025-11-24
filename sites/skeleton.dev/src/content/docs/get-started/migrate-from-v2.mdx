@@ -1,7 +1,7 @@
 ---
 title: Migrate from v2
 description: Learn how to migrate from Skeleton v2 to the latest release.
-summary: Skeleton v3 represented a major overhaul to Skeleton. This includes a ground up rewrite of every feature in the library. Note that some portions of this guide will be automated, while others require manual intervention. This is not a trivial migration from prior versions, so please ensure you follow this guide very carefully. This guide will help you travese both the v3 and v4 updates.
+summary: This update represents a major overhaul to the Skeleton library. Including a ground up rewrite of every feature in the library. Note that some portions of this guide will be automated, while others require manual intervention. This is not a trivial migration from prior versions, so please ensure you follow this guide very carefully. This transition you through both the v3 and v4 updates.
 order: 8888
 ---
 
@@ -9,19 +9,17 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 ## Prerequisites
 
-While Skeleton v3 introduced support for multiple frameworks, we’ve historically only supported SvelteKit. As such, this guide is only intended for users migrating from Skeleton v2 and SvelteKit. If you you are coming from another meta-framework, this will be outside the scope of this guide. However, this may still provide a valuable insight to the primary objectives for the overall migration process.
+While Skeleton v3 introduced support for multiple frameworks, we’ve historically only supported SvelteKit. As such, this guide is only intended for users migrating from Skeleton v2 and SvelteKit. If you you are coming from another meta-framework, this will be outside the scope of this guide. However, this may still provide insight into the primary objectives for the overall migration process.
 
 ### Create a Migration Branch
 
-As always, we recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
+We recommend you handle all migration changes on a dedicated feature branch. This ensures you can easily drop or revert changes if something goes wrong.
 
 ```bash
 git checkout -b migration
 ```
 
 ### Prepare Your Skeleton App
-
-Please make sure you have accounted for the following:
 
 - Your app is running the latest release of Skeleton v2.x
 - All critical dependencies have been updated (optional but recommended)
@@ -31,7 +29,7 @@ Please make sure you have accounted for the following:
 
 ## Migrate Core Technologies
 
-Skeleton is built atop a number of core technologies. These must be migrated individually before proceeding with the Skeleton-specific migration. Note that Svelte and Tailwind provide dedicated CLIs to help automate this process. Please ensure you adhere to their accompany migration guides linked below.
+Skeleton directly utilizes a number of core technologies. These must be migrated individually before proceeding with the Skeleton-specific migration. Note that Svelte and Tailwind provide dedicated CLIs to help automate this process. Please ensure you adhere to their individual migration guides linked below.
 
 ### Svelte v5
 
@@ -55,15 +53,15 @@ Migrate to the latest release of SvelteKit v2.
 
 ### Tailwind v4
 
-Before migrating to Tailwind v4, please follow these steps:
+Before migrating to Tailwind v4, please do the following:
 
 1. Remove the `skeleton` plugin from your `tailwind.config` file.
-2. Rename your `app.postcss` or `app.pcss` to `app.css`.
+2. Rename your `app.{postcss|pcss}` to `app.css`. Make sure to update layout imports too.
 3. Remove the `purgecss` (`vite-plugin-tailwind-purgecss`) vite plugin from your `vite.config` (if installed).
 
 Migrate to the latest release of Tailwind v4.
 
-> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Comment or remove the classes temporarily, run the migration CLI, then follow [these steps](/docs/[framework]/get-started/migrate-from-v2#replacing-apply) to adapt to use native CSS properties and Tailwind's new utilities. Ideally you should avoid the use of `@apply` going forward.
+> TIP: Having trouble running Tailwind's automated migration script due to `@apply`? Comment or remove the classes temporarily, run the migration CLI, then follow [these steps](/docs/[framework]/get-started/migrate-from-v2#replacing-apply) to adapt to use native CSS properties and Tailwind's new utilities. Though ideally you should avoid the use of `@apply` going forward.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://tailwindcss.com/docs/upgrade-guide" target="_blank" rel="noopener noreferrer">
@@ -76,12 +74,12 @@ Migrate to the latest release of Tailwind v4.
 Use the following steps to migrate to from PostCSS to the Vite plugin:
 
 1. Delete `postcss.config.{js|mjs}`
-2. Run `npm uninstall postcss` (skip if not present)
-3. Run `npm uninstall @tailwindcss/postcss` (skip if not present)
+2. Run `npm uninstall postcss` (if present)
+3. Run `npm uninstall @tailwindcss/postcss` (if present)
 4. Run `npm install @tailwindcss/vite`
 5. Open your `vite.config` in the root of your project
-6. Import the following at the top of the file: `import tailwindcss from '@tailwindcss/vite'`
-7. Finally, add the Vite plugin ABOVE your specific framework plugin:
+6. Include the following import: `import tailwindcss from '@tailwindcss/vite'`
+7. Finally, add the Vite plugin <u>above</u> your framework plugin:
 
 ```ts
 plugins: [
@@ -96,7 +94,9 @@ plugins: [
 
 ## Automated Migration
 
-We’ve provided a dedicated migration script as part of the Skeleton CLI to help automate much of this process. First, migrate to handle Skeleton v3 changes:
+We’ve provided a dedicated migration script as part of the Skeleton CLI to help automate much of this process.
+
+First, run the following to migrate for Skeleton v3 changes:
 
 ```bash
 npx skeleton migrate skeleton-3
@@ -108,7 +108,7 @@ Commit all pending changes. Then run the following to migrate for Skeleton v4 ch
 npx skeleton migrate skeleton-4
 ```
 
-What WILL be migrated...
+This migration WILL handle the following...
 
 - Update all required `package.json` dependencies.
 - Implement all required Skeleton imports in your global stylesheet `app.css`.
@@ -116,13 +116,12 @@ What WILL be migrated...
 - Temporarily disable custom theme imports to allow for manual theme migration.
 - Migrate all modified Skeleton utility classes (ex: `variant-*` to `preset-*`)
 - Update all Skeleton imports throughout your entire project.
-- Rename all relevant Skeleton components (as possible)
-- Some Component imports will be pruned as they are no longer supported. We’ll cover these below.
+- Some Component imports will be pruned as they are no longer supported.
 
-What will NOT be migrated...
+This migration WILL NOT...
 
-- Component structure and props will not be updated. Unfortunately there’s too many permutations.
-- Most v2 Utility features will not be migrated (ex: popovers, code blocks, etc). See our recommendations below.
+- Adjust the component structure or component props. Unfortunately there’s too many permutations.
+- Migrate Utility features (ex: popovers, code blocks, etc). See our recommendations below.
 
 Make sure to consult your local Git Diff (difference) to compare what has been modified before progressing forward or committing these automated changes.
 
@@ -130,22 +129,20 @@ Make sure to consult your local Git Diff (difference) to compare what has been m
 
 ## Manual Migration
 
-With automated migration complete, please follow the remaining manual migration steps. The following steps are not optional, and must be handled as part of the overall migration process.
+With automated migration complete, please follow the remaining manual migration steps. The following is not optional.
 
 ### Update Stylesheet Imports
 
-> NOTE: The Skeleton CLI may handle these specific changes for you.
+> NOTE: The Skeleton CLI will handle these for you, but please confirm.
 
-The following migration steps apply to your global stylesheet (ex: `app.css`).
-
-The `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
+In your global stylesheet (ex: `app.css`), the `@source` rules for sourcing component styles have been replaced with simpler and more intuitive `@import` rules.
 
 ```css
 @source '../node_modules/@skeletonlabs/skeleton-{framework}/dist'; /* [!code --] */
 @import '@skeletonlabs/skeleton-{framework}'; /* [!code ++] */
 ```
 
-In Skeleton v3 the canned [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been merged back into the core package in Skeleton v4.
+In Skeleton v3, canned [Preset styles](/docs/[framework]/design/presets) were split to an optional stylesheet to allow them to be opt-in. However, due to popular demand, these have now been merged back into the core package in Skeleton v4. As such, you can remove this import.
 
 ```css
 @import '@skeletonlabs/skeleton/optional/presets'; /* [!code --] */
@@ -155,35 +152,43 @@ In Skeleton v3 the canned [Preset styles](/docs/[framework]/design/presets) were
 
 #### For Preset Themes
 
-Your preset theme should be automatically migrated by the CLI. If so, this process is complete.
+Your preset theme should be automatically migrated by the CLI. Refer to [Themes](/docs/[framework]/design/themes#preset-themes) for more information.
 
 #### For Custom Themes
 
-1. Use the [Import feature](https://themes.skeleton.dev/themes/import) provided by the new Theme Generator.
-2. Drag and Drop your v2 theme into the file upload field.
+1. Use the [Import feature](https://themes.skeleton.dev/themes/import) provided by the new Theme Generator.
+2. Drag and drop your v2 theme into the file upload field.
 3. Your theme will be automatically converted to the newest format.
 4. Update and modify any theme settings in the live preview.
 5. Make sure to set a valid theme name in the right-hand panel.
 6. Tap the “Code” tab to preview your generated theme code.
-7. Copy the theme code, then following our [custom theme instructions](/docs/[framework]/design/themes#custom-themes).
+7. Copy the theme code, then following our [custom theme instructions](/docs/[framework]/design/themes#custom-themes).
 8. Similar to preset themes, you will need to both register and set an active theme.
 
 ### Replace AppShell with Custom Layouts
 
-Skeleton has sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a [Layouts](/docs/[framework]/guides/layouts) guide for replicating common page structures using only semantic HTML and Tailwind - no Skeleton specific features required.
+Skeleton has now sunset the ([troublesome](https://github.com/skeletonlabs/skeleton/issues/2383)) `<AppShell>` component in favor of user-defined custom layouts. We've provided a dedicated [Layouts](/docs/[framework]/guides/layouts) guide for replicating common layout structures using only semantic HTML and Tailwind - no Skeleton specific features are required.
 
 ### Migrating Components
 
-Components have underwent a major overhaul in Skeleton v3. Given the sheer number of changes, we recommend you compare each component to it's current production documentation. We’ve highlighted a few of the key changes below:
+Components have undergone a major overhaul starting in Skeleton v3, with further refinements in Skeleton v4. Given the sheer number of changes, we recommend you compare each component to it's current production documentation.
 
-- Changes to adopt the new [Svelte 5 APIs](https://svelte.dev/docs/svelte/v5-migration-guide) like runes, snippets, event handlers, etc.
-- Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation of our cross-framework components.
-- Changes to the import path: `@skeletonlabs/skeleton-svelte`.
+#### Key Changes in v3
+
+- Changes to adopt the new [Svelte 5 APIs](https://svelte.dev/docs/svelte/v5-migration-guide) like runes, snippets, event handlers, etc.
+- Changes to support [Zag.js](https://zagjs.com/), which serves as a foundation of our cross-framework components.
+- Changes to the import path: `@skeletonlabs/skeleton-svelte`.
 - Changes to the component name and/or structure (including sub-components)
 - Changes based on newly introduces features and properties.
-- Changes to adopt the new [component fundamentals](/docs/[framework]/get-started/fundamentals#functional-components).
 
-Below is an example of migrating a single component - the Avatar in this case.
+#### Key Changes in v4
+
+- Changes to adopt the newest [component conventions](/docs/[framework]/resources/contribute/components)
+- Changes to introduce new [component patterns](/docs/[framework]/get-started/fundamentals#functional-components).
+
+#### How to Migrate Components
+
+The following showcases the process of migrating a single component.
 
 **Was (v2)**
 
@@ -200,23 +205,25 @@ Below is an example of migrating a single component - the Avatar in this case.
 </Avatar>
 ```
 
-Here's how this was handled:
+This was handled as follows:
 
-1. Consult the documentation for the [Avatar component](/docs/[framework]/framework-components/avatar)
-2. The Skeleton migration CLI should have updated all component imports automatically.
+1. We consulted the documentation for the [Avatar component](/docs/[framework]/framework-components/avatar)
+2. The Skeleton migration CLI will have handled all component imports automatically.
 3. The root component `<Avatar>` remains; remove `src` and other unsupported props.
-4. Implement the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
-5. Implement the new `<Avatar.Fallback>` child and pass a fallback value, icon, image, etc.
+4. Now implements the new `<Avatar.Image>` child and pass the `src` path and `alt` text.
+5. Now implements the new `<Avatar.Fallback>` child and pass a fallback value, icon, image, etc.
 
-Until your components are migrated to the new syntax and APIs they will cause errors when trying to run your local developement server. As such, we recommend using the following technique to hanlde this in a progressive manner:
+#### Tips for Component Migration
 
-1. Use your editor of choice to search for Skeleton components via the import path (`@skeletonlabs/skeleton`)
+Until all components are migrated to the new format, they will throw errors when trying to run your local developement server. Use the following technique to update in a more progressive manner.
+
+1. Use your editor of choice to search for Skeleton components via the import path (`@skeletonlabs/skeleton-svelte`)
 2. Comment out each component one-by-one until all are disabled.
 3. Consider adding messages such as `<p>(avatar)</p>` as visible placeholders for components on each page.
-4. Uncomment each component individually as you migrate it forward to the new syntax.
+4. Uncomment each component individually as you migrate forward to the new syntax.
 5. Once all components are migrated, you should no longer receive errors when running the dev server.
 
-### Renamed Components in v3
+#### Renamed Components in v3
 
 As part of the Skeleton v3 update, several components were renamed to be more semantic.
 
@@ -234,9 +241,9 @@ As part of the Skeleton v3 update, several components were renamed to be more se
 | `<Slider>`         | [Link](https://v2.skeleton.dev/components/slide-toggles)    | [Link](https:/skeleton.dev/docs/components/switch/svelte)        | Renamed `<Switch>`                                        |
 | `<TabGroup>`       | [Link](https://v2.skeleton.dev/components/tabs)             | [Link](https:/skeleton.dev/docs/components/tabs/svelte)          | Renamed `<Tabs>`                                          |
 
-### Renamed Components in v4
+#### Renamed Components in v4
 
-Then again as part of the Skeleton v4 update, select components were once again renamed. These now follow the [Zag.js](https://zagjs.com/) naming conventions, which serves as the permanent standard going forward.
+Then again in Skeleton v4, select components were renamed to follow the [Zag.js](https://zagjs.com/) naming conventions. This will serve as the baselines going foward.
 
 | v3                  | v4                           | v4 Docs                                                          |
 | ------------------- | ---------------------------- | ---------------------------------------------------------------- |
@@ -252,15 +259,15 @@ Then again as part of the Skeleton v4 update, select components were once again 
 
 Tailwind v4 represents a major update for Tailwind. We've detailed the most notable features as they may relate to your Skeleton project. Please consult the [Tailwind v4 announcement](https://tailwindcss.com/blog/tailwindcss-v4) post for the full roster of changes.
 
-- The `tailwing.config` has been removed in favor of [CSS-base configuration](https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration) in your global stylesheet.
-- Make sure you’re using the newest strategies for supporting [Dark Mode](/docs/[framework]/guides/mode).
-- You are still required to implement the [Tailwind Forms Plugin](/docs/[framework]/tailwind-components/forms#prerequisites) to use Skeleton form elements.
-- The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`
-- Themes colors are now stored in the [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
+- The `tailwing.config` has been removed in favor of [CSS-base configuration](https://tailwindcss.com/blog/tailwindcss-v4#css-first-configuration).
+- New strategies are available to support [Dark Mode](/docs/[framework]/guides/mode).
+- The [Tailwind Forms Plugin](/docs/[framework]/tailwind-components/forms#prerequisites) is still required for form elements.
+- The Skeleton `data-theme` attribute has moved from `<body>` to `<html>`.
+- Themes colors are now [oklch format](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl), but optionally support any format.
 
 ### Replacing @apply
 
-We strongly encourage you take this opportunity to move away from any usage of `@apply`. Tailwind has long since advocated against heavy use of this, and Tailwind v4 introduces new directives and functions that make this much easier to avoid. Here's a trivial example:
+We strongly encourage you take this opportunity to move away from any usage of `@apply`. Tailwind has long since advocated against its use, and the latest release of introduces new directives and functions that make this much easier to avoid. Below a trivial example:
 
 ```css
 /* Before */
@@ -283,9 +290,8 @@ We strongly encourage you take this opportunity to move away from any usage of `
 }
 ```
 
-- Usage of `@apply` may be found in your global stylesheet or component `<style>` blocks.
 - Refer to the Skeleton [Core API](/docs/[framework]/get-started/core-api) documentation for a full list of Skeleton's CSS custom properties.
-- Refer to the Tailwind's [functions and directives](https://tailwindcss.com/docs/functions-and-directives) for information on how to utilize these new features.
+- Refer to the Tailwind's [functions and directives](https://tailwindcss.com/docs/functions-and-directives) for more information on these new features.
 
 ### Replace Unsupported Features
 
@@ -293,11 +299,11 @@ Skeleton v3 represented a point of reflection on what features should remain as 
 
 #### Svelte Actions
 
-| Name       | v2                                                 | Alternative                                            | Notes                                  |
-| ---------- | -------------------------------------------------- | ------------------------------------------------------ | -------------------------------------- |
-| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/[framework]/guides/cookbook/clipboard)    | Provided via Cookbook guide            |
-| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/[framework]/guides/cookbook/svg-filters)  | Provided via Cookbook guide            |
-| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/[framework]/framework-components/popover) | Not built-into modal-style components. |
+| Name       | v2                                                 | Alternative                                            | Notes                              |
+| ---------- | -------------------------------------------------- | ------------------------------------------------------ | ---------------------------------- |
+| Clipboard  | [Link](https://v2.skeleton.dev/actions/clipboard)  | [Link](/docs/[framework]/guides/cookbook/clipboard)    | Provided via Cookbook guide        |
+| SVG Filter | [Link](https://v2.skeleton.dev/actions/filters)    | [Link](/docs/[framework]/guides/cookbook/svg-filters)  | Provided via Cookbook guide        |
+| Focus Trap | [Link](https://v2.skeleton.dev/actions/focus-trap) | [Link](/docs/[framework]/framework-components/popover) | Automatic to each modal component. |
 
 > TIP: We also recommend [Runed](https://runed.dev/docs) for a similar approach to small composable features for Svelte 5.
 
@@ -326,17 +332,20 @@ Skeleton v3 represented a point of reflection on what features should remain as 
 
 ### Migrate Input Groups
 
-Although the automated migration script will handle the majority of class updates, [Input Groups](/docs/[framework]/tailwind-components/forms#groups) and the exception and will need to be migrated manually. See the new documentation page for updated examples.
+Although the automated migration script will handle the majority of class updates, Input Groups are the exception and must be migrated manually. [Refer to the documentation](/docs/[framework]/tailwind-components/forms#groups) for updated examples.
 
-| Old Class             | New Class  |
-| --------------------- | ---------- |
-| `input-group-shim`    | `ig-cell`  |
-| `input-group > input` | `ig-input` |
-| `input-group-divider` | (removed)  |
+| Old Class             | New Class   |
+| --------------------- | ----------- |
+| `input-group-shim`    | `ig-cell`   |
+| `input-group > input` | `ig-input`  |
+| `input-group-divider` | (removed)   |
+| `input`               | `ig-input`  |
+| `select`              | `ig-select` |
+| `button`              | `ig-button` |
 
 ### Migration Complete
 
-If you’ve completed all steps above in full, your application should once again be in a function state. Run your application's local dev server to confirm. Remember to merge all changes into your primary branch.
+If you’ve completed all steps above in full, your application should once again be in a functional state. Run your application's local dev server to confirm. Then remember to merge all changes into your primary branch.
 
 ```bash
 npm run dev
@@ -346,4 +355,4 @@ npm run dev
 
 ## Support and Feedback
 
-If you have any questions or issues about the migration process, please contact us on Discord (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!
+If you have any questions or issues about the migration process, please contact us on [Discord](https://discord.gg/EXqV7W8MtY) (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!
