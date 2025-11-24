@@ -7,7 +7,7 @@
 		"jsx": "react-jsx",
 		"jsxImportSource": "react",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["${configDir}/src/*"]
 		}
 	}
 }
