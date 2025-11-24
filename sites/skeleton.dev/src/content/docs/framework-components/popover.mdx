@@ -3,6 +3,8 @@ title: Popover
 description: Small overlay panels positioned relative to a trigger.
 ---
 
+import AnchorReact from '@/components/examples/framework-components/popover/react/anchor';
+import AnchorReactRaw from '@/components/examples/framework-components/popover/react/anchor?raw';
 import ArrowReact from '@/components/examples/framework-components/popover/react/arrow';
 import ArrowReactRaw from '@/components/examples/framework-components/popover/react/arrow?raw';
 import DefaultReact from '@/components/examples/framework-components/popover/react/default';
@@ -13,6 +15,8 @@ import ProviderPatternReact from '@/components/examples/framework-components/pop
 import ProviderPatternReactRaw from '@/components/examples/framework-components/popover/react/provider-pattern?raw';
 import ZIndexReact from '@/components/examples/framework-components/popover/react/z-index';
 import ZIndexReactRaw from '@/components/examples/framework-components/popover/react/z-index?raw';
+import AnchorSvelte from '@/components/examples/framework-components/popover/svelte/anchor.svelte';
+import AnchorSvelteRaw from '@/components/examples/framework-components/popover/svelte/anchor.svelte?raw';
 import ArrowSvelte from '@/components/examples/framework-components/popover/svelte/arrow.svelte';
 import ArrowSvelteRaw from '@/components/examples/framework-components/popover/svelte/arrow.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/popover/svelte/default.svelte';
@@ -36,6 +40,21 @@ import ZIndexSvelteRaw from '@/components/examples/framework-components/popover/
 </Framework>
 
 Breaking convention in Skeleton, this component is provided "headless". Meaning no default styles are applied out of the box. This ensures you retain full control of all styling for maximum flexibility.
+
+## Anchor
+
+Use the `Anchor` component to position the popover relative to a different element than the trigger. This is useful when you want the popover to appear anchored to a specific element while still using a separate button or element as the trigger.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AnchorReactRaw }} client:visible>
+		<AnchorReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AnchorSvelteRaw }} client:visible>
+		<AnchorSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Arrow
 
@@ -109,6 +128,7 @@ import { Popover, Portal } from '@skeletonlabs/skeleton-react';
 export default function Anatomy() {
 	return (
 		<Popover>
+			<Popover.Anchor />
 			<Popover.Trigger />
 			<Portal>
 				<Popover.Positioner>
@@ -136,6 +156,7 @@ export default function Anatomy() {
 </script>
 
 <Popover>
+	<Popover.Anchor />
 	<Popover.Trigger />
 	<Portal>
 		<Popover.Positioner>
