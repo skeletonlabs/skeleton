@@ -1,3 +1,4 @@
+import ClearTrigger from '../anatomy/clear-trigger.jsx';
 import Content from '../anatomy/content.jsx';
 import Control from '../anatomy/control.jsx';
 import Input from '../anatomy/input.jsx';
@@ -20,6 +21,7 @@ export const Combobox = Object.assign(Root, {
 	Control: Control,
 	Input: Input,
 	Trigger: Trigger,
+	ClearTrigger: ClearTrigger,
 	Positioner: Positioner,
 	Content: Content,
 	ItemGroup: ItemGroup,

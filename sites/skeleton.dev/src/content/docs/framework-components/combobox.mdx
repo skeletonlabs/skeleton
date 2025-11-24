@@ -135,11 +135,22 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 ### Z-Index
 
-By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the Positioner component part.
+By default we do not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the Content component part.
 
-```astro
-<Combobox.Positioner class="z-50!" />
+<Framework id="react">
+
+```tsx
+<Combobox.Content className="z-50" />
 ```
+
+</Framework>	
+<Framework id="svelte">
+
+```svelte
+<Combobox.Content class="z-50" />
+```
+
+</Framework>
 
 ### Max Items
 

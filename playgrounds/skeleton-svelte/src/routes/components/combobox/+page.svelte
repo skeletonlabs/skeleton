@@ -62,7 +62,7 @@
 		<Combobox.Trigger />
 	</Combobox.Control>
 	<Portal>
-		<Combobox.Positioner class="z-[1]!">
+		<Combobox.Positioner>
 			<Combobox.Content>
 				{#each collection.group() as [type, items] (type)}
 					<Combobox.ItemGroup>

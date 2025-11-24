@@ -37,7 +37,7 @@ export default function Group() {
 
 	return (
 		<Combobox
-			className="w-full max-w-md"
+			className="max-w-md"
 			placeholder="Search..."
 			collection={collection}
 			onOpenChange={onOpenChange}
@@ -48,7 +48,7 @@ export default function Group() {
 				<Combobox.Trigger />
 			</Combobox.Control>
 			<Portal>
-				<Combobox.Positioner className="z-[1]!">
+				<Combobox.Positioner>
 					<Combobox.Content>
 						{collection.group().map(([type, items]) => (
 							<Combobox.ItemGroup key={type}>

@@ -3,10 +3,7 @@
 </script>
 
 <TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']}>
-	<header class="flex justify-between items-end">
-		<TagsInput.Label>Flavors</TagsInput.Label>
-		<TagsInput.ClearTrigger>Clear</TagsInput.ClearTrigger>
-	</header>
+	<TagsInput.Label>Flavors</TagsInput.Label>
 	<TagsInput.Control>
 		<TagsInput.Context>
 			{#snippet children(tagsInput)}
@@ -23,5 +20,6 @@
 		</TagsInput.Context>
 		<TagsInput.Input placeholder="Add a flavor..." />
 	</TagsInput.Control>
+	<TagsInput.ClearTrigger>Clear All</TagsInput.ClearTrigger>
 	<TagsInput.HiddenInput />
 </TagsInput>

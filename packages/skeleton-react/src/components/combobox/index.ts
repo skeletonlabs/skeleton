@@ -1,3 +1,4 @@
+export type { ComboboxClearTriggerProps } from './anatomy/clear-trigger.jsx';
 export type { ComboboxContentProps } from './anatomy/content.jsx';
 export type { ComboboxControlProps } from './anatomy/control.jsx';
 export type { ComboboxInputProps } from './anatomy/input.jsx';
