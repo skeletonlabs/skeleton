@@ -28,7 +28,7 @@
 						</Avatar>
 						<div>
 							<Popover.Title class="text-lg font-bold">Skeleton Labs</Popover.Title>
-							<a href="https://bsky.app/profile/skeleton.dev" target="_blank" class="anchor">@skeletonlabs.dev</a>
+							<a href="https://bsky.app/profile/skeleton.dev" target="_blank" rel="noopener noreferrer" class="anchor">@skeletonlabs.dev</a>
 						</div>
 						<Popover.CloseTrigger class="btn-icon hover:preset-tonal self-start">
 							<XIcon class="size-4" />
