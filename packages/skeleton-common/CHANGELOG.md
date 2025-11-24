@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.1
+
+### Patch Changes
+
+- bugfix: Add documented, but missing, `Combobox.ClearTrigger` ([#4147](https://github.com/skeletonlabs/skeleton/pull/4147))
+
 ## 4.5.0
 
 ### Patch Changes
