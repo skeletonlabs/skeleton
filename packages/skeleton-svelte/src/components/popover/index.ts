@@ -1,3 +1,4 @@
+export type { PopoverAnchorProps } from './anatomy/anchor.svelte';
 export type { PopoverCloseTriggerProps } from './anatomy/close-trigger.svelte';
 export type { PopoverContentProps } from './anatomy/content.svelte';
 export type { PopoverDescriptionProps } from './anatomy/description.svelte';
