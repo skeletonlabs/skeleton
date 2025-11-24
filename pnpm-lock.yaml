@@ -190,16 +190,11 @@ catalogs:
       specifier: 1.29.1
       version: 1.29.1
     '@zag-js/slider':
-<<<<<<< HEAD
-      specifier: 1.29.0
-      version: 1.29.0
-    '@zag-js/steps':
-      specifier: 1.29.0
-      version: 1.29.0
-=======
       specifier: 1.29.1
       version: 1.29.1
->>>>>>> main
+    '@zag-js/steps':
+      specifier: 1.29.1
+      version: 1.29.1
     '@zag-js/svelte':
       specifier: 1.29.1
       version: 1.29.1
@@ -602,14 +597,10 @@ importers:
         version: 1.29.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@zag-js/slider':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.29.0
+        version: 1.29.1
       '@zag-js/steps':
         specifier: 'catalog:'
-        version: 1.29.0
-=======
         version: 1.29.1
->>>>>>> main
       '@zag-js/switch':
         specifier: 'catalog:'
         version: 1.29.1
@@ -721,14 +712,10 @@ importers:
         version: 1.29.1
       '@zag-js/slider':
         specifier: 'catalog:'
-<<<<<<< HEAD
-        version: 1.29.0
+        version: 1.29.1
       '@zag-js/steps':
         specifier: 'catalog:'
-        version: 1.29.0
-=======
         version: 1.29.1
->>>>>>> main
       '@zag-js/svelte':
         specifier: 'catalog:'
         version: 1.29.1(svelte@5.43.14)
@@ -3429,16 +3416,11 @@ packages:
   '@zag-js/slider@1.29.1':
     resolution: {integrity: sha512-BHT3GqM54TjnzuqJfVjcreDFfkXLQNKXBKdTRKQtOkSNsQ7M9Lci8UBHn4WcvQJN5RZ37zsc+Z7zHfHEe/1KSg==}
 
-<<<<<<< HEAD
-  '@zag-js/steps@1.29.0':
-    resolution: {integrity: sha512-YwOba03Y297niqQCNoAfLqk4ssYO3vocvpbdRSz8FDmM7RbuszEHY2oN3hUICtth01WqcBKTGAFmMDJn4cy+9w==}
+  '@zag-js/steps@1.29.1':
+    resolution: {integrity: sha512-Bd6Fx1jii9SWjweKISjRh2Wi8OdZJgreH71gNOAjY7BlANhBD+V/euaGX2CwrQXNh1UnBYXYpy664p5aQbkbjg==}
 
-  '@zag-js/store@1.29.0':
-    resolution: {integrity: sha512-z5CZERgXs0xebIMO8ugAH4BG+Y9bFn5n9As3XyXkUatTHMwq+nHlHPGhs4Gaw7owGr1LFUL0p+GqiAR+1cEA2Q==}
-=======
   '@zag-js/store@1.29.1':
     resolution: {integrity: sha512-SDyYek8BRtsRPz/CbxmwlXt6B0j6rCezeZN6uAswE4kkmO4bfAjIErrgnImx3TqfjMXlTm4oFUFqeqRJpdnJRg==}
->>>>>>> main
 
   '@zag-js/svelte@1.29.1':
     resolution: {integrity: sha512-tNqubDfknNWwFH6HYVvk+Ba1IWCC0t+GcURZCzFCfHK0/Jyn4f1pUoaEzRF8DvvYaztUzQpAiAkbmmxaAsKPaQ==}
@@ -9122,19 +9104,15 @@ snapshots:
       '@zag-js/types': 1.29.1
       '@zag-js/utils': 1.29.1
 
-<<<<<<< HEAD
-  '@zag-js/steps@1.29.0':
+  '@zag-js/steps@1.29.1':
     dependencies:
-      '@zag-js/anatomy': 1.29.0
-      '@zag-js/core': 1.29.0
-      '@zag-js/dom-query': 1.29.0
-      '@zag-js/types': 1.29.0
-      '@zag-js/utils': 1.29.0
+      '@zag-js/anatomy': 1.29.1
+      '@zag-js/core': 1.29.1
+      '@zag-js/dom-query': 1.29.1
+      '@zag-js/types': 1.29.1
+      '@zag-js/utils': 1.29.1
 
-  '@zag-js/store@1.29.0':
-=======
   '@zag-js/store@1.29.1':
->>>>>>> main
     dependencies:
       proxy-compare: 3.0.1
 
