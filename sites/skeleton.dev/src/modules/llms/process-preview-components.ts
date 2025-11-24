@@ -28,6 +28,7 @@ function getDefaultImports(root: Root) {
 }
 
 const resolve = new ResolverFactory({
+	// TODO: Set to `'auto'` when [this issues](https://github.com/oxc-project/oxc-resolver/issues/864) is resolved.
 	tsconfig: {
 		configFile: join(import.meta.dirname, '../../../tsconfig.json'),
 	},
