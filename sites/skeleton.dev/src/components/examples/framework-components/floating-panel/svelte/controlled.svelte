@@ -9,10 +9,10 @@
 	});
 </script>
 
-<div class="card bg-surface-100-900 p-4 flex flex-col gap-4">
-	<label class="label">
-		<span class="label-text">Open</span>
+<div class="flex flex-col gap-4">
+	<label class="label flex items-center gap-2">
 		<input type="checkbox" class="checkbox" bind:checked={open} />
+		<span class="label-text">Open Panel</span>
 	</label>
 	<label class="label">
 		<span class="label-text">Width:</span>

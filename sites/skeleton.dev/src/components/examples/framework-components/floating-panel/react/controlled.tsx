@@ -11,25 +11,20 @@ export default function Controlled() {
 
 	return (
 		<>
-			<div className="card bg-surface-100-900 p-4 flex flex-col gap-4">
-				<label className="label">
-					<span className="label-text">Open</span>
+			<div className="flex flex-col gap-4">
+				<label className="label flex items-center gap-2">
 					<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.currentTarget.checked)} />
+					<span className="label-text">Open Panel</span>
 				</label>
 				<label className="label">
 					<span className="label-text">Width:</span>
-					<input
-						type="number"
-						className="input w-24"
-						value={size.width}
-						onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
-					/>
+					<input type="number" className="input" value={size.width} onChange={(e) => setSize({ ...size, width: Number(e.target.value) })} />
 				</label>
 				<label className="label">
 					<span className="label-text">Height:</span>
 					<input
 						type="number"
-						className="input w-24"
+						className="input"
 						value={size.height}
 						onChange={(e) => setSize({ ...size, height: Number(e.target.value) })}
 					/>
