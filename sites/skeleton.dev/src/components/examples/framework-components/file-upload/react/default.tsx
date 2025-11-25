@@ -11,6 +11,7 @@ export default function Default() {
 				<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 				<FileUpload.HiddenInput />
 			</FileUpload.Dropzone>
+			<FileUpload.ClearTrigger>Clear All</FileUpload.ClearTrigger>
 			<FileUpload.ItemGroup>
 				<FileUpload.Context>
 					{(fileUpload) =>

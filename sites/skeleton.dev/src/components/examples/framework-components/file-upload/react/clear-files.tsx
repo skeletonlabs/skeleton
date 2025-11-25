@@ -12,6 +12,7 @@ export default function ClearFiles() {
 					<FileUpload.Trigger>Browse Files</FileUpload.Trigger>
 					<FileUpload.HiddenInput />
 				</FileUpload.Dropzone>
+				<FileUpload.ClearTrigger>Clear All</FileUpload.ClearTrigger>
 				<FileUpload.ItemGroup>
 					<FileUpload.Context>
 						{(fileUpload) =>
@@ -26,13 +27,6 @@ export default function ClearFiles() {
 					</FileUpload.Context>
 				</FileUpload.ItemGroup>
 			</FileUpload.Provider>
-
-			{/* Clear Button */}
-			<div className="card p-4 preset-outlined-primary-200-800 flex justify-center items-center">
-				<button className="btn preset-filled-primary-500" onClick={() => fileUpload.clearFiles()}>
-					Clear Files
-				</button>
-			</div>
 		</div>
 	);
 }
