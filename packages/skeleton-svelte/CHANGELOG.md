@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.5.3
+
+### Patch Changes
+
+- task: Convert CSS variables from `style` expressions to `tailwind` classes ([#4162](https://github.com/skeletonlabs/skeleton/pull/4162))
+
+- Updated dependencies [[`bcfd2cd`](https://github.com/skeletonlabs/skeleton/commit/bcfd2cd54832c744f565861bccb81b34b3e45206)]:
+  - @skeletonlabs/skeleton-common@4.5.3
+
 ## 4.5.2
 
 ### Patch Changes

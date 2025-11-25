@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.3
+
+### Patch Changes
+
+- task: Convert CSS variables from `style` expressions to `tailwind` classes ([#4162](https://github.com/skeletonlabs/skeleton/pull/4162))
+
 ## 4.5.2
 
 ### Patch Changes
