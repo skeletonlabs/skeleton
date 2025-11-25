@@ -5,9 +5,6 @@ import { join } from 'node:path';
 
 export default defineConfig({
 	plugins: [svelte() as unknown as Plugin],
-	optimizeDeps: {
-		exclude: ['@zag-js/svelte'],
-	},
 	test: {
 		dir: join(import.meta.dirname, 'test'),
 		browser: {

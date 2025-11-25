@@ -35,5 +35,10 @@
 		"node": "22.21.1",
 		"pnpm": "10.23.0"
 	},
+	"pnpm": {
+		"overrides": {
+			"vitest>vite": "catalog:"
+		}
+	},
 	"packageManager": "pnpm@10.23.0"
 }
