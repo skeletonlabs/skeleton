@@ -28,7 +28,7 @@ export const classesProgress = defineSkeletonClasses({
 	],
 
 	// Circular
-	circle: '',
+	circle: '[--size:--spacing(24)] [--thickness:calc(var(--size)/12)]',
 	circleTrack: 'stroke-surface-200-800',
 	circleRange: [
 		'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',

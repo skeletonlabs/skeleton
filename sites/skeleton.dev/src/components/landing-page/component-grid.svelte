@@ -212,21 +212,21 @@
 			<h2 class="h4 text-center">Progression</h2>
 			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
 				<Progress value={32} class="relative items-center w-fit row-span-2">
-					<Progress.Circle style="--size: 200px;">
+					<Progress.Circle class="[--size:--spacing(48)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>
 					<Progress.ValueText class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-semibold" />
 				</Progress>
 				<Progress value={66} class="relative items-center w-fit self-center">
-					<Progress.Circle style="--size: 75px;">
+					<Progress.Circle class="[--size:--spacing(18)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>
 					<Progress.ValueText class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
 				</Progress>
 				<Progress value={35} class="relative items-center w-fit self-center">
-					<Progress.Circle style="--size: 75px;">
+					<Progress.Circle class="[--size:--spacing(18)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>

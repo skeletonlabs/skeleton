@@ -1,10 +1,20 @@
 import { Avatar, Popover, Portal } from '@skeletonlabs/skeleton-react';
 import { XIcon } from 'lucide-react';
 
-export default function Default() {
+export default function Anchor() {
 	return (
 		<Popover>
-			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>
+			<div className="flex items-center gap-4">
+				<Popover.Anchor>
+					<Avatar>
+						<Avatar.Image
+							src="https://cdn.bsky.app/img/avatar/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreibgoxuqahwcpiah22yfovqszh33x2u4sysmqoyuk5j54aoakt7364@jpeg"
+							alt="Skeleton Labs"
+						/>
+					</Avatar>
+				</Popover.Anchor>
+				<Popover.Trigger className="btn preset-filled">Show Profile</Popover.Trigger>
+			</div>
 			<Portal>
 				<Popover.Positioner>
 					<Popover.Content className="card w-96 p-4 bg-surface-100-900 shadow-xl">

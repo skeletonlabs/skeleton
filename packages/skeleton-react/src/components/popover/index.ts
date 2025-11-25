@@ -1,3 +1,4 @@
+export type { PopoverAnchorProps } from './anatomy/anchor.jsx';
 export type { PopoverCloseTriggerProps } from './anatomy/close-trigger.jsx';
 export type { PopoverContentProps } from './anatomy/content.jsx';
 export type { PopoverDescriptionProps } from './anatomy/description.jsx';

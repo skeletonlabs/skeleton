@@ -13,7 +13,7 @@
 					nesciunt enim.
 				</Popover.Description>
 				<Popover.CloseTrigger class="btn preset-tonal">Close</Popover.CloseTrigger>
-				<Popover.Arrow style="--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);">
+				<Popover.Arrow class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 					<Popover.ArrowTip />
 				</Popover.Arrow>
 			</Popover.Content>
