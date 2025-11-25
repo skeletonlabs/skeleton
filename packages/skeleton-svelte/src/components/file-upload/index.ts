@@ -1,3 +1,4 @@
+export type { FileUploadClearTriggerProps } from './anatomy/clear-trigger.svelte';
 export type { FileUploadDropzoneProps } from './anatomy/dropzone.svelte';
 export type { FileUploadHiddenInputProps } from './anatomy/hidden-input.svelte';
 export type { FileUploadItemProps } from './anatomy/item.svelte';

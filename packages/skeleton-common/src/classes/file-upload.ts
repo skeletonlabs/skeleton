@@ -8,6 +8,7 @@ export const classesFileUpload = defineSkeletonClasses({
 	],
 	hiddenInput: '',
 	trigger: 'btn preset-filled',
+	clearTrigger: 'btn btn-sm preset-tonal hover:preset-filled-error-500',
 	itemGroup: 'flex flex-col gap-2',
 	item: 'grid grid-cols-[auto_1fr_auto] gap-4 items-center preset-tonal px-4 py-2 rounded',
 	itemName: 'text-sm',

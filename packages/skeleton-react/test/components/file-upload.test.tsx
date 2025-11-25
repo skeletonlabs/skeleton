@@ -32,6 +32,13 @@ describe('FileUpload', () => {
 		});
 	});
 
+	describe('ClearTrigger', () => {
+		it('renders', async () => {
+			await render(<FileUpload />);
+			await expect.element(page.getByTestId('clear-trigger')).toBeInTheDocument();
+		});
+	});
+
 	describe('ItemGroup', () => {
 		it('renders', async () => {
 			await render(<FileUpload />);

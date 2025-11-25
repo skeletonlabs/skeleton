@@ -1,3 +1,4 @@
+export type { FileUploadClearTriggerProps } from './anatomy/clear-trigger.jsx';
 export type { FileUploadDropzoneProps } from './anatomy/dropzone.jsx';
 export type { FileUploadHiddenInputProps } from './anatomy/hidden-input.jsx';
 export type { FileUploadItemProps } from './anatomy/item.jsx';
