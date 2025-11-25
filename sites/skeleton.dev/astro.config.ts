@@ -63,9 +63,7 @@ export default defineConfig({
 		},
 		assetsInclude: '**/pagefind.js',
 		plugins: [
-			/* @ts-expect-error vite version mismatch */
 			tailwindcss(),
-			/* @ts-expect-error vite version mismatch */
 			transformLucideImports({
 				extensions: [...SUPPORTED_EXTENSIONS, '.astro'],
 				onwarn(warning, defaultHandler) {
