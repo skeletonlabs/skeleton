@@ -1,10 +1,10 @@
 import react from '@vitejs/plugin-react';
 import { playwright } from '@vitest/browser-playwright';
-import { defineConfig, type Plugin } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 import { join } from 'node:path';
 
 export default defineConfig({
-	plugins: [react() as unknown as Plugin],
+	plugins: [react()],
 	test: {
 		dir: join(import.meta.dirname, 'test'),
 		browser: {

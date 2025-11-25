@@ -35,5 +35,11 @@
 		"node": "22.21.1",
 		"pnpm": "10.23.0"
 	},
+	"pnpm": {
+		"overrides": {
+			"vite": "catalog:",
+			"astro>vite": "^6.4.1"
+		}
+	},
 	"packageManager": "pnpm@10.23.0"
 }
