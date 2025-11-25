@@ -37,7 +37,7 @@
 	},
 	"pnpm": {
 		"overrides": {
-			"vite>vitest": "catalog:"
+			"vite": "catalog:"
 		}
 	},
 	"packageManager": "pnpm@10.23.0"
