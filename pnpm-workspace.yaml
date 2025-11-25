@@ -144,3 +144,17 @@ onlyBuiltDependencies:
   - sharp
 
 savePrefix: ''
+
+# Security settings to decrease supply chain attack risk
+# See: https://pnpm.io/settings#minimumreleaseage
+minimumReleaseAge: 3 days
+
+# Exclude zag-js packages from minimumReleaseAge policy to allow keeping in sync with upstream fixes
+minimumReleaseAgeExcludePackages:
+  - '@zag-js/*'
+
+# Trust policy to further decrease supply chain attack risk
+# See: https://pnpm.io/settings#trustpolicy
+trustPolicy:
+  dependencies: newPackagesRequireApproval
+  scripts: onlyBuiltDependencies

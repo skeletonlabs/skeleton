@@ -3,6 +3,7 @@
 	"extends": ["config:recommended", "schedule:earlyMondays", ":semanticCommitTypeAll(task)"],
 	"labels": ["dependencies"],
 	"dependencyDashboard": false,
+	"minimumReleaseAge": "3 days",
 	"packageRules": [
 		{
 			"matchUpdateTypes": ["minor", "patch", "pin"],
@@ -18,6 +19,11 @@
 			],
 			"matchDepTypes": ["dependencies", "peerDependencies", "optionalDependencies"],
 			"groupName": "skeleton packages"
+		},
+		{
+			"description": "Exclude @zag-js packages from minimumReleaseAge to allow keeping in sync with upstream fixes",
+			"matchPackageNames": ["@zag-js/*"],
+			"minimumReleaseAge": "0 days"
 		}
 	]
 }
