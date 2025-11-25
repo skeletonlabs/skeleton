@@ -1,0 +1,236 @@
+---
+title: Floating Panel
+description: A draggable, resizable floating panel with minimize/maximize controls.
+stability: beta
+---
+
+import AnchorPositionReact from '@/components/examples/framework-components/floating-panel/react/anchor-position';
+import AnchorPositionReactRaw from '@/components/examples/framework-components/floating-panel/react/anchor-position?raw';
+import ControlledReact from '@/components/examples/framework-components/floating-panel/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/floating-panel/react/controlled?raw';
+import DefaultReact from '@/components/examples/framework-components/floating-panel/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/floating-panel/react/default?raw';
+import DirReact from '@/components/examples/framework-components/floating-panel/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/floating-panel/react/dir?raw';
+import DisableDraggingReact from '@/components/examples/framework-components/floating-panel/react/disable-dragging';
+import DisableDraggingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-dragging?raw';
+import DisableResizingReact from '@/components/examples/framework-components/floating-panel/react/disable-resizing';
+import DisableResizingReactRaw from '@/components/examples/framework-components/floating-panel/react/disable-resizing?raw';
+import ResizeTriggersReact from '@/components/examples/framework-components/floating-panel/react/resize-triggers';
+import ResizeTriggersReactRaw from '@/components/examples/framework-components/floating-panel/react/resize-triggers?raw';
+import SizeConstraintsReact from '@/components/examples/framework-components/floating-panel/react/size-constraints';
+import SizeConstraintsReactRaw from '@/components/examples/framework-components/floating-panel/react/size-constraints?raw';
+import AnchorPositionSvelte from '@/components/examples/framework-components/floating-panel/svelte/anchor-position.svelte';
+import AnchorPositionSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/anchor-position.svelte?raw';
+import ControlledSvelte from '@/components/examples/framework-components/floating-panel/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/controlled.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/floating-panel/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/floating-panel/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/dir.svelte?raw';
+import DisableDraggingSvelte from '@/components/examples/framework-components/floating-panel/svelte/disable-dragging.svelte';
+import DisableDraggingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-dragging.svelte?raw';
+import DisableResizingSvelte from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte';
+import DisableResizingSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/disable-resizing.svelte?raw';
+import ResizeTriggersSvelte from '@/components/examples/framework-components/floating-panel/svelte/resize-triggers.svelte';
+import ResizeTriggersSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/resize-triggers.svelte?raw';
+import SizeConstraintsSvelte from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte';
+import SizeConstraintsSvelteRaw from '@/components/examples/framework-components/floating-panel/svelte/size-constraints.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Size Constraints
+
+Use the `minSize` and `maxSize` props to set size constraints on the Floating Panel.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SizeConstraintsReactRaw }} client:visible>
+		<SizeConstraintsReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SizeConstraintsSvelteRaw }} client:visible>
+		<SizeConstraintsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+Control the open state and size of the Floating Panel with your own state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anchor Position
+
+Position the panel relative to another element using the `defaultPosition` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AnchorPositionReactRaw }} client:visible>
+		<AnchorPositionReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AnchorPositionSvelteRaw }} client:visible>
+		<AnchorPositionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Resize Triggers
+
+Add resize triggers on all sides and corners of the Floating Panel using the `axis` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ResizeTriggersReactRaw }} client:visible>
+		<ResizeTriggersReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ResizeTriggersSvelteRaw }} client:visible>
+		<ResizeTriggersSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disable Dragging
+
+Disable dragging by setting the `draggable` prop to `false`. The panel will remain in a fixed position but can still be resized.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisableDraggingReactRaw }} client:visible>
+		<DisableDraggingReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisableDraggingSvelteRaw }} client:visible>
+		<DisableDraggingSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disable Resizing
+
+Disable resizing by setting the `resizable` prop to `false`. The panel will have a fixed size but can still be dragged.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisableResizingReactRaw }} client:visible>
+		<DisableResizingReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DisableResizingSvelteRaw }} client:visible>
+		<DisableResizingSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Floating Panel component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<FloatingPanel>
+			<FloatingPanel.Trigger />
+			<Portal>
+				<FloatingPanel.Positioner>
+					<FloatingPanel.Content>
+						<FloatingPanel.DragTrigger>
+							<FloatingPanel.Header>
+								<FloatingPanel.Title />
+								<FloatingPanel.Control>
+									<FloatingPanel.StageTrigger />
+									<FloatingPanel.CloseTrigger />
+								</FloatingPanel.Control>
+							</FloatingPanel.Header>
+						</FloatingPanel.DragTrigger>
+						<FloatingPanel.Body />
+						<FloatingPanel.ResizeTrigger />
+					</FloatingPanel.Content>
+				</FloatingPanel.Positioner>
+			</Portal>
+		</FloatingPanel>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<FloatingPanel>
+	<FloatingPanel.Trigger />
+	<Portal>
+		<FloatingPanel.Positioner>
+			<FloatingPanel.Content>
+				<FloatingPanel.DragTrigger>
+					<FloatingPanel.Header>
+						<FloatingPanel.Title />
+						<FloatingPanel.Control>
+							<FloatingPanel.StageTrigger />
+							<FloatingPanel.CloseTrigger />
+						</FloatingPanel.Control>
+					</FloatingPanel.Header>
+				</FloatingPanel.DragTrigger>
+				<FloatingPanel.Body />
+				<FloatingPanel.ResizeTrigger />
+			</FloatingPanel.Content>
+		</FloatingPanel.Positioner>
+	</Portal>
+</FloatingPanel>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/floating-panel" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/floating-panel" />
+</Framework>

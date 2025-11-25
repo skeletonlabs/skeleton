@@ -57,6 +57,7 @@ catalog:
   '@zag-js/date-picker': 1.29.1
   '@zag-js/dialog': 1.29.1
   '@zag-js/file-upload': 1.29.1
+  '@zag-js/floating-panel': 1.29.1
   '@zag-js/listbox': 1.29.1
   '@zag-js/menu': 1.29.1
   '@zag-js/pagination': 1.29.1

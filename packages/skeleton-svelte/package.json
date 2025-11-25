@@ -37,6 +37,7 @@
 		"@zag-js/date-picker": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
+		"@zag-js/floating-panel": "catalog:",
 		"@zag-js/listbox": "catalog:",
 		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",
