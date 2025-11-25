@@ -21,7 +21,6 @@
 			progress().getCircleProps(),
 			{
 				class: classesProgress.circle,
-				style: '--size: 100px; --thickness: 10px;',
 			},
 			rest,
 		),

@@ -31,7 +31,7 @@
 						<p class="text-sm">100 <span class="opacity-60">Posts</span></p>
 					</div>
 				</div>
-				<Popover.Arrow style="--arrow-size: calc(var(--spacing) * 2); --arrow-background: var(--color-surface-100-900);">
+				<Popover.Arrow class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 					<Popover.ArrowTip />
 				</Popover.Arrow>
 			</Popover.Content>
