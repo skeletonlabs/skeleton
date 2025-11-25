@@ -4,6 +4,13 @@ import { render } from 'vitest-browser-react';
 import { page } from 'vitest/browser';
 
 describe('Popover', () => {
+	describe('Anchor', () => {
+		it('renders', async () => {
+			await render(<Popover />);
+			await expect.element(page.getByTestId('anchor')).toBeInTheDocument();
+		});
+	});
+
 	describe('Trigger', () => {
 		it('renders', async () => {
 			await render(<Popover />);

@@ -6,14 +6,9 @@ export default function Arrow() {
 			<Tooltip.Trigger>Hover</Tooltip.Trigger>
 			<Portal>
 				<Tooltip.Positioner>
-					<Tooltip.Content className="card bg-surface-100-900 p-2  shadow-xl">
+					<Tooltip.Content className="card bg-surface-100-900 p-2 shadow-xl">
 						<span>Hello Skeleton</span>
-						<Tooltip.Arrow
-							style={{
-								['--arrow-size' as string]: 'calc(var(--spacing) * 2)',
-								['--arrow-background' as string]: 'var(--color-surface-100-900)',
-							}}
-						>
+						<Tooltip.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 							<Tooltip.ArrowTip />
 						</Tooltip.Arrow>
 					</Tooltip.Content>
