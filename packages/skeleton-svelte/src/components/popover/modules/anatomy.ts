@@ -1,3 +1,4 @@
+import Anchor from '../anatomy/anchor.svelte';
 import ArrowTip from '../anatomy/arrow-tip.svelte';
 import Arrow from '../anatomy/arrow.svelte';
 import CloseTrigger from '../anatomy/close-trigger.svelte';
@@ -13,6 +14,7 @@ import Trigger from '../anatomy/trigger.svelte';
 export const Popover = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
+	Anchor: Anchor,
 	Trigger: Trigger,
 	Positioner: Positioner,
 	Content: Content,

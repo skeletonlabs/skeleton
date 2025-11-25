@@ -4,7 +4,17 @@
 </script>
 
 <Popover>
-	<Popover.Trigger class="btn preset-filled">Trigger</Popover.Trigger>
+	<div class="flex items-center gap-4">
+		<Popover.Anchor>
+			<Avatar>
+				<Avatar.Image
+					src="https://cdn.bsky.app/img/avatar/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreibgoxuqahwcpiah22yfovqszh33x2u4sysmqoyuk5j54aoakt7364@jpeg"
+					alt="Skeleton Labs"
+				/>
+			</Avatar>
+		</Popover.Anchor>
+		<Popover.Trigger class="btn preset-filled">Show Profile</Popover.Trigger>
+	</div>
 	<Portal>
 		<Popover.Positioner>
 			<Popover.Content class="card w-96 p-4 bg-surface-100-900 shadow-xl">
@@ -18,7 +28,7 @@
 						</Avatar>
 						<div>
 							<Popover.Title class="text-lg font-bold">Skeleton Labs</Popover.Title>
-							<a href="https://bsky.app/profile/skeleton.dev" target="_blank" class="anchor">@skeletonlabs.dev</a>
+							<a href="https://bsky.app/profile/skeleton.dev" target="_blank" rel="noopener noreferrer" class="anchor">@skeletonlabs.dev</a>
 						</div>
 						<Popover.CloseTrigger class="btn-icon hover:preset-tonal self-start">
 							<XIcon class="size-4" />

@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-common
 
+## 4.5.3
+
+### Patch Changes
+
+- task: Convert CSS variables from `style` expressions to `tailwind` classes ([#4162](https://github.com/skeletonlabs/skeleton/pull/4162))
+
+## 4.5.2
+
+### Patch Changes
+
+- bugfix: Add missing `Popover.Anchor` ([#4158](https://github.com/skeletonlabs/skeleton/pull/4158))
+
 ## 4.5.1
 
 ### Patch Changes

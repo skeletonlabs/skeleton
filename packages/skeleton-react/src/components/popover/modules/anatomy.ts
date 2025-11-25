@@ -1,3 +1,4 @@
+import Anchor from '../anatomy/anchor.jsx';
 import ArrowTip from '../anatomy/arrow-tip.jsx';
 import Arrow from '../anatomy/arrow.jsx';
 import CloseTrigger from '../anatomy/close-trigger.jsx';
@@ -13,6 +14,7 @@ import Trigger from '../anatomy/trigger.jsx';
 export const Popover = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
+	Anchor: Anchor,
 	Trigger: Trigger,
 	Positioner: Positioner,
 	Content: Content,

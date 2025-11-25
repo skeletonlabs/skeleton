@@ -3,6 +3,7 @@
 </script>
 
 <Popover>
+	<Popover.Anchor data-testid="anchor" />
 	<Popover.Trigger data-testid="trigger" />
 	<Popover.Positioner data-testid="positioner">
 		<Popover.Content data-testid="content">

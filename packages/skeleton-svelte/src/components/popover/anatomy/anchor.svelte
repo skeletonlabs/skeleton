@@ -2,25 +2,25 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface ProgressCircleProps extends PropsWithElement<'svg'>, HTMLAttributes<'svg'> {}
+	export interface PopoverAnchorProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesProgress } from '@skeletonlabs/skeleton-common';
+	import { classesPopover } from '@skeletonlabs/skeleton-common';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: ProgressCircleProps = $props();
+	const props: PopoverAnchorProps = $props();
 
-	const progress = RootContext.consume();
+	const popover = RootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
-			progress().getCircleProps(),
+			popover().getAnchorProps(),
 			{
-				class: classesProgress.circle,
+				class: classesPopover.anchor,
 			},
 			rest,
 		),
@@ -30,7 +30,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<svg {...attributes}>
+	<div {...attributes}>
 		{@render children?.()}
-	</svg>
+	</div>
 {/if}

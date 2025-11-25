@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-react
 
+## 4.5.3
+
+### Patch Changes
+
+- task: Convert CSS variables from `style` expressions to `tailwind` classes ([#4162](https://github.com/skeletonlabs/skeleton/pull/4162))
+
+- Updated dependencies [[`bcfd2cd`](https://github.com/skeletonlabs/skeleton/commit/bcfd2cd54832c744f565861bccb81b34b3e45206)]:
+  - @skeletonlabs/skeleton-common@4.5.3
+
+## 4.5.2
+
+### Patch Changes
+
+- bugfix: Add missing `Popover.Anchor` ([#4158](https://github.com/skeletonlabs/skeleton/pull/4158))
+
+- Updated dependencies [[`e8dc070`](https://github.com/skeletonlabs/skeleton/commit/e8dc070e1ea01afba12cdaa113491ba985d3fe41)]:
+  - @skeletonlabs/skeleton-common@4.5.2
+
 ## 4.5.1
 
 ### Patch Changes
