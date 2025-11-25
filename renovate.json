@@ -22,7 +22,7 @@
 		},
 		{
 			"description": "Exclude @zag-js packages from minimumReleaseAge to allow keeping in sync with upstream fixes",
-			"matchPackageNames": ["@zag-js/*"],
+			"matchPackagePatterns": ["^@zag-js/"],
 			"minimumReleaseAge": "0 days"
 		}
 	]
