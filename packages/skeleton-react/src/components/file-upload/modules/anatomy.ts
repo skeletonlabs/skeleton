@@ -1,3 +1,4 @@
+import ClearTrigger from '../anatomy/clear-trigger.jsx';
 import Dropzone from '../anatomy/dropzone.jsx';
 import HiddenInput from '../anatomy/hidden-input.jsx';
 import ItemDeleteTrigger from '../anatomy/item-delete-trigger.jsx';
@@ -17,6 +18,7 @@ export const FileUpload = Object.assign(Root, {
 	Label: Label,
 	Dropzone: Dropzone,
 	Trigger: Trigger,
+	ClearTrigger: ClearTrigger,
 	HiddenInput: HiddenInput,
 	ItemGroup: ItemGroup,
 	Item: Item,

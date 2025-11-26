@@ -24,4 +24,5 @@
 			{/snippet}
 		</FileUpload.Context>
 	</FileUpload.ItemGroup>
+	<FileUpload.ClearTrigger>Clear Files</FileUpload.ClearTrigger>
 </FileUpload>

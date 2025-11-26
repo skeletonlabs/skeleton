@@ -1,9 +1,12 @@
-'use client';
-
 import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
+import { createFileRoute } from '@tanstack/react-router';
+import { MaximizeIcon, MinimizeIcon, MinusIcon, XIcon } from 'lucide-react';
 
-export default function Page() {
+export const Route = createFileRoute('/components/floating-panel/')({
+	component: RouteComponent,
+});
+
+function RouteComponent() {
 	return (
 		<FloatingPanel>
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>

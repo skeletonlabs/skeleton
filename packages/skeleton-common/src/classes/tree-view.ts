@@ -1,7 +1,7 @@
 import { defineSkeletonClasses } from '../internal/define-skeleton-classes.js' with { type: 'macro' };
 
 export const classesTreeView = defineSkeletonClasses({
-	root: 'w-full space-y-2 select-none',
+	root: 'w-full flex flex-col gap-2 items-start select-none',
 	tree: 'space-y-1',
 	label: 'label-text',
 	item: [
