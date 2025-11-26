@@ -5,8 +5,6 @@ description: File upload dropzone and input patterns for selecting files.
 
 import ButtonReact from '@/components/examples/framework-components/file-upload/react/button';
 import ButtonReactRaw from '@/components/examples/framework-components/file-upload/react/button?raw';
-import ClearFilesReact from '@/components/examples/framework-components/file-upload/react/clear-files';
-import ClearFilesReactRaw from '@/components/examples/framework-components/file-upload/react/clear-files?raw';
 import DefaultReact from '@/components/examples/framework-components/file-upload/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/file-upload/react/default?raw';
 import DirReact from '@/components/examples/framework-components/file-upload/react/dir';
@@ -15,8 +13,6 @@ import DisabledReact from '@/components/examples/framework-components/file-uploa
 import DisabledReactRaw from '@/components/examples/framework-components/file-upload/react/disabled?raw';
 import ButtonSvelte from '@/components/examples/framework-components/file-upload/svelte/button.svelte';
 import ButtonSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/button.svelte?raw';
-import ClearFilesSvelte from '@/components/examples/framework-components/file-upload/svelte/clear-files.svelte';
-import ClearFilesSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/clear-files.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/file-upload/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/file-upload/svelte/default.svelte?raw';
 import DirSvelte from '@/components/examples/framework-components/file-upload/svelte/dir.svelte';
@@ -62,21 +58,6 @@ Replace the interface with a simple "browse" button.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': ButtonSvelteRaw }} client:visible>
 		<ButtonSvelte client:visible />
-	</Preview>
-</Framework>
-
-## Provider Pattern
-
-Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
-
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ClearFilesReactRaw }} client:visible>
-		<ClearFilesReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ClearFilesSvelteRaw }} client:visible>
-		<ClearFilesSvelte client:visible />
 	</Preview>
 </Framework>
 
