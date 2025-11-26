@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton
 
+## 4.6.0
+
 ## 4.5.3
 
 ## 4.5.2
