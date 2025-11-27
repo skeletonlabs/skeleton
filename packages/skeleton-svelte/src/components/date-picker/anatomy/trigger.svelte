@@ -8,7 +8,7 @@
 <script lang="ts">
 	import CalendarIcon from '../../../internal/components/calendar.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTriggerProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			datePicker().getTriggerProps(),
 			{
-				class: classesDatePicker.trigger,
+				class: classes.datePicker.trigger,
 			},
 			rest,
 		),

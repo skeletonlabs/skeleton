@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlItemTextProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			segmentedcontrol().getItemTextProps(itemProps()),
 			{
-				class: classesSegmentedControl.itemText,
+				class: classes.segmentedControl.itemText,
 			},
 			rest,
 		),

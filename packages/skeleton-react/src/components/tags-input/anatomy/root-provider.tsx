@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { useTagsInput } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesTagsInput } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export interface TagsInputRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
@@ -15,7 +15,7 @@ export default function RootProvider(props: TagsInputRootProviderProps) {
 	const attributes = mergeProps(
 		tagsInput.getRootProps(),
 		{
-			className: classesTagsInput.root,
+			className: classes.tagsInput.root,
 		},
 		rest,
 	);

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -15,7 +15,7 @@ export default function YearSelect(props: DatePickerYearSelectProps) {
 	const attributes = mergeProps(
 		datePicker.getYearSelectProps(),
 		{
-			className: classesDatePicker.yearSelect,
+			className: classes.datePicker.yearSelect,
 		},
 		rest,
 	);

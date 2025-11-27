@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: RatingGroupRootProviderProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			ratingGroup().getRootProps(),
 			{
-				class: classesRatingGroup.root,
+				class: classes.ratingGroup.root,
 			},
 			rest,
 		),

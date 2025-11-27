@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCombobox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxLabelProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			combobox().getLabelProps(),
 			{
-				class: classesCombobox.label,
+				class: classes.combobox.label,
 			},
 			rest,
 		),

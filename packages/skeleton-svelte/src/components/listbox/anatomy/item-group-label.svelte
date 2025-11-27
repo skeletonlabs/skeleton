@@ -11,7 +11,7 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesListbox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -32,7 +32,7 @@
 		mergeProps(
 			listbox().getItemGroupLabelProps(itemGroupLabelProps),
 			{
-				class: classesListbox.itemGroupLabel,
+				class: classes.listbox.itemGroupLabel,
 			},
 			rest,
 		),

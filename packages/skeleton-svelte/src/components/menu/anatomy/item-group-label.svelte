@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesMenu } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemGroupLabelProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -33,7 +33,7 @@
 		mergeProps(
 			menu().getItemGroupLabelProps(labelProps),
 			{
-				class: classesMenu.itemGroupLabel,
+				class: classes.menu.itemGroupLabel,
 			},
 			rest,
 		),

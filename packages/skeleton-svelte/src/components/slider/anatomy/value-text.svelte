@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSlider } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderValueTextProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			slider().getValueTextProps(),
 			{
-				class: classesSlider.valueText,
+				class: classes.slider.valueText,
 			},
 			rest,
 		),

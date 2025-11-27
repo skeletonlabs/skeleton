@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerViewTriggerProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			datePicker().getViewTriggerProps(viewProps()),
 			{
-				class: classesDatePicker.viewTrigger,
+				class: classes.datePicker.viewTrigger,
 			},
 			rest,
 		),

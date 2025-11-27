@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCollapsible } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CollapsibleRootProviderProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			collapsible().getRootProps(),
 			{
-				class: classesCollapsible.root,
+				class: classes.collapsible.root,
 			},
 			rest,
 		),

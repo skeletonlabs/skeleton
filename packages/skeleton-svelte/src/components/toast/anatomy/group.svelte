@@ -12,7 +12,7 @@
 
 <script lang="ts">
 	import { GroupContext } from '../modules/group-context.js';
-	import { classesToast } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';
 
@@ -31,7 +31,7 @@
 		mergeProps(
 			api.getGroupProps(),
 			{
-				class: classesToast.group,
+				class: classes.toast.group,
 			},
 			rest,
 		),

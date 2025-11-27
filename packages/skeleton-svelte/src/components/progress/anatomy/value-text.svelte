@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesProgress } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressValueTextProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			progress().getValueTextProps(),
 			{
-				class: classesProgress.valueText,
+				class: classes.progress.valueText,
 			},
 			rest,
 		),

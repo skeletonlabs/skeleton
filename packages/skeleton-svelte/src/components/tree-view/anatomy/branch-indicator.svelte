@@ -9,7 +9,7 @@
 	import ChevronRight from '../../../internal/components/chevron-right.svelte';
 	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesTreeView } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchIndicatorProps = $props();
@@ -23,7 +23,7 @@
 		mergeProps(
 			treeView().getBranchIndicatorProps(nodeProps()),
 			{
-				class: classesTreeView.branchIndicator,
+				class: classes.treeView.branchIndicator,
 			},
 			rest,
 		),

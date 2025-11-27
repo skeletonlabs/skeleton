@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSwitch } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SwitchControlProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			switch_().getControlProps(),
 			{
-				class: classesSwitch.control,
+				class: classes.switch.control,
 			},
 			rest,
 		),
