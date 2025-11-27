@@ -247,19 +247,15 @@ Component classes are now common and shared between all framework iterations. Th
 packages/
 └── skeleton-common/
 	└── src/
-		├── classes/
-		|	├── accordion.ts
-		|	├── avatar.ts
-		|	└── ...
-		└── index.ts
+		└── classes.ts
 ```
 
 Here's an example of the Avatar styles found in `avatar.ts`:
 
 ```ts
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineClasses } from './define-classes.js' with { type: 'macro' };
 
-export const classesAvatar = defineSkeletonClasses({
+export const avatar = defineClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
 	fallback: 'size-full flex justify-center items-center',
@@ -278,9 +274,9 @@ export const classesAvatar = defineSkeletonClasses({
 You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
 
 ```ts
-import { defineSkeletonClasses } from '../internal/define-skeleton-classes' with { type: 'macro' };
+import { defineClasses } from './define-classes.js' with { type: 'macro' };
 
-export const classesProgress = defineSkeletonClasses({
+export const progress = defineClasses({
 	root: [
 		// Common
 		'items-center justify-center gap-2',
@@ -316,7 +312,7 @@ For Zag primitives, you can import and implement each class list Using Zag's `me
 ```tsx
 import type { HTMLAttributes } from '../../../internal/html-attributes';
 import type { PropsWithElement } from '../../../internal/props-with-element';
-import { classesAvatar } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import type { Props } from '@zag-js/avatar';
 import { mergeProps } from '@zag-js/react';
 
@@ -330,7 +326,7 @@ export default function (props: AvatarRootProps) {
 	const attributes = mergeProps(
 		api.getRootProps(),
 		{
-			className: classesAvatar.root,
+			className: classes.avatar.root,
 		},
 		rest,
 	);
@@ -342,7 +338,7 @@ export default function (props: AvatarRootProps) {
 The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility, just without the `api.getPartProps()`.
 
 ```tsx
-import { classesNavigation } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export default function (props: NavigationRootProps) {
@@ -350,7 +346,7 @@ export default function (props: NavigationRootProps) {
 
 	const attributes = mergeProps(
 		{
-			className: classesNavigation.root,
+			className: classes.navigation.root,
 		},
 		rest,
 	);

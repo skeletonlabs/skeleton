@@ -1,4 +1,4 @@
-export function defineSkeletonClasses<T extends Record<string, string | string[]>>(anatomy: T) {
+export function defineClasses<T extends Record<string, string | string[]>>(anatomy: T) {
 	const PREFIX = 'skb:';
 	const ESCAPE_PREFIX = 'not-skb:';
 

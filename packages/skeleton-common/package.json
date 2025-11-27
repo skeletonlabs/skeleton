@@ -18,9 +18,11 @@
 	},
 	"exports": {
 		".": {
-			"types": "./dist/index.d.mts",
-			"import": "./dist/index.mjs",
 			"style": "./dist/index.css"
+		},
+		"./classes": {
+			"types": "./dist/classes.d.mts",
+			"import": "./dist/classes.mjs"
 		}
 	},
 	"files": [

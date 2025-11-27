@@ -1,6 +1,6 @@
-import { defineSkeletonClasses } from './define-skeleton-classes.js' with { type: 'macro' };
+import { defineClasses } from './define-classes.js' with { type: 'macro' };
 
-export const accordion = defineSkeletonClasses({
+export const accordion = defineClasses({
 	root: ['flex gap-2 w-full', 'data-[orientation=vertical]:flex-col data-[orientation=horizontal]:flex-row'],
 	item: ['flex gap-2', 'data-[orientation=vertical]:flex-col data-[orientation=horizontal]:flex-row'],
 	itemTrigger: 'px-4 py-2 rounded-base w-full text-start hover:preset-tonal-primary',
@@ -8,7 +8,7 @@ export const accordion = defineSkeletonClasses({
 	itemContent: 'py-2 px-4',
 });
 
-export const appBar = defineSkeletonClasses({
+export const appBar = defineClasses({
 	root: 'w-full bg-surface-100-900 p-4 space-y-4',
 	toolbar: 'grid items-center justify-between gap-4',
 	lead: '',
@@ -16,20 +16,20 @@ export const appBar = defineSkeletonClasses({
 	trail: 'flex gap-2',
 });
 
-export const avatar = defineSkeletonClasses({
+export const avatar = defineClasses({
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
 	fallback: 'size-full flex justify-center items-center',
 });
 
-export const collapsible = defineSkeletonClasses({
+export const collapsible = defineClasses({
 	root: 'w-full flex flex-col items-center data-[state=open]:gap-2',
 	trigger: 'data-disabled:opacity-50 data-disabled:pointer-events-none',
 	indicator: '',
 	content: '',
 });
 
-export const combobox = defineSkeletonClasses({
+export const combobox = defineClasses({
 	root: 'w-full space-y-2',
 	label: 'label-text',
 	control: 'relative',
@@ -50,7 +50,7 @@ export const combobox = defineSkeletonClasses({
 	itemIndicator: '',
 });
 
-export const datePicker = defineSkeletonClasses({
+export const datePicker = defineClasses({
 	root: 'space-y-2',
 	label: 'label-text',
 	control: 'relative space-y-2',
@@ -84,7 +84,7 @@ export const datePicker = defineSkeletonClasses({
 	],
 });
 
-export const dialog = defineSkeletonClasses({
+export const dialog = defineClasses({
 	trigger: '',
 	backdrop: '',
 	positioner: '',
@@ -94,7 +94,7 @@ export const dialog = defineSkeletonClasses({
 	closeTrigger: '',
 });
 
-export const fileUpload = defineSkeletonClasses({
+export const fileUpload = defineClasses({
 	root: 'w-full space-y-2 data-disabled:disabled',
 	label: 'label-text',
 	dropzone: [
@@ -110,7 +110,7 @@ export const fileUpload = defineSkeletonClasses({
 	itemDeleteTrigger: 'btn-icon',
 });
 
-export const floatingPanel = defineSkeletonClasses({
+export const floatingPanel = defineClasses({
 	trigger: '',
 	positioner: '',
 	content: 'card overflow-hidden shadow-lg border border-surface-300-700',
@@ -125,7 +125,7 @@ export const floatingPanel = defineSkeletonClasses({
 	resizeTrigger: 'data-[axis*=n]:h-2 data-[axis*=s]:h-2 data-[axis*=e]:w-2 data-[axis*=w]:w-2 data-[axis=n]:top-0',
 });
 
-export const listbox = defineSkeletonClasses({
+export const listbox = defineClasses({
 	root: 'flex flex-col items-stretch gap-2',
 	label: 'label-text',
 	input: 'input',
@@ -142,7 +142,7 @@ export const listbox = defineSkeletonClasses({
 	itemIndicator: '',
 });
 
-export const menu = defineSkeletonClasses({
+export const menu = defineClasses({
 	trigger: '',
 	contextTrigger: '',
 	positioner: '',
@@ -158,7 +158,7 @@ export const menu = defineSkeletonClasses({
 	separator: 'hr',
 });
 
-export const navigation = defineSkeletonClasses({
+export const navigation = defineClasses({
 	root: [
 		'bg-surface-100-900 overflow-x-hidden transition-[width] duration-200',
 		// Bar
@@ -194,7 +194,7 @@ export const navigation = defineSkeletonClasses({
 	footer: '',
 });
 
-export const pagination = defineSkeletonClasses({
+export const pagination = defineClasses({
 	root: 'inline-flex gap-2 p-2 rounded-container preset-outlined-surface-200-800 w-fit',
 	firstTrigger: 'btn btn-sm preset-tonal',
 	prevTrigger: 'btn btn-sm preset-tonal',
@@ -204,7 +204,7 @@ export const pagination = defineSkeletonClasses({
 	lastTrigger: 'btn btn-sm preset-tonal',
 });
 
-export const popover = defineSkeletonClasses({
+export const popover = defineClasses({
 	anchor: '',
 	trigger: '',
 	positioner: '',
@@ -216,7 +216,7 @@ export const popover = defineSkeletonClasses({
 	closeTrigger: '',
 });
 
-export const progress = defineSkeletonClasses({
+export const progress = defineClasses({
 	root: [
 		'flex flex-col gap-2',
 		// Horizontal Orientation
@@ -252,7 +252,7 @@ export const progress = defineSkeletonClasses({
 	],
 });
 
-export const ratingGroup = defineSkeletonClasses({
+export const ratingGroup = defineClasses({
 	root: 'flex flex-col gap-2',
 	label: 'label-text',
 	control: 'flex gap-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',
@@ -260,7 +260,7 @@ export const ratingGroup = defineSkeletonClasses({
 	hiddenInput: '',
 });
 
-export const segmentedControl = defineSkeletonClasses({
+export const segmentedControl = defineClasses({
 	root: 'flex flex-col gap-2 not-skb:group',
 	label: 'label-text',
 	control: [
@@ -278,7 +278,7 @@ export const segmentedControl = defineSkeletonClasses({
 	itemHiddenInput: '',
 });
 
-export const slider = defineSkeletonClasses({
+export const slider = defineClasses({
 	root: 'w-full flex flex-col gap-2',
 	label: 'label-text',
 	valueText: '',
@@ -294,7 +294,7 @@ export const slider = defineSkeletonClasses({
 	marker: 'text-xs text-surface-600-400',
 });
 
-const switch_ = defineSkeletonClasses({
+const switch_ = defineClasses({
 	root: [
 		'cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50 inline-flex gap-2 items-center rounded',
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
@@ -314,7 +314,7 @@ const switch_ = defineSkeletonClasses({
 
 export { switch_ as switch };
 
-export const tabs = defineSkeletonClasses({
+export const tabs = defineClasses({
 	root: 'w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row',
 	list: [
 		'relative flex gap-2 border-surface-200-800',
@@ -330,7 +330,7 @@ export const tabs = defineSkeletonClasses({
 	content: '',
 });
 
-export const tagsInput = defineSkeletonClasses({
+export const tagsInput = defineClasses({
 	root: 'w-full space-y-2',
 	label: 'label-text',
 	control: 'input flex flex-wrap gap-2 p-2',
@@ -344,7 +344,7 @@ export const tagsInput = defineSkeletonClasses({
 	hiddenInput: '',
 });
 
-export const toast = defineSkeletonClasses({
+export const toast = defineClasses({
 	root: [
 		'card p-3 w-full max-w-sm ring flex items-center gap-2',
 		'preset-filled-surface-50-950 ring-surface-200-800',
@@ -363,7 +363,7 @@ export const toast = defineSkeletonClasses({
 	closeTrigger: 'btn-icon hover:preset-tonal',
 });
 
-export const toggleGroup = defineSkeletonClasses({
+export const toggleGroup = defineClasses({
 	root: [
 		'inline-flex preset-outlined-surface-200-800 divide-surface-200-800 overflow-hidden rounded-base',
 		'data-[orientation=horizontal]:divide-x data-[orientation=vertical]:divide-y',
@@ -377,7 +377,7 @@ export const toggleGroup = defineSkeletonClasses({
 	],
 });
 
-export const tooltip = defineSkeletonClasses({
+export const tooltip = defineClasses({
 	trigger: '',
 	positioner: '',
 	content: '',
@@ -385,7 +385,7 @@ export const tooltip = defineSkeletonClasses({
 	arrowTip: '',
 });
 
-export const treeView = defineSkeletonClasses({
+export const treeView = defineClasses({
 	root: 'w-full flex flex-col gap-2 items-start select-none',
 	tree: 'space-y-1',
 	label: 'label-text',
