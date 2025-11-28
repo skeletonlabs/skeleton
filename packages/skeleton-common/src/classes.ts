@@ -121,8 +121,7 @@ export const floatingPanel = defineClasses({
 	stageTrigger: 'btn-icon hover:preset-tonal',
 	closeTrigger: 'btn-icon hover:preset-tonal',
 	body: 'h-full bg-surface-100-900 p-4 overflow-y-auto',
-	// TODO: Remove explicit data-[axis=n]:top-0 when https://github.com/chakra-ui/zag/pull/2863 is merged and released
-	resizeTrigger: 'data-[axis*=n]:h-2 data-[axis*=s]:h-2 data-[axis*=e]:w-2 data-[axis*=w]:w-2 data-[axis=n]:top-0',
+	resizeTrigger: 'data-[axis*=n]:h-2 data-[axis*=s]:h-2 data-[axis*=e]:w-2 data-[axis*=w]:w-2',
 });
 
 export const listbox = defineClasses({
