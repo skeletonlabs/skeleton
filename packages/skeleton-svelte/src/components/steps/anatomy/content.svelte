@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSteps } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsContentProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			steps().getContentProps({ index }),
 			{
-				class: classesSteps.content,
+				class: classes.steps.content,
 			},
 			rest,
 		),

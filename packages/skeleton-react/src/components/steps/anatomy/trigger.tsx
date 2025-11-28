@@ -2,7 +2,7 @@ import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { classesSteps } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -17,7 +17,7 @@ export default function Trigger(props: StepsTriggerProps) {
 	const attributes = mergeProps(
 		steps.getTriggerProps(itemProps),
 		{
-			className: classesSteps.trigger,
+			className: classes.steps.trigger,
 		},
 		rest,
 	);

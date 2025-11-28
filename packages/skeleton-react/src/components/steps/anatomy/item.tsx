@@ -2,7 +2,7 @@ import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { classesSteps } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import type { ItemProps } from '@zag-js/steps';
 import { use } from 'react';
@@ -19,7 +19,7 @@ export default function Item(props: StepsItemProps) {
 	const attributes = mergeProps(
 		steps.getItemProps({ index }),
 		{
-			className: classesSteps.item,
+			className: classes.steps.item,
 		},
 		rest,
 	);

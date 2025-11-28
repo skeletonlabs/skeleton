@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSteps } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsListProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			steps().getListProps(),
 			{
-				class: classesSteps.list,
+				class: classes.steps.list,
 			},
 			rest,
 		),
