@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.6.1
+
+### Patch Changes
+
+- refactor: move classes to `/classes` export ([#4175](https://github.com/skeletonlabs/skeleton/pull/4175))
+
 ## 4.6.0
 
 ### Minor Changes

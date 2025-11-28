@@ -1,5 +1,12 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`3dc3205`](https://github.com/skeletonlabs/skeleton/commit/3dc32052450fecba376d466c4a72f682acbee323)]:
+  - @skeletonlabs/skeleton-common@4.6.1
+
 ## 4.6.0
 
 ### Minor Changes
