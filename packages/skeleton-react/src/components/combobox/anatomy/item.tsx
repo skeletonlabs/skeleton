@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesCombobox } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { type ItemProps, splitItemProps } from '@zag-js/combobox';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -18,7 +18,7 @@ export default function Item(props: ComboboxItemProps) {
 	const attributes = mergeProps(
 		combobox.getItemProps(itemProps),
 		{
-			className: classesCombobox.item,
+			className: classes.combobox.item,
 		},
 		rest,
 	);

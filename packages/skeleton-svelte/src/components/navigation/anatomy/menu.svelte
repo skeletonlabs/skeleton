@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesNavigation } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationMenuProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			{
 				'data-layout': navigation().layout,
-				class: classesNavigation.menu,
+				class: classes.navigation.menu,
 			},
 			rest,
 		),

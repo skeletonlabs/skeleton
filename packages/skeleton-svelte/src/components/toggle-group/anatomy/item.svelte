@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesToggleGroup } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/toggle-group';
 
@@ -23,7 +23,7 @@
 		mergeProps(
 			toggleGroup().getItemProps(itemProps),
 			{
-				class: classesToggleGroup.item,
+				class: classes.toggleGroup.item,
 			},
 			rest,
 		),

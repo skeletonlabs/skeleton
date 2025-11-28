@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useCombobox } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesCombobox } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export interface ComboboxRootProviderProps
@@ -17,7 +17,7 @@ export default function RootProvider(props: ComboboxRootProviderProps) {
 	const attributes = mergeProps(
 		combobox.getRootProps(),
 		{
-			className: classesCombobox.root,
+			className: classes.combobox.root,
 		},
 		rest,
 	);

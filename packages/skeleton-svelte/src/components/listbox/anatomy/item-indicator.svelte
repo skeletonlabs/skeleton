@@ -9,7 +9,7 @@
 	import Check from '../../../internal/components/check.svelte';
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesListbox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxItemIndicatorProps = $props();
@@ -23,7 +23,7 @@
 		mergeProps(
 			listbox().getItemIndicatorProps(itemProps()),
 			{
-				class: classesListbox.itemIndicator,
+				class: classes.listbox.itemIndicator,
 			},
 			rest,
 		),

@@ -8,7 +8,7 @@
 <script lang="ts">
 	import X from '../../../internal/components/x.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesToast } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToastCloseTriggerProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			toast().getCloseTriggerProps(),
 			{
-				class: classesToast.closeTrigger,
+				class: classes.toast.closeTrigger,
 			},
 			rest,
 		),

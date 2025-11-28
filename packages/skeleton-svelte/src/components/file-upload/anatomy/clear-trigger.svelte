@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadClearTriggerProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			fileUpload().getClearTriggerProps(),
 			{
-				class: classesFileUpload.clearTrigger,
+				class: classes.fileUpload.clearTrigger,
 			},
 			rest,
 		),

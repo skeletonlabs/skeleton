@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemNameProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			fileUpload().getItemNameProps(itemProps()),
 			{
-				class: classesFileUpload.itemName,
+				class: classes.fileUpload.itemName,
 			},
 			rest,
 		),

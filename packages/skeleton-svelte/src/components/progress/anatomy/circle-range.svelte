@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesProgress } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressCircleRangeProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			progress().getCircleRangeProps(),
 			{
-				class: classesProgress.circleRange,
+				class: classes.progress.circleRange,
 				'stroke-linecap': 'round',
 			},
 			rest,

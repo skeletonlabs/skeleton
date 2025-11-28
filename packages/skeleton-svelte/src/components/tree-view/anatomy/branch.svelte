@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesTreeView } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			treeView().getBranchProps(nodeProps()),
 			{
-				class: classesTreeView.branch,
+				class: classes.treeView.branch,
 			},
 			rest,
 		),

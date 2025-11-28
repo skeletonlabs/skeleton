@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { useSlider } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSlider } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/slider';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -31,7 +31,7 @@
 		mergeProps(
 			slider().getRootProps(),
 			{
-				class: classesSlider.root,
+				class: classes.slider.root,
 			},
 			rest,
 		),

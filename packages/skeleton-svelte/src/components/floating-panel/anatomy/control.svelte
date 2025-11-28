@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FloatingPanelControlProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			floatingPanel().getControlProps(),
 			{
-				class: classesFloatingPanel.control,
+				class: classes.floatingPanel.control,
 			},
 			rest,
 		),

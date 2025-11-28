@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useSegmentedControl } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,7 +28,7 @@
 		mergeProps(
 			segmentedControl().getRootProps(),
 			{
-				class: classesSegmentedControl.root,
+				class: classes.segmentedControl.root,
 			},
 			rest,
 		),

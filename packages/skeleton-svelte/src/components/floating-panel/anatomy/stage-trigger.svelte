@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FloatingPanelStageTriggerProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			floatingPanel().getStageTriggerProps({ stage }),
 			{
-				class: classesFloatingPanel.stageTrigger,
+				class: classes.floatingPanel.stageTrigger,
 			},
 			rest,
 		),

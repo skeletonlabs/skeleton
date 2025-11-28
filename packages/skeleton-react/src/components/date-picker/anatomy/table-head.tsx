@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
 import { ViewContext } from '../modules/view-context.js';
-import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -17,7 +17,7 @@ export default function TableHead(props: DatePickerTableHeadProps) {
 	const attributes = mergeProps(
 		datePicker.getTableHeadProps(viewProps),
 		{
-			className: classesDatePicker.tableHead,
+			className: classes.datePicker.tableHead,
 		},
 		rest,
 	);

@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { classesSegmentedControl } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlControlProps = $props();
@@ -16,7 +16,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				class: classesSegmentedControl.control,
+				class: classes.segmentedControl.control,
 			},
 			rest,
 		),

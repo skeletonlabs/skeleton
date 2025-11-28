@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesAvatar } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AvatarImageProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			avatar().getImageProps(),
 			{
-				class: classesAvatar.image,
+				class: classes.avatar.image,
 			},
 			rest,
 		),

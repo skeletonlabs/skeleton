@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesTooltip } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TooltipContentProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			tooltip().getContentProps(),
 			{
-				class: classesTooltip.content,
+				class: classes.tooltip.content,
 			},
 			rest,
 		),

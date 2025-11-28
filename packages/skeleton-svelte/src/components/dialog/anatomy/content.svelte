@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesDialog } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogContentProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			dialog().getContentProps(),
 			{
-				class: classesDialog.content,
+				class: classes.dialog.content,
 			},
 			rest,
 		),

@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesAccordion } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionItemContentProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			accordion().getItemContentProps(itemProps()),
 			{
-				class: classesAccordion.itemContent,
+				class: classes.accordion.itemContent,
 			},
 			rest,
 		),

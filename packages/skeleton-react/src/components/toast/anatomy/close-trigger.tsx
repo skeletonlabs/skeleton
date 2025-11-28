@@ -2,7 +2,7 @@ import X from '../../../internal/components/x.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesToast } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -16,7 +16,7 @@ export default function CloseTrigger(props: ToastCloseTriggerProps) {
 	const attributes = mergeProps(
 		toast.getCloseTriggerProps(),
 		{
-			className: classesToast.closeTrigger,
+			className: classes.toast.closeTrigger,
 		},
 		rest,
 	);

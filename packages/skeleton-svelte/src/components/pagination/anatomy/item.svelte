@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesPagination } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationItemProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			pagination().getItemProps(itemProps),
 			{
-				class: classesPagination.item,
+				class: classes.pagination.item,
 			},
 			rest,
 		),
