@@ -15,8 +15,8 @@
 
 	const steps = RootContext.consume();
 
-	const { index, ...componentProps } = $derived(props);
-	const { element, children, ...rest } = $derived(componentProps);
+	// @zag-js/steps does not currently provide a splitItemProps function, so manually destructure
+	const { element, children, index, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(

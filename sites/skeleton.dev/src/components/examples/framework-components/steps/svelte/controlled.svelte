@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Steps } from '@skeletonlabs/skeleton-svelte';
 
-	const data = [
+	const steps = [
 		{ title: 'First', content: 'First do this.' },
 		{ title: 'Then', content: 'Then do that.' },
 		{ title: 'Finally', content: 'Almost done...' },
@@ -10,26 +10,26 @@
 	let step = $state(0);
 </script>
 
-<Steps {step} onStepChange={(details) => (step = details.step)} count={data.length} class="w-full">
+<Steps {step} onStepChange={(details) => (step = details.step)} count={steps.length} class="w-full">
 	<Steps.List>
-		{#each data as item, index}
+		{#each steps as item, index}
 			<Steps.Item {index}>
 				<Steps.Trigger>
 					<Steps.Indicator>{index + 1}</Steps.Indicator>
 					{item.title}
 				</Steps.Trigger>
-				{#if index < data.length - 1}
+				{#if index < steps.length - 1}
 					<Steps.Separator />
 				{/if}
 			</Steps.Item>
 		{/each}
 	</Steps.List>
-	{#each data as item, index}
+	{#each steps as item, index}
 		<Steps.Content {index}>
 			{item.content}
 		</Steps.Content>
 	{/each}
-	<Steps.Content index={data.length}>All done!</Steps.Content>
+	<Steps.Content index={steps.length}>All done!</Steps.Content>
 	<div class="flex justify-between items-center gap-2">
 		<Steps.PrevTrigger class="btn preset-filled">Back</Steps.PrevTrigger>
 		<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>

@@ -11,8 +11,8 @@ export interface StepsContentProps extends ItemProps, PropsWithElement<'div'>, H
 export default function Content(props: StepsContentProps) {
 	const steps = use(RootContext);
 
-	const { index, ...componentProps } = props;
-	const { element, children, ...rest } = componentProps;
+	// @zag-js/steps does not currently provide a splitItemProps function, so manually destructure
+	const { element, children, index, ...rest } = props;
 
 	const attributes = mergeProps(
 		steps.getContentProps({ index }),

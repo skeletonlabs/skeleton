@@ -316,7 +316,7 @@ export const steps = defineClasses({
 		'h-0 border-surface-200-800 grow',
 		'data-complete:border-primary-500',
 		'data-[orientation=horizontal]:border-t',
-		'data-[orientation=vertical]:border-s data-[orientation=vertical]:ms-4',
+		'data-[orientation=vertical]:border-s data-[orientation=vertical]:ms-4 data-[orientation=vertical]:min-h-4',
 	],
 	content: '',
 	prevTrigger: '',
