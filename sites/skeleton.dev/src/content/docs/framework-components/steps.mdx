@@ -1,0 +1,140 @@
+---
+title: Steps
+description: Use steps to guide users through a multi-step process.
+stability: beta
+---
+
+import ControlledReact from '@/components/examples/framework-components/steps/react/controlled';
+import ControlledReactRaw from '@/components/examples/framework-components/steps/react/controlled.tsx?raw';
+import DefaultReact from '@/components/examples/framework-components/steps/react/default.tsx';
+import DefaultReactRaw from '@/components/examples/framework-components/steps/react/default.tsx?raw';
+import DirReact from '@/components/examples/framework-components/steps/react/dir';
+import DirReactRaw from '@/components/examples/framework-components/steps/react/dir.tsx?raw';
+import VerticalReact from '@/components/examples/framework-components/steps/react/vertical';
+import VerticalReactRaw from '@/components/examples/framework-components/steps/react/vertical.tsx?raw';
+import ControlledSvelte from '@/components/examples/framework-components/steps/svelte/controlled.svelte';
+import ControlledSvelteRaw from '@/components/examples/framework-components/steps/svelte/controlled.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/steps/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/steps/svelte/default.svelte?raw';
+import DirSvelte from '@/components/examples/framework-components/steps/svelte/dir.svelte';
+import DirSvelteRaw from '@/components/examples/framework-components/steps/svelte/dir.svelte?raw';
+import VerticalSvelte from '@/components/examples/framework-components/steps/svelte/vertical.svelte';
+import VerticalSvelteRaw from '@/components/examples/framework-components/steps/svelte/vertical.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Controlled
+
+Use the `step` and `onStepChange` props to control state programmatically.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+		<ControlledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+		<ControlledSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Orientation
+
+Using the `orientation` prop to control the layout.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': VerticalReactRaw }} client:visible>
+		<VerticalReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': VerticalSvelteRaw }} client:visible>
+		<VerticalSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Direction
+
+Set the text direction (`ltr` or `rtl`) using the `dir` prop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+		<DirReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+		<DirSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Steps component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Steps } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Steps>
+			<Steps.List>
+				<Steps.Item>
+					<Steps.Trigger>
+						<Steps.Indicator />
+					</Steps.Trigger>
+					<Steps.Separator />
+				</Steps.Item>
+			</Steps.List>
+			<Steps.Content />
+			<Steps.PrevTrigger />
+			<Steps.NextTrigger />
+		</Steps>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Steps } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Steps>
+	<Steps.List>
+		<Steps.Item>
+			<Steps.Trigger>
+				<Steps.Indicator />
+			</Steps.Trigger>
+			<Steps.Separator />
+		</Steps.Item>
+	</Steps.List>
+	<Steps.Content />
+	<Steps.PrevTrigger />
+	<Steps.NextTrigger />
+</Steps>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/steps" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/steps" />
+</Framework>

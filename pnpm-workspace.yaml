@@ -67,6 +67,7 @@ catalog:
   '@zag-js/rating-group': 1.29.1
   '@zag-js/react': 1.29.1
   '@zag-js/slider': 1.29.1
+  '@zag-js/steps': 1.29.1
   '@zag-js/svelte': 1.29.1
   '@zag-js/switch': 1.29.1
   '@zag-js/tabs': 1.29.1
