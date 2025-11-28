@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCombobox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemGroupProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -30,7 +30,7 @@
 		mergeProps(
 			combobox().getItemGroupProps(itemGroupProps),
 			{
-				class: classesCombobox.itemGroup,
+				class: classes.combobox.itemGroup,
 			},
 			rest,
 		),

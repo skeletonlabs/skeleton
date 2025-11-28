@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesMenu } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuSeparatorProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			menu().getSeparatorProps(),
 			{
-				class: classesMenu.separator,
+				class: classes.menu.separator,
 			},
 			rest,
 		),

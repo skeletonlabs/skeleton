@@ -9,7 +9,7 @@
 	import ChevronRightIcon from '../../../internal/components/chevron-right.svelte';
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerNextTriggerProps = $props();
@@ -23,7 +23,7 @@
 		mergeProps(
 			datePicker().getNextTriggerProps(viewProps()),
 			{
-				class: classesDatePicker.nextTrigger,
+				class: classes.datePicker.nextTrigger,
 			},
 			rest,
 		),

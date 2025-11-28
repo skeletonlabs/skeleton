@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerYearSelectProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			datePicker().getYearSelectProps(),
 			{
-				class: classesDatePicker.yearSelect,
+				class: classes.datePicker.yearSelect,
 			},
 			rest,
 		),

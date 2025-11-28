@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCollapsible } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CollapsibleIndicatorProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			collapsible().getIndicatorProps(),
 			{
-				class: classesCollapsible.indicator,
+				class: classes.collapsible.indicator,
 			},
 			rest,
 		),

@@ -10,7 +10,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesAvatar } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AvatarRootProviderProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			avatar().getRootProps(),
 			{
-				class: classesAvatar.root,
+				class: classes.avatar.root,
 			},
 			rest,
 		),

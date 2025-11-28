@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesPagination } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationLastTriggerProps = $props();
@@ -19,7 +19,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				class: classesPagination.lastTrigger,
+				class: classes.pagination.lastTrigger,
 				onclick: () => pagination().goToLastPage(),
 			},
 			rest,

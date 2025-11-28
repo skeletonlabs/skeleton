@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { useDatePicker } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -31,7 +31,7 @@
 		mergeProps(
 			datePicker().getRootProps(),
 			{
-				class: classesDatePicker.root,
+				class: classes.datePicker.root,
 			},
 			rest,
 		),

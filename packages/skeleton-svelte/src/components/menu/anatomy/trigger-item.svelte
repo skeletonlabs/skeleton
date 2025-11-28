@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { TriggerItemContext } from '../modules/trigger-item-context.js';
-	import { classesMenu } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps, type ItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -23,7 +23,7 @@
 		mergeProps(
 			triggerItemProps(),
 			{
-				class: classesMenu.item,
+				class: classes.menu.item,
 			},
 			rest,
 		),

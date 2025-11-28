@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useAccordion } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesAccordion } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,7 +28,7 @@
 		mergeProps(
 			accordion().getRootProps(),
 			{
-				class: classesAccordion.root,
+				class: classes.accordion.root,
 			},
 			rest,
 		),

@@ -1,7 +1,7 @@
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -15,7 +15,7 @@ export default function Control(props: FloatingPanelControlProps) {
 	const attributes = mergeProps(
 		floatingPanel.getControlProps(),
 		{
-			className: classesFloatingPanel.control,
+			className: classes.floatingPanel.control,
 		},
 		rest,
 	);

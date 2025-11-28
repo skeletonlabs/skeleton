@@ -1,7 +1,7 @@
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { classesFloatingPanel } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -15,7 +15,7 @@ export default function Title(props: FloatingPanelTitleProps) {
 	const attributes = mergeProps(
 		floatingPanel.getTitleProps(),
 		{
-			className: classesFloatingPanel.title,
+			className: classes.floatingPanel.title,
 		},
 		rest,
 	);

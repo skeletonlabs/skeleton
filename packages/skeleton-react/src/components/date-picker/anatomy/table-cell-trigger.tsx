@@ -3,7 +3,7 @@ import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
 import { TableCellContext } from '../modules/table-cell-context.js';
 import { ViewContext } from '../modules/view-context.js';
-import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import type { TableCellProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -32,7 +32,7 @@ export default function TableCellTrigger(props: DatePickerTableCellTriggerProps)
 	const attributes = mergeProps(
 		getTableCellTriggerProps(tableCellProps as TableCellProps),
 		{
-			className: classesDatePicker.tableCellTrigger,
+			className: classes.datePicker.tableCellTrigger,
 		},
 		rest,
 	);

@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesListbox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxInputProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			listbox().getInputProps(),
 			{
-				class: classesListbox.input,
+				class: classes.listbox.input,
 			},
 			rest,
 		),

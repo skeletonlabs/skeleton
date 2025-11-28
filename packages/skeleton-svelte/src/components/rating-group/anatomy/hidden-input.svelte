@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesRatingGroup } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: RatingGroupHiddenInputProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			ratingGroup().getHiddenInputProps(),
 			{
-				class: classesRatingGroup.hiddenInput,
+				class: classes.ratingGroup.hiddenInput,
 			},
 			rest,
 		),
