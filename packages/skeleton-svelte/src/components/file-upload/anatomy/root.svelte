@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useFileUpload } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/file-upload';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,7 +28,7 @@
 		mergeProps(
 			fileUpload().getRootProps(),
 			{
-				class: classesFileUpload.root,
+				class: classes.fileUpload.root,
 			},
 			rest,
 		),

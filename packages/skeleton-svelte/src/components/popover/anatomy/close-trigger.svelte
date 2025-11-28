@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesPopover } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PopoverCloseTriggerProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			popover().getCloseTriggerProps(),
 			{
-				class: classesPopover.closeTrigger,
+				class: classes.popover.closeTrigger,
 			},
 			rest,
 		),

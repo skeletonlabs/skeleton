@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "4.5.3",
+	"version": "4.6.1",
 	"description": "The React package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -36,6 +36,7 @@
 		"@zag-js/date-picker": "catalog:",
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
+		"@zag-js/floating-panel": "catalog:",
 		"@zag-js/listbox": "catalog:",
 		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",

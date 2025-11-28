@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ThumbContext } from '../modules/thumb-context.js';
-	import { classesSlider } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderThumbProps = $props();
@@ -23,7 +23,7 @@
 		mergeProps(
 			slider().getThumbProps(thumbProps),
 			{
-				class: classesSlider.thumb,
+				class: classes.slider.thumb,
 			},
 			rest,
 		),

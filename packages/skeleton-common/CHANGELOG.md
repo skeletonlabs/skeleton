@@ -1,5 +1,19 @@
 # @skeletonlabs/skeleton-common
 
+## 4.6.1
+
+### Patch Changes
+
+- refactor: move classes to `/classes` export ([#4175](https://github.com/skeletonlabs/skeleton/pull/4175))
+
+## 4.6.0
+
+### Minor Changes
+
+- feature: `Floating Panel` component ([#4156](https://github.com/skeletonlabs/skeleton/pull/4156))
+
+- feat: `FileUpload.ClearTrigger` ([#4173](https://github.com/skeletonlabs/skeleton/pull/4173))
+
 ## 4.5.3
 
 ### Patch Changes

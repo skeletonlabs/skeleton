@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { useProgress } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesProgress } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/progress';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,7 +28,7 @@
 		mergeProps(
 			avatar().getRootProps(),
 			{
-				class: classesProgress.root,
+				class: classes.progress.root,
 			},
 			rest,
 		),

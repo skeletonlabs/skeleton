@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useTreeView } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesTreeView } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { splitProps } from '@zag-js/tree-view';
 import type { Props, TreeNode } from '@zag-js/tree-view';
@@ -21,7 +21,7 @@ export default function Root<T extends TreeNode = TreeNode>(props: TreeViewRootP
 	const attributes = mergeProps(
 		treeView.getRootProps(),
 		{
-			className: classesTreeView.root,
+			className: classes.treeView.root,
 		},
 		rest,
 	);

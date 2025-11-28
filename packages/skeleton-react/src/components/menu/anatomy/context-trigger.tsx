@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesMenu } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -15,7 +15,7 @@ export default function ContextTrigger(props: MenuContextTriggerProps) {
 	const attributes = mergeProps(
 		menu.getContextTriggerProps(),
 		{
-			className: classesMenu.contextTrigger,
+			className: classes.menu.contextTrigger,
 		},
 		rest,
 	);

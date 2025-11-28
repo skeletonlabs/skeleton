@@ -12,7 +12,7 @@
 <script lang="ts">
 	import { useCombobox } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCombobox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -30,7 +30,7 @@
 		mergeProps(
 			combobox().getRootProps(),
 			{
-				class: classesCombobox.root,
+				class: classes.combobox.root,
 			},
 			rest,
 		),

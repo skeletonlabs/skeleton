@@ -11,7 +11,7 @@
 <script lang="ts">
 	import { GroupContext } from '../modules/group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesToast } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { connect, machine } from '@zag-js/toast';
 
@@ -31,7 +31,7 @@
 		mergeProps(
 			toast.getRootProps(),
 			{
-				class: classesToast.root,
+				class: classes.toast.root,
 			},
 			rest,
 		),

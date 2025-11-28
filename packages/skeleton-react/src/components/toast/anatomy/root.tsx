@@ -2,7 +2,7 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { GroupContext } from '../modules/group-context.js';
 import { RootContext } from '../modules/root-context.js';
-import { classesToast } from '@skeletonlabs/skeleton-common';
+import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { connect, machine } from '@zag-js/toast';
 import type { Options } from '@zag-js/toast';
@@ -26,7 +26,7 @@ export default function Root(props: ToastRootProps) {
 	const attributes = mergeProps(
 		toast.getRootProps(),
 		{
-			className: classesToast.root,
+			className: classes.toast.root,
 		},
 		rest,
 	);

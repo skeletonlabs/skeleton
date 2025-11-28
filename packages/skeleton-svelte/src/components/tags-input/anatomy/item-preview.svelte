@@ -8,7 +8,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesTagsInput } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputItemPreviewProps = $props();
@@ -22,7 +22,7 @@
 		mergeProps(
 			tagsInput().getItemPreviewProps(itemProps()),
 			{
-				class: classesTagsInput.itemPreview,
+				class: classes.tagsInput.itemPreview,
 			},
 			rest,
 		),

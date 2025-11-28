@@ -14,7 +14,7 @@
 	import { RootContext } from '../modules/root-context.js';
 	import { TableCellContext } from '../modules/table-cell-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import { classesDatePicker } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitTableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -44,7 +44,7 @@
 		mergeProps(
 			refinedTableCellProps,
 			{
-				class: classesDatePicker.tableCell,
+				class: classes.datePicker.tableCell,
 			},
 			rest,
 		),

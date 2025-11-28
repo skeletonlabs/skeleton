@@ -1,0 +1,16 @@
+export type { FloatingPanelBodyProps } from './anatomy/body.svelte';
+export type { FloatingPanelCloseTriggerProps } from './anatomy/close-trigger.svelte';
+export type { FloatingPanelContentProps } from './anatomy/content.svelte';
+export type { FloatingPanelControlProps } from './anatomy/control.svelte';
+export type { FloatingPanelDragTriggerProps } from './anatomy/drag-trigger.svelte';
+export type { FloatingPanelHeaderProps } from './anatomy/header.svelte';
+export type { FloatingPanelPositionerProps } from './anatomy/positioner.svelte';
+export type { FloatingPanelResizeTriggerProps } from './anatomy/resize-trigger.svelte';
+export type { FloatingPanelRootProps } from './anatomy/root.svelte';
+export type { FloatingPanelRootContextProps } from './anatomy/root-context.svelte';
+export type { FloatingPanelRootProviderProps } from './anatomy/root-provider.svelte';
+export type { FloatingPanelStageTriggerProps } from './anatomy/stage-trigger.svelte';
+export type { FloatingPanelTitleProps } from './anatomy/title.svelte';
+export type { FloatingPanelTriggerProps } from './anatomy/trigger.svelte';
+export { FloatingPanel } from './modules/anatomy.js';
+export { useFloatingPanel } from './modules/provider.svelte.js';

@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { FileUpload, useFileUpload } from '@skeletonlabs/skeleton-svelte';
-
-	const id = $props.id();
-	const fileUpload = useFileUpload({ id, disabled: false });
+	import { FileUpload } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<FileUpload.Provider value={fileUpload}>
+<FileUpload>
 	<FileUpload.Label>Label</FileUpload.Label>
 	<FileUpload.Dropzone>
 		<div>Select file or drag here.</div>
@@ -25,6 +22,5 @@
 			{/snippet}
 		</FileUpload.Context>
 	</FileUpload.ItemGroup>
-</FileUpload.Provider>
-
-<button class="btn preset-outlined-error-500" onclick={() => fileUpload().clearFiles()}> Clear Files </button>
+	<FileUpload.ClearTrigger>Clear Files</FileUpload.ClearTrigger>
+</FileUpload>

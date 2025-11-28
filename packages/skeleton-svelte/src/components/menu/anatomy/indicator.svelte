@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesMenu } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuIndicatorProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			menu().getIndicatorProps(),
 			{
-				class: classesMenu.indicator,
+				class: classes.menu.indicator,
 			},
 			rest,
 		),

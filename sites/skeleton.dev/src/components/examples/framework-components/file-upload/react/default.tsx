@@ -24,6 +24,7 @@ export default function Default() {
 					}
 				</FileUpload.Context>
 			</FileUpload.ItemGroup>
+			<FileUpload.ClearTrigger>Clear Files</FileUpload.ClearTrigger>
 		</FileUpload>
 	);
 }

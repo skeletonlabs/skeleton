@@ -8,6 +8,7 @@ export default function Test() {
 				<FileUpload.Trigger data-testid="trigger" />
 				<FileUpload.HiddenInput data-testid="hidden-input" />
 			</FileUpload.Dropzone>
+			<FileUpload.ClearTrigger data-testid="clear-trigger" />
 			<FileUpload.ItemGroup data-testid="item-group">
 				<FileUpload.Item file={new File(['test'], 'test.txt')} data-testid="item">
 					<FileUpload.ItemName data-testid="item-name" />

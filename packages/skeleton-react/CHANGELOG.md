@@ -1,5 +1,25 @@
 # @skeletonlabs/skeleton-react
 
+## 4.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`3dc3205`](https://github.com/skeletonlabs/skeleton/commit/3dc32052450fecba376d466c4a72f682acbee323)]:
+  - @skeletonlabs/skeleton-common@4.6.1
+
+## 4.6.0
+
+### Minor Changes
+
+- feature: `Floating Panel` component ([#4156](https://github.com/skeletonlabs/skeleton/pull/4156))
+
+- feat: `FileUpload.ClearTrigger` ([#4173](https://github.com/skeletonlabs/skeleton/pull/4173))
+
+### Patch Changes
+
+- Updated dependencies [[`e582ac2`](https://github.com/skeletonlabs/skeleton/commit/e582ac214fb5b0456b59da41666d8cd8bcae3489), [`e69b1b7`](https://github.com/skeletonlabs/skeleton/commit/e69b1b752da8feaff11d6573d6f3c10dc89db5b8)]:
+  - @skeletonlabs/skeleton-common@4.6.0
+
 ## 4.5.3
 
 ### Patch Changes

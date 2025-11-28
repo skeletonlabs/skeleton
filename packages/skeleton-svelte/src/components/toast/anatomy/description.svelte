@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesToast } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToastDescriptionProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			toast().getDescriptionProps(),
 			{
-				class: classesToast.description,
+				class: classes.toast.description,
 			},
 			rest,
 		),

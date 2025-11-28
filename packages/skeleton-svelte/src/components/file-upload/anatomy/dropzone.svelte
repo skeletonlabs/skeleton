@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesFileUpload } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadDropzoneProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			fileUpload().getDropzoneProps(props),
 			{
-				class: classesFileUpload.dropzone,
+				class: classes.fileUpload.dropzone,
 			},
 			rest,
 		),

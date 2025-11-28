@@ -9,7 +9,7 @@
 	import Check from '../../../internal/components/check.svelte';
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesCombobox } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemIndicatorProps = $props();
@@ -23,7 +23,7 @@
 		mergeProps(
 			combobox().getItemIndicatorProps(itemProps()),
 			{
-				class: classesCombobox.itemIndicator,
+				class: classes.combobox.itemIndicator,
 			},
 			rest,
 		),

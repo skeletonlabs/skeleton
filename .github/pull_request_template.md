@@ -6,6 +6,12 @@ Closes #{issueNumber}
 
 {description}
 
+## AI Disclosure
+
+Use of [LLM technology](https://en.wikipedia.org/wiki/Large_language_model) is allowed. We ask for your voluntary disclosure to help inform future Skeleton contribution guidelines.
+
+- [ ] I used AI to generate this pull request
+
 ## Checklist
 
 Please read and apply all [contribution requirements](https://skeleton.dev/docs/resources/contribute/).

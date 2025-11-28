@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesSlider } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderMarkerProps = $props();
@@ -21,7 +21,7 @@
 		mergeProps(
 			slider().getMarkerProps({ value }),
 			{
-				class: classesSlider.marker,
+				class: classes.slider.marker,
 			},
 			rest,
 		),

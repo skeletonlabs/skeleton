@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { usePagination } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesPagination } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/pagination';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -28,7 +28,7 @@
 		mergeProps(
 			pagination().getRootProps(),
 			{
-				class: classesPagination.root,
+				class: classes.pagination.root,
 			},
 			rest,
 		),

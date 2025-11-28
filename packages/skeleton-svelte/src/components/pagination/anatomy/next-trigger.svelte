@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { classesPagination } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationNextTriggerProps = $props();
@@ -20,7 +20,7 @@
 		mergeProps(
 			pagination().getNextTriggerProps(),
 			{
-				class: classesPagination.nextTrigger,
+				class: classes.pagination.nextTrigger,
 			},
 			rest,
 		),

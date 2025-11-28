@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import { classesMenu } from '@skeletonlabs/skeleton-common';
+	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,7 +24,7 @@
 		mergeProps(
 			menu().getItemProps(itemProps),
 			{
-				class: classesMenu.item,
+				class: classes.menu.item,
 			},
 			rest,
 		),
