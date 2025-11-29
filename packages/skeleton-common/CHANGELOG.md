@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.7.0
+
+### Minor Changes
+
+- feat: Added `Steps` component. ([#4067](https://github.com/skeletonlabs/skeleton/pull/4067))
+
 ## 4.6.1
 
 ### Patch Changes
