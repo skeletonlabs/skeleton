@@ -3,7 +3,6 @@
 		&[data-part='root'] {
 			display: flex;
 			gap: --spacing(2);
-			width: 100%;
 
 			&[data-orientation='vertical'] {
 				flex-direction: column;

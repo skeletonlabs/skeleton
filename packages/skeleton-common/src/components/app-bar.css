@@ -6,6 +6,7 @@
 			padding: --spacing(4);
 			display: flex;
 			flex-direction: column;
+			align-items: start;
 			gap: --spacing(4);
 		}
 

@@ -55,7 +55,7 @@
 		&[data-part='indicator'] {
 			width: --spacing(8);
 			height: --spacing(8);
-			border-radius: var(--radius-full);
+			border-radius: 50%;
 			display: grid;
 			place-content: center;
 

@@ -5,7 +5,7 @@
 			background: var(--color-surface-400-600);
 			width: --spacing(16);
 			height: --spacing(16);
-			border-radius: var(--radius-full);
+			border-radius: 50%;
 			overflow: hidden;
 		}
 
