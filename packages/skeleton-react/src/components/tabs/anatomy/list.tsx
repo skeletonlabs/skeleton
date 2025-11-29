@@ -11,10 +11,7 @@ export default function List(props: TabsListProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tabs.getListProps(),
-		rest,
-	);
+	const attributes = mergeProps(tabs.getListProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

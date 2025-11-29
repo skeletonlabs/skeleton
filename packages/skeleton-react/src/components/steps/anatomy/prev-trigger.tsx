@@ -11,10 +11,7 @@ export default function PrevTrigger(props: StepsPrevTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getPrevTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(steps.getPrevTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			switch_().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(switch_().getRootProps(), rest));
 
 	RootContext.provide(() => switch_());
 </script>

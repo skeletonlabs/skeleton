@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getRangeProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getRangeProps(), rest));
 </script>
 
 {#if element}

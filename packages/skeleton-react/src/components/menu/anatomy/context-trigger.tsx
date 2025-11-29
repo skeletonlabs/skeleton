@@ -11,10 +11,7 @@ export default function ContextTrigger(props: MenuContextTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getContextTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getContextTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

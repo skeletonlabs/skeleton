@@ -15,12 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getInputProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getInputProps(), rest));
 </script>
 
 {#if element}

@@ -11,10 +11,7 @@ export interface FileUploadRootProviderProps extends PropsWithElement<'div'>, Om
 export default function RootProvider(props: FileUploadRootProviderProps) {
 	const { element, children, value: fileUpload, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={fileUpload}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

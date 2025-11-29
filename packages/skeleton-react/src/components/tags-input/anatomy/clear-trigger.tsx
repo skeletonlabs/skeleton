@@ -11,10 +11,7 @@ export default function ClearTrigger(props: TagsInputClearTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getClearTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getClearTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -7,9 +7,7 @@ export interface SegmentedControlControlProps extends PropsWithElement<'div'>, H
 export default function Control(props: SegmentedControlControlProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		rest,
-	);
+	const attributes = mergeProps(rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

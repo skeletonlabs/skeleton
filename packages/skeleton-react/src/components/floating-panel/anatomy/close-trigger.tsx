@@ -11,10 +11,7 @@ export default function CloseTrigger(props: FloatingPanelCloseTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getCloseTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getCloseTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

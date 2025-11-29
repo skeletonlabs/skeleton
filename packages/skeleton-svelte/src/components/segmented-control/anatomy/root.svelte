@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			segmentedControl().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(segmentedControl().getRootProps(), rest));
 
 	RootContext.provide(() => segmentedControl());
 </script>

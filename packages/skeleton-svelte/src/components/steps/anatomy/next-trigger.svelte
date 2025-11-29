@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getNextTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getNextTriggerProps(), rest));
 </script>
 
 {#if element}

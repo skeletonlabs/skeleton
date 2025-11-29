@@ -16,12 +16,7 @@
 
 	const { element, children = x, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			toast().getCloseTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(toast().getCloseTriggerProps(), rest));
 </script>
 
 {#snippet x()}

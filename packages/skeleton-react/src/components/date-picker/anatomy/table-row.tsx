@@ -13,10 +13,7 @@ export default function TableRow(props: DatePickerTableRowProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getTableRowProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getTableRowProps(viewProps), rest);
 
 	return element ? element(attributes) : <tr {...attributes}>{children}</tr>;
 }

@@ -11,10 +11,7 @@ export default function Trigger(props: CollapsibleTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		collapsible.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

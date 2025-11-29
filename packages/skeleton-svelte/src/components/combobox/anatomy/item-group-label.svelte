@@ -27,12 +27,7 @@
 	);
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getItemGroupLabelProps(itemGroupLabelProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getItemGroupLabelProps(itemGroupLabelProps), rest));
 </script>
 
 {#if element}

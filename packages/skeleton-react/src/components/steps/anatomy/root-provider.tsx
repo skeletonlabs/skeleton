@@ -11,10 +11,7 @@ export interface StepsRootProviderProps extends PropsWithElement<'div'>, HTMLAtt
 export default function RootProvider(props: StepsRootProviderProps) {
 	const { element, children, value: steps, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(steps.getRootProps(), rest);
 
 	return <RootContext.Provider value={steps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
 }

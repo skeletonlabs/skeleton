@@ -11,10 +11,7 @@ export default function MarkerGroup(props: SliderMarkerGroupProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		slider.getMarkerGroupProps(),
-		rest,
-	);
+	const attributes = mergeProps(slider.getMarkerGroupProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

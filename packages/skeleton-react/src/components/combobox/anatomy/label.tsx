@@ -11,10 +11,7 @@ export default function Label(props: ComboboxLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getLabelProps(), rest);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

@@ -13,10 +13,7 @@ export default function ItemText(props: SegmentedControlItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		segmentedControl.getItemTextProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(segmentedControl.getItemTextProps(itemProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

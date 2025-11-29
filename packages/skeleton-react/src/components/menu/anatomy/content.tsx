@@ -11,10 +11,7 @@ export default function Content(props: MenuContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getContentProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

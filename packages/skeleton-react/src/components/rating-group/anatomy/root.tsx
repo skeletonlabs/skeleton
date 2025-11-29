@@ -17,10 +17,7 @@ export default function Root(props: RatingGroupRootProps) {
 
 	const ratingGroup = useRatingGroup(ratingGroupProps);
 
-	const attributes = mergeProps(
-		ratingGroup.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(ratingGroup.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={ratingGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

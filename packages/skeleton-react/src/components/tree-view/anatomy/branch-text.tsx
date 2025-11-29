@@ -13,10 +13,7 @@ export default function BranchText(props: TreeViewBranchTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getBranchTextProps(nodeProps),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getBranchTextProps(nodeProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

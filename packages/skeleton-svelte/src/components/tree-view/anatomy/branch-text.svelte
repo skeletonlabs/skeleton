@@ -17,12 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getBranchTextProps(nodeProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getBranchTextProps(nodeProps()), rest));
 </script>
 
 {#if element}

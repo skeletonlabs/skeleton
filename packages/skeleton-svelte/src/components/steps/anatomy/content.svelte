@@ -17,12 +17,7 @@
 	// @zag-js/steps does not currently provide a splitItemProps function, so manually destructure
 	const { element, children, index, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getContentProps({ index }),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getContentProps({ index }), rest));
 </script>
 
 {#if element}

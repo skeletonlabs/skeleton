@@ -16,10 +16,7 @@ export default function Root(props: TagsInputRootProps) {
 
 	const tagsInput = useTagsInput(tagsInputProps);
 
-	const attributes = mergeProps(
-		tagsInput.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={tagsInput}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

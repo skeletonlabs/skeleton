@@ -17,10 +17,7 @@ export default function ToggleGroupRoot(props: ToggleGroupRootProps) {
 
 	const toggleGroup = useToggleGroup(toggleGroupProps);
 
-	const attributes = mergeProps(
-		toggleGroup.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(toggleGroup.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={toggleGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tooltip().getArrowProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tooltip().getArrowProps(), rest));
 </script>
 
 {#if element}

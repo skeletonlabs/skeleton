@@ -16,12 +16,7 @@
 
 	const { element, children, value: slider, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getRootProps(), rest));
 
 	RootContext.provide(() => slider());
 </script>

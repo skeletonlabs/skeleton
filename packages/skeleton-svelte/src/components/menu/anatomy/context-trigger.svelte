@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getContextTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getContextTriggerProps(), rest));
 </script>
 
 {#if element}

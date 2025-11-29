@@ -15,12 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getSeparatorProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getSeparatorProps(), rest));
 </script>
 
 {#if element}

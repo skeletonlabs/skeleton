@@ -11,10 +11,7 @@ export default function Content(props: ListboxContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getContentProps(), rest);
 
 	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
 }

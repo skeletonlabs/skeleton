@@ -14,10 +14,7 @@ export default function ItemIndicator(props: ListboxItemIndicatorProps) {
 
 	const { element, children = <Check className="size-4" />, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getItemIndicatorProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemIndicatorProps(itemProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

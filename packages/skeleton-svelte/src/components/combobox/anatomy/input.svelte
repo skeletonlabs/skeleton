@@ -15,12 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getInputProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getInputProps(), rest));
 </script>
 
 {#if element}

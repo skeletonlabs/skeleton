@@ -25,12 +25,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getRootProps(), rest));
 
 	RootContext.provide(() => treeView());
 </script>

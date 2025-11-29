@@ -14,10 +14,7 @@ export default function CollapsibleRoot(props: CollapsibleRootProps) {
 
 	const collapsible = useCollapsible(collapsibleProps);
 
-	const attributes = mergeProps(
-		collapsible.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={collapsible}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

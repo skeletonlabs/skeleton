@@ -11,10 +11,7 @@ export default function Label(props: TagsInputLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getLabelProps(), rest);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

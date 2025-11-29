@@ -16,12 +16,7 @@
 
 	const { element, children, value: ratingGroup, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			ratingGroup().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(ratingGroup().getRootProps(), rest));
 
 	RootContext.provide(() => ratingGroup());
 </script>

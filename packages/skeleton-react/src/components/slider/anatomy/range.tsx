@@ -11,10 +11,7 @@ export default function Range(props: SliderRangeProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		slider.getRangeProps(),
-		rest,
-	);
+	const attributes = mergeProps(slider.getRangeProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			popover().getDescriptionProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(popover().getDescriptionProps(), rest));
 </script>
 
 {#if element}

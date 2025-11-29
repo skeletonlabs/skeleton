@@ -11,10 +11,7 @@ export default function Indicator(props: MenuIndicatorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getIndicatorProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getIndicatorProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

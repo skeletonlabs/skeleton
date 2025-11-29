@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getListProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getListProps(), rest));
 </script>
 
 {#if element}

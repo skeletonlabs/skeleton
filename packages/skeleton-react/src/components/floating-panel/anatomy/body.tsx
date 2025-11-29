@@ -11,10 +11,7 @@ export default function Body(props: FloatingPanelBodyProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getBodyProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getBodyProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

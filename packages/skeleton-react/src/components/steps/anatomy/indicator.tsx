@@ -13,10 +13,7 @@ export default function Indicator(props: StepsIndicatorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getIndicatorProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(steps.getIndicatorProps(itemProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

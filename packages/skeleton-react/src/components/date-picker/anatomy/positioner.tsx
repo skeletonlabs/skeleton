@@ -11,10 +11,7 @@ export default function Positioner(props: DatePickerPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -11,10 +11,7 @@ export interface AccordionRootProviderProps extends PropsWithElement<'div'>, HTM
 export default function RootProvider(props: AccordionRootProviderProps) {
 	const { element, children, value: accordion, ...rest } = props;
 
-	const attributes = mergeProps(
-		accordion.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(accordion.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={accordion}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

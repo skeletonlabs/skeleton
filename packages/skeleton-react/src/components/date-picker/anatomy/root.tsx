@@ -16,10 +16,7 @@ export default function Root(props: DatePickerRootProps) {
 
 	const datePicker = useDatePicker(datePickerProps);
 
-	const attributes = mergeProps(
-		datePicker.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={datePicker}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

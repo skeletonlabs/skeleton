@@ -12,10 +12,7 @@ export default function StageTrigger(props: FloatingPanelStageTriggerProps) {
 
 	const { element, children, stage, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getStageTriggerProps({ stage }),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getStageTriggerProps({ stage }), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

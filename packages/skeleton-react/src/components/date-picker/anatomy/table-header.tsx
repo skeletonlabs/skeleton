@@ -13,10 +13,7 @@ export default function TableHeader(props: DatePickerTableHeaderProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getTableHeaderProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getTableHeaderProps(viewProps), rest);
 
 	return element ? element(attributes) : <th {...attributes}>{children}</th>;
 }

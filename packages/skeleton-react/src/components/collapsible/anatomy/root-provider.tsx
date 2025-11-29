@@ -11,10 +11,7 @@ export interface CollapsibleRootProviderProps extends PropsWithElement<'div'>, H
 export default function CollapsibleRootProvider(props: CollapsibleRootProviderProps) {
 	const { element, children, value: collapsible, ...rest } = props;
 
-	const attributes = mergeProps(
-		collapsible.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={collapsible}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

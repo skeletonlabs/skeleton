@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getRootProps(), rest));
 
 	RootContext.provide(() => steps());
 </script>

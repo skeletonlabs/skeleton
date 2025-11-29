@@ -14,10 +14,7 @@ export default function TriggerItem(props: MenuTriggerItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		triggerItemProps,
-		rest,
-	);
+	const attributes = mergeProps(triggerItemProps, rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ItemContext.Provider>

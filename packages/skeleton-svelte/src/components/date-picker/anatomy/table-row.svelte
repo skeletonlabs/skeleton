@@ -17,12 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getTableRowProps(viewProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getTableRowProps(viewProps()), rest));
 </script>
 
 {#if element}

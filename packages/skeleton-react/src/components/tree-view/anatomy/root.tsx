@@ -17,10 +17,7 @@ export default function Root<T extends TreeNode = TreeNode>(props: TreeViewRootP
 
 	const treeView = useTreeView(treeViewProps);
 
-	const attributes = mergeProps(
-		treeView.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={treeView}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

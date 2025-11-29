@@ -13,10 +13,7 @@ export default function ItemDeleteTrigger(props: FileUploadItemDeleteTriggerProp
 
 	const { element, children = <>&times;</>, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getItemDeleteTriggerProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getItemDeleteTriggerProps(itemProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

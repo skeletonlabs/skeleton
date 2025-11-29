@@ -11,10 +11,7 @@ export default function Label(props: ProgressLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getLabelProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

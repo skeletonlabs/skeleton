@@ -11,10 +11,7 @@ export default function Control(props: DatePickerControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getControlProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getControlProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

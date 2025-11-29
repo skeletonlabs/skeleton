@@ -11,10 +11,7 @@ export interface TabsRootProviderProps extends PropsWithElement<'div'>, HTMLAttr
 export default function RootProvider(props: TabsRootProviderProps) {
 	const { element, children, value: tabs, ...rest } = props;
 
-	const attributes = mergeProps(
-		tabs.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(tabs.getRootProps(), rest);
 
 	return <RootContext.Provider value={tabs}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
 }

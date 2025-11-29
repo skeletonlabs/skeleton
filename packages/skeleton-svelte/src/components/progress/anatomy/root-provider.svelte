@@ -16,12 +16,7 @@
 
 	const { element, children, value: avatar, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			avatar().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(avatar().getRootProps(), rest));
 
 	RootContext.provide(() => avatar());
 </script>

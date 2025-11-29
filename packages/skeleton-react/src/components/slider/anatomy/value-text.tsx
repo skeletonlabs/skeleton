@@ -11,10 +11,7 @@ export default function ValueText(props: SliderValueTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		slider.getValueTextProps(),
-		rest,
-	);
+	const attributes = mergeProps(slider.getValueTextProps(), rest);
 
 	return element ? element(attributes) : <output {...attributes}>{children}</output>;
 }

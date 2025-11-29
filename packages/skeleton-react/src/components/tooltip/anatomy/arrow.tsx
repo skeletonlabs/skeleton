@@ -11,10 +11,7 @@ export default function Arrow(props: TooltipArrowProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tooltip.getArrowProps(),
-		rest,
-	);
+	const attributes = mergeProps(tooltip.getArrowProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

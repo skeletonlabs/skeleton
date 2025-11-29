@@ -18,10 +18,7 @@ export default function ItemGroupLabel(props: ComboboxItemGroupLabelProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		combobox.getItemGroupLabelProps(itemGroupLabelProps),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getItemGroupLabelProps(itemGroupLabelProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

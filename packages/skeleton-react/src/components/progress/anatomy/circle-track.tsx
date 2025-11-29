@@ -11,10 +11,7 @@ export default function CircleTrack(props: ProgressCircleTrackProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getCircleTrackProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getCircleTrackProps(), rest);
 
 	return element ? element(attributes) : <circle {...attributes} />;
 }

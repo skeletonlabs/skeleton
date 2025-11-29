@@ -15,10 +15,7 @@ export default function BranchIndicator(props: TreeViewBranchIndicatorProps) {
 
 	const { element, children = <ChevronRight className="size-4" />, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getBranchIndicatorProps(nodeProps),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getBranchIndicatorProps(nodeProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

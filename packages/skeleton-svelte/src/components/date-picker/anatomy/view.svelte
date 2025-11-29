@@ -19,12 +19,7 @@
 	const [viewProps, componentProps] = $derived(splitViewProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getViewProps(viewProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getViewProps(viewProps), rest));
 
 	ViewContext.provide(() => viewProps);
 </script>

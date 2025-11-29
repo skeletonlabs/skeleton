@@ -11,10 +11,7 @@ export default function PrevTrigger(props: PaginationPrevTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		pagination.getPrevTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(pagination.getPrevTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

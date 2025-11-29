@@ -11,10 +11,7 @@ export default function Range(props: ProgressRangeProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getRangeProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getRangeProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

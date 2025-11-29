@@ -13,10 +13,7 @@ export default function ViewTrigger(props: DatePickerViewTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getViewTriggerProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getViewTriggerProps(viewProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

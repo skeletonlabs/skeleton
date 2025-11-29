@@ -13,10 +13,7 @@ export default function ItemInput(props: TagsInputItemInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getItemInputProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getItemInputProps(itemProps), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

@@ -32,10 +32,7 @@ export default function TableCell(props: DatePickerTableCellProps) {
 		}
 	}
 
-	const attributes = mergeProps(
-		getTableCellProps(tableCellProps as TableCellProps),
-		rest,
-	);
+	const attributes = mergeProps(getTableCellProps(tableCellProps as TableCellProps), rest);
 
 	return (
 		<TableCellContext.Provider value={tableCellProps}>

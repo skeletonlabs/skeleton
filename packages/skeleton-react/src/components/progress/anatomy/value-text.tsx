@@ -11,10 +11,7 @@ export default function ValueText(props: ProgressValueTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getValueTextProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getValueTextProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children ?? progress.percentAsString}</span>;
 }

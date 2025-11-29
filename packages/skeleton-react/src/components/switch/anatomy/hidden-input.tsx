@@ -11,10 +11,7 @@ export default function HiddenInput(props: SwitchHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		switch_.getHiddenInputProps(),
-		rest,
-	);
+	const attributes = mergeProps(switch_.getHiddenInputProps(), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

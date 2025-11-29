@@ -11,10 +11,7 @@ export interface DatePickerRootProviderProps extends PropsWithElement<'div'>, HT
 export default function RootProvider(props: DatePickerRootProviderProps) {
 	const { element, children, value: datePicker, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={datePicker}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

@@ -18,10 +18,7 @@ export default function Label(props: TreeViewLabelProps) {
 
 	const { element, children, level = 3, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getLabelProps(), rest);
 
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 

@@ -11,10 +11,7 @@ export default function Content(props: ComboboxContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getContentProps(), rest);
 
 	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
 }

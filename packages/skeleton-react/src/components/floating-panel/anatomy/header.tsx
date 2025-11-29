@@ -11,10 +11,7 @@ export default function Header(props: FloatingPanelHeaderProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getHeaderProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getHeaderProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

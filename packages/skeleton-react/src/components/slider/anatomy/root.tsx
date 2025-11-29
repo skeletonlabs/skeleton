@@ -17,10 +17,7 @@ export default function SliderRoot(props: SliderRootProps) {
 
 	const slider = useSlider(sliderProps);
 
-	const attributes = mergeProps(
-		slider.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(slider.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={slider}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

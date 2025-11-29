@@ -13,10 +13,7 @@ export default function ItemText(props: ComboboxItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getItemTextProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getItemTextProps(itemProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

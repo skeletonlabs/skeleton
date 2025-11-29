@@ -11,10 +11,7 @@ export default function Indicator(props: SegmentedControlIndicatorProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		segmentedControl.getIndicatorProps(),
-		rest,
-	);
+	const attributes = mergeProps(segmentedControl.getIndicatorProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

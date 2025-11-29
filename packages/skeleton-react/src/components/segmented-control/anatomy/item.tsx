@@ -14,10 +14,7 @@ export default function Item(props: SegmentedControlItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		segmentedControl.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(segmentedControl.getItemProps(itemProps), rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>

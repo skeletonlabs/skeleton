@@ -11,10 +11,7 @@ export default function Dropzone(props: FileUploadDropzoneProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getDropzoneProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getDropzoneProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

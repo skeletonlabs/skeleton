@@ -13,10 +13,7 @@ export default function Branch(props: TreeViewBranchProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getBranchProps(nodeProps),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getBranchProps(nodeProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

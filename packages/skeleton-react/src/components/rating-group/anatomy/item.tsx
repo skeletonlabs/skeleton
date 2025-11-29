@@ -39,10 +39,7 @@ export default function Item(props: RatingGroupItemProps) {
 
 	const itemState = ratingGroup.getItemState(itemProps);
 
-	const attributes = mergeProps(
-		ratingGroup.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(ratingGroup.getItemProps(itemProps), rest);
 
 	return element ? (
 		element(attributes)

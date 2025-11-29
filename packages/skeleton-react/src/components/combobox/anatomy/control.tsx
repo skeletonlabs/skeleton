@@ -11,10 +11,7 @@ export default function Control(props: ComboboxControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getControlProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getControlProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

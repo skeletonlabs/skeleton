@@ -11,10 +11,7 @@ export default function NextTrigger(props: PaginationNextTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		pagination.getNextTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(pagination.getNextTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

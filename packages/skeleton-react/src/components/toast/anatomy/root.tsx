@@ -22,10 +22,7 @@ export default function Root(props: ToastRootProps) {
 	});
 	const toast = connect(service, normalizeProps);
 
-	const attributes = mergeProps(
-		toast.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(toast.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={toast}>

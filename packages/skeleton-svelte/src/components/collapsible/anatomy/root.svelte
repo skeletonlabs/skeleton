@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			collapsible().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(collapsible().getRootProps(), rest));
 
 	RootContext.provide(() => collapsible());
 </script>

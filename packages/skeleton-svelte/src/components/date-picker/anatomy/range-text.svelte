@@ -17,12 +17,7 @@
 
 	const { element, children = defaultChildren, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getRangeTextProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getRangeTextProps(), rest));
 </script>
 
 {#snippet defaultChildren()}

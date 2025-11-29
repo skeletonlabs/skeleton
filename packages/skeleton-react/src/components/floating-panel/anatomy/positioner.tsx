@@ -11,10 +11,7 @@ export default function Positioner(props: FloatingPanelPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

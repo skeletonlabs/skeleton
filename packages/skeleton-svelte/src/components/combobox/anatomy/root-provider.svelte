@@ -16,12 +16,7 @@
 
 	const { element, children, value: combobox, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getRootProps(), rest));
 
 	RootContext.provide(() => combobox());
 </script>

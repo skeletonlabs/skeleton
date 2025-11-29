@@ -11,10 +11,7 @@ export interface ToggleGroupRootProviderProps extends PropsWithElement<'div'>, H
 export default function ToggleGroupRootProvider(props: ToggleGroupRootProviderProps) {
 	const { element, children, value: toggleGroup, ...rest } = props;
 
-	const attributes = mergeProps(
-		toggleGroup.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(toggleGroup.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={toggleGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

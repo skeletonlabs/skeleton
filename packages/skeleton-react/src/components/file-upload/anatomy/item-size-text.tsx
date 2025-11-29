@@ -13,10 +13,7 @@ export default function ItemSizeText(props: FileUploadItemSizeTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getItemSizeTextProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getItemSizeTextProps(itemProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

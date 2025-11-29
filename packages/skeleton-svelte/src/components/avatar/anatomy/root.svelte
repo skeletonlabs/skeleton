@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			avatar().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(avatar().getRootProps(), rest));
 
 	RootContext.provide(() => avatar());
 </script>

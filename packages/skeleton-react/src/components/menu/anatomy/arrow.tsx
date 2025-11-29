@@ -11,10 +11,7 @@ export default function Arrow(props: MenuArrowProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getArrowProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getArrowProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

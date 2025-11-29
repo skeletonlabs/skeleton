@@ -11,10 +11,7 @@ export default function Separator(props: MenuSeparatorProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getSeparatorProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getSeparatorProps(), rest);
 
 	return element ? element(attributes) : <hr {...attributes} />;
 }

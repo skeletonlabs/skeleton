@@ -11,10 +11,7 @@ export default function Fallback(props: AvatarFallbackProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		avatar.getFallbackProps(),
-		rest,
-	);
+	const attributes = mergeProps(avatar.getFallbackProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

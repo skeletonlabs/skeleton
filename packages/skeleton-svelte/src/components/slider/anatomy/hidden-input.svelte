@@ -17,12 +17,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getHiddenInputProps(thumbProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getHiddenInputProps(thumbProps()), rest));
 </script>
 
 {#if element}

@@ -11,10 +11,7 @@ export default function Indicator(props: CollapsibleIndicatorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		collapsible.getIndicatorProps(),
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getIndicatorProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

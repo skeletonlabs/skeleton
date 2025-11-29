@@ -14,10 +14,7 @@ export default function PrevTrigger(props: DatePickerPrevTriggerProps) {
 
 	const { element, children = <ChevronLeft />, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getPrevTriggerProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getPrevTriggerProps(viewProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

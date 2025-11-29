@@ -22,12 +22,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getRootProps(), rest));
 
 	RootContext.provide(() => tabs());
 </script>

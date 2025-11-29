@@ -19,12 +19,7 @@
 	const [resizeTriggerProps, componentProps] = $derived(splitResizeTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			floatingPanel().getResizeTriggerProps(resizeTriggerProps as ZagResizeTriggerProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(floatingPanel().getResizeTriggerProps(resizeTriggerProps as ZagResizeTriggerProps), rest));
 </script>
 
 {#if element}

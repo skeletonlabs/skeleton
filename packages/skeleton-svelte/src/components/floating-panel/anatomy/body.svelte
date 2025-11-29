@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			floatingPanel().getBodyProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(floatingPanel().getBodyProps(), rest));
 </script>
 
 {#if element}

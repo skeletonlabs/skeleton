@@ -11,10 +11,7 @@ export default function Tree(props: TreeViewTreeProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getTreeProps(),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getTreeProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

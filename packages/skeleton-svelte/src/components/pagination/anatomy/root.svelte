@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			pagination().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(pagination().getRootProps(), rest));
 
 	RootContext.provide(() => pagination());
 </script>

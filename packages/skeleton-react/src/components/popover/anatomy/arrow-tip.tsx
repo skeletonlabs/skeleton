@@ -11,10 +11,7 @@ export default function ArrowTip(props: PopoverArrowTipProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getArrowTipProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getArrowTipProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

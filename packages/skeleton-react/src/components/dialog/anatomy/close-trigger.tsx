@@ -11,10 +11,7 @@ export default function CloseTrigger(props: DialogCloseTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		dialog.getCloseTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(dialog.getCloseTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

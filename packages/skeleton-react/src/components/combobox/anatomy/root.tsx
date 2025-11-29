@@ -16,10 +16,7 @@ export default function Root(props: ComboboxRootProps) {
 
 	const combobox = useCombobox(comboboxProps);
 
-	const attributes = mergeProps(
-		combobox.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={combobox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

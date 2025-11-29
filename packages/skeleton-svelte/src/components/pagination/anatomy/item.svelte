@@ -17,12 +17,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			pagination().getItemProps(itemProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(pagination().getItemProps(itemProps), rest));
 </script>
 
 {#if element}

@@ -13,10 +13,7 @@ export interface ComboboxRootProviderProps
 export default function RootProvider(props: ComboboxRootProviderProps) {
 	const { element, children, value: combobox, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={combobox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

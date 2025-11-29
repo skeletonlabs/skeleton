@@ -11,10 +11,7 @@ export default function Arrow(props: PopoverArrowProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getArrowProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getArrowProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

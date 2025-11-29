@@ -15,12 +15,7 @@
 	const props: TabsRootProviderProps = $props();
 	const { element, children, value: tabs, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getRootProps(), rest));
 
 	RootContext.provide(() => tabs());
 </script>

@@ -11,10 +11,7 @@ export default function HiddenInput(props: TagsInputHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getHiddenInputProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getHiddenInputProps(), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

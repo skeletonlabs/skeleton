@@ -13,10 +13,7 @@ export default function Trigger(props: StepsTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getTriggerProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(steps.getTriggerProps(itemProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

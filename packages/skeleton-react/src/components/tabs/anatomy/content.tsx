@@ -14,10 +14,7 @@ export default function Content(props: TabsContentProps) {
 	const [contentProps, componentProps] = splitContentProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		tabs.getContentProps(contentProps),
-		rest,
-	);
+	const attributes = mergeProps(tabs.getContentProps(contentProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

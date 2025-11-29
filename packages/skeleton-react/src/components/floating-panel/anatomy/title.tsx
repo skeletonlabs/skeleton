@@ -11,10 +11,7 @@ export default function Title(props: FloatingPanelTitleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getTitleProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getTitleProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

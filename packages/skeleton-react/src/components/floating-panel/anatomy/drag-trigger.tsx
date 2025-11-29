@@ -11,10 +11,7 @@ export default function DragTrigger(props: FloatingPanelDragTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getDragTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getDragTriggerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

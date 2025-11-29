@@ -14,10 +14,7 @@ export default function View(props: DatePickerViewProps) {
 	const [viewProps, componentProps] = splitViewProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		datePicker.getViewProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getViewProps(viewProps), rest);
 
 	return (
 		<ViewContext.Provider value={viewProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ViewContext.Provider>

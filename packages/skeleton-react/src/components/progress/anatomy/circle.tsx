@@ -11,10 +11,7 @@ export default function Circle(props: ProgressCircleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getCircleProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getCircleProps(), rest);
 
 	return element ? element(attributes) : <svg {...attributes}>{children}</svg>;
 }

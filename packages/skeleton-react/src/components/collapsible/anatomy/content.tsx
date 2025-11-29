@@ -11,10 +11,7 @@ export default function Content(props: CollapsibleContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		collapsible.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getContentProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

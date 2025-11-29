@@ -14,10 +14,7 @@ export default function Root(props: FileUploadRootProps) {
 
 	const fileUpload = useFileUpload(fileUploadProps);
 
-	const attributes = mergeProps(
-		fileUpload.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={fileUpload}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

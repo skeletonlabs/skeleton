@@ -18,12 +18,7 @@
 	const [contentProps, componentProps] = $derived(splitContentProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getContentProps(contentProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getContentProps(contentProps), rest));
 </script>
 
 {#if element}

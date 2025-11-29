@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			switch_().getThumbProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(switch_().getThumbProps(), rest));
 </script>
 
 {#if element}

@@ -11,10 +11,7 @@ export default function Input(props: ListboxInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getInputProps(),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getInputProps(), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

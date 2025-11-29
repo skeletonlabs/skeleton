@@ -16,12 +16,7 @@
 
 	const { element, children, value: toggleGroup, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			toggleGroup().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(toggleGroup().getRootProps(), rest));
 
 	RootContext.provide(() => toggleGroup());
 </script>

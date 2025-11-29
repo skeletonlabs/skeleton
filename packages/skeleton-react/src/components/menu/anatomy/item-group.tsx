@@ -18,10 +18,7 @@ export default function ItemGroup(props: MenuItemGroupProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		menu.getItemGroupProps(itemGroupProps),
-		rest,
-	);
+	const attributes = mergeProps(menu.getItemGroupProps(itemGroupProps), rest);
 
 	return (
 		<ItemGroupContext.Provider value={itemGroupProps}>

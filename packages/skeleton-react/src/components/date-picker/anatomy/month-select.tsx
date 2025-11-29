@@ -11,10 +11,7 @@ export default function MonthSelect(props: DatePickerMonthSelectProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getMonthSelectProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getMonthSelectProps(), rest);
 
 	return element ? (
 		element(attributes)

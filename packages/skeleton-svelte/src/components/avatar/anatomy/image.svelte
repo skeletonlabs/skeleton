@@ -15,12 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			avatar().getImageProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(avatar().getImageProps(), rest));
 </script>
 
 {#if element}

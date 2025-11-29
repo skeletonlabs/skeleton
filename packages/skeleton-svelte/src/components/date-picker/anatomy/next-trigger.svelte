@@ -18,12 +18,7 @@
 
 	const { element, children = chevronRight, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getNextTriggerProps(viewProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getNextTriggerProps(viewProps()), rest));
 </script>
 
 {#snippet chevronRight()}

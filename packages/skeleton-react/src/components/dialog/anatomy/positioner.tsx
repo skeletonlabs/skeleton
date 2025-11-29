@@ -11,10 +11,7 @@ export default function Positioner(props: DialogPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		dialog.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(dialog.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

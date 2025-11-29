@@ -16,12 +16,7 @@
 
 	const { element, children, stage, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			floatingPanel().getStageTriggerProps({ stage }),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(floatingPanel().getStageTriggerProps({ stage }), rest));
 </script>
 
 {#if element}

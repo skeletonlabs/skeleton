@@ -15,10 +15,7 @@ export default function Item(props: FileUploadItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		fileUpload.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getItemProps(itemProps), rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <li {...attributes}>{children}</li>}</ItemContext.Provider>

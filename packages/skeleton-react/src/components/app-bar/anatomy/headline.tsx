@@ -7,9 +7,7 @@ export interface AppBarHeadlineProps extends PropsWithElement<'div'>, HTMLAttrib
 export default function AppBarHeadline(props: AppBarHeadlineProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		rest,
-	);
+	const attributes = mergeProps(rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

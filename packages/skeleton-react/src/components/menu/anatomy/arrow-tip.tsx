@@ -11,10 +11,7 @@ export default function ArrowTip(props: MenuArrowTipProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getArrowTipProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getArrowTipProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

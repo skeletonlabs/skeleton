@@ -13,10 +13,7 @@ export default function Table(props: DatePickerTableProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getTableProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getTableProps(viewProps), rest);
 
 	return element ? element(attributes) : <table {...attributes}>{children}</table>;
 }

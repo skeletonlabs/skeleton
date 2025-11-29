@@ -14,10 +14,7 @@ export default function ItemContent(props: AccordionItemContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		accordion.getItemContentProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(accordion.getItemContentProps(itemProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

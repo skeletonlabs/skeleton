@@ -17,12 +17,7 @@
 
 	const { element, children = times, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getItemDeleteTriggerProps(itemProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getItemDeleteTriggerProps(itemProps()), rest));
 </script>
 
 {#snippet times()}

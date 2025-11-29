@@ -13,10 +13,7 @@ export default function ResizeTrigger(props: FloatingPanelResizeTriggerProps) {
 	const [resizeTriggerProps, componentProps] = splitResizeTriggerProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		floatingPanel.getResizeTriggerProps(resizeTriggerProps as ResizeTriggerProps),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getResizeTriggerProps(resizeTriggerProps as ResizeTriggerProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getLabelProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getLabelProps(), rest));
 </script>
 
 {#if element}

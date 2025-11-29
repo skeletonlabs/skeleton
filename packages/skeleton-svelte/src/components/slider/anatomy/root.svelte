@@ -26,12 +26,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getRootProps(), rest));
 
 	RootContext.provide(() => slider());
 </script>

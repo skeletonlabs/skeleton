@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getClearTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getClearTriggerProps(), rest));
 </script>
 
 {#if element}

@@ -13,10 +13,7 @@ export default function HiddenInput(props: SliderHiddenInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		slider.getHiddenInputProps(thumbProps),
-		rest,
-	);
+	const attributes = mergeProps(slider.getHiddenInputProps(thumbProps), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

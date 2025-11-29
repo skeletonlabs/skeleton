@@ -11,10 +11,7 @@ export default function Trigger(props: FileUploadTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

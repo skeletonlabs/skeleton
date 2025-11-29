@@ -18,12 +18,7 @@
 
 	const { element, children = chevronRight, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getBranchIndicatorProps(nodeProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getBranchIndicatorProps(nodeProps()), rest));
 </script>
 
 {#snippet chevronRight()}

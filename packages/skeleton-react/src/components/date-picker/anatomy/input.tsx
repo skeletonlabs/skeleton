@@ -13,10 +13,7 @@ export default function Input(props: DatePickerInputProps) {
 	const [inputProps, componentProps] = splitInputProps(props);
 	const { element, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		datePicker.getInputProps(inputProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getInputProps(inputProps), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

@@ -16,12 +16,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getDropzoneProps(props),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getDropzoneProps(props), rest));
 </script>
 
 {#if element}

@@ -17,10 +17,7 @@ export default function Root(props: SegmentedControlRootProps) {
 
 	const segmentedControl = useSegmentedControl(segmentedControlProps);
 
-	const attributes = mergeProps(
-		segmentedControl.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(segmentedControl.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={segmentedControl}>

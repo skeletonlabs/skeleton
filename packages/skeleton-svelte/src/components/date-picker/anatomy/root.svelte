@@ -26,12 +26,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getRootProps(), rest));
 
 	RootContext.provide(() => datePicker());
 </script>

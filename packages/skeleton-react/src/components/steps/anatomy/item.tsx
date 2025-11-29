@@ -15,10 +15,7 @@ export default function Item(props: StepsItemProps) {
 	const { element, children, index, ...rest } = props;
 	const itemProps = { index };
 
-	const attributes = mergeProps(
-		steps.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(steps.getItemProps(itemProps), rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ItemContext.Provider>

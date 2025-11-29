@@ -11,10 +11,7 @@ export interface TagsInputRootProviderProps extends PropsWithElement<'div'>, HTM
 export default function RootProvider(props: TagsInputRootProviderProps) {
 	const { element, children, value: tagsInput, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={tagsInput}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

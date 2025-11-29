@@ -13,10 +13,7 @@ export default function ItemText(props: ListboxItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getItemTextProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemTextProps(itemProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

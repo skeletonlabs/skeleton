@@ -16,12 +16,7 @@
 
 	const { element, children, value: collapsible, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			collapsible().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(collapsible().getRootProps(), rest));
 
 	RootContext.provide(() => collapsible());
 </script>

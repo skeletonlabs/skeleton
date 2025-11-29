@@ -11,10 +11,7 @@ export default function ClearTrigger(props: FileUploadClearTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getClearTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getClearTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

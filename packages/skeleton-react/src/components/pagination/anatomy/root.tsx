@@ -14,10 +14,7 @@ export default function PaginationRoot(props: PaginationRootProps) {
 
 	const pagination = usePagination(paginationProps);
 
-	const attributes = mergeProps(
-		pagination.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(pagination.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={pagination}>{element ? element(attributes) : <nav {...attributes}>{children}</nav>}</RootContext.Provider>

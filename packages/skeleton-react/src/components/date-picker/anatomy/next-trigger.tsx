@@ -15,10 +15,7 @@ export default function NextTrigger(props: DatePickerNextTriggerProps) {
 
 	const { element, children = <ChevronRight />, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getNextTriggerProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getNextTriggerProps(viewProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

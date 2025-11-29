@@ -18,12 +18,7 @@
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getTriggerProps(triggerProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getTriggerProps(triggerProps), rest));
 </script>
 
 {#if element}

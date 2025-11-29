@@ -11,10 +11,7 @@ export default function Content(props: DatePickerContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getContentProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

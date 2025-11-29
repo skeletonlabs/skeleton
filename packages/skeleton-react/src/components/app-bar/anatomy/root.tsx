@@ -7,9 +7,7 @@ export interface AppBarRootProps extends PropsWithElement<'header'>, HTMLAttribu
 export default function AppBarRoot(props: AppBarRootProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		rest,
-	);
+	const attributes = mergeProps(rest);
 
 	return element ? element(attributes) : <header {...attributes}>{children}</header>;
 }

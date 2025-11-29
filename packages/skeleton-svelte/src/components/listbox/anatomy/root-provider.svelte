@@ -16,12 +16,7 @@
 
 	const { element, children, value: listbox, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getRootProps(), rest));
 
 	RootContext.provide(() => listbox());
 </script>

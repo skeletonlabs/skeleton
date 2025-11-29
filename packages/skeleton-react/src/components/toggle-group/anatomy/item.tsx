@@ -13,10 +13,7 @@ export default function Item(props: ToggleGroupItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		toggleGroup.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(toggleGroup.getItemProps(itemProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

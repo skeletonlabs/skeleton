@@ -22,12 +22,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getRootProps(), rest));
 
 	RootContext.provide(() => tagsInput());
 </script>

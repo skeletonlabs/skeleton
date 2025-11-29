@@ -11,10 +11,7 @@ export default function Input(props: TagsInputInputProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getInputProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getInputProps(), rest);
 
 	return element ? element(attributes) : <input {...attributes} />;
 }

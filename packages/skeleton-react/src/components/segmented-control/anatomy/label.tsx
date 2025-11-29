@@ -11,10 +11,7 @@ export default function Label(props: SegmentedControlLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		segmentedControl.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(segmentedControl.getLabelProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

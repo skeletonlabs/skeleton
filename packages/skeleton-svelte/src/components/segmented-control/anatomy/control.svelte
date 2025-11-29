@@ -12,11 +12,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(rest));
 </script>
 
 {#if element}

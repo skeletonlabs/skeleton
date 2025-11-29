@@ -28,12 +28,7 @@
 	);
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getItemGroupLabelProps(labelProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getItemGroupLabelProps(labelProps), rest));
 </script>
 
 {#if element}

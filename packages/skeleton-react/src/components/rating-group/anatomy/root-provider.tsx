@@ -11,10 +11,7 @@ export interface RatingGroupRootProviderProps extends PropsWithElement<'div'>, H
 export default function RootProvider(props: RatingGroupRootProviderProps) {
 	const { element, children, value: ratingGroup, ...rest } = props;
 
-	const attributes = mergeProps(
-		ratingGroup.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(ratingGroup.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={ratingGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

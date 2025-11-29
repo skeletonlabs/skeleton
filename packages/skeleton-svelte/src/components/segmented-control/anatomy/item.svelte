@@ -19,12 +19,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			segmentedControl().getItemProps(itemProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(segmentedControl().getItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

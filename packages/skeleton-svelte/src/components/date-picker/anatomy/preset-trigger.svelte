@@ -18,12 +18,7 @@
 	const [presetTriggerProps, componentProps] = $derived(splitPresetTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getPresetTriggerProps(presetTriggerProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getPresetTriggerProps(presetTriggerProps), rest));
 </script>
 
 {#if element}

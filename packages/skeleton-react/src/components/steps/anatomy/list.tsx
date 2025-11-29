@@ -11,10 +11,7 @@ export default function List(props: StepsListProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getListProps(),
-		rest,
-	);
+	const attributes = mergeProps(steps.getListProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -11,10 +11,7 @@ export interface TreeViewRootProviderProps extends PropsWithElement<'div'>, HTML
 export default function RootProvider(props: TreeViewRootProviderProps) {
 	const { element, children, value: treeView, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={treeView}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

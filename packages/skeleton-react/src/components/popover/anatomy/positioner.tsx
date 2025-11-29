@@ -11,10 +11,7 @@ export default function Positioner(props: PopoverPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

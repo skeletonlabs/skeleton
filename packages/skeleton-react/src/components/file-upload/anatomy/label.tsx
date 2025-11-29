@@ -11,10 +11,7 @@ export default function Label(props: FileUploadLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		fileUpload.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(fileUpload.getLabelProps(), rest);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

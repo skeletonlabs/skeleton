@@ -11,10 +11,7 @@ export default function Label(props: SwitchLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		switch_.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(switch_.getLabelProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

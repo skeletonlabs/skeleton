@@ -22,10 +22,7 @@ export default function ItemGroupLabel(props: MenuItemGroupLabelProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		menu.getItemGroupLabelProps(labelProps),
-		rest,
-	);
+	const attributes = mergeProps(menu.getItemGroupLabelProps(labelProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

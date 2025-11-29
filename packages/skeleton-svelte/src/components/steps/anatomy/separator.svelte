@@ -17,12 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getSeparatorProps(itemProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getSeparatorProps(itemProps()), rest));
 </script>
 
 {#if element}

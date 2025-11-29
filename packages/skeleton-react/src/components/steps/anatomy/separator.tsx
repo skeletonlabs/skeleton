@@ -13,10 +13,7 @@ export default function Separator(props: StepsSeparatorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getSeparatorProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(steps.getSeparatorProps(itemProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

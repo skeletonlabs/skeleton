@@ -13,10 +13,7 @@ export interface ListboxRootProviderProps
 export default function RootProvider(props: ListboxRootProviderProps) {
 	const { element, children, value: listbox, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={listbox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

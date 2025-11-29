@@ -15,10 +15,7 @@ export default function OptionItem(props: MenuOptionItemProps) {
 	const [itemProps, componentProps] = splitOptionItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		menu.getOptionItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(menu.getOptionItemProps(itemProps), rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ItemContext.Provider>

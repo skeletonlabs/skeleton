@@ -14,10 +14,7 @@ export default function Item(props: ListboxItemProps) {
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		listbox.getItemProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemProps(itemProps), rest);
 
 	return (
 		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <li {...attributes}>{children}</li>}</ItemContext.Provider>

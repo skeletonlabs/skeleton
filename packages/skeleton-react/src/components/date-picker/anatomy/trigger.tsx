@@ -12,10 +12,7 @@ export default function Trigger(props: DatePickerTriggerProps) {
 
 	const { element, children = <Calendar />, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

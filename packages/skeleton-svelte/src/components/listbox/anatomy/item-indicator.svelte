@@ -18,12 +18,7 @@
 
 	const { element, children = check, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getItemIndicatorProps(itemProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getItemIndicatorProps(itemProps()), rest));
 </script>
 
 {#snippet check()}

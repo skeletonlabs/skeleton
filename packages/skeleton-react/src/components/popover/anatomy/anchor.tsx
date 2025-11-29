@@ -11,10 +11,7 @@ export default function Anchor(props: PopoverAnchorProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getAnchorProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getAnchorProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

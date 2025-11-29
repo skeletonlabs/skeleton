@@ -57,6 +57,5 @@
 		&[data-part='label'] {
 			@apply label-text;
 		}
-
 	}
 }

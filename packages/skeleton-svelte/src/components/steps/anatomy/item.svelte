@@ -19,12 +19,7 @@
 	const { element, children, index, ...rest } = $derived(props);
 	const itemProps = $derived({ index });
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getItemProps(itemProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

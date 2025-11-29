@@ -18,12 +18,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			triggerItemProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(triggerItemProps(), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

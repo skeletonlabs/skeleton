@@ -13,10 +13,7 @@ export default function RangeText(props: DatePickerRangeTextProps) {
 
 	const { element, children = rangeText, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getRangeTextProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getRangeTextProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

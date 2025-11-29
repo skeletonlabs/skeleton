@@ -15,12 +15,7 @@
 	const props: TagsInputRootProviderProps = $props();
 	const { element, children, value: tagsInput, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getRootProps(), rest));
 
 	RootContext.provide(() => tagsInput());
 </script>

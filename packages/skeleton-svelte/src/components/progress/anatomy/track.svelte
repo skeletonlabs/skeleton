@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			progress().getTrackProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(progress().getTrackProps(), rest));
 </script>
 
 {#if element}

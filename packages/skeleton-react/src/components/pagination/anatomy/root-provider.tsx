@@ -11,10 +11,7 @@ export interface PaginationRootProviderProps extends PropsWithElement<'nav'>, HT
 export default function PaginationRootProvider(props: PaginationRootProviderProps) {
 	const { element, children, value: pagination, ...rest } = props;
 
-	const attributes = mergeProps(
-		pagination.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(pagination.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={pagination}>{element ? element(attributes) : <nav {...attributes}>{children}</nav>}</RootContext.Provider>

@@ -11,10 +11,7 @@ export default function ClearTrigger(props: ComboboxClearTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getClearTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getClearTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -11,10 +11,7 @@ export default function Positioner(props: ComboboxPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

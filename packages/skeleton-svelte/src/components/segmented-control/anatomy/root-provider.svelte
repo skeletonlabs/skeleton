@@ -16,12 +16,7 @@
 
 	const { element, children, value: segmentedControl, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			segmentedControl().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(segmentedControl().getRootProps(), rest));
 
 	RootContext.provide(() => segmentedControl());
 </script>

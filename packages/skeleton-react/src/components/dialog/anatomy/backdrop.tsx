@@ -11,10 +11,7 @@ export default function Backdrop(props: DialogBackdropProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		dialog.getBackdropProps(),
-		rest,
-	);
+	const attributes = mergeProps(dialog.getBackdropProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

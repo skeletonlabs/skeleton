@@ -11,10 +11,7 @@ export default function Content(props: PopoverContentProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getContentProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getContentProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

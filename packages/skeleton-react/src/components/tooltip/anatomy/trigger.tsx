@@ -11,10 +11,7 @@ export default function Trigger(props: TooltipTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tooltip.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(tooltip.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -11,10 +11,7 @@ export default function Track(props: ProgressTrackProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		progress.getTrackProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getTrackProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

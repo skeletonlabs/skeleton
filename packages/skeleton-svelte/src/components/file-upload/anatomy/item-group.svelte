@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getItemGroupProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getItemGroupProps(), rest));
 </script>
 
 {#if element}

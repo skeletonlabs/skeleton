@@ -13,10 +13,7 @@ export default function ItemPreview(props: TagsInputItemPreviewProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getItemPreviewProps(itemProps),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getItemPreviewProps(itemProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

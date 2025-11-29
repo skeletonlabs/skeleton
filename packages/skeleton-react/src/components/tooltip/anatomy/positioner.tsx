@@ -11,10 +11,7 @@ export default function Positioner(props: TooltipPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tooltip.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(tooltip.getPositionerProps(), rest);
 
 	return <Portal>{element ? element(attributes) : <div {...attributes}>{children}</div>}</Portal>;
 }

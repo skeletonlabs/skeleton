@@ -11,10 +11,7 @@ export default function Label(props: ListboxLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getLabelProps(), rest);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

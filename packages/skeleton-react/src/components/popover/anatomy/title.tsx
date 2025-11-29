@@ -11,10 +11,7 @@ export default function Title(props: PopoverTitleProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getTitleProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getTitleProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

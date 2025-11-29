@@ -11,10 +11,7 @@ export default function YearSelect(props: DatePickerYearSelectProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getYearSelectProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getYearSelectProps(), rest);
 
 	return element ? (
 		element(attributes)

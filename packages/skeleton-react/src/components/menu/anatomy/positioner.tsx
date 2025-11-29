@@ -11,10 +11,7 @@ export default function Positioner(props: MenuPositionerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getPositionerProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getPositionerProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

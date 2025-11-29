@@ -17,12 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			segmentedcontrol().getItemTextProps(itemProps()),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(segmentedcontrol().getItemTextProps(itemProps()), rest));
 </script>
 
 {#if element}

@@ -17,12 +17,7 @@
 	const [ellipsisProps, componentProps] = $derived(splitEllipsisProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			pagination().getEllipsisProps(ellipsisProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(pagination().getEllipsisProps(ellipsisProps), rest));
 </script>
 
 {#if element}

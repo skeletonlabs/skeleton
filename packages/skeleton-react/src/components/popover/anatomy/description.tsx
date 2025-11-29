@@ -11,10 +11,7 @@ export default function Description(props: PopoverDescriptionProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getDescriptionProps(),
-		rest,
-	);
+	const attributes = mergeProps(popover.getDescriptionProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

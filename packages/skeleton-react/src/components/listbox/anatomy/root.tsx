@@ -16,10 +16,7 @@ export default function Root(props: ListboxRootProps) {
 
 	const listbox = useListbox(listboxProps);
 
-	const attributes = mergeProps(
-		listbox.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={listbox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

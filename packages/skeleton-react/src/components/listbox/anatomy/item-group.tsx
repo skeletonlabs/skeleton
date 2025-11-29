@@ -17,10 +17,7 @@ export default function ItemGroup(props: ListboxItemGroupProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		listbox.getItemGroupProps(itemGroupProps),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemGroupProps(itemGroupProps), rest);
 
 	return (
 		<ItemGroupContext.Provider value={itemGroupProps}>

@@ -13,10 +13,7 @@ export default function PresetTrigger(props: DatePickerPresetTriggerProps) {
 	const [presetTriggerProps, componentProps] = splitPresetTriggerProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		datePicker.getPresetTriggerProps(presetTriggerProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getPresetTriggerProps(presetTriggerProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

@@ -16,12 +16,7 @@
 
 	const { element, children, value: steps, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getRootProps(), rest));
 
 	RootContext.provide(() => steps());
 </script>

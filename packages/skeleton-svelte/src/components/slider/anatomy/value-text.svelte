@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getValueTextProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getValueTextProps(), rest));
 </script>
 
 {#if element}

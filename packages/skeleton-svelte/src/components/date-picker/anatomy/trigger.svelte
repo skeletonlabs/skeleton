@@ -16,12 +16,7 @@
 
 	const { element, children = calendarIcon, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getTriggerProps(), rest));
 </script>
 
 {#snippet calendarIcon()}

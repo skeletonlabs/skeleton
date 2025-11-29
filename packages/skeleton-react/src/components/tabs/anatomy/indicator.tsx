@@ -11,10 +11,7 @@ export default function Indicator(props: TabsIndicatorProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		tabs.getIndicatorProps(),
-		rest,
-	);
+	const attributes = mergeProps(tabs.getIndicatorProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes} />;
 }

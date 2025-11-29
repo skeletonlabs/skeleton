@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			collapsible().getContentProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(collapsible().getContentProps(), rest));
 </script>
 
 {#if element}

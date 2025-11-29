@@ -13,10 +13,7 @@ export default function Item(props: TreeViewItemProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getItemProps(nodeProps),
-		rest,
-	);
+	const attributes = mergeProps(treeView.getItemProps(nodeProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

@@ -11,10 +11,7 @@ export default function Control(props: SwitchControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		switch_.getControlProps(),
-		rest,
-	);
+	const attributes = mergeProps(switch_.getControlProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

@@ -11,10 +11,7 @@ export default function Description(props: DialogDescriptionProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		dialog.getDescriptionProps(),
-		rest,
-	);
+	const attributes = mergeProps(dialog.getDescriptionProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

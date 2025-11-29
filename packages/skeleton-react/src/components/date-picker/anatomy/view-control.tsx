@@ -13,10 +13,7 @@ export default function ViewControl(props: DatePickerViewControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getViewControlProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getViewControlProps(viewProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

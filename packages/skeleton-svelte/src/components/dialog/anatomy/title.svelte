@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			dialog().getTitleProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(dialog().getTitleProps(), rest));
 </script>
 
 {#if element}

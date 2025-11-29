@@ -11,10 +11,7 @@ export default function Thumb(props: SwitchThumbProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		switch_.getThumbProps(),
-		rest,
-	);
+	const attributes = mergeProps(switch_.getThumbProps(), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

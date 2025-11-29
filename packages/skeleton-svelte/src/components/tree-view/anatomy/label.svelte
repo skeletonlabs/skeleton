@@ -22,12 +22,7 @@
 
 	const { level = 3, element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getLabelProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getLabelProps(), rest));
 
 	const tag = $derived(`h${level}`);
 </script>

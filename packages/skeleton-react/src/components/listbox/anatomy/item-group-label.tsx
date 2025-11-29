@@ -18,10 +18,7 @@ export default function ItemGroupLabel(props: ListboxItemGroupLabelProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		listbox.getItemGroupLabelProps(itemGroupLabelProps),
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemGroupLabelProps(itemGroupLabelProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

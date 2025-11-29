@@ -25,12 +25,7 @@
 	);
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getItemGroupProps(itemGroupProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getItemGroupProps(itemGroupProps), rest));
 
 	ItemGroupContext.provide(() => itemGroupProps);
 </script>

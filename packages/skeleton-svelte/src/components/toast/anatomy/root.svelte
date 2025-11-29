@@ -26,12 +26,7 @@
 	}));
 	const toast = $derived(connect(service, normalizeProps));
 
-	const attributes = $derived(
-		mergeProps(
-			toast.getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(toast.getRootProps(), rest));
 
 	RootContext.provide(() => toast);
 </script>

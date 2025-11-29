@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			avatar().getFallbackProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(avatar().getFallbackProps(), rest));
 </script>
 
 {#if element}

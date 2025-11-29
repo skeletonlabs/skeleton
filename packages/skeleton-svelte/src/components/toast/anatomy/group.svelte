@@ -26,12 +26,7 @@
 	}));
 	const api = $derived(group.connect(service, normalizeProps));
 
-	const attributes = $derived(
-		mergeProps(
-			api.getGroupProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(api.getGroupProps(), rest));
 
 	GroupContext.provide(() => service);
 </script>

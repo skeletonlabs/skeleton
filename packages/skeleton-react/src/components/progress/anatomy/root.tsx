@@ -17,10 +17,7 @@ export default function Root(props: ProgressRootProps) {
 
 	const progress = useProgress(progressProps);
 
-	const attributes = mergeProps(
-		progress.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(progress.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={progress}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

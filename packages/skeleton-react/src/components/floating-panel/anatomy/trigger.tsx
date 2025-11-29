@@ -11,10 +11,7 @@ export default function Trigger(props: FloatingPanelTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		floatingPanel.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(floatingPanel.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

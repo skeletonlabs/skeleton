@@ -11,10 +11,7 @@ export default function Trigger(props: MenuTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		menu.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(menu.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

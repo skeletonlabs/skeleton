@@ -11,10 +11,7 @@ export default function Control(props: SliderControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		slider.getControlProps(),
-		rest,
-	);
+	const attributes = mergeProps(slider.getControlProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

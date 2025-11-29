@@ -39,12 +39,7 @@
 		}[viewProps().view](tableCellProps);
 	});
 
-	const attributes = $derived(
-		mergeProps(
-			refinedTableCellProps,
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(refinedTableCellProps, rest));
 
 	TableCellContext.provide(() => tableCellProps);
 </script>

@@ -11,10 +11,7 @@ export default function Control(props: TagsInputControlProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		tagsInput.getControlProps(),
-		rest,
-	);
+	const attributes = mergeProps(tagsInput.getControlProps(), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

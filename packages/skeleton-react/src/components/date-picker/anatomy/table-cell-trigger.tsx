@@ -28,10 +28,7 @@ export default function TableCellTrigger(props: DatePickerTableCellTriggerProps)
 		}
 	}
 
-	const attributes = mergeProps(
-		getTableCellTriggerProps(tableCellProps as TableCellProps),
-		rest,
-	);
+	const attributes = mergeProps(getTableCellTriggerProps(tableCellProps as TableCellProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

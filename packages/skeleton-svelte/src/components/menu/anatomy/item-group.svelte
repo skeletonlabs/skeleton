@@ -25,12 +25,7 @@
 	);
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getItemGroupProps(itemGroupProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getItemGroupProps(itemGroupProps), rest));
 
 	ItemGroupContext.provide(() => itemGroupProps);
 </script>

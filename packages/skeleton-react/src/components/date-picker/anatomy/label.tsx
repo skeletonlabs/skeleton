@@ -11,10 +11,7 @@ export default function Label(props: DatePickerLabelProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getLabelProps(),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getLabelProps(), rest);
 
 	return element ? element(attributes) : <label {...attributes}>{children}</label>;
 }

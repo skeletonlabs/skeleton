@@ -14,10 +14,7 @@ export default function Root(props: SwitchRootProps) {
 
 	const switch_ = useSwitch(switchProps);
 
-	const attributes = mergeProps(
-		switch_.getRootProps(),
-		rest,
-	);
+	const attributes = mergeProps(switch_.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={switch_}>{element ? element(attributes) : <label {...attributes}>{children}</label>}</RootContext.Provider>

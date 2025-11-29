@@ -23,12 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getRootProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getRootProps(), rest));
 
 	RootContext.provide(() => fileUpload());
 </script>

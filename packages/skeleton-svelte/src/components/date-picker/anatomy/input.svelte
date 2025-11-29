@@ -18,12 +18,7 @@
 	const [inputProps, componentProps] = $derived(splitInputProps(props));
 	const { element, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getInputProps(inputProps),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getInputProps(inputProps), rest));
 </script>
 
 {#if element}

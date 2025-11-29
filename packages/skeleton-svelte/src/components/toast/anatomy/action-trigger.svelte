@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			toast().getActionTriggerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(toast().getActionTriggerProps(), rest));
 </script>
 
 {#if element}

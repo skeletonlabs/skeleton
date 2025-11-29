@@ -11,10 +11,7 @@ export default function Image(props: AvatarImageProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		avatar.getImageProps(),
-		rest,
-	);
+	const attributes = mergeProps(avatar.getImageProps(), rest);
 
 	return element ? element(attributes) : <img {...attributes} />;
 }

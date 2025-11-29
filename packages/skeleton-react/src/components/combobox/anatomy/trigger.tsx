@@ -12,10 +12,7 @@ export default function Trigger(props: ComboboxTriggerProps) {
 
 	const { element, children = <ChevronDownIcon />, ...rest } = props;
 
-	const attributes = mergeProps(
-		combobox.getTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(combobox.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

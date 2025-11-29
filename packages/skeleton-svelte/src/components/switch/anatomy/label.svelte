@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			switch_().getLabelProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(switch_().getLabelProps(), rest));
 </script>
 
 {#if element}

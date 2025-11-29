@@ -13,10 +13,7 @@ export default function TableBody(props: DatePickerTableBodyProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getTableBodyProps(viewProps),
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getTableBodyProps(viewProps), rest);
 
 	return element ? element(attributes) : <tbody {...attributes}>{children}</tbody>;
 }

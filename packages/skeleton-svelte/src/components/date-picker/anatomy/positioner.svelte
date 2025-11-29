@@ -15,12 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getPositionerProps(),
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getPositionerProps(), rest));
 </script>
 
 {#if element}

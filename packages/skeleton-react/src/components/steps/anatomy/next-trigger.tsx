@@ -11,10 +11,7 @@ export default function NextTrigger(props: StepsNextTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getNextTriggerProps(),
-		rest,
-	);
+	const attributes = mergeProps(steps.getNextTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }
