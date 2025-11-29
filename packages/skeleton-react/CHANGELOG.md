@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.7.0
+
+### Minor Changes
+
+- feat: Added `Steps` component. ([#4067](https://github.com/skeletonlabs/skeleton/pull/4067))
+
+### Patch Changes
+
+- Updated dependencies [[`86b7505`](https://github.com/skeletonlabs/skeleton/commit/86b7505e788ca59e52f5ee8b814d4de1dc2932ff)]:
+  - @skeletonlabs/skeleton-common@4.7.0
+
 ## 4.6.1
 
 ### Patch Changes
