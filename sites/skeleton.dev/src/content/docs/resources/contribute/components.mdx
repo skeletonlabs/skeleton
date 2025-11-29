@@ -241,119 +241,47 @@ While each component will present a unique set of challenges, we recommend you r
 
 ## Styling Components
 
-Component classes are now common and shared between all framework iterations. These reside in `/packages/skeleton-common` and are named to match their respective component.
+Component styles are now common and shared between all framework iterations. These reside in `/packages/skeleton-common` and are named to match their respective component.
 
 ```txt
 packages/
 └── skeleton-common/
 	└── src/
-		└── classes.ts
+		└── components
+			└── avatar.css
 ```
 
-Here's an example of the Avatar styles found in `avatar.ts`:
-
-```ts
-import { defineClasses } from './define-classes.js' with { type: 'macro' };
-
-export const avatar = defineClasses({
-	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
-	image: 'w-full object-cover',
-	fallback: 'size-full flex justify-center items-center',
-});
-```
-
-- We'll cover the import `{ type: 'macro' }` in the [style prefix](#style-prefix) section.
-- Use the naming convention of `classes{Component}`
-- Create a key for each component part.
-- The values provide the default utility classes to the component's class list.
-- You can optionally pass an array of strings `['', '']` to document multi-line.
-- Make sure to export the component class file in `/packages/skeletlon-common/index.ts`.
-
-### Array Notation
-
-You can optionally provide an array of strings whenever the class list is long or can be split into logical sections. This improves readability. The `defineSkeletonClasses` function will flatten the array into a single string at build time.
-
-```ts
-import { defineClasses } from './define-classes.js' with { type: 'macro' };
-
-export const progress = defineClasses({
-	root: [
-		// Common
-		'items-center justify-center gap-2',
-		// Horizontal Orientation
-		'data-[orientation=horizontal]:flex data-[orientation=horizontal]:flex-row data-[orientation=horizontal]:w-full',
-		// Vertical Orientation
-		'data-[orientation=vertical]:inline-flex data-[orientation=vertical]:flex-col',
-	],
-	// ...
-});
-```
-
-### Style Prefix
-
-It's worth noting that during build time, Skeleton will automatically prefix each class in the class list with `skb:` (short for "Skeleton Base"). By applying `with { type: 'macro' }` to the import, the import will run `defineSkeletonClasses` specifically at build time. This variant prefix will assign each class to the Tailwind `@base` layer, ensuring user-provided classes take precedence over our internally defined classes. This is accomplished using the following Tailwind custom variant.
+Here's an example of the Avatar styles found in `avatar.css`:
 
 ```css
-@custom-variant skb {
-	@layer base {
-		@slot;
+@layer base {
+	[data-scope='avatar'] {
+		&[data-part='root'] {
+			isolation: isolate;
+			background: var(--color-surface-400-600);
+			width: --spacing(16);
+			height: --spacing(16);
+			border-radius: calc(infinity * 1px);
+			overflow: hidden;
+		}
+
+		&[data-part='image'] {
+			width: 100%;
+			object-fit: cover;
+		}
+
+		&[data-part='fallback'] {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 }
 ```
 
-If you need to prevent a class from being prefixed at build time, apply a variant of `not-skb:` to that class.
-
-> NOTE: This should be a rare use-case requiring discussion with the Skeleton team prior to implementation as it means the user won't be able to override that specific class without using the anti-pattern: `!` for `!important`.
-
-### Importing Class Lists
-
-For Zag primitives, you can import and implement each class list Using Zag's `mergeProps` utility for attributes.
-
-```tsx
-import type { HTMLAttributes } from '../../../internal/html-attributes';
-import type { PropsWithElement } from '../../../internal/props-with-element';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
-import type { Props } from '@zag-js/avatar';
-import { mergeProps } from '@zag-js/react';
-
-export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id'> {
-	// ...
-}
-
-export default function (props: AvatarRootProps) {
-	const { children, ...rest } = props;
-
-	const attributes = mergeProps(
-		api.getRootProps(),
-		{
-			className: classes.avatar.root,
-		},
-		rest,
-	);
-
-	return <div {...attributes}>{children}</div>;
-}
-```
-
-The process is similar for custom components without Zag primitives. We still use the Zag `mergeProps` utility, just without the `api.getPartProps()`.
-
-```tsx
-import * as classes from '@skeletonlabs/skeleton-common/classes';
-import { mergeProps } from '@zag-js/react';
-
-export default function (props: NavigationRootProps) {
-	const { children, ...rest } = props;
-
-	const attributes = mergeProps(
-		{
-			className: classes.navigation.root,
-		},
-		rest,
-	);
-
-	return <div {...attributes}>{children}</div>;
-}
-```
+- Make sure to export the component css file in `/packages/skeleton-common/index.css`.
 
 ## Testing Components
 
