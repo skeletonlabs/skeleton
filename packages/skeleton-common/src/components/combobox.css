@@ -28,6 +28,8 @@
 	}
 
 	&[data-part='clear-trigger'] {
+		width: fit-content;
+
 		@apply btn btn-sm preset-tonal;
 
 		&:hover {
