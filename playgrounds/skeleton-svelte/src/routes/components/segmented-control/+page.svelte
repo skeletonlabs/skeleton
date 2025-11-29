@@ -2,7 +2,7 @@
 	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<SegmentedControl defaultValue="item-1" orientation="vertical">
+<SegmentedControl defaultValue="item-1">
 	<SegmentedControl.Label>Label</SegmentedControl.Label>
 	<SegmentedControl.Control>
 		<SegmentedControl.Indicator />
