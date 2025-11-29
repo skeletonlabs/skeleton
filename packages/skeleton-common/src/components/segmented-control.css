@@ -16,12 +16,16 @@
 		border-radius: var(--radius-base);
 
 		@apply preset-outlined-surface-200-800;
+	}
 
-		&:is([data-orientation='horizontal'] &) {
+	&[data-orientation='horizontal'] {
+		&[data-part='control'] {
 			flex-direction: row;
 		}
+	}
 
-		&:is([data-orientation='vertical'] &) {
+	&[data-orientation='vertical'] {
+		&[data-part='control'] {
 			flex-direction: column;
 		}
 	}
