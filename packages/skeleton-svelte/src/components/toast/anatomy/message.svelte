@@ -12,7 +12,15 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rest));
+	const attributes = $derived(
+		mergeProps(
+			{
+				'data-scope': 'toast',
+				'data-part': 'message',
+			},
+			rest,
+		),
+	);
 </script>
 
 {#if element}

@@ -7,7 +7,13 @@ export interface ToastMessageProps extends PropsWithElement<'div'>, HTMLAttribut
 export default function Message(props: ToastMessageProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rest);
+	const attributes = mergeProps(
+		{
+			'data-scope': 'toast',
+			'data-part': 'message',
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }
