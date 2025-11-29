@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { type ItemProps, splitItemProps } from '@zag-js/listbox';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -17,9 +16,6 @@ export default function Item(props: ListboxItemProps) {
 
 	const attributes = mergeProps(
 		listbox.getItemProps(itemProps),
-		{
-			className: classes.listbox.item,
-		},
 		rest,
 	);
 

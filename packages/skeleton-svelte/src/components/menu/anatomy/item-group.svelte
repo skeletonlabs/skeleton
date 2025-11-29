@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemGroupProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -29,9 +28,6 @@
 	const attributes = $derived(
 		mergeProps(
 			menu().getItemGroupProps(itemGroupProps),
-			{
-				class: classes.menu.itemGroup,
-			},
 			rest,
 		),
 	);

@@ -10,7 +10,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadRootProviderProps = $props();
@@ -20,9 +19,6 @@
 	const attributes = $derived(
 		mergeProps(
 			fileUpload().getRootProps(),
-			{
-				class: classes.fileUpload.root,
-			},
 			rest,
 		),
 	);

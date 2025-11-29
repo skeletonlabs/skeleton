@@ -9,7 +9,6 @@
 	import ChevronLeftIcon from '../../../internal/components/chevron-left.svelte';
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerPrevTriggerProps = $props();
@@ -22,9 +21,6 @@
 	const attributes = $derived(
 		mergeProps(
 			datePicker().getPrevTriggerProps(viewProps()),
-			{
-				class: classes.datePicker.prevTrigger,
-			},
 			rest,
 		),
 	);

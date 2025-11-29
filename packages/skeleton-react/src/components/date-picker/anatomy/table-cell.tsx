@@ -4,7 +4,6 @@ import type { Union } from '../../../internal/union.js';
 import { RootContext } from '../modules/root-context.js';
 import { TableCellContext } from '../modules/table-cell-context.js';
 import { ViewContext } from '../modules/view-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitTableCellProps, type DayTableCellProps, type TableCellProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -35,9 +34,6 @@ export default function TableCell(props: DatePickerTableCellProps) {
 
 	const attributes = mergeProps(
 		getTableCellProps(tableCellProps as TableCellProps),
-		{
-			className: classes.datePicker.tableCell,
-		},
 		rest,
 	);
 

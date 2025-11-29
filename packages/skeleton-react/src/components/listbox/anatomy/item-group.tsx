@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemGroupContext } from '../modules/item-group-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { type ItemGroupProps, splitItemGroupProps } from '@zag-js/listbox';
 import { mergeProps } from '@zag-js/react';
 import { use, useId } from 'react';
@@ -20,9 +19,6 @@ export default function ItemGroup(props: ListboxItemGroupProps) {
 
 	const attributes = mergeProps(
 		listbox.getItemGroupProps(itemGroupProps),
-		{
-			className: classes.listbox.itemGroup,
-		},
 		rest,
 	);
 

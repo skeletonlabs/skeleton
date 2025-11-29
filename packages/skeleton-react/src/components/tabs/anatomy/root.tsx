@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useTabs } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { splitProps } from '@zag-js/tabs';
 import type { Props } from '@zag-js/tabs';
@@ -17,9 +16,6 @@ export default function Root(props: TabsRootProps) {
 
 	const attributes = mergeProps(
 		tabs.getRootProps(),
-		{
-			className: classes.tabs.root,
-		},
 		rest,
 	);
 

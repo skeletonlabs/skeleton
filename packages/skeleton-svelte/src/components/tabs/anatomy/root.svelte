@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useTabs } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/tabs';
 
@@ -26,9 +25,6 @@
 	const attributes = $derived(
 		mergeProps(
 			tabs().getRootProps(),
-			{
-				class: classes.tabs.root,
-			},
 			rest,
 		),
 	);

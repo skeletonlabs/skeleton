@@ -12,7 +12,6 @@
 
 <script lang="ts">
 	import { GroupContext } from '../modules/group-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';
 
@@ -30,9 +29,6 @@
 	const attributes = $derived(
 		mergeProps(
 			api.getGroupProps(),
-			{
-				class: classes.toast.group,
-			},
 			rest,
 		),
 	);

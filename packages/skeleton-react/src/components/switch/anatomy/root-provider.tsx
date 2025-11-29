@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { useSwitch } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export interface SwitchRootProviderProps extends PropsWithElement<'label'>, HTMLAttributes<'label', 'id' | 'dir'> {
@@ -14,9 +13,6 @@ export default function RootProvider(props: SwitchRootProviderProps) {
 
 	const attributes = mergeProps(
 		switch_.getRootProps(),
-		{
-			className: classes.switch.root,
-		},
 		rest,
 	);
 

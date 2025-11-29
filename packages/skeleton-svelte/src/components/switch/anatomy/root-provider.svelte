@@ -10,7 +10,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SwitchRootProviderProps = $props();
@@ -20,9 +19,6 @@
 	const attributes = $derived(
 		mergeProps(
 			switch_().getRootProps(),
-			{
-				class: classes.switch.root,
-			},
 			rest,
 		),
 	);

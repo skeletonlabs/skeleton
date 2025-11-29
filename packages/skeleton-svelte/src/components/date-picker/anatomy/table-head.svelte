@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableHeadProps = $props();
@@ -21,9 +20,6 @@
 	const attributes = $derived(
 		mergeProps(
 			datePicker().getTableHeadProps(viewProps()),
-			{
-				class: classes.datePicker.tableHead,
-			},
 			rest,
 		),
 	);

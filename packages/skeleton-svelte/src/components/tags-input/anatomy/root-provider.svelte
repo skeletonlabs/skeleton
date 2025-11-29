@@ -10,7 +10,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputRootProviderProps = $props();
@@ -19,9 +18,6 @@
 	const attributes = $derived(
 		mergeProps(
 			tagsInput().getRootProps(),
-			{
-				class: classes.tagsInput.root,
-			},
 			rest,
 		),
 	);

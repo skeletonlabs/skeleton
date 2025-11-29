@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -23,9 +22,6 @@
 	const attributes = $derived(
 		mergeProps(
 			segmentedControl().getItemProps(itemProps),
-			{
-				class: classes.segmentedControl.item,
-			},
 			rest,
 		),
 	);

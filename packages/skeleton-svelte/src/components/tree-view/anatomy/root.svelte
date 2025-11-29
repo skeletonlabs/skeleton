@@ -12,7 +12,6 @@
 <script lang="ts" generics="T extends TreeNode = TreeNode">
 	import { useTreeView } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewRootProps<T> = $props();
@@ -29,9 +28,6 @@
 	const attributes = $derived(
 		mergeProps(
 			treeView().getRootProps(),
-			{
-				class: classes.treeView.root,
-			},
 			rest,
 		),
 	);

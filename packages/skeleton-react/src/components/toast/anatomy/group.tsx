@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { GroupContext } from '../modules/group-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { group } from '@zag-js/toast';
 import type { Props, Store } from '@zag-js/toast';
@@ -24,9 +23,6 @@ export default function Group(props: ToastGroupProps) {
 
 	const attributes = mergeProps(
 		api.getGroupProps(),
-		{
-			className: classes.toast.group,
-		},
 		rest,
 	);
 
