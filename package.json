@@ -31,6 +31,11 @@
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
+	"pnpm": {
+		"overrides": {
+			"vite": "catalog:"
+		}
+	},
 	"engines": {
 		"node": "22.21.1",
 		"pnpm": "10.23.0"
