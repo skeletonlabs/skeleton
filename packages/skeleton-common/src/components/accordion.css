@@ -1,5 +1,6 @@
 [data-scope='accordion'] {
 	&[data-part='root'] {
+		width: 100%;
 		display: flex;
 		gap: --spacing(2);
 
