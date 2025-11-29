@@ -12,7 +12,15 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(rest));
+	const attributes = $derived(
+		mergeProps(
+			{
+				'data-scope': 'radio-group',
+				'data-part': 'control',
+			},
+			rest,
+		),
+	);
 </script>
 
 {#if element}

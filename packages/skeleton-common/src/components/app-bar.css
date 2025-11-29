@@ -1,4 +1,4 @@
-@layer base {
+
 	[data-scope='app-bar'] {
 		&[data-part='root'] {
 			width: 100%;
@@ -22,4 +22,4 @@
 			gap: --spacing(2);
 		}
 	}
-}
+

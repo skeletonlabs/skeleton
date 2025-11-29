@@ -1,44 +1,42 @@
-@layer base {
-	[data-scope='accordion'] {
-		&[data-part='root'] {
-			display: flex;
-			gap: --spacing(2);
+[data-scope='accordion'] {
+	&[data-part='root'] {
+		display: flex;
+		gap: --spacing(2);
 
-			&[data-orientation='vertical'] {
-				flex-direction: column;
-			}
-
-			&[data-orientation='horizontal'] {
-				flex-direction: row;
-			}
+		&[data-orientation='vertical'] {
+			flex-direction: column;
 		}
 
-		&[data-part='item'] {
-			display: flex;
-			gap: --spacing(2);
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
+		}
+	}
 
-			&[data-orientation='vertical'] {
-				flex-direction: column;
-			}
+	&[data-part='item'] {
+		display: flex;
+		gap: --spacing(2);
 
-			&[data-orientation='horizontal'] {
-				flex-direction: row;
-			}
+		&[data-orientation='vertical'] {
+			flex-direction: column;
 		}
 
-		&[data-part='item-trigger'] {
-			padding: --spacing(2) --spacing(4);
-			border-radius: var(--radius-base);
-			width: 100%;
-			text-align: start;
-
-			&:hover {
-				@apply preset-tonal-primary;
-			}
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
 		}
+	}
 
-		&[data-part='item-content'] {
-			padding: --spacing(2) --spacing(4);
+	&[data-part='item-trigger'] {
+		padding: --spacing(2) --spacing(4);
+		border-radius: var(--radius-base);
+		width: 100%;
+		text-align: start;
+
+		&:hover {
+			@apply preset-tonal-primary;
 		}
+	}
+
+	&[data-part='item-content'] {
+		padding: --spacing(2) --spacing(4);
 	}
 }
