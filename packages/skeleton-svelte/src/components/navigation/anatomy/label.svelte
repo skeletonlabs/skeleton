@@ -18,6 +18,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
+				'data-scope': 'navigation',
+				'data-part': 'label',
 				'data-layout': navigation().layout,
 			},
 			rest,

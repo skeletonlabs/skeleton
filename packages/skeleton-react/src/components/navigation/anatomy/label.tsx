@@ -13,6 +13,8 @@ export default function NavigationLabel(props: NavigationLabelProps) {
 
 	const attributes = mergeProps(
 		{
+			'data-scope': 'navigation',
+			'data-part': 'label',
 			'data-layout': navigation.layout,
 		},
 		rest,

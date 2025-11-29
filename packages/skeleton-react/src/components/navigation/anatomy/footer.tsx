@@ -13,6 +13,8 @@ export default function NavigationFooter(props: NavigationFooterProps) {
 
 	const attributes = mergeProps(
 		{
+			'data-scope': 'navigation',
+			'data-part': 'footer',
 			'data-layout': navigation.layout,
 		},
 		rest,

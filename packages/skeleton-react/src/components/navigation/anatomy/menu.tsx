@@ -13,6 +13,8 @@ export default function NavigationMenu(props: NavigationMenuProps) {
 
 	const attributes = mergeProps(
 		{
+			'data-scope': 'navigation',
+			'data-part': 'menu',
 			'data-layout': navigation.layout,
 		},
 		rest,

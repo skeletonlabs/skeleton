@@ -7,7 +7,13 @@ export interface AppBarTrailProps extends PropsWithElement<'nav'>, HTMLAttribute
 export default function AppBarTrail(props: AppBarTrailProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rest);
+	const attributes = mergeProps(
+		{
+			'data-scope': 'app-bar',
+			'data-part': 'trail',
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <nav {...attributes}>{children}</nav>;
 }

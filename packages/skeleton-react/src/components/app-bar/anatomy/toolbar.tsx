@@ -7,7 +7,13 @@ export interface AppBarToolbarProps extends PropsWithElement<'div'>, HTMLAttribu
 export default function AppBarToolbar(props: AppBarToolbarProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rest);
+	const attributes = mergeProps(
+		{
+			'data-scope': 'app-bar',
+			'data-part': 'toolbar',
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

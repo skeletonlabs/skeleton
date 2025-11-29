@@ -13,6 +13,8 @@ export default function NavigationGroup(props: NavigationGroupProps) {
 
 	const attributes = mergeProps(
 		{
+			'data-scope': 'navigation',
+			'data-part': 'group',
 			'data-layout': navigation.layout,
 		},
 		rest,

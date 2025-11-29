@@ -7,7 +7,13 @@ export interface AppBarLeadProps extends PropsWithElement<'nav'>, HTMLAttributes
 export default function AppBarLead(props: AppBarLeadProps) {
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(rest);
+	const attributes = mergeProps(
+		{
+			'data-scope': 'app-bar',
+			'data-part': 'lead',
+		},
+		rest,
+	);
 
 	return element ? element(attributes) : <nav {...attributes}>{children}</nav>;
 }
