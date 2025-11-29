@@ -9,12 +9,8 @@
 		"directory": "packages/skeleton-common"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
-		"build": "tsdown",
-		"check": "tsc",
-		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore",
-		"postinstall": "pnpm build"
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
@@ -27,11 +23,7 @@
 	],
 	"sideEffects": false,
 	"devDependencies": {
-		"@skeletonlabs/skeleton": "workspace:*",
-		"clean-package": "catalog:",
-		"tailwindcss": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"clean-package": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module",
