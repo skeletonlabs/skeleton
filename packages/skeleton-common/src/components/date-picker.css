@@ -2,7 +2,6 @@
 	&[data-part='root'] {
 		display: flex;
 		flex-direction: column;
-		align-items: start;
 		gap: --spacing(2);
 	}
 
