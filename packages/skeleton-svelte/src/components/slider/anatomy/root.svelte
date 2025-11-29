@@ -12,7 +12,6 @@
 <script lang="ts">
 	import { useSlider } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/slider';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -30,9 +29,6 @@
 	const attributes = $derived(
 		mergeProps(
 			slider().getRootProps(),
-			{
-				class: classes.slider.root,
-			},
 			rest,
 		),
 	);

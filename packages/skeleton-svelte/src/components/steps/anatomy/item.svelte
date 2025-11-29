@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsItemProps = $props();
@@ -23,9 +22,6 @@
 	const attributes = $derived(
 		mergeProps(
 			steps().getItemProps(itemProps),
-			{
-				class: classes.steps.item,
-			},
 			rest,
 		),
 	);

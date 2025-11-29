@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitResizeTriggerProps } from '@zag-js/floating-panel';
 	import type { ResizeTriggerProps as ZagResizeTriggerProps } from '@zag-js/floating-panel';
 	import { mergeProps } from '@zag-js/svelte';
@@ -23,9 +22,6 @@
 	const attributes = $derived(
 		mergeProps(
 			floatingPanel().getResizeTriggerProps(resizeTriggerProps as ZagResizeTriggerProps),
-			{
-				class: classes.floatingPanel.resizeTrigger,
-			},
 			rest,
 		),
 	);

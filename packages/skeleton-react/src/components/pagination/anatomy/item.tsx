@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitItemProps, type ItemProps } from '@zag-js/pagination';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -16,9 +15,6 @@ export default function Item(props: PaginationItemProps) {
 
 	const attributes = mergeProps(
 		pagination.getItemProps(itemProps),
-		{
-			className: classes.pagination.item,
-		},
 		rest,
 	);
 

@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitPresetTriggerProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -22,9 +21,6 @@
 	const attributes = $derived(
 		mergeProps(
 			datePicker().getPresetTriggerProps(presetTriggerProps),
-			{
-				class: classes.datePicker.presetTrigger,
-			},
 			rest,
 		),
 	);

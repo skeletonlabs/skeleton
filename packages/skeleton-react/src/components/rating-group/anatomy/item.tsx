@@ -4,7 +4,6 @@ import StarHalf from '../../../internal/components/star-half.jsx';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitItemProps } from '@zag-js/rating-group';
 import type { ItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
@@ -42,9 +41,6 @@ export default function Item(props: RatingGroupItemProps) {
 
 	const attributes = mergeProps(
 		ratingGroup.getItemProps(itemProps),
-		{
-			className: classes.ratingGroup.item,
-		},
 		rest,
 	);
 

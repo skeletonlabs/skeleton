@@ -11,7 +11,6 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -31,9 +30,6 @@
 	const attributes = $derived(
 		mergeProps(
 			combobox().getItemGroupLabelProps(itemGroupLabelProps),
-			{
-				class: classes.combobox.itemGroupLabel,
-			},
 			rest,
 		),
 	);

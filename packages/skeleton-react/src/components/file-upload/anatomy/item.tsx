@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitItemProps } from '@zag-js/file-upload';
 import type { ItemProps } from '@zag-js/file-upload';
 import { mergeProps } from '@zag-js/react';
@@ -18,9 +17,6 @@ export default function Item(props: FileUploadItemProps) {
 
 	const attributes = mergeProps(
 		fileUpload.getItemProps(itemProps),
-		{
-			className: classes.fileUpload.item,
-		},
 		rest,
 	);
 
