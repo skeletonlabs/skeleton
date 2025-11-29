@@ -22,7 +22,7 @@
 			height: --spacing(6);
 			width: --spacing(10);
 			padding: --spacing(0.5);
-			border-radius: 50%;
+			border-radius: calc(infinity * 1px);
 			display: flex;
 			justify-content: flex-start;
 
@@ -39,7 +39,7 @@
 			align-items: center;
 			height: 100%;
 			aspect-ratio: 1;
-			border-radius: 50%;
+			border-radius: calc(infinity * 1px);
 			background: var(--color-surface-50);
 			color: var(--color-surface-contrast-50);
 			fill: var(--color-surface-contrast-50);
