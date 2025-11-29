@@ -18,16 +18,12 @@
 	},
 	"exports": {
 		".": {
-			"style": "./dist/index.css"
-		},
-		"./classes": {
-			"types": "./dist/classes.d.mts",
-			"import": "./dist/classes.mjs"
+			"import": "./src/index.css",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"src"
 	],
 	"sideEffects": false,
 	"devDependencies": {
@@ -35,9 +31,7 @@
 		"clean-package": "catalog:",
 		"tailwindcss": "catalog:",
 		"tsdown": "catalog:",
-		"typescript": "catalog:",
-		"unplugin-macros": "catalog:",
-		"unplugin-raw": "catalog:"
+		"typescript": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module",

@@ -3,10 +3,10 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev:docs": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/skeleton.dev dev",
+		"dev:docs": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton.dev dev",
 		"dev:themes": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/themes.skeleton.dev dev",
-		"dev:svelte": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-svelte dev",
-		"dev:react": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/skeleton-common --filter @skeletonlabs/playground-skeleton-react dev",
+		"dev:svelte": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/playground-skeleton-svelte dev",
+		"dev:react": "pnpm --parallel --filter @skeletonlabs/skeleton --filter @skeletonlabs/playground-skeleton-react dev",
 		"pretest": "pnpm playwright install chromium --with-deps",
 		"test": "vitest run",
 		"check": "pnpm --recursive --aggregate-output --reporter=append-only --parallel check",
