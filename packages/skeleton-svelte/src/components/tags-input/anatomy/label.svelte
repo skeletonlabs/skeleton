@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputLabelProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getLabelProps(),
-			{
-				class: classes.tagsInput.label,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getLabelProps(), rest));
 </script>
 
 {#if element}

@@ -1,0 +1,63 @@
+[data-scope='tabs'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+
+		&[data-orientation='horizontal'] {
+			flex-direction: column;
+		}
+
+		&[data-orientation='vertical'] {
+			flex-direction: row;
+		}
+	}
+
+	&[data-part='list'] {
+		position: relative;
+		display: flex;
+		gap: --spacing(2);
+		border-color: var(--color-surface-200-800);
+
+		&[data-orientation='horizontal'] {
+			padding-bottom: --spacing(2);
+			margin-bottom: --spacing(4);
+			flex-direction: row;
+			border-bottom-width: 1px;
+		}
+
+		&[data-orientation='vertical'] {
+			padding-inline-end: --spacing(2);
+			margin-inline-end: --spacing(4);
+			flex-direction: column;
+			border-inline-end-width: 1px;
+		}
+	}
+
+	&[data-part='trigger'] {
+		@apply btn;
+
+		&:hover {
+			@apply preset-tonal-primary;
+		}
+
+		&[data-disabled] {
+			opacity: 0.5;
+		}
+	}
+
+	&[data-part='indicator'] {
+		background: var(--color-surface-950-50);
+
+		&[data-orientation='horizontal'] {
+			width: var(--width);
+			height: --spacing(0.5);
+			bottom: 0;
+		}
+
+		&[data-orientation='vertical'] {
+			width: --spacing(0.5);
+			height: var(--height);
+			inset-inline-end: 0;
+		}
+	}
+}

@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsIndicatorProps = $props();
@@ -18,15 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			steps().getIndicatorProps(itemProps()),
-			{
-				class: classes.steps.indicator,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(steps().getIndicatorProps(itemProps()), rest));
 </script>
 
 {#if element}

@@ -2,7 +2,6 @@ import type { useSteps } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export interface StepsRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
@@ -12,13 +11,7 @@ export interface StepsRootProviderProps extends PropsWithElement<'div'>, HTMLAtt
 export default function RootProvider(props: StepsRootProviderProps) {
 	const { element, children, value: steps, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getRootProps(),
-		{
-			className: classes.steps.root,
-		},
-		rest,
-	);
+	const attributes = mergeProps(steps.getRootProps(), rest);
 
 	return <RootContext.Provider value={steps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
 }

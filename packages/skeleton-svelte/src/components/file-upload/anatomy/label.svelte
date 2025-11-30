@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadLabelProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getLabelProps(),
-			{
-				class: classes.fileUpload.label,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getLabelProps(), rest));
 </script>
 
 {#if element}

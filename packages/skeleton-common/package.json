@@ -9,35 +9,21 @@
 		"directory": "packages/skeleton-common"
 	},
 	"scripts": {
-		"dev": "tsdown --watch",
-		"build": "tsdown",
-		"check": "tsc",
-		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore",
-		"postinstall": "pnpm build"
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"style": "./dist/index.css"
-		},
-		"./classes": {
-			"types": "./dist/classes.d.mts",
-			"import": "./dist/classes.mjs"
+			"import": "./src/index.css",
+			"style": "./src/index.css"
 		}
 	},
 	"files": [
-		"dist",
-		"!dist/**/*.map"
+		"src"
 	],
 	"sideEffects": false,
 	"devDependencies": {
-		"@skeletonlabs/skeleton": "workspace:*",
-		"clean-package": "catalog:",
-		"tailwindcss": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:",
-		"unplugin-macros": "catalog:",
-		"unplugin-raw": "catalog:"
+		"clean-package": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module",

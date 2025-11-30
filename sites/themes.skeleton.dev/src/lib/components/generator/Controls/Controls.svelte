@@ -53,15 +53,17 @@
 			onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)}
 			class="w-full"
 		>
-			<SegmentedControl.Indicator />
-			<SegmentedControl.Item value="preview" class="w-full">
-				<SegmentedControl.ItemText>Preview</SegmentedControl.ItemText>
-				<SegmentedControl.ItemHiddenInput />
-			</SegmentedControl.Item>
-			<SegmentedControl.Item value="code" class="w-full">
-				<SegmentedControl.ItemText>Code</SegmentedControl.ItemText>
-				<SegmentedControl.ItemHiddenInput />
-			</SegmentedControl.Item>
+			<SegmentedControl.Control>
+				<SegmentedControl.Indicator />
+				<SegmentedControl.Item value="preview" class="w-full">
+					<SegmentedControl.ItemText>Preview</SegmentedControl.ItemText>
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+				<SegmentedControl.Item value="code" class="w-full">
+					<SegmentedControl.ItemText>Code</SegmentedControl.ItemText>
+					<SegmentedControl.ItemHiddenInput />
+				</SegmentedControl.Item>
+			</SegmentedControl.Control>
 		</SegmentedControl>
 	</header>
 	<ControlsCore />

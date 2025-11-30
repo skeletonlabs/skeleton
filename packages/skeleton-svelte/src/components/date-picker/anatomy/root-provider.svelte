@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerRootProviderProps = $props();
 
 	const { element, children, value: datePicker, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getRootProps(),
-			{
-				class: classes.datePicker.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getRootProps(), rest));
 
 	RootContext.provide(() => datePicker());
 </script>

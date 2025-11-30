@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { type PropsWithChildren, use } from 'react';
 
@@ -12,13 +11,7 @@ export default function Trigger(props: PopoverTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		popover.getTriggerProps(),
-		{
-			className: classes.popover.trigger,
-		},
-		rest,
-	);
+	const attributes = mergeProps(popover.getTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

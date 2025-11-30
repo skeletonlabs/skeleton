@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitInputProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -19,15 +18,7 @@
 	const [inputProps, componentProps] = $derived(splitInputProps(props));
 	const { element, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getInputProps(inputProps),
-			{
-				class: classes.datePicker.input,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getInputProps(inputProps), rest));
 </script>
 
 {#if element}

@@ -30,7 +30,6 @@
 	import StarFull from '../../../internal/components/star-full.svelte';
 	import StarHalf from '../../../internal/components/star-half.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';
 	import type { Snippet } from 'svelte';
@@ -44,15 +43,7 @@
 
 	const itemState = $derived(ratingGroup().getItemState(itemProps));
 
-	const attributes = $derived(
-		mergeProps(
-			ratingGroup().getItemProps(itemProps),
-			{
-				class: classes.ratingGroup.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(ratingGroup().getItemProps(itemProps), rest));
 </script>
 
 {#snippet starEmpty()}

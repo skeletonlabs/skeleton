@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToggleGroupRootProviderProps = $props();
 
 	const { element, children, value: toggleGroup, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			toggleGroup().getRootProps(),
-			{
-				class: classes.toggleGroup.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(toggleGroup().getRootProps(), rest));
 
 	RootContext.provide(() => toggleGroup());
 </script>

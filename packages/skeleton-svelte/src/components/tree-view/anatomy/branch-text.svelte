@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchTextProps = $props();
@@ -18,15 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getBranchTextProps(nodeProps()),
-			{
-				class: classes.treeView.branchText,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getBranchTextProps(nodeProps()), rest));
 </script>
 
 {#if element}

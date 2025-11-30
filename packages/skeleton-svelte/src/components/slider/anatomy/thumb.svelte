@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ThumbContext } from '../modules/thumb-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderThumbProps = $props();
@@ -19,15 +18,7 @@
 	const [thumbProps, componentProps] = $derived(splitThumbProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			slider().getThumbProps(thumbProps),
-			{
-				class: classes.slider.thumb,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(slider().getThumbProps(thumbProps), rest));
 
 	ThumbContext.provide(() => thumbProps);
 </script>

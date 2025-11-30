@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlRootProviderProps = $props();
 
 	const { element, children, value: segmentedControl, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			segmentedControl().getRootProps(),
-			{
-				class: classes.segmentedControl.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(segmentedControl().getRootProps(), rest));
 
 	RootContext.provide(() => segmentedControl());
 </script>

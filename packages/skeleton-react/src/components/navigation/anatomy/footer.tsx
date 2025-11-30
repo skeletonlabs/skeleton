@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -14,8 +13,9 @@ export default function NavigationFooter(props: NavigationFooterProps) {
 
 	const attributes = mergeProps(
 		{
+			'data-scope': 'navigation',
+			'data-part': 'footer',
 			'data-layout': navigation.layout,
-			className: classes.navigation.footer,
 		},
 		rest,
 	);

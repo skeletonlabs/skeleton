@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxRootProviderProps = $props();
 
 	const { element, children, value: listbox, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getRootProps(),
-			{
-				class: classes.listbox.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getRootProps(), rest));
 
 	RootContext.provide(() => listbox());
 </script>

@@ -43,7 +43,7 @@ function getStylesUrl() {
 		return new URL(doc.data.references.styles);
 	}
 	if (section === 'framework-components') {
-		return new URL(`packages/skeleton-common/src/classes/${feature}.ts`, REPOSITORY_ROOT);
+		return new URL(`packages/skeleton-common/src/components/${feature}.css`, REPOSITORY_ROOT);
 	}
 }
 

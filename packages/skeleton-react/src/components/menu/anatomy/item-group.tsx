@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemGroupContext } from '../modules/item-group-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitItemGroupProps } from '@zag-js/menu';
 import type { ItemGroupProps } from '@zag-js/menu';
 import { mergeProps } from '@zag-js/react';
@@ -19,13 +18,7 @@ export default function ItemGroup(props: MenuItemGroupProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		menu.getItemGroupProps(itemGroupProps),
-		{
-			className: classes.menu.itemGroup,
-		},
-		rest,
-	);
+	const attributes = mergeProps(menu.getItemGroupProps(itemGroupProps), rest);
 
 	return (
 		<ItemGroupContext.Provider value={itemGroupProps}>

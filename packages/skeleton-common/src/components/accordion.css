@@ -1,0 +1,43 @@
+[data-scope='accordion'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+		gap: --spacing(2);
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+		}
+
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
+		}
+	}
+
+	&[data-part='item'] {
+		display: flex;
+		gap: --spacing(2);
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+		}
+
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
+		}
+	}
+
+	&[data-part='item-trigger'] {
+		padding: --spacing(2) --spacing(4);
+		border-radius: var(--radius-base);
+		width: 100%;
+		text-align: start;
+
+		&:hover {
+			@apply preset-tonal-primary;
+		}
+	}
+
+	&[data-part='item-content'] {
+		padding: --spacing(2) --spacing(4);
+	}
+}

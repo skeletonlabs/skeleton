@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps, portal } from '@zag-js/svelte';
 	import { createAttachmentKey, fromAction } from 'svelte/attachments';
 
@@ -21,7 +20,6 @@
 		mergeProps(
 			tooltip().getPositionerProps(),
 			{
-				class: classes.tooltip.positioner,
 				[createAttachmentKey()]: fromAction(portal, () => undefined),
 			},
 			rest,

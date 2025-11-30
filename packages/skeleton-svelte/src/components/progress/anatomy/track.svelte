@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressTrackProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			progress().getTrackProps(),
-			{
-				class: classes.progress.track,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(progress().getTrackProps(), rest));
 </script>
 
 {#if element}

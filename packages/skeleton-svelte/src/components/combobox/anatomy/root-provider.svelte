@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxRootProviderProps = $props();
 
 	const { element, children, value: combobox, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getRootProps(),
-			{
-				class: classes.combobox.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getRootProps(), rest));
 
 	RootContext.provide(() => combobox());
 </script>

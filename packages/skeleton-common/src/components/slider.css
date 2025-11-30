@@ -1,0 +1,52 @@
+[data-scope='slider'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+	}
+
+	&[data-part='label'] {
+		@apply label-text;
+	}
+
+	&[data-part='control'] {
+		display: flex;
+		align-items: center;
+
+		&[data-disabled] {
+			opacity: 0.5;
+		}
+	}
+
+	&[data-part='track'] {
+		background: var(--color-surface-200-800);
+		border-radius: var(--radius-base);
+		height: --spacing(2);
+		overflow: hidden;
+		flex: 1;
+	}
+
+	&[data-part='range'] {
+		background: var(--color-surface-950-50);
+		height: 100%;
+	}
+
+	&[data-part='thumb'] {
+		width: --spacing(5);
+		height: --spacing(5);
+		background: var(--color-surface-50-950);
+		box-shadow: inset 0 0 0 2px var(--color-surface-950-50);
+		border-radius: calc(infinity * 1px);
+
+		&:focus-visible {
+			outline: 2px solid var(--color-surface-950-50);
+			outline-offset: 1px;
+		}
+	}
+
+	&[data-part='marker'] {
+		font-size: var(--text-xs);
+		color: var(--color-surface-600-400);
+	}
+}

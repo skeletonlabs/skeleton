@@ -14,7 +14,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewLabelProps = $props();
@@ -23,15 +22,7 @@
 
 	const { level = 3, element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getLabelProps(),
-			{
-				class: classes.treeView.label,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getLabelProps(), rest));
 
 	const tag = $derived(`h${level}`);
 </script>

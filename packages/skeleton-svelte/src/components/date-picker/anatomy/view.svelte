@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitViewProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -20,15 +19,7 @@
 	const [viewProps, componentProps] = $derived(splitViewProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getViewProps(viewProps),
-			{
-				class: classes.datePicker.view,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getViewProps(viewProps), rest));
 
 	ViewContext.provide(() => viewProps);
 </script>

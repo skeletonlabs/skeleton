@@ -1,0 +1,21 @@
+[data-scope='rating-group'] {
+	&[data-part='root'] {
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+	}
+
+	&[data-part='label'] {
+		@apply label-text;
+	}
+
+	&[data-part='control'] {
+		display: flex;
+		gap: --spacing(2);
+
+		&[data-disabled] {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+	}
+}

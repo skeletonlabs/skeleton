@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
 import { ThumbContext } from '../modules/thumb-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { splitThumbProps, type ThumbProps } from '@zag-js/slider';
 import { use } from 'react';
@@ -15,13 +14,7 @@ export default function Thumb(props: SliderThumbProps) {
 	const [thumbProps, componentProps] = splitThumbProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		slider.getThumbProps(thumbProps),
-		{
-			className: classes.slider.thumb,
-		},
-		rest,
-	);
+	const attributes = mergeProps(slider.getThumbProps(thumbProps), rest);
 
 	return (
 		<ThumbContext.Provider value={thumbProps}>

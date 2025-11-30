@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TooltipTriggerProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tooltip().getTriggerProps(),
-			{
-				class: classes.tooltip.trigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tooltip().getTriggerProps(), rest));
 </script>
 
 {#if element}

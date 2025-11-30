@@ -8,7 +8,6 @@
 <script lang="ts">
 	import ChevronDownIcon from '../../../internal/components/chevron-down.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxTriggerProps = $props();
@@ -17,15 +16,7 @@
 
 	const { element, children = chevronDown, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getTriggerProps(),
-			{
-				class: classes.combobox.trigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getTriggerProps(), rest));
 </script>
 
 {#snippet chevronDown()}

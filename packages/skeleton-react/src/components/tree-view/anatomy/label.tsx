@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use, type JSX } from 'react';
 
@@ -19,13 +18,7 @@ export default function Label(props: TreeViewLabelProps) {
 
 	const { element, children, level = 3, ...rest } = props;
 
-	const attributes = mergeProps(
-		treeView.getLabelProps(),
-		{
-			className: classes.treeView.label,
-		},
-		rest,
-	);
+	const attributes = mergeProps(treeView.getLabelProps(), rest);
 
 	const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 

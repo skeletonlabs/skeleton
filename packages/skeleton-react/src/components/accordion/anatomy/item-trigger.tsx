@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 import type { PropsWithChildren } from 'react';
@@ -15,13 +14,7 @@ export default function ItemTrigger(props: AccordionItemTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		accordion.getItemTriggerProps(itemProps),
-		{
-			className: classes.accordion.itemTrigger,
-		},
-		rest,
-	);
+	const attributes = mergeProps(accordion.getItemTriggerProps(itemProps), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }

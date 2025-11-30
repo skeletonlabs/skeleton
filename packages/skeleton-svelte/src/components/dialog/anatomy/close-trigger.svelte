@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogCloseTriggerProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			dialog().getCloseTriggerProps(),
-			{
-				class: classes.dialog.closeTrigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(dialog().getCloseTriggerProps(), rest));
 </script>
 
 {#if element}

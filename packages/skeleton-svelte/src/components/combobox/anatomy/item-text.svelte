@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemTextProps = $props();
@@ -18,15 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getItemTextProps(itemProps()),
-			{
-				class: classes.combobox.itemText,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getItemTextProps(itemProps()), rest));
 </script>
 
 {#if element}

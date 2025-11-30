@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/tags-input';
 
@@ -20,15 +19,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getItemProps(itemProps),
-			{
-				class: classes.tagsInput.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

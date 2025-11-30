@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerViewControlProps = $props();
@@ -18,15 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getViewControlProps(viewProps()),
-			{
-				class: classes.datePicker.viewControl,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getViewControlProps(viewProps()), rest));
 </script>
 
 {#if element}

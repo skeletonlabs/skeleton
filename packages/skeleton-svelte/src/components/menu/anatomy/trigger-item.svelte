@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { TriggerItemContext } from '../modules/trigger-item-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps, type ItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -19,15 +18,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			triggerItemProps(),
-			{
-				class: classes.menu.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(triggerItemProps(), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

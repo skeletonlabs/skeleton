@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useTagsInput } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/tags-input';
 
@@ -23,15 +22,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			tagsInput().getRootProps(),
-			{
-				class: classes.tagsInput.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tagsInput().getRootProps(), rest));
 
 	RootContext.provide(() => tagsInput());
 </script>
