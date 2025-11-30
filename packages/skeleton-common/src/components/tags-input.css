@@ -20,19 +20,17 @@
 	}
 
 	&[data-part='item-preview'] {
-		@apply chip preset-filled;
+		@apply preset-filled;
+
+		font-size: var(--text-xs);
+		line-height: var(--text-xs--line-height);
+		border-radius: var(--radius-base);
 
 		display: flex;
-		gap: 0;
-		padding: 0;
-		width: fit-content;
-
-		&:hover {
-			filter: brightness(100%);
-		}
+		align-items: center;
 
 		&[data-highlighted] {
-			box-shadow: 0 0 0 2px var(--color-primary-500);
+			--tw-ring-color: var(--color-primary-500);
 		}
 	}
 
@@ -52,7 +50,9 @@
 	&[data-part='item-input'] {
 		@apply input;
 
+		padding-inline: --spacing(2);
 		font-size: var(--text-xs);
+		line-height: var(--text-xs--line-height);
 	}
 
 	&[data-part='input'] {
