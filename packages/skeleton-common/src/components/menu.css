@@ -23,7 +23,8 @@
 		padding: --spacing(1) --spacing(2);
 	}
 
-	&[data-part='item'] {
+	&[data-part='item'],
+	&[data-part='trigger-item'] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
