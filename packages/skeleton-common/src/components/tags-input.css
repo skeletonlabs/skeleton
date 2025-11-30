@@ -30,7 +30,8 @@
 		align-items: center;
 
 		&[data-highlighted] {
-			--tw-ring-color: var(--color-primary-500);
+			outline: 2px solid var(--color-surface-950-50);
+			outline-offset: 1px;
 		}
 	}
 
