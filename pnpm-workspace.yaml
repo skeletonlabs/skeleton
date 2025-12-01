@@ -11,33 +11,33 @@ catalog:
   '@astrojs/sitemap': 3.6.0
   '@astrojs/svelte': 7.2.2
   '@astrojs/vercel': 9.0.2
-  '@changesets/cli': 2.29.7
+  '@changesets/cli': 2.29.8
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
   '@internationalized/date': 3.10.0
   '@lucide/svelte': 0.555.0
   '@playwright/test': 1.57.0
-  '@prettier/plugin-oxc': 0.0.5
+  '@prettier/plugin-oxc': 0.1.1
   '@resvg/resvg-js': 2.6.2
-  '@shikijs/core': 3.15.0
-  '@shikijs/engine-javascript': 3.15.0
-  '@shikijs/langs': 3.15.0
-  '@shikijs/themes': 3.15.0
-  '@shikijs/transformers': 3.15.0
-  '@shikijs/types': 3.15.0
+  '@shikijs/core': 3.17.0
+  '@shikijs/engine-javascript': 3.17.0
+  '@shikijs/langs': 3.17.0
+  '@shikijs/themes': 3.17.0
+  '@shikijs/transformers': 3.17.0
+  '@shikijs/types': 3.17.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
-  '@sveltejs/adapter-vercel': 6.1.2
+  '@sveltejs/adapter-vercel': 6.2.0
   '@sveltejs/kit': 2.49.0
-  '@sveltejs/package': 2.5.6
+  '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.10
   '@tailwindcss/vite': 4.1.17
-  '@tanstack/react-router': 1.139.7
-  '@tanstack/react-start': 1.139.8
-  '@tanstack/router-cli': 1.139.7
+  '@tanstack/react-router': 1.139.10
+  '@tanstack/react-start': 1.139.10
+  '@tanstack/router-cli': 1.139.10
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
@@ -76,11 +76,11 @@ catalog:
   '@zag-js/toggle-group': 1.30.0
   '@zag-js/tooltip': 1.30.0
   '@zag-js/tree-view': 1.30.0
-  astro: 5.16.1
+  astro: 5.16.2
   astro-auto-import: 0.4.5
   astro-pagefind: 1.8.5
   astro-seo: 0.8.4
-  chroma-js: 3.1.2
+  chroma-js: 3.1.4
   clean-package: 2.2.0
   colorette: 2.0.20
   commander: 14.0.2
@@ -100,11 +100,11 @@ catalog:
   octokit: 5.0.5
   oxc-resolver: 11.14.0
   oxlint: 1.30.0
-  oxlint-tsgolint: 0.8.2
-  package-manager-detector: 1.5.0
+  oxlint-tsgolint: 0.8.3
+  package-manager-detector: 1.6.0
   playwright: 1.57.0
   postcss: 8.5.6
-  prettier: 3.6.2
+  prettier: 3.7.1
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
@@ -113,13 +113,13 @@ catalog:
   satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.5
-  shiki: 3.15.0
-  svelte: 5.44.1
+  shiki: 3.17.0
+  svelte: 5.45.2
   svelte-check: 4.3.4
   tailwindcss: 4.1.17
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
-  tsdown: 0.16.6
+  tsdown: 0.16.8
   type-fest: 5.2.0
   typescript: 5.9.3
   unist-util-visit: 5.0.0

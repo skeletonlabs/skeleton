@@ -150,7 +150,7 @@
 {#snippet result(item: Result)}
 	<Combobox.Item class="p-2 grid grid-cols-[auto_1fr_auto] gap-4 items-center" {item}>
 		{#snippet element(attributes)}
-			<a {...attributes as Record<string, unknown>} href={item.href}>
+			<a {...attributes as Record} href={item.href}>
 				<BookIcon class="size-6 opacity-50" />
 				<div class="space-y-1">
 					<Combobox.ItemText>{item.title}</Combobox.ItemText>
@@ -165,7 +165,7 @@
 {#snippet subresult(item: Subresult)}
 	<Combobox.Item class="p-2 grid grid-cols-[auto_auto_1fr_auto] gap-4 items-center" {item}>
 		{#snippet element(attributes)}
-			<a {...attributes as Record<string, unknown>} href={item.href}>
+			<a {...attributes as Record} href={item.href}>
 				<svg class="w-6 h-12 opacity-50" viewBox="0 0 24 54">
 					<g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M8 6v42M20 27H8.3"></path>

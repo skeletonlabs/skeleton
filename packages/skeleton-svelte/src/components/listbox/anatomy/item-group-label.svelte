@@ -3,9 +3,7 @@
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
 	export interface ListboxItemGroupLabelProps
-		extends Omit<ItemGroupLabelProps, 'htmlFor'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div'> {}
+		extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">

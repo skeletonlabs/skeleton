@@ -18,7 +18,7 @@
 					<Menu.ItemGroupLabel>Previous Versions</Menu.ItemGroupLabel>
 					{#each versions as version (version)}
 						<Menu.Item value={version}>
-							{#snippet element(attributes: Record<string, unknown>)}
+							{#snippet element(attributes: Record)}
 								<a {...attributes} href={`https://${version}.skeleton.dev`} target="_blank" rel="noopener noreferrer">
 									<Menu.ItemText>{version} Docs</Menu.ItemText>
 									<ArrowUpRightIcon class="size-4 opacity-60" />

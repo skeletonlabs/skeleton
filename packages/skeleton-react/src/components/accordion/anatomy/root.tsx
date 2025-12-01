@@ -8,9 +8,7 @@ import type { Props } from '@zag-js/accordion';
 import { mergeProps } from '@zag-js/react';
 
 export interface AccordionRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: AccordionRootProps) {
 	const [accordionProps, componentProps] = splitProps(props);

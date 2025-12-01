@@ -64,7 +64,7 @@
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}
 					<SegmentedControl.Item value={heading.slug} class="justify-start p-0 {getPaddingFromDepth(heading.depth)}">
-						{#snippet element(attributes: Record<string, unknown>)}
+						{#snippet element(attributes: Record)}
 							<a {...attributes} href={`#${heading.slug}`}>
 								<SegmentedControl.ItemText
 									class="text-sm text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950 text-wrap"

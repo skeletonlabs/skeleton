@@ -8,9 +8,7 @@ import { splitProps } from '@zag-js/tree-view';
 import type { Props, TreeNode } from '@zag-js/tree-view';
 
 export interface TreeViewRootProps<T extends TreeNode = TreeNode>
-	extends Omit<Props<T>, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props<T>, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root<T extends TreeNode = TreeNode>(props: TreeViewRootProps<T>) {
 	const [treeViewProps, componentProps] = splitProps(props);

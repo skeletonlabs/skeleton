@@ -8,9 +8,7 @@ import type { Props } from '@zag-js/progress';
 import { mergeProps } from '@zag-js/react';
 
 export interface ProgressRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: ProgressRootProps) {
 	const [progressProps, componentProps] = splitProps(props);
