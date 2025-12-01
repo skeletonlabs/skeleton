@@ -96,7 +96,7 @@ const { Content, headings } = await render(doc);
 	</main>
 	<!-- Sidebar (Right) - Table of Contents -->
 	<aside
-		class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10"
+		class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10 overflow-y-auto hide-scrollbar-track"
 	>
 		<Advertisement />
 		<TableOfContents {headings} client:visible />

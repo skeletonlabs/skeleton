@@ -67,7 +67,7 @@
 						{#snippet element(attributes: Record)}
 							<a {...attributes} href={`#${heading.slug}`}>
 								<SegmentedControl.ItemText
-									class="text-sm text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950"
+									class="text-sm text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950 text-wrap"
 								>
 									{heading.text}
 								</SegmentedControl.ItemText>
