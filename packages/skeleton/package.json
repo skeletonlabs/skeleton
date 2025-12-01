@@ -18,8 +18,8 @@
 			"style": "./src/index.css"
 		},
 		"./themes/*": {
-			"import": "./src/*.css",
-			"style": "./src/*.css"
+			"import": "./src/thenes/*.css",
+			"style": "./src/themes/*.css"
 		},
 		"./package.json": "./package.json"
 	},
