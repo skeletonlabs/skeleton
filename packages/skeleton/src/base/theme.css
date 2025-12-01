@@ -230,8 +230,6 @@
 	/* Backgrounds (inline theme values) */
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
-
-
 }
 
 @theme inline {
