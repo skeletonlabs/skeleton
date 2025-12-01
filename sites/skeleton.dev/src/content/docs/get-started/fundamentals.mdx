@@ -147,26 +147,6 @@ Skeleton components implement a universal convention for accepting CSS utility c
 
 </Framework>
 
-<Framework id="react">
-
-By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer. This ensures any classes you pass through the `className` attribute are automatically given precedence. No mental overhead, it just works.
-
-</Framework>
-
-<Framework id="svelte">
-
-By default, all internal styles are auto-prefixed to ensure they are assigned to the `@base` layer. This ensures any classes you pass through the `class` attribute are automatically given precedence. No mental overhead, it just works.
-
-</Framework>
-
-```css
-@custom-variant skb {
-	@layer base {
-		@slot;
-	}
-}
-```
-
 ### Extensible Markup
 
 Skeleton components provide a mechanism for overwriting the internal HTML with custom markup. Use the `element` prop to provide a custom element, this prop accepts a function which the `attributes` are passed into. Then spread the `attributes` to your custom elements. Note that this is an optional and advanced feature aimed at power users, and should not be needed for normal usage.
