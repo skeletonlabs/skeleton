@@ -1,0 +1,119 @@
+@utility body-background-color {
+	background-color: var(--body-background-color);
+}
+
+@utility body-background-color-dark {
+	background-color: var(--body-background-color-dark);
+}
+
+@utility base-font-color {
+	color: var(--base-font-color);
+}
+
+@utility base-font-color-dark {
+	color: var(--base-font-color-dark);
+}
+
+@utility base-font-family {
+	font-family: var(--base-font-family);
+}
+
+@utility base-font-size {
+	font-size: var(--base-font-size);
+}
+
+@utility base-line-height {
+	line-height: var(--base-line-height);
+}
+
+@utility base-font-weight {
+	font-weight: var(--base-font-weight);
+}
+
+@utility base-font-style {
+	font-style: var(--base-font-style);
+}
+
+@utility base-letter-spacing {
+	letter-spacing: var(--base-letter-spacing);
+}
+
+@utility heading-font-color {
+	color: var(--heading-font-color);
+}
+
+@utility heading-font-color-dark {
+	color: var(--heading-font-color-dark);
+}
+
+@utility heading-font-family {
+	font-family: var(--heading-font-family);
+}
+
+@utility heading-font-size {
+	font-size: var(--heading-font-size);
+}
+
+@utility heading-line-height {
+	line-height: var(--heading-line-height);
+}
+
+@utility heading-font-weight {
+	font-weight: var(--heading-font-weight);
+}
+
+@utility heading-font-style {
+	font-style: var(--heading-font-style);
+}
+
+@utility heading-letter-spacing {
+	letter-spacing: var(--heading-letter-spacing);
+}
+
+@utility anchor-font-color {
+	color: var(--anchor-font-color);
+}
+
+@utility anchor-font-color-dark {
+	color: var(--anchor-font-color-dark);
+}
+
+@utility anchor-font-family {
+	font-family: var(--anchor-font-family);
+}
+
+@utility anchor-font-size {
+	font-size: var(--anchor-font-size);
+}
+
+@utility anchor-line-height {
+	line-height: var(--anchor-line-height);
+}
+
+@utility anchor-font-weight {
+	font-weight: var(--anchor-font-weight);
+}
+
+@utility anchor-font-style {
+	font-style: var(--anchor-font-style);
+}
+
+@utility anchor-letter-spacing {
+	letter-spacing: var(--anchor-letter-spacing);
+}
+
+@utility anchor-text-decoration {
+	text-decoration: var(--anchor-text-decoration);
+}
+
+@utility anchor-text-decoration-active {
+	text-decoration: var(--anchor-text-decoration-active);
+}
+
+@utility anchor-text-decoration-focus {
+	text-decoration: var(--anchor-text-decoration-focus);
+}
+
+@utility anchor-text-decoration-hover {
+	text-decoration: var(--anchor-text-decoration-hover);
+}

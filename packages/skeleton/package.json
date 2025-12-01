@@ -9,33 +9,28 @@
 		"directory": "packages/skeleton"
 	},
 	"scripts": {
-		"dev": "vite build --watch",
-		"build": "vite build",
 		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore",
-		"postinstall": "pnpm build"
+		"postpack": "clean-package restore"
 	},
 	"exports": {
 		".": {
-			"import": "./dist/index.css",
-			"style": "./dist/index.css"
+			"import": "./src/index.css",
+			"style": "./src/index.css"
 		},
 		"./themes/*": {
-			"import": "./dist/*.css",
-			"style": "./dist/*.css"
+			"import": "./src/*.css",
+			"style": "./src/*.css"
 		},
 		"./package.json": "./package.json"
 	},
 	"files": [
-		"dist"
+		"src"
 	],
 	"peerDependencies": {
 		"tailwindcss": "^4.0.0"
 	},
 	"devDependencies": {
-		"clean-package": "catalog:",
-		"sass-embedded": "catalog:",
-		"vite": "catalog:"
+		"clean-package": "catalog:"
 	},
 	"license": "MIT",
 	"type": "module",
