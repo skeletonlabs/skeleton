@@ -5,17 +5,17 @@
 <Tabs defaultValue="overview">
 	<Tabs.List>
 		<Tabs.Trigger value="overview">
-			{#snippet element(attributes: Record<string, unknown>)}
+			{#snippet element(attributes: Record)}
 				<a href="#overview" {...attributes}>Overview</a>
 			{/snippet}
 		</Tabs.Trigger>
 		<Tabs.Trigger value="features">
-			{#snippet element(attributes: Record<string, unknown>)}
+			{#snippet element(attributes: Record)}
 				<a href="#features" {...attributes}>Key features</a>
 			{/snippet}
 		</Tabs.Trigger>
 		<Tabs.Trigger value="activity">
-			{#snippet element(attributes: Record<string, unknown>)}
+			{#snippet element(attributes: Record)}
 				<a href="#activity" {...attributes}>Activity</a>
 			{/snippet}
 		</Tabs.Trigger>
