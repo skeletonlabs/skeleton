@@ -25,7 +25,7 @@
 					<Menu.ItemGroupLabel>Select Framework</Menu.ItemGroupLabel>
 					{#each frameworks as framework (framework)}
 						<Menu.Item class="aria-[current=page]:preset-filled" value={framework.id}>
-							{#snippet element(attributes: Record<string, unknown>)}
+							{#snippet element(attributes: Record)}
 								<a
 									{...attributes}
 									href={url.pathname.replace(activeFramework.id, framework.id)}

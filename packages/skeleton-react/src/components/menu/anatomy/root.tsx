@@ -8,9 +8,7 @@ import type { Props } from '@zag-js/menu';
 import { use, useEffect } from 'react';
 
 export interface MenuRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		Omit<HTMLAttributes<'div', 'id' | 'dir'>, 'onSelect' | 'aria-label'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, Omit<HTMLAttributes<'div', 'id' | 'dir'>, 'onSelect' | 'aria-label'> {}
 
 export default function Root(props: MenuRootProps) {
 	const parentMenu = use(RootContext);

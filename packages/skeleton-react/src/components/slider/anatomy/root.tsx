@@ -8,7 +8,8 @@ import { splitProps } from '@zag-js/slider';
 import type { Props } from '@zag-js/slider';
 
 export interface SliderRootProps
-	extends Omit<Props, 'id'>,
+	extends
+		Omit<Props, 'id'>,
 		PropsWithElement<'div'>,
 		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'aria-label' | 'aria-labelledby'> {}
 

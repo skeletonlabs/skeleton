@@ -55,7 +55,7 @@
 			<Menu.Content class="z-50">
 				{#each links as link (link)}
 					<Menu.Item class="aria-[current=page]:preset-filled" value={link.attributes.href} closeOnSelect={!!link.attributes.target}>
-						{#snippet element(attributes: Record<string, unknown>)}
+						{#snippet element(attributes: Record)}
 							<a {...attributes} {...link.attributes}>
 								<Menu.ItemText>{link.title}</Menu.ItemText>
 								<Menu.ItemIndicator>
