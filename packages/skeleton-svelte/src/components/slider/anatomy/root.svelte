@@ -4,9 +4,7 @@
 	import type { Props } from '@zag-js/slider';
 
 	export interface SliderRootProps
-		extends Omit<Props, 'id'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir' | 'aria-label' | 'aria-labelledby'> {}
+		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'aria-label' | 'aria-labelledby'> {}
 </script>
 
 <script lang="ts">

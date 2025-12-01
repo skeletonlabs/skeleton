@@ -6,9 +6,7 @@ import { type Props, splitProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 
 export interface DatePickerRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: DatePickerRootProps) {
 	const [datePickerProps, componentProps] = splitProps(props);

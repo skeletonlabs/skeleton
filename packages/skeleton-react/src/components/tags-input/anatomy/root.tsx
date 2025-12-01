@@ -6,9 +6,7 @@ import { mergeProps } from '@zag-js/react';
 import { type Props, splitProps } from '@zag-js/tags-input';
 
 export interface TagsInputRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: TagsInputRootProps) {
 	const [tagsInputProps, componentProps] = splitProps(props);

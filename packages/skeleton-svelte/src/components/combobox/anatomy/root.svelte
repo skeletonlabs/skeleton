@@ -4,9 +4,7 @@
 	import type { Props } from '@zag-js/combobox';
 
 	export interface ComboboxRootProps
-		extends Omit<Props, 'id'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
+		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
 </script>
 
 <script lang="ts">

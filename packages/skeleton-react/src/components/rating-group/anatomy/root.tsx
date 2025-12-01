@@ -7,9 +7,7 @@ import type { Props } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
 
 export interface RatingGroupRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: RatingGroupRootProps) {
 	const [ratingGroupProps, componentProps] = splitProps(props);

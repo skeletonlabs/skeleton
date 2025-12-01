@@ -4,9 +4,7 @@
 	import { splitProps, type Props, type TreeNode } from '@zag-js/tree-view';
 
 	export interface TreeViewRootProps<T extends TreeNode = TreeNode>
-		extends Omit<Props<T>, 'id'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir'> {}
+		extends Omit<Props<T>, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts" generics="T extends TreeNode = TreeNode">

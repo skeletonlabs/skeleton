@@ -6,9 +6,7 @@ import { type Props, splitProps } from '@zag-js/listbox';
 import { mergeProps } from '@zag-js/react';
 
 export interface ListboxRootProps
-	extends Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {}
+	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {}
 
 export default function Root(props: ListboxRootProps) {
 	const [listboxProps, componentProps] = splitProps(props as ListboxRootProps & Pick<Props, 'id'>);

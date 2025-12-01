@@ -5,8 +5,7 @@ import { RootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 
 export interface ComboboxRootProviderProps
-	extends PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {
+	extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {
 	value: ReturnType<typeof useCombobox>;
 }
 

@@ -8,9 +8,7 @@ import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
 export interface MenuItemGroupLabelProps
-	extends Omit<ItemGroupLabelProps, 'htmlFor'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir'> {}
+	extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 
 export default function ItemGroupLabel(props: MenuItemGroupLabelProps) {
 	const menu = use(RootContext);

@@ -4,9 +4,7 @@
 	import type { Props } from '@zag-js/date-picker';
 
 	export interface DatePickerRootProps
-		extends Omit<Props, 'id'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
+		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
 </script>
 
 <script lang="ts">

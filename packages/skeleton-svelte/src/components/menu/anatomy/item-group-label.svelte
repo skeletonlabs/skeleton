@@ -4,9 +4,7 @@
 	import type { ItemGroupLabelProps } from '@zag-js/menu';
 
 	export interface MenuItemGroupLabelProps
-		extends Omit<ItemGroupLabelProps, 'htmlFor'>,
-			PropsWithElement<'div'>,
-			HTMLAttributes<'div', 'id' | 'dir'> {}
+		extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
 </script>
 
 <script lang="ts">
