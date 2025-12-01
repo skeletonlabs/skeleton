@@ -1,4 +1,4 @@
-@import './core.scss';
+@import './core.css';
 
 @import './badges.css';
 @import './buttons.css';
@@ -6,7 +6,7 @@
 @import './chips.css';
 @import './dividers.css';
 @import './placeholders.css';
-@import './presets.scss';
+@import './presets.css';
 @import './tables.css';
 @import './typography.css';
 
