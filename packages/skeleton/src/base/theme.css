@@ -45,7 +45,7 @@
 	--animate-progress-linear-indeterminate-vertical: progress-linear-indeterminate-vertical 1.5s ease-in-out infinite;
 	--animate-progress-circular-indeterminate: progress-circular-indeterminate 1.5s linear infinite;
 
-	/* primary */
+	/* Primary */
 	--color-primary-50: oklch(0.985 0 0);
 	--color-primary-100: oklch(0.97 0 0);
 	--color-primary-200: oklch(0.922 0 0);
@@ -71,7 +71,7 @@
 	--color-primary-contrast-900: var(--color-primary-contrast-light);
 	--color-primary-contrast-950: var(--color-primary-contrast-light);
 
-	/* secondary */
+	/* Secondary */
 	--color-secondary-50: oklch(0.985 0 0);
 	--color-secondary-100: oklch(0.97 0 0);
 	--color-secondary-200: oklch(0.922 0 0);
@@ -97,7 +97,7 @@
 	--color-secondary-contrast-900: var(--color-secondary-contrast-light);
 	--color-secondary-contrast-950: var(--color-secondary-contrast-light);
 
-	/* tertiary */
+	/* Tertiary */
 	--color-tertiary-50: oklch(0.985 0 0);
 	--color-tertiary-100: oklch(0.97 0 0);
 	--color-tertiary-200: oklch(0.922 0 0);
@@ -123,7 +123,7 @@
 	--color-tertiary-contrast-900: var(--color-tertiary-contrast-light);
 	--color-tertiary-contrast-950: var(--color-tertiary-contrast-light);
 
-	/* success */
+	/* Success */
 	--color-success-50: oklch(0.985 0 0);
 	--color-success-100: oklch(0.97 0 0);
 	--color-success-200: oklch(0.922 0 0);
@@ -149,7 +149,7 @@
 	--color-success-contrast-900: var(--color-success-contrast-light);
 	--color-success-contrast-950: var(--color-success-contrast-light);
 
-	/* warning */
+	/* Warning */
 	--color-warning-50: oklch(0.985 0 0);
 	--color-warning-100: oklch(0.97 0 0);
 	--color-warning-200: oklch(0.922 0 0);
@@ -175,7 +175,7 @@
 	--color-warning-contrast-900: var(--color-warning-contrast-light);
 	--color-warning-contrast-950: var(--color-warning-contrast-light);
 
-	/* error */
+	/* Error */
 	--color-error-50: oklch(0.985 0 0);
 	--color-error-100: oklch(0.97 0 0);
 	--color-error-200: oklch(0.922 0 0);
@@ -201,7 +201,7 @@
 	--color-error-contrast-900: var(--color-error-contrast-light);
 	--color-error-contrast-950: var(--color-error-contrast-light);
 
-	/* surface */
+	/* Surface */
 	--color-surface-50: oklch(0.985 0 0);
 	--color-surface-100: oklch(0.97 0 0);
 	--color-surface-200: oklch(0.922 0 0);
@@ -233,7 +233,7 @@
 }
 
 @theme inline {
-	/* primary pairings */
+	/* Primary pairings */
 	--color-primary-50-950: light-dark(var(--color-primary-50), var(--color-primary-950));
 	--color-primary-contrast-50-950: light-dark(var(--color-primary-contrast-50), var(--color-primary-contrast-950));
 	--color-primary-100-900: light-dark(var(--color-primary-100), var(--color-primary-900));
@@ -255,7 +255,7 @@
 	--color-primary-950-50: light-dark(var(--color-primary-950), var(--color-primary-50));
 	--color-primary-contrast-950-50: light-dark(var(--color-primary-contrast-950), var(--color-primary-contrast-50));
 
-	/* secondary pairings */
+	/* Secondary pairings */
 	--color-secondary-50-950: light-dark(var(--color-secondary-50), var(--color-secondary-950));
 	--color-secondary-contrast-50-950: light-dark(var(--color-secondary-contrast-50), var(--color-secondary-contrast-950));
 	--color-secondary-100-900: light-dark(var(--color-secondary-100), var(--color-secondary-900));
@@ -277,7 +277,7 @@
 	--color-secondary-950-50: light-dark(var(--color-secondary-950), var(--color-secondary-50));
 	--color-secondary-contrast-950-50: light-dark(var(--color-secondary-contrast-950), var(--color-secondary-contrast-50));
 
-	/* tertiary pairings */
+	/* Tertiary pairings */
 	--color-tertiary-50-950: light-dark(var(--color-tertiary-50), var(--color-tertiary-950));
 	--color-tertiary-contrast-50-950: light-dark(var(--color-tertiary-contrast-50), var(--color-tertiary-contrast-950));
 	--color-tertiary-100-900: light-dark(var(--color-tertiary-100), var(--color-tertiary-900));
@@ -299,7 +299,7 @@
 	--color-tertiary-950-50: light-dark(var(--color-tertiary-950), var(--color-tertiary-50));
 	--color-tertiary-contrast-950-50: light-dark(var(--color-tertiary-contrast-950), var(--color-tertiary-contrast-50));
 
-	/* success pairings */
+	/* Success pairings */
 	--color-success-50-950: light-dark(var(--color-success-50), var(--color-success-950));
 	--color-success-contrast-50-950: light-dark(var(--color-success-contrast-50), var(--color-success-contrast-950));
 	--color-success-100-900: light-dark(var(--color-success-100), var(--color-success-900));
@@ -321,7 +321,7 @@
 	--color-success-950-50: light-dark(var(--color-success-950), var(--color-success-50));
 	--color-success-contrast-950-50: light-dark(var(--color-success-contrast-950), var(--color-success-contrast-50));
 
-	/* warning pairings */
+	/* Warning pairings */
 	--color-warning-50-950: light-dark(var(--color-warning-50), var(--color-warning-950));
 	--color-warning-contrast-50-950: light-dark(var(--color-warning-contrast-50), var(--color-warning-contrast-950));
 	--color-warning-100-900: light-dark(var(--color-warning-100), var(--color-warning-900));
@@ -343,7 +343,7 @@
 	--color-warning-950-50: light-dark(var(--color-warning-950), var(--color-warning-50));
 	--color-warning-contrast-950-50: light-dark(var(--color-warning-contrast-950), var(--color-warning-contrast-50));
 
-	/* error pairings */
+	/* Error pairings */
 	--color-error-50-950: light-dark(var(--color-error-50), var(--color-error-950));
 	--color-error-contrast-50-950: light-dark(var(--color-error-contrast-50), var(--color-error-contrast-950));
 	--color-error-100-900: light-dark(var(--color-error-100), var(--color-error-900));
@@ -365,7 +365,7 @@
 	--color-error-950-50: light-dark(var(--color-error-950), var(--color-error-50));
 	--color-error-contrast-950-50: light-dark(var(--color-error-contrast-950), var(--color-error-contrast-50));
 
-	/* surface pairings */
+	/* Surface pairings */
 	--color-surface-50-950: light-dark(var(--color-surface-50), var(--color-surface-950));
 	--color-surface-contrast-50-950: light-dark(var(--color-surface-contrast-50), var(--color-surface-contrast-950));
 	--color-surface-100-900: light-dark(var(--color-surface-100), var(--color-surface-900));
