@@ -14,7 +14,7 @@
 				<Menu.ItemGroup>
 					<Menu.ItemGroupLabel>Support Skeleton</Menu.ItemGroupLabel>
 					<Menu.Item value="github">
-						{#snippet element(attributes: Record<string, unknown>)}
+						{#snippet element(attributes: Record)}
 							<a {...attributes} href="https://github.com/sponsors/skeletonlabs" target="_blank" rel="noreferrer noopener">
 								<Menu.ItemText>Via GitHub</Menu.ItemText>
 								<ArrowUpRightIcon class="size-4 opacity-60" />
@@ -22,7 +22,7 @@
 						{/snippet}
 					</Menu.Item>
 					<Menu.Item value="kofi">
-						{#snippet element(attributes: Record<string, unknown>)}
+						{#snippet element(attributes: Record)}
 							<a {...attributes} href="https://ko-fi.com/skeletonlabs" target="_blank" rel="noreferrer noopener">
 								<Menu.ItemText>Via Ko-Fi</Menu.ItemText>
 								<ArrowUpRightIcon class="size-4 opacity-60" />

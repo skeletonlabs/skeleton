@@ -6,8 +6,7 @@ import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 
 export interface ListboxRootProviderProps
-	extends PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {
+	extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'onSelect'> {
 	value: ReturnType<typeof useListbox>;
 }
 

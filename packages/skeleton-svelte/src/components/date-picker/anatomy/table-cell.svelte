@@ -5,9 +5,7 @@
 	import type { DayTableCellProps, TableCellProps } from '@zag-js/date-picker';
 
 	export interface DatePickerTableCellProps
-		extends Union<TableCellProps, DayTableCellProps>,
-			PropsWithElement<'td'>,
-			HTMLAttributes<'td'> {}
+		extends Union<TableCellProps, DayTableCellProps>, PropsWithElement<'td'>, HTMLAttributes<'td'> {}
 </script>
 
 <script lang="ts">

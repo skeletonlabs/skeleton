@@ -24,7 +24,7 @@
 {#snippet links(links: typeof skeletonTools | typeof communityTools)}
 	{#each links as link (link)}
 		<Menu.Item value={link.title}>
-			{#snippet element(attributes: Record<string, unknown>)}
+			{#snippet element(attributes: Record)}
 				<a {...attributes} href={link.href} target="_blank" rel="noopener noreferrer">
 					<Menu.ItemText>{link.title}</Menu.ItemText>
 					<ArrowUpRightIcon class="size-4 opacity-60" />
