@@ -226,13 +226,13 @@
 	--color-surface-contrast-800: var(--color-surface-contrast-light);
 	--color-surface-contrast-900: var(--color-surface-contrast-light);
 	--color-surface-contrast-950: var(--color-surface-contrast-light);
-
-	/* Backgrounds (inline theme values) */
-	--body-background-color: var(--color-surface-50);
-	--body-background-color-dark: var(--color-surface-950);
 }
 
 @theme inline {
+	/* Backgrounds */
+	--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);
+
 	/* Primary pairings */
 	--color-primary-50-950: light-dark(var(--color-primary-50), var(--color-primary-950));
 	--color-primary-contrast-50-950: light-dark(var(--color-primary-contrast-50), var(--color-primary-contrast-950));
