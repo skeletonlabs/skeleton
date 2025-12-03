@@ -21,7 +21,6 @@
 		border: 1px solid var(--color-surface-200-800);
 
 		@apply card preset-filled-surface-50-950;
-		
 
 		&[data-state='closed'] {
 			transition:
