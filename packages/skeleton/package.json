@@ -9,7 +9,7 @@
 		"directory": "packages/skeleton"
 	},
 	"scripts": {
-		"prepack": "pnpm build && clean-package",
+		"prepack": "clean-package",
 		"postpack": "clean-package restore"
 	},
 	"exports": {
