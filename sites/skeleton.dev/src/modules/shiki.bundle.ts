@@ -1,5 +1,5 @@
 /* Generate by @shikijs/codegen */
-import { createSingletonShorthands, createdBundledHighlighter } from '@shikijs/core';
+import { createSingletonShorthands, createBundledHighlighter } from '@shikijs/core';
 import { createJavaScriptRegexEngine } from '@shikijs/engine-javascript';
 import type { DynamicImportLanguageRegistration, DynamicImportThemeRegistration } from '@shikijs/types';
 
@@ -48,7 +48,7 @@ const bundledThemes = {
 	'github-dark': () => import('@shikijs/themes/github-dark'),
 } as Record<BundledTheme, DynamicImportThemeRegistration>;
 
-const createHighlighter = /* @__PURE__ */ createdBundledHighlighter<BundledLanguage, BundledTheme>({
+const createHighlighter = /* @__PURE__ */ createBundledHighlighter<BundledLanguage, BundledTheme>({
 	langs: bundledLanguages,
 	themes: bundledThemes,
 	engine: () => createJavaScriptRegexEngine(),
