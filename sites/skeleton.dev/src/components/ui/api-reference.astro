@@ -1,6 +1,7 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
 import Code from '@/components/ui/code.svelte';
+import { LOAD_COMPONENT_COLLECTION } from 'astro:env/server';
 
 interface Props {
 	id: CollectionEntry<'components'>['id'];
@@ -8,9 +9,7 @@ interface Props {
 
 const { id } = Astro.props;
 
-const componentShouldLoad = ['preview', 'production'].includes(process.env.VERCEL_ENV ?? '');
-
-const component = componentShouldLoad && (await getEntry('components', id));
+const component = LOAD_COMPONENT_COLLECTION === '1' && (await getEntry('components', id));
 
 function kebabToPascal(str: string) {
 	return str
@@ -19,7 +18,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (componentShouldLoad && !component) {
+if (LOAD_COMPONENT_COLLECTION === '1' && !component) {
 	throw new Error(`Unable to load component information for ${id}`);
 }
 ---
