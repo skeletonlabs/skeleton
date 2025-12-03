@@ -9,7 +9,7 @@ interface Props {
 
 const { id } = Astro.props;
 
-const component = LOAD_COMPONENT_COLLECTION && (await getEntry('components', id));
+const component = LOAD_COMPONENT_COLLECTION === '1' && (await getEntry('components', id));
 
 function kebabToPascal(str: string) {
 	return str
@@ -18,7 +18,7 @@ function kebabToPascal(str: string) {
 		.join('');
 }
 
-if (LOAD_COMPONENT_COLLECTION && !component) {
+if (LOAD_COMPONENT_COLLECTION === '1' && !component) {
 	throw new Error(`Unable to load component information for ${id}`);
 }
 ---
