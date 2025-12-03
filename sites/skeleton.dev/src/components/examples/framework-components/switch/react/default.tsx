@@ -1,13 +1,21 @@
 import { Switch } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
 
 export default function Default() {
+	const [checked, setChecked] = useState(false);
+
 	return (
-		<Switch>
-			<Switch.Control>
-				<Switch.Thumb />
-			</Switch.Control>
-			<Switch.Label>Label</Switch.Label>
-			<Switch.HiddenInput />
-		</Switch>
+		<div className="flex flex-col items-center gap-4">
+			<Switch checked={checked} onCheckedChange={(details) => setChecked(details.checked)}>
+				<Switch.Control>
+					<Switch.Thumb />
+				</Switch.Control>
+				<Switch.Label>Label</Switch.Label>
+				<Switch.HiddenInput />
+			</Switch>
+			<p>
+				<span className="opacity-60">You selected</span> <code className="code">{checked}</code>
+			</p>
+		</div>
 	);
 }
