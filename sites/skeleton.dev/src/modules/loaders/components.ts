@@ -4,6 +4,7 @@ import { extname, join } from 'node:path';
 import * as svelte from 'svelte/compiler';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
+import { LOAD_COMPONENT_COLLECTION } from 'astro:env/server';
 
 const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
 const PACKAGE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'packages', name);
@@ -238,7 +239,7 @@ async function processComponent(context: LoaderContext, frameworkName: string, c
 	if (!componentName) {
 		return;
 	}
-	if (!['preview', 'production'].includes(process.env.VERCEL_ENV ?? '')) {
+	if (!LOAD_COMPONENT_COLLECTION) {
 		return {
 			id: `${frameworkName}/${componentName}`,
 			name: componentName,

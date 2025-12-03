@@ -53,6 +53,11 @@ export default defineConfig({
 				access: 'public',
 				default: process.env.VERCEL_GIT_COMMIT_REF ?? execSync('git rev-parse --abbrev-ref HEAD').toString().trim(),
 			}),
+			LOAD_COMPONENT_COLLECTION: envField.boolean({
+				context: 'server',
+				access: 'secret',
+				default: process.env.LOAD_COMPONENT_COLLECTION === '1' || false,
+			}),
 		},
 	},
 	vite: {

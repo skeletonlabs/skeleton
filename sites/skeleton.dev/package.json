@@ -6,7 +6,8 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check",
-		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts"
+		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
+		"postinstall": "astro sync"
 	},
 	"dependencies": {
 		"@astrojs/check": "catalog:",
