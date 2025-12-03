@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.7.2
+
+### Patch Changes
+
+- feature: native css ([#4182](https://github.com/skeletonlabs/skeleton/pull/4182))
+
 ## 4.7.1
 
 ## 4.7.0
