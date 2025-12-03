@@ -4,7 +4,7 @@ import { extname, join } from 'node:path';
 import * as svelte from 'svelte/compiler';
 import { glob } from 'tinyglobby';
 import * as tsMorph from 'ts-morph';
-import { LOAD_COMPONENT_COLLECTION } from 'astro:env/client';
+import { LOAD_COMPONENT_COLLECTION } from 'astro:env/server';
 
 const MONOREPO_DIRECTORY = join(import.meta.dirname, '..', '..', '..', '..', '..');
 const PACKAGE_DIRECTORY = (name: string) => join(MONOREPO_DIRECTORY, 'packages', name);
