@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.7.2
+
+### Patch Changes
+
+- task: remove sass build step ([#4188](https://github.com/skeletonlabs/skeleton/pull/4188))
+
 ## 4.7.1
 
 ## 4.7.0
