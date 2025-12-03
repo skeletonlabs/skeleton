@@ -239,7 +239,7 @@ async function processComponent(context: LoaderContext, frameworkName: string, c
 	if (!componentName) {
 		return;
 	}
-	if (!LOAD_COMPONENT_COLLECTION) {
+	if (LOAD_COMPONENT_COLLECTION === '0') {
 		return {
 			id: `${frameworkName}/${componentName}`,
 			name: componentName,
