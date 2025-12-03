@@ -14,7 +14,8 @@ export default function Default() {
 				<Switch.HiddenInput />
 			</Switch>
 			<p>
-				<span className="opacity-60">You selected</span> <code className="code">{checked}</code>
+				<span className="opacity-60">Checked: </span>
+				<code className="code">{checked}</code>
 			</p>
 		</div>
 	);

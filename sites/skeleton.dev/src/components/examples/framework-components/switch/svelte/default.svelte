@@ -13,6 +13,7 @@
 		<Switch.HiddenInput />
 	</Switch>
 	<p>
-		<span class="opacity-60">You selected</span> <code class="code">{checked}</code>
+		<span class="opacity-60">Checked: </span>
+		<code class="code">{checked}</code>
 	</p>
 </div>
