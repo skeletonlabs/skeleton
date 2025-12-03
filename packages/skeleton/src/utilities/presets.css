@@ -1,0 +1,689 @@
+/* filled */
+@utility preset-filled {
+	background-color: var(--color-surface-950-50);
+	color: var(--color-surface-50-950);
+}
+
+/* filled - primary */
+@utility preset-filled-primary-500 {
+	background-color: var(--color-primary-500);
+	color: var(--color-primary-contrast-500);
+}
+@utility preset-filled-primary-50-950 {
+	background-color: var(--color-primary-50-950);
+	color: var(--color-primary-contrast-50-950);
+}
+@utility preset-filled-primary-100-900 {
+	background-color: var(--color-primary-100-900);
+	color: var(--color-primary-contrast-100-900);
+}
+@utility preset-filled-primary-200-800 {
+	background-color: var(--color-primary-200-800);
+	color: var(--color-primary-contrast-200-800);
+}
+@utility preset-filled-primary-300-700 {
+	background-color: var(--color-primary-300-700);
+	color: var(--color-primary-contrast-300-700);
+}
+@utility preset-filled-primary-400-600 {
+	background-color: var(--color-primary-400-600);
+	color: var(--color-primary-contrast-400-600);
+}
+@utility preset-filled-primary-600-400 {
+	background-color: var(--color-primary-600-400);
+	color: var(--color-primary-contrast-600-400);
+}
+@utility preset-filled-primary-700-300 {
+	background-color: var(--color-primary-700-300);
+	color: var(--color-primary-contrast-700-300);
+}
+@utility preset-filled-primary-800-200 {
+	background-color: var(--color-primary-800-200);
+	color: var(--color-primary-contrast-800-200);
+}
+@utility preset-filled-primary-900-100 {
+	background-color: var(--color-primary-900-100);
+	color: var(--color-primary-contrast-900-100);
+}
+@utility preset-filled-primary-950-50 {
+	background-color: var(--color-primary-950-50);
+	color: var(--color-primary-contrast-950-50);
+}
+
+/* filled - secondary */
+@utility preset-filled-secondary-500 {
+	background-color: var(--color-secondary-500);
+	color: var(--color-secondary-contrast-500);
+}
+@utility preset-filled-secondary-50-950 {
+	background-color: var(--color-secondary-50-950);
+	color: var(--color-secondary-contrast-50-950);
+}
+@utility preset-filled-secondary-100-900 {
+	background-color: var(--color-secondary-100-900);
+	color: var(--color-secondary-contrast-100-900);
+}
+@utility preset-filled-secondary-200-800 {
+	background-color: var(--color-secondary-200-800);
+	color: var(--color-secondary-contrast-200-800);
+}
+@utility preset-filled-secondary-300-700 {
+	background-color: var(--color-secondary-300-700);
+	color: var(--color-secondary-contrast-300-700);
+}
+@utility preset-filled-secondary-400-600 {
+	background-color: var(--color-secondary-400-600);
+	color: var(--color-secondary-contrast-400-600);
+}
+@utility preset-filled-secondary-600-400 {
+	background-color: var(--color-secondary-600-400);
+	color: var(--color-secondary-contrast-600-400);
+}
+@utility preset-filled-secondary-700-300 {
+	background-color: var(--color-secondary-700-300);
+	color: var(--color-secondary-contrast-700-300);
+}
+@utility preset-filled-secondary-800-200 {
+	background-color: var(--color-secondary-800-200);
+	color: var(--color-secondary-contrast-800-200);
+}
+@utility preset-filled-secondary-900-100 {
+	background-color: var(--color-secondary-900-100);
+	color: var(--color-secondary-contrast-900-100);
+}
+@utility preset-filled-secondary-950-50 {
+	background-color: var(--color-secondary-950-50);
+	color: var(--color-secondary-contrast-950-50);
+}
+
+/* filled - tertiary */
+@utility preset-filled-tertiary-500 {
+	background-color: var(--color-tertiary-500);
+	color: var(--color-tertiary-contrast-500);
+}
+@utility preset-filled-tertiary-50-950 {
+	background-color: var(--color-tertiary-50-950);
+	color: var(--color-tertiary-contrast-50-950);
+}
+@utility preset-filled-tertiary-100-900 {
+	background-color: var(--color-tertiary-100-900);
+	color: var(--color-tertiary-contrast-100-900);
+}
+@utility preset-filled-tertiary-200-800 {
+	background-color: var(--color-tertiary-200-800);
+	color: var(--color-tertiary-contrast-200-800);
+}
+@utility preset-filled-tertiary-300-700 {
+	background-color: var(--color-tertiary-300-700);
+	color: var(--color-tertiary-contrast-300-700);
+}
+@utility preset-filled-tertiary-400-600 {
+	background-color: var(--color-tertiary-400-600);
+	color: var(--color-tertiary-contrast-400-600);
+}
+@utility preset-filled-tertiary-600-400 {
+	background-color: var(--color-tertiary-600-400);
+	color: var(--color-tertiary-contrast-600-400);
+}
+@utility preset-filled-tertiary-700-300 {
+	background-color: var(--color-tertiary-700-300);
+	color: var(--color-tertiary-contrast-700-300);
+}
+@utility preset-filled-tertiary-800-200 {
+	background-color: var(--color-tertiary-800-200);
+	color: var(--color-tertiary-contrast-800-200);
+}
+@utility preset-filled-tertiary-900-100 {
+	background-color: var(--color-tertiary-900-100);
+	color: var(--color-tertiary-contrast-900-100);
+}
+@utility preset-filled-tertiary-950-50 {
+	background-color: var(--color-tertiary-950-50);
+	color: var(--color-tertiary-contrast-950-50);
+}
+
+/* filled - success */
+@utility preset-filled-success-500 {
+	background-color: var(--color-success-500);
+	color: var(--color-success-contrast-500);
+}
+@utility preset-filled-success-50-950 {
+	background-color: var(--color-success-50-950);
+	color: var(--color-success-contrast-50-950);
+}
+@utility preset-filled-success-100-900 {
+	background-color: var(--color-success-100-900);
+	color: var(--color-success-contrast-100-900);
+}
+@utility preset-filled-success-200-800 {
+	background-color: var(--color-success-200-800);
+	color: var(--color-success-contrast-200-800);
+}
+@utility preset-filled-success-300-700 {
+	background-color: var(--color-success-300-700);
+	color: var(--color-success-contrast-300-700);
+}
+@utility preset-filled-success-400-600 {
+	background-color: var(--color-success-400-600);
+	color: var(--color-success-contrast-400-600);
+}
+@utility preset-filled-success-600-400 {
+	background-color: var(--color-success-600-400);
+	color: var(--color-success-contrast-600-400);
+}
+@utility preset-filled-success-700-300 {
+	background-color: var(--color-success-700-300);
+	color: var(--color-success-contrast-700-300);
+}
+@utility preset-filled-success-800-200 {
+	background-color: var(--color-success-800-200);
+	color: var(--color-success-contrast-800-200);
+}
+@utility preset-filled-success-900-100 {
+	background-color: var(--color-success-900-100);
+	color: var(--color-success-contrast-900-100);
+}
+@utility preset-filled-success-950-50 {
+	background-color: var(--color-success-950-50);
+	color: var(--color-success-contrast-950-50);
+}
+
+/* filled - warning */
+@utility preset-filled-warning-500 {
+	background-color: var(--color-warning-500);
+	color: var(--color-warning-contrast-500);
+}
+@utility preset-filled-warning-50-950 {
+	background-color: var(--color-warning-50-950);
+	color: var(--color-warning-contrast-50-950);
+}
+@utility preset-filled-warning-100-900 {
+	background-color: var(--color-warning-100-900);
+	color: var(--color-warning-contrast-100-900);
+}
+@utility preset-filled-warning-200-800 {
+	background-color: var(--color-warning-200-800);
+	color: var(--color-warning-contrast-200-800);
+}
+@utility preset-filled-warning-300-700 {
+	background-color: var(--color-warning-300-700);
+	color: var(--color-warning-contrast-300-700);
+}
+@utility preset-filled-warning-400-600 {
+	background-color: var(--color-warning-400-600);
+	color: var(--color-warning-contrast-400-600);
+}
+@utility preset-filled-warning-600-400 {
+	background-color: var(--color-warning-600-400);
+	color: var(--color-warning-contrast-600-400);
+}
+@utility preset-filled-warning-700-300 {
+	background-color: var(--color-warning-700-300);
+	color: var(--color-warning-contrast-700-300);
+}
+@utility preset-filled-warning-800-200 {
+	background-color: var(--color-warning-800-200);
+	color: var(--color-warning-contrast-800-200);
+}
+@utility preset-filled-warning-900-100 {
+	background-color: var(--color-warning-900-100);
+	color: var(--color-warning-contrast-900-100);
+}
+@utility preset-filled-warning-950-50 {
+	background-color: var(--color-warning-950-50);
+	color: var(--color-warning-contrast-950-50);
+}
+
+/* filled - error */
+@utility preset-filled-error-500 {
+	background-color: var(--color-error-500);
+	color: var(--color-error-contrast-500);
+}
+@utility preset-filled-error-50-950 {
+	background-color: var(--color-error-50-950);
+	color: var(--color-error-contrast-50-950);
+}
+@utility preset-filled-error-100-900 {
+	background-color: var(--color-error-100-900);
+	color: var(--color-error-contrast-100-900);
+}
+@utility preset-filled-error-200-800 {
+	background-color: var(--color-error-200-800);
+	color: var(--color-error-contrast-200-800);
+}
+@utility preset-filled-error-300-700 {
+	background-color: var(--color-error-300-700);
+	color: var(--color-error-contrast-300-700);
+}
+@utility preset-filled-error-400-600 {
+	background-color: var(--color-error-400-600);
+	color: var(--color-error-contrast-400-600);
+}
+@utility preset-filled-error-600-400 {
+	background-color: var(--color-error-600-400);
+	color: var(--color-error-contrast-600-400);
+}
+@utility preset-filled-error-700-300 {
+	background-color: var(--color-error-700-300);
+	color: var(--color-error-contrast-700-300);
+}
+@utility preset-filled-error-800-200 {
+	background-color: var(--color-error-800-200);
+	color: var(--color-error-contrast-800-200);
+}
+@utility preset-filled-error-900-100 {
+	background-color: var(--color-error-900-100);
+	color: var(--color-error-contrast-900-100);
+}
+@utility preset-filled-error-950-50 {
+	background-color: var(--color-error-950-50);
+	color: var(--color-error-contrast-950-50);
+}
+
+/* filled - surface */
+@utility preset-filled-surface-500 {
+	background-color: var(--color-surface-500);
+	color: var(--color-surface-contrast-500);
+}
+@utility preset-filled-surface-50-950 {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-contrast-50-950);
+}
+@utility preset-filled-surface-100-900 {
+	background-color: var(--color-surface-100-900);
+	color: var(--color-surface-contrast-100-900);
+}
+@utility preset-filled-surface-200-800 {
+	background-color: var(--color-surface-200-800);
+	color: var(--color-surface-contrast-200-800);
+}
+@utility preset-filled-surface-300-700 {
+	background-color: var(--color-surface-300-700);
+	color: var(--color-surface-contrast-300-700);
+}
+@utility preset-filled-surface-400-600 {
+	background-color: var(--color-surface-400-600);
+	color: var(--color-surface-contrast-400-600);
+}
+@utility preset-filled-surface-600-400 {
+	background-color: var(--color-surface-600-400);
+	color: var(--color-surface-contrast-600-400);
+}
+@utility preset-filled-surface-700-300 {
+	background-color: var(--color-surface-700-300);
+	color: var(--color-surface-contrast-700-300);
+}
+@utility preset-filled-surface-800-200 {
+	background-color: var(--color-surface-800-200);
+	color: var(--color-surface-contrast-800-200);
+}
+@utility preset-filled-surface-900-100 {
+	background-color: var(--color-surface-900-100);
+	color: var(--color-surface-contrast-900-100);
+}
+@utility preset-filled-surface-950-50 {
+	background-color: var(--color-surface-950-50);
+	color: var(--color-surface-contrast-950-50);
+}
+
+/* tonal */
+@utility preset-tonal {
+	background-color: color-mix(in oklab, light-dark(var(--color-surface-950), var(--color-surface-50)) 5%, transparent);
+}
+
+@utility preset-tonal-primary {
+	background-color: var(--color-primary-50-950);
+	color: var(--color-primary-950-50);
+}
+@utility preset-tonal-secondary {
+	background-color: var(--color-secondary-50-950);
+	color: var(--color-secondary-950-50);
+}
+@utility preset-tonal-tertiary {
+	background-color: var(--color-tertiary-50-950);
+	color: var(--color-tertiary-950-50);
+}
+@utility preset-tonal-success {
+	background-color: var(--color-success-50-950);
+	color: var(--color-success-950-50);
+}
+@utility preset-tonal-warning {
+	background-color: var(--color-warning-50-950);
+	color: var(--color-warning-950-50);
+}
+@utility preset-tonal-error {
+	background-color: var(--color-error-50-950);
+	color: var(--color-error-950-50);
+}
+@utility preset-tonal-surface {
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+}
+
+/* outlined */
+@utility preset-outlined {
+	border-width: 1px;
+	border-color: var(--color-surface-950-50);
+}
+
+/* outlined - primary */
+@utility preset-outlined-primary-500 {
+	border-width: 1px;
+	border-color: var(--color-primary-500);
+}
+@utility preset-outlined-primary-50-950 {
+	border-width: 1px;
+	border-color: var(--color-primary-50-950);
+}
+@utility preset-outlined-primary-100-900 {
+	border-width: 1px;
+	border-color: var(--color-primary-100-900);
+}
+@utility preset-outlined-primary-200-800 {
+	border-width: 1px;
+	border-color: var(--color-primary-200-800);
+}
+@utility preset-outlined-primary-300-700 {
+	border-width: 1px;
+	border-color: var(--color-primary-300-700);
+}
+@utility preset-outlined-primary-400-600 {
+	border-width: 1px;
+	border-color: var(--color-primary-400-600);
+}
+@utility preset-outlined-primary-600-400 {
+	border-width: 1px;
+	border-color: var(--color-primary-600-400);
+}
+@utility preset-outlined-primary-700-300 {
+	border-width: 1px;
+	border-color: var(--color-primary-700-300);
+}
+@utility preset-outlined-primary-800-200 {
+	border-width: 1px;
+	border-color: var(--color-primary-800-200);
+}
+@utility preset-outlined-primary-900-100 {
+	border-width: 1px;
+	border-color: var(--color-primary-900-100);
+}
+@utility preset-outlined-primary-950-50 {
+	border-width: 1px;
+	border-color: var(--color-primary-950-50);
+}
+
+/* outlined - secondary */
+@utility preset-outlined-secondary-500 {
+	border-width: 1px;
+	border-color: var(--color-secondary-500);
+}
+@utility preset-outlined-secondary-50-950 {
+	border-width: 1px;
+	border-color: var(--color-secondary-50-950);
+}
+@utility preset-outlined-secondary-100-900 {
+	border-width: 1px;
+	border-color: var(--color-secondary-100-900);
+}
+@utility preset-outlined-secondary-200-800 {
+	border-width: 1px;
+	border-color: var(--color-secondary-200-800);
+}
+@utility preset-outlined-secondary-300-700 {
+	border-width: 1px;
+	border-color: var(--color-secondary-300-700);
+}
+@utility preset-outlined-secondary-400-600 {
+	border-width: 1px;
+	border-color: var(--color-secondary-400-600);
+}
+@utility preset-outlined-secondary-600-400 {
+	border-width: 1px;
+	border-color: var(--color-secondary-600-400);
+}
+@utility preset-outlined-secondary-700-300 {
+	border-width: 1px;
+	border-color: var(--color-secondary-700-300);
+}
+@utility preset-outlined-secondary-800-200 {
+	border-width: 1px;
+	border-color: var(--color-secondary-800-200);
+}
+@utility preset-outlined-secondary-900-100 {
+	border-width: 1px;
+	border-color: var(--color-secondary-900-100);
+}
+@utility preset-outlined-secondary-950-50 {
+	border-width: 1px;
+	border-color: var(--color-secondary-950-50);
+}
+
+/* outlined - tertiary */
+@utility preset-outlined-tertiary-500 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-500);
+}
+@utility preset-outlined-tertiary-50-950 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-50-950);
+}
+@utility preset-outlined-tertiary-100-900 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-100-900);
+}
+@utility preset-outlined-tertiary-200-800 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-200-800);
+}
+@utility preset-outlined-tertiary-300-700 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-300-700);
+}
+@utility preset-outlined-tertiary-400-600 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-400-600);
+}
+@utility preset-outlined-tertiary-600-400 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-600-400);
+}
+@utility preset-outlined-tertiary-700-300 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-700-300);
+}
+@utility preset-outlined-tertiary-800-200 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-800-200);
+}
+@utility preset-outlined-tertiary-900-100 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-900-100);
+}
+@utility preset-outlined-tertiary-950-50 {
+	border-width: 1px;
+	border-color: var(--color-tertiary-950-50);
+}
+
+/* outlined - success */
+@utility preset-outlined-success-500 {
+	border-width: 1px;
+	border-color: var(--color-success-500);
+}
+@utility preset-outlined-success-50-950 {
+	border-width: 1px;
+	border-color: var(--color-success-50-950);
+}
+@utility preset-outlined-success-100-900 {
+	border-width: 1px;
+	border-color: var(--color-success-100-900);
+}
+@utility preset-outlined-success-200-800 {
+	border-width: 1px;
+	border-color: var(--color-success-200-800);
+}
+@utility preset-outlined-success-300-700 {
+	border-width: 1px;
+	border-color: var(--color-success-300-700);
+}
+@utility preset-outlined-success-400-600 {
+	border-width: 1px;
+	border-color: var(--color-success-400-600);
+}
+@utility preset-outlined-success-600-400 {
+	border-width: 1px;
+	border-color: var(--color-success-600-400);
+}
+@utility preset-outlined-success-700-300 {
+	border-width: 1px;
+	border-color: var(--color-success-700-300);
+}
+@utility preset-outlined-success-800-200 {
+	border-width: 1px;
+	border-color: var(--color-success-800-200);
+}
+@utility preset-outlined-success-900-100 {
+	border-width: 1px;
+	border-color: var(--color-success-900-100);
+}
+@utility preset-outlined-success-950-50 {
+	border-width: 1px;
+	border-color: var(--color-success-950-50);
+}
+
+/* outlined - warning */
+@utility preset-outlined-warning-500 {
+	border-width: 1px;
+	border-color: var(--color-warning-500);
+}
+@utility preset-outlined-warning-50-950 {
+	border-width: 1px;
+	border-color: var(--color-warning-50-950);
+}
+@utility preset-outlined-warning-100-900 {
+	border-width: 1px;
+	border-color: var(--color-warning-100-900);
+}
+@utility preset-outlined-warning-200-800 {
+	border-width: 1px;
+	border-color: var(--color-warning-200-800);
+}
+@utility preset-outlined-warning-300-700 {
+	border-width: 1px;
+	border-color: var(--color-warning-300-700);
+}
+@utility preset-outlined-warning-400-600 {
+	border-width: 1px;
+	border-color: var(--color-warning-400-600);
+}
+@utility preset-outlined-warning-600-400 {
+	border-width: 1px;
+	border-color: var(--color-warning-600-400);
+}
+@utility preset-outlined-warning-700-300 {
+	border-width: 1px;
+	border-color: var(--color-warning-700-300);
+}
+@utility preset-outlined-warning-800-200 {
+	border-width: 1px;
+	border-color: var(--color-warning-800-200);
+}
+@utility preset-outlined-warning-900-100 {
+	border-width: 1px;
+	border-color: var(--color-warning-900-100);
+}
+@utility preset-outlined-warning-950-50 {
+	border-width: 1px;
+	border-color: var(--color-warning-950-50);
+}
+
+/* outlined - error */
+@utility preset-outlined-error-500 {
+	border-width: 1px;
+	border-color: var(--color-error-500);
+}
+@utility preset-outlined-error-50-950 {
+	border-width: 1px;
+	border-color: var(--color-error-50-950);
+}
+@utility preset-outlined-error-100-900 {
+	border-width: 1px;
+	border-color: var(--color-error-100-900);
+}
+@utility preset-outlined-error-200-800 {
+	border-width: 1px;
+	border-color: var(--color-error-200-800);
+}
+@utility preset-outlined-error-300-700 {
+	border-width: 1px;
+	border-color: var(--color-error-300-700);
+}
+@utility preset-outlined-error-400-600 {
+	border-width: 1px;
+	border-color: var(--color-error-400-600);
+}
+@utility preset-outlined-error-600-400 {
+	border-width: 1px;
+	border-color: var(--color-error-600-400);
+}
+@utility preset-outlined-error-700-300 {
+	border-width: 1px;
+	border-color: var(--color-error-700-300);
+}
+@utility preset-outlined-error-800-200 {
+	border-width: 1px;
+	border-color: var(--color-error-800-200);
+}
+@utility preset-outlined-error-900-100 {
+	border-width: 1px;
+	border-color: var(--color-error-900-100);
+}
+@utility preset-outlined-error-950-50 {
+	border-width: 1px;
+	border-color: var(--color-error-950-50);
+}
+
+/* outlined - surface */
+@utility preset-outlined-surface-500 {
+	border-width: 1px;
+	border-color: var(--color-surface-500);
+}
+@utility preset-outlined-surface-50-950 {
+	border-width: 1px;
+	border-color: var(--color-surface-50-950);
+}
+@utility preset-outlined-surface-100-900 {
+	border-width: 1px;
+	border-color: var(--color-surface-100-900);
+}
+@utility preset-outlined-surface-200-800 {
+	border-width: 1px;
+	border-color: var(--color-surface-200-800);
+}
+@utility preset-outlined-surface-300-700 {
+	border-width: 1px;
+	border-color: var(--color-surface-300-700);
+}
+@utility preset-outlined-surface-400-600 {
+	border-width: 1px;
+	border-color: var(--color-surface-400-600);
+}
+@utility preset-outlined-surface-600-400 {
+	border-width: 1px;
+	border-color: var(--color-surface-600-400);
+}
+@utility preset-outlined-surface-700-300 {
+	border-width: 1px;
+	border-color: var(--color-surface-700-300);
+}
+@utility preset-outlined-surface-800-200 {
+	border-width: 1px;
+	border-color: var(--color-surface-800-200);
+}
+@utility preset-outlined-surface-900-100 {
+	border-width: 1px;
+	border-color: var(--color-surface-900-100);
+}
+@utility preset-outlined-surface-950-50 {
+	border-width: 1px;
+	border-color: var(--color-surface-950-50);
+}

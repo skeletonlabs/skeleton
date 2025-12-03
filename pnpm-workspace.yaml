@@ -84,6 +84,7 @@ catalog:
   clean-package: 2.2.0
   colorette: 2.0.20
   commander: 14.0.2
+  cross-env: 10.1.0
   detect-indent: 7.0.2
   fuse.js: 7.1.0
   html-escaper: 3.0.3
@@ -109,7 +110,6 @@ catalog:
   prettier-plugin-svelte: 3.4.0
   react: 19.2.0
   react-dom: 19.2.0
-  sass-embedded: 1.93.3
   satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.5
