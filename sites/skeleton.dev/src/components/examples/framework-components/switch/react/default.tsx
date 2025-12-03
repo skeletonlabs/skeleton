@@ -15,7 +15,7 @@ export default function Default() {
 			</Switch>
 			<p>
 				<span className="opacity-60">Checked: </span>
-				<code className="code">{checked}</code>
+				<code className="code">{checked.toString()}</code>
 			</p>
 		</div>
 	);
