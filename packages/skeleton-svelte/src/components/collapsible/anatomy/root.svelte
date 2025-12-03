@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useCollapsible } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/collapsible';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,15 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			collapsible().getRootProps(),
-			{
-				class: classes.collapsible.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(collapsible().getRootProps(), rest));
 
 	RootContext.provide(() => collapsible());
 </script>

@@ -1,0 +1,23 @@
+[data-scope='avatar'] {
+	&[data-part='root'] {
+		isolation: isolate;
+		background: var(--color-surface-400-600);
+		width: --spacing(16);
+		height: --spacing(16);
+		border-radius: calc(infinity * 1px);
+		overflow: hidden;
+	}
+
+	&[data-part='image'] {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&[data-part='fallback'] {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

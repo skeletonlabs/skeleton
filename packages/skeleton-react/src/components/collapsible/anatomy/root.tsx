@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useCollapsible } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitProps } from '@zag-js/collapsible';
 import type { Props } from '@zag-js/collapsible';
 import { mergeProps } from '@zag-js/react';
@@ -15,13 +14,7 @@ export default function CollapsibleRoot(props: CollapsibleRootProps) {
 
 	const collapsible = useCollapsible(collapsibleProps);
 
-	const attributes = mergeProps(
-		collapsible.getRootProps(),
-		{
-			className: classes.collapsible.root,
-		},
-		rest,
-	);
+	const attributes = mergeProps(collapsible.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={collapsible}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

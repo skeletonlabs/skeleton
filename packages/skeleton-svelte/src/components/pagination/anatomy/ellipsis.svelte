@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationEllipsisProps = $props();
@@ -18,15 +17,7 @@
 	const [ellipsisProps, componentProps] = $derived(splitEllipsisProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			pagination().getEllipsisProps(ellipsisProps),
-			{
-				class: classes.pagination.ellipsis,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(pagination().getEllipsisProps(ellipsisProps), rest));
 </script>
 
 {#if element}

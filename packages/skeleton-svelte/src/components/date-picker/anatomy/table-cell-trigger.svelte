@@ -9,7 +9,6 @@
 	import { RootContext } from '../modules/root-context.js';
 	import { TableCellContext } from '../modules/table-cell-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableCellTriggerProps = $props();
@@ -29,15 +28,7 @@
 		}[viewProps().view](tableCellProps());
 	});
 
-	const attributes = $derived(
-		mergeProps(
-			refinedTableCellProps,
-			{
-				class: classes.datePicker.tableCellTrigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(refinedTableCellProps, rest));
 </script>
 
 {#if element}

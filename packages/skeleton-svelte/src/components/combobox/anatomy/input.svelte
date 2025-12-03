@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxInputProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getInputProps(),
-			{
-				class: classes.combobox.input,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getInputProps(), rest));
 </script>
 
 {#if element}

@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useRatingGroup } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,15 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			ratingGroup().getRootProps(),
-			{
-				class: classes.ratingGroup.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(ratingGroup().getRootProps(), rest));
 
 	RootContext.provide(() => ratingGroup());
 </script>

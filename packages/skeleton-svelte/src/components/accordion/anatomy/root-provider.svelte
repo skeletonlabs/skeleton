@@ -10,22 +10,13 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionRootProviderProps = $props();
 
 	const { element, children, value: accordion, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			accordion().getRootProps(),
-			{
-				class: classes.accordion.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(accordion().getRootProps(), rest));
 
 	RootContext.provide(() => accordion());
 </script>

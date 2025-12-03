@@ -9,7 +9,6 @@
 	import ChevronRight from '../../../internal/components/chevron-right.svelte';
 	import { NodeContext } from '../modules/node-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchIndicatorProps = $props();
@@ -19,15 +18,7 @@
 
 	const { element, children = chevronRight, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getBranchIndicatorProps(nodeProps()),
-			{
-				class: classes.treeView.branchIndicator,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getBranchIndicatorProps(nodeProps()), rest));
 </script>
 
 {#snippet chevronRight()}

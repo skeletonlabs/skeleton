@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemGroupContext } from '../modules/item-group-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -26,15 +25,7 @@
 	);
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getItemGroupLabelProps(itemGroupLabelProps),
-			{
-				class: classes.listbox.itemGroupLabel,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getItemGroupLabelProps(itemGroupLabelProps), rest));
 </script>
 
 {#if element}

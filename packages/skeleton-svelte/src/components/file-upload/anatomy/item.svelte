@@ -10,7 +10,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemProps = $props();
@@ -20,15 +19,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getItemProps(itemProps),
-			{
-				class: classes.fileUpload.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

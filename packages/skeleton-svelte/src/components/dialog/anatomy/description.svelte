@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogDescriptionProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			dialog().getDescriptionProps(),
-			{
-				class: classes.dialog.description,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(dialog().getDescriptionProps(), rest));
 </script>
 
 {#if element}

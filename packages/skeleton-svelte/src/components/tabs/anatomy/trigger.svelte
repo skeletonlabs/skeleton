@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitTriggerProps } from '@zag-js/tabs';
 
@@ -19,15 +18,7 @@
 	const [triggerProps, componentProps] = $derived(splitTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getTriggerProps(triggerProps),
-			{
-				class: classes.tabs.trigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getTriggerProps(triggerProps), rest));
 </script>
 
 {#if element}

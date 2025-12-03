@@ -6,7 +6,6 @@
 </script>
 
 <script lang="ts">
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AppBarToolbarProps = $props();
@@ -16,7 +15,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				class: classes.appBar.toolbar,
+				'data-scope': 'app-bar',
+				'data-part': 'toolbar',
 			},
 			rest,
 		),

@@ -12,7 +12,6 @@
 	import { RootContext } from '../modules/root-context.js';
 	import { TableCellContext } from '../modules/table-cell-context.js';
 	import { ViewContext } from '../modules/view-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitTableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -38,15 +37,7 @@
 		}[viewProps().view](tableCellProps);
 	});
 
-	const attributes = $derived(
-		mergeProps(
-			refinedTableCellProps,
-			{
-				class: classes.datePicker.tableCell,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(refinedTableCellProps, rest));
 
 	TableCellContext.provide(() => tableCellProps);
 </script>

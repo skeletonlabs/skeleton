@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useAccordion } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,15 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			accordion().getRootProps(),
-			{
-				class: classes.accordion.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(accordion().getRootProps(), rest));
 
 	RootContext.provide(() => accordion());
 </script>

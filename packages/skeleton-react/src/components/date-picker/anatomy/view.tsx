@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
 import { ViewContext } from '../modules/view-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitViewProps, type ViewProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -15,13 +14,7 @@ export default function View(props: DatePickerViewProps) {
 	const [viewProps, componentProps] = splitViewProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		datePicker.getViewProps(viewProps),
-		{
-			className: classes.datePicker.view,
-		},
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getViewProps(viewProps), rest);
 
 	return (
 		<ViewContext.Provider value={viewProps}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</ViewContext.Provider>

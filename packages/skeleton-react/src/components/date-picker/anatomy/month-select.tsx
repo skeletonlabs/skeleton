@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -12,13 +11,7 @@ export default function MonthSelect(props: DatePickerMonthSelectProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		datePicker.getMonthSelectProps(),
-		{
-			className: classes.datePicker.monthSelect,
-		},
-		rest,
-	);
+	const attributes = mergeProps(datePicker.getMonthSelectProps(), rest);
 
 	return element ? (
 		element(attributes)

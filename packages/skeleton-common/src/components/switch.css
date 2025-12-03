@@ -1,0 +1,59 @@
+[data-scope='switch'] {
+	&[data-part='root'] {
+		cursor: pointer;
+		display: inline-flex;
+		gap: --spacing(2);
+		align-items: center;
+		border-radius: var(--radius-base);
+
+		&[data-disabled] {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+
+		&[data-focus-visible] {
+			outline: 2px solid var(--color-surface-950-50);
+			outline-offset: 1px;
+		}
+	}
+
+	&[data-part='control'] {
+		height: --spacing(6);
+		width: --spacing(10);
+		padding: --spacing(0.5);
+		border-radius: calc(infinity * 1px);
+		display: flex;
+		justify-content: flex-start;
+
+		@apply preset-filled-surface-200-800;
+
+		&[data-state='checked'] {
+			@apply preset-filled-primary-500;
+		}
+	}
+
+	&[data-part='thumb'] {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		aspect-ratio: 1;
+		border-radius: calc(infinity * 1px);
+		background: var(--color-surface-50);
+		color: var(--color-surface-contrast-50);
+		fill: var(--color-surface-contrast-50);
+		transition: transform 100ms;
+
+		&[data-state='checked'] {
+			transform: translateX(--spacing(4));
+		}
+
+		[dir='rtl'] &[data-state='checked'] {
+			transform: translateX(calc(-1 * --spacing(4)));
+		}
+	}
+
+	&[data-part='label'] {
+		@apply label-text;
+	}
+}

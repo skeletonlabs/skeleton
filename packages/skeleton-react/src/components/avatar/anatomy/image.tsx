@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -12,13 +11,7 @@ export default function Image(props: AvatarImageProps) {
 
 	const { element, ...rest } = props;
 
-	const attributes = mergeProps(
-		avatar.getImageProps(),
-		{
-			className: classes.avatar.image,
-		},
-		rest,
-	);
+	const attributes = mergeProps(avatar.getImageProps(), rest);
 
 	return element ? element(attributes) : <img {...attributes} />;
 }

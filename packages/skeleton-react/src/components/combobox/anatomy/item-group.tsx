@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemGroupContext } from '../modules/item-group-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { type ItemGroupProps, splitItemGroupProps } from '@zag-js/combobox';
 import { mergeProps } from '@zag-js/react';
 import { use, useId } from 'react';
@@ -18,13 +17,7 @@ export default function ItemGroup(props: ComboboxItemGroupProps) {
 	});
 	const { element, children, ...rest } = componentProps;
 
-	const attributes = mergeProps(
-		combobox.getItemGroupProps(itemGroupProps),
-		{
-			className: classes.combobox.itemGroup,
-		},
-		rest,
-	);
+	const attributes = mergeProps(combobox.getItemGroupProps(itemGroupProps), rest);
 
 	return (
 		<ItemGroupContext.Provider value={itemGroupProps}>

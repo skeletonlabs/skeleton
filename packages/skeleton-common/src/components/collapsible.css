@@ -1,0 +1,19 @@
+[data-scope='collapsible'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&[data-state='open'] {
+			gap: --spacing(2);
+		}
+	}
+
+	&[data-part='trigger'] {
+		&[data-disabled] {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+}

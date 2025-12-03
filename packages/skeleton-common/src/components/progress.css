@@ -1,0 +1,77 @@
+[data-scope='progress'] {
+	&[data-part='root'] {
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+
+		&[data-orientation='horizontal'] {
+			width: 100%;
+		}
+
+		&[data-orientation='vertical'] {
+			align-items: center;
+		}
+	}
+
+	&[data-part='label'] {
+		white-space: nowrap;
+	}
+
+	&[data-part='track'] {
+		background: var(--color-surface-200-800);
+		border-radius: var(--radius-base);
+		overflow: hidden;
+
+		&[data-orientation='horizontal'] {
+			width: 100%;
+			height: --spacing(2);
+		}
+
+		&[data-orientation='vertical'] {
+			width: --spacing(2);
+			height: --spacing(25);
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	}
+
+	&[data-part='range'] {
+		height: 100%;
+		background: var(--color-surface-950-50);
+		border-radius: var(--radius-base);
+
+		&[data-orientation='horizontal'] {
+			transition: width 200ms;
+
+			&[data-state='indeterminate'] {
+				animation: progress-linear-indeterminate-horizontal 1.5s infinite linear;
+			}
+		}
+
+		&[data-orientation='vertical'] {
+			transition: height 200ms;
+
+			&[data-state='indeterminate'] {
+				animation: progress-linear-indeterminate-vertical 1.5s infinite linear;
+			}
+		}
+	}
+
+	&[data-part='circle'] {
+		--size: --spacing(24);
+		--thickness: calc(var(--size) / 12);
+	}
+
+	&[data-part='circle-track'] {
+		stroke: var(--color-surface-200-800);
+	}
+
+	&[data-part='circle-range'] {
+		stroke: var(--color-primary-500);
+		transition: stroke-dashoffset 200ms ease-in-out;
+
+		&[data-state='indeterminate'] {
+			animation: progress-circular-indeterminate 1.5s infinite linear;
+		}
+	}
+}

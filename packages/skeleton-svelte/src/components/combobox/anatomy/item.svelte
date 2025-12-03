@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitItemProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -20,15 +19,7 @@
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getItemProps(itemProps),
-			{
-				class: classes.combobox.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

@@ -8,7 +8,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FloatingPanelStageTriggerProps = $props();
@@ -17,15 +16,7 @@
 
 	const { element, children, stage, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			floatingPanel().getStageTriggerProps({ stage }),
-			{
-				class: classes.floatingPanel.stageTrigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(floatingPanel().getStageTriggerProps({ stage }), rest));
 </script>
 
 {#if element}

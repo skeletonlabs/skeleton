@@ -1,0 +1,93 @@
+[data-scope='steps'] {
+	&[data-part='root'] {
+		&[data-orientation='horizontal'] {
+			display: flex;
+			flex-direction: column;
+			gap: --spacing(4);
+		}
+
+		&[data-orientation='vertical'] {
+			display: flex;
+			gap: --spacing(4);
+		}
+	}
+
+	&[data-part='list'] {
+		display: flex;
+		gap: --spacing(2);
+
+		&[data-orientation='horizontal'] {
+			align-items: center;
+		}
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&[data-part='item'] {
+		display: flex;
+		gap: --spacing(2);
+		flex-grow: 1;
+
+		&:last-child {
+			flex-grow: 0;
+		}
+
+		&[data-orientation='horizontal'] {
+			align-items: center;
+		}
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&[data-part='trigger'] {
+		display: flex;
+		align-items: center;
+		gap: --spacing(1);
+	}
+
+	&[data-part='indicator'] {
+		width: --spacing(8);
+		height: --spacing(8);
+		border-radius: calc(infinity * 1px);
+		display: grid;
+		place-content: center;
+
+		&:not([data-complete]):not([data-current]) {
+			@apply preset-outlined-surface-200-800;
+		}
+
+		&[data-complete] {
+			@apply preset-filled-primary-500;
+		}
+
+		&[data-current] {
+			@apply preset-outlined-primary-500;
+		}
+	}
+
+	&[data-part='separator'] {
+		height: 0;
+		border-color: var(--color-surface-200-800);
+		flex-grow: 1;
+
+		&[data-complete] {
+			border-color: var(--color-primary-500);
+		}
+
+		&[data-orientation='horizontal'] {
+			border-top-width: 1px;
+		}
+
+		&[data-orientation='vertical'] {
+			border-inline-start-width: 1px;
+			margin-inline-start: --spacing(4);
+			min-height: --spacing(4);
+		}
+	}
+}

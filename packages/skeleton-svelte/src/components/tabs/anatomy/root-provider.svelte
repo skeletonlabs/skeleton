@@ -10,21 +10,12 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TabsRootProviderProps = $props();
 	const { element, children, value: tabs, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			tabs().getRootProps(),
-			{
-				class: classes.tabs.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(tabs().getRootProps(), rest));
 
 	RootContext.provide(() => tabs());
 </script>

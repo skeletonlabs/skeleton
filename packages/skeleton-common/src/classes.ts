@@ -1,35 +1,25 @@
-import { defineClasses } from './define-classes.js' with { type: 'macro' };
-
-export const accordion = defineClasses({
-	root: ['flex gap-2 w-full', 'data-[orientation=vertical]:flex-col data-[orientation=horizontal]:flex-row'],
-	item: ['flex gap-2', 'data-[orientation=vertical]:flex-col data-[orientation=horizontal]:flex-row'],
-	itemTrigger: 'px-4 py-2 rounded-base w-full text-start hover:preset-tonal-primary',
-	itemIndicator: '',
-	itemContent: 'py-2 px-4',
-});
-
-export const appBar = defineClasses({
+export const appBar = {
 	root: 'w-full bg-surface-100-900 p-4 space-y-4',
 	toolbar: 'grid items-center justify-between gap-4',
 	lead: '',
 	headline: '',
 	trail: 'flex gap-2',
-});
+};
 
-export const avatar = defineClasses({
+export const avatar = {
 	root: 'isolate bg-surface-400-600 size-16 rounded-full overflow-hidden',
 	image: 'w-full object-cover',
 	fallback: 'size-full flex justify-center items-center',
-});
+};
 
-export const collapsible = defineClasses({
+export const collapsible = {
 	root: 'w-full flex flex-col items-center data-[state=open]:gap-2',
 	trigger: 'data-disabled:opacity-50 data-disabled:pointer-events-none',
 	indicator: '',
 	content: '',
-});
+};
 
-export const combobox = defineClasses({
+export const combobox = {
 	root: 'w-full space-y-2',
 	label: 'label-text',
 	control: 'relative',
@@ -48,9 +38,9 @@ export const combobox = defineClasses({
 	],
 	itemText: '',
 	itemIndicator: '',
-});
+};
 
-export const datePicker = defineClasses({
+export const datePicker = {
 	root: 'space-y-2',
 	label: 'label-text',
 	control: 'relative space-y-2',
@@ -82,9 +72,9 @@ export const datePicker = defineClasses({
 		'data-today:underline data-today:underline-offset-4',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
-});
+};
 
-export const dialog = defineClasses({
+export const dialog = {
 	trigger: '',
 	backdrop: '',
 	positioner: '',
@@ -92,9 +82,9 @@ export const dialog = defineClasses({
 	title: '',
 	description: '',
 	closeTrigger: '',
-});
+};
 
-export const fileUpload = defineClasses({
+export const fileUpload = {
 	root: 'w-full space-y-2 data-disabled:disabled',
 	label: 'label-text',
 	dropzone: [
@@ -108,9 +98,9 @@ export const fileUpload = defineClasses({
 	itemName: 'text-sm',
 	itemSizeText: 'text-xs opacity-60',
 	itemDeleteTrigger: 'btn-icon',
-});
+};
 
-export const floatingPanel = defineClasses({
+export const floatingPanel = {
 	trigger: '',
 	positioner: '',
 	content: 'card overflow-hidden shadow-lg border border-surface-300-700',
@@ -122,9 +112,9 @@ export const floatingPanel = defineClasses({
 	closeTrigger: 'btn-icon hover:preset-tonal',
 	body: 'h-full bg-surface-100-900 p-4 overflow-y-auto',
 	resizeTrigger: 'data-[axis*=n]:h-2 data-[axis*=s]:h-2 data-[axis*=e]:w-2 data-[axis*=w]:w-2',
-});
+};
 
-export const listbox = defineClasses({
+export const listbox = {
 	root: 'flex flex-col items-stretch gap-2',
 	label: 'label-text',
 	input: 'input',
@@ -139,9 +129,9 @@ export const listbox = defineClasses({
 	],
 	itemText: '',
 	itemIndicator: '',
-});
+};
 
-export const menu = defineClasses({
+export const menu = {
 	trigger: '',
 	contextTrigger: '',
 	positioner: '',
@@ -155,9 +145,9 @@ export const menu = defineClasses({
 	itemText: '',
 	itemIndicator: '',
 	separator: 'hr',
-});
+};
 
-export const navigation = defineClasses({
+export const navigation = {
 	root: [
 		'bg-surface-100-900 overflow-x-hidden transition-[width] duration-200',
 		// Bar
@@ -191,9 +181,9 @@ export const navigation = defineClasses({
 		'data-[layout=sidebar]:flex-col data-[layout=sidebar]:items-stretch',
 	],
 	footer: '',
-});
+};
 
-export const pagination = defineClasses({
+export const pagination = {
 	root: 'inline-flex gap-2 p-2 rounded-container preset-outlined-surface-200-800 w-fit',
 	firstTrigger: 'btn btn-sm preset-tonal',
 	prevTrigger: 'btn btn-sm preset-tonal',
@@ -201,9 +191,9 @@ export const pagination = defineClasses({
 	ellipsis: 'btn btn-sm preset-tonal pointer-events-none',
 	nextTrigger: 'btn btn-sm preset-tonal',
 	lastTrigger: 'btn btn-sm preset-tonal',
-});
+};
 
-export const popover = defineClasses({
+export const popover = {
 	anchor: '',
 	trigger: '',
 	positioner: '',
@@ -213,9 +203,9 @@ export const popover = defineClasses({
 	title: '',
 	description: '',
 	closeTrigger: '',
-});
+};
 
-export const progress = defineClasses({
+export const progress = {
 	root: [
 		'flex flex-col gap-2',
 		// Horizontal Orientation
@@ -249,17 +239,17 @@ export const progress = defineClasses({
 		'stroke-primary-500 transition-[stroke-dashoffset] ease-in-out',
 		'data-[state=indeterminate]:animate-progress-circular-indeterminate',
 	],
-});
+};
 
-export const ratingGroup = defineClasses({
+export const ratingGroup = {
 	root: 'flex flex-col gap-2',
 	label: 'label-text',
 	control: 'flex gap-2 data-disabled:cursor-not-allowed data-disabled:opacity-50',
 	item: '',
 	hiddenInput: '',
-});
+};
 
-export const segmentedControl = defineClasses({
+export const segmentedControl = {
 	root: 'flex flex-col gap-2 not-skb:group',
 	label: 'label-text',
 	control: [
@@ -275,9 +265,9 @@ export const segmentedControl = defineClasses({
 	],
 	itemText: ['transition-colors', 'data-[state=checked]:text-surface-contrast-950 data-[state=checked]:dark:text-surface-contrast-50'],
 	itemHiddenInput: '',
-});
+};
 
-export const slider = defineClasses({
+export const slider = {
 	root: 'w-full flex flex-col gap-2',
 	label: 'label-text',
 	valueText: '',
@@ -291,9 +281,9 @@ export const slider = defineClasses({
 	hiddenInput: '',
 	markerGroup: '',
 	marker: 'text-xs text-surface-600-400',
-});
+};
 
-export const steps = defineClasses({
+export const steps = {
 	root: ['data-[orientation=horizontal]:space-y-4', 'data-[orientation=vertical]:flex data-[orientation=vertical]:space-x-4'],
 	list: [
 		'flex gap-2',
@@ -321,9 +311,9 @@ export const steps = defineClasses({
 	content: '',
 	prevTrigger: '',
 	nextTrigger: '',
-});
+};
 
-const switch_ = defineClasses({
+const switch_ = {
 	root: [
 		'cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50 inline-flex gap-2 items-center rounded',
 		'data-focus-visible:outline-2 data-focus-visible:outline-offset-1 data-focus-visible:outline-surface-950-50',
@@ -339,11 +329,11 @@ const switch_ = defineClasses({
 	],
 	label: 'label-text',
 	hiddenInput: '',
-});
+};
 
 export { switch_ as switch };
 
-export const tabs = defineClasses({
+export const tabs = {
 	root: 'w-full flex data-[orientation=horizontal]:flex-col data-[orientation=vertical]:flex-row',
 	list: [
 		'relative flex gap-2 border-surface-200-800',
@@ -357,9 +347,9 @@ export const tabs = defineClasses({
 		'data-[orientation=vertical]:w-0.5 data-[orientation=vertical]:h-(--height) data-[orientation=vertical]:end-0',
 	],
 	content: '',
-});
+};
 
-export const tagsInput = defineClasses({
+export const tagsInput = {
 	root: 'w-full space-y-2',
 	label: 'label-text',
 	control: 'input flex flex-wrap gap-2 p-2',
@@ -371,9 +361,9 @@ export const tagsInput = defineClasses({
 	input: 'input-ghost',
 	clearTrigger: 'btn btn-sm preset-tonal hover:preset-filled-error-500',
 	hiddenInput: '',
-});
+};
 
-export const toast = defineClasses({
+export const toast = {
 	root: [
 		'card p-3 w-full max-w-sm ring flex items-center gap-2',
 		'preset-filled-surface-50-950 ring-surface-200-800',
@@ -390,9 +380,9 @@ export const toast = defineClasses({
 	description: 'text-sm',
 	actionTrigger: 'btn preset-filled',
 	closeTrigger: 'btn-icon hover:preset-tonal',
-});
+};
 
-export const toggleGroup = defineClasses({
+export const toggleGroup = {
 	root: [
 		'inline-flex preset-outlined-surface-200-800 divide-surface-200-800 overflow-hidden rounded-base',
 		'data-[orientation=horizontal]:divide-x data-[orientation=vertical]:divide-y',
@@ -404,17 +394,17 @@ export const toggleGroup = defineClasses({
 		'data-readonly:pointer-events-none',
 		'data-disabled:pointer-events-none data-disabled:opacity-50',
 	],
-});
+};
 
-export const tooltip = defineClasses({
+export const tooltip = {
 	trigger: '',
 	positioner: '',
 	content: '',
 	arrow: '',
 	arrowTip: '',
-});
+};
 
-export const treeView = defineClasses({
+export const treeView = {
 	root: 'w-full flex flex-col gap-2 items-start select-none',
 	tree: 'space-y-1',
 	label: 'label-text',
@@ -441,4 +431,4 @@ export const treeView = defineClasses({
 		// Left side overlap effect
 		'left-[calc(var(--depth)*var(--spacing)*6)] -translate-x-1/2',
 	],
-});
+};

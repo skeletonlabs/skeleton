@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxInputProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			listbox().getInputProps(),
-			{
-				class: classes.listbox.input,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(listbox().getInputProps(), rest));
 </script>
 
 {#if element}

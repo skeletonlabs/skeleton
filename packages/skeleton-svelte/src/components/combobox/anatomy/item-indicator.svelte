@@ -9,7 +9,6 @@
 	import Check from '../../../internal/components/check.svelte';
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemIndicatorProps = $props();
@@ -19,15 +18,7 @@
 
 	const { element, children = check, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			combobox().getItemIndicatorProps(itemProps()),
-			{
-				class: classes.combobox.itemIndicator,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(combobox().getItemIndicatorProps(itemProps()), rest));
 </script>
 
 {#snippet check()}

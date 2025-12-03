@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitOptionItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -20,15 +19,7 @@
 	const [itemProps, componentProps] = $derived(splitOptionItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getOptionItemProps(itemProps),
-			{
-				class: classes.menu.item,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getOptionItemProps(itemProps), rest));
 
 	ItemContext.provide(() => itemProps);
 </script>

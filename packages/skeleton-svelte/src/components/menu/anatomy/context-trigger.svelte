@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuContextTriggerProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getContextTriggerProps(),
-			{
-				class: classes.menu.contextTrigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getContextTriggerProps(), rest));
 </script>
 
 {#if element}

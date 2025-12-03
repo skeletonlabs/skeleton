@@ -8,7 +8,6 @@
 <script lang="ts">
 	import { ItemContext } from '../modules/item-context.js';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemSizeTextProps = $props();
@@ -18,15 +17,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			fileUpload().getItemSizeTextProps(itemProps()),
-			{
-				class: classes.fileUpload.itemSizeText,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(fileUpload().getItemSizeTextProps(itemProps()), rest));
 </script>
 
 {#if element}

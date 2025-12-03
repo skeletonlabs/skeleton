@@ -10,22 +10,13 @@
 <script lang="ts">
 	import { useTreeView } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewRootProviderProps = $props();
 
 	const { element, children, value: treeView, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			treeView().getRootProps(),
-			{
-				class: classes.treeView.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(treeView().getRootProps(), rest));
 
 	RootContext.provide(() => treeView());
 </script>

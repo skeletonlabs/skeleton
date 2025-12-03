@@ -7,7 +7,6 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuSeparatorProps = $props();
@@ -16,15 +15,7 @@
 
 	const { element, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			menu().getSeparatorProps(),
-			{
-				class: classes.menu.separator,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(menu().getSeparatorProps(), rest));
 </script>
 
 {#if element}

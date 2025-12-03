@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ItemContext } from '../modules/item-context.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -14,13 +13,7 @@ export default function ItemText(props: ListboxItemTextProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		listbox.getItemTextProps(itemProps),
-		{
-			className: classes.listbox.itemText,
-		},
-		rest,
-	);
+	const attributes = mergeProps(listbox.getItemTextProps(itemProps), rest);
 
 	return element ? element(attributes) : <span {...attributes}>{children}</span>;
 }

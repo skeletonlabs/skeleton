@@ -2,7 +2,6 @@ import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useAvatar } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { splitProps } from '@zag-js/avatar';
 import type { Props } from '@zag-js/avatar';
 import { mergeProps } from '@zag-js/react';
@@ -15,13 +14,7 @@ export default function AvatarRoot(props: AvatarRootProps) {
 
 	const avatar = useAvatar(avatarProps);
 
-	const attributes = mergeProps(
-		avatar.getRootProps(),
-		{
-			className: classes.avatar.root,
-		},
-		rest,
-	);
+	const attributes = mergeProps(avatar.getRootProps(), rest);
 
 	return (
 		<RootContext.Provider value={avatar}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>

@@ -9,7 +9,6 @@
 <script lang="ts">
 	import { useAvatar } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { splitProps } from '@zag-js/avatar';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,15 +23,7 @@
 		id: id,
 	}));
 
-	const attributes = $derived(
-		mergeProps(
-			avatar().getRootProps(),
-			{
-				class: classes.avatar.root,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(avatar().getRootProps(), rest));
 
 	RootContext.provide(() => avatar());
 </script>

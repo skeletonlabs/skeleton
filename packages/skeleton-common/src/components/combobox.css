@@ -1,0 +1,78 @@
+[data-scope='combobox'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+	}
+
+	&[data-part='label'] {
+		@apply label-text;
+	}
+
+	&[data-part='control'] {
+		position: relative;
+	}
+
+	&[data-part='input'] {
+		@apply input;
+	}
+
+	&[data-part='trigger'] {
+		position: absolute;
+		inset-inline-end: --spacing(1.5);
+		top: 50%;
+		transform: translateY(-50%);
+
+		@apply btn-icon btn-icon-sm preset-tonal;
+	}
+
+	&[data-part='clear-trigger'] {
+		width: fit-content;
+
+		@apply btn btn-sm preset-tonal;
+
+		&:hover {
+			@apply preset-filled-error-500;
+		}
+	}
+
+	&[data-part='content'] {
+		padding: --spacing(2);
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+		background: var(--color-surface-50-950);
+		border: 1px solid var(--color-surface-200-800);
+
+		@apply card;
+	}
+
+	&[data-part='item-group-label'] {
+		color: var(--color-surface-600-400);
+		font-size: var(--text-xs);
+		padding: --spacing(1) --spacing(2);
+	}
+
+	&[data-part='item'] {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: --spacing(1) --spacing(2);
+		border-radius: var(--radius-base);
+		cursor: pointer;
+
+		&[data-state='checked'] {
+			@apply preset-filled;
+		}
+
+		&[data-highlighted] {
+			@apply preset-tonal;
+		}
+
+		&[data-disabled] {
+			pointer-events: none;
+			opacity: 0.5;
+		}
+	}
+}

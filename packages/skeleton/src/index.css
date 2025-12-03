@@ -21,7 +21,6 @@
 @import './utilities/form-selects.css';
 @import './utilities/form-textareas.css';
 
-@import './variants/base.css';
 @import './variants/themes.css';
 
 @import './keyframes/progress-circular.css';

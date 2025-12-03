@@ -1,0 +1,91 @@
+[data-scope='tree-view'] {
+	&[data-part='root'] {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(2);
+		align-items: flex-start;
+		user-select: none;
+	}
+
+	&[data-part='tree'] {
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(1);
+	}
+
+	&[data-part='label'] {
+		@apply label-text;
+	}
+
+	&[data-part='item'] {
+		display: flex;
+		align-items: center;
+		gap: --spacing(2);
+		padding-inline-end: --spacing(4);
+		padding-block: --spacing(2);
+		border-radius: var(--radius-base);
+		padding-inline-start: calc(var(--depth) * var(--spacing) * 6 + var(--spacing) * 4);
+
+		&:hover {
+			@apply preset-tonal;
+		}
+
+		&[data-selected] {
+			@apply preset-filled;
+		}
+	}
+
+	&[data-part='branch'] {
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(1);
+	}
+
+	&[data-part='branch-control'] {
+		display: flex;
+		align-items: center;
+		gap: --spacing(2);
+		padding-inline-end: --spacing(4);
+		padding-block: --spacing(2);
+		border-radius: var(--radius-base);
+		padding-inline-start: calc(var(--depth) * var(--spacing) * 6 - var(--spacing) * 2);
+
+		&:hover {
+			@apply preset-tonal;
+		}
+
+		&[data-selected] {
+			@apply preset-filled;
+		}
+	}
+
+	&[data-part='branch-indicator'] {
+		&[data-state='open'] {
+			transform: rotate(90deg);
+		}
+	}
+
+	&[data-part='branch-text'] {
+		display: flex;
+		align-items: center;
+		gap: --spacing(2);
+	}
+
+	&[data-part='branch-content'] {
+		display: flex;
+		flex-direction: column;
+		gap: --spacing(1);
+		position: relative;
+	}
+
+	&[data-part='branch-indent-guide'] {
+		position: absolute;
+		background: color-mix(in oklab, var(--color-surface-500) 50%, transparent);
+		width: --spacing(0.5);
+		height: 100%;
+		border-radius: var(--radius-base);
+		left: calc(var(--depth) * var(--spacing) * 6);
+		transform: translateX(-50%);
+	}
+}

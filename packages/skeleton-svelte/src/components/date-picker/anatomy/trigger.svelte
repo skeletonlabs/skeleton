@@ -8,7 +8,6 @@
 <script lang="ts">
 	import CalendarIcon from '../../../internal/components/calendar.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import * as classes from '@skeletonlabs/skeleton-common/classes';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTriggerProps = $props();
@@ -17,15 +16,7 @@
 
 	const { element, children = calendarIcon, ...rest } = $derived(props);
 
-	const attributes = $derived(
-		mergeProps(
-			datePicker().getTriggerProps(),
-			{
-				class: classes.datePicker.trigger,
-			},
-			rest,
-		),
-	);
+	const attributes = $derived(mergeProps(datePicker().getTriggerProps(), rest));
 </script>
 
 {#snippet calendarIcon()}

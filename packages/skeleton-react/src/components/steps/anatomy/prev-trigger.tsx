@@ -1,7 +1,6 @@
 import { RootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import * as classes from '@skeletonlabs/skeleton-common/classes';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
@@ -12,13 +11,7 @@ export default function PrevTrigger(props: StepsPrevTriggerProps) {
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(
-		steps.getPrevTriggerProps(),
-		{
-			className: classes.steps.prevTrigger,
-		},
-		rest,
-	);
+	const attributes = mergeProps(steps.getPrevTriggerProps(), rest);
 
 	return element ? element(attributes) : <button {...attributes}>{children}</button>;
 }
