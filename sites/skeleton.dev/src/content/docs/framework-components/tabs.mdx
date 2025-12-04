@@ -114,6 +114,78 @@ Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 	</Preview>
 </Framework>
 
+## Route Controlled
+
+When using frameworks like SvelteKit and React Router, controlling the active tabs based on the URL can be useful.
+
+To achieve this, you need to do two things:
+
+- Set the `value` prop to the current URL path.
+- Listen to the `navigate` event and update the URL path.
+
+<Framework id="react">
+
+```tsx
+import { Tabs } from '@skeletonlabs/skeleton-react';
+import { Outlet, useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
+
+export default function Routing() {
+ let navigate = useNavigate();
+ let location = useLocation();
+
+ return (
+  <Tabs value={pathname} navigate={(e) => navigate(e.href)}>
+   <Tabs.List>
+    <Tabs.Trigger
+     value="/overview"
+     element={(attributes: Record<string, unknown>) => (
+      <a href="/overview" {...attributes}>
+       Overview
+      </a>
+     )}
+    />
+    <!-- ... -->
+    <Tabs.Indicator />
+   </Tabs.List>
+   <Tabs.Content value={location.pathname}>
+    <Outlet />
+   </Tabs.Content>
+  </Tabs>
+ );
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
+	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+
+	let { children } = $props();
+</script>
+
+<Tabs value={page.url.pathname} navigate={(e) => goto(e.href)}>
+	<Tabs.List>
+		<Tabs.Trigger value="/overview">
+			{#snippet element(attributes: Record)}
+				<a href="/overview" {...attributes}>Overview</a>
+			{/snippet}
+		</Tabs.Trigger>
+		<!-- ... -->
+		<Tabs.Indicator />
+	</Tabs.List>
+	<Tabs.Content value={page.url.pathname}>
+		{@render children()}
+	</Tabs.Content>
+</Tabs>
+```
+
+</Framework>
+
 ## Anatomy
 
 Here's an overview of how the Tabs component is structured in code:
