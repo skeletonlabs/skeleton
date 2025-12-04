@@ -13,14 +13,32 @@ export default function Navigation() {
 	const [url, setUrl] = useState('#overview');
 
 	return (
-		<Tabs
-			value={url}
-			onValueChange={(details) => setUrl(details.value)}
-		>
+		<Tabs value={url} onValueChange={(details) => setUrl(details.value)}>
 			<Tabs.List>
-				<Tabs.Trigger value="#overview" element={(attributes) => <a {...attributes as ComponentProps<'a'>} href="#overview">Overview</a>} />
-				<Tabs.Trigger value="#key-features" element={(attributes) => <a {...attributes as ComponentProps<'a'>} href="#key-features">Key Features</a>} />
-				<Tabs.Trigger value="#activity" element={(attributes) => <a {...attributes as ComponentProps<'a'>} href="#activity">Activity</a>} />
+				<Tabs.Trigger
+					value="#overview"
+					element={(attributes) => (
+						<a {...(attributes as ComponentProps<'a'>)} href="#overview">
+							Overview
+						</a>
+					)}
+				/>
+				<Tabs.Trigger
+					value="#key-features"
+					element={(attributes) => (
+						<a {...(attributes as ComponentProps<'a'>)} href="#key-features">
+							Key Features
+						</a>
+					)}
+				/>
+				<Tabs.Trigger
+					value="#activity"
+					element={(attributes) => (
+						<a {...(attributes as ComponentProps<'a'>)} href="#activity">
+							Activity
+						</a>
+					)}
+				/>
 				<Tabs.Indicator />
 			</Tabs.List>
 			<Tabs.Content value="#overview">
