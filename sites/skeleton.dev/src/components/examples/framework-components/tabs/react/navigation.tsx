@@ -1,17 +1,21 @@
 import { Tabs } from '@skeletonlabs/skeleton-react';
-import { navigate } from 'astro:transitions/client';
+import { useState } from 'react';
 
-// Use your framework to get a reference to the current URL
-export default function Navigation(props: { url: URL }) {
+export default function Navigation() {
+	// Use your framework to get a reference to the current URL
+	const [url, setUrl] = useState(new URL('https://example.com/overview'));
+
 	return (
 		<div className="flex flex-col gap-4">
 			<span>
-				Current path: <code className="code">{props.url.pathname + props.url.hash}</code>
+				Current path: <code className="code">{url.pathname}</code>
 			</span>
 			<Tabs
-				value={props.url.pathname + props.url.hash}
-				// Replace `navigate` with your framework's navigation function
-				navigate={(details) => navigate(details.value)}
+				value={url.pathname}
+				navigate={(details) => {
+					// Use your framework to update the current URL, e.g., via a `navigate` function
+					setUrl(new URL(details.value, 'https://example.com'));
+				}}
 			>
 				<Tabs.List>
 					<Tabs.Trigger value="/overview">Overview</Tabs.Trigger>
