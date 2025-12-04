@@ -9,7 +9,7 @@
 	<span>Current path: <code class="code">{url.pathname}</code></span>
 	<Tabs
 		value={url.pathname}
-		onValueChange={(details) => {
+		navigate={(details) => {
 			// Use your framework to update the current URL, e.g., via a `navigate` function
 			url = new URL(details.value, 'https://example.com');
 		}}

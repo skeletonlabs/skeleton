@@ -12,7 +12,7 @@ export default function Navigation() {
 			</span>
 			<Tabs
 				value={url.pathname}
-				onValueChange={(details) => {
+				navigate={(details) => {
 					// Use your framework to update the current URL, e.g., via a `navigate` function
 					setUrl(new URL(details.value, 'https://example.com'));
 				}}
