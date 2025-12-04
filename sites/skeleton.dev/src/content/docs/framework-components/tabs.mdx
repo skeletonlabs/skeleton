@@ -60,12 +60,12 @@ Use the `element` slot to override the default `button` with an `a` tag for navi
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': NavigationReactRaw }} client:visible>
-		<NavigationReact client:visible />
+		<NavigationReact url={props.Astro.url} client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': NavigationSvelteRaw }} client:visible>
-		<NavigationSvelte client:visible />
+		<NavigationSvelte url={props.Astro.url} client:visible />
 	</Preview>
 </Framework>
 
