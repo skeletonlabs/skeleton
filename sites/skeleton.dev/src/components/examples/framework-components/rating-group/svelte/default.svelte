@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
-
-	const value = $state(3);
 </script>
 
-<RatingGroup count={5} {value}>
+<RatingGroup count={5} defaultValue={3}>
 	<RatingGroup.Control>
 		<RatingGroup.Context>
 			{#snippet children(ratingGroup)}
