@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.7.4
+
+### Patch Changes
+
+- bugfix: spread `labelProps` instead of `controlProps` onto `RatingGroup.Label` part ([#4220](https://github.com/skeletonlabs/skeleton/pull/4220))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.7.4
+
 ## 4.7.3
 
 ### Patch Changes
