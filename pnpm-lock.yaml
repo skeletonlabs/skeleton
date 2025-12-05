@@ -147,6 +147,9 @@ catalogs:
     '@zag-js/avatar':
       specifier: 1.31.0
       version: 1.31.0
+    '@zag-js/carousel':
+      specifier: 1.31.0
+      version: 1.31.0
     '@zag-js/collapsible':
       specifier: 1.31.0
       version: 1.31.0
@@ -526,6 +529,9 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.31.0
+      '@zag-js/carousel':
+        specifier: 'catalog:'
+        version: 1.31.0
       '@zag-js/collapsible':
         specifier: 'catalog:'
         version: 1.31.0
@@ -645,6 +651,9 @@ importers:
         specifier: 'catalog:'
         version: 1.31.0
       '@zag-js/avatar':
+        specifier: 'catalog:'
+        version: 1.31.0
+      '@zag-js/carousel':
         specifier: 'catalog:'
         version: 1.31.0
       '@zag-js/collapsible':
@@ -3268,6 +3277,9 @@ packages:
   '@zag-js/avatar@1.31.0':
     resolution: {integrity: sha512-3wtMBVZE7ezNf5xntXDAPvFsDZuRgVu4XXuuV1T4RLI5O07+larPEF5p9IcvOejjxXX6ZtCskOdYbs995SLs+A==}
 
+  '@zag-js/carousel@1.31.0':
+    resolution: {integrity: sha512-y/SThErOQ7QXFLgorZw3AWjr52Iafdq+dXhxCMkldsjvT+3M6Zs27cw1++/mW9kp6O5ofOIX4xAQR8Bx3h+2jg==}
+
   '@zag-js/collapsible@1.31.0':
     resolution: {integrity: sha512-LGd9dM1PvwOxys9GUB81H6bfcw+cEtsUbJLAZyZJIF/tgtlHKqqjm6uYmMyWUAKR7S4j3syfMhVIIlxZ5W9U7w==}
 
@@ -3358,6 +3370,9 @@ packages:
 
   '@zag-js/remove-scroll@1.31.0':
     resolution: {integrity: sha512-NkEl55c1A1Hsejavi9mTGR986lNIFak5BPKYSXPcIzxE1nNkp2vQe5k2oVGilodtbUSGKT1o4iU2SyDM4sVskg==}
+
+  '@zag-js/scroll-snap@1.31.0':
+    resolution: {integrity: sha512-ClwQ2EiGdKGMG/pZXZd6K3PueceRjeiLX0GVSt6UCoirIIoUHxtG34lPh7Olrp8/k2LG0omcbCnrfcTPgIJrGQ==}
 
   '@zag-js/slider@1.31.0':
     resolution: {integrity: sha512-+zkLvsaO7DdAj00Gx0BzPl+45PJK/ocEqcCVFbenjO1MCGOR0g/Q5c7bD3uyGHPXa2/00dv2jL9kJiTyG16Qiw==}
@@ -8553,6 +8568,15 @@ snapshots:
       '@zag-js/types': 1.31.0
       '@zag-js/utils': 1.31.0
 
+  '@zag-js/carousel@1.31.0':
+    dependencies:
+      '@zag-js/anatomy': 1.31.0
+      '@zag-js/core': 1.31.0
+      '@zag-js/dom-query': 1.31.0
+      '@zag-js/scroll-snap': 1.31.0
+      '@zag-js/types': 1.31.0
+      '@zag-js/utils': 1.31.0
+
   '@zag-js/collapsible@1.31.0':
     dependencies:
       '@zag-js/anatomy': 1.31.0
@@ -8750,6 +8774,10 @@ snapshots:
   '@zag-js/rect-utils@1.31.0': {}
 
   '@zag-js/remove-scroll@1.31.0':
+    dependencies:
+      '@zag-js/dom-query': 1.31.0
+
+  '@zag-js/scroll-snap@1.31.0':
     dependencies:
       '@zag-js/dom-query': 1.31.0
 
