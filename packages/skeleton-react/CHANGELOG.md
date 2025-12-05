@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 4.7.3
+
+### Patch Changes
+
+- task: bump zag ([#4215](https://github.com/skeletonlabs/skeleton/pull/4215))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.7.3
+
 ## 4.7.2
 
 ### Patch Changes
