@@ -9,8 +9,8 @@
 <script lang="ts">
 	import { useCarousel } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/carousel';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CarouselRootProps = $props();
 	const [carouselProps, componentProps] = $derived(splitProps(props));

@@ -8,8 +8,8 @@
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
 	import { splitIndicatorProps } from '@zag-js/carousel';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CarouselIndicatorProps = $props();
 

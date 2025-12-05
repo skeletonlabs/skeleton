@@ -13,5 +13,7 @@ export default function RootProvider(props: CarouselRootProviderProps) {
 
 	const attributes = mergeProps(carousel.getRootProps(), rest);
 
-	return <RootContext.Provider value={carousel}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
+	return (
+		<RootContext.Provider value={carousel}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+	);
 }

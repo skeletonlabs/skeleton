@@ -1,0 +1,147 @@
+---
+title: Carousel
+description: Navigate through a collection of slides with controls and indicators.
+---
+
+import AutoplayReact from '@/components/examples/framework-components/carousel/react/autoplay';
+import AutoplayReactRaw from '@/components/examples/framework-components/carousel/react/autoplay?raw';
+import DefaultReact from '@/components/examples/framework-components/carousel/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/carousel/react/default?raw';
+import LoopReact from '@/components/examples/framework-components/carousel/react/loop';
+import LoopReactRaw from '@/components/examples/framework-components/carousel/react/loop?raw';
+import MultipleReact from '@/components/examples/framework-components/carousel/react/multiple';
+import MultipleReactRaw from '@/components/examples/framework-components/carousel/react/multiple?raw';
+import AutoplaySvelte from '@/components/examples/framework-components/carousel/svelte/autoplay.svelte';
+import AutoplaySvelteRaw from '@/components/examples/framework-components/carousel/svelte/autoplay.svelte?raw';
+import DefaultSvelte from '@/components/examples/framework-components/carousel/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/carousel/svelte/default.svelte?raw';
+import LoopSvelte from '@/components/examples/framework-components/carousel/svelte/loop.svelte';
+import LoopSvelteRaw from '@/components/examples/framework-components/carousel/svelte/loop.svelte?raw';
+import MultipleSvelte from '@/components/examples/framework-components/carousel/svelte/multiple.svelte';
+import MultipleSvelteRaw from '@/components/examples/framework-components/carousel/svelte/multiple.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Autoplay
+
+Enable automatic slide advancement with `autoplay` prop. Use `AutoplayTrigger` to toggle playback.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AutoplayReactRaw }} client:visible>
+		<AutoplayReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AutoplaySvelteRaw }} client:visible>
+		<AutoplaySvelte client:visible />
+	</Preview>
+</Framework>
+
+## Loop
+
+Set `loop` to enable infinite scrolling, wrapping from the last slide back to the first.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': LoopReactRaw }} client:visible>
+		<LoopReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LoopSvelteRaw }} client:visible>
+		<LoopSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple Slides
+
+Use `slidesPerPage` to display multiple slides at once. Adjust slide widths accordingly.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleReactRaw }} client:visible>
+		<MultipleReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
+		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Carousel component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Carousel } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Carousel slideCount={3}>
+			<Carousel.Control>
+				<Carousel.PrevTrigger />
+				<Carousel.AutoplayTrigger />
+				<Carousel.NextTrigger />
+			</Carousel.Control>
+			<Carousel.ItemGroup>
+				<Carousel.Item index={0} />
+				<Carousel.Item index={1} />
+				<Carousel.Item index={2} />
+			</Carousel.ItemGroup>
+			<Carousel.IndicatorGroup>
+				<Carousel.Indicator index={0} />
+				<Carousel.Indicator index={1} />
+				<Carousel.Indicator index={2} />
+			</Carousel.IndicatorGroup>
+		</Carousel>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Carousel } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Carousel slideCount={3}>
+	<Carousel.Control>
+		<Carousel.PrevTrigger />
+		<Carousel.AutoplayTrigger />
+		<Carousel.NextTrigger />
+	</Carousel.Control>
+	<Carousel.ItemGroup>
+		<Carousel.Item index={0} />
+		<Carousel.Item index={1} />
+		<Carousel.Item index={2} />
+	</Carousel.ItemGroup>
+	<Carousel.IndicatorGroup>
+		<Carousel.Indicator index={0} />
+		<Carousel.Indicator index={1} />
+		<Carousel.Indicator index={2} />
+	</Carousel.IndicatorGroup>
+</Carousel>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/carousel" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/carousel" />
+</Framework>
