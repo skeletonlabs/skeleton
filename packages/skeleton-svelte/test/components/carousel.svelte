@@ -14,4 +14,5 @@
 	<Carousel.IndicatorGroup data-testid="indicator-group">
 		<Carousel.Indicator index={0} data-testid="indicator" />
 	</Carousel.IndicatorGroup>
+	<Carousel.ProgressText data-testid="progress-text" />
 </Carousel>

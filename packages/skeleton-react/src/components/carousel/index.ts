@@ -6,6 +6,7 @@ export type { CarouselItemGroupProps } from './anatomy/item-group.jsx';
 export type { CarouselItemProps } from './anatomy/item.jsx';
 export type { CarouselNextTriggerProps } from './anatomy/next-trigger.jsx';
 export type { CarouselPrevTriggerProps } from './anatomy/prev-trigger.jsx';
+export type { CarouselProgressTextProps } from './anatomy/progress-text.jsx';
 export type { CarouselRootProps } from './anatomy/root.jsx';
 export type { CarouselRootContextProps } from './anatomy/root-context.jsx';
 export type { CarouselRootProviderProps } from './anatomy/root-provider.jsx';

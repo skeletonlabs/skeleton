@@ -6,6 +6,7 @@ export type { CarouselItemGroupProps } from './anatomy/item-group.svelte';
 export type { CarouselItemProps } from './anatomy/item.svelte';
 export type { CarouselNextTriggerProps } from './anatomy/next-trigger.svelte';
 export type { CarouselPrevTriggerProps } from './anatomy/prev-trigger.svelte';
+export type { CarouselProgressTextProps } from './anatomy/progress-text.svelte';
 export type { CarouselRootProps } from './anatomy/root.svelte';
 export type { CarouselRootContextProps } from './anatomy/root-context.svelte';
 export type { CarouselRootProviderProps } from './anatomy/root-provider.svelte';

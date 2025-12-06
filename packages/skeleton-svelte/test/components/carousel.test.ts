@@ -66,4 +66,11 @@ describe('Carousel', () => {
 			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
+
+	describe('ProgressText', () => {
+		it('renders', async () => {
+			render(Carousel);
+			await expect.element(page.getByTestId('progress-text')).toBeInTheDocument();
+		});
+	});
 });
