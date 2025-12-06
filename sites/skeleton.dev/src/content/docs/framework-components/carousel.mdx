@@ -1,0 +1,84 @@
+---
+title: Carousel
+description: Navigate through a collection of slides with controls and indicators.
+---
+
+import DefaultReact from '@/components/examples/framework-components/carousel/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/carousel/react/default?raw';
+import DefaultSvelte from '@/components/examples/framework-components/carousel/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/carousel/svelte/default.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Carousel component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Carousel } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Carousel>
+			<Carousel.Control>
+				<Carousel.PrevTrigger />
+				<Carousel.AutoplayTrigger />
+				<Carousel.NextTrigger />
+			</Carousel.Control>
+			<Carousel.ItemGroup>
+				<Carousel.Item />
+			</Carousel.ItemGroup>
+			<Carousel.IndicatorGroup>
+				<Carousel.Indicator />
+			</Carousel.IndicatorGroup>
+			<Carousel.ProgressText />
+		</Carousel>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Carousel } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Carousel>
+	<Carousel.Control>
+		<Carousel.PrevTrigger />
+		<Carousel.AutoplayTrigger />
+		<Carousel.NextTrigger />
+	</Carousel.Control>
+	<Carousel.ItemGroup>
+		<Carousel.Item />
+	</Carousel.ItemGroup>
+	<Carousel.IndicatorGroup>
+		<Carousel.Indicator />
+	</Carousel.IndicatorGroup>
+	<Carousel.ProgressText />
+</Carousel>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/carousel" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/carousel" />
+</Framework>

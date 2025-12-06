@@ -1,0 +1,14 @@
+export type { CarouselAutoplayTriggerProps } from './anatomy/autoplay-trigger.svelte';
+export type { CarouselControlProps } from './anatomy/control.svelte';
+export type { CarouselIndicatorGroupProps } from './anatomy/indicator-group.svelte';
+export type { CarouselIndicatorProps } from './anatomy/indicator.svelte';
+export type { CarouselItemGroupProps } from './anatomy/item-group.svelte';
+export type { CarouselItemProps } from './anatomy/item.svelte';
+export type { CarouselNextTriggerProps } from './anatomy/next-trigger.svelte';
+export type { CarouselPrevTriggerProps } from './anatomy/prev-trigger.svelte';
+export type { CarouselProgressTextProps } from './anatomy/progress-text.svelte';
+export type { CarouselRootProps } from './anatomy/root.svelte';
+export type { CarouselRootContextProps } from './anatomy/root-context.svelte';
+export type { CarouselRootProviderProps } from './anatomy/root-provider.svelte';
+export { Carousel } from './modules/anatomy.js';
+export { useCarousel } from './modules/provider.svelte.js';

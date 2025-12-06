@@ -51,6 +51,7 @@ catalog:
   '@vitest/browser-playwright': 4.0.14
   '@zag-js/accordion': 1.31.0
   '@zag-js/avatar': 1.31.0
+  '@zag-js/carousel': 1.31.0
   '@zag-js/collapsible': 1.31.0
   '@zag-js/collection': 1.31.0
   '@zag-js/combobox': 1.31.0
