@@ -10,80 +10,22 @@
 	];
 </script>
 
-<div class="space-y-8">
-	<section class="space-y-4">
-		<h2 class="text-xl font-bold">Basic Carousel</h2>
-		<Carousel slideCount={slides.length} class="w-full max-w-2xl">
-			<Carousel.Control class="mb-4">
-				<Carousel.PrevTrigger class="btn preset-filled">Prev</Carousel.PrevTrigger>
-				<Carousel.NextTrigger class="btn preset-filled">Next</Carousel.NextTrigger>
-			</Carousel.Control>
-			<Carousel.ItemGroup>
-				{#each slides as slide, i}
-					<Carousel.Item index={i} class="min-w-full">
-						<div class="card p-8 text-center">
-							<h3 class="text-lg font-bold">{slide.title}</h3>
-							<p class="text-surface-600-400">{slide.description}</p>
-						</div>
-					</Carousel.Item>
-				{/each}
-			</Carousel.ItemGroup>
-			<Carousel.IndicatorGroup class="mt-4 flex justify-center">
-				{#each slides as _, i}
-					<Carousel.Indicator index={i} />
-				{/each}
-			</Carousel.IndicatorGroup>
-		</Carousel>
-	</section>
-
-	<section class="space-y-4">
-		<h2 class="text-xl font-bold">Multiple Slides Per Page</h2>
-		<Carousel slideCount={slides.length} slidesPerPage={2} class="w-full max-w-4xl">
-			<Carousel.Control class="mb-4">
-				<Carousel.PrevTrigger class="btn preset-filled">Prev</Carousel.PrevTrigger>
-				<Carousel.NextTrigger class="btn preset-filled">Next</Carousel.NextTrigger>
-			</Carousel.Control>
-			<Carousel.ItemGroup class="gap-4">
-				{#each slides as slide, i}
-					<Carousel.Item index={i} class="min-w-[calc(50%-0.5rem)]">
-						<div class="card p-8 text-center">
-							<h3 class="text-lg font-bold">{slide.title}</h3>
-							<p class="text-surface-600-400">{slide.description}</p>
-						</div>
-					</Carousel.Item>
-				{/each}
-			</Carousel.ItemGroup>
-			<Carousel.IndicatorGroup class="mt-4 flex justify-center">
-				{#each { length: Math.ceil(slides.length / 2) } as _, i}
-					<Carousel.Indicator index={i} />
-				{/each}
-			</Carousel.IndicatorGroup>
-		</Carousel>
-	</section>
-
-	<section class="space-y-4">
-		<h2 class="text-xl font-bold">With Autoplay</h2>
-		<Carousel slideCount={slides.length} autoplay={{ delay: 3000 }} loop class="w-full max-w-2xl">
-			<Carousel.Control class="mb-4">
-				<Carousel.PrevTrigger class="btn preset-filled">Prev</Carousel.PrevTrigger>
-				<Carousel.AutoplayTrigger class="btn preset-filled">Toggle Autoplay</Carousel.AutoplayTrigger>
-				<Carousel.NextTrigger class="btn preset-filled">Next</Carousel.NextTrigger>
-			</Carousel.Control>
-			<Carousel.ItemGroup>
-				{#each slides as slide, i}
-					<Carousel.Item index={i} class="min-w-full">
-						<div class="card p-8 text-center">
-							<h3 class="text-lg font-bold">{slide.title}</h3>
-							<p class="text-surface-600-400">{slide.description}</p>
-						</div>
-					</Carousel.Item>
-				{/each}
-			</Carousel.ItemGroup>
-			<Carousel.IndicatorGroup class="mt-4 flex justify-center">
-				{#each slides as _, i}
-					<Carousel.Indicator index={i} />
-				{/each}
-			</Carousel.IndicatorGroup>
-		</Carousel>
-	</section>
-</div>
+<Carousel slideCount={slides.length} autoplay={{ delay: 3000 }} loop>
+	<Carousel.Control>
+		<Carousel.PrevTrigger>Prev</Carousel.PrevTrigger>
+		<Carousel.AutoplayTrigger>Toggle Autoplay</Carousel.AutoplayTrigger>
+		<Carousel.NextTrigger>Next</Carousel.NextTrigger>
+	</Carousel.Control>
+	<Carousel.ItemGroup>
+		{#each slides as slide, i}
+			<Carousel.Item index={i}>
+				{slide.description}
+			</Carousel.Item>
+		{/each}
+	</Carousel.ItemGroup>
+	<Carousel.IndicatorGroup>
+		{#each slides as _, i}
+			<Carousel.Indicator index={i} />
+		{/each}
+	</Carousel.IndicatorGroup>
+</Carousel>
