@@ -40,10 +40,6 @@
 		],
 	};
 
-	const buttonClasses = 'btn hover:preset-tonal';
-	let anchorRail = `${buttonClasses} aspect-square w-full max-w-[84px] flex flex-col items-center gap-0.5`;
-	let anchorSidebar = `${buttonClasses} justify-start px-2 w-full`;
-
 	let layoutRail = $state(true);
 
 	function toggleLayout() {
@@ -147,7 +143,7 @@
 					{/each}
 				</Navigation.Content>
 				<Navigation.Footer>
-					<Navigation.Anchor href="/" class={anchorSidebar} title="Settings" aria-label="Settings">
+					<Navigation.Anchor href="/" title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-4" />
 						<span>Settings</span>
 					</Navigation.Anchor>
