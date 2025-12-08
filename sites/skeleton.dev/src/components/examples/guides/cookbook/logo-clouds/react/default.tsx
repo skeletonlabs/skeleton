@@ -8,7 +8,7 @@ export default function Default() {
 				YouTube
 			</a>
 			<a className="card preset-filled-surface-100-900 rounded-none p-4 py-8 text-center" href="#">
-				TicTok
+				TikTok
 			</a>
 		</nav>
 	);
