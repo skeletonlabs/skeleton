@@ -4,19 +4,37 @@ description: Displays the current navigation hierarchy.
 tags: ['blocks', 'navigation']
 ---
 
-import Default from '@/components/examples/guides/cookbook/breadcrumbs/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/breadcrumbs/default.astro?raw';
-import Icons from '@/components/examples/guides/cookbook/breadcrumbs/icons.astro';
-import IconsRaw from '@/components/examples/guides/cookbook/breadcrumbs/icons.astro?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/breadcrumbs/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/breadcrumbs/react/default.tsx?raw';
+import IconsReact from '@/components/examples/guides/cookbook/breadcrumbs/react/icons';
+import IconsReactRaw from '@/components/examples/guides/cookbook/breadcrumbs/react/icons.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/breadcrumbs/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/breadcrumbs/svelte/default.svelte?raw';
+import IconsSvelte from '@/components/examples/guides/cookbook/breadcrumbs/svelte/icons.svelte';
+import IconsSvelteRaw from '@/components/examples/guides/cookbook/breadcrumbs/svelte/icons.svelte?raw';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Icons
 
 Feel free to mix in icons for the anchor labels or separators.
 
-<Preview files={{ 'app.astro': IconsRaw }} client:visible>
-	<Icons />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': IconsReactRaw }} client:visible>
+		<IconsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': IconsSvelteRaw }} client:visible>
+		<IconsSvelte client:visible />
+	</Preview>
+</Framework>

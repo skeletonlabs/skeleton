@@ -4,19 +4,37 @@ description: General purpose notifications to attract attention and provide crit
 tags: ['blocks', 'notifications']
 ---
 
-import Colors from '@/components/examples/guides/cookbook/alerts/colors.astro';
-import ColorsRaw from '@/components/examples/guides/cookbook/alerts/colors.astro?raw';
-import Default from '@/components/examples/guides/cookbook/alerts/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/alerts/default.astro?raw';
+import ColorsReact from '@/components/examples/guides/cookbook/alerts/react/colors';
+import ColorsReactRaw from '@/components/examples/guides/cookbook/alerts/react/colors.tsx?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/alerts/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/alerts/react/default.tsx?raw';
+import ColorsSvelte from '@/components/examples/guides/cookbook/alerts/svelte/colors.svelte';
+import ColorsSvelteRaw from '@/components/examples/guides/cookbook/alerts/svelte/colors.svelte?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/alerts/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/alerts/svelte/default.svelte?raw';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Styling
 
 For even more customization, try mixing and matching various [Presets](/docs/[framework]/design/presets) classes.
 
-<Preview files={{ 'app.astro': ColorsRaw }} client:visible>
-	<Colors />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColorsReactRaw }} client:visible>
+		<ColorsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColorsSvelteRaw }} client:visible>
+		<ColorsSvelte client:visible />
+	</Preview>
+</Framework>

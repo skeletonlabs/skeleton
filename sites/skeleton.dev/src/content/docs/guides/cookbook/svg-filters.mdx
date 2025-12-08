@@ -4,18 +4,10 @@ description: Apply filter effects to elements and images.
 tags: ['native', 'effects']
 ---
 
-import Default from '@/components/examples/guides/cookbook/svg-filters/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/svg-filters/default.astro?raw';
-
-import ApolloRaw from '@/components/examples/guides/cookbook/svg-filters/filters/apollo.astro?raw';
-import BlueNightRaw from '@/components/examples/guides/cookbook/svg-filters/filters/blue-night.astro?raw';
-import EmeraldRaw from '@/components/examples/guides/cookbook/svg-filters/filters/emerald.astro?raw';
-import GreenFallRaw from '@/components/examples/guides/cookbook/svg-filters/filters/green-fall.astro?raw';
-import NoirLightRaw from '@/components/examples/guides/cookbook/svg-filters/filters/noir-light.astro?raw';
-import NoirRaw from '@/components/examples/guides/cookbook/svg-filters/filters/noir.astro?raw';
-import RusticRaw from '@/components/examples/guides/cookbook/svg-filters/filters/rustic.astro?raw';
-import SummerRaw from '@/components/examples/guides/cookbook/svg-filters/filters/summer.astro?raw';
-import XProRaw from '@/components/examples/guides/cookbook/svg-filters/filters/x-pro.astro?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/svg-filters/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/svg-filters/react/default.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte?raw';
 
 ## How It Works
 
@@ -25,7 +17,7 @@ This feature is enabled by [SVG filters](https://developer.mozilla.org/en-US/doc
 
 Apply a filter to any element using the Filter style property and passing the unique SVG Filter ID.
 
-```astro
+```tsx
 <!-- The Target Element -->
 <img ... style="filter: url(#Apollo)" />
 
@@ -38,23 +30,16 @@ Apply a filter to any element using the Filter style property and passing the un
 
 We've provided a curated collection of SVG Filters to choose from below.
 
-<Preview
-	files={{
-		'app.astro': DefaultRaw,
-		'filters/apollo.astro': ApolloRaw,
-		'filters/blue-night.astro': BlueNightRaw,
-		'filters/emerald.astro': EmeraldRaw,
-		'filters/green-fall.astro': GreenFallRaw,
-		'filters/noir-light.astro': NoirLightRaw,
-		'filters/noir.astro': NoirRaw,
-		'filters/rustic.astro': RusticRaw,
-		'filters/summer.astro': SummerRaw,
-		'filters/x-pro.astro': XProRaw,
-	}}
-	client:visible
->
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Create a Filter
 
