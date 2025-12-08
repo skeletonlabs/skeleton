@@ -25,20 +25,11 @@ const indentations = {
 	3: 'pl-6',
 	4: 'pl-8',
 	5: 'pl-10',
-};
+} as const;
 
 /** Provide a padding-left class based on the depth. */
 function setIndentationClass(depth: number) {
-	return (
-		{
-			0: 'pl-0',
-			1: 'pl-2',
-			2: 'pl-4',
-			3: 'pl-6',
-			4: 'pl-8',
-			5: 'pl-10',
-		}[depth as keyof typeof indentations] ?? 'pl-0'
-	);
+	return indentations[depth as keyof typeof indentations] ?? 'pl-0';
 }
 
 export default function Default() {
