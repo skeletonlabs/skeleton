@@ -81,7 +81,7 @@ export default function MultiColumn() {
 	}
 
 	return (
-		<div className="w-ful">
+		<div className="w-full">
 			<div className="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 				{/* Button: Left */}
 				<button type="button" className="btn-icon preset-filled" onClick={multiColumnLeft} title="Scroll left" aria-label="Scroll left">

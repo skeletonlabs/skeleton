@@ -18,6 +18,15 @@ const headings: PageHeadings[] = [
 	{ text: 'In Conclusion', slug: 'in-conclusion', depth: 1 },
 ];
 
+const indentations = {
+	0: 'pl-0',
+	1: 'pl-2',
+	2: 'pl-4',
+	3: 'pl-6',
+	4: 'pl-8',
+	5: 'pl-10',
+};
+
 /** Provide a padding-left class based on the depth. */
 function setIndentationClass(depth: number) {
 	return (
@@ -31,15 +40,6 @@ function setIndentationClass(depth: number) {
 		}[depth as keyof typeof indentations] ?? 'pl-0'
 	);
 }
-
-const indentations = {
-	0: 'pl-0',
-	1: 'pl-2',
-	2: 'pl-4',
-	3: 'pl-6',
-	4: 'pl-8',
-	5: 'pl-10',
-};
 
 export default function Default() {
 	return (

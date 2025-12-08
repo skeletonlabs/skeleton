@@ -78,7 +78,7 @@
 	}
 </script>
 
-<div class="w-ful">
+<div class="w-full">
 	<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
 		<button type="button" class="btn-icon preset-filled" onclick={multiColumnLeft} title="Scroll left" aria-label="Scroll left">
