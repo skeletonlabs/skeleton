@@ -1,0 +1,57 @@
+<script lang="ts">
+	interface PageHeadings {
+		/** The text value within the heading tag; stripped of HTML. */
+		text: string;
+		/** A generated slug value based on the text. */
+		slug: string;
+		/** Depth indicates headings H1-H6. */
+		depth: number;
+	}
+
+	/** The generated list of page headings, slugs, and depth. */
+	const headings: PageHeadings[] = [
+		{ text: 'Real World Example', slug: 'real-world-example', depth: 1 },
+		{ text: 'Semantic Markup', slug: 'semantic-markup', depth: 1 },
+		{ text: 'Utilities', slug: 'utilities', depth: 1 },
+		{ text: 'Grid', slug: 'grid', depth: 2 },
+		{ text: 'Alignment', slug: 'alignment', depth: 2 },
+		{ text: 'Responsive Design', slug: 'responsive-design', depth: 2 },
+		{ text: 'In Conclusion', slug: 'in-conclusion', depth: 1 },
+	];
+
+	/** Provide a padding-left class based on the depth. */
+	function setIndentationClass(depth: number) {
+		return (
+			{
+				0: 'pl-0',
+				1: 'pl-2',
+				2: 'pl-4',
+				3: 'pl-6',
+				4: 'pl-8',
+				5: 'pl-10',
+			}[depth] ?? 'pl-0'
+		);
+	}
+</script>
+
+<nav class="card bg-surface-100-900 p-4">
+	<!-- Table of Contents -->
+	<div class="text-sm space-y-2">
+		<!-- Label -->
+		<div class="font-bold">On This Page</div>
+		<!-- Links -->
+		<ul class="space-y-2">
+			<!-- Consider a fixed scroll position at the top of your page layouts. -->
+			<li><a href={`#_top`} class="anchor block">Overview</a></li>
+			<!-- Loop through the available headings. -->
+			{#each headings as heading}
+				<li>
+					<!-- Apply a indentation class based on the depth. -->
+					<a href={`#${heading.slug}`} class="anchor block {setIndentationClass(heading.depth)}">
+						{heading.text}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
+</nav>
