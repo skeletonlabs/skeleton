@@ -8,6 +8,8 @@ import BubblesReact from '@/components/examples/guides/cookbook/chat/react/bubbl
 import BubblesReactRaw from '@/components/examples/guides/cookbook/chat/react/bubbles.tsx?raw';
 import ColumnsReact from '@/components/examples/guides/cookbook/chat/react/columns';
 import ColumnsReactRaw from '@/components/examples/guides/cookbook/chat/react/columns.tsx?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/chat/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/chat/react/default.tsx?raw';
 import FeedReact from '@/components/examples/guides/cookbook/chat/react/feed';
 import FeedReactRaw from '@/components/examples/guides/cookbook/chat/react/feed.tsx?raw';
 import RowsReact from '@/components/examples/guides/cookbook/chat/react/rows';
@@ -16,16 +18,23 @@ import BubblesSvelte from '@/components/examples/guides/cookbook/chat/svelte/bub
 import BubblesSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte?raw';
 import ColumnsSvelte from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte';
 import ColumnsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte?raw';
-import Default from '@/components/examples/guides/cookbook/chat/default.svelte';
-import DefaultRaw from '@/components/examples/guides/cookbook/chat/default.svelte?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/chat/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/default.svelte?raw';
 import FeedSvelte from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte';
 import FeedSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte?raw';
 import RowsSvelte from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte';
 import RowsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte?raw';
 
-<Preview files={{ 'app.svelte': DefaultRaw }} client:visible>
-	<Default client:visible />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Layout Columns
 
