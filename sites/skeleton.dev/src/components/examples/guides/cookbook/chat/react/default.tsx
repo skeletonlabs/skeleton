@@ -145,7 +145,7 @@ export default function Default() {
 					{/* <footer className="border-t-[1px] border-surface-200-800 p-4">(footer)</footer> */}
 				</div>
 				{/* Chat */}
-				<div className="grid grid-row-[1fr_auto]">
+				<div className="grid grid-rows-[1fr_auto]">
 					{/* Conversation */}
 					<section ref={elemChatRef} className="max-h-[500px] p-4 overflow-y-auto space-y-4">
 						{messageFeed.map((bubble) =>

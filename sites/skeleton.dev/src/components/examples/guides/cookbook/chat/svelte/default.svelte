@@ -146,7 +146,7 @@
 			<!-- <footer class="border-t-[1px] border-surface-200-800 p-4">(footer)</footer> -->
 		</div>
 		<!-- Chat -->
-		<div class="grid grid-row-[1fr_auto]">
+		<div class="grid grid-rows-[1fr_auto]">
 			<!-- Conversation -->
 			<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
 				{#each messageFeed as bubble (bubble.id)}
