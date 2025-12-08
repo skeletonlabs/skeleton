@@ -41,7 +41,6 @@
 	};
 
 	const buttonClasses = 'btn hover:preset-tonal';
-	let anchorBar = `${buttonClasses} flex-col items-center gap-1`;
 	let anchorRail = `${buttonClasses} aspect-square w-full max-w-[84px] flex flex-col items-center gap-0.5`;
 	let anchorSidebar = `${buttonClasses} justify-start px-2 w-full`;
 
@@ -64,19 +63,17 @@
 			<div class="flex justify-center items-center">
 				<p>Contents</p>
 			</div>
-			<!-- --- -->
 			<Navigation layout="bar">
 				<Navigation.Menu class="grid grid-cols-4 gap-2">
 					{#each links as link (link)}
 						{@const Icon = link.icon}
-						<a href={link.href} class={anchorBar}>
+						<Navigation.Anchor class="Anchor" href={link.href}>
 							<Icon class="size-5" />
 							<span class="text-[10px]">{link.label}</span>
-						</a>
+						</Navigation.Anchor>
 					{/each}
 				</Navigation.Menu>
 			</Navigation>
-			<!-- --- -->
 		</div>
 	</section>
 
@@ -87,25 +84,25 @@
 			<!-- --- -->
 			<Navigation layout="rail">
 				<Navigation.Header>
-					<a href="/" class={anchorRail} title="View Homepage" aria-label="View Homepage">
+					<Navigation.Anchor href="/" title="View Homepage" aria-label="View Homepage">
 						<SkullIcon class="size-8" />
-					</a>
+					</Navigation.Anchor>
 				</Navigation.Header>
 				<Navigation.Content>
 					<Navigation.Menu>
 						{#each links as link (link)}
 							{@const Icon = link.icon}
-							<a href={link.href} class={anchorRail}>
+							<Navigation.Anchor class="Anchor" href={link.href}>
 								<Icon class="size-5" />
 								<span class="text-xs">{link.label}</span>
-							</a>
+							</Navigation.Anchor>
 						{/each}
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<a href="/" class={anchorRail} title="Settings" aria-label="Settings">
+					<Navigation.Anchor href="/" title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-5" />
-					</a>
+					</Navigation.Anchor>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
@@ -128,10 +125,10 @@
 				<Navigation.Content>
 					<Navigation.Group>
 						<Navigation.Menu>
-							<a href="/" class={anchorSidebar}>
+							<Navigation.Anchor href="/">
 								<HouseIcon class="size-4" />
 								<span>Home</span>
-							</a>
+							</Navigation.Anchor>
 						</Navigation.Menu>
 					</Navigation.Group>
 					{#each Object.entries(linksSidebar) as [category, links]}
@@ -140,20 +137,20 @@
 							<Navigation.Menu>
 								{#each links as link (link)}
 									{@const Icon = link.icon}
-									<a href={link.href} class={anchorSidebar} title={link.label} aria-label={link.label}>
+									<Navigation.Anchor href={link.href} title={link.label} aria-label={link.label}>
 										<Icon class="size-4" />
 										<span>{link.label}</span>
-									</a>
+									</Navigation.Anchor>
 								{/each}
 							</Navigation.Menu>
 						</Navigation.Group>
 					{/each}
 				</Navigation.Content>
 				<Navigation.Footer>
-					<a href="/" class={anchorSidebar} title="Settings" aria-label="Settings">
+					<Navigation.Anchor href="/" class={anchorSidebar} title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-4" />
 						<span>Settings</span>
-					</a>
+					</Navigation.Anchor>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
@@ -173,18 +170,18 @@
 					<Navigation.Menu>
 						{#each links as link (link)}
 							{@const Icon = link.icon}
-							<a href={link.href} class={layoutRail ? anchorRail : anchorSidebar}>
+							<Navigation.Anchor href={link.href}>
 								<Icon class={layoutRail ? 'size-5' : 'size-4'} />
 								<span class={layoutRail ? 'text-[10px]' : ''}>{link.label}</span>
-							</a>
+							</Navigation.Anchor>
 						{/each}
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<button type="button" class={layoutRail ? anchorRail : anchorSidebar} onclick={toggleLayout}>
+					<Navigation.Button onclick={toggleLayout}>
 						<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
 						{#if !layoutRail}<span>Resize</span>{/if}
-					</button>
+					</Navigation.Button>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->

@@ -5,4 +5,6 @@ export type { NavigationContentProps } from './anatomy/content.svelte';
 export type { NavigationFooterProps } from './anatomy/footer.svelte';
 export type { NavigationGroupProps } from './anatomy/group.svelte';
 export type { NavigationLabelProps } from './anatomy/label.svelte';
+export type { NavigationAnchorProps } from './anatomy/anchor.svelte';
+export type { NavigationButtonProps } from './anatomy/button.svelte';
 export { Navigation } from './modules/anatomy.js';
