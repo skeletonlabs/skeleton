@@ -13,7 +13,11 @@ export default function Default() {
 				<span className="badge preset-tonal">#Apollo</span>
 				<svg id="svg-filter-apollo" className="absolute -left-full w-0 h-0">
 					<filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feColorMatrix values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0" result="final" in="SourceGraphic"></feColorMatrix>
+						<feColorMatrix
+							values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0"
+							result="final"
+							in="SourceGraphic"
+						></feColorMatrix>
 					</filter>
 				</svg>
 			</div>
@@ -126,7 +130,16 @@ export default function Default() {
 						primitiveUnits="userSpaceOnUse"
 						colorInterpolationFilters="linearRGB"
 					>
-						<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix1"></feColorMatrix>
+						<feColorMatrix
+							type="saturate"
+							values="0"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="SourceGraphic"
+							result="colormatrix1"
+						></feColorMatrix>
 						<feBlend mode="lighten" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="colormatrix1" result="blend"></feBlend>
 						<feBlend
 							mode="multiply"
@@ -163,10 +176,36 @@ export default function Default() {
 						primitiveUnits="userSpaceOnUse"
 						colorInterpolationFilters="linearRGB"
 					>
-						<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix2"></feColorMatrix>
-						<feBlend mode="saturation" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="colormatrix2" result="blend2"></feBlend>
+						<feColorMatrix
+							type="saturate"
+							values="0"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="SourceGraphic"
+							result="colormatrix2"
+						></feColorMatrix>
+						<feBlend
+							mode="saturation"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="SourceGraphic"
+							in2="colormatrix2"
+							result="blend2"
+						></feBlend>
 						<feBlend mode="screen" x="0%" y="0%" width="100%" height="100%" in="colormatrix2" in2="blend2" result="blend3"></feBlend>
-						<feColorMatrix type="luminanceToAlpha" x="0%" y="0%" width="100%" height="100%" in="blend3" result="colormatrix3"></feColorMatrix>
+						<feColorMatrix
+							type="luminanceToAlpha"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="blend3"
+							result="colormatrix3"
+						></feColorMatrix>
 						<feBlend mode="exclusion" x="0%" y="0%" width="100%" height="100%" in="blend3" in2="colormatrix3" result="blend5"></feBlend>
 					</filter>
 				</svg>

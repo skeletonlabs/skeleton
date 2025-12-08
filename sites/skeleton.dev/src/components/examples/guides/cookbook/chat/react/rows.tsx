@@ -18,8 +18,8 @@ export default function Rows() {
 				<div className="bg-surface-100-900 p-4 overflow-y-auto max-h-[128px] space-y-4">
 					<p>(feed)</p>
 					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolor ullam, qui et itaque quam distinctio dicta
-						nostrum veritatis harum iure hic sequi aperiam, explicabo earum totam deserunt. Fugiat, temporibus.
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolor ullam, qui et itaque quam distinctio dicta nostrum
+						veritatis harum iure hic sequi aperiam, explicabo earum totam deserunt. Fugiat, temporibus.
 					</p>
 				</div>
 				<div className="bg-surface-100-900 p-4">(prompt)</div>

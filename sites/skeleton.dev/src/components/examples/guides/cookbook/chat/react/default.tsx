@@ -171,7 +171,7 @@ export default function Default() {
 									</div>
 									{/* <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> */}
 								</div>
-							)
+							),
 						)}
 					</section>
 					{/* Prompt */}

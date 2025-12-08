@@ -89,7 +89,13 @@
 			<!-- Loop through our array of movies. -->
 			{#each movies as movie}
 				<a href={movie.url} target="_blank" class="shrink-0 w-[28%] snap-start">
-					<img class="rounded-container-token hover:brightness-125" src={movie.imageUrl} alt={movie.name} title={movie.name} loading="lazy" />
+					<img
+						class="rounded-container-token hover:brightness-125"
+						src={movie.imageUrl}
+						alt={movie.name}
+						title={movie.name}
+						loading="lazy"
+					/>
 				</a>
 			{/each}
 		</div>

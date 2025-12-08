@@ -11,7 +11,8 @@
 		<span class="badge preset-tonal">#Apollo</span>
 		<svg id="svg-filter-apollo" class="absolute -left-full w-0 h-0">
 			<filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-				<feColorMatrix values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0" result="final" in="SourceGraphic"></feColorMatrix>
+				<feColorMatrix values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0" result="final" in="SourceGraphic"
+				></feColorMatrix>
 			</filter>
 		</svg>
 	</div>
@@ -105,7 +106,13 @@
 
 	<!-- Noir -->
 	<div class="flex flex-col items-center space-y-2">
-		<img src={`https://picsum.photos/seed/skeleton/320`} class="rounded-container" alt="Noir filter" loading="lazy" style="filter: url(#Noir)" />
+		<img
+			src={`https://picsum.photos/seed/skeleton/320`}
+			class="rounded-container"
+			alt="Noir filter"
+			loading="lazy"
+			style="filter: url(#Noir)"
+		/>
 		<span class="badge preset-tonal">#Noir</span>
 		<svg id="svg-filter-noir" class="filter absolute -left-full w-0 h-0">
 			<filter
@@ -121,16 +128,7 @@
 				<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix1"
 				></feColorMatrix>
 				<feBlend mode="lighten" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="colormatrix1" result="blend"></feBlend>
-				<feBlend
-					mode="multiply"
-					x="0%"
-					y="0%"
-					width="100%"
-					height="100%"
-					in="colormatrix1"
-					in2="diffuseLighting"
-					result="blend1"
-				></feBlend>
+				<feBlend mode="multiply" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="diffuseLighting" result="blend1"></feBlend>
 			</filter>
 		</svg>
 	</div>
@@ -216,7 +214,13 @@
 
 	<!-- XPro -->
 	<div class="flex flex-col items-center space-y-2">
-		<img src={`https://picsum.photos/seed/skeleton/320`} class="rounded-container" alt="XPro filter" loading="lazy" style="filter: url(#XPro)" />
+		<img
+			src={`https://picsum.photos/seed/skeleton/320`}
+			class="rounded-container"
+			alt="XPro filter"
+			loading="lazy"
+			style="filter: url(#XPro)"
+		/>
 		<span class="badge preset-tonal">#XPro</span>
 		<svg id="svg-filter-xpro" class="filter absolute -left-full w-0 h-0">
 			<filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
