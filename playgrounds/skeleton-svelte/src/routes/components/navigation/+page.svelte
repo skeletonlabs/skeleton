@@ -89,7 +89,7 @@
 						{#each links as link (link)}
 							{@const Icon = link.icon}
 							<Navigation.TriggerAnchor class="Anchor" href={link.href}>
-								<Icon class="size-5" />
+								<Icon class="size-6" />
 								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
 							</Navigation.TriggerAnchor>
 						{/each}
@@ -97,7 +97,7 @@
 				</Navigation.Content>
 				<Navigation.Footer>
 					<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
-						<SettingsIcon class="size-5" />
+						<SettingsIcon class="size-6" />
 					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
@@ -167,7 +167,7 @@
 						{#each links as link (link)}
 							{@const Icon = link.icon}
 							<Navigation.TriggerAnchor href={link.href}>
-								<Icon class={layoutRail ? 'size-5' : 'size-4'} />
+								<Icon class={layoutRail ? 'size-6' : 'size-4'} />
 								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
 							</Navigation.TriggerAnchor>
 						{/each}
@@ -175,7 +175,7 @@
 				</Navigation.Content>
 				<Navigation.Footer>
 					<Navigation.Trigger onclick={toggleLayout}>
-						<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
+						<ArrowLeftRightIcon class={layoutRail ? 'size-6' : 'size-4'} />
 						{#if !layoutRail}<span>Resize</span>{/if}
 					</Navigation.Trigger>
 				</Navigation.Footer>
