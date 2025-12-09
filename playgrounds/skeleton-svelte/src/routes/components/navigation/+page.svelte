@@ -63,10 +63,10 @@
 				<Navigation.Menu class="grid grid-cols-4 gap-2">
 					{#each links as link (link)}
 						{@const Icon = link.icon}
-						<Navigation.Anchor class="Anchor" href={link.href}>
+						<Navigation.TriggerAnchor class="Anchor" href={link.href}>
 							<Icon class="size-5" />
-							<span class="text-[10px]">{link.label}</span>
-						</Navigation.Anchor>
+							<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+						</Navigation.TriggerAnchor>
 					{/each}
 				</Navigation.Menu>
 			</Navigation>
@@ -80,25 +80,25 @@
 			<!-- --- -->
 			<Navigation layout="rail">
 				<Navigation.Header>
-					<Navigation.Anchor href="/" title="View Homepage" aria-label="View Homepage">
+					<Navigation.TriggerAnchor href="/" title="View Homepage" aria-label="View Homepage">
 						<SkullIcon class="size-8" />
-					</Navigation.Anchor>
+					</Navigation.TriggerAnchor>
 				</Navigation.Header>
 				<Navigation.Content>
 					<Navigation.Menu>
 						{#each links as link (link)}
 							{@const Icon = link.icon}
-							<Navigation.Anchor class="Anchor" href={link.href}>
+							<Navigation.TriggerAnchor class="Anchor" href={link.href}>
 								<Icon class="size-5" />
-								<span class="text-xs">{link.label}</span>
-							</Navigation.Anchor>
+								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						{/each}
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<Navigation.Anchor href="/" title="Settings" aria-label="Settings">
+					<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-5" />
-					</Navigation.Anchor>
+					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
@@ -121,10 +121,10 @@
 				<Navigation.Content>
 					<Navigation.Group>
 						<Navigation.Menu>
-							<Navigation.Anchor href="/">
+							<Navigation.TriggerAnchor href="/">
 								<HouseIcon class="size-4" />
-								<span>Home</span>
-							</Navigation.Anchor>
+								<Navigation.TriggerText>Home</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						</Navigation.Menu>
 					</Navigation.Group>
 					{#each Object.entries(linksSidebar) as [category, links]}
@@ -133,20 +133,20 @@
 							<Navigation.Menu>
 								{#each links as link (link)}
 									{@const Icon = link.icon}
-									<Navigation.Anchor href={link.href} title={link.label} aria-label={link.label}>
+									<Navigation.TriggerAnchor href={link.href} title={link.label} aria-label={link.label}>
 										<Icon class="size-4" />
-										<span>{link.label}</span>
-									</Navigation.Anchor>
+										<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+									</Navigation.TriggerAnchor>
 								{/each}
 							</Navigation.Menu>
 						</Navigation.Group>
 					{/each}
 				</Navigation.Content>
 				<Navigation.Footer>
-					<Navigation.Anchor href="/" title="Settings" aria-label="Settings">
+					<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
 						<SettingsIcon class="size-4" />
-						<span>Settings</span>
-					</Navigation.Anchor>
+						<Navigation.TriggerText>Settings</Navigation.TriggerText>
+					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
@@ -166,18 +166,18 @@
 					<Navigation.Menu>
 						{#each links as link (link)}
 							{@const Icon = link.icon}
-							<Navigation.Anchor href={link.href}>
+							<Navigation.TriggerAnchor href={link.href}>
 								<Icon class={layoutRail ? 'size-5' : 'size-4'} />
-								<span class={layoutRail ? 'text-[10px]' : ''}>{link.label}</span>
-							</Navigation.Anchor>
+								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						{/each}
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<Navigation.Button onclick={toggleLayout}>
+					<Navigation.Trigger onclick={toggleLayout}>
 						<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
 						{#if !layoutRail}<span>Resize</span>{/if}
-					</Navigation.Button>
+					</Navigation.Trigger>
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->

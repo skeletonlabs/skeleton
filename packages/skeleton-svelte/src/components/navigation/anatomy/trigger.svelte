@@ -2,14 +2,14 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface NavigationAnchorProps extends PropsWithElement<'anchor'>, HTMLAttributes<'anchor'> {}
+	export interface NavigationTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
 	import { RootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: NavigationAnchorProps = $props();
+	const props: NavigationTriggerProps = $props();
 
 	const navigation = RootContext.consume();
 
@@ -19,8 +19,9 @@
 		mergeProps(
 			{
 				'data-scope': 'navigation',
-				'data-part': 'anchor',
+				'data-part': 'trigger',
 				'data-layout': navigation().layout,
+				type: 'button',
 			},
 			rest,
 		),
@@ -30,7 +31,7 @@
 {#if element}
 	{@render element(attributes)}
 {:else}
-	<a {...attributes}>
+	<button type="button" {...attributes}>
 		{@render children?.()}
-	</a>
+	</button>
 {/if}

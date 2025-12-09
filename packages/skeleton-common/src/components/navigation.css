@@ -48,6 +48,7 @@
 		&[data-layout='sidebar'] {
 			display: flex;
 			flex-direction: column;
+			width: 100%;
 			gap: --spacing(2);
 		}
 	}
@@ -74,11 +75,12 @@
 		&[data-layout='sidebar'] {
 			flex-direction: column;
 			align-items: stretch;
+			width: 100%;
 		}
 	}
 
-	&[data-part='anchor'],
-	&[data-part='button'] {
+	&[data-part='trigger'],
+	&[data-part='trigger-anchor'] {
 		@apply btn hover:preset-tonal;
 
 		&[data-layout='bar'] {
@@ -101,6 +103,20 @@
 			justify-content: start;
 			padding-inline: --spacing(2);
 			width: 100%;
+		}
+	}
+
+	&[data-part='trigger-text'] {
+		&[data-layout='bar'] {
+			font-size: 10px;
+		}
+
+		&[data-layout='rail'] {
+			font-size: 10px;
+		}
+
+		&[data-layout='sidebar'] {
+			font-size: var(--text-base);
 		}
 	}
 }
