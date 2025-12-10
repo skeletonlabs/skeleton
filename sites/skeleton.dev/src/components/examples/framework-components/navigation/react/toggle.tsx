@@ -8,15 +8,11 @@ import { useState } from 'react';
 
 export default function Default() {
 	const links = [
-		{ label: 'Home', href: '#', icon: HouseIcon },
-		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: PopcornIcon },
-		{ label: 'Television', href: '#', icon: TvIcon },
+		{ label: 'Home', href: '/#', icon: HouseIcon },
+		{ label: 'Books', href: '/#', icon: BookIcon },
+		{ label: 'Movies', href: '/#', icon: PopcornIcon },
+		{ label: 'Television', href: '/#', icon: TvIcon },
 	];
-
-	const buttonClasses = 'btn hover:preset-tonal';
-	let anchorRail = `${buttonClasses} aspect-square w-full max-w-[84px] flex flex-col items-center gap-0.5`;
-	let anchorSidebar = `${buttonClasses} justify-start px-2 w-full`;
 
 	let [layoutRail, setLayoutRail] = useState(true);
 
@@ -29,19 +25,19 @@ export default function Default() {
 			<Navigation layout={layoutRail ? 'rail' : 'sidebar'} className={layoutRail ? '' : 'grid grid-rows-[1fr_auto] gap-4'}>
 				<Navigation.Content>
 					<Navigation.Header>
-						<button type="button" className={layoutRail ? anchorRail : anchorSidebar} onClick={toggleLayout}>
+						<Navigation.Trigger onClick={toggleLayout}>
 							<ArrowLeftRightIcon className={layoutRail ? 'size-5' : 'size-4'} />
 							{!layoutRail ? <span>Resize</span> : ''}
-						</button>
+						</Navigation.Trigger>
 					</Navigation.Header>
 					<Navigation.Menu>
 						{links.map((link) => {
 							const Icon = link.icon;
 							return (
-								<a key={link.label} className={layoutRail ? anchorRail : anchorSidebar}>
+								<Navigation.TriggerAnchor key={link.label}>
 									<Icon className={layoutRail ? 'size-5' : 'size-4'} />
-									<span className={layoutRail ? 'text-[10px]' : ''}>{link.label}</span>
-								</a>
+									<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+								</Navigation.TriggerAnchor>
 							);
 						})}
 					</Navigation.Menu>

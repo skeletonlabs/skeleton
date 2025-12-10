@@ -3,10 +3,10 @@
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 
 	const links = [
-		{ label: 'Home', href: '#', icon: HouseIcon },
-		{ label: 'Entertainment', href: '#', icon: BookIcon },
-		{ label: 'Recreation', href: '#', icon: BikeIcon },
-		{ label: 'Relaxation', href: '#', icon: TreePalmIcon },
+		{ label: 'Home', href: '/#', icon: HouseIcon },
+		{ label: 'Entertainment', href: '/#', icon: BookIcon },
+		{ label: 'Recreation', href: '/#', icon: BikeIcon },
+		{ label: 'Relaxation', href: '/#', icon: TreePalmIcon },
 	];
 
 	const buttonClasses = 'btn hover:preset-tonal';
@@ -25,18 +25,18 @@
 	<Navigation layout={layoutRail ? 'rail' : 'sidebar'} class={layoutRail ? '' : 'grid grid-rows-[1fr_auto] gap-4'}>
 		<Navigation.Content>
 			<Navigation.Header>
-				<button type="button" class={layoutRail ? anchorRail : anchorSidebar} onclick={toggleLayout}>
+				<Navigation.Trigger onclick={toggleLayout}>
 					<ArrowLeftRightIcon class={layoutRail ? 'size-5' : 'size-4'} />
 					{#if !layoutRail}<span>Resize</span>{/if}
-				</button>
+				</Navigation.Trigger>
 			</Navigation.Header>
 			<Navigation.Menu>
 				{#each links as link (link)}
 					{@const Icon = link.icon}
-					<a href={link.href} class={layoutRail ? anchorRail : anchorSidebar}>
+					<Navigation.TriggerAnchor>
 						<Icon class={layoutRail ? 'size-5' : 'size-4'} />
-						<span class={layoutRail ? 'text-[10px]' : ''}>{link.label}</span>
-					</a>
+						<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+					</Navigation.TriggerAnchor>
 				{/each}
 			</Navigation.Menu>
 		</Navigation.Content>

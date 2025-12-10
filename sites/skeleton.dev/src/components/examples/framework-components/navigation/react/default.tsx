@@ -6,12 +6,11 @@ import { TvIcon } from 'lucide-react';
 
 export default function Default() {
 	const links = [
-		{ label: 'Home', href: '#', icon: HouseIcon },
-		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: PopcornIcon },
-		{ label: 'Television', href: '#', icon: TvIcon },
+		{ label: 'Home', href: '/#', icon: HouseIcon },
+		{ label: 'Books', href: '/#', icon: BookIcon },
+		{ label: 'Movies', href: '/#', icon: PopcornIcon },
+		{ label: 'Television', href: '/#', icon: TvIcon },
 	];
-	let anchorBar = 'btn hover:preset-tonal flex-col items-center gap-1';
 
 	return (
 		<div className="w-[375px] h-[667px] grid grid-rows-[1fr_auto] border border-surface-200-800">
@@ -23,10 +22,10 @@ export default function Default() {
 					{links.map((link) => {
 						const Icon = link.icon;
 						return (
-							<a key={link.label} href={link.href} className={anchorBar}>
+							<Navigation.TriggerAnchor key={link.label} href={link.href}>
 								<Icon className="size-5" />
-								<span className="text-xs">{link.label}</span>
-							</a>
+								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						);
 					})}
 				</Navigation.Menu>

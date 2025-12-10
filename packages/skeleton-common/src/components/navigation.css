@@ -108,11 +108,11 @@
 
 	&[data-part='trigger-text'] {
 		&[data-layout='bar'] {
-			font-size: 10px;
+			font-size: --spacing(2.5);
 		}
 
 		&[data-layout='rail'] {
-			font-size: 10px;
+			font-size: --spacing(2.5);
 		}
 
 		&[data-layout='sidebar'] {

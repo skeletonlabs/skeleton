@@ -17,23 +17,21 @@
 
 	const linksSidebar = {
 		entertainment: [
-			{ label: 'Books', href: '#', icon: BookIcon },
-			{ label: 'Movies', href: '#', icon: PopcornIcon },
-			{ label: 'Television', href: '#', icon: TvIcon },
+			{ label: 'Books', href: '/#', icon: BookIcon },
+			{ label: 'Movies', href: '/#', icon: PopcornIcon },
+			{ label: 'Television', href: '/#', icon: TvIcon },
 		],
 		recreation: [
-			{ label: 'Biking', href: '#', icon: BikeIcon },
-			{ label: 'Sailing', href: '#', icon: SailboatIcon },
-			{ label: 'Hiking', href: '#', icon: MountainIcon },
+			{ label: 'Biking', href: '/#', icon: BikeIcon },
+			{ label: 'Sailing', href: '/#', icon: SailboatIcon },
+			{ label: 'Hiking', href: '/#', icon: MountainIcon },
 		],
 		relaxation: [
-			{ label: 'Lounge', href: '#', icon: TreePalmIcon },
-			{ label: 'Spa', href: '#', icon: BubblesIcon },
-			{ label: 'Sleep', href: '#', icon: BedDoubleIcon },
+			{ label: 'Lounge', href: '/#', icon: TreePalmIcon },
+			{ label: 'Spa', href: '/#', icon: BubblesIcon },
+			{ label: 'Sleep', href: '/#', icon: BedDoubleIcon },
 		],
 	};
-
-	let anchorSidebar = 'btn hover:preset-tonal justify-start px-2 w-full';
 </script>
 
 <div class="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
@@ -47,10 +45,10 @@
 		<Navigation.Content>
 			<Navigation.Group>
 				<Navigation.Menu>
-					<a href="/" class={anchorSidebar}>
+					<Navigation.TriggerAnchor href="/">
 						<HouseIcon class="size-4" />
-						<span>Home</span>
-					</a>
+						<Navigation.TriggerText>Home</Navigation.TriggerText>
+					</Navigation.TriggerAnchor>
 				</Navigation.Menu>
 			</Navigation.Group>
 			{#each Object.entries(linksSidebar) as [category, links]}
@@ -59,20 +57,20 @@
 					<Navigation.Menu>
 						{#each links as link (link)}
 							{@const Icon = link.icon}
-							<a href={link.href} class={anchorSidebar} title={link.label} aria-label={link.label}>
+							<Navigation.TriggerAnchor href={link.href} title={link.label} aria-label={link.label}>
 								<Icon class="size-4" />
-								<span>{link.label}</span>
-							</a>
+								<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						{/each}
 					</Navigation.Menu>
 				</Navigation.Group>
 			{/each}
 		</Navigation.Content>
 		<Navigation.Footer>
-			<a href="/" class={anchorSidebar} title="Settings" aria-label="Settings">
+			<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
 				<SettingsIcon class="size-4" />
-				<span>Settings</span>
-			</a>
+				<Navigation.TriggerText>Settings</Navigation.TriggerText>
+			</Navigation.TriggerAnchor>
 		</Navigation.Footer>
 	</Navigation>
 	<!-- --- -->
