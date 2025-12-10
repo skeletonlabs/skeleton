@@ -212,6 +212,21 @@ Use the `closable` prop to toggle display of the close button.
 	</Preview>
 </Framework>
 
+## Action
+
+Use the `action` key to add an interactive button to your toast. This is useful for actions like "Undo", "Retry", or other contextual operations.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ActionReactRaw }} client:visible>
+		<ActionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ActionSvelteRaw }} client:visible>
+		<ActionSvelte client:visible />
+	</Preview>
+</Framework>
+
 ## Meta
 
 Use the `meta` key to pass arbitrary data along with the toast instance. This can be used to display an icon for example.
