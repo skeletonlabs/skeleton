@@ -162,6 +162,13 @@ toaster.create({
 	type: 'info',
 	title: 'This is a toast',
 	description: 'This is a toast description.',
+	duration: 4000, // Duration in milliseconds (default: 4000), use Infinity to prevent auto-close
+	action: {
+		label: 'Action',
+		onClick: () => {
+			// Handle action click
+		},
+	},
 });
 ```
 
