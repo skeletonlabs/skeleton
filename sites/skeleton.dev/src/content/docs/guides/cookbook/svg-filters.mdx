@@ -17,9 +17,26 @@ This feature is enabled by [SVG filters](https://developer.mozilla.org/en-US/doc
 
 Apply a filter to any element using the Filter style property and passing the unique SVG Filter ID.
 
+<Framework id="react">
+
 ```tsx
+{/* The Target Element */}
+<img style={{ filter: 'url(#Apollo)' }} />
+
+{/* Via arbitrary Tailwind syntax */}
+<Avatar classes="[filter:url(#Apollo)]" />
+
+{/* The SVG Filter with a matching unique ID */}
+<svg><filter id="Apollo">...</filter></svg>
+```
+
+</Framework>
+
+<Framework id="svelte">
+
+```svelte
 <!-- The Target Element -->
-<img ... style="filter: url(#Apollo)" />
+<img style="filter: url(#Apollo)" />
 
 <!-- Via arbitrary Tailwind syntax -->
 <Avatar classes="[filter:url(#Apollo)]" />
@@ -27,6 +44,8 @@ Apply a filter to any element using the Filter style property and passing the un
 <!-- The SVG Filter with a matching unique ID -->
 <svg><filter id="Apollo">...</filter></svg>
 ```
+
+</Framework>
 
 We've provided a curated collection of SVG Filters to choose from below.
 
