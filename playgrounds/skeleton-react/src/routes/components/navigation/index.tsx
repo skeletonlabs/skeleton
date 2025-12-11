@@ -40,11 +40,6 @@ function Page() {
 		],
 	};
 
-	const buttonClasses = 'btn hover:preset-tonal';
-	let anchorBar = `${buttonClasses} flex-col items-center gap-1`;
-	let anchorRail = `${buttonClasses} aspect-square w-full max-w-[84px] flex flex-col items-center gap-0.5`;
-	let anchorSidebar = `${buttonClasses} justify-start px-2 w-full`;
-
 	let [layoutRail, setLayoutRail] = useState(true);
 
 	function toggleLayout() {
@@ -67,10 +62,10 @@ function Page() {
 							{links.map((link) => {
 								const Icon = link.icon;
 								return (
-									<a key={link.label} href={link.href} className={anchorBar}>
+									<Navigation.TriggerAnchor key={link.label} href={link.href}>
 										<Icon className="size-5" />
-										<span className="text-xs">{link.label}</span>
-									</a>
+										<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+									</Navigation.TriggerAnchor>
 								);
 							})}
 						</Navigation.Menu>
@@ -83,27 +78,27 @@ function Page() {
 				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
 					<Navigation layout="rail">
 						<Navigation.Header>
-							<a href="/" className={anchorRail} title="View Homepage" aria-label="View Homepage">
+							<Navigation.TriggerAnchor href="/" title="View Homepage" aria-label="View Homepage">
 								<SkullIcon className="size-8" />
-							</a>
+							</Navigation.TriggerAnchor>
 						</Navigation.Header>
 						<Navigation.Content>
 							<Navigation.Menu>
 								{links.map((link) => {
 									const Icon = link.icon;
 									return (
-										<a key={link.label} href={link.href} className={anchorRail}>
-											<Icon className="size-5" />
-											<span className="text-xs">{link.label}</span>
-										</a>
+										<Navigation.TriggerAnchor key={link.label} href={link.href}>
+											<Icon className="size-6" />
+											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+										</Navigation.TriggerAnchor>
 									);
 								})}
 							</Navigation.Menu>
 						</Navigation.Content>
 						<Navigation.Footer>
-							<a href="#" className={anchorRail} title="Settings" aria-label="Settings">
-								<SettingsIcon className="size-5" />
-							</a>
+							<Navigation.TriggerAnchor href="#" title="Settings" aria-label="Settings">
+								<SettingsIcon className="size-6" />
+							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
 					<div className="flex justify-center items-center">
@@ -124,10 +119,10 @@ function Page() {
 						<Navigation.Content>
 							<Navigation.Group>
 								<Navigation.Menu>
-									<a href="/" className={anchorSidebar}>
+									<Navigation.TriggerAnchor href="/">
 										<HouseIcon className="size-4" />
-										<span>Home</span>
-									</a>
+										<Navigation.TriggerText>Home</Navigation.TriggerText>
+									</Navigation.TriggerAnchor>
 								</Navigation.Menu>
 							</Navigation.Group>
 							{Object.entries(linksSidebar).map(([category, links]) => (
@@ -137,10 +132,10 @@ function Page() {
 										{links.map((link) => {
 											const Icon = link.icon;
 											return (
-												<a key={link.label} className={anchorSidebar} title={link.label} aria-label={link.label}>
+												<Navigation.TriggerAnchor key={link.label} title={link.label} aria-label={link.label}>
 													<Icon className="size-4" />
-													<span>{link.label}</span>
-												</a>
+													<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+												</Navigation.TriggerAnchor>
 											);
 										})}
 									</Navigation.Menu>
@@ -148,10 +143,10 @@ function Page() {
 							))}
 						</Navigation.Content>
 						<Navigation.Footer>
-							<a href="/" className={anchorSidebar} title="Settings" aria-label="Settings">
+							<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
 								<SettingsIcon className="size-4" />
-								<span>Settings</span>
-							</a>
+								<Navigation.TriggerText>Settings</Navigation.TriggerText>
+							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
 					<div className="flex justify-center items-center">
@@ -170,19 +165,19 @@ function Page() {
 								{links.map((link) => {
 									const Icon = link.icon;
 									return (
-										<a key={link.label} className={layoutRail ? anchorRail : anchorSidebar}>
-											<Icon className={layoutRail ? 'size-5' : 'size-4'} />
-											<span className={layoutRail ? 'text-[10px]' : ''}>{link.label}</span>
-										</a>
+										<Navigation.TriggerAnchor key={link.label}>
+											<Icon className={layoutRail ? 'size-6' : 'size-4'} />
+											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+										</Navigation.TriggerAnchor>
 									);
 								})}
 							</Navigation.Menu>
 						</Navigation.Content>
 						<Navigation.Footer>
-							<button type="button" className={layoutRail ? anchorRail : anchorSidebar} onClick={toggleLayout}>
-								<ArrowLeftRightIcon className={layoutRail ? 'size-5' : 'size-4'} />
+							<Navigation.Trigger onClick={toggleLayout}>
+								<ArrowLeftRightIcon className={layoutRail ? 'size-6' : 'size-4'} />
 								{!layoutRail ? <span>Resize</span> : ''}
-							</button>
+							</Navigation.Trigger>
 						</Navigation.Footer>
 					</Navigation>
 					<div className="flex justify-center items-center">

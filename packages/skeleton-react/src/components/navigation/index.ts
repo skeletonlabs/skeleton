@@ -5,4 +5,7 @@ export type { NavigationContentProps } from './anatomy/content.jsx';
 export type { NavigationFooterProps } from './anatomy/footer.jsx';
 export type { NavigationGroupProps } from './anatomy/group.jsx';
 export type { NavigationLabelProps } from './anatomy/label.jsx';
+export type { NavigationTriggerProps } from './anatomy/trigger.jsx';
+export type { NavigationTriggerAnchorProps } from './anatomy/trigger-anchor.jsx';
+export type { NavigationTriggerTextProps } from './anatomy/trigger-text.jsx';
 export { Navigation } from './modules/anatomy.js';
