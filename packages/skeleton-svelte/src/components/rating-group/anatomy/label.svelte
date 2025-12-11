@@ -15,7 +15,7 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(ratingGroup().getControlProps(), rest));
+	const attributes = $derived(mergeProps(ratingGroup().getLabelProps(), rest));
 </script>
 
 {#if element}

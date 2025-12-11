@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton-common
 
+## 4.7.4
+
 ## 4.7.3
 
 ## 4.7.2
