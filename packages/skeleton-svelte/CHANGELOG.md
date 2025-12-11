@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.8.0
+
+### Minor Changes
+
+- feat: Implemented Navigation.Trigger, Navigation.TriggerAnchor, and Navigation.TriggerText component parts ([#4223](https://github.com/skeletonlabs/skeleton/pull/4223))
+
+### Patch Changes
+
+- Updated dependencies [[`d63335c`](https://github.com/skeletonlabs/skeleton/commit/d63335c199a9c187d1561a3ca9d1f75008fdeb6d)]:
+  - @skeletonlabs/skeleton-common@4.8.0
+
 ## 4.7.4
 
 ### Patch Changes
