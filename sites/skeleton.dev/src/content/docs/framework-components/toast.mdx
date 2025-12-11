@@ -162,6 +162,13 @@ toaster.create({
 	type: 'info',
 	title: 'This is a toast',
 	description: 'This is a toast description.',
+	duration: 4000, // Duration in milliseconds (default: 4000), use Infinity to prevent auto-close
+	action: {
+		label: 'Action',
+		onClick: () => {
+			// Handle action click
+		},
+	},
 });
 ```
 
@@ -209,6 +216,21 @@ Use the `closable` prop to toggle display of the close button.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': ClosableSvelteRaw }} client:visible>
 		<ClosableSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Action
+
+Use the `action` key to add an interactive button to your toast. This is useful for actions like "Undo", "Retry", or other contextual operations.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ActionReactRaw }} client:visible>
+		<ActionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ActionSvelteRaw }} client:visible>
+		<ActionSvelte client:visible />
 	</Preview>
 </Framework>
 
