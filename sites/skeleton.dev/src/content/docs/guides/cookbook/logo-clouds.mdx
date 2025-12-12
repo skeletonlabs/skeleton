@@ -4,17 +4,35 @@ description: Provides a grid for presenting a set of logos, brands, or sponsors.
 tags: ['blocks', 'branding']
 ---
 
-import Default from '@/components/examples/guides/cookbook/logo-clouds/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/logo-clouds/default.astro?raw';
-import Rows from '@/components/examples/guides/cookbook/logo-clouds/rows.astro';
-import RowsRaw from '@/components/examples/guides/cookbook/logo-clouds/rows.astro?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/logo-clouds/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/logo-clouds/react/default.tsx?raw';
+import RowsReact from '@/components/examples/guides/cookbook/logo-clouds/react/rows';
+import RowsReactRaw from '@/components/examples/guides/cookbook/logo-clouds/react/rows.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte?raw';
+import RowsSvelte from '@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte';
+import RowsSvelteRaw from '@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte?raw';
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Rows
 
-<Preview files={{ 'app.astro': RowsRaw }} client:visible>
-	<Rows />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': RowsReactRaw }} client:visible>
+		<RowsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': RowsSvelteRaw }} client:visible>
+		<RowsSvelte client:visible />
+	</Preview>
+</Framework>

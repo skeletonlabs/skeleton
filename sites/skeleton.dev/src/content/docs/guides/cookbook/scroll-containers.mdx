@@ -4,36 +4,63 @@ description: Create scrolling containers using the scroll snap features from Tai
 tags: ['blocks', 'images']
 ---
 
-import Carousel from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro';
-import CarouselRaw from '@/components/examples/guides/cookbook/scroll-containers/carousel.astro?raw';
-import Default from '@/components/examples/guides/cookbook/scroll-containers/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/scroll-containers/default.astro?raw';
-import MultiColumn from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro';
-import MultiColumnRaw from '@/components/examples/guides/cookbook/scroll-containers/multi-column.astro?raw';
+import CarouselReact from '@/components/examples/guides/cookbook/scroll-containers/react/carousel';
+import CarouselReactRaw from '@/components/examples/guides/cookbook/scroll-containers/react/carousel.tsx?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/scroll-containers/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/scroll-containers/react/default.tsx?raw';
+import MultiColumnReact from '@/components/examples/guides/cookbook/scroll-containers/react/multi-column';
+import MultiColumnReactRaw from '@/components/examples/guides/cookbook/scroll-containers/react/multi-column.tsx?raw';
+import CarouselSvelte from '@/components/examples/guides/cookbook/scroll-containers/svelte/carousel.svelte';
+import CarouselSvelteRaw from '@/components/examples/guides/cookbook/scroll-containers/svelte/carousel.svelte?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/scroll-containers/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/scroll-containers/svelte/default.svelte?raw';
+import MultiColumnSvelte from '@/components/examples/guides/cookbook/scroll-containers/svelte/multi-column.svelte';
+import MultiColumnSvelteRaw from '@/components/examples/guides/cookbook/scroll-containers/svelte/multi-column.svelte?raw';
 
 ## Scroll Snap
 
 Implements Tailwind's [Scroll Snap Alignment](https://tailwindcss.com/docs/scroll-snap-align) utility classes.
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Carousels
 
 Using Scroll Containers, we can create a fully functional carousel, complete with thumbnail selection.
 
-<Preview files={{ 'app.astro': CarouselRaw }} client:visible>
-	<Carousel />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': CarouselReactRaw }} client:visible>
+		<CarouselReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': CarouselSvelteRaw }} client:visible>
+		<CarouselSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Multi-Column
 
 Using Scroll Containers, we can scroll sets of items.
 
-<Preview files={{ 'app.astro': MultiColumnRaw }} client:visible>
-	<MultiColumn />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultiColumnReactRaw }} client:visible>
+		<MultiColumnReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultiColumnSvelteRaw }} client:visible>
+		<MultiColumnSvelte client:visible />
+	</Preview>
+</Framework>
 
 > Images courtesy of [The Movie Database](https://www.themoviedb.org/)
 

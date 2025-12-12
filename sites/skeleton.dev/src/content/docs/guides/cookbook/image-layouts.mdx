@@ -4,38 +4,74 @@ description: Layouts for displaying sets of images.
 tags: ['blocks', 'layouts', 'images']
 ---
 
-import Featured from '@/components/examples/guides/cookbook/image-layouts/featured.astro';
-import FeaturedRaw from '@/components/examples/guides/cookbook/image-layouts/featured.astro?raw';
-import Grid from '@/components/examples/guides/cookbook/image-layouts/grid.astro';
-import GridRaw from '@/components/examples/guides/cookbook/image-layouts/grid.astro?raw';
-import Masonry from '@/components/examples/guides/cookbook/image-layouts/masonry.astro';
-import MasonryRaw from '@/components/examples/guides/cookbook/image-layouts/masonry.astro?raw';
-import Quad from '@/components/examples/guides/cookbook/image-layouts/quad.astro';
-import QuadRaw from '@/components/examples/guides/cookbook/image-layouts/quad.astro?raw';
+import FeaturedReact from '@/components/examples/guides/cookbook/image-layouts/react/featured';
+import FeaturedReactRaw from '@/components/examples/guides/cookbook/image-layouts/react/featured.tsx?raw';
+import GridReact from '@/components/examples/guides/cookbook/image-layouts/react/grid';
+import GridReactRaw from '@/components/examples/guides/cookbook/image-layouts/react/grid.tsx?raw';
+import MasonryReact from '@/components/examples/guides/cookbook/image-layouts/react/masonry';
+import MasonryReactRaw from '@/components/examples/guides/cookbook/image-layouts/react/masonry.tsx?raw';
+import QuadReact from '@/components/examples/guides/cookbook/image-layouts/react/quad';
+import QuadReactRaw from '@/components/examples/guides/cookbook/image-layouts/react/quad.tsx?raw';
+import FeaturedSvelte from '@/components/examples/guides/cookbook/image-layouts/svelte/featured.svelte';
+import FeaturedSvelteRaw from '@/components/examples/guides/cookbook/image-layouts/svelte/featured.svelte?raw';
+import GridSvelte from '@/components/examples/guides/cookbook/image-layouts/svelte/grid.svelte';
+import GridSvelteRaw from '@/components/examples/guides/cookbook/image-layouts/svelte/grid.svelte?raw';
+import MasonrySvelte from '@/components/examples/guides/cookbook/image-layouts/svelte/masonry.svelte';
+import MasonrySvelteRaw from '@/components/examples/guides/cookbook/image-layouts/svelte/masonry.svelte?raw';
+import QuadSvelte from '@/components/examples/guides/cookbook/image-layouts/svelte/quad.svelte';
+import QuadSvelteRaw from '@/components/examples/guides/cookbook/image-layouts/svelte/quad.svelte?raw';
 
 ## Grid
 
-<Preview files={{ 'app.astro': GridRaw }} client:visible>
-	<Grid />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': GridReactRaw }} client:visible>
+		<GridReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': GridSvelteRaw }} client:visible>
+		<GridSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Quad
 
-<Preview files={{ 'app.astro': QuadRaw }} client:visible>
-	<Quad />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': QuadReactRaw }} client:visible>
+		<QuadReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': QuadSvelteRaw }} client:visible>
+		<QuadSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Masonry
 
-<Preview files={{ 'app.astro': MasonryRaw }} client:visible>
-	<Masonry />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MasonryReactRaw }} client:visible>
+		<MasonryReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MasonrySvelteRaw }} client:visible>
+		<MasonrySvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Featured
 
-<Preview files={{ 'app.astro': FeaturedRaw }} client:visible>
-	<Featured />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FeaturedReactRaw }} client:visible>
+		<FeaturedReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FeaturedSvelteRaw }} client:visible>
+		<FeaturedSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Attribution
 
