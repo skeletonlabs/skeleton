@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.8.0
+
+### Minor Changes
+
+- feat: Implemented Navigation.Trigger, Navigation.TriggerAnchor, and Navigation.TriggerText component parts ([#4223](https://github.com/skeletonlabs/skeleton/pull/4223))
+
 ## 4.7.4
 
 ## 4.7.3
