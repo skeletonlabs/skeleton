@@ -20,14 +20,22 @@ Apply a filter to any element using the Filter style property and passing the un
 <Framework id="react">
 
 ```tsx
-{/* The Target Element */}
-<img style={{ filter: 'url(#Apollo)' }} />
+{
+	/* The Target Element */
+}
+<img style={{ filter: 'url(#Apollo)' }} />;
 
-{/* Via arbitrary Tailwind syntax */}
-<Avatar classes="[filter:url(#Apollo)]" />
+{
+	/* Via arbitrary Tailwind syntax */
+}
+<Avatar classes="[filter:url(#Apollo)]" />;
 
-{/* The SVG Filter with a matching unique ID */}
-<svg><filter id="Apollo">...</filter></svg>
+{
+	/* The SVG Filter with a matching unique ID */
+}
+<svg>
+	<filter id="Apollo">...</filter>
+</svg>;
 ```
 
 </Framework>
