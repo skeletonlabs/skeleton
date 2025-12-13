@@ -1,6 +1,7 @@
 export * from './components/accordion/index.js';
 export * from './components/app-bar/index.js';
 export * from './components/avatar/index.js';
+export * from './components/carousel/index.js';
 export * from './components/collapsible/index.js';
 export * from './components/combobox/index.js';
 export * from './components/date-picker/index.js';
