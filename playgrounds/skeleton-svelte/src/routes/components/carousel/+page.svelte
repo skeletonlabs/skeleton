@@ -10,16 +10,20 @@
 	];
 </script>
 
-<Carousel slideCount={slides.length} autoplay={{ delay: 3000 }} loop>
+<!-- autoplay={{ delay: 3000 }} -->
+<Carousel slideCount={slides.length} loop>
 	<Carousel.Control>
-		<Carousel.PrevTrigger>Prev</Carousel.PrevTrigger>
-		<Carousel.AutoplayTrigger>Toggle Autoplay</Carousel.AutoplayTrigger>
-		<Carousel.NextTrigger>Next</Carousel.NextTrigger>
+		<Carousel.PrevTrigger class="btn-icon preset-filled">&larr;</Carousel.PrevTrigger>
+		<!-- <Carousel.AutoplayTrigger>Toggle Autoplay</Carousel.AutoplayTrigger> -->
+		<Carousel.NextTrigger class="btn-icon preset-filled">&rarr;</Carousel.NextTrigger>
 	</Carousel.Control>
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
 			<Carousel.Item index={i}>
-				{slide.description}
+				<div class="card bg-surface-100-900 p-4">
+					<header>{slide.title}</header>
+					<article>{slide.description}</article>
+				</div>
 			</Carousel.Item>
 		{/each}
 	</Carousel.ItemGroup>

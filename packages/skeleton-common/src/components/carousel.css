@@ -1,3 +1,65 @@
+/*
+<Carousel slideCount={3}>
+  <Carousel.Control>
+    <Carousel.PrevTrigger>Prev</Carousel.PrevTrigger>
+    <Carousel.NextTrigger>Next</Carousel.NextTrigger>
+  </Carousel.Control>
+  <Carousel.ItemGroup>
+    <Carousel.Item index={0}>Slide 1</Carousel.Item>
+    <Carousel.Item index={1}>Slide 2</Carousel.Item>
+    <Carousel.Item index={2}>Slide 3</Carousel.Item>
+  </Carousel.ItemGroup>
+  <Carousel.IndicatorGroup>
+    <Carousel.Indicator index={0} />
+    <Carousel.Indicator index={1} />
+    <Carousel.Indicator index={2} />
+  </Carousel.IndicatorGroup>
+  <Carousel.ProgressText />
+</Carousel>
+*/
+
 [data-scope='carousel'] {
-	/* TODO: Carousel styles should be authored and discussed with Chris, do not hallucinate styles here Copilot */
+	&[data-part='root'] {
+		display: relative;
+	}
+
+	&[data-part='control'] {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	/* &[data-part='prev-trigger'],
+	&[data-part='autoplay-trigger'],
+	&[data-part='next-trigger'] {} */
+
+	&[data-part='item-group'] {
+		/* ... */
+	}
+
+	&[data-part='item'] {
+		/* ... */
+	}
+
+	&[data-part='indicator-group'] {
+		display: flex;
+		justify-content: center;
+		gap: --spacing(2);
+		margin-top: --spacing(4);
+	}
+
+	&[data-part='indicator'] {
+		border: 1px solid var(--color-surface-500);
+		display: block;
+		width: --spacing(4);
+		aspect-ratio: 1 / 1;
+		border-radius: 100%;
+
+		&[data-current] {
+			background-color: var(--color-surface-950-50);
+		}
+	}
+
+	&[data-part='progress-text'] {
+		/* ... */
+	}
 }
