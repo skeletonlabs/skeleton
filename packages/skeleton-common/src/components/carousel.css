@@ -20,20 +20,32 @@
 
 [data-scope='carousel'] {
 	&[data-part='root'] {
-		display: relative;
+		position: relative;
 	}
 
 	&[data-part='control'] {
-		display: flex;
-		justify-content: space-between;
+		/* ... */
 	}
 
-	/* &[data-part='prev-trigger'],
-	&[data-part='autoplay-trigger'],
-	&[data-part='next-trigger'] {} */
+	&[data-part='prev-trigger'] {
+		position: absolute;
+		top: 0;
+		left: 0;
+		/* transform: translateY(50%); */
+	}
+
+	&[data-part='next-trigger'] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translateY(50%);
+	}
+
+	/* &[data-part='autoplay-trigger'] {} */
 
 	&[data-part='item-group'] {
-		/* ... */
+		display: flex;
+		gap: --spacing(4);
 	}
 
 	&[data-part='item'] {

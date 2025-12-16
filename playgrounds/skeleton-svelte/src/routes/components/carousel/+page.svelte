@@ -11,7 +11,7 @@
 </script>
 
 <!-- autoplay={{ delay: 3000 }} -->
-<Carousel slideCount={slides.length} loop>
+<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
 	<Carousel.Control>
 		<Carousel.PrevTrigger class="btn-icon preset-filled">&larr;</Carousel.PrevTrigger>
 		<!-- <Carousel.AutoplayTrigger>Toggle Autoplay</Carousel.AutoplayTrigger> -->
@@ -20,7 +20,7 @@
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
 			<Carousel.Item index={i}>
-				<div class="card bg-surface-100-900 p-4">
+				<div class="card bg-surface-100-900 p-4 h-full">
 					<header>{slide.title}</header>
 					<article>{slide.description}</article>
 				</div>
