@@ -1,36 +1,12 @@
-/*
-<Carousel slideCount={3}>
-  <Carousel.Control>
-    <Carousel.PrevTrigger>Prev</Carousel.PrevTrigger>
-    <Carousel.NextTrigger>Next</Carousel.NextTrigger>
-  </Carousel.Control>
-  <Carousel.ItemGroup>
-    <Carousel.Item index={0}>Slide 1</Carousel.Item>
-    <Carousel.Item index={1}>Slide 2</Carousel.Item>
-    <Carousel.Item index={2}>Slide 3</Carousel.Item>
-  </Carousel.ItemGroup>
-  <Carousel.IndicatorGroup>
-    <Carousel.Indicator index={0} />
-    <Carousel.Indicator index={1} />
-    <Carousel.Indicator index={2} />
-  </Carousel.IndicatorGroup>
-  <Carousel.ProgressText />
-</Carousel>
-*/
-
 [data-scope='carousel'] {
 	&[data-part='root'] {
 		position: relative;
 	}
 
-	&[data-part='control'] {
-		/* ... */
-	}
+	/* &[data-part='control'] {} */
 
 	/* &[data-part='prev-trigger'] {} */
-
 	/* &[data-part='next-trigger'] {} */
-
 	/* &[data-part='autoplay-trigger'] {} */
 
 	&[data-part='item-group'] {
@@ -38,9 +14,7 @@
 		gap: --spacing(4);
 	}
 
-	&[data-part='item'] {
-		/* ... */
-	}
+	/* &[data-part='item'] {} */
 
 	&[data-part='indicator-group'] {
 		display: flex;
@@ -61,7 +35,5 @@
 		}
 	}
 
-	&[data-part='progress-text'] {
-		/* ... */
-	}
+	/* &[data-part='progress-text'] {} */
 }
