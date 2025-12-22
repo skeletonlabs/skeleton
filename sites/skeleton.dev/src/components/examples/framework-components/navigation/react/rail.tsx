@@ -8,38 +8,37 @@ import { TvIcon } from 'lucide-react';
 
 export default function Default() {
 	const links = [
-		{ label: 'Home', href: '#', icon: HouseIcon },
-		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: PopcornIcon },
-		{ label: 'Television', href: '#', icon: TvIcon },
+		{ label: 'Home', href: '/#', icon: HouseIcon },
+		{ label: 'Books', href: '/#', icon: BookIcon },
+		{ label: 'Movies', href: '/#', icon: PopcornIcon },
+		{ label: 'Television', href: '/#', icon: TvIcon },
 	];
-	let anchorRail = 'btn hover:preset-tonal aspect-square w-full max-w-[84px] flex flex-col items-center gap-0.5';
 
 	return (
 		<div className="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
 			<Navigation layout="rail">
 				<Navigation.Header>
-					<a href="/" className={anchorRail} title="View Homepage" aria-label="View Homepage">
+					<Navigation.TriggerAnchor href="/" title="View Homepage" aria-label="View Homepage">
 						<SkullIcon className="size-8" />
-					</a>
+					</Navigation.TriggerAnchor>
 				</Navigation.Header>
 				<Navigation.Content>
 					<Navigation.Menu>
 						{links.map((link) => {
 							const Icon = link.icon;
 							return (
-								<a key={link.label} href={link.href} className={anchorRail}>
+								<Navigation.TriggerAnchor key={link.label} href={link.href}>
 									<Icon className="size-5" />
-									<span className="text-xs">{link.label}</span>
-								</a>
+									<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+								</Navigation.TriggerAnchor>
 							);
 						})}
 					</Navigation.Menu>
 				</Navigation.Content>
 				<Navigation.Footer>
-					<a href="#" className={anchorRail} title="Settings" aria-label="Settings">
+					<Navigation.TriggerAnchor href="#" title="Settings" aria-label="Settings">
 						<SettingsIcon className="size-5" />
-					</a>
+					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
 			<div className="flex justify-center items-center">

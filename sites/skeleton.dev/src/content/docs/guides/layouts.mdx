@@ -5,10 +5,14 @@ summary: Skeleton supports a variety of web-based frameworks and meta-frameworks
 order: 50
 ---
 
-import ColOne from '@/components/examples/guides/cookbook/layouts/col-one.astro';
-import ColThree from '@/components/examples/guides/cookbook/layouts/col-three.astro';
-import ColTwo from '@/components/examples/guides/cookbook/layouts/col-two.astro';
-import StickyHeader from '@/components/examples/guides/cookbook/layouts/sticky-header.astro';
+import ColOneReact from '@/components/examples/guides/cookbook/layouts/react/col-one';
+import ColThreeReact from '@/components/examples/guides/cookbook/layouts/react/col-three';
+import ColTwoReact from '@/components/examples/guides/cookbook/layouts/react/col-two';
+import StickyHeaderReact from '@/components/examples/guides/cookbook/layouts/react/sticky-header';
+import ColOneSvelte from '@/components/examples/guides/cookbook/layouts/svelte/col-one.svelte';
+import ColThreeSvelte from '@/components/examples/guides/cookbook/layouts/svelte/col-three.svelte';
+import ColTwoSvelte from '@/components/examples/guides/cookbook/layouts/svelte/col-two.svelte';
+import StickyHeaderSvelte from '@/components/examples/guides/cookbook/layouts/svelte/sticky-header.svelte';
 
 ## Real World Example
 
@@ -106,7 +110,12 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### One Column
 
-<ColOne />
+<Framework id="react">
+	<ColOneReact />
+</Framework>
+<Framework id="svelte">
+	<ColOneSvelte />
+</Framework>
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/3ayrvPnIC4" target="_blank">
@@ -116,7 +125,12 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### Two Column
 
-<ColTwo />
+<Framework id="react">
+	<ColTwoReact />
+</Framework>
+<Framework id="svelte">
+	<ColTwoSvelte />
+</Framework>
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/yCv0ZOICSx" target="_blank">
@@ -126,7 +140,12 @@ Let's start by creating traditional layouts using a combination of semantic HTML
 
 ### Three Column
 
-<ColThree />
+<Framework id="react">
+	<ColThreeReact />
+</Framework>
+<Framework id="svelte">
+	<ColThreeSvelte />
+</Framework>
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/BH0iosKxix" target="_blank">
@@ -148,7 +167,12 @@ For `<header>`, we'll implement a few specific utility classes:
 
 > TIP: Use [backdrop-blur](https://tailwindcss.com/docs/backdrop-blur) to produce the hazy glass-like effect for overlapped semi-transparent elements.
 
-<StickyHeader />
+<Framework id="react">
+	<StickyHeaderReact />
+</Framework>
+<Framework id="svelte">
+	<StickyHeaderSvelte />
+</Framework>
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://play.tailwindcss.com/g7ory5pA4K" target="_blank">

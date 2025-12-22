@@ -4,10 +4,14 @@ description: Learn how to integrate the native browser clipboard API.
 tags: ['native', 'programmatic']
 ---
 
-import Default from '@/components/examples/guides/cookbook/clipboard/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/clipboard/default.astro?raw';
-import Input from '@/components/examples/guides/cookbook/clipboard/input.astro';
-import InputRaw from '@/components/examples/guides/cookbook/clipboard/input.astro?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/clipboard/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/clipboard/react/default.tsx?raw';
+import InputReact from '@/components/examples/guides/cookbook/clipboard/react/input';
+import InputReactRaw from '@/components/examples/guides/cookbook/clipboard/react/input.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/clipboard/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/clipboard/svelte/default.svelte?raw';
+import InputSvelte from '@/components/examples/guides/cookbook/clipboard/svelte/input.svelte';
+import InputSvelteRaw from '@/components/examples/guides/cookbook/clipboard/svelte/input.svelte?raw';
 
 ## How It Works
 
@@ -15,12 +19,26 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 
 ## Programmatic
 
-<Preview framework="astro" files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Using Inputs
 
-<Preview framework="astro" files={{ 'app.astro': InputRaw }} client:visible>
-	<Input />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': InputReactRaw }} client:visible>
+		<InputReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InputSvelteRaw }} client:visible>
+		<InputSvelte client:visible />
+	</Preview>
+</Framework>

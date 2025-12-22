@@ -4,12 +4,21 @@ description: Implement a simple popup dialog using the native HTML element.
 tags: ['native', 'popover']
 ---
 
-import Default from '@/components/examples/guides/cookbook/dialog/default.astro';
-import DefaultRaw from '@/components/examples/guides/cookbook/dialog/default.astro?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/dialog/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/dialog/react/default.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/dialog/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/dialog/svelte/default.svelte?raw';
 
-<Preview framework="astro" files={{ 'app.astro': DefaultRaw }} client:visible>
-	<Default />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## How It Works
 

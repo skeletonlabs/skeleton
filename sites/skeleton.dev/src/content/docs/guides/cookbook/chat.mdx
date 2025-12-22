@@ -4,52 +4,97 @@ description: Create a custom chat feed or AI prompt interface.
 tags: ['blocks', 'machine learning']
 ---
 
-import Bubbles from '@/components/examples/guides/cookbook/chat/bubbles.astro';
-import BubblesRaw from '@/components/examples/guides/cookbook/chat/bubbles.astro?raw';
-import Columns from '@/components/examples/guides/cookbook/chat/columns.astro';
-import ColumnsRaw from '@/components/examples/guides/cookbook/chat/columns.astro?raw';
-import Default from '@/components/examples/guides/cookbook/chat/default.svelte';
-import DefaultRaw from '@/components/examples/guides/cookbook/chat/default.svelte?raw';
-import Feed from '@/components/examples/guides/cookbook/chat/feed.astro';
-import FeedRaw from '@/components/examples/guides/cookbook/chat/feed.astro?raw';
-import Rows from '@/components/examples/guides/cookbook/chat/rows.astro';
-import RowsRaw from '@/components/examples/guides/cookbook/chat/rows.astro?raw';
+import BubblesReact from '@/components/examples/guides/cookbook/chat/react/bubbles';
+import BubblesReactRaw from '@/components/examples/guides/cookbook/chat/react/bubbles.tsx?raw';
+import ColumnsReact from '@/components/examples/guides/cookbook/chat/react/columns';
+import ColumnsReactRaw from '@/components/examples/guides/cookbook/chat/react/columns.tsx?raw';
+import DefaultReact from '@/components/examples/guides/cookbook/chat/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/chat/react/default.tsx?raw';
+import FeedReact from '@/components/examples/guides/cookbook/chat/react/feed';
+import FeedReactRaw from '@/components/examples/guides/cookbook/chat/react/feed.tsx?raw';
+import RowsReact from '@/components/examples/guides/cookbook/chat/react/rows';
+import RowsReactRaw from '@/components/examples/guides/cookbook/chat/react/rows.tsx?raw';
+import BubblesSvelte from '@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte';
+import BubblesSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte?raw';
+import ColumnsSvelte from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte';
+import ColumnsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/chat/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/default.svelte?raw';
+import FeedSvelte from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte';
+import FeedSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte?raw';
+import RowsSvelte from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte';
+import RowsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte?raw';
 
-<Preview files={{ 'app.svelte': DefaultRaw }} client:visible>
-	<Default client:visible />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Layout Columns
 
 Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
-<Preview files={{ 'app.astro': ColumnsRaw }} client:visible>
-	<Columns />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ColumnsReactRaw }} client:visible>
+		<ColumnsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ColumnsSvelteRaw }} client:visible>
+		<ColumnsSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Layout Rows
 
 Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
-<Preview files={{ 'app.astro': RowsRaw }} client:visible>
-	<Rows />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': RowsReactRaw }} client:visible>
+		<RowsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': RowsSvelteRaw }} client:visible>
+		<RowsSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Message Feed
 
 The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
-<Preview files={{ 'app.astro': FeedRaw }} client:visible>
-	<Feed />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FeedReactRaw }} client:visible>
+		<FeedReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FeedSvelteRaw }} client:visible>
+		<FeedSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Message Bubbles
 
 Provide styling to each bubble element.
 
-<Preview files={{ 'app.astro': BubblesRaw }} client:visible>
-	<Bubbles />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': BubblesReactRaw }} client:visible>
+		<BubblesReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': BubblesSvelteRaw }} client:visible>
+		<BubblesSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Prompt
 
