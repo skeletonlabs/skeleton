@@ -9,14 +9,14 @@ catalog:
   '@astrojs/partytown': 2.1.4
   '@astrojs/react': 4.4.2
   '@astrojs/sitemap': 3.6.0
-  '@astrojs/svelte': 7.2.3
+  '@astrojs/svelte': 7.2.4
   '@astrojs/vercel': 9.0.2
   '@changesets/cli': 2.29.8
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.1.0
   '@floating-ui/dom': 1.7.4
-  '@internationalized/date': 3.10.0
-  '@lucide/svelte': 0.561.0
+  '@internationalized/date': 3.10.1
+  '@lucide/svelte': 0.562.0
   '@playwright/test': 1.57.0
   '@prettier/plugin-oxc': 0.1.3
   '@resvg/resvg-js': 2.6.2
@@ -33,22 +33,22 @@ catalog:
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
-  '@tailwindcss/forms': 0.5.10
+  '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.1.18
-  '@tanstack/react-router': 1.141.1
-  '@tanstack/react-start': 1.141.1
-  '@tanstack/router-cli': 1.141.1
+  '@tanstack/react-router': 1.141.6
+  '@tanstack/react-start': 1.141.7
+  '@tanstack/router-cli': 1.141.7
   '@trivago/prettier-plugin-sort-imports': 6.0.0
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
   '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
-  '@types/node': 24.10.3
+  '@types/node': 24.10.4
   '@types/react': 19.2.7
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.1.2
-  '@vitest/browser-playwright': 4.0.15
+  '@vitest/browser-playwright': 4.0.16
   '@zag-js/accordion': 1.31.1
   '@zag-js/avatar': 1.31.1
   '@zag-js/collapsible': 1.31.1
@@ -76,7 +76,7 @@ catalog:
   '@zag-js/toggle-group': 1.31.1
   '@zag-js/tooltip': 1.31.1
   '@zag-js/tree-view': 1.31.1
-  astro: 5.16.5
+  astro: 5.16.6
   astro-auto-import: 0.4.5
   astro-pagefind: 1.8.5
   astro-seo: 0.8.4
@@ -89,7 +89,7 @@ catalog:
   fuse.js: 7.1.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
-  lucide-react: 0.561.0
+  lucide-react: 0.562.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.2
   mdast-util-gfm: 3.1.0
@@ -99,33 +99,33 @@ catalog:
   nanoid: 5.1.6
   node-html-parser: 7.0.1
   octokit: 5.0.5
-  oxc-resolver: 11.15.0
-  oxlint: 1.32.0
-  oxlint-tsgolint: 0.8.6
+  oxc-resolver: 11.16.0
+  oxlint: 1.34.0
+  oxlint-tsgolint: 0.9.2
   package-manager-detector: 1.6.0
   playwright: 1.57.0
   postcss: 8.5.6
   prettier: 3.7.4
   prettier-plugin-astro: 0.14.1
-  prettier-plugin-svelte: 3.4.0
+  prettier-plugin-svelte: 3.4.1
   react: 19.2.3
   react-dom: 19.2.3
   satori: 0.18.3
   semver: 7.7.3
   sharp: 0.34.5
   shiki: 3.20.0
-  svelte: 5.45.10
+  svelte: 5.46.0
   svelte-check: 4.3.4
   tailwindcss: 4.1.18
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
-  tsdown: 0.17.2
+  tsdown: 0.18.1
   type-fest: 5.3.1
   typescript: 5.9.3
   unist-util-visit: 5.0.0
-  vite: 7.2.7
+  vite: 7.3.0
   vite-plugin-transform-lucide-imports: 0.3.0
-  vitest: 4.0.15
+  vitest: 4.0.16
   vitest-browser-react: 2.0.2
   vitest-browser-svelte: 2.0.1
   zimmerframe: 1.1.4
