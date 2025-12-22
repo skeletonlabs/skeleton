@@ -148,8 +148,8 @@ catalogs:
       specifier: 1.31.1
       version: 1.31.1
     '@zag-js/carousel':
-      specifier: 1.31.0
-      version: 1.31.0
+      specifier: 1.31.1
+      version: 1.31.1
     '@zag-js/collapsible':
       specifier: 1.31.1
       version: 1.31.1
@@ -531,7 +531,7 @@ importers:
         version: 1.31.1
       '@zag-js/carousel':
         specifier: 'catalog:'
-        version: 1.31.0
+        version: 1.31.1
       '@zag-js/collapsible':
         specifier: 'catalog:'
         version: 1.31.1
@@ -655,7 +655,7 @@ importers:
         version: 1.31.1
       '@zag-js/carousel':
         specifier: 'catalog:'
-        version: 1.31.0
+        version: 1.31.1
       '@zag-js/collapsible':
         specifier: 'catalog:'
         version: 1.31.1
@@ -3425,9 +3425,6 @@ packages:
   '@zag-js/accordion@1.31.1':
     resolution: {integrity: sha512-3sGi4EZpGBz/O1IVkk9dzzWzP5vVVOj4Li6C+jHOnrgaWPouA/mBTP5L9HEL8qtFsECFZwpNo486eqiCmeHoGw==}
 
-  '@zag-js/anatomy@1.31.0':
-    resolution: {integrity: sha512-wmd67ABav3IYJKJDA6dnHzUrjJWUYYaRYjdg1UeJbecENoRLiVWTQmp+cXbU08q7Cdj0Cf2nrd0+3zajAP77Vg==}
-
   '@zag-js/anatomy@1.31.1':
     resolution: {integrity: sha512-BhIhf3Q0tRA0Jugd7AJfUBzeAb/iATBsw7KyYThMGcPWmrWssL7KWr5AB6RufzGKU7+DCb1QEhlqd4NSOJaYxQ==}
 
@@ -3440,8 +3437,8 @@ packages:
   '@zag-js/avatar@1.31.1':
     resolution: {integrity: sha512-Grosi2hRn4wfDYlPd8l+d4GCIFMsoj6ZFqii+1k14AqTDiCUJ/J0jCvOrRHkvkpEqektjuSD7e/GCX+yawqkuQ==}
 
-  '@zag-js/carousel@1.31.0':
-    resolution: {integrity: sha512-y/SThErOQ7QXFLgorZw3AWjr52Iafdq+dXhxCMkldsjvT+3M6Zs27cw1++/mW9kp6O5ofOIX4xAQR8Bx3h+2jg==}
+  '@zag-js/carousel@1.31.1':
+    resolution: {integrity: sha512-228Ol86G/lg8crcomy5cALkUYdOHCHcvJnSOQzeUj80JNjlELzrjBpaAj4lx8dZocfwou2Sg4NyZJ+mISSc+Dg==}
 
   '@zag-js/collapsible@1.31.1':
     resolution: {integrity: sha512-eCC5G6bBZUwF8z2XULQXUNRxqte9I2Sv+WJ2brycPn1a68uYD76RzFBmLQ2er95VbshUdeo8nRuX8MooAFuYzg==}
@@ -3451,9 +3448,6 @@ packages:
 
   '@zag-js/combobox@1.31.1':
     resolution: {integrity: sha512-IT0getSAGzngdRL20iX/iAh2d7DzVoMDDppOsOFBG2owKAgLpj8uLvUhy+lcrm6N8yxYOya89D6Aef7V5KdwlQ==}
-
-  '@zag-js/core@1.31.0':
-    resolution: {integrity: sha512-P/5ln24l5ULCThelRkFbwUgn/v0yXs7heXiSLooajGDzBrJeftDWbsHyre5GxXjz+XYoyui7jqj888BTZY2eKA==}
 
   '@zag-js/core@1.31.1':
     resolution: {integrity: sha512-RaMJeqtjxG6k7iFD3WQnlyFJVT3yfQN+pJygAHH37GsMtiNzQQJOoesjb0LV9T27jwMXeNUzrh3MSDr1/0yVcQ==}
@@ -3473,9 +3467,6 @@ packages:
 
   '@zag-js/dismissable@1.31.1':
     resolution: {integrity: sha512-jCdJwQmEkG6PlrN13fUk2l7ZclSu54FZwmT4xOtQpEbaiAiESm5KI5oyFh5jDPY47Goa28UJkEjWXVgKXKWb0g==}
-
-  '@zag-js/dom-query@1.31.0':
-    resolution: {integrity: sha512-3bGXNU+Kk8/7+fgbTj0odvnrh3/vjaUx18jjQqx+Optgh4zl1RwTjjhAzx57TCwdNczgbuUByYSwojJaC0b7vA==}
 
   '@zag-js/dom-query@1.31.1':
     resolution: {integrity: sha512-2tCZLwSfoXm62gwl0neiAN6u5VnzUhy5wHtKbX+klqGFatnca3Bm++H9+4PHMrwUWRbPg3H5N151lKFEOQhBfQ==}
@@ -3540,8 +3531,8 @@ packages:
   '@zag-js/remove-scroll@1.31.1':
     resolution: {integrity: sha512-gVVJuFKaCjo652RmajYmkjXKgjJWLQ5ZhZLTaLUKWM1mAarvlqnLui8jrHEHLxqpfsjQylfdhJKkWmyF8NAgTA==}
 
-  '@zag-js/scroll-snap@1.31.0':
-    resolution: {integrity: sha512-ClwQ2EiGdKGMG/pZXZd6K3PueceRjeiLX0GVSt6UCoirIIoUHxtG34lPh7Olrp8/k2LG0omcbCnrfcTPgIJrGQ==}
+  '@zag-js/scroll-snap@1.31.1':
+    resolution: {integrity: sha512-YWsfhcQqiffu2X9HuB0fMnEQAu6rEOfGcvQYinvB6pjWPOvIJGxGMi/dYyy21XQDNJ9K1IcWRIo/yuaajoJyQQ==}
 
   '@zag-js/slider@1.31.1':
     resolution: {integrity: sha512-FILbLTMd3BnyclZ28+ippfyqzYPGK60qZapxtTERmWDC75Okf8AFnTCQf84Y8jRmBKCS1yhjF+IOtkFAENeB6w==}
@@ -3578,14 +3569,8 @@ packages:
   '@zag-js/tree-view@1.31.1':
     resolution: {integrity: sha512-Q+VSQz7X1XR8gT7ICWXlQOJIvzTWw/9BlF7B073UpEgAKRFlD11FmERka5y/BYqj8uE0vazcbSEA3Vc2dgCMJA==}
 
-  '@zag-js/types@1.31.0':
-    resolution: {integrity: sha512-Mi2/5g3xAWq/DRUVVUJtnBpmMwfnv12H2l6WPJJG6cb1mFzrvggnYrHFwpdLCwHI4LO6yWUF/1mxEcIAPKFxMQ==}
-
   '@zag-js/types@1.31.1':
     resolution: {integrity: sha512-mKw5DoeBjFykfUHv3ifCRjcogFTqp0aCCsmqQMfnf+J/mg2aXpAx76AXT1PYXAVVhxdP6qGXNd0mOQZDVrIlSQ==}
-
-  '@zag-js/utils@1.31.0':
-    resolution: {integrity: sha512-5vtFhzGv+U6NXQUYHZiJyvuM/W+xcHxHovtKZy1/KwoDjBDer46ktb9DGA8nImXSSrq8ibHXwvRGtwBsD1SaIw==}
 
   '@zag-js/utils@1.31.1':
     resolution: {integrity: sha512-KLm0pmOtf4ydALbaVLboL7W98TDVxwVVLvSuvtRgV53XTjlsVopTRA5/Xmzq2NhWujDZAXv7bRV603NDgDcjSw==}
@@ -8836,8 +8821,6 @@ snapshots:
       '@zag-js/types': 1.31.1
       '@zag-js/utils': 1.31.1
 
-  '@zag-js/anatomy@1.31.0': {}
-
   '@zag-js/anatomy@1.31.1': {}
 
   '@zag-js/aria-hidden@1.31.1':
@@ -8856,14 +8839,14 @@ snapshots:
       '@zag-js/types': 1.31.1
       '@zag-js/utils': 1.31.1
 
-  '@zag-js/carousel@1.31.0':
+  '@zag-js/carousel@1.31.1':
     dependencies:
-      '@zag-js/anatomy': 1.31.0
-      '@zag-js/core': 1.31.0
-      '@zag-js/dom-query': 1.31.0
-      '@zag-js/scroll-snap': 1.31.0
-      '@zag-js/types': 1.31.0
-      '@zag-js/utils': 1.31.0
+      '@zag-js/anatomy': 1.31.1
+      '@zag-js/core': 1.31.1
+      '@zag-js/dom-query': 1.31.1
+      '@zag-js/scroll-snap': 1.31.1
+      '@zag-js/types': 1.31.1
+      '@zag-js/utils': 1.31.1
 
   '@zag-js/collapsible@1.31.1':
     dependencies:
@@ -8888,11 +8871,6 @@ snapshots:
       '@zag-js/popper': 1.31.1
       '@zag-js/types': 1.31.1
       '@zag-js/utils': 1.31.1
-
-  '@zag-js/core@1.31.0':
-    dependencies:
-      '@zag-js/dom-query': 1.31.0
-      '@zag-js/utils': 1.31.0
 
   '@zag-js/core@1.31.1':
     dependencies:
@@ -8933,10 +8911,6 @@ snapshots:
       '@zag-js/dom-query': 1.31.1
       '@zag-js/interact-outside': 1.31.1
       '@zag-js/utils': 1.31.1
-
-  '@zag-js/dom-query@1.31.0':
-    dependencies:
-      '@zag-js/types': 1.31.0
 
   '@zag-js/dom-query@1.31.1':
     dependencies:
@@ -9074,9 +9048,9 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 1.31.1
 
-  '@zag-js/scroll-snap@1.31.0':
+  '@zag-js/scroll-snap@1.31.1':
     dependencies:
-      '@zag-js/dom-query': 1.31.0
+      '@zag-js/dom-query': 1.31.1
 
   '@zag-js/slider@1.31.1':
     dependencies:
@@ -9169,15 +9143,9 @@ snapshots:
       '@zag-js/types': 1.31.1
       '@zag-js/utils': 1.31.1
 
-  '@zag-js/types@1.31.0':
-    dependencies:
-      csstype: 3.2.3
-
   '@zag-js/types@1.31.1':
     dependencies:
       csstype: 3.2.3
-
-  '@zag-js/utils@1.31.0': {}
 
   '@zag-js/utils@1.31.1': {}
 
