@@ -1,7 +1,13 @@
 [data-scope='carousel'] {
 	&[data-part='root'] {
 		position: relative;
-		width: 100%;
+
+		:has(> [data-orientation='horizontal']) & {
+			width: 100%;
+		}
+		:has(> [data-orientation='vertical']) & {
+			height: 100%;
+		}
 	}
 
 	/* &[data-part='control'] {} */
@@ -13,6 +19,13 @@
 	&[data-part='item-group'] {
 		display: flex;
 		gap: --spacing(4);
+
+		:has(> [data-orientation='horizontal']) & {
+			flex-direction: row;
+		}
+		:has(> [data-orientation='vertical']) & {
+			flex-direction: column;
+		}
 	}
 
 	/* &[data-part='item'] {} */

@@ -15,7 +15,7 @@ const slides = [
 
 export default function Overlap() {
 	return (
-		<Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" loop>
+		<Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" autoSize loop>
 			<div className="relative">
 				<Carousel.Control>
 					<Carousel.PrevTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">

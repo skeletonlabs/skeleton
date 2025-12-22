@@ -23,39 +23,21 @@ const slides = [
 function Page() {
 	return (
 		<div className="space-y-10">
-			<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
-				<Carousel.Control className="flex justify-between mb-4">
-					<Carousel.PrevTrigger className="btn preset-filled">
-						<span>&larr;</span>
-						<span>Back</span>
-					</Carousel.PrevTrigger>
-					<Carousel.AutoplayTrigger className="btn preset-filled">Toggle Autoplay</Carousel.AutoplayTrigger>
-					<Carousel.NextTrigger className="btn preset-filled">
-						<span>Next</span>
-						<span>&rarr;</span>
-					</Carousel.NextTrigger>
-				</Carousel.Control>
-				<Carousel.ItemGroup>
-					{slides.map((slide, i) => (
-						<Carousel.Item index={i} key={i} className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
-							{slide.title}
-						</Carousel.Item>
-					))}
-				</Carousel.ItemGroup>
-				<Carousel.IndicatorGroup>
-					<Carousel.Context>
-						{(carousel) => carousel.pageSnapPoints.map((_, i) => <Carousel.Indicator key={i} index={i} />)}
-					</Carousel.Context>
-				</Carousel.IndicatorGroup>
-			</Carousel>
+			<header>
+				<h1 className="h1">Carousel</h1>
+			</header>
 
-			<Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" loop>
-				<div className="relative">
-					<Carousel.Control>
-						<Carousel.PrevTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
+			<section className="space-y-4">
+				<h2 className="h2">Default</h2>
+				<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
+					<Carousel.Control className="flex justify-between mb-4">
+						<Carousel.PrevTrigger className="btn preset-filled">
 							<span>&larr;</span>
+							<span>Back</span>
 						</Carousel.PrevTrigger>
-						<Carousel.NextTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]">
+						<Carousel.AutoplayTrigger className="btn preset-tonal">Toggle Autoplay</Carousel.AutoplayTrigger>
+						<Carousel.NextTrigger className="btn preset-filled">
+							<span>Next</span>
 							<span>&rarr;</span>
 						</Carousel.NextTrigger>
 					</Carousel.Control>
@@ -66,13 +48,74 @@ function Page() {
 							</Carousel.Item>
 						))}
 					</Carousel.ItemGroup>
-				</div>
-				<Carousel.IndicatorGroup>
-					<Carousel.Context>
-						{(carousel) => carousel.pageSnapPoints.map((_, i) => <Carousel.Indicator key={i} index={i} />)}
-					</Carousel.Context>
-				</Carousel.IndicatorGroup>
-			</Carousel>
+					<Carousel.IndicatorGroup>
+						<Carousel.Context>
+							{(carousel) => carousel.pageSnapPoints.map((_, i) => <Carousel.Indicator key={i} index={i} />)}
+						</Carousel.Context>
+					</Carousel.IndicatorGroup>
+				</Carousel>
+			</section>
+
+			<section className="space-y-4">
+				<h2 className="h2">Overlap</h2>
+				<Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" autoSize loop>
+					<div className="relative">
+						<Carousel.Control>
+							<Carousel.PrevTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
+								<span>&larr;</span>
+							</Carousel.PrevTrigger>
+							<Carousel.NextTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]">
+								<span>&rarr;</span>
+							</Carousel.NextTrigger>
+						</Carousel.Control>
+						<Carousel.ItemGroup>
+							{slides.map((slide, i) => (
+								<Carousel.Item
+									index={i}
+									key={i}
+									className="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center"
+								>
+									{slide.title}
+								</Carousel.Item>
+							))}
+						</Carousel.ItemGroup>
+					</div>
+					<Carousel.IndicatorGroup>
+						<Carousel.Context>
+							{(carousel) => carousel.pageSnapPoints.map((_, i) => <Carousel.Indicator key={i} index={i} />)}
+						</Carousel.Context>
+					</Carousel.IndicatorGroup>
+				</Carousel>
+			</section>
+
+			<section className="space-y-4">
+				<h2 className="h2">Orientation</h2>
+				<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop orientation="vertical" autoSize>
+					<Carousel.Control className="flex justify-between mb-4">
+						<Carousel.PrevTrigger className="btn preset-filled">
+							<span>&larr;</span>
+							<span>Back</span>
+						</Carousel.PrevTrigger>
+						<Carousel.AutoplayTrigger className="btn preset-tonal">Toggle Autoplay</Carousel.AutoplayTrigger>
+						<Carousel.NextTrigger className="btn preset-filled">
+							<span>Next</span>
+							<span>&rarr;</span>
+						</Carousel.NextTrigger>
+					</Carousel.Control>
+					<Carousel.ItemGroup className="h-80">
+						{slides.map((slide, i) => (
+							<Carousel.Item index={i} key={i} className="card bg-surface-100-900 h-32 p-4 flex justify-center items-center">
+								{slide.title}
+							</Carousel.Item>
+						))}
+					</Carousel.ItemGroup>
+					<Carousel.IndicatorGroup>
+						<Carousel.Context>
+							{(carousel) => carousel.pageSnapPoints.map((_, i) => <Carousel.Indicator key={i} index={i} />)}
+						</Carousel.Context>
+					</Carousel.IndicatorGroup>
+				</Carousel>
+			</section>
 		</div>
 	);
 }
