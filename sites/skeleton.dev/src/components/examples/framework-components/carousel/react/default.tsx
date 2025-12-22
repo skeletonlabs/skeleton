@@ -29,10 +29,8 @@ export default function Default() {
 			</Carousel.Control>
 			<Carousel.ItemGroup>
 				{slides.map((slide, i) => (
-					<Carousel.Item index={i} key={i}>
-						<div className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
-							<span>{slide.title}</span>
-						</div>
+					<Carousel.Item index={i} key={i} className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
+						{slide.title}
 					</Carousel.Item>
 				))}
 			</Carousel.ItemGroup>

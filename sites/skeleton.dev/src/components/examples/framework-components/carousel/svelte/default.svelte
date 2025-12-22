@@ -29,10 +29,8 @@
 	</Carousel.Control>
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
-			<Carousel.Item index={i}>
-				<div class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
-					<span>{slide.title}</span>
-				</div>
+			<Carousel.Item index={i} class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
+				{slide.title}
 			</Carousel.Item>
 		{/each}
 	</Carousel.ItemGroup>

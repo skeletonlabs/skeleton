@@ -1,6 +1,7 @@
 [data-scope='carousel'] {
 	&[data-part='root'] {
 		position: relative;
+		width: 100%;
 	}
 
 	/* &[data-part='control'] {} */

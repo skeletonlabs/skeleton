@@ -18,19 +18,17 @@
 <Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" loop>
 	<div class="relative">
 		<Carousel.Control>
-			<Carousel.PrevTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] left-4 translate-y-[-50%]">
+			<Carousel.PrevTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
 				<span>&larr;</span>
 			</Carousel.PrevTrigger>
-			<Carousel.NextTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] right-4 translate-y-[-50%]">
+			<Carousel.NextTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]">
 				<span>&rarr;</span>
 			</Carousel.NextTrigger>
 		</Carousel.Control>
 		<Carousel.ItemGroup>
 			{#each slides as slide, i}
-				<Carousel.Item index={i}>
-					<div class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
-						<span>{slide.title}</span>
-					</div>
+				<Carousel.Item index={i} class="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center">
+					{slide.title}
 				</Carousel.Item>
 			{/each}
 		</Carousel.ItemGroup>
