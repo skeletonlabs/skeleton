@@ -12,6 +12,11 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/carouse
 import OverlapSvelte from '@/components/examples/framework-components/carousel/svelte/overlap.svelte';
 import OverlapSvelteRaw from '@/components/examples/framework-components/carousel/svelte/overlap.svelte?raw';
 
+import OrientationReactRaw from '@/components/examples/framework-components/carousel/react/orientation?raw';
+import OrientationReact from '@/components/examples/framework-components/carousel/react/orientation';
+import OrientationSvelteRaw from '@/components/examples/framework-components/carousel/svelte/orientation.svelte?raw';
+import OrientationSvelte from '@/components/examples/framework-components/carousel/svelte/orientation.svelte';
+
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -37,6 +42,21 @@ Introduce supporting elements and styles to implement this variation.
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': OverlapSvelteRaw }} client:visible>
 		<OverlapSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Orientation
+
+Apply `orientation="vertical"` on the root, and apply a set height on the `<Carousel.ItemGroup>`.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
+		<OrientationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+		<OrientationSvelte client:visible />
 	</Preview>
 </Framework>
 
