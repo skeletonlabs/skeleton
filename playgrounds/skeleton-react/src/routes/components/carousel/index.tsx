@@ -38,7 +38,7 @@ function Page() {
 				<Carousel.ItemGroup>
 					{slides.map((slide, i) => (
 						<Carousel.Item index={i} key={i}>
-							<div className="card bg-surface-100-900 h-[200px] p-4 flex justify-center items-center">
+							<div className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
 								<span>{slide.title}</span>
 							</div>
 						</Carousel.Item>
@@ -64,7 +64,7 @@ function Page() {
 					<Carousel.ItemGroup>
 						{slides.map((slide, i) => (
 							<Carousel.Item index={i} key={i}>
-								<div className="card bg-surface-100-900 h-[200px] p-4 flex justify-center items-center">
+								<div className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
 									<span>{slide.title}</span>
 								</div>
 							</Carousel.Item>

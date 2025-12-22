@@ -31,7 +31,7 @@
 		<Carousel.ItemGroup>
 			{#each slides as slide, i}
 				<Carousel.Item index={i}>
-					<div class="card bg-surface-100-900 h-[200px] p-4 flex justify-center items-center">
+					<div class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
 						<span>{slide.title}</span>
 					</div>
 				</Carousel.Item>
@@ -61,7 +61,7 @@
 			<Carousel.ItemGroup>
 				{#each slides as slide, i}
 					<Carousel.Item index={i}>
-						<div class="card bg-surface-100-900 h-[200px] p-4 flex justify-center items-center">
+						<div class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
 							<span>{slide.title}</span>
 						</div>
 					</Carousel.Item>

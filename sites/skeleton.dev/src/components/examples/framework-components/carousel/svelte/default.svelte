@@ -2,30 +2,47 @@
 	import { Carousel } from '@skeletonlabs/skeleton-svelte';
 
 	const slides = [
-		{ title: 'Slide 1', description: 'First slide showcasing carousel basics.' },
-		{ title: 'Slide 2', description: 'Second slide with different content.' },
-		{ title: 'Slide 3', description: 'Third slide demonstrating navigation.' },
+		{ title: 'Slide 1' },
+		{ title: 'Slide 2' },
+		{ title: 'Slide 3' },
+		{ title: 'Slide 4' },
+		{ title: 'Slide 5' },
+		{ title: 'Slide 6' },
+		{ title: 'Slide 7' },
+		{ title: 'Slide 8' },
+		{ title: 'Slide 9' },
+		{ title: 'Slide 10' },
 	];
 </script>
 
-<Carousel slideCount={slides.length}>
-	<Carousel.Control>
-		<Carousel.PrevTrigger class="btn preset-filled">Prev</Carousel.PrevTrigger>
-		<Carousel.NextTrigger class="btn preset-filled">Next</Carousel.NextTrigger>
+<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
+	<Carousel.Control class="flex justify-between mb-4">
+		<Carousel.PrevTrigger class="btn preset-filled">
+			<span>&larr;</span>
+			<span>Back</span>
+		</Carousel.PrevTrigger>
+		<Carousel.AutoplayTrigger class="btn preset-tonal">Toggle Autoplay</Carousel.AutoplayTrigger>
+		<Carousel.NextTrigger class="btn preset-filled">
+			<span>Next</span>
+			<span>&rarr;</span>
+		</Carousel.NextTrigger>
 	</Carousel.Control>
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
-			<Carousel.Item index={i} class="min-w-full">
-				<div class="card p-8 text-center">
-					<h3 class="text-lg font-bold">{slide.title}</h3>
-					<p class="text-surface-600-400">{slide.description}</p>
+			<Carousel.Item index={i}>
+				<div class="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
+					<span>{slide.title}</span>
 				</div>
 			</Carousel.Item>
 		{/each}
 	</Carousel.ItemGroup>
-	<Carousel.IndicatorGroup class="mt-4 flex justify-center">
-		{#each slides as _, i}
-			<Carousel.Indicator index={i} />
-		{/each}
+	<Carousel.IndicatorGroup>
+		<Carousel.Context>
+			{#snippet children(carousel)}
+				{#each carousel().pageSnapPoints, index}
+					<Carousel.Indicator {index} />
+				{/each}
+			{/snippet}
+		</Carousel.Context>
 	</Carousel.IndicatorGroup>
 </Carousel>

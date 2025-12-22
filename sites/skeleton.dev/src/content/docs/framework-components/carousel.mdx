@@ -5,8 +5,12 @@ description: Navigate through a collection of slides with controls and indicator
 
 import DefaultReact from '@/components/examples/framework-components/carousel/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/carousel/react/default?raw';
+import OverlapReact from '@/components/examples/framework-components/carousel/react/overlap';
+import OverlapReactRaw from '@/components/examples/framework-components/carousel/react/overlap?raw';
 import DefaultSvelte from '@/components/examples/framework-components/carousel/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/carousel/svelte/default.svelte?raw';
+import OverlapSvelte from '@/components/examples/framework-components/carousel/svelte/overlap.svelte';
+import OverlapSvelteRaw from '@/components/examples/framework-components/carousel/svelte/overlap.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -16,6 +20,21 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/carouse
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Overlapping Controls
+
+Introduce supporting elements and styles to implement this variation.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OverlapReactRaw }} client:visible>
+		<OverlapReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OverlapSvelteRaw }} client:visible>
+		<OverlapSvelte client:visible />
 	</Preview>
 </Framework>
 
