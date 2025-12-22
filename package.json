@@ -37,7 +37,7 @@
 	},
 	"engines": {
 		"node": "24.x",
-		"pnpm": "10.25.0"
+		"pnpm": "10.26.1"
 	},
-	"packageManager": "pnpm@10.25.0"
+	"packageManager": "pnpm@10.26.1"
 }
