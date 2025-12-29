@@ -21,7 +21,7 @@ export default function Default() {
 					<span>&larr;</span>
 					<span>Back</span>
 				</Carousel.PrevTrigger>
-				<Carousel.AutoplayTrigger className="btn preset-filled">Toggle Autoplay</Carousel.AutoplayTrigger>
+				<Carousel.AutoplayTrigger className="btn preset-tonal">Toggle Autoplay</Carousel.AutoplayTrigger>
 				<Carousel.NextTrigger className="btn preset-filled">
 					<span>Next</span>
 					<span>&rarr;</span>

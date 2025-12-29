@@ -37,7 +37,7 @@
 	<Carousel.IndicatorGroup>
 		<Carousel.Context>
 			{#snippet children(carousel)}
-				{#each carousel().pageSnapPoints, index}
+				{#each carousel().pageSnapPoints as _, index}
 					<Carousel.Indicator {index} />
 				{/each}
 			{/snippet}
