@@ -27,7 +27,7 @@ export default function Overlap() {
 				</Carousel.Control>
 				<Carousel.ItemGroup>
 					{slides.map((slide, i) => (
-						<Carousel.Item index={i} key={i} className="card bg-surface-100-900 h-50 p-4 flex justify-center items-center">
+						<Carousel.Item index={i} key={i} className="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center">
 							{slide.title}
 						</Carousel.Item>
 					))}

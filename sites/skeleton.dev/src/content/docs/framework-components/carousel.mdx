@@ -10,12 +10,16 @@ import OrientationReact from '@/components/examples/framework-components/carouse
 import OrientationReactRaw from '@/components/examples/framework-components/carousel/react/orientation?raw';
 import OverlapReact from '@/components/examples/framework-components/carousel/react/overlap';
 import OverlapReactRaw from '@/components/examples/framework-components/carousel/react/overlap?raw';
+import TextReact from '@/components/examples/framework-components/carousel/react/text';
+import TextReactRaw from '@/components/examples/framework-components/carousel/react/text?raw';
 import DefaultSvelte from '@/components/examples/framework-components/carousel/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/carousel/svelte/default.svelte?raw';
 import OrientationSvelte from '@/components/examples/framework-components/carousel/svelte/orientation.svelte';
 import OrientationSvelteRaw from '@/components/examples/framework-components/carousel/svelte/orientation.svelte?raw';
 import OverlapSvelte from '@/components/examples/framework-components/carousel/svelte/overlap.svelte';
 import OverlapSvelteRaw from '@/components/examples/framework-components/carousel/svelte/overlap.svelte?raw';
+import TextSvelte from '@/components/examples/framework-components/carousel/svelte/text.svelte';
+import TextSvelteRaw from '@/components/examples/framework-components/carousel/svelte/text.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -57,6 +61,21 @@ Apply `orientation="vertical"` on the root, and apply a set height on the `<Caro
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
 		<OrientationSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Text
+
+Display a text display of the carousel state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': TextReactRaw }} client:visible>
+		<TextReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': TextSvelteRaw }} client:visible>
+		<TextSvelte client:visible />
 	</Preview>
 </Framework>
 
