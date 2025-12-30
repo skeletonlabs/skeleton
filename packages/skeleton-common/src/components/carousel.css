@@ -1,7 +1,5 @@
 [data-scope='carousel'] {
 	&[data-part='root'] {
-		position: relative;
-
 		:has(> [data-orientation='horizontal']) & {
 			width: 100%;
 		}
