@@ -1,5 +1,18 @@
 # @skeletonlabs/skeleton-react
 
+## 4.9.0
+
+### Minor Changes
+
+- feature `Carousel` component ([#4218](https://github.com/skeletonlabs/skeleton/pull/4218))
+
+### Patch Changes
+
+- task: bump zag ([#4232](https://github.com/skeletonlabs/skeleton/pull/4232))
+
+- Updated dependencies [[`02c9bd1`](https://github.com/skeletonlabs/skeleton/commit/02c9bd1b6b9520583212b3e2db1e79ce495f3672)]:
+  - @skeletonlabs/skeleton-common@4.9.0
+
 ## 4.8.0
 
 ### Minor Changes
