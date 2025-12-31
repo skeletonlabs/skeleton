@@ -147,6 +147,9 @@ catalogs:
     '@zag-js/avatar':
       specifier: 1.31.1
       version: 1.31.1
+    '@zag-js/carousel':
+      specifier: 1.31.1
+      version: 1.31.1
     '@zag-js/collapsible':
       specifier: 1.31.1
       version: 1.31.1
@@ -526,6 +529,9 @@ importers:
       '@zag-js/avatar':
         specifier: 'catalog:'
         version: 1.31.1
+      '@zag-js/carousel':
+        specifier: 'catalog:'
+        version: 1.31.1
       '@zag-js/collapsible':
         specifier: 'catalog:'
         version: 1.31.1
@@ -645,6 +651,9 @@ importers:
         specifier: 'catalog:'
         version: 1.31.1
       '@zag-js/avatar':
+        specifier: 'catalog:'
+        version: 1.31.1
+      '@zag-js/carousel':
         specifier: 'catalog:'
         version: 1.31.1
       '@zag-js/collapsible':
@@ -3254,8 +3263,8 @@ packages:
   '@types/node@18.19.130':
     resolution: {integrity: sha512-GRaXQx6jGfL8sKfaIDD6OupbIHBr9jv7Jnaml9tB7l4v068PAOXqfcujMMo5PhbIs6ggR1XODELqahT2R8v0fg==}
 
-  '@types/node@24.10.3':
-    resolution: {integrity: sha512-gqkrWUsS8hcm0r44yn7/xZeV1ERva/nLgrLxFRUGb7aoNMIJfZJ3AC261zDQuOAKC7MiXai1WCpYc48jAHoShQ==}
+  '@types/node@24.10.1':
+    resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
   '@types/node@24.10.4':
     resolution: {integrity: sha512-vnDVpYPMzs4wunl27jHrfmwojOGKya0xyM3sH+UE5iv5uPS6vX7UIoh6m+vQc5LGBq52HBKPIn/zcSZVzeDEZg==}
@@ -3428,6 +3437,9 @@ packages:
   '@zag-js/avatar@1.31.1':
     resolution: {integrity: sha512-Grosi2hRn4wfDYlPd8l+d4GCIFMsoj6ZFqii+1k14AqTDiCUJ/J0jCvOrRHkvkpEqektjuSD7e/GCX+yawqkuQ==}
 
+  '@zag-js/carousel@1.31.1':
+    resolution: {integrity: sha512-228Ol86G/lg8crcomy5cALkUYdOHCHcvJnSOQzeUj80JNjlELzrjBpaAj4lx8dZocfwou2Sg4NyZJ+mISSc+Dg==}
+
   '@zag-js/collapsible@1.31.1':
     resolution: {integrity: sha512-eCC5G6bBZUwF8z2XULQXUNRxqte9I2Sv+WJ2brycPn1a68uYD76RzFBmLQ2er95VbshUdeo8nRuX8MooAFuYzg==}
 
@@ -3518,6 +3530,9 @@ packages:
 
   '@zag-js/remove-scroll@1.31.1':
     resolution: {integrity: sha512-gVVJuFKaCjo652RmajYmkjXKgjJWLQ5ZhZLTaLUKWM1mAarvlqnLui8jrHEHLxqpfsjQylfdhJKkWmyF8NAgTA==}
+
+  '@zag-js/scroll-snap@1.31.1':
+    resolution: {integrity: sha512-YWsfhcQqiffu2X9HuB0fMnEQAu6rEOfGcvQYinvB6pjWPOvIJGxGMi/dYyy21XQDNJ9K1IcWRIo/yuaajoJyQQ==}
 
   '@zag-js/slider@1.31.1':
     resolution: {integrity: sha512-FILbLTMd3BnyclZ28+ippfyqzYPGK60qZapxtTERmWDC75Okf8AFnTCQf84Y8jRmBKCS1yhjF+IOtkFAENeB6w==}
@@ -5170,6 +5185,11 @@ packages:
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+
+  prettier@3.7.1:
+    resolution: {integrity: sha512-RWKXE4qB3u5Z6yz7omJkjWwmTfLdcbv44jUVHC5NpfXwFGzvpQM798FGv/6WNK879tc+Cn0AAyherCl1KjbyZQ==}
+    engines: {node: '>=14'}
     hasBin: true
 
   prettier@3.7.4:
@@ -8534,7 +8554,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 24.10.3
+      '@types/node': 24.10.1
 
   '@types/hast@3.0.4':
     dependencies:
@@ -8562,7 +8582,7 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@24.10.3':
+  '@types/node@24.10.1':
     dependencies:
       undici-types: 7.16.0
 
@@ -8580,7 +8600,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 24.10.3
+      '@types/node': 24.10.1
 
   '@types/semver@7.7.1': {}
 
@@ -8819,6 +8839,15 @@ snapshots:
       '@zag-js/types': 1.31.1
       '@zag-js/utils': 1.31.1
 
+  '@zag-js/carousel@1.31.1':
+    dependencies:
+      '@zag-js/anatomy': 1.31.1
+      '@zag-js/core': 1.31.1
+      '@zag-js/dom-query': 1.31.1
+      '@zag-js/scroll-snap': 1.31.1
+      '@zag-js/types': 1.31.1
+      '@zag-js/utils': 1.31.1
+
   '@zag-js/collapsible@1.31.1':
     dependencies:
       '@zag-js/anatomy': 1.31.1
@@ -9016,6 +9045,10 @@ snapshots:
   '@zag-js/rect-utils@1.31.1': {}
 
   '@zag-js/remove-scroll@1.31.1':
+    dependencies:
+      '@zag-js/dom-query': 1.31.1
+
+  '@zag-js/scroll-snap@1.31.1':
     dependencies:
       '@zag-js/dom-query': 1.31.1
 
@@ -11138,6 +11171,8 @@ snapshots:
 
   prettier@2.8.8: {}
 
+  prettier@3.7.1: {}
+
   prettier@3.7.4: {}
 
   prismjs@1.30.0: {}
@@ -12311,7 +12346,7 @@ snapshots:
       ajv: 8.17.1
       ajv-draft-04: 1.0.0(ajv@8.17.1)
       lodash: 4.17.21
-      prettier: 3.7.4
+      prettier: 3.7.1
       request-light: 0.5.8
       vscode-json-languageservice: 4.1.8
       vscode-languageserver: 9.0.1

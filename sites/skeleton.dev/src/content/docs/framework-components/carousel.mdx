@@ -1,0 +1,144 @@
+---
+title: Carousel
+description: Navigate through a collection of slides with controls and indicators.
+stability: beta
+---
+
+import DefaultReact from '@/components/examples/framework-components/carousel/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/carousel/react/default?raw';
+import OrientationReact from '@/components/examples/framework-components/carousel/react/orientation';
+import OrientationReactRaw from '@/components/examples/framework-components/carousel/react/orientation?raw';
+import OverlapReact from '@/components/examples/framework-components/carousel/react/overlap';
+import OverlapReactRaw from '@/components/examples/framework-components/carousel/react/overlap?raw';
+import TextReact from '@/components/examples/framework-components/carousel/react/text';
+import TextReactRaw from '@/components/examples/framework-components/carousel/react/text?raw';
+import DefaultSvelte from '@/components/examples/framework-components/carousel/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/carousel/svelte/default.svelte?raw';
+import OrientationSvelte from '@/components/examples/framework-components/carousel/svelte/orientation.svelte';
+import OrientationSvelteRaw from '@/components/examples/framework-components/carousel/svelte/orientation.svelte?raw';
+import OverlapSvelte from '@/components/examples/framework-components/carousel/svelte/overlap.svelte';
+import OverlapSvelteRaw from '@/components/examples/framework-components/carousel/svelte/overlap.svelte?raw';
+import TextSvelte from '@/components/examples/framework-components/carousel/svelte/text.svelte';
+import TextSvelteRaw from '@/components/examples/framework-components/carousel/svelte/text.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+Breaking convention in Skeleton, some portions of this component are provided “headless”. Meaning no default styles are applied out of the box. This ensures you retain full control of styling for maximum flexibility.
+
+## Overlapping Controls
+
+Introduce supporting elements and styles to implement this variation.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OverlapReactRaw }} client:visible>
+		<OverlapReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OverlapSvelteRaw }} client:visible>
+		<OverlapSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Orientation
+
+Apply `orientation="vertical"` on the root, and apply a set height on the `<Carousel.ItemGroup>`.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
+		<OrientationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+		<OrientationSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Text
+
+Display a text display of the carousel state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': TextReactRaw }} client:visible>
+		<TextReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': TextSvelteRaw }} client:visible>
+		<TextSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the Carousel component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Carousel } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Carousel>
+			<Carousel.Control>
+				<Carousel.PrevTrigger />
+				<Carousel.AutoplayTrigger />
+				<Carousel.NextTrigger />
+			</Carousel.Control>
+			<Carousel.ItemGroup>
+				<Carousel.Item />
+			</Carousel.ItemGroup>
+			<Carousel.IndicatorGroup>
+				<Carousel.Indicator />
+			</Carousel.IndicatorGroup>
+			<Carousel.ProgressText />
+		</Carousel>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Carousel } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Carousel>
+	<Carousel.Control>
+		<Carousel.PrevTrigger />
+		<Carousel.AutoplayTrigger />
+		<Carousel.NextTrigger />
+	</Carousel.Control>
+	<Carousel.ItemGroup>
+		<Carousel.Item />
+	</Carousel.ItemGroup>
+	<Carousel.IndicatorGroup>
+		<Carousel.Indicator />
+	</Carousel.IndicatorGroup>
+	<Carousel.ProgressText />
+</Carousel>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/carousel" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/carousel" />
+</Framework>
