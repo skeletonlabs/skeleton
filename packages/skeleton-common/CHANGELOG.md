@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.9.0
+
+### Minor Changes
+
+- feature `Carousel` component ([#4218](https://github.com/skeletonlabs/skeleton/pull/4218))
+
 ## 4.8.0
 
 ### Minor Changes
