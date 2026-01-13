@@ -7,7 +7,7 @@
 		gap: --spacing(2);
 		min-width: --spacing(48);
 		background: var(--color-surface-50-950);
-		border: 1px solid var(--color-surface-200-800);
+		border: 2px solid var(--color-surface-200-800);
 
 		@apply card shadow-lg;
 	}
@@ -39,5 +39,10 @@
 
 	&[data-part='separator'] {
 		@apply hr;
+	}
+
+	&[data-disabled] {
+		pointer-events: none;
+		opacity: 0.5;
 	}
 }
