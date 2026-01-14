@@ -40,4 +40,9 @@
 	&[data-part='separator'] {
 		@apply hr;
 	}
+
+	&[data-disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
 }
