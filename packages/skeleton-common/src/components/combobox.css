@@ -68,7 +68,7 @@
 
 		&[data-highlighted] {
 			@apply preset-tonal;
-			color: var(--color-on-surface);
+			color: var(--color-surface-950);
 		}
 
 		&[data-disabled] {
