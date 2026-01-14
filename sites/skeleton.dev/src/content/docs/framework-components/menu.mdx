@@ -7,6 +7,8 @@ import ContextReact from '@/components/examples/framework-components/menu/react/
 import ContextReactRaw from '@/components/examples/framework-components/menu/react/context?raw';
 import DefaultReact from '@/components/examples/framework-components/menu/react/default';
 import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
+import DisabledReact from '@/components/examples/framework-components/menu/react/disabled';
+import DisabledReactRaw from '@/components/examples/framework-components/menu/react/disabled?raw';
 import GroupReact from '@/components/examples/framework-components/menu/react/group';
 import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
 import NestedReact from '@/components/examples/framework-components/menu/react/nested';
@@ -17,6 +19,8 @@ import ContextSvelte from '@/components/examples/framework-components/menu/svelt
 import ContextSvelteRaw from '@/components/examples/framework-components/menu/svelte/context.svelte?raw';
 import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
+import DisabledSvelte from '@/components/examples/framework-components/menu/svelte/disabled.svelte';
+import DisabledSvelteRaw from '@/components/examples/framework-components/menu/svelte/disabled.svelte?raw';
 import GroupSvelte from '@/components/examples/framework-components/menu/svelte/group.svelte';
 import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/group.svelte?raw';
 import NestedSvelte from '@/components/examples/framework-components/menu/svelte/nested.svelte';
@@ -92,6 +96,21 @@ Use `OptionItem` to create menu items that can be toggled on or off with checkbo
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': OptionSvelteRaw }} client:visible>
 		<OptionSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Disabled Item
+
+Set the disabled prop to enable the disabled state.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+		<DisabledReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.tsx': DisabledSvelteRaw }} client:visible>
+		<DisabledSvelte client:visible />
 	</Preview>
 </Framework>
 
