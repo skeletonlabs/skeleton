@@ -48,6 +48,9 @@ function Page() {
 						<Menu.Item value="export">
 							<Menu.ItemText>Export</Menu.ItemText>
 						</Menu.Item>
+						<Menu.Item value="disabled" disabled={true}>
+							<Menu.ItemText>Disabled</Menu.ItemText>
+						</Menu.Item>
 					</Menu.Content>
 				</Menu.Positioner>
 			</Portal>
