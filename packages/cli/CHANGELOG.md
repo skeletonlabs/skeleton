@@ -1,5 +1,11 @@
 # skeleton
 
+## 4.10.0
+
+### Patch Changes
+
+- task: Default styling for disabled menu items ([#4252](https://github.com/skeletonlabs/skeleton/pull/4252))
+
 ## 4.9.0
 
 ## 4.8.0
