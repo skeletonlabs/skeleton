@@ -29,7 +29,7 @@ catalog:
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
   '@sveltejs/adapter-vercel': 6.3.0
-  '@sveltejs/kit': 2.49.4
+  '@sveltejs/kit': 2.49.5
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.4
   '@svitejs/changesets-changelog-github-compact': 1.2.0
