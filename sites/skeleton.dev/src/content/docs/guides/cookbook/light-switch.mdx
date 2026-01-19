@@ -111,8 +111,7 @@ Use [Dark Mode](/docs/[framework]/guides/mode) to make use of either a base or `
 
     	<svelte:head>
     		<script>
-    			const mode = localStorage.getItem('mode') || 'light';
-    			document.documentElement.setAttribute('data-mode', mode);
+    			document.documentElement.setAttribute('data-mode', localStorage.getItem('mode') || 'dark');
     		</script>
     	</svelte:head>
 
