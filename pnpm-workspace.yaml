@@ -80,7 +80,7 @@ catalog:
   astro: 5.16.11
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.5
-  astro-seo: 0.8.4
+  astro-seo: 1.1.0
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
