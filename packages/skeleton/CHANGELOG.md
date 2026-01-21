@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.11.0
+
+### Patch Changes
+
+- bugfix: Add missing text color styles to generic preset tonal ([#4265](https://github.com/skeletonlabs/skeleton/pull/4265))
+
 ## 4.10.0
 
 ## 4.9.0
