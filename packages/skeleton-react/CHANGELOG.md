@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-react
 
+## 4.10.0
+
+### Minor Changes
+
+- task: bump Zag ([#4240](https://github.com/skeletonlabs/skeleton/pull/4240))
+
+### Patch Changes
+
+- Updated dependencies [[`ca2398a`](https://github.com/skeletonlabs/skeleton/commit/ca2398ae3799e3898a2b9d31d37cfaabc695e269)]:
+  - @skeletonlabs/skeleton-common@4.10.0
+
 ## 4.9.0
 
 ### Minor Changes
