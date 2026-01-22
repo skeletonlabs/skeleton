@@ -5,6 +5,7 @@
 
 	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 		toast: Options;
+		index?: number;
 	}
 </script>
 
@@ -18,10 +19,11 @@
 
 	const group = GroupContext.consume();
 
-	const { element, children, toast: toastProps, ...rest } = $derived(props);
+	const { element, children, toast: toastProps, index, ...rest } = $derived(props);
 
 	const service = useMachine(machine, () => ({
 		...toastProps,
+		index,
 		parent: group(),
 	}));
 	const toast = $derived(connect(service, normalizeProps));

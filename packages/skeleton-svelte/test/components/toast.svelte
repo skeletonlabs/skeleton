@@ -5,8 +5,8 @@
 </script>
 
 <Toast.Group {toaster} data-testid="group">
-	{#snippet children(toast)}
-		<Toast {toast} data-testid="root">
+	{#snippet children(toast, index)}
+		<Toast {toast} {index} data-testid="root">
 			<Toast.Title data-testid="title" />
 			<Toast.Description data-testid="description" />
 			<Toast.ActionTrigger data-testid="action-trigger" />

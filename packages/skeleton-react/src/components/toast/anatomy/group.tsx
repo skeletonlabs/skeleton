@@ -9,7 +9,7 @@ import { useId } from 'react';
 
 export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 	toaster: Store;
-	children?: (toast: Props) => JSX.Element | null;
+	children?: (toast: Props, index: number) => JSX.Element | null;
 }
 
 export default function Group(props: ToastGroupProps) {
@@ -25,7 +25,7 @@ export default function Group(props: ToastGroupProps) {
 
 	return (
 		<GroupContext.Provider value={service}>
-			{element ? element(attributes) : <div {...attributes}>{api.getToasts().map((toast) => children?.(toast))}</div>}
+			{element ? element(attributes) : <div {...attributes}>{api.getToasts().map((toast, index) => children?.(toast, index))}</div>}
 		</GroupContext.Provider>
 	);
 }

@@ -9,17 +9,16 @@ import { use } from 'react';
 
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
 	toast: Omit<Options, 'id' | 'parent'>;
+	index?: number;
 }
 
 export default function Root(props: ToastRootProps) {
 	const group = use(GroupContext);
 
-	const { element, children, toast: toastProps, ...rest } = props;
+	const { element, children, toast: toastProps, index, ...rest } = props;
 
-	const service = useMachine(machine, {
-		...toastProps,
-		parent: group,
-	});
+	const machineProps = { ...toastProps, index, parent: group };
+	const service = useMachine(machine, machineProps);
 	const toast = connect(service, normalizeProps);
 
 	const attributes = mergeProps(toast.getRootProps(), rest);
