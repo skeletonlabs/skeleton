@@ -26,8 +26,8 @@
 </button>
 
 <Toast.Group {toaster}>
-	{#snippet children(toast)}
-		<Toast {toast}>
+	{#snippet children(toast, index)}
+		<Toast {toast} {index}>
 			<Toast.Message>
 				<Toast.Title>{toast.title}</Toast.Title>
 				<Toast.Description>{toast.description}</Toast.Description>

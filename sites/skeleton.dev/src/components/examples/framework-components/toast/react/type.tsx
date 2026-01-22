@@ -52,8 +52,8 @@ export default function Type() {
 				</button>
 			</div>
 			<Toast.Group toaster={toaster}>
-				{(toast) => (
-					<Toast toast={toast} key={toast.id}>
+				{(toast, index) => (
+					<Toast toast={toast} key={toast.id} index={index}>
 						<Toast.Message>
 							<Toast.Title>{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>

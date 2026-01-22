@@ -24,8 +24,8 @@
 </button>
 
 <Toast.Group {toaster}>
-	{#snippet children(toast)}
-		<Toast {toast}>
+	{#snippet children(toast, index)}
+		<Toast {toast} {index}>
 			{@render toast.meta!.icon()}
 			<Toast.Message>
 				<Toast.Title class="flex gap-2 items-center">{toast.title}</Toast.Title>

@@ -63,8 +63,8 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     		<>
     			{props.children}
     			<Toast.Group toaster={toaster}>
-    				{(toast) => (
-    					<Toast toast={toast} key={toast.id}>
+    				{(toast, index) => (
+    					<Toast toast={toast} key={toast.id} index={index}>
     						<Toast.Message>
     						<Toast.Title>{toast.title}</Toast.Title>
     						<Toast.Description>{toast.description}</Toast.Description>
@@ -97,8 +97,8 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     {@render props.children?.()}
 
     <Toast.Group {toaster}>
-    	{#snippet children(toast)}
-    		<Toast toast={toast}>
+    	{#snippet children(toast, index)}
+    		<Toast toast={toast} index={index}>
     			<Toast.Message>
     			<Toast.Title>{toast.title}</Toast.Title>
     			<Toast.Description>{toast.description}</Toast.Description>
