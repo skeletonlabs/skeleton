@@ -7,8 +7,13 @@ import { connect, machine } from '@zag-js/toast';
 import type { Options } from '@zag-js/toast';
 import { use } from 'react';
 
+export interface ToastOptions<T = any> extends Options<T> {
+	index: number;
+}
+
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-	toast: Omit<Options, 'id' | 'parent'>;
+	toast: Omit<ToastOptions, 'id' | 'parent'>;
+	index?: number;
 }
 
 export default function Root(props: ToastRootProps) {

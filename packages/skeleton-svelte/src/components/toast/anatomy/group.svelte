@@ -1,12 +1,15 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { ToastOptions } from './root.svelte';
 	import type { Props, Store } from '@zag-js/toast';
 	import type { Snippet } from 'svelte';
 
+	export type ToastProps<T = any> = Props<T> & ToastOptions<T>;
+
 	export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
 		toaster: Store;
-		children?: Snippet<[Props]>;
+		children?: Snippet<[ToastProps]>;
 	}
 </script>
 
@@ -35,8 +38,8 @@
 	{@render element(attributes)}
 {:else}
 	<div {...attributes}>
-		{#each api.getToasts() as toast (toast.id)}
-			{@render children?.(toast)}
+		{#each api.getToasts() as toast, index (toast.id)}
+			{@render children?.({ ...toast, index })}
 		{/each}
 	</div>
 {/if}
