@@ -3,9 +3,12 @@
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { Options } from '@zag-js/toast';
 
+	export interface ToastOptions<T = any> extends Options<T> {
+		index: number;
+	}
+
 	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		toast: Options;
-		index?: number;
+		toast: ToastOptions;
 	}
 </script>
 
@@ -19,11 +22,10 @@
 
 	const group = GroupContext.consume();
 
-	const { element, children, toast: toastProps, index, ...rest } = $derived(props);
+	const { element, children, toast: toastProps, ...rest } = $derived(props);
 
 	const service = useMachine(machine, () => ({
 		...toastProps,
-		index,
 		parent: group(),
 	}));
 	const toast = $derived(connect(service, normalizeProps));

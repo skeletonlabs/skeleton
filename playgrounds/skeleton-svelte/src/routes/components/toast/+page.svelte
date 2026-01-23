@@ -35,8 +35,8 @@
 
 {#key toaster}
 	<Toast.Group {toaster}>
-		{#snippet children(toast, index)}
-			<Toast {toast} {index}>
+		{#snippet children(toast)}
+			<Toast {toast}>
 				<Toast.Message>
 					<Toast.Title>{toast.title}</Toast.Title>
 					<Toast.Description>{toast.description}</Toast.Description>

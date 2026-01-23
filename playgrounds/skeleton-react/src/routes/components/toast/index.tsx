@@ -50,8 +50,8 @@ function Page() {
 			</label>
 
 			<Toast.Group toaster={toaster}>
-				{(toast, index) => (
-					<Toast toast={toast} key={toast.id} index={index}>
+				{(toast) => (
+					<Toast toast={toast} key={toast.id}>
 						<Toast.Message>
 							<Toast.Title>{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>

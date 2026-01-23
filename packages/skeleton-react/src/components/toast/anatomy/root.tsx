@@ -7,18 +7,24 @@ import { connect, machine } from '@zag-js/toast';
 import type { Options } from '@zag-js/toast';
 import { use } from 'react';
 
+export interface ToastOptions<T = any> extends Options<T> {
+	index: number;
+}
+
 export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-	toast: Omit<Options, 'id' | 'parent'>;
+	toast: Omit<ToastOptions, 'id' | 'parent'>;
 	index?: number;
 }
 
 export default function Root(props: ToastRootProps) {
 	const group = use(GroupContext);
 
-	const { element, children, toast: toastProps, index, ...rest } = props;
+	const { element, children, toast: toastProps, ...rest } = props;
 
-	const machineProps = { ...toastProps, index, parent: group };
-	const service = useMachine(machine, machineProps);
+	const service = useMachine(machine, {
+		...toastProps,
+		parent: group,
+	});
 	const toast = connect(service, normalizeProps);
 
 	const attributes = mergeProps(toast.getRootProps(), rest);
