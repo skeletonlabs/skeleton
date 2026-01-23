@@ -21,8 +21,8 @@ export default function Meta() {
 				Toast
 			</button>
 			<Toast.Group toaster={toaster}>
-				{(toast, index) => (
-					<Toast toast={toast} key={toast.id} index={index}>
+				{(toast) => (
+					<Toast toast={toast} key={toast.id}>
 						{toast.meta!.icon}
 						<Toast.Message>
 							<Toast.Title className="flex gap-2 items-center">{toast.title}</Toast.Title>
