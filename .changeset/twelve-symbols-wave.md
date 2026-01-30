@@ -3,5 +3,5 @@
 "@skeletonlabs/skeleton-svelte": minor
 ---
 
-Support proper Toast styling when using the `overlap` option
+bugfix: Support proper Toast styling when using the `overlap` option.
   
