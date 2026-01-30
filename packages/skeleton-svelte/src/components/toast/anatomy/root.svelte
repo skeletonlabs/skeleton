@@ -3,8 +3,12 @@
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { Options } from '@zag-js/toast';
 
+	export interface ToastOptions<T = any> extends Options<T> {
+		index: number;
+	}
+
 	export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
-		toast: Options;
+		toast: ToastOptions;
 	}
 </script>
 
