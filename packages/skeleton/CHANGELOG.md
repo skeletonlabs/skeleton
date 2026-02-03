@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton
 
+## 4.12.0
+
 ## 4.11.0
 
 ### Patch Changes
