@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.12.0
+
+### Minor Changes
+
+- bugfix: Support proper Toast styling when using the `overlap` option. ([#4268](https://github.com/skeletonlabs/skeleton/pull/4268))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.12.0
+
 ## 4.11.0
 
 ### Minor Changes
