@@ -282,6 +282,59 @@ Using the extensible markup pattern, you may implement custom animations. We sho
 
 </Framework>
 
+### Data Model Pattern
+
+Skeleton components maintain a uniform pattern for handling data flow in and out. We lean into the Zag convention for this, which handles this explictly with a prop for data in and event handler for data out. As opposed to two-way binding (such as `bind:` in Svelte). You can see this in practice below for the Switch component.
+
+<Framework id="react">
+```tsx
+import { Switch } from '@skeletonlabs/skeleton-react';
+import { useState } from 'react';
+
+export default function Default() {
+	const [checked, setChecked] = useState(false);
+
+    return (
+    	<Switch checked={checked} onCheckedChange={(e) => setChecked(e.checked)}>
+    		<Switch.Control>
+    			<Switch.Thumb />
+    		</Switch.Control>
+    		<Switch.Label>Label</Switch.Label>
+    		<Switch.HiddenInput />
+    	</Switch>
+    );
+
+}
+
+````
+</Framework>
+<Framework id="svelte">
+{/* prettier-ignore */}
+```svelte
+<script lang="ts">
+	import { Switch } from '@skeletonlabs/skeleton-svelte';
+	let checked = $state(false);
+</script>
+
+<Switch checked={checked} onCheckedChange={(e) => (checked = e.checked)}>
+	<Switch.Control>
+		<Switch.Thumb />
+	</Switch.Control>
+	<Switch.Label>Label</Switch.Label>
+	<Switch.HiddenInput />
+</Switch>
+```
+
+</Framework>
+
+In this example the Switch component uses `checked` to pass state in, and `onCheckedChange` to listen and update then the state is modified internally. Please note the prop, event prop, and key within the event payload may vary from component to component. For example:
+
+- `<Accordion>` - handled via `open` / `onOpenChange` / `e.change`
+- `<Slider>` - handled via `value` / `onValueChange` / `e.value`
+- `<Stepper>` - handled via `step` / `onStepChange` / `e.step`
+
+This pattern is utilized for all relevant components, and is documented via the [API Reference](/docs/framework-components/switch#api-reference) table per component.
+
 ### Provider Pattern
 
 Most Skeleton components also support the Provider Pattern. This utilizes a provider component that replaces the root and provides access to the underlying component APIs. In practice, this allows direct access to Zag.js API features, such as programmatic control for overlay components, the ability to clear input components, and more.
@@ -344,3 +397,4 @@ export default function TooltipExample() {
 ### Learn More
 
 For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/[framework]/resources/contribute/components).
+````
