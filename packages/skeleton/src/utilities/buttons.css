@@ -49,7 +49,7 @@
 	transition-duration: var(--default-transition-duration);
 
 	&:not(:disabled) {
-		&:hover {
+		@variant hover {
 			filter: brightness(125%);
 			@variant dark {
 				filter: brightness(75%);
@@ -78,7 +78,7 @@
 	padding: --spacing(2);
 
 	&:not(:disabled) {
-		&:hover {
+		@variant hover {
 			filter: brightness(125%);
 			@variant dark {
 				filter: brightness(75%);

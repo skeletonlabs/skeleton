@@ -32,7 +32,7 @@
 	&[data-part='stage-trigger'] {
 		@apply btn-icon;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}
@@ -40,7 +40,7 @@
 	&[data-part='close-trigger'] {
 		@apply btn-icon;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}

@@ -32,7 +32,7 @@
 		width: 100%;
 		text-align: start;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal-primary;
 		}
 	}
