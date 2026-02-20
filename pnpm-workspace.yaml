@@ -141,6 +141,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: @sveltejs/kit@2.52.2
+  - "@sveltejs/kit@2.52.2"
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
