@@ -23,6 +23,7 @@ export default function Root(props: ToastRootProps) {
 
 	const service = useMachine(machine, {
 		...toastProps,
+		// @ts-expect-error - remove when https://github.com/chakra-ui/zag/commit/d0ce632a98eeca4784d240c0391cc13a840e5d2a is released
 		parent: group,
 	});
 	const toast = connect(service, normalizeProps);
