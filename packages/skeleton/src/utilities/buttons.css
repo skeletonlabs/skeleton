@@ -48,8 +48,8 @@
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
 
-	&:not(:disabled) {
-		&:hover {
+	@variant not-disabled {
+		@variant hover {
 			filter: brightness(125%);
 			@variant dark {
 				filter: brightness(75%);
@@ -77,8 +77,8 @@
 	height: var(--text-base);
 	padding: --spacing(2);
 
-	&:not(:disabled) {
-		&:hover {
+	@variant not-disabled {
+		@variant hover {
 			filter: brightness(125%);
 			@variant dark {
 				filter: brightness(75%);

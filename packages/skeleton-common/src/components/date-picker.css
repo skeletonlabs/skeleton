@@ -31,7 +31,7 @@
 	&[data-part='preset-trigger'] {
 		@apply btn;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}
@@ -70,7 +70,7 @@
 	&[data-part='prev-trigger'] {
 		@apply btn-icon;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}
@@ -78,7 +78,7 @@
 	&[data-part='view-trigger'] {
 		@apply btn;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}
@@ -86,7 +86,7 @@
 	&[data-part='next-trigger'] {
 		@apply btn-icon;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 	}
@@ -118,7 +118,7 @@
 		justify-content: center;
 		align-items: center;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 

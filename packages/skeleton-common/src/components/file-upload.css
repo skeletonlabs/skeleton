@@ -40,7 +40,7 @@
 
 		@apply btn btn-sm preset-tonal;
 
-		&:hover {
+		@variant hover {
 			@apply preset-filled-error-500;
 		}
 	}

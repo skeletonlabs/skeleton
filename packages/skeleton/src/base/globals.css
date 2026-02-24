@@ -22,7 +22,7 @@
 		/* IMPORTANT: this is useful for mobile accessibility. */
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
 		/* -webkit-tap-highlight-color: rgba(128, 128, 128, 0.5); */
-		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-primary-500) 30%, transparent);
+		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
 	}
 
 	body {
