@@ -27,7 +27,7 @@
 		border-radius: var(--radius-base);
 		padding-inline-start: calc(var(--depth) * var(--spacing) * 6 + var(--spacing) * 4);
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 
@@ -51,7 +51,7 @@
 		border-radius: var(--radius-base);
 		padding-inline-start: calc(var(--depth) * var(--spacing) * 6 - var(--spacing) * 2);
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 

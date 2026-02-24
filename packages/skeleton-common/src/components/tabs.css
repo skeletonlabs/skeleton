@@ -36,7 +36,7 @@
 	&[data-part='trigger'] {
 		@apply btn;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal-primary;
 		}
 
