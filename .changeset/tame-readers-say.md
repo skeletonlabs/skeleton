@@ -3,5 +3,5 @@
 "@skeletonlabs/skeleton": patch
 ---
 
-bugfix: Fix sticky hover styles on mobile devices and add active state
+bugfix: Fix sticky hover styles on mobile devices
   

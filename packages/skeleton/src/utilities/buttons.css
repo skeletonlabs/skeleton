@@ -56,12 +56,6 @@
 			}
 		}
 	}
-
-	@variant not-disabled {
-		@variant active {
-			scale: 95%;
-		}
-	}
 }
 
 @utility btn-icon {
@@ -89,12 +83,6 @@
 			@variant dark {
 				filter: brightness(75%);
 			}
-		}
-	}
-
-	@variant not-disabled {
-		@variant active {
-			scale: 95%;
 		}
 	}
 }
