@@ -28,7 +28,7 @@ catalog:
   '@shikijs/types': 3.21.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.0
-  '@sveltejs/adapter-vercel': 6.3.0
+  '@sveltejs/adapter-vercel': 6.3.2
   '@sveltejs/kit': 2.50.0
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.4
@@ -141,8 +141,6 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
-  # Renovate security update: @sveltejs/adapter-vercel@6.3.2
-  - "@sveltejs/adapter-vercel@6.3.2"
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
