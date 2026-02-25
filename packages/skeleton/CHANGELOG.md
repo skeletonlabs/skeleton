@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 4.12.1
+
+### Patch Changes
+
+- bugfix: Fix sticky hover styles on mobile devices ([#4283](https://github.com/skeletonlabs/skeleton/pull/4283))
+
 ## 4.12.0
 
 ## 4.11.0
