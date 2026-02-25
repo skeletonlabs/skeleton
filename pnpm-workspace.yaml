@@ -141,6 +141,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: @sveltejs/adapter-vercel@6.3.2
+  - "@sveltejs/adapter-vercel@6.3.2"
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
