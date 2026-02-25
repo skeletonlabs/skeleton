@@ -39,7 +39,7 @@
 		border-radius: var(--radius-base);
 		cursor: pointer;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 

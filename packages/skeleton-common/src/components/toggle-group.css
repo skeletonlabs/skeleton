@@ -30,7 +30,7 @@
 		width: --spacing(9);
 		aspect-ratio: 1;
 
-		&:hover {
+		@variant hover {
 			@apply preset-tonal;
 		}
 
