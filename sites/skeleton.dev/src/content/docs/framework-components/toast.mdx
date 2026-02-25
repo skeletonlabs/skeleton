@@ -49,10 +49,9 @@ import TypeSvelteRaw from '@/components/examples/framework-components/toast/svel
 
 ## Usage
 
-This component acts as a Singleton. Implement a single instance of `<Toast.Group>` in the root scope your application, then trigger it anywhere on demand using a shared `createToaster()` instance.
+This component acts as a Singleton. Implement a single instance of `<Toast.Group>` in the root scope your application.
 
 <Framework id="react">
-
     ```tsx
     import { toaster } from '/some/path/toaster.ts';
     import { Toast } from '@skeletonlabs/skeleton-react';
@@ -80,7 +79,6 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
 
 </Framework>
 <Framework id="svelte">
-
     ```svelte
     <script lang="ts">
     	import { toaster } from '/some/path/toaster.ts';
@@ -111,8 +109,32 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
 
 </Framework>
 
-<Framework id="react">
+Create a shared reference to the `createToaster()` instance. We'll call it `toaster` here.
 
+<Framework id="react">
+	```ts
+	<script lang="ts">
+		import { createToaster } from '@skeletonlabs/skeleton-react';
+
+    	export const toaster = createToaster();
+    </script>
+    ```
+
+</Framework>
+<Framework id="svelte">
+	```ts
+	<script lang="ts">
+		import { createToaster } from '@skeletonlabs/skeleton-svelte';
+
+    	export const toaster = createToaster();
+    </script>
+    ```
+
+</Framework>
+
+Use this shared reference to trigger messages on demand throughout your application.
+
+<Framework id="react">
     ```tsx
     import { toaster } from '/some/path/toaster.ts';
 
@@ -126,7 +148,6 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
 
 </Framework>
 <Framework id="svelte">
-	
 	```svelte
 	<script lang="ts">
 		import { toaster } from '/some/path/toaster.ts';
@@ -136,6 +157,19 @@ This component acts as a Singleton. Implement a single instance of `<Toast.Group
     	}
 
     </script>
+    ```
+
+</Framework>
+<Framework id="react">
+    ```tsx
+    import { toaster } from '/some/path/toaster.ts';
+
+    export default function Page() {
+    	function onClickHandler() {
+    		toaster.info({ title: 'Example', description: 'This is a toast message.' });
+    	}
+    	return ();
+    }
     ```
 
 </Framework>
