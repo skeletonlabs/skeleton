@@ -28,8 +28,8 @@ catalog:
   '@shikijs/types': 3.22.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.1
-  '@sveltejs/adapter-vercel': 6.3.0
-  '@sveltejs/kit': 2.50.0
+  '@sveltejs/adapter-vercel': 6.3.2
+  '@sveltejs/kit': 2.52.2
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.4
   '@svitejs/changesets-changelog-github-compact': 1.2.0
@@ -115,7 +115,7 @@ catalog:
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 3.22.0
-  svelte: 5.46.4
+  svelte: 5.51.5
   svelte-check: 4.4.3
   tailwindcss: 4.2.0
   tinyglobby: 0.2.15
