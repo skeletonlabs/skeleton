@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.13.0
+
+### Minor Changes
+
+- chore: dependency updates ([#4293](https://github.com/skeletonlabs/skeleton/pull/4293))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.13.0
+
 ## 4.12.1
 
 ### Patch Changes
