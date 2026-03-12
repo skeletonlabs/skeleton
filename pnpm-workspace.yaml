@@ -11,12 +11,12 @@ catalog:
   '@astrojs/sitemap': 3.7.0
   '@astrojs/svelte': 7.2.5
   '@astrojs/vercel': 9.0.4
-  '@changesets/cli': 2.29.8
+  '@changesets/cli': 2.30.0
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.3.0
-  '@floating-ui/dom': 1.7.5
-  '@internationalized/date': 3.11.0
-  '@lucide/svelte': 0.575.0
+  '@floating-ui/dom': 1.7.6
+  '@internationalized/date': 3.12.0
+  '@lucide/svelte': 0.577.0
   '@playwright/test': 1.58.2
   '@prettier/plugin-oxc': 0.1.3
   '@resvg/resvg-js': 2.6.2
@@ -29,54 +29,54 @@ catalog:
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
-  '@sveltejs/kit': 2.53.3
+  '@sveltejs/kit': 2.53.4
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 6.2.4
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.2.1
-  '@tanstack/react-router': 1.163.2
-  '@tanstack/react-start': 1.163.2
-  '@tanstack/router-cli': 1.163.2
+  '@tanstack/react-router': 1.166.3
+  '@tanstack/react-start': 1.166.3
+  '@tanstack/router-cli': 1.166.2
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
   '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
-  '@types/node': 24.10.15
+  '@types/node': 24.12.0
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.1.4
   '@vitest/browser-playwright': 4.0.18
-  '@zag-js/accordion': 1.35.2
-  '@zag-js/avatar': 1.35.2
-  '@zag-js/carousel': 1.35.2
-  '@zag-js/collapsible': 1.35.2
-  '@zag-js/collection': 1.35.2
-  '@zag-js/combobox': 1.35.2
-  '@zag-js/date-picker': 1.35.2
-  '@zag-js/dialog': 1.35.2
-  '@zag-js/file-upload': 1.35.2
-  '@zag-js/floating-panel': 1.35.2
-  '@zag-js/listbox': 1.35.2
-  '@zag-js/menu': 1.35.2
-  '@zag-js/pagination': 1.35.2
-  '@zag-js/popover': 1.35.2
-  '@zag-js/progress': 1.35.2
-  '@zag-js/radio-group': 1.35.2
-  '@zag-js/rating-group': 1.35.2
-  '@zag-js/react': 1.35.2
-  '@zag-js/slider': 1.35.2
-  '@zag-js/steps': 1.35.2
-  '@zag-js/svelte': 1.35.2
-  '@zag-js/switch': 1.35.2
-  '@zag-js/tabs': 1.35.2
-  '@zag-js/tags-input': 1.35.2
-  '@zag-js/toast': 1.35.2
-  '@zag-js/toggle-group': 1.35.2
-  '@zag-js/tooltip': 1.35.2
-  '@zag-js/tree-view': 1.35.2
+  '@zag-js/accordion': 1.35.3
+  '@zag-js/avatar': 1.35.3
+  '@zag-js/carousel': 1.35.3
+  '@zag-js/collapsible': 1.35.3
+  '@zag-js/collection': 1.35.3
+  '@zag-js/combobox': 1.35.3
+  '@zag-js/date-picker': 1.35.3
+  '@zag-js/dialog': 1.35.3
+  '@zag-js/file-upload': 1.35.3
+  '@zag-js/floating-panel': 1.35.3
+  '@zag-js/listbox': 1.35.3
+  '@zag-js/menu': 1.35.3
+  '@zag-js/pagination': 1.35.3
+  '@zag-js/popover': 1.35.3
+  '@zag-js/progress': 1.35.3
+  '@zag-js/radio-group': 1.35.3
+  '@zag-js/rating-group': 1.35.3
+  '@zag-js/react': 1.35.3
+  '@zag-js/slider': 1.35.3
+  '@zag-js/steps': 1.35.3
+  '@zag-js/svelte': 1.35.3
+  '@zag-js/switch': 1.35.3
+  '@zag-js/tabs': 1.35.3
+  '@zag-js/tags-input': 1.35.3
+  '@zag-js/toast': 1.35.3
+  '@zag-js/toggle-group': 1.35.3
+  '@zag-js/tooltip': 1.35.3
+  '@zag-js/tree-view': 1.35.3
   astro: 5.18.0
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.5
@@ -90,7 +90,7 @@ catalog:
   fuse.js: 7.1.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
-  lucide-react: 0.575.0
+  lucide-react: 0.577.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.3
   mdast-util-gfm: 3.1.0
@@ -98,29 +98,29 @@ catalog:
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.6
-  node-html-parser: 7.0.2
+  node-html-parser: 7.1.0
   octokit: 5.0.5
-  oxc-resolver: 11.19.0
-  oxlint: 1.50.0
-  oxlint-tsgolint: 0.15.0
+  oxc-resolver: 11.19.1
+  oxlint: 1.51.0
+  oxlint-tsgolint: 0.16.0
   package-manager-detector: 1.6.0
   playwright: 1.58.2
-  postcss: 8.5.6
+  postcss: 8.5.8
   prettier: 3.8.1
   prettier-plugin-astro: 0.14.1
-  prettier-plugin-svelte: 3.5.0
+  prettier-plugin-svelte: 3.5.1
   react: 19.2.4
   react-dom: 19.2.4
-  satori: 0.19.2
+  satori: 0.25.0
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 3.23.0
-  svelte: 5.53.5
-  svelte-check: 4.4.4
+  svelte: 5.53.7
+  svelte-check: 4.4.5
   tailwindcss: 4.2.1
   tinyglobby: 0.2.15
   ts-morph: 27.0.2
-  tsdown: 0.20.3
+  tsdown: 0.21.1
   type-fest: 5.4.4
   typescript: 5.9.3
   unist-util-visit: 5.1.0
