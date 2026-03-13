@@ -11,6 +11,4 @@ const { id } = Astro.props;
 const framework = getActiveFramework(Astro.params);
 ---
 
-<div class="contents">
-	{framework.id === id && <slot />}
-</div>
+{framework.id === id && <slot />}
