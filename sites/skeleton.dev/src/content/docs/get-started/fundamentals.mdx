@@ -114,7 +114,7 @@ export default function Avatar() {
 
 <Framework id="svelte">
 
-Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the the template within. Including: `required`, `data-*`, `style`, `class`, and more.
+Skeleton components are granular. This offers direct access to all children within the tree, similar to working with raw HTML. This allows passing in arbitrary props and attributes directly to the template within. Including: `required`, `data-*`, `style`, `class`, and more.
 
 ```svelte
 <Avatar>
@@ -278,13 +278,13 @@ Using the extensible markup pattern, you may implement custom animations. We sho
 1. Implement the `element` snippet to gain access to the `attributes`.
 2. Spread the `attributes` to the custom element, a `<div>` in this example.
 3. Add the `transition:slide` and configure your preferred options.
-4. Then implement the wrapping `#if` block that triggers transitions when `attribute.hidden` is toggled.
+4. Then implement the wrapping `#if` block that triggers transitions when `attributes.hidden` is toggled.
 
 </Framework>
 
 ### Data Model Pattern
 
-Skeleton components maintain a uniform pattern for handling data flow in and out. We lean into the Zag convention for this, which handles this explictly with a prop for data in and event handler for data out. As opposed to two-way binding (such as `bind:` in Svelte). You can see this in practice below for the Switch component.
+Skeleton components maintain a uniform pattern for handling data flow in and out. We lean into the Zag convention for this, which handles this explicitly with a prop for data in and event handler for data out. As opposed to two-way binding (such as `bind:` in Svelte). You can see this in practice below for the Switch component.
 
 <Framework id="react">
 ```tsx
