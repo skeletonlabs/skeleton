@@ -47,7 +47,7 @@ catalog:
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
-  '@vitejs/plugin-react': 5.1.4
+  '@vitejs/plugin-react': 6.0.1
   '@vitest/browser-playwright': 4.0.18
   '@zag-js/accordion': 1.35.3
   '@zag-js/avatar': 1.35.3
