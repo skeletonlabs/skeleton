@@ -141,6 +141,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: astro@5.18.1
+  - astro@5.18.1
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
