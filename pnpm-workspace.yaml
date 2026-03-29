@@ -141,6 +141,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: @astrojs/vercel@10.0.2
+  - "@astrojs/vercel@10.0.2"
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
