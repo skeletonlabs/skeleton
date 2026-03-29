@@ -5,11 +5,11 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.6
-  '@astrojs/mdx': 4.3.13
+  '@astrojs/mdx': 5.0.3
   '@astrojs/partytown': 2.1.4
-  '@astrojs/react': 4.4.2
+  '@astrojs/react': 5.0.2
   '@astrojs/sitemap': 3.7.0
-  '@astrojs/svelte': 7.2.5
+  '@astrojs/svelte': 8.0.4
   '@astrojs/vercel': 9.0.4
   '@changesets/cli': 2.30.0
   '@clack/prompts': 0.11.0
