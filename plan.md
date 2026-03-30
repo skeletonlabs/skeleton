@@ -17,8 +17,8 @@ Phased dependency upgrades for the `@skeletonlabs/monorepo` pnpm workspace. All 
 
 `@sveltejs/vite-plugin-svelte v7` has a hard requirement on Vite 8, so it must come after the Vite upgrade:
 
-| Phase | Description                             | Status     |
-| ----- | --------------------------------------- | ---------- |
+| Phase | Description                       | Status      |
+| ----- | --------------------------------- | ----------- |
 | 1     | Non-major deps                    | ✅ complete |
 | 2     | Astro v6.1 + related integrations | ⬜ pending  |
 | 3     | Vite v8                           | ⬜ pending  |
@@ -190,12 +190,12 @@ pnpm lint:check
 
 These were identified during triage and intentionally excluded. Track as separate follow-up work:
 
-| Package | Current → Latest | Reason deferred |
-|---------|-----------------|-----------------|
-| `@clack/prompts` | 0.11.0 → 1.x | Logged as follow-up; out of scope for these phases |
-| `@lucide/svelte` / `lucide-react` | 0.577.0 → 1.x | Handled outside this feature branch |
-| `@types/node` | 24.x → 25.x | Should track Node runtime upgrade; bump when/if Node upgrades to 25+ |
-| `typescript` | 5.9.3 → 6.x | Removed from plan — ecosystem support uncertain, revisit separately |
+| Package                           | Current → Latest | Reason deferred                                                      |
+| --------------------------------- | ---------------- | -------------------------------------------------------------------- |
+| `@clack/prompts`                  | 0.11.0 → 1.x     | Logged as follow-up; out of scope for these phases                   |
+| `@lucide/svelte` / `lucide-react` | 0.577.0 → 1.x    | Handled outside this feature branch                                  |
+| `@types/node`                     | 24.x → 25.x      | Should track Node runtime upgrade; bump when/if Node upgrades to 25+ |
+| `typescript`                      | 5.9.3 → 6.x      | Removed from plan — ecosystem support uncertain, revisit separately  |
 
 ---
 
