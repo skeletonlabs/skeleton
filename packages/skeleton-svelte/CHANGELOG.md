@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.14.0
+
+### Minor Changes
+
+- task: Zag.js dependency bumps ([#4314](https://github.com/skeletonlabs/skeleton/pull/4314))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.14.0
+
 ## 4.13.0
 
 ### Minor Changes
