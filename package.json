@@ -3,7 +3,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"docs": "pnpm --filter @skeletonlabs/skeleton.dev",
+		"doc": "pnpm --filter @skeletonlabs/skeleton.dev",
 		"themes": "pnpm --filter @skeletonlabs/themes.skeleton.dev",
 		"svelte": "pnpm --filter @skeletonlabs/playground-skeleton-svelte",
 		"react": "pnpm --filter @skeletonlabs/playground-skeleton-react",
