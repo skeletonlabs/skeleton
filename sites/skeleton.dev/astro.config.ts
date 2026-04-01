@@ -1,3 +1,8 @@
+// Astro v6's Environment API causes multiple environments to share a single
+// FSWatcher, exceeding Node's default listener limit of 10 during dev.
+import { EventEmitter } from 'node:events';
+EventEmitter.defaultMaxListeners = 12;
+
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
@@ -9,6 +14,7 @@ import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
 import { execSync } from 'node:child_process';
+
 import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
 
 function getSite() {

@@ -5,12 +5,12 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.8
-  '@astrojs/mdx': 4.3.13
+  '@astrojs/mdx': 5.0.3
   '@astrojs/partytown': 2.1.6
-  '@astrojs/react': 4.4.2
+  '@astrojs/react': 5.0.2
   '@astrojs/sitemap': 3.7.2
-  '@astrojs/svelte': 7.2.5
-  '@astrojs/vercel': 9.0.4
+  '@astrojs/svelte': 8.0.4
+  '@astrojs/vercel': 10.0.3
   '@changesets/cli': 2.30.0
   '@clack/prompts': 0.11.0
   '@faker-js/faker': 10.4.0
@@ -77,7 +77,7 @@ catalog:
   '@zag-js/toggle-group': 1.38.2
   '@zag-js/tooltip': 1.38.2
   '@zag-js/tree-view': 1.38.2
-  astro: 5.18.0
+  astro: 6.1.1
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.6
   astro-seo: 1.1.0

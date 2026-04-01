@@ -1,6 +1,7 @@
 import { createComponentsLoader } from '@/modules/loaders/components';
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { Octokit } from 'octokit';
 
 export const collections = {
@@ -10,8 +11,8 @@ export const collections = {
 			pattern: '*.json',
 		}),
 		schema: z.object({
-			name: z.string().nonempty(),
-			logo: z.string().nonempty(),
+			name: z.string().min(1),
+			logo: z.string().min(1),
 			default: z.boolean().optional().default(false),
 		}),
 	}),
@@ -21,12 +22,12 @@ export const collections = {
 			pattern: '**/*.{md,mdx}',
 		}),
 		schema: z.object({
-			title: z.string().nonempty(),
-			description: z.string().nonempty(),
+			title: z.string().min(1),
+			description: z.string().min(1),
 			summary: z.string().optional(),
 			features: z.array(z.string()).optional(),
 			stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
-			order: z.number().nonnegative().optional().default(0),
+			order: z.number().gte(0).optional().default(0),
 			tags: z.array(z.string()).optional().default([]),
 			references: z
 				.object({
