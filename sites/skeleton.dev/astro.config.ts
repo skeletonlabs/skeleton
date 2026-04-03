@@ -66,7 +66,7 @@ export default defineConfig({
 		},
 	},
 	vite: {
-		ssr: {
+		resolve: {
 			noExternal: ['@lucide/svelte'],
 		},
 		build: {
