@@ -66,6 +66,9 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		ssr: {
+			noExternal: ['@lucide/svelte'],
+		},
 		build: {
 			rollupOptions: {
 				external: ['/pagefind/pagefind.js'],
