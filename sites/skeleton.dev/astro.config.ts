@@ -15,8 +15,6 @@ import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
 import { execSync } from 'node:child_process';
 
-import transformLucideImports, { SUPPORTED_EXTENSIONS } from 'vite-plugin-transform-lucide-imports';
-
 function getSite() {
 	if (import.meta.env.DEV) {
 		return 'http://localhost:4321';
@@ -74,18 +72,7 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
-		plugins: [
-			tailwindcss(),
-			transformLucideImports({
-				extensions: [...SUPPORTED_EXTENSIONS, '.astro'],
-				onwarn(warning, defaultHandler) {
-					if (warning.message.match(/Skipping optimization of (\S+) because \1 is already a tree shaken package/)) {
-						return;
-					}
-					defaultHandler(warning.message);
-				},
-			}),
-		],
+		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
 });
