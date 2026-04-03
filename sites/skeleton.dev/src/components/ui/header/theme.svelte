@@ -83,9 +83,9 @@
 								<span>{theme.emoji}</span>
 								<h3 class="text-sm capitalize font-bold text-left">{theme.name}</h3>
 								<div class="flex justify-center items-center -space-x-1.5">
-									<div class="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
-									<div class="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
-									<div class="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
+									<div class="aspect-square w-4 bg-primary-500 border border-black/10 rounded-full"></div>
+									<div class="aspect-square w-4 bg-secondary-500 border border-black/10 rounded-full"></div>
+									<div class="aspect-square w-4 bg-tertiary-500 border border-black/10 rounded-full"></div>
 								</div>
 							</button>
 						{/each}
