@@ -1,7 +1,8 @@
 import { createComponentsLoader } from '@/modules/loaders/components';
 import { glob } from 'astro/loaders';
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { Octokit } from 'octokit';
+import { z } from 'astro/zod';
 
 export const collections = {
 	frameworks: defineCollection({
