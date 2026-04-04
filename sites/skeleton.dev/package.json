@@ -64,8 +64,7 @@
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
 		"typescript": "catalog:",
-		"unist-util-visit": "catalog:",
-		"vite-plugin-transform-lucide-imports": "catalog:"
+		"unist-util-visit": "catalog:"
 	},
 	"type": "module"
 }
