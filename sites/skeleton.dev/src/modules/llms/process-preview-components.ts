@@ -1,6 +1,7 @@
 import type { Root, RootContent } from 'mdast';
 import { readFileSync } from 'node:fs';
-import { extname, join } from 'node:path';
+import { extname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ResolverFactory } from 'oxc-resolver';
 import { Project } from 'ts-morph';
 import { visit, SKIP } from 'unist-util-visit';
@@ -27,13 +28,9 @@ function getDefaultImports(root: Root) {
 	return imports;
 }
 
-console.log({
-	cwd: process.cwd(),
-	dirname: import.meta.dirname,
-});
 const resolve = new ResolverFactory({
 	tsconfig: {
-		configFile: join(import.meta.dirname, '../../../../tsconfig.json'),
+		configFile: fileURLToPath(import.meta.resolve('../../../../tsconfig.json')),
 	},
 	extensions: ['.ts', '.tsx', '.js', '.jsx'],
 });
