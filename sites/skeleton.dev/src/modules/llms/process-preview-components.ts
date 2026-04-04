@@ -27,10 +27,13 @@ function getDefaultImports(root: Root) {
 	return imports;
 }
 
+console.log({
+	cwd: process.cwd(),
+	dirname: import.meta.dirname,
+});
 const resolve = new ResolverFactory({
-	// TODO: Set to `'auto'` when [this issues](https://github.com/oxc-project/oxc-resolver/issues/864) is resolved.
 	tsconfig: {
-		configFile: join(import.meta.dirname, '../../../tsconfig.json'),
+		configFile: join(import.meta.dirname, '../../../../tsconfig.json'),
 	},
 	extensions: ['.ts', '.tsx', '.js', '.jsx'],
 });

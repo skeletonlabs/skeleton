@@ -68,9 +68,9 @@ export default defineConfig({
 		},
 		assetsInclude: '**/pagefind.js',
 		plugins: [tailwindcss()],
+		resolve: {
+			noExternal: ['@lucide/svelte'],
+		},
 	},
 	adapter: vercel(),
-	legacy: {
-		collectionsBackwardsCompat: true,
-	},
 });
