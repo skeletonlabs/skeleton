@@ -38,7 +38,7 @@
 
 	const { headings }: Props = $props();
 
-	const activeHeading = useActiveHeading(headings);
+	const activeHeading = $derived(useActiveHeading(headings));
 
 	const scrollTop = $derived(scrollY.current ?? 0);
 
@@ -64,7 +64,7 @@
 				<SegmentedControl.Indicator class="w-0.5" />
 				{#each headings as heading (heading)}
 					<SegmentedControl.Item value={heading.slug} class="justify-start p-0 {getPaddingFromDepth(heading.depth)}">
-						{#snippet element(attributes: Record)}
+						{#snippet element(attributes: Record<string, unknown>)}
 							<a {...attributes} href={`#${heading.slug}`}>
 								<SegmentedControl.ItemText
 									class="text-sm text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950 text-wrap"
