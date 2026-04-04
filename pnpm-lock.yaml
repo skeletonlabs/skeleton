@@ -43,8 +43,8 @@ catalogs:
       specifier: 3.12.0
       version: 3.12.0
     '@lucide/svelte':
-      specifier: 0.577.0
-      version: 0.577.0
+      specifier: 1.7.0
+      version: 1.7.0
     '@playwright/test':
       specifier: 1.58.2
       version: 1.58.2
@@ -265,8 +265,8 @@ catalogs:
       specifier: 9.0.0
       version: 9.0.0
     lucide-react:
-      specifier: 0.577.0
-      version: 0.577.0
+      specifier: 1.7.0
+      version: 1.7.0
     magic-string:
       specifier: 0.30.21
       version: 0.30.21
@@ -773,7 +773,7 @@ importers:
         version: 1.167.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(vite@7.3.1(@types/node@24.12.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.20.6)(yaml@2.8.3))
       lucide-react:
         specifier: 'catalog:'
-        version: 0.577.0(react@19.2.4)
+        version: 1.7.0(react@19.2.4)
       react:
         specifier: 'catalog:'
         version: 19.2.4
@@ -822,7 +822,7 @@ importers:
     devDependencies:
       '@lucide/svelte':
         specifier: 'catalog:'
-        version: 0.577.0(svelte@5.55.0)
+        version: 1.7.0(svelte@5.55.0)
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
@@ -894,7 +894,7 @@ importers:
         version: 1.7.6
       '@lucide/svelte':
         specifier: 'catalog:'
-        version: 0.577.0(svelte@5.55.0)
+        version: 1.7.0(svelte@5.55.0)
       '@resvg/resvg-js':
         specifier: 'catalog:'
         version: 2.6.2
@@ -972,7 +972,7 @@ importers:
         version: 3.0.3
       lucide-react:
         specifier: 'catalog:'
-        version: 0.577.0(react@19.2.4)
+        version: 1.7.0(react@19.2.4)
       mdast-util-from-markdown:
         specifier: 'catalog:'
         version: 2.0.3
@@ -1035,7 +1035,7 @@ importers:
     devDependencies:
       '@lucide/svelte':
         specifier: 'catalog:'
-        version: 0.577.0(svelte@5.55.0)
+        version: 1.7.0(svelte@5.55.0)
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
@@ -2105,8 +2105,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@lucide/svelte@0.577.0':
-    resolution: {integrity: sha512-0P6mkySd2MapIEgq08tADPmcN4DHndC/02PWwaLkOerXlx5Sv9aT4BxyXLIY+eccr0g/nEyCYiJesqS61YdBZQ==}
+  '@lucide/svelte@1.7.0':
+    resolution: {integrity: sha512-YytBKOUBGox7yWcykZnYxOkn5WpR5G1qYXLYXV/j1B79SOTTEKzB+s5yF5Rq9l9OkweDStNH2b4yTqfvhEhV8g==}
     peerDependencies:
       svelte: ^5
 
@@ -4891,8 +4891,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.577.0:
-    resolution: {integrity: sha512-4LjoFv2eEPwYDPg/CUdBJQSDfPyzXCRrVW1X7jrx/trgxnxkHFjnVZINbzvzxjN70dxychOfg+FTYwBiS3pQ5A==}
+  lucide-react@1.7.0:
+    resolution: {integrity: sha512-yI7BeItCLZJTXikmK4KNUGCKoGzSvbKlfCvw44bU4fXAL6v3gYS4uHD1jzsLkfwODYwI6Drw5Tu9Z5ulDe0TSg==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -7562,7 +7562,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lucide/svelte@0.577.0(svelte@5.55.0)':
+  '@lucide/svelte@1.7.0(svelte@5.55.0)':
     dependencies:
       svelte: 5.55.0
 
@@ -10556,7 +10556,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.577.0(react@19.2.4):
+  lucide-react@1.7.0(react@19.2.4):
     dependencies:
       react: 19.2.4
 
