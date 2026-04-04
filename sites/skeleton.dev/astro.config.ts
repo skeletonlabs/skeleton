@@ -70,4 +70,7 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
+	legacy: {
+		collectionsBackwardsCompat: true,
+	},
 });
