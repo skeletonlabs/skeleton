@@ -1,6 +1,6 @@
 ---
-"@skeletonlabs/skeleton-react": patch
-"@skeletonlabs/skeleton-svelte": patch
+"@skeletonlabs/skeleton-react": minor
+"@skeletonlabs/skeleton-svelte": minor
 ---
 
 task: bump zag
