@@ -1,5 +1,6 @@
 ---
 import { getCollection } from '@/modules/content';
+import { resolvePath } from '@/modules/resolve-path';
 
 const docs = await getCollection('docs', (item) => {
 	if (item.filePath?.includes('guides/cookbook/')) {
@@ -23,7 +24,7 @@ const docs = await getCollection('docs', (item) => {
 							</div>
 						</td>
 						<td class="text-right">
-							<a href={`/${doc.collection}/${doc.id}`} class="btn preset-tonal hover:preset-filled">
+							<a href={resolvePath(Astro.params, `/docs/[framework]/${doc.id}`)} class="btn preset-tonal hover:preset-filled">
 								Explore &rarr;
 							</a>
 						</td>

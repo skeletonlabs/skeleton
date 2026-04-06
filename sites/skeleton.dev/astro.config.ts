@@ -67,7 +67,6 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
-		/* @ts-expect-error - vite peer dep type mismatch */
 		plugins: [tailwindcss()],
 		resolve: {
 			noExternal: ['@lucide/svelte'],
