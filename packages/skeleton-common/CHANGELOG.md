@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 4.15.1
+
+### Patch Changes
+
+- bugfix(floating-panel): ensure header height is considered stretching the panel body ([#4342](https://github.com/skeletonlabs/skeleton/pull/4342))
+
 ## 4.15.0
 
 ## 4.14.0
