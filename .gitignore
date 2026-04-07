@@ -25,3 +25,6 @@ node_modules/
 .temp/
 *.tgz
 .vscode/launch.json
+
+# environment variables
+**.env
