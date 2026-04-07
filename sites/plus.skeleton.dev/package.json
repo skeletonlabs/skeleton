@@ -1,5 +1,5 @@
 {
-	"name": "plus.skeleton.dev",
+	"name": "@skeletonlabs/plus.skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
