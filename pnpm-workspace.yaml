@@ -27,6 +27,8 @@ catalog:
   '@shikijs/transformers': 4.0.2
   '@shikijs/types': 4.0.2
   '@stackblitz/sdk': 1.11.0
+  '@supabase/ssr': 0.10.0
+  '@supabase/supabase-js': 2.101.1
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
   '@sveltejs/kit': 2.55.0
