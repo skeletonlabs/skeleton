@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - v3
+      - v4
   pull_request:
 
 concurrency:
