@@ -141,6 +141,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: vite@7.3.2
+  - vite@7.3.2
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
