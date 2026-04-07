@@ -3,7 +3,7 @@ name: Publish Skeleton
 on:
   push:
     branches:
-      - main
+      - v4
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
