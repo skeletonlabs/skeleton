@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton
 
+## 4.15.1
+
 ## 4.15.0
 
 ## 4.14.0
