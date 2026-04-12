@@ -1,4 +1,6 @@
 import { getRequestEvent, query } from '$app/server';
+import * as v from 'valibot';
+import { User } from '$lib/auth/user-schema';
 
 export const getUser = query(async () => {
 	const event = getRequestEvent();
@@ -9,5 +11,5 @@ export const getUser = query(async () => {
 		return null;
 	}
 
-	return userResult.data.user;
+	return v.parse(User, userResult.data.user);
 });
