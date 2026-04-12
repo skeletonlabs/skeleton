@@ -24,6 +24,7 @@
 		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
+		"valibot": "catalog:",
 		"vite": "catalog:",
 		"vite-plugin-transform-lucide-imports": "catalog:"
 	},
