@@ -18,7 +18,7 @@ export const signIn = form(
 		});
 
 		if (signInResult.error) {
-			error(400, signInResult.error.message);
+			error(signInResult.error.status ?? 400, signInResult.error.message);
 		}
 
 		redirect(303, signInResult.data.url);
