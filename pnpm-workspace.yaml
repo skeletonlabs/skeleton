@@ -150,5 +150,6 @@ onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
   - sharp
+  - supabase
 
 savePrefix: ''

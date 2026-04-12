@@ -6,7 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"supabase:gen-types": "pnpx supabase gen types typescript --project-id jstldyovhngyoaquqjvj --schema public > src/database.types.ts",
+		"supabase:gen-types": "pnpx supabase gen types typescript --schema public > src/database.types.ts",
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
@@ -14,7 +14,7 @@
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@supabase/ssr": "catalog:",
 		"@supabase/supabase-js": "catalog:",
-		"@sveltejs/adapter-auto": "catalog:",
+		"@sveltejs/adapter-vercel": "catalog:",
 		"@sveltejs/kit": "catalog:",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
