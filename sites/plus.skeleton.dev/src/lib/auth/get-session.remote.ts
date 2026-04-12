@@ -1,16 +1,15 @@
-import { query } from '$app/server';
-import { getSupabase } from './get-supabase.remote';
+import { getRequestEvent, query } from '$app/server';
 
 export const getSession = query(async () => {
-	const supabase = await getSupabase();
+	const event = getRequestEvent();
 
-	const sessionResult = await supabase.auth.getSession();
+	const sessionResult = await event.locals.supabase.auth.getSession();
 
 	if (sessionResult.error) {
 		return { session: null, user: null };
 	}
 
-	const userResult = await supabase.auth.getUser();
+	const userResult = await event.locals.supabase.auth.getUser();
 
 	if (userResult.error) {
 		// JWT validation has failed

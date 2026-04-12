@@ -1,7 +1,6 @@
 import * as v from 'valibot';
-import { form } from '$app/server';
+import { form, getRequestEvent } from '$app/server';
 import { SUPPORTED_PROVIDERS } from './supported-providers';
-import { getSupabase } from './get-supabase.remote';
 import { error, redirect } from '@sveltejs/kit';
 
 export const signIn = form(
@@ -9,10 +8,13 @@ export const signIn = form(
 		provider: v.picklist(SUPPORTED_PROVIDERS),
 	}),
 	async (data) => {
-		const supabase = await getSupabase();
+		const event = getRequestEvent();
 
-		const signInResult = await supabase.auth.signInWithOAuth({
+		const signInResult = await event.locals.supabase.auth.signInWithOAuth({
 			provider: data.provider,
+			options: {
+				redirectTo: new URL('/auth/callback', event.url).toString(),
+			},
 		});
 
 		if (signInResult.error) {
