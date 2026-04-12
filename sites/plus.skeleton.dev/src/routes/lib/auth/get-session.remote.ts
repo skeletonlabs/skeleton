@@ -11,7 +11,7 @@ export const getSession = query(async () => {
 	}
 
 	const userResult = await supabase.auth.getUser();
-	
+
 	if (userResult.error) {
 		// JWT validation has failed
 		return { session: null, user: null };

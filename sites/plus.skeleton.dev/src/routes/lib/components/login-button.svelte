@@ -8,9 +8,12 @@
 </script>
 
 <script lang="ts">
-	const { provider, ...props }: Props = $props();
+	import { signIn } from '../auth/sign-in.remote';
+
+	const { children, provider, ...attributes }: Props = $props();
 </script>
 
-<form>
-	<button {...props}></button>
+<form {...signIn}>
+	<input {...signIn.fields.provider.as('hidden', provider)} />
+	<button {...attributes}>{@render children?.()}</button>
 </form>
