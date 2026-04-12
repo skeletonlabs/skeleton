@@ -1,7 +1,7 @@
 <script>
-	import LoginButton from '$lib/components/login-button.svelte';
+	import SignInButton from '$lib/components/sign-in-button.svelte';
 </script>
 
 <h1>Skeleton Plus</h1>
 
-<LoginButton provider="github">Github</LoginButton>
+<SignInButton provider="github">Sign In Through Github</SignInButton>
