@@ -3,7 +3,7 @@
 	import SignInButton from '$lib/components/sign-in-button.svelte';
 	import SignOutButton from '$lib/components/sign-out-button.svelte';
 
-	const user = await getUser();
+	const user = $derived(await getUser());
 </script>
 
 <h1 class="h1">Skeleton Plus</h1>

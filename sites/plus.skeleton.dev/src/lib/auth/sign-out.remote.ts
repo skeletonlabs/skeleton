@@ -10,6 +10,4 @@ export const signOut = form(v.object({}), async () => {
 	if (signOutResult.error) {
 		error(signOutResult.error.status ?? 400, signOutResult.error.message);
 	}
-
-	// TODO: Refresh the page/data after signing out to reflect the new auth state
 });
