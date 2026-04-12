@@ -2,6 +2,6 @@
 	import SignInButton from '$lib/components/sign-in-button.svelte';
 </script>
 
-<h1>Skeleton Plus</h1>
+<h1 class="h1">Skeleton Plus</h1>
 
-<SignInButton provider="github">Sign In Through Github</SignInButton>
+<SignInButton class="btn preset-filled" provider="github">Sign In Through Github</SignInButton>
