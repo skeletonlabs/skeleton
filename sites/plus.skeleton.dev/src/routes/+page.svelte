@@ -1,5 +1,5 @@
 <script>
-	import LoginButton from './lib/components/login-button.svelte';
+	import LoginButton from '$lib/components/login-button.svelte';
 </script>
 
 <h1>Skeleton Plus</h1>

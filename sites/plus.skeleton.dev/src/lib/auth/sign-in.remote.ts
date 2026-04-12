@@ -1,6 +1,6 @@
 import * as v from 'valibot';
 import { form, getRequestEvent } from '$app/server';
-import { SUPPORTED_PROVIDERS } from './supported-providers';
+import { SUPPORTED_PROVIDERS } from '$lib/auth/supported-providers';
 import { error, redirect } from '@sveltejs/kit';
 
 export const signIn = form(
