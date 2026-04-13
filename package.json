@@ -5,6 +5,7 @@
 	"scripts": {
 		"doc": "pnpm --filter @skeletonlabs/skeleton.dev",
 		"themes": "pnpm --filter @skeletonlabs/themes.skeleton.dev",
+		"plus": "pnpm --filter @skeletonlabs/plus.skeleton.dev",
 		"svelte": "pnpm --filter @skeletonlabs/playground-skeleton-svelte",
 		"react": "pnpm --filter @skeletonlabs/playground-skeleton-react",
 		"test": "vitest run",
