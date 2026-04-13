@@ -1,7 +1,9 @@
 [data-theme='catppuccin'] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+	--typo-base--font-family:
+		ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
+		source-sans-pro, sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: var(--color-surface-700);
 	--typo-base--color-dark: var(--color-surface-50);

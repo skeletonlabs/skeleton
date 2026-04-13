@@ -1,7 +1,9 @@
 [data-theme='modern'] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+	--typo-base--font-family:
+		ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
+		source-sans-pro, sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: var(--color-surface-950);
 	--typo-base--color-dark: var(--color-surface-50);
@@ -15,7 +17,9 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
+	--typo-heading--font-family:
+		ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
+		source-sans-pro, sans-serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: bolder;

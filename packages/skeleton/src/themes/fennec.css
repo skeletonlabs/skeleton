@@ -15,7 +15,8 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+	--typo-heading--font-family:
+		Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
 	--typo-heading--color-light: oklch(0 0 0 / 1);
 	--typo-heading--color-dark: var(--color-secondary-50);
 	--typo-heading--font-weight: normal;
