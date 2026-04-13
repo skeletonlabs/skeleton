@@ -1,44 +1,45 @@
 @theme {
-	/* Spacing */
+	/* Settings */
 	--spacing: 0.25rem;
-
-	/* Typography */
 	--text-scaling: 1;
-	--base-font-color: inherit;
-	--base-font-color-dark: inherit;
-	--base-font-family: inherit;
-	--base-font-size: inherit;
-	--base-line-height: inherit;
-	--base-font-weight: inherit;
-	--base-font-style: inherit;
-	--base-letter-spacing: inherit;
-	--heading-font-color: inherit;
-	--heading-font-color-dark: inherit;
-	--heading-font-family: inherit;
-	--heading-font-weight: inherit;
-	--heading-font-style: inherit;
-	--heading-letter-spacing: inherit;
-	--anchor-font-color: inherit;
-	--anchor-font-color-dark: inherit;
-	--anchor-font-family: inherit;
-	--anchor-font-size: inherit;
-	--anchor-line-height: inherit;
-	--anchor-font-weight: inherit;
-	--anchor-font-style: inherit;
-	--anchor-letter-spacing: inherit;
-	--anchor-text-decoration: inherit;
-	--anchor-text-decoration-hover: underline;
-	--anchor-text-decoration-active: inherit;
-	--anchor-text-decoration-focus: inherit;
+
+	/* Typography — Base */
+	--font-typo-base: system-ui;
+	--text-typo-base: inherit;
+	--color-typo-base-light: var(--color-surface-950);
+	--color-typo-base-dark: var(--color-surface-50);
+	--leading-typo-base: inherit;
+	--tracking-typo-base: 0em;
+	--text-shadow-typo-base: inherit;
+
+	/* Typography — Heading */
+	--font-typo-heading: inherit;
+	--color-typo-heading-light: inherit;
+	--color-typo-heading-dark: inherit;
+	--tracking-typo-heading: inherit;
+	--text-shadow-typo-heading: inherit;
+
+	/* Typography — Anchor */
+	--font-typo-anchor: inherit;
+	--text-typo-anchor: inherit;
+	--color-typo-anchor-light: var(--color-primary-500);
+	--color-typo-anchor-dark: var(--color-primary-400);
+	--leading-typo-anchor: inherit;
+	--tracking-typo-anchor: inherit;
+	--text-shadow-typo-anchor: inherit;
 
 	/* Radius */
 	--radius-base: 0.25rem;
 	--radius-container: 0.25rem;
 
 	/* Edges */
-	--default-border-width: 1px;
-	--default-divide-width: 1px;
-	--default-ring-width: 1px;
+	--default-border-width: var(--default-border-width);
+	--default-ring-width: var(--default-ring-width);
+	--default-outline-width: var(--default-outline-width);
+
+	/* Corner Shape */
+	--corner-shape-base: inherit;
+	--corner-shape-container: inherit;
 
 	/* Animations */
 	--animate-progress-linear-indeterminate-horizontal: progress-linear-indeterminate-horizontal 1.5s ease-in-out infinite;
@@ -226,9 +227,38 @@
 	--color-surface-contrast-800: var(--color-surface-contrast-light);
 	--color-surface-contrast-900: var(--color-surface-contrast-light);
 	--color-surface-contrast-950: var(--color-surface-contrast-light);
+
+	/* Brand */
+	--color-brand-light: var(--color-primary-500);
+	--color-brand-dark: var(--color-primary-500);
 }
 
 @theme inline {
+	/* Typography — Base */
+	--font-typo-base: var(--typo-base--font-family);
+	--text-typo-base: var(--typo-base--font-size);
+	--color-typo-base-light: var(--typo-base--color-light);
+	--color-typo-base-dark: var(--typo-base--color-dark);
+	--leading-typo-base: var(--typo-base--line-height);
+	--tracking-typo-base: var(--typo-base--letter-spacing);
+	--text-shadow-typo-base: var(--typo-base--text-shadow);
+
+	/* Typography — Heading */
+	--font-typo-heading: var(--typo-heading--font-family);
+	--color-typo-heading-light: var(--typo-heading--color-light);
+	--color-typo-heading-dark: var(--typo-heading--color-dark);
+	--tracking-typo-heading: var(--typo-heading--letter-spacing);
+	--text-shadow-typo-heading: var(--typo-heading--text-shadow);
+
+	/* Typography — Anchor */
+	--font-typo-anchor: var(--typo-anchor--font-family);
+	--text-typo-anchor: var(--typo-anchor--font-size);
+	--color-typo-anchor-light: var(--typo-anchor--color-light);
+	--color-typo-anchor-dark: var(--typo-anchor--color-dark);
+	--leading-typo-anchor: var(--typo-anchor--line-height);
+	--tracking-typo-anchor: var(--typo-anchor--letter-spacing);
+	--text-shadow-typo-anchor: var(--typo-anchor--text-shadow);
+
 	/* Backgrounds */
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);

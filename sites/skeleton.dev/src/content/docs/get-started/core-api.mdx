@@ -48,28 +48,37 @@ Uses Tailwind's `@theme` to implement a variety of new properties and utility cl
 
 Extends colors to include the [Skeleton color palette](/docs/[framework]/design/colors).
 
-| Class                                 | Theme Property                       |
-| ------------------------------------- | ------------------------------------ |
-| `[property]-[color]-[shade]`          | {`--`}color-[color]-[shade]          |
-| `[property]-[color]-contrast-[shade]` | {`--`}color-[color]-contrast-[shade] |
-| `body-background-color`               | {`--`}body-background-color          |
-| `body-background-color-dark`          | {`--`}body-background-color-dark     |
+| Skeleton Theme Property              | Tailwind @theme Property             | Class                                 |
+| ------------------------------------ | ------------------------------------ | ------------------------------------- |
+| {`--`}color-[color]-[shade]          | {`--`}color-[color]-[shade]          | `[property]-[color]-[shade]`          |
+| {`--`}color-[color]-contrast-[shade] | {`--`}color-[color]-contrast-[shade] | `[property]-[color]-contrast-[shade]` |
+| {`--`}body-background-color          | {`--`}body-background-color          | `body-background-color`               |
+| {`--`}body-background-color-dark     | {`--`}body-background-color-dark     | `body-background-color-dark`          |
+
+### Brand
+
+Exposes brand colors that theme designers can override to re-skin components site-wide.
+
+| Skeleton Theme Property | Tailwind @theme Property | Class                    |
+| ----------------------- | ------------------------ | ------------------------ |
+| {`--`}color-brand-light | {`--`}color-brand-light  | `[property]-brand-light` |
+| {`--`}color-brand-dark  | {`--`}color-brand-dark   | `[property]-brand-dark`  |
 
 ### Color Pairings
 
 Extends colors to implement [Color Pairing](/docs/[framework]/design/colors#color-pairings), which balance colors between light and dark mode.
 
-| Class                                | Theme Property                      |
-| ------------------------------------ | ----------------------------------- |
-| `[property]-[color]-[shade]-[shade]` | {`--`}color-[color]-[shade]-[shade] |
+| Skeleton Theme Property             | Tailwind @theme Property            | Class                                |
+| ----------------------------------- | ----------------------------------- | ------------------------------------ |
+| {`--`}color-[color]-[shade]-[shade] | {`--`}color-[color]-[shade]-[shade] | `[property]-[color]-[shade]-[shade]` |
 
 ### Spacing
 
 Integrates Tailwind's [spacing property](https://tailwindcss.com/docs/functions-and-directives#spacing-function) to modify [dynamic scaling](/docs/[framework]/design/spacing) for various utility classes.
 
-| Class     | Theme Property |
-| --------- | -------------- |
-| (various) | {`--`}spacing  |
+| Skeleton Theme Property | Tailwind @theme Property | Class     |
+| ----------------------- | ------------------------ | --------- |
+| {`--`}spacing           | {`--`}spacing            | (various) |
 
 ### Typography
 
@@ -84,105 +93,114 @@ Introduces a [typographic scale](https://designcode.io/typographic-scales) to al
 
 Controls the style of the global page text.
 
-| Class                       | Theme Property                  |
-| --------------------------- | ------------------------------- |
-| `typo-base--font-family`    | {`--`}typo-base--font-family    |
-| `typo-base--font-size`      | {`--`}typo-base--font-size      |
-| `typo-base--color-light`    | {`--`}typo-base--color-light    |
-| `typo-base--color-dark`     | {`--`}typo-base--color-dark     |
-| `typo-base--line-height`    | {`--`}typo-base--line-height    |
-| `typo-base--font-weight`    | {`--`}typo-base--font-weight    |
-| `typo-base--font-style`     | {`--`}typo-base--font-style     |
-| `typo-base--letter-spacing` | {`--`}typo-base--letter-spacing |
-| `typo-base--font-stretch`   | {`--`}typo-base--font-stretch   |
-| `typo-base--font-kerning`   | {`--`}typo-base--font-kerning   |
-| `typo-base--text-shadow`    | {`--`}typo-base--text-shadow    |
-| `typo-base--word-spacing`   | {`--`}typo-base--word-spacing   |
-| `typo-base--hyphens`        | {`--`}typo-base--hyphens        |
-| `typo-base--text-transform` | {`--`}typo-base--text-transform |
+| Skeleton Theme Property         | Tailwind @theme Property    | Class                        |
+| ------------------------------- | --------------------------- | ---------------------------- |
+| {`--`}typo-base--font-family    | {`--`}font-typo-base        | `font-typo-base`             |
+| {`--`}typo-base--font-size      | {`--`}text-typo-base        | `text-typo-base`             |
+| {`--`}typo-base--color-light    | {`--`}color-typo-base-light | `[property]-typo-base-light` |
+| {`--`}typo-base--color-dark     | {`--`}color-typo-base-dark  | `[property]-typo-base-dark`  |
+| {`--`}typo-base--line-height    | {`--`}leading-typo-base     | `leading-typo-base`          |
+| {`--`}typo-base--font-weight    |                             |                              |
+| {`--`}typo-base--font-style     |                             |                              |
+| {`--`}typo-base--letter-spacing | {`--`}tracking-typo-base    | `tracking-typo-base`         |
+| {`--`}typo-base--font-stretch   |                             |                              |
+| {`--`}typo-base--font-kerning   |                             |                              |
+| {`--`}typo-base--text-shadow    | {`--`}text-shadow-typo-base | `text-shadow-typo-base`      |
+| {`--`}typo-base--word-spacing   |                             |                              |
+| {`--`}typo-base--hyphens        |                             |                              |
+| {`--`}typo-base--text-transform |                             |                              |
 
 #### Heading
 
 Controls the style of the heading text.
 
-| Class                          | Theme Property                     |
-| ------------------------------ | ---------------------------------- |
-| `typo-heading--font-family`    | {`--`}typo-heading--font-family    |
-| `typo-heading--color-light`    | {`--`}typo-heading--color-light    |
-| `typo-heading--color-dark`     | {`--`}typo-heading--color-dark     |
-| `typo-heading--font-weight`    | {`--`}typo-heading--font-weight    |
-| `typo-heading--font-style`     | {`--`}typo-heading--font-style     |
-| `typo-heading--letter-spacing` | {`--`}typo-heading--letter-spacing |
-| `typo-heading--font-stretch`   | {`--`}typo-heading--font-stretch   |
-| `typo-heading--font-kerning`   | {`--`}typo-heading--font-kerning   |
-| `typo-heading--text-shadow`    | {`--`}typo-heading--text-shadow    |
-| `typo-heading--word-spacing`   | {`--`}typo-heading--word-spacing   |
-| `typo-heading--hyphens`        | {`--`}typo-heading--hyphens        |
-| `typo-heading--text-transform` | {`--`}typo-heading--text-transform |
+| Skeleton Theme Property            | Tailwind @theme Property       | Class                           |
+| ---------------------------------- | ------------------------------ | ------------------------------- |
+| {`--`}typo-heading--font-family    | {`--`}font-typo-heading        | `font-typo-heading`             |
+| {`--`}typo-heading--color-light    | {`--`}color-typo-heading-light | `[property]-typo-heading-light` |
+| {`--`}typo-heading--color-dark     | {`--`}color-typo-heading-dark  | `[property]-typo-heading-dark`  |
+| {`--`}typo-heading--font-weight    |                                |                                 |
+| {`--`}typo-heading--font-style     |                                |                                 |
+| {`--`}typo-heading--letter-spacing | {`--`}tracking-typo-heading    | `tracking-typo-heading`         |
+| {`--`}typo-heading--font-stretch   |                                |                                 |
+| {`--`}typo-heading--font-kerning   |                                |                                 |
+| {`--`}typo-heading--text-shadow    | {`--`}text-shadow-typo-heading | `text-shadow-typo-heading`      |
+| {`--`}typo-heading--word-spacing   |                                |                                 |
+| {`--`}typo-heading--hyphens        |                                |                                 |
+| {`--`}typo-heading--text-transform |                                |                                 |
 
 #### Anchor
 
 Controls the style of anchor links.
 
-| Class                                            | Theme Property                                       |
-| ------------------------------------------------ | ---------------------------------------------------- |
-| `typo-anchor--font-family`                       | {`--`}typo-anchor--font-family                       |
-| `typo-anchor--font-size`                         | {`--`}typo-anchor--font-size                         |
-| `typo-anchor--color-light`                       | {`--`}typo-anchor--color-light                       |
-| `typo-anchor--color-dark`                        | {`--`}typo-anchor--color-dark                        |
-| `typo-anchor--line-height`                       | {`--`}typo-anchor--line-height                       |
-| `typo-anchor--font-weight`                       | {`--`}typo-anchor--font-weight                       |
-| `typo-anchor--font-style`                        | {`--`}typo-anchor--font-style                        |
-| `typo-anchor--letter-spacing`                    | {`--`}typo-anchor--letter-spacing                    |
-| `typo-anchor--font-stretch`                      | {`--`}typo-anchor--font-stretch                      |
-| `typo-anchor--font-kerning`                      | {`--`}typo-anchor--font-kerning                      |
-| `typo-anchor--text-shadow`                       | {`--`}typo-anchor--text-shadow                       |
-| `typo-anchor--word-spacing`                      | {`--`}typo-anchor--word-spacing                      |
-| `typo-anchor--hyphens`                           | {`--`}typo-anchor--hyphens                           |
-| `typo-anchor--text-transform`                    | {`--`}typo-anchor--text-transform                    |
-| `typo-anchor--text-decoration-line`              | {`--`}typo-anchor--text-decoration-line              |
-| `typo-anchor--text-decoration-color`             | {`--`}typo-anchor--text-decoration-color             |
-| `typo-anchor--text-decoration-style`             | {`--`}typo-anchor--text-decoration-style             |
-| `typo-anchor--text-decoration-thickness`         | {`--`}typo-anchor--text-decoration-thickness         |
-| `typo-anchor--text-underline-offset`             | {`--`}typo-anchor--text-underline-offset             |
-| `typo-anchor--text-underline-position`           | {`--`}typo-anchor--text-underline-position           |
-| `typo-anchor--hover--text-decoration-line`       | {`--`}typo-anchor--hover--text-decoration-line       |
-| `typo-anchor--hover--text-decoration-color`      | {`--`}typo-anchor--hover--text-decoration-color      |
-| `typo-anchor--hover--text-decoration-style`      | {`--`}typo-anchor--hover--text-decoration-style      |
-| `typo-anchor--hover--text-decoration-thickness`  | {`--`}typo-anchor--hover--text-decoration-thickness  |
-| `typo-anchor--hover--text-underline-offset`      | {`--`}typo-anchor--hover--text-underline-offset      |
-| `typo-anchor--hover--text-underline-position`    | {`--`}typo-anchor--hover--text-underline-position    |
-| `typo-anchor--active--text-decoration-line`      | {`--`}typo-anchor--active--text-decoration-line      |
-| `typo-anchor--active--text-decoration-color`     | {`--`}typo-anchor--active--text-decoration-color     |
-| `typo-anchor--active--text-decoration-style`     | {`--`}typo-anchor--active--text-decoration-style     |
-| `typo-anchor--active--text-decoration-thickness` | {`--`}typo-anchor--active--text-decoration-thickness |
-| `typo-anchor--active--text-underline-offset`     | {`--`}typo-anchor--active--text-underline-offset     |
-| `typo-anchor--active--text-underline-position`   | {`--`}typo-anchor--active--text-underline-position   |
-| `typo-anchor--focus--text-decoration-line`       | {`--`}typo-anchor--focus--text-decoration-line       |
-| `typo-anchor--focus--text-decoration-color`      | {`--`}typo-anchor--focus--text-decoration-color      |
-| `typo-anchor--focus--text-decoration-style`      | {`--`}typo-anchor--focus--text-decoration-style      |
-| `typo-anchor--focus--text-decoration-thickness`  | {`--`}typo-anchor--focus--text-decoration-thickness  |
-| `typo-anchor--focus--text-underline-offset`      | {`--`}typo-anchor--focus--text-underline-offset      |
-| `typo-anchor--focus--text-underline-position`    | {`--`}typo-anchor--focus--text-underline-position    |
+| Skeleton Theme Property                              | Tailwind @theme Property      | Class                          |
+| ---------------------------------------------------- | ----------------------------- | ------------------------------ |
+| {`--`}typo-anchor--font-family                       | {`--`}font-typo-anchor        | `font-typo-anchor`             |
+| {`--`}typo-anchor--font-size                         | {`--`}text-typo-anchor        | `text-typo-anchor`             |
+| {`--`}typo-anchor--color-light                       | {`--`}color-typo-anchor-light | `[property]-typo-anchor-light` |
+| {`--`}typo-anchor--color-dark                        | {`--`}color-typo-anchor-dark  | `[property]-typo-anchor-dark`  |
+| {`--`}typo-anchor--line-height                       | {`--`}leading-typo-anchor     | `leading-typo-anchor`          |
+| {`--`}typo-anchor--font-weight                       |                               |                                |
+| {`--`}typo-anchor--font-style                        |                               |                                |
+| {`--`}typo-anchor--letter-spacing                    | {`--`}tracking-typo-anchor    | `tracking-typo-anchor`         |
+| {`--`}typo-anchor--font-stretch                      |                               |                                |
+| {`--`}typo-anchor--font-kerning                      |                               |                                |
+| {`--`}typo-anchor--text-shadow                       | {`--`}text-shadow-typo-anchor | `text-shadow-typo-anchor`      |
+| {`--`}typo-anchor--word-spacing                      |                               |                                |
+| {`--`}typo-anchor--hyphens                           |                               |                                |
+| {`--`}typo-anchor--text-transform                    |                               |                                |
+| {`--`}typo-anchor--text-decoration-line              |                               |                                |
+| {`--`}typo-anchor--text-decoration-color             |                               |                                |
+| {`--`}typo-anchor--text-decoration-style             |                               |                                |
+| {`--`}typo-anchor--text-decoration-thickness         |                               |                                |
+| {`--`}typo-anchor--text-underline-offset             |                               |                                |
+| {`--`}typo-anchor--text-underline-position           |                               |                                |
+| {`--`}typo-anchor--hover--text-decoration-line       |                               |                                |
+| {`--`}typo-anchor--hover--text-decoration-color      |                               |                                |
+| {`--`}typo-anchor--hover--text-decoration-style      |                               |                                |
+| {`--`}typo-anchor--hover--text-decoration-thickness  |                               |                                |
+| {`--`}typo-anchor--hover--text-underline-offset      |                               |                                |
+| {`--`}typo-anchor--hover--text-underline-position    |                               |                                |
+| {`--`}typo-anchor--active--text-decoration-line      |                               |                                |
+| {`--`}typo-anchor--active--text-decoration-color     |                               |                                |
+| {`--`}typo-anchor--active--text-decoration-style     |                               |                                |
+| {`--`}typo-anchor--active--text-decoration-thickness |                               |                                |
+| {`--`}typo-anchor--active--text-underline-offset     |                               |                                |
+| {`--`}typo-anchor--active--text-underline-position   |                               |                                |
+| {`--`}typo-anchor--focus--text-decoration-line       |                               |                                |
+| {`--`}typo-anchor--focus--text-decoration-color      |                               |                                |
+| {`--`}typo-anchor--focus--text-decoration-style      |                               |                                |
+| {`--`}typo-anchor--focus--text-decoration-thickness  |                               |                                |
+| {`--`}typo-anchor--focus--text-underline-offset      |                               |                                |
+| {`--`}typo-anchor--focus--text-underline-position    |                               |                                |
 
 ### Radius
 
 Extends Tailwind's radius properties with theme-specific sizes.
 
-| Class               | Theme Property         |
-| ------------------- | ---------------------- |
-| `rounded-base`      | {`--`}radius-base      |
-| `rounded-container` | {`--`}radius-container |
+| Skeleton Theme Property | Tailwind @theme Property | Class               |
+| ----------------------- | ------------------------ | ------------------- |
+| {`--`}radius-base       | {`--`}radius-base        | `rounded-base`      |
+| {`--`}radius-container  | {`--`}radius-container   | `rounded-container` |
 
 ### Edges
 
 Sets the default width for border, outline, and ring to match the active theme properties.
 
-| Class     | Theme Property              |
-| --------- | --------------------------- |
-| `border`  | {`--`}default-border-width  |
-| `outline` | {`--`}default-outline-width |
-| `ring`    | {`--`}default-ring-width    |
+| Skeleton Theme Property     | Tailwind @theme Property    | Class     |
+| --------------------------- | --------------------------- | --------- |
+| {`--`}default-border-width  | {`--`}default-border-width  | `border`  |
+| {`--`}default-ring-width    | {`--`}default-ring-width    | `ring`    |
+| {`--`}default-outline-width | {`--`}default-outline-width | `outline` |
+
+### Corner Shape
+
+Sets the default [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) for base elements and containers (e.g., squircle corners).
+
+| Skeleton Theme Property      | Tailwind @theme Property     | Class |
+| ---------------------------- | ---------------------------- | ----- |
+| {`--`}corner-shape-base      | {`--`}corner-shape-base      |       |
+| {`--`}corner-shape-container | {`--`}corner-shape-container |       |
 
 ## @utility
 
