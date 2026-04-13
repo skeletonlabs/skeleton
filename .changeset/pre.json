@@ -12,5 +12,7 @@
     "@skeletonlabs/skeleton.dev": "1.0.0",
     "@skeletonlabs/themes.skeleton.dev": "1.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "famous-suits-agree"
+  ]
 }
