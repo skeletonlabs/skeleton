@@ -9,9 +9,9 @@ function getRedirectTo() {
 		return new URL(path, 'http://localhost:5173').toString();
 	}
 	if (process.env.VERCEL_ENV === 'preview') {
-		return new URL(path, `https://${process.env.VERCEL_URL}`).toString();
+		return new URL(path, `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`).toString();
 	}
-	return new URL(path, `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`).toString();
+	return new URL(path, `https://${process.env.VERCEL_URL}`).toString();
 }
 
 export const signIn = form(
