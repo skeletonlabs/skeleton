@@ -113,32 +113,30 @@
 						>{`[data-theme='cerberus'] {
     --spacing: 0.25rem;
     --text-scaling: 1.067;
-    --base-font-color: var(--color-surface-950);
-    --base-font-color-dark: var(--color-surface-50);
-    --base-font-family: system-ui;
-    --base-font-size: inherit;
-    --base-line-height: inherit;
-    --base-font-weight: normal;
-    --base-font-style: normal;
-    --base-letter-spacing: 0em;
-    --heading-font-color: inherit;
-    --heading-font-color-dark: inherit;
-    --heading-font-family: inherit;
-    --heading-font-weight: bold;
-    --heading-font-style: normal;
-    --heading-letter-spacing: inherit;
-    --anchor-font-color: var(--color-primary-500);
-    --anchor-font-color-dark: var(--color-primary-400);
-    --anchor-font-family: inherit;
-    --anchor-font-size: inherit;
-    --anchor-line-height: inherit;
-    --anchor-font-weight: inherit;
-    --anchor-font-style: inherit;
-    --anchor-letter-spacing: inherit;
-    --anchor-text-decoration: none;
-    --anchor-text-decoration-hover: underline;
-    --anchor-text-decoration-active: none;
-    --anchor-text-decoration-focus: none;`.trim()}</code
+    --typo-base--font-family: system-ui;
+    --typo-base--font-size: inherit;
+    --typo-base--color-light: var(--color-surface-950);
+    --typo-base--color-dark: var(--color-surface-50);
+    --typo-base--line-height: inherit;
+    --typo-base--font-weight: normal;
+    --typo-base--font-style: normal;
+    --typo-base--letter-spacing: 0em;
+    --typo-heading--font-family: inherit;
+    --typo-heading--color-light: inherit;
+    --typo-heading--color-dark: inherit;
+    --typo-heading--font-weight: bold;
+    --typo-heading--font-style: normal;
+    --typo-heading--letter-spacing: inherit;
+    --typo-anchor--font-family: inherit;
+    --typo-anchor--font-size: inherit;
+    --typo-anchor--color-light: var(--color-primary-500);
+    --typo-anchor--color-dark: var(--color-primary-400);
+    --typo-anchor--line-height: inherit;
+    --typo-anchor--font-weight: inherit;
+    --typo-anchor--font-style: inherit;
+    --typo-anchor--letter-spacing: inherit;
+    --typo-anchor--text-decoration-line: none;
+    --typo-anchor--hover--text-decoration-line: underline;`.trim()}</code
 					>
 </pre>
 			</div>

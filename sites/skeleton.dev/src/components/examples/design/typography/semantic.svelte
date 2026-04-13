@@ -98,11 +98,11 @@
 	.preset-typo-caption,
 	.preset-typo-menu,
 	.preset-typo-button {
-		color: var(--heading-font-color);
-		font-family: var(--heading-font-family);
-		font-weight: var(--heading-font-weight);
+		color: var(--typo-heading--color-light);
+		font-family: var(--typo-heading--font-family);
+		font-weight: var(--typo-heading--font-weight);
 		@variant dark {
-			color: var(--heading-font-color-dark);
+			color: var(--typo-heading--color-dark);
 		}
 	}
 
@@ -112,9 +112,9 @@
 	.preset-typo-caption,
 	.preset-typo-menu,
 	.preset-typo-button {
-		color: var(--heading-font-color);
+		color: var(--typo-heading--color-light);
 		@variant dark {
-			color: var(--heading-font-color-dark);
+			color: var(--typo-heading--color-dark);
 		}
 	}
 
@@ -157,7 +157,7 @@
 	}
 	.preset-typo-subtitle {
 		font-size: var(--text-base);
-		font-family: var(--heading-font-family);
+		font-family: var(--typo-heading--font-family);
 		color: var(--color-surface-700-300);
 		@variant lg {
 			font-size: var(--text-xl);
