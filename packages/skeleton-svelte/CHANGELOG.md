@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.0-next.0
+### Major Changes
+
+
+- pre release
+
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@5.0.0-next.0
+
 ## 4.15.2
 
 ### Patch Changes
