@@ -8,7 +8,7 @@ function getRedirectTo() {
 	if (import.meta.env.DEV) {
 		return new URL(path, 'http://localhost:5173').toString();
 	}
-	if (process.env.VERCEL_ENV === 'preview') {
+	if (process.env.VERCEL_ENV === 'production') {
 		return new URL(path, `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`).toString();
 	}
 	return new URL(path, `https://${process.env.VERCEL_URL}`).toString();
