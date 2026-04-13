@@ -12,5 +12,5 @@
 		"@skeletonlabs/skeleton.dev": "1.0.0",
 		"@skeletonlabs/themes.skeleton.dev": "1.0.0"
 	},
-	"changesets": ["famous-suits-agree"]
+	"changesets": ["upset-mugs-find"]
 }
