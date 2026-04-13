@@ -3,7 +3,6 @@
 @import './base/globals.css';
 @import './base/theme.css';
 
-@import './utilities/core.css';
 @import './utilities/badges.css';
 @import './utilities/buttons.css';
 @import './utilities/cards.css';
