@@ -4,6 +4,8 @@
 	"categories": {
 		"correctness": "error"
 	},
+	"ignorePatterns": ["**/database.types.ts"],
+
 	"overrides": [
 		{
 			"files": ["*.svelte"],

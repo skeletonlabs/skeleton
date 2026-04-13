@@ -20,8 +20,6 @@ export const User = v.pipe(
 					name: data.user_metadata.name,
 					username: data.user_metadata.preferred_username,
 				};
-			default:
-				throw new Error(`Unsupported provider: ${data.app_metadata.provider}`);
 		}
 	}),
 );
