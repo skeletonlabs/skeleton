@@ -21,5 +21,6 @@ export const User = v.pipe(
 					username: data.user_metadata.preferred_username,
 				};
 		}
+		data.app_metadata.provider satisfies never;
 	}),
 );
