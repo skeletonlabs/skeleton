@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 4.15.2
+
+### Patch Changes
+
+- task: bump zag ([#4348](https://github.com/skeletonlabs/skeleton/pull/4348))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@4.15.2
+
 ## 4.15.1
 
 ### Patch Changes

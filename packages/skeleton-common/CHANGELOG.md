@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton-common
 
+## 4.15.2
+
 ## 4.15.1
 
 ### Patch Changes
