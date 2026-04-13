@@ -14,6 +14,8 @@ function getRedirectTo() {
 	return new URL(callbackPath, `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`).toString();
 }
 
+const redirectTo = getRedirectTo();
+
 export const signIn = form(
 	v.object({
 		provider: v.picklist(SUPPORTED_PROVIDERS),
@@ -24,7 +26,7 @@ export const signIn = form(
 		const signInResult = await event.locals.supabase.auth.signInWithOAuth({
 			provider: data.provider,
 			options: {
-				redirectTo: getRedirectTo(),
+				redirectTo: redirectTo,
 			},
 		});
 
