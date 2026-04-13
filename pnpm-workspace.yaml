@@ -7,7 +7,7 @@ catalog:
   '@astrojs/check': 0.9.8
   '@astrojs/mdx': 5.0.3
   '@astrojs/partytown': 2.1.6
-  '@astrojs/react': 5.0.2
+  '@astrojs/react': 5.0.3
   '@astrojs/sitemap': 3.7.2
   '@astrojs/svelte': 8.0.4
   '@astrojs/vercel': 10.0.4
@@ -16,7 +16,7 @@ catalog:
   '@faker-js/faker': 10.4.0
   '@floating-ui/dom': 1.7.6
   '@internationalized/date': 3.12.0
-  '@lucide/svelte': 1.7.0
+  '@lucide/svelte': 1.8.0
   '@playwright/test': 1.59.1
   '@prettier/plugin-oxc': 0.1.3
   '@resvg/resvg-js': 2.6.2
@@ -31,7 +31,7 @@ catalog:
   '@supabase/supabase-js': 2.101.1
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
-  '@sveltejs/kit': 2.55.0
+  '@sveltejs/kit': 2.57.1
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 5.1.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
@@ -45,41 +45,41 @@ catalog:
   '@types/estree': 1.0.8
   '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
-  '@types/node': 25.5.2
+  '@types/node': 25.6.0
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.2.0
-  '@vitest/browser-playwright': 4.1.2
-  '@zag-js/accordion': 1.39.0
-  '@zag-js/avatar': 1.39.0
-  '@zag-js/carousel': 1.39.0
-  '@zag-js/collapsible': 1.39.0
-  '@zag-js/collection': 1.39.0
-  '@zag-js/combobox': 1.39.0
-  '@zag-js/date-picker': 1.39.0
-  '@zag-js/dialog': 1.39.0
-  '@zag-js/file-upload': 1.39.0
-  '@zag-js/floating-panel': 1.39.0
-  '@zag-js/listbox': 1.39.0
-  '@zag-js/menu': 1.39.0
-  '@zag-js/pagination': 1.39.0
-  '@zag-js/popover': 1.39.0
-  '@zag-js/progress': 1.39.0
-  '@zag-js/radio-group': 1.39.0
-  '@zag-js/rating-group': 1.39.0
-  '@zag-js/react': 1.39.0
-  '@zag-js/slider': 1.39.0
-  '@zag-js/steps': 1.39.0
-  '@zag-js/svelte': 1.39.0
-  '@zag-js/switch': 1.39.0
-  '@zag-js/tabs': 1.39.0
-  '@zag-js/tags-input': 1.39.0
-  '@zag-js/toast': 1.39.0
-  '@zag-js/toggle-group': 1.39.0
-  '@zag-js/tooltip': 1.39.0
-  '@zag-js/tree-view': 1.39.0
-  astro: 6.1.3
+  '@vitest/browser-playwright': 4.1.4
+  '@zag-js/accordion': 1.39.1
+  '@zag-js/avatar': 1.39.1
+  '@zag-js/carousel': 1.39.1
+  '@zag-js/collapsible': 1.39.1
+  '@zag-js/collection': 1.39.1
+  '@zag-js/combobox': 1.39.1
+  '@zag-js/date-picker': 1.39.1
+  '@zag-js/dialog': 1.39.1
+  '@zag-js/file-upload': 1.39.1
+  '@zag-js/floating-panel': 1.39.1
+  '@zag-js/listbox': 1.39.1
+  '@zag-js/menu': 1.39.1
+  '@zag-js/pagination': 1.39.1
+  '@zag-js/popover': 1.39.1
+  '@zag-js/progress': 1.39.1
+  '@zag-js/radio-group': 1.39.1
+  '@zag-js/rating-group': 1.39.1
+  '@zag-js/react': 1.39.1
+  '@zag-js/slider': 1.39.1
+  '@zag-js/steps': 1.39.1
+  '@zag-js/svelte': 1.39.1
+  '@zag-js/switch': 1.39.1
+  '@zag-js/tabs': 1.39.1
+  '@zag-js/tags-input': 1.39.1
+  '@zag-js/toast': 1.39.1
+  '@zag-js/toggle-group': 1.39.1
+  '@zag-js/tooltip': 1.39.1
+  '@zag-js/tree-view': 1.39.1
+  astro: 6.1.5
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.6
   astro-seo: 1.1.0
@@ -89,10 +89,10 @@ catalog:
   commander: 14.0.3
   cross-env: 10.1.0
   detect-indent: 7.0.2
-  fuse.js: 7.2.0
+  fuse.js: 7.3.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
-  lucide-react: 1.7.0
+  lucide-react: 1.8.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.3
   mdast-util-gfm: 3.1.0
@@ -103,25 +103,25 @@ catalog:
   node-html-parser: 7.1.0
   octokit: 5.0.5
   oxc-resolver: 11.19.1
-  oxlint: 1.58.0
-  oxlint-tsgolint: 0.19.0
+  oxlint: 1.59.0
+  oxlint-tsgolint: 0.20.0
   package-manager-detector: 1.6.0
   playwright: 1.59.1
-  postcss: 8.5.8
-  prettier: 3.8.1
+  postcss: 8.5.9
+  prettier: 3.8.2
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.5.1
-  react: 19.2.4
-  react-dom: 19.2.4
+  react: 19.2.5
+  react-dom: 19.2.5
   satori: 0.26.0
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 4.0.2
   supabase: 2.88.1
-  svelte: 5.55.1
+  svelte: 5.55.2
   svelte-check: 4.4.6
   tailwindcss: 4.2.2
-  tinyglobby: 0.2.15
+  tinyglobby: 0.2.16
   ts-morph: 27.0.2
   tsdown: 0.21.7
   type-fest: 5.5.0
@@ -130,8 +130,8 @@ catalog:
   valibot: 1.3.1
   vite: 7.3.1
   vite-plugin-transform-lucide-imports: 0.3.0
-  vitest: 4.1.2
-  vitest-browser-react: 2.1.0
+  vitest: 4.1.4
+  vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.1.0
   zimmerframe: 1.1.4
 
