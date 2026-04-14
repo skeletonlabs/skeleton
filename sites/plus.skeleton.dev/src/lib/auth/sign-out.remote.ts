@@ -1,13 +1,14 @@
 import * as v from 'valibot';
-import { form, getRequestEvent } from '$app/server';
+import { form } from '$app/server';
 import { error } from '@sveltejs/kit';
+import { getSupabase } from './get-supabase.server';
 
 export const signOut = form(v.object({}), async () => {
-	const event = getRequestEvent();
+	const supabase = getSupabase();
 
-	const signOutResult = await event.locals.supabase.auth.signOut();
+	const signOut = await supabase.auth.signOut();
 
-	if (signOutResult.error) {
-		error(signOutResult.error.status ?? 400, signOutResult.error.message);
+	if (signOut.error) {
+		error(signOut.error.status ?? 400, signOut.error.message);
 	}
 });
