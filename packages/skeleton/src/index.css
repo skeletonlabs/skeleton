@@ -20,7 +20,7 @@
 @import './utilities/form-selects.css';
 @import './utilities/form-textareas.css';
 
-@import './variants/themes.css';
+@import './variants/index.css';
 
 @import './keyframes/progress-circular.css';
 @import './keyframes/progress-linear.css';
