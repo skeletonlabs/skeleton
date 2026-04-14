@@ -230,7 +230,9 @@
 
 	/* Brand */
 	--color-brand-light: var(--color-primary-500);
+	--color-brand-contrast-light: var(--color-primary-contrast-500);
 	--color-brand-dark: var(--color-primary-500);
+	--color-brand-contrast-dark: var(--color-primary-contrast-500);
 }
 
 @theme inline {

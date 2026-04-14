@@ -7,6 +7,8 @@ references:
 order: 10
 ---
 
+import Brand from '@/components/examples/design/colors/brand.astro';
+import BrandRaw from '@/components/examples/design/colors/brand.astro?raw';
 import Contrast from '@/components/examples/design/colors/contrast.astro';
 import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
 import Default from '@/components/examples/design/colors/default.astro';
@@ -104,6 +106,18 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 - Then use shade `50` from light mode and `950` from dark mode to represent our app background.
 - Use the static `500` shade for key branding elements, such as buttons or banners.
 - Then reserve multiple layers between for elements such as cards, inputs, and more.
+
+## Brand Color
+
+Represents the most prominant or default color when styling elements and components. Provides these benefits:
+
+- Use any color from the active theme palette to represent your brand.
+- Use any shade from 50-950; not just limited to shade 500.
+- Can be tailored for light and dark mode independently.
+
+<Preview files={{ 'app.astro': BrandRaw }} client:visible>
+	<Brand />
+</Preview>
 
 ---
 
