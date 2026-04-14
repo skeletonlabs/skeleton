@@ -1,0 +1,32 @@
+{
+	"name": "@skeletonlabs/plus.skeleton.dev",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"supabase:gen-types": "pnpx supabase gen types typescript --schema public > src/database.types.ts",
+		"postinstall": "svelte-kit sync"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "workspace:*",
+		"@skeletonlabs/skeleton-svelte": "workspace:*",
+		"@supabase/ssr": "catalog:",
+		"@supabase/supabase-js": "catalog:",
+		"@sveltejs/adapter-vercel": "catalog:",
+		"@sveltejs/kit": "catalog:",
+		"@sveltejs/vite-plugin-svelte": "catalog:",
+		"@tailwindcss/forms": "catalog:",
+		"@tailwindcss/vite": "catalog:",
+		"supabase": "catalog:",
+		"svelte": "catalog:",
+		"svelte-check": "catalog:",
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:",
+		"valibot": "catalog:",
+		"vite": "catalog:",
+		"vite-plugin-transform-lucide-imports": "catalog:"
+	},
+	"type": "module"
+}

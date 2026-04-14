@@ -27,6 +27,8 @@ catalog:
   '@shikijs/transformers': 4.0.2
   '@shikijs/types': 4.0.2
   '@stackblitz/sdk': 1.11.0
+  '@supabase/ssr': 0.10.0
+  '@supabase/supabase-js': 2.101.1
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
   '@sveltejs/kit': 2.57.1
@@ -115,6 +117,7 @@ catalog:
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 4.0.2
+  supabase: 2.88.1
   svelte: 5.55.2
   svelte-check: 4.4.6
   tailwindcss: 4.2.2
@@ -124,6 +127,7 @@ catalog:
   type-fest: 5.5.0
   typescript: 5.9.3
   unist-util-visit: 5.1.0
+  valibot: 1.3.1
   vite: 7.3.1
   vite-plugin-transform-lucide-imports: 0.3.0
   vitest: 4.1.4
@@ -147,5 +151,6 @@ onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - esbuild
   - sharp
+  - supabase
 
 savePrefix: ''
