@@ -1,7 +1,8 @@
 import * as v from 'valibot';
-import { form, getRequestEvent } from '$app/server';
-import { SUPPORTED_PROVIDERS } from '$lib/auth/supported-providers';
+import { form } from '$app/server';
 import { error, redirect } from '@sveltejs/kit';
+import { SUPPORTED_PROVIDERS } from './supported-providers';
+import { getSupabase } from './get-supabase.server';
 
 function getRedirectTo() {
 	const path = '/auth/callback';
@@ -19,19 +20,19 @@ export const signIn = form(
 		provider: v.picklist(SUPPORTED_PROVIDERS),
 	}),
 	async (data) => {
-		const event = getRequestEvent();
+		const supabase = getSupabase();
 
-		const signInResult = await event.locals.supabase.auth.signInWithOAuth({
+		const signIn = await supabase.auth.signInWithOAuth({
 			provider: data.provider,
 			options: {
 				redirectTo: getRedirectTo(),
 			},
 		});
 
-		if (signInResult.error) {
-			error(signInResult.error.status ?? 400, signInResult.error.message);
+		if (signIn.error) {
+			error(signIn.error.status ?? 400, signIn.error.message);
 		}
 
-		redirect(303, signInResult.data.url);
+		redirect(303, signIn.data.url);
 	},
 );
