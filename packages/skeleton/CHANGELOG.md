@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0-next.1
+
+### Major Changes
+
+- feature: Updated themes to new v5 format ([#4353](https://github.com/skeletonlabs/skeleton/pull/4353))
+
 ## 5.0.0-next.0
 
 ### Major Changes
