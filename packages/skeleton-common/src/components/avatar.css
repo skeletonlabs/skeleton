@@ -1,7 +1,8 @@
 [data-scope='avatar'] {
 	&[data-part='root'] {
 		isolation: isolate;
-		background: var(--color-surface-400-600);
+		background: light-dark(var(--color-brand-light), var(--color-brand-dark));
+		color: light-dark(var(--color-brand-contrast-light), var(--color-brand-contrast-dark));
 		width: --spacing(16);
 		height: --spacing(16);
 		border-radius: calc(infinity * 1px);

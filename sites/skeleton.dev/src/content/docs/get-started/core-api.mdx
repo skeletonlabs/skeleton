@@ -1,7 +1,7 @@
 ---
 title: Core API
 description: Learn about the specific features Skeleton introduces to Tailwind.
-summary: The heart of Skeleton is our framework agnostic core package. This adapts and extends Tailwind to introduce our global styles, color system, typography, and more. This section details all available Skeleton-provided utility classes and theme properties.
+summary: The heart of Skeleton is the framework agnostic core package. This adapts and extends Tailwind to introduce our global styles, color system, typography, and more. This section details all available Skeleton-provided theme properties and utility classes.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src'
 order: 30
@@ -75,7 +75,7 @@ Represents the most common and standard color properties available to use.
 
 ### Brand
 
-Represent the most prominant theme color in terms of color and shade. Tailored for light and dark mode.
+Represents the most prominant theme color in terms of color and shade. Can be tailored for light and dark mode.
 
 | Skeleton Theme Property          | Tailwind @theme Property         | Class                             |
 | -------------------------------- | -------------------------------- | --------------------------------- |
@@ -92,7 +92,7 @@ Extends colors to implement [Color Pairing](/docs/[framework]/design/colors#colo
 | ----------------------------------- | ----------------------------------- | ------------------------------------ |
 | {`--`}color-[color]-[shade]-[shade] | {`--`}color-[color]-[shade]-[shade] | `[property]-[color]-[shade]-[shade]` |
 
-> NOTE: Pairings are specific, not arbitrary; shade 500 does not include a pairing.
+> NOTE: Pairings values are specific; shade 500 does not include a pairing.
 
 ### Spacing
 
@@ -215,7 +215,7 @@ Sets the default width for border, outline, and ring to match the active theme p
 | {`--`}default-ring-width    | {`--`}default-ring-width    | `ring`    |
 | {`--`}default-outline-width | {`--`}default-outline-width | `outline` |
 
-> IMPORTANT: never set `outline` to 0px, as this would violate accessibility.
+> IMPORTANT: never set `outline` to `0px` as this would violate accessibility.
 
 ### Corner Shape
 
@@ -236,7 +236,7 @@ Sets the default [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS
 
 ### Tailwind Components
 
-Allow you to style semantic HTML elements with utility classes.
+Allows you to style semantic HTML elements with utility classes.
 
 <NavigationGrid filter={(doc) => doc.id.includes('tailwind/')} class="md:grid-cols-2" />
 
@@ -252,7 +252,7 @@ Allow you to style semantic HTML elements with utility classes.
 
 ### Presets
 
-Provides a canned set of styles for use with buttons, badges, cards, and more.
+Provides a canned set of styling for use with buttons, badges, cards, and more.
 
 <figure class="linker bg-noise">
 	<a href={resolvePath(props.Astro, '/docs/[framework]/design/presets')} class="btn preset-filled">
