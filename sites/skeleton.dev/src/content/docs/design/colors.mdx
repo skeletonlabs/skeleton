@@ -7,6 +7,8 @@ references:
 order: 10
 ---
 
+import Brand from '@/components/examples/design/colors/brand.astro';
+import BrandRaw from '@/components/examples/design/colors/brand.astro?raw';
 import Contrast from '@/components/examples/design/colors/contrast.astro';
 import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
 import Default from '@/components/examples/design/colors/default.astro';
@@ -51,6 +53,22 @@ Contrast color values are available for every shade in the color ramp. Use these
 ```txt
 {property}-{color}-contrast-{shade}
 ```
+
+---
+
+## Brand Color
+
+Test the following with different themes and dark mode combinations.
+
+<Preview files={{ 'app.astro': BrandRaw }} client:visible>
+	<Brand />
+</Preview>
+
+Represents the most prominant or default color when styling elements and components, with multiple benefits:
+
+- Use any color from the active theme palette to represent your brand.
+- Use any shade from 50-950; not just limited to shade 500.
+- Can be tailored for light and dark mode independently.
 
 ---
 
@@ -115,3 +133,7 @@ All available Skeleton Colors and Color Pairings support Tailwind's color transp
 <div class="bg-primary-500/25">Primary Color @ 25% transparency</div>
 <div class="bg-surface-50-950/60">Surface Pairing 50/950 @ 60% transparency</div>
 ```
+
+## Core API
+
+For more information on theme properties, please refer to the [Core API](/docs/[framework]/get-started/core-api) documentation.

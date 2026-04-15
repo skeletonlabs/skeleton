@@ -32,15 +32,21 @@
 			background-color: var(--body-background-color-dark);
 		}
 		/* Typography */
-		color: var(--base-font-color);
-		font-family: var(--base-font-family);
-		font-size: var(--base-font-size);
-		line-height: var(--base-line-height);
-		font-weight: var(--base-font-weight);
-		font-style: var(--base-font-style);
-		letter-spacing: var(--base-letter-spacing);
+		color: var(--typo-base--color-light);
+		font-family: var(--typo-base--font-family);
+		font-size: var(--typo-base--font-size);
+		line-height: var(--typo-base--line-height);
+		font-weight: var(--typo-base--font-weight);
+		font-style: var(--typo-base--font-style);
+		letter-spacing: var(--typo-base--letter-spacing);
+		font-stretch: var(--typo-base--font-stretch);
+		font-kerning: var(--typo-base--font-kerning);
+		text-shadow: var(--typo-base--text-shadow);
+		word-spacing: var(--typo-base--word-spacing);
+		hyphens: var(--typo-base--hyphens);
+		text-transform: var(--typo-base--text-transform);
 		@variant dark {
-			color: var(--base-font-color-dark);
+			color: var(--typo-base--color-dark);
 		}
 	}
 
