@@ -8,7 +8,120 @@ export type Database = {
 	};
 	public: {
 		Tables: {
-			[_ in never]: never;
+			collection_themes: {
+				Row: {
+					collection_id: string;
+					created_at: string;
+					theme_id: string;
+				};
+				Insert: {
+					collection_id: string;
+					created_at?: string;
+					theme_id: string;
+				};
+				Update: {
+					collection_id?: string;
+					created_at?: string;
+					theme_id?: string;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'collection_themes_collection_id_fkey';
+						columns: ['collection_id'];
+						isOneToOne: false;
+						referencedRelation: 'collections';
+						referencedColumns: ['id'];
+					},
+					{
+						foreignKeyName: 'collection_themes_theme_id_fkey';
+						columns: ['theme_id'];
+						isOneToOne: false;
+						referencedRelation: 'themes';
+						referencedColumns: ['id'];
+					},
+				];
+			};
+			collections: {
+				Row: {
+					created_at: string;
+					id: string;
+					is_curated: boolean;
+					name: string;
+					updated_at: string;
+					user_id: string | null;
+				};
+				Insert: {
+					created_at?: string;
+					id?: string;
+					is_curated?: boolean;
+					name: string;
+					updated_at?: string;
+					user_id?: string | null;
+				};
+				Update: {
+					created_at?: string;
+					id?: string;
+					is_curated?: boolean;
+					name?: string;
+					updated_at?: string;
+					user_id?: string | null;
+				};
+				Relationships: [];
+			};
+			profiles: {
+				Row: {
+					created_at: string;
+					id: string;
+					updated_at: string;
+					username: string;
+				};
+				Insert: {
+					created_at?: string;
+					id: string;
+					updated_at?: string;
+					username: string;
+				};
+				Update: {
+					created_at?: string;
+					id?: string;
+					updated_at?: string;
+					username?: string;
+				};
+				Relationships: [];
+			};
+			themes: {
+				Row: {
+					created_at: string;
+					definition: Json;
+					id: string;
+					name: string;
+					updated_at: string;
+					user_id: string | null;
+					version: number;
+					visibility: string;
+				};
+				Insert: {
+					created_at?: string;
+					definition: Json;
+					id?: string;
+					name: string;
+					updated_at?: string;
+					user_id?: string | null;
+					version?: number;
+					visibility?: string;
+				};
+				Update: {
+					created_at?: string;
+					definition?: Json;
+					id?: string;
+					name?: string;
+					updated_at?: string;
+					user_id?: string | null;
+					version?: number;
+					visibility?: string;
+				};
+				Relationships: [];
+			};
 		};
 		Views: {
 			[_ in never]: never;

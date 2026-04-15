@@ -1,15 +1,14 @@
-import { getRequestEvent, query } from '$app/server';
-import * as v from 'valibot';
-import { User } from '$lib/auth/user-schema';
+import { query } from '$app/server';
+import { getSupabase } from './get-supabase.server';
 
 export const getUser = query(async () => {
-	const event = getRequestEvent();
+	const supabase = getSupabase();
 
-	const userResult = await event.locals.supabase.auth.getUser();
+	const user = await supabase.auth.getUser();
 
-	if (userResult.error) {
+	if (user.error) {
 		return null;
 	}
 
-	return v.parse(User, userResult.data.user);
+	return user.data.user;
 });
