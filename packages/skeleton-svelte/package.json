@@ -58,7 +58,7 @@
 		"@zag-js/tree-view": "catalog:"
 	},
 	"peerDependencies": {
-		"svelte": "^5.29.0"
+		"svelte": "^5.40.0"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
