@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0-next.2
+
 ## 5.0.0-next.1
 
 ## 5.0.0-next.0

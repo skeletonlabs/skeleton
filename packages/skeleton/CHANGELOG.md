@@ -1,5 +1,7 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0-next.2
+
 ## 5.0.0-next.1
 
 ### Major Changes
