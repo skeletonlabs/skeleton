@@ -33,7 +33,6 @@
 	/* File Input --- */
 
 	&[type='file']::file-selector-button {
-		cursor: pointer;
 		border-radius: var(--radius-base);
 		background-color: var(--color-surface-950-50);
 		color: var(--color-surface-50-950);

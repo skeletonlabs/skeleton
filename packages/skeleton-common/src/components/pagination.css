@@ -18,7 +18,6 @@
 	}
 
 	&[data-part='item'] {
-		cursor: pointer;
 		user-select: none;
 
 		@apply btn btn-sm preset-tonal;

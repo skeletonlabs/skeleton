@@ -1,6 +1,5 @@
 [data-scope='switch'] {
 	&[data-part='root'] {
-		cursor: pointer;
 		display: inline-flex;
 		gap: --spacing(2);
 		align-items: center;
