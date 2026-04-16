@@ -59,7 +59,7 @@ export default async function (options: MigrateOptions) {
 		});
 		packageSpinner.stop(`Successfully migrated ${packageJson.name}!`);
 	} catch (error) {
-		packageSpinner.stop(`Failed to migrate ${packageJson.name}: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
+		packageSpinner.error(`Failed to migrate ${packageJson.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
 		cli.error('Migration canceled, nothing written to disk');
 	}
 
@@ -117,7 +117,7 @@ export default async function (options: MigrateOptions) {
 		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
 		writeSpinner.stop('Successfully applied all migrations!');
 	} catch (error) {
-		writeSpinner.stop(`Failed to apply migrations: ${error instanceof Error ? error.message.replace('\n', ' ') : 'Unknown error'}`, 1);
+		writeSpinner.error(`Failed to apply migrations: ${error instanceof Error ? error.message.replace('\n', ' ') : 'Unknown error'}`);
 		cli.error('Migration canceled');
 	}
 
@@ -128,7 +128,7 @@ export default async function (options: MigrateOptions) {
 		await installDependencies(cwd);
 		installDependenciesSpinner.stop('Successfully installed dependencies!');
 	} catch (error) {
-		installDependenciesSpinner.stop(`Failed to install dependencies: ${error instanceof Error ? error.message : 'Unknown error'}`, 1);
+		installDependenciesSpinner.error(`Failed to install dependencies: ${error instanceof Error ? error.message : 'Unknown error'}`);
 		cli.error('Migration canceled');
 		return;
 	}
