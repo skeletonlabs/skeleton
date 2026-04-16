@@ -31,8 +31,8 @@ catalogs:
       specifier: 2.30.0
       version: 2.30.0
     '@clack/prompts':
-      specifier: 0.11.0
-      version: 0.11.0
+      specifier: 1.2.0
+      version: 1.2.0
     '@faker-js/faker':
       specifier: 10.4.0
       version: 10.4.0
@@ -442,7 +442,7 @@ importers:
     dependencies:
       '@clack/prompts':
         specifier: 'catalog:'
-        version: 0.11.0
+        version: 1.2.0
       colorette:
         specifier: 'catalog:'
         version: 2.0.20
@@ -1423,14 +1423,8 @@ packages:
   '@changesets/write@0.4.0':
     resolution: {integrity: sha512-CdTLvIOPiCNuH71pyDu3rA+Q0n65cmAbXnwWH84rKGiFumFzkmHNT8KHTMEchcxN+Kl8I54xGUhJ7l3E7X396Q==}
 
-  '@clack/core@0.5.0':
-    resolution: {integrity: sha512-p3y0FIOwaYRUPRcMO7+dlmLh8PSRcrjuTndsiA0WAFbWES0mLZlrjVoBRZ9DzkPFJZG6KGkJmoEAY0ZcVWTkow==}
-
   '@clack/core@1.2.0':
     resolution: {integrity: sha512-qfxof/3T3t9DPU/Rj3OmcFyZInceqj/NVtO9rwIuJqCUgh32gwPjpFQQp/ben07qKlhpwq7GzfWpST4qdJ5Drg==}
-
-  '@clack/prompts@0.11.0':
-    resolution: {integrity: sha512-pMN5FcrEw9hUkZA4f+zLlzivQSeQf5dRGJjSUbvVYDLvpKCdQx5OaknvKzgbtXOizhP+SJJJjqEbOe55uKKfAw==}
 
   '@clack/prompts@1.2.0':
     resolution: {integrity: sha512-4jmztR9fMqPMjz6H/UZXj0zEmE43ha1euENwkckKKel4XpSfokExPo5AiVStdHSAlHekz4d0CA/r45Ok1E4D3w==}
@@ -5797,6 +5791,11 @@ packages:
     engines: {node: '>=20.16.0'}
     hasBin: true
 
+  srvx@0.11.15:
+    resolution: {integrity: sha512-iXsux0UcOjdvs0LCMa2Ws3WwcDUozA3JN3BquNXkaFPP7TpRqgunKdEgoZ/uwb1J6xaYHfxtz9Twlh6yzwM6Tg==}
+    engines: {node: '>=20.16.0'}
+    hasBin: true
+
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
 
@@ -7029,20 +7028,9 @@ snapshots:
       human-id: 4.1.3
       prettier: 2.8.8
 
-  '@clack/core@0.5.0':
-    dependencies:
-      picocolors: 1.1.1
-      sisteransi: 1.0.5
-
   '@clack/core@1.2.0':
     dependencies:
       fast-wrap-ansi: 0.1.6
-      sisteransi: 1.0.5
-
-  '@clack/prompts@0.11.0':
-    dependencies:
-      '@clack/core': 0.5.0
-      picocolors: 1.1.1
       sisteransi: 1.0.5
 
   '@clack/prompts@1.2.0':
@@ -10079,7 +10067,7 @@ snapshots:
   h3@2.0.1-rc.16:
     dependencies:
       rou3: 0.8.1
-      srvx: 0.11.14
+      srvx: 0.11.15
 
   has-flag@4.0.0:
     optional: true
@@ -11796,6 +11784,8 @@ snapshots:
   sprintf-js@1.0.3: {}
 
   srvx@0.11.14: {}
+
+  srvx@0.11.15: {}
 
   stackback@0.0.2: {}
 
