@@ -13,5 +13,5 @@
 		"@skeletonlabs/themes.skeleton.dev": "1.0.0",
 		"@skeletonlabs/plus.skeleton.dev": "1.0.0"
 	},
-	"changesets": ["purple-clubs-serve", "upset-hairs-wave", "upset-mugs-find"]
+	"changesets": ["afraid-paths-fry", "purple-clubs-serve", "upset-hairs-wave", "upset-mugs-find"]
 }

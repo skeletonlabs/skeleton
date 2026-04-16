@@ -1,5 +1,16 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.0-next.3
+
+### Major Changes
+
+- deps: update peerDep to 5.40.0 ([#4365](https://github.com/skeletonlabs/skeleton/pull/4365))
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@5.0.0-next.3
+
 ## 5.0.0-next.2
 
 ### Patch Changes
