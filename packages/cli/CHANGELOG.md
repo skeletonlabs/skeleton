@@ -1,5 +1,11 @@
 # skeleton
 
+## 5.0.0-next.2
+
+### Patch Changes
+
+- deps: update @clack/prompts ([#4363](https://github.com/skeletonlabs/skeleton/pull/4363))
+
 ## 5.0.0-next.1
 
 ## 5.0.0-next.0
