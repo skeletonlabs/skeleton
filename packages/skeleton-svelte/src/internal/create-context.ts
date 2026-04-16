@@ -4,7 +4,11 @@ export function createContext<T>(defaultValue?: T) {
 	const [consume, provide] = createContextSvelte<T>();
 	return {
 		consume() {
-			return consume() || (defaultValue as T);
+			try {
+				return consume();
+			} catch {
+				return defaultValue as T;
+			}
 		},
 		provide,
 	};
