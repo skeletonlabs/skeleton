@@ -13,7 +13,13 @@
 	<p>Welcome, {profile.username}!</p>
 	<SignOutButton class="btn preset-tonal-error">Sign Out</SignOutButton>
 {:else}
-	{#each SUPPORTED_PROVIDERS as provider}
-		<SignInButton {provider} class="btn preset-tonal-primary">Sign in with <span class="capitalize">{provider}</span></SignInButton>
-	{/each}
+	<div class="grid gap-2">
+		{#each SUPPORTED_PROVIDERS as provider}
+			{@const LogoIcon = provider.icon}
+			<SignInButton provider={provider.name} class="btn preset-filled gap-4">
+				<LogoIcon class="w-5 h-5 grayscale" />
+				Sign in through {provider.name}
+			</SignInButton>
+		{/each}
+	</div>
 {/if}
