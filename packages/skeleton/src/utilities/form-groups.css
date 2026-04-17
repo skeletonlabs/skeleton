@@ -61,6 +61,11 @@
 	border-width: 0;
 	--tw-ring-inset: inset;
 
+	/* Placeholder */
+	&::placeholder {
+		color: var(--global-field-placeholder);
+	}
+
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
 	}
