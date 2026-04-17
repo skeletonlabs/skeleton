@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "5.0.0-next.2",
+	"version": "5.0.0-next.3",
 	"description": "The Svelte package for Skeleton.",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
@@ -58,7 +58,7 @@
 		"@zag-js/tree-view": "catalog:"
 	},
 	"peerDependencies": {
-		"svelte": "^5.29.0"
+		"svelte": "^5.40.0"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",

@@ -1,14 +1,15 @@
-import { getContext, setContext } from 'svelte';
+import { createContext as createContextSvelte } from 'svelte';
 
 export function createContext<T>(defaultValue?: T) {
-	const key = Symbol();
+	const [consume, provide] = createContextSvelte<T>();
 	return {
-		key,
 		consume() {
-			return getContext<T>(key) || (defaultValue as T);
+			try {
+				return consume();
+			} catch {
+				return defaultValue as T;
+			}
 		},
-		provide(value: T) {
-			return setContext(key, value);
-		},
+		provide,
 	};
 }
