@@ -10,6 +10,7 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
+		"@iconify-json/logos": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@supabase/ssr": "catalog:",
@@ -24,9 +25,9 @@
 		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
+		"unplugin-icons": "catalog:",
 		"valibot": "catalog:",
-		"vite": "catalog:",
-		"vite-plugin-transform-lucide-imports": "catalog:"
+		"vite": "catalog:"
 	},
 	"type": "module"
 }
