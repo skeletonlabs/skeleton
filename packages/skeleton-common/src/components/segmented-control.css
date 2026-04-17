@@ -41,7 +41,6 @@
 	}
 
 	&[data-part='item'] {
-		cursor: pointer;
 		z-index: 10;
 		flex: 1;
 

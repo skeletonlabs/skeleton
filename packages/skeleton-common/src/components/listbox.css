@@ -37,7 +37,6 @@
 		align-items: center;
 		padding: --spacing(1) --spacing(2);
 		border-radius: var(--radius-base);
-		cursor: pointer;
 
 		@variant hover {
 			@apply preset-tonal;

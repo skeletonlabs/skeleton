@@ -10,7 +10,6 @@
 @utility checkbox {
 	--tw-ring-color: var(--color-surface-200-800);
 
-	cursor: pointer;
 	background-color: var(--color-surface-300-700);
 	accent-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);
@@ -61,7 +60,6 @@
 @utility radio {
 	--tw-ring-color: var(--color-surface-200-800);
 
-	cursor: pointer;
 	background-color: var(--color-surface-300-700);
 	accent-color: var(--color-surface-300-700);
 	border-radius: var(--radius-sm);

@@ -60,7 +60,6 @@
 		align-items: center;
 		padding: --spacing(1) --spacing(2);
 		border-radius: var(--radius-base);
-		cursor: pointer;
 
 		&[data-state='checked'] {
 			@apply preset-filled;
