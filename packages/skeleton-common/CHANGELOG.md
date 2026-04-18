@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0-next.4
+
+### Minor Changes
+
+- bugfix: remove `cursor: pointer` from buttons ([#4367](https://github.com/skeletonlabs/skeleton/pull/4367))
+
 ## 5.0.0-next.3
 
 ## 5.0.0-next.2
