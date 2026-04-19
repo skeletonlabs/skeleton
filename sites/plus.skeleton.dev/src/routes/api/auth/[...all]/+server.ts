@@ -1,7 +1,5 @@
 import { auth } from '$lib/server/auth';
-import { toSvelteKitHandler } from 'better-auth/svelte-kit';
+import type { RequestHandler } from './$types';
 
-const handler = toSvelteKitHandler(auth);
-
-export const GET = handler;
-export const POST = handler;
+export const GET: RequestHandler = (event) => auth.handler(event.request);
+export const POST: RequestHandler = (event) => auth.handler(event.request);
