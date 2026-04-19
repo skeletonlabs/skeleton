@@ -6,13 +6,13 @@ import type { Handle } from '@sveltejs/kit';
 export const handle: Handle = async ({ event, resolve }) => {
 	const session = await auth.api.getSession(event.request);
 
-	if (session) {
-		event.locals.session = session.session;
-		event.locals.user = session.user;
-	} else {
-		event.locals.session = null;
-		event.locals.user = null;
-	}
+	event.locals.session = session ? session.session : null;
+	event.locals.user = session ? session.user : null;
 
-	return svelteKitHandler({ event, resolve, auth, building });
+	return svelteKitHandler({
+		event,
+		resolve,
+		auth,
+		building,
+	});
 };

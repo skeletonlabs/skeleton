@@ -10,7 +10,7 @@ export const auth = betterAuth({
 	baseURL: env.BETTER_AUTH_URL,
 	database: drizzleAdapter(database, {
 		provider: 'pg',
-		schema: schema,
+		schema,
 	}),
 	socialProviders: {
 		github: {
