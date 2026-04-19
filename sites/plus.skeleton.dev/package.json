@@ -6,6 +6,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"drizzle:push": "drizzle-kit push --config ./drizzle.config.ts",
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
