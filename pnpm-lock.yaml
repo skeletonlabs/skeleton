@@ -6,348 +6,30 @@ settings:
 
 catalogs:
   default:
-    '@astrojs/check':
-      specifier: 0.9.8
-      version: 0.9.8
-    '@astrojs/mdx':
-      specifier: 5.0.3
-      version: 5.0.3
-    '@astrojs/partytown':
-      specifier: 2.1.6
-      version: 2.1.6
-    '@astrojs/react':
-      specifier: 5.0.3
-      version: 5.0.3
-    '@astrojs/sitemap':
-      specifier: 3.7.2
-      version: 3.7.2
-    '@astrojs/svelte':
-      specifier: 8.0.4
-      version: 8.0.4
-    '@astrojs/vercel':
-      specifier: 10.0.4
-      version: 10.0.4
-    '@changesets/cli':
-      specifier: 2.30.0
-      version: 2.30.0
-    '@clack/prompts':
-      specifier: 1.2.0
-      version: 1.2.0
-    '@faker-js/faker':
-      specifier: 10.4.0
-      version: 10.4.0
-    '@floating-ui/dom':
-      specifier: 1.7.6
-      version: 1.7.6
     '@iconify-json/logos':
       specifier: 1.2.11
       version: 1.2.11
-    '@internationalized/date':
-      specifier: 3.12.0
-      version: 3.12.0
-    '@lucide/svelte':
-      specifier: 1.8.0
-      version: 1.8.0
-    '@playwright/test':
-      specifier: 1.59.1
-      version: 1.59.1
-    '@prettier/plugin-oxc':
-      specifier: 0.1.3
-      version: 0.1.3
-    '@resvg/resvg-js':
-      specifier: 2.6.2
-      version: 2.6.2
-    '@shikijs/core':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@shikijs/engine-javascript':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@shikijs/langs':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@shikijs/themes':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@shikijs/transformers':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@shikijs/types':
-      specifier: 4.0.2
-      version: 4.0.2
-    '@stackblitz/sdk':
-      specifier: 1.11.0
-      version: 1.11.0
     '@supabase/ssr':
       specifier: 0.10.0
       version: 0.10.0
     '@supabase/supabase-js':
       specifier: 2.101.1
       version: 2.101.1
-    '@sveltejs/adapter-auto':
-      specifier: 7.0.1
-      version: 7.0.1
     '@sveltejs/adapter-vercel':
       specifier: 6.3.3
       version: 6.3.3
     '@sveltejs/kit':
       specifier: 2.57.1
       version: 2.57.1
-    '@sveltejs/package':
-      specifier: 2.5.7
-      version: 2.5.7
     '@sveltejs/vite-plugin-svelte':
       specifier: 5.1.1
       version: 5.1.1
-    '@svitejs/changesets-changelog-github-compact':
-      specifier: 1.2.0
-      version: 1.2.0
     '@tailwindcss/forms':
       specifier: 0.5.11
       version: 0.5.11
     '@tailwindcss/vite':
       specifier: 4.2.2
       version: 4.2.2
-    '@tanstack/react-router':
-      specifier: 1.168.10
-      version: 1.168.10
-    '@tanstack/react-start':
-      specifier: 1.167.16
-      version: 1.167.16
-    '@tanstack/router-cli':
-      specifier: 1.166.25
-      version: 1.166.25
-    '@trivago/prettier-plugin-sort-imports':
-      specifier: 6.0.2
-      version: 6.0.2
-    '@types/chroma-js':
-      specifier: 3.1.2
-      version: 3.1.2
-    '@types/estree':
-      specifier: 1.0.8
-      version: 1.0.8
-    '@types/html-escaper':
-      specifier: 3.0.4
-      version: 3.0.4
-    '@types/mdast':
-      specifier: 4.0.4
-      version: 4.0.4
-    '@types/node':
-      specifier: 25.6.0
-      version: 25.6.0
-    '@types/react':
-      specifier: 19.2.14
-      version: 19.2.14
-    '@types/react-dom':
-      specifier: 19.2.3
-      version: 19.2.3
-    '@types/semver':
-      specifier: 7.7.1
-      version: 7.7.1
-    '@vitejs/plugin-react':
-      specifier: 5.2.0
-      version: 5.2.0
-    '@vitest/browser-playwright':
-      specifier: 4.1.4
-      version: 4.1.4
-    '@zag-js/accordion':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/avatar':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/carousel':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/collapsible':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/collection':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/combobox':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/date-picker':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/dialog':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/file-upload':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/floating-panel':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/listbox':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/menu':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/pagination':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/popover':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/progress':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/radio-group':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/rating-group':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/react':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/slider':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/steps':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/svelte':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/switch':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/tabs':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/tags-input':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/toast':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/toggle-group':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/tooltip':
-      specifier: 1.39.1
-      version: 1.39.1
-    '@zag-js/tree-view':
-      specifier: 1.39.1
-      version: 1.39.1
-    astro:
-      specifier: 6.1.5
-      version: 6.1.5
-    astro-auto-import:
-      specifier: 0.5.1
-      version: 0.5.1
-    astro-pagefind:
-      specifier: 1.8.6
-      version: 1.8.6
-    astro-seo:
-      specifier: 1.1.0
-      version: 1.1.0
-    chroma-js:
-      specifier: 3.2.0
-      version: 3.2.0
-    clean-package:
-      specifier: 2.2.0
-      version: 2.2.0
-    colorette:
-      specifier: 2.0.20
-      version: 2.0.20
-    commander:
-      specifier: 14.0.3
-      version: 14.0.3
-    cross-env:
-      specifier: 10.1.0
-      version: 10.1.0
-    detect-indent:
-      specifier: 7.0.2
-      version: 7.0.2
-    fuse.js:
-      specifier: 7.3.0
-      version: 7.3.0
-    html-escaper:
-      specifier: 3.0.3
-      version: 3.0.3
-    latest-version:
-      specifier: 9.0.0
-      version: 9.0.0
-    lucide-react:
-      specifier: 1.8.0
-      version: 1.8.0
-    magic-string:
-      specifier: 0.30.21
-      version: 0.30.21
-    mdast-util-from-markdown:
-      specifier: 2.0.3
-      version: 2.0.3
-    mdast-util-gfm:
-      specifier: 3.1.0
-      version: 3.1.0
-    mdast-util-mdx:
-      specifier: 3.0.0
-      version: 3.0.0
-    mdast-util-to-markdown:
-      specifier: 2.1.2
-      version: 2.1.2
-    micromark-extension-mdxjs:
-      specifier: 3.0.0
-      version: 3.0.0
-    nanoid:
-      specifier: 5.1.7
-      version: 5.1.7
-    node-html-parser:
-      specifier: 7.1.0
-      version: 7.1.0
-    octokit:
-      specifier: 5.0.5
-      version: 5.0.5
-    oxc-resolver:
-      specifier: 11.19.1
-      version: 11.19.1
-    oxlint:
-      specifier: 1.59.0
-      version: 1.59.0
-    oxlint-tsgolint:
-      specifier: 0.20.0
-      version: 0.20.0
-    package-manager-detector:
-      specifier: 1.6.0
-      version: 1.6.0
-    playwright:
-      specifier: 1.59.1
-      version: 1.59.1
-    postcss:
-      specifier: 8.5.9
-      version: 8.5.9
-    prettier:
-      specifier: 3.8.2
-      version: 3.8.2
-    prettier-plugin-astro:
-      specifier: 0.14.1
-      version: 0.14.1
-    prettier-plugin-svelte:
-      specifier: 3.5.1
-      version: 3.5.1
-    react:
-      specifier: 19.2.5
-      version: 19.2.5
-    react-dom:
-      specifier: 19.2.5
-      version: 19.2.5
-    satori:
-      specifier: 0.26.0
-      version: 0.26.0
-    semver:
-      specifier: 7.7.4
-      version: 7.7.4
-    sharp:
-      specifier: 0.34.5
-      version: 0.34.5
-    shiki:
-      specifier: 4.0.2
-      version: 4.0.2
     supabase:
       specifier: 2.88.1
       version: 2.88.1
@@ -360,24 +42,9 @@ catalogs:
     tailwindcss:
       specifier: 4.2.2
       version: 4.2.2
-    tinyglobby:
-      specifier: 0.2.16
-      version: 0.2.16
-    ts-morph:
-      specifier: 27.0.2
-      version: 27.0.2
-    tsdown:
-      specifier: 0.21.7
-      version: 0.21.7
-    type-fest:
-      specifier: 5.5.0
-      version: 5.5.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
-    unist-util-visit:
-      specifier: 5.1.0
-      version: 5.1.0
     unplugin-icons:
       specifier: 23.0.1
       version: 23.0.1
@@ -387,21 +54,6 @@ catalogs:
     vite:
       specifier: 7.3.1
       version: 7.3.1
-    vite-plugin-transform-lucide-imports:
-      specifier: 0.3.0
-      version: 0.3.0
-    vitest:
-      specifier: 4.1.4
-      version: 4.1.4
-    vitest-browser-react:
-      specifier: 2.2.0
-      version: 2.2.0
-    vitest-browser-svelte:
-      specifier: 2.1.0
-      version: 2.1.0
-    zimmerframe:
-      specifier: 1.1.4
-      version: 1.1.4
 
 importers:
 

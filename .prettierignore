@@ -1,2 +1,3 @@
 .changeset/*.md
+**/database.types.ts
 pnpm-lock.yaml
