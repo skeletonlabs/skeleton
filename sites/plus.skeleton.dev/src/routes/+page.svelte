@@ -3,6 +3,8 @@
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import { getUser } from '$lib/remote/get-user.remote';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import DiscordIcon from 'virtual:icons/logos/discord-icon';
+	import GithubIcon from 'virtual:icons/logos/github-icon';
 
 	const user = $derived(await getUser());
 </script>
@@ -18,6 +20,14 @@
 	<SignOutButton class="btn preset-tonal-error">Sign Out</SignOutButton>
 {:else}
 	<div class="grid gap-2">
-		<SignInButton provider="github" class="btn preset-filled gap-4">Sign in through GitHub</SignInButton>
+		<SignInButton provider="github" class="btn preset-filled gap-4">
+			<GithubIcon class="size-4 grayscale" />
+			Sign in through GitHub
+		</SignInButton>
+
+		<SignInButton provider="discord" class="btn preset-filled gap-4">
+			<DiscordIcon class="size-4 grayscale" />
+			Sign in through Discord
+		</SignInButton>
 	</div>
 {/if}
