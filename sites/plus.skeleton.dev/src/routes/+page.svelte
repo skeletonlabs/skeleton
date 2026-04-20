@@ -1,7 +1,7 @@
 <script>
 	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
-	import { getUser } from '$lib/remote/get-user.remote';
+	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 	import DiscordIcon from 'virtual:icons/logos/discord-icon';
 	import GithubIcon from 'virtual:icons/logos/github-icon';

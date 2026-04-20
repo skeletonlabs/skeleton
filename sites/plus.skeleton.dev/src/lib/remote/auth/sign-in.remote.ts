@@ -1,7 +1,7 @@
 import * as v from 'valibot';
 import { form } from '$app/server';
 import { error, redirect } from '@sveltejs/kit';
-import { auth } from '$lib/server/auth';
+import { auth } from '$lib/server/auth/auth';
 
 export const signIn = form(
 	v.object({

@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { signIn } from '$lib/remote/sign-in.remote';
-	import type { auth } from '$lib/server/auth';
+	import type { auth } from '$lib/server/auth/auth';
 
 	const { children, provider, ...attributes }: Props = $props();
 </script>
