@@ -3,7 +3,7 @@
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 	import packageJson from '@skeletonlabs/skeleton/package.json';
 
-	const versions = ['v3', 'v2', 'v1'];
+	const versions = ['v4', 'v3', 'v2', 'v1'];
 </script>
 
 <Menu class="hidden xl:block" positioning={{ placement: 'bottom-end' }}>
@@ -18,7 +18,7 @@
 					<Menu.ItemGroupLabel>Previous Versions</Menu.ItemGroupLabel>
 					{#each versions as version (version)}
 						<Menu.Item value={version}>
-							{#snippet element(attributes: Record)}
+							{#snippet element(attributes: Record<string, unknown>)}
 								<a {...attributes} href={`https://${version}.skeleton.dev`} target="_blank" rel="noopener noreferrer">
 									<Menu.ItemText>{version} Docs</Menu.ItemText>
 									<ArrowUpRightIcon class="size-4 opacity-60" />

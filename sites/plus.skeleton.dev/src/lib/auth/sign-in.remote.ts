@@ -17,7 +17,7 @@ function getRedirectTo() {
 
 export const signIn = form(
 	v.object({
-		provider: v.picklist(SUPPORTED_PROVIDERS),
+		provider: v.picklist(SUPPORTED_PROVIDERS.map((p) => p.name)),
 	}),
 	async (data) => {
 		const supabase = getSupabase();
