@@ -11,6 +11,7 @@ catalog:
   '@astrojs/sitemap': 3.7.2
   '@astrojs/svelte': 8.0.5
   '@astrojs/vercel': 10.0.4
+  '@better-auth/drizzle-adapter': 1.6.5
   '@changesets/cli': 2.30.0
   '@clack/prompts': 1.2.0
   '@faker-js/faker': 10.4.0
@@ -28,8 +29,6 @@ catalog:
   '@shikijs/transformers': 4.0.2
   '@shikijs/types': 4.0.2
   '@stackblitz/sdk': 1.11.0
-  '@supabase/ssr': 0.10.2
-  '@supabase/supabase-js': 2.103.3
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
   '@sveltejs/kit': 2.57.1
@@ -84,12 +83,15 @@ catalog:
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.6
   astro-seo: 1.1.0
+  better-auth: 1.6.5
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
   commander: 14.0.3
   cross-env: 10.1.0
   detect-indent: 7.0.2
+  drizzle-kit: 0.31.10
+  drizzle-orm: 0.45.2
   fuse.js: 7.3.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
@@ -109,6 +111,7 @@ catalog:
   package-manager-detector: 1.6.0
   playwright: 1.59.1
   postcss: 8.5.10
+  postgres: 3.4.9
   prettier: 3.8.3
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.5.1
@@ -118,8 +121,7 @@ catalog:
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 4.0.2
-  supabase: 2.92.0
-  svelte: 5.55.4
+  svelte: 5.55.2
   svelte-check: 4.4.6
   tailwindcss: 4.2.2
   tinyglobby: 0.2.16
