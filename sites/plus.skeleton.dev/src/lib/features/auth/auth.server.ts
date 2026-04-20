@@ -1,12 +1,12 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { db } from '$lib/server/database/db';
+import { db } from '$lib/infrastructure/database/db';
 import { env } from '$env/dynamic/private';
-import * as schema from '$lib/server/database/schema';
+import * as schema from '$lib/infrastructure/database/schema';
 import { getRequestEvent } from '$app/server';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
-import type { SupportedOAuthProvider } from '$lib/auth/supported-oauth-providers';
-import { getAppOrigin } from '$lib/utility/get-app-origin';
+import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
+import { getAppOrigin } from '$lib/infrastructure/http/get-app-origin';
 
 export const auth = betterAuth({
 	baseURL: getAppOrigin(),

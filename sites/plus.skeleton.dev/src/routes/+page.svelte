@@ -1,8 +1,8 @@
 <script>
-	import { supportedOAuthProviders } from '$lib/auth/supported-oauth-providers';
-	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
-	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
-	import { getUser } from '$lib/remote/auth/get-user.remote';
+	import { getUser } from '$lib/features/auth/get-user.remote';
+	import SignInButton from '$lib/features/auth/sign-in-button.svelte';
+	import SignOutButton from '$lib/features/auth/sign-out-button.svelte';
+	import { supportedOAuthProviders } from '$lib/features/auth/supported-oauth-providers';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 
 	const user = $derived(await getUser());

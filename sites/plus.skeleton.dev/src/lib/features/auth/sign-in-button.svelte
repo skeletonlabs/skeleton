@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-	import type { SupportedOAuthProvider } from '$lib/auth/supported-oauth-providers';
-	import { signIn } from '$lib/remote/auth/sign-in.remote';
+	import { signIn } from '$lib/features/auth/sign-in.remote';
+	import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
 
 	const { children, oAuthProvider, ...attributes }: Props = $props();
 </script>

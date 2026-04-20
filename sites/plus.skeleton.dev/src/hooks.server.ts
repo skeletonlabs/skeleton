@@ -1,4 +1,4 @@
-import { auth } from '$lib/server/auth/auth';
+import { auth } from '$lib/features/auth/auth.server';
 import { svelteKitHandler } from 'better-auth/svelte-kit';
 import { building } from '$app/environment';
 import type { Handle } from '@sveltejs/kit';
