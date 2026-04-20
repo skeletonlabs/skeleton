@@ -364,8 +364,8 @@ catalogs:
       specifier: 0.2.16
       version: 0.2.16
     ts-morph:
-      specifier: 27.0.2
-      version: 27.0.2
+      specifier: 28.0.0
+      version: 28.0.0
     tsdown:
       specifier: 0.21.9
       version: 0.21.9
@@ -487,7 +487,7 @@ importers:
         version: 0.2.16
       ts-morph:
         specifier: 'catalog:'
-        version: 27.0.2
+        version: 28.0.0
       zimmerframe:
         specifier: 'catalog:'
         version: 1.1.4
@@ -1104,7 +1104,7 @@ importers:
         version: 0.2.16
       ts-morph:
         specifier: 'catalog:'
-        version: 27.0.2
+        version: 28.0.0
       typescript:
         specifier: 'catalog:'
         version: 5.9.3
@@ -3456,8 +3456,8 @@ packages:
       svelte:
         optional: true
 
-  '@ts-morph/common@0.28.1':
-    resolution: {integrity: sha512-W74iWf7ILp1ZKNYXY5qbddNaml7e9Sedv5lvU1V8lftlitkc9Pq1A+jlH23ltDgWYeZFFEqGCD1Ies9hqu3O+g==}
+  '@ts-morph/common@0.29.0':
+    resolution: {integrity: sha512-35oUmphHbJvQ/+UTwFNme/t2p3FoKiGJ5auTjjpNTop2dyREspirjMy82PLSC1pnDJ8ah1GU98hwpVt64YXQsg==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -6038,8 +6038,8 @@ packages:
   trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
 
-  ts-morph@27.0.2:
-    resolution: {integrity: sha512-fhUhgeljcrdZ+9DZND1De1029PrE+cMkIP7ooqkLRTrRLTqcki2AstsyJm0vRNbTbVCNJ0idGlbBrfqc7/nA8w==}
+  ts-morph@28.0.0:
+    resolution: {integrity: sha512-Wp3tnZ2bzwxyTZMtgWVzXDfm7lB1Drz+y9DmmYH/L702PQhPyVrp3pkou3yIz4qjS14GY9kcpmLiOOMvl8oG1g==}
 
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
@@ -8788,7 +8788,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ts-morph/common@0.28.1':
+  '@ts-morph/common@0.29.0':
     dependencies:
       minimatch: 10.2.5
       path-browserify: 1.0.1
@@ -12127,9 +12127,9 @@ snapshots:
 
   trough@2.2.0: {}
 
-  ts-morph@27.0.2:
+  ts-morph@28.0.0:
     dependencies:
-      '@ts-morph/common': 0.28.1
+      '@ts-morph/common': 0.29.0
       code-block-writer: 13.0.3
 
   tsconfck@3.1.6(typescript@5.9.3):
