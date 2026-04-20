@@ -18,6 +18,7 @@ catalog:
   '@floating-ui/dom': 1.7.6
   '@iconify-json/logos': 1.2.11
   '@internationalized/date': 3.12.1
+  '@lucide/astro': 1.8.0
   '@lucide/svelte': 1.8.0
   '@playwright/test': 1.59.1
   '@prettier/plugin-oxc': 0.1.4
