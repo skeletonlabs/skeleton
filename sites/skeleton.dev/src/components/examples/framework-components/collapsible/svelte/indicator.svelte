@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { MinusIcon, PlusIcon } from '@lucide/svelte';
+	import MinusIcon from '@lucide/svelte/icons/minus';
+	import PlusIcon from '@lucide/svelte/icons/plus';
 	import { Collapsible } from '@skeletonlabs/skeleton-svelte';
 </script>
 

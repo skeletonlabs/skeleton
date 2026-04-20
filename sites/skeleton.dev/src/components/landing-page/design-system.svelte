@@ -42,7 +42,10 @@
 </script>
 
 <script lang="ts">
-	import { BookmarkIcon, HeartIcon, TriangleIcon, UserRoundIcon } from '@lucide/svelte';
+	import BookmarkIcon from '@lucide/svelte/icons/bookmark';
+	import HeartIcon from '@lucide/svelte/icons/heart';
+	import TriangleIcon from '@lucide/svelte/icons/triangle';
+	import UserRoundIcon from '@lucide/svelte/icons/user-round';
 
 	let activeStep = $state<(typeof steps)[keyof typeof steps]>(steps['themes']);
 

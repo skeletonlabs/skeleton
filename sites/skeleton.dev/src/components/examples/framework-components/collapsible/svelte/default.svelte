@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowUpDownIcon } from '@lucide/svelte';
+	import ArrowUpDownIcon from '@lucide/svelte/icons/arrow-up-down';
 	import { Collapsible } from '@skeletonlabs/skeleton-svelte';
 </script>
 

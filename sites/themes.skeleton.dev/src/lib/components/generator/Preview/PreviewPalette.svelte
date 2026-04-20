@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SwatchBook } from '@lucide/svelte';
+	import SwatchBook from '@lucide/svelte/icons/swatch-book';
 
 	export const palette = [
 		{

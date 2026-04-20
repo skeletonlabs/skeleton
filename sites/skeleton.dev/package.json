@@ -19,6 +19,7 @@
 		"@astrojs/vercel": "catalog:",
 		"@faker-js/faker": "catalog:",
 		"@floating-ui/dom": "catalog:",
+		"@lucide/astro": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@resvg/resvg-js": "catalog:",
 		"@shikijs/core": "catalog:",

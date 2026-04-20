@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { ChevronDownIcon, ArrowUpRightIcon, HeartIcon } from '@lucide/svelte';
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import HeartIcon from '@lucide/svelte/icons/heart';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 

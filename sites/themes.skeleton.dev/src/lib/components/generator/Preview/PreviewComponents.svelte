@@ -2,18 +2,16 @@
 	import * as constants from '$lib/constants/generator';
 	import { globals } from '$lib/state/generator.svelte';
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
-	import {
-		TextAlignCenter,
-		TextAlignJustify,
-		TextAlignStart,
-		TextAlignEnd,
-		ArrowUpRightIcon,
-		CalendarIcon,
-		CircleUserIcon,
-		MenuIcon,
-		SearchIcon,
-		SkullIcon,
-	} from '@lucide/svelte';
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import CalendarIcon from '@lucide/svelte/icons/calendar';
+	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
+	import MenuIcon from '@lucide/svelte/icons/menu';
+	import SearchIcon from '@lucide/svelte/icons/search';
+	import SkullIcon from '@lucide/svelte/icons/skull';
+	import TextAlignCenter from '@lucide/svelte/icons/text-align-center';
+	import TextAlignEnd from '@lucide/svelte/icons/text-align-end';
+	import TextAlignJustify from '@lucide/svelte/icons/text-align-justify';
+	import TextAlignStart from '@lucide/svelte/icons/text-align-start';
 	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);

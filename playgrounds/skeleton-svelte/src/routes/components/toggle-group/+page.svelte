@@ -1,16 +1,14 @@
 <script lang="ts">
-	import {
-		BoldIcon,
-		ItalicIcon,
-		StrikethroughIcon,
-		Heading1Icon,
-		Heading2Icon,
-		Heading3Icon,
-		PencilIcon,
-		CodeIcon,
-		LinkIcon,
-		MessageCircleIcon,
-	} from '@lucide/svelte';
+	import BoldIcon from '@lucide/svelte/icons/bold';
+	import CodeIcon from '@lucide/svelte/icons/code';
+	import Heading1Icon from '@lucide/svelte/icons/heading-1';
+	import Heading2Icon from '@lucide/svelte/icons/heading-2';
+	import Heading3Icon from '@lucide/svelte/icons/heading-3';
+	import ItalicIcon from '@lucide/svelte/icons/italic';
+	import LinkIcon from '@lucide/svelte/icons/link';
+	import MessageCircleIcon from '@lucide/svelte/icons/message-circle';
+	import PencilIcon from '@lucide/svelte/icons/pencil';
+	import StrikethroughIcon from '@lucide/svelte/icons/strikethrough';
 	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
 </script>
 

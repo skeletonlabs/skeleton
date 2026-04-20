@@ -2,7 +2,8 @@
 	import chatgpt from '@/assets/logos/chatgpt.svg?raw';
 	import claude from '@/assets/logos/claude.svg?raw';
 	import markdown from '@/assets/logos/markdown.svg?raw';
-	import { ChevronDownIcon, FileTextIcon } from '@lucide/svelte';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import FileTextIcon from '@lucide/svelte/icons/file-text';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	interface Props {

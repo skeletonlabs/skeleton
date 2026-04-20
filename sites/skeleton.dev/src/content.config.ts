@@ -31,10 +31,10 @@ export const collections = {
 			tags: z.array(z.string()).optional().default([]),
 			references: z
 				.object({
-					source: z.union([z.string().url(), z.literal(false)]).optional(),
-					styles: z.union([z.string().url(), z.literal(false)]).optional(),
-					a11y: z.union([z.string().url(), z.literal(false)]).optional(),
-					zag: z.union([z.string().url(), z.literal(false)]).optional(),
+					source: z.union([z.url(), z.literal(false)]).optional(),
+					styles: z.union([z.url(), z.literal(false)]).optional(),
+					a11y: z.union([z.url(), z.literal(false)]).optional(),
+					zag: z.union([z.url(), z.literal(false)]).optional(),
 				})
 				.optional()
 				.default({}),
@@ -64,8 +64,8 @@ export const collections = {
 				}));
 		},
 		schema: z.object({
-			html_url: z.string().url(),
-			avatar_url: z.string().url(),
+			html_url: z.url(),
+			avatar_url: z.url(),
 			login: z.string(),
 		}),
 	}),
@@ -77,7 +77,7 @@ export const collections = {
 		schema: z.object({
 			name: z.string(),
 			description: z.string(),
-			url: z.string(),
+			url: z.url(),
 			playwright: z
 				.object({
 					instructions: z.array(z.string()),

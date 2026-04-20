@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { BoldIcon, ItalicIcon, UnderlineIcon } from '@lucide/svelte';
+	import BoldIcon from '@lucide/svelte/icons/bold';
+	import ItalicIcon from '@lucide/svelte/icons/italic';
+	import UnderlineIcon from '@lucide/svelte/icons/underline';
 	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
 </script>
 

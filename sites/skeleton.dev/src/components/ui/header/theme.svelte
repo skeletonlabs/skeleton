@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { themes } from '@/modules/themes';
-	import { ArrowUpRightIcon, ChevronDownIcon, LaptopMinimalCheckIcon, MoonIcon, PaletteIcon, SunIcon } from '@lucide/svelte';
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import LaptopMinimalCheckIcon from '@lucide/svelte/icons/laptop-minimal-check';
+	import MoonIcon from '@lucide/svelte/icons/moon';
+	import PaletteIcon from '@lucide/svelte/icons/palette';
+	import SunIcon from '@lucide/svelte/icons/sun';
 	import { Popover, Portal, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
 	let activeMode: string | undefined = $state();

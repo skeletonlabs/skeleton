@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SendIcon } from '@lucide/svelte';
+	import SendIcon from '@lucide/svelte/icons/send';
 	import { onMount } from 'svelte';
 
 	// Types

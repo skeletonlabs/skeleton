@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { ArrowUpRightIcon, ChevronDownIcon } from '@lucide/svelte';
+	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	const skeletonTools = [

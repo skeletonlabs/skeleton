@@ -1,19 +1,17 @@
 <script lang="ts">
-	import {
-		ArrowLeftRightIcon,
-		BedDoubleIcon,
-		BikeIcon,
-		BookIcon,
-		BubblesIcon,
-		HouseIcon,
-		MountainIcon,
-		PopcornIcon,
-		SailboatIcon,
-		SettingsIcon,
-		SkullIcon,
-		TreePalmIcon,
-		TvIcon,
-	} from '@lucide/svelte';
+	import ArrowLeftRightIcon from '@lucide/svelte/icons/arrow-left-right';
+	import BedDoubleIcon from '@lucide/svelte/icons/bed-double';
+	import BikeIcon from '@lucide/svelte/icons/bike';
+	import BookIcon from '@lucide/svelte/icons/book';
+	import BubblesIcon from '@lucide/svelte/icons/bubbles';
+	import HouseIcon from '@lucide/svelte/icons/house';
+	import MountainIcon from '@lucide/svelte/icons/mountain';
+	import PopcornIcon from '@lucide/svelte/icons/popcorn';
+	import SailboatIcon from '@lucide/svelte/icons/sailboat';
+	import SettingsIcon from '@lucide/svelte/icons/settings';
+	import SkullIcon from '@lucide/svelte/icons/skull';
+	import TreePalmIcon from '@lucide/svelte/icons/tree-palm';
+	import TvIcon from '@lucide/svelte/icons/tv';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 
 	const links = [

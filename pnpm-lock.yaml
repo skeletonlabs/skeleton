@@ -48,6 +48,9 @@ catalogs:
     '@internationalized/date':
       specifier: 3.12.1
       version: 3.12.1
+    '@lucide/astro':
+      specifier: 1.8.0
+      version: 1.8.0
     '@lucide/svelte':
       specifier: 1.8.0
       version: 1.8.0
@@ -393,9 +396,6 @@ catalogs:
     vite:
       specifier: 7.3.1
       version: 7.3.1
-    vite-plugin-transform-lucide-imports:
-      specifier: 0.3.0
-      version: 0.3.0
     vitest:
       specifier: 4.1.4
       version: 4.1.4
@@ -886,9 +886,6 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3)
-      vite-plugin-transform-lucide-imports:
-        specifier: 'catalog:'
-        version: 0.3.0(vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3))
 
   sites/plus.skeleton.dev:
     devDependencies:
@@ -985,6 +982,9 @@ importers:
       '@floating-ui/dom':
         specifier: 'catalog:'
         version: 1.7.6
+      '@lucide/astro':
+        specifier: 'catalog:'
+        version: 1.8.0(astro@6.1.7(@types/node@25.6.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))
       '@lucide/svelte':
         specifier: 'catalog:'
         version: 1.8.0(svelte@5.55.2)
@@ -1180,9 +1180,6 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3)
-      vite-plugin-transform-lucide-imports:
-        specifier: 'catalog:'
-        version: 0.3.0(vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3))
 
 packages:
 
@@ -2236,6 +2233,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@lucide/astro@1.8.0':
+    resolution: {integrity: sha512-ZrzTu1L8b2XEA/hfCB0ZqTCQN3BXjvomuSaTHJzIBDFggOUTyzw55/klEo6tDFSl54d0KQTvcI1qJ7RgAVuCyg==}
+    peerDependencies:
+      astro: ^4 || ^5 || ^6
 
   '@lucide/svelte@1.8.0':
     resolution: {integrity: sha512-+zYQUKqEOVP5lxbGmxL1OVgGMQtRK91eIJ0bR+3Cr1ts4oQEsQfxyzzd5X47psJlblAuGFrl2xm4YuATjR9oaA==}
@@ -6658,11 +6660,6 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite-plugin-transform-lucide-imports@0.3.0:
-    resolution: {integrity: sha512-/zIVzj7SqIvQ2kLAerVUJTTcQvMe+jyqfvzU/D5jJvf5f4z4CmlT+ui3LfhhVOPbY49dcsxLULfbFDRNxdSXhg==}
-    peerDependencies:
-      vite: ^5.0.0 || ^6.0.0 || ^7.0.0
-
   vite@7.3.1:
     resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -7987,6 +7984,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@lucide/astro@1.8.0(astro@6.1.7(@types/node@25.6.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3))':
+    dependencies:
+      astro: 6.1.7(@types/node@25.6.0)(@vercel/functions@3.4.3)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.1)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.3)
 
   '@lucide/svelte@1.8.0(svelte@5.55.2)':
     dependencies:
@@ -12849,14 +12850,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
-
-  vite-plugin-transform-lucide-imports@0.3.0(vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3)):
-    dependencies:
-      '@sveltejs/acorn-typescript': 1.0.9(acorn@8.16.0)
-      acorn: 8.16.0
-      estree-walker: 3.0.3
-      magic-string: 0.30.21
-      vite: 7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3)
 
   vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3):
     dependencies:

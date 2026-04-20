@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
+	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
+	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 
 	const generatedArray = Array.from({ length: 6 });
 

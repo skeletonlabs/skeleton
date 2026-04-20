@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { ArrowLeftRightIcon, BikeIcon, BookIcon, HouseIcon, TreePalmIcon } from '@lucide/svelte';
+	import ArrowLeftRightIcon from '@lucide/svelte/icons/arrow-left-right';
+	import BikeIcon from '@lucide/svelte/icons/bike';
+	import BookIcon from '@lucide/svelte/icons/book';
+	import HouseIcon from '@lucide/svelte/icons/house';
+	import TreePalmIcon from '@lucide/svelte/icons/tree-palm';
 	import { Navigation } from '@skeletonlabs/skeleton-svelte';
 
 	const links = [

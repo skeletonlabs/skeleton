@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MenuIcon } from '@lucide/svelte';
+	import MenuIcon from '@lucide/svelte/icons/menu';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 	import type { Snippet } from 'svelte';
 
