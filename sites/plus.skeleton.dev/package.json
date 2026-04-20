@@ -20,6 +20,7 @@
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
+		"@types/node": "catalog:",
 		"supabase": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
