@@ -1,3 +1,3 @@
 export function shouldLoadComponents() {
-	return ['production', 'next'].includes(process.env.VERCEL_ENV ?? '');
+	return ['production', 'next'].includes(process.env.VERCEL_TARGET_ENV ?? '');
 }
