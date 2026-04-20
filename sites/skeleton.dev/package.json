@@ -43,7 +43,6 @@
 		"astro-auto-import": "catalog:",
 		"astro-pagefind": "catalog:",
 		"astro-seo": "catalog:",
-		"cross-env": "catalog:",
 		"fuse.js": "catalog:",
 		"html-escaper": "catalog:",
 		"lucide-react": "catalog:",
