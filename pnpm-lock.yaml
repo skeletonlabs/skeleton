@@ -862,6 +862,9 @@ importers:
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.2.2(vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3))
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.6.0
       svelte:
         specifier: 'catalog:'
         version: 5.55.4
@@ -913,6 +916,9 @@ importers:
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.2.2(vite@7.3.1(@types/node@25.6.0)(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.93.3)(sass@1.93.3)(tsx@4.21.0)(yaml@2.8.3))
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.6.0
       supabase:
         specifier: 'catalog:'
         version: 2.92.0
@@ -1138,6 +1144,9 @@ importers:
       '@types/chroma-js':
         specifier: 'catalog:'
         version: 3.1.2
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.6.0
       chroma-js:
         specifier: 'catalog:'
         version: 3.2.0

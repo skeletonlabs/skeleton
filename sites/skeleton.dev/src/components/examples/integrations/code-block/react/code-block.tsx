@@ -23,7 +23,7 @@ interface CodeBlockProps {
 }
 
 export default function CodeBlock({
-	code = '',
+	code,
 	lang = 'txt',
 	// Base Style Props
 	base = 'overflow-hidden',
