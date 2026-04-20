@@ -6,7 +6,7 @@
 	import ControlsEdges from './ControlsEdges.svelte';
 	import ControlsSpacing from './ControlsSpacing.svelte';
 	import ControlsTypography from './ControlsTypography.svelte';
-	import ALargeSmallIcon from '@lucide/svelte/icons/alarge-small';
+	import ALargeSmallIcon from '@lucide/svelte/icons/a-large-small';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
 	import LayersIcon from '@lucide/svelte/icons/layers';
