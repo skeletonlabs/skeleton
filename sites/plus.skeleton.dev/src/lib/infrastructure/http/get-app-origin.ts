@@ -6,7 +6,7 @@ export function getAppOrigin() {
 		return 'http://localhost:5173';
 	}
 	if (env.VERCEL_ENV === 'production') {
-		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+		return `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`;
 	}
-	return `https://${process.env.VERCEL_URL}`;
+	return `https://${env.VERCEL_URL}`;
 }
