@@ -3,7 +3,6 @@ import '@/app.css';
 import { SEO } from 'astro-seo';
 import favicon from '@/assets/favicon.png';
 import { ClientRouter } from 'astro:transitions';
-import Analytics from '@/components/ui/analytics.astro';
 import ThemeLoader from '@/components/ui/theme-loader.astro';
 import ModeLoader from '@/components/ui/mode-loader.astro';
 
@@ -92,7 +91,6 @@ const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 		/>
 		<ModeLoader />
 		<ThemeLoader />
-		<Analytics />
 		<ClientRouter />
 	</head>
 	<body class:list={[classList]}>
