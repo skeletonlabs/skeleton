@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-	import { signOut } from '$lib/remote/sign-out.remote';
+	import { signOut } from '$lib/remote/auth/sign-out.remote';
 
 	const { children, ...attributes }: Props = $props();
 </script>
