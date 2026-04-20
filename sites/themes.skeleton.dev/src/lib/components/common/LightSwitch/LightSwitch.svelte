@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { MoonIcon, SunIcon } from '@lucide/svelte';
+	import MoonIcon from '@lucide/svelte/icons/moon';
+	import SunIcon from '@lucide/svelte/icons/sun';
 
 	type Mode = 'dark' | 'light';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChevronDownIcon } from '@lucide/svelte';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 	import { slide } from 'svelte/transition';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CheckIcon } from '@lucide/svelte';
+	import CheckIcon from '@lucide/svelte/icons/check';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	const sortOptions = [

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SkullIcon } from '@lucide/svelte';
+	import SkullIcon from '@lucide/svelte/icons/skull';
 	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
 
 	const toaster = createToaster();

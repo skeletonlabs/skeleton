@@ -4,7 +4,8 @@
 
 <script>
 	import { users } from './data';
-	import { ArrowLeftIcon, ArrowRightIcon } from '@lucide/svelte';
+	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
+	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import { Pagination } from '@skeletonlabs/skeleton-svelte';
 
 	let page = $state(1);

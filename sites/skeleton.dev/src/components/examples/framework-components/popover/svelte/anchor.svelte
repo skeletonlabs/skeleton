@@ -1,5 +1,5 @@
 <script>
-	import { XIcon } from '@lucide/svelte';
+	import XIcon from '@lucide/svelte/icons/x';
 	import { Avatar, Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 

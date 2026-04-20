@@ -19,7 +19,9 @@
 <script lang="ts">
 	import OpenInStackblitz from './open-in-stackblitz.svelte';
 	import Code from '@/components/ui/code.svelte';
-	import { EyeIcon, CodeIcon, PaletteIcon } from '@lucide/svelte';
+	import CodeIcon from '@lucide/svelte/icons/code';
+	import EyeIcon from '@lucide/svelte/icons/eye';
+	import PaletteIcon from '@lucide/svelte/icons/palette';
 	import { Tabs, ToggleGroup } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import type { Snippet } from 'svelte';

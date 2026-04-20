@@ -1,6 +1,16 @@
 <script lang="ts">
 	import massiveAttackMezzanine from '@/assets/landing-page/massive-attack-mezzanine.webp';
-	import { ArrowUpRight, Check, Music, FastForward, Sliders, Headphones, Play, Rewind, Users, Volume2, ChartBar } from '@lucide/svelte';
+	import ArrowUpRight from '@lucide/svelte/icons/arrow-up-right';
+	import ChartBar from '@lucide/svelte/icons/chart-bar';
+	import Check from '@lucide/svelte/icons/check';
+	import FastForward from '@lucide/svelte/icons/fast-forward';
+	import Headphones from '@lucide/svelte/icons/headphones';
+	import Music from '@lucide/svelte/icons/music';
+	import Play from '@lucide/svelte/icons/play';
+	import Rewind from '@lucide/svelte/icons/rewind';
+	import Sliders from '@lucide/svelte/icons/sliders';
+	import Users from '@lucide/svelte/icons/users';
+	import Volume2 from '@lucide/svelte/icons/volume-2';
 	import { Avatar, Slider, Progress, SegmentedControl, Switch } from '@skeletonlabs/skeleton-svelte';
 
 	const cardClasses = 'card preset-outlined-surface-200-800 bg-surface-50-950 p-5 space-y-5';

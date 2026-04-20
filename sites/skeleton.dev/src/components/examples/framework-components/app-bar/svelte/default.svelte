@@ -1,5 +1,8 @@
 <script lang="ts">
-	import { CalendarIcon, CircleUserIcon, MenuIcon, SearchIcon } from '@lucide/svelte';
+	import CalendarIcon from '@lucide/svelte/icons/calendar';
+	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
+	import MenuIcon from '@lucide/svelte/icons/menu';
+	import SearchIcon from '@lucide/svelte/icons/search';
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 </script>
 

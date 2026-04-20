@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { PlusIcon, MinusIcon } from '@lucide/svelte';
+	import MinusIcon from '@lucide/svelte/icons/minus';
+	import PlusIcon from '@lucide/svelte/icons/plus';
 	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 </script>
 
