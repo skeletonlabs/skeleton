@@ -20,6 +20,11 @@
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
 	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
+	/* Placeholder */
+	&::placeholder {
+		color: var(--global-field-placeholder);
+	}
+
 	@variant active {
 		--tw-ring-color: var(--color-primary-500);
 	}

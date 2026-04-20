@@ -1,0 +1,137 @@
+---
+title: Globals
+description: Skeleton's global default styles.
+summary: The following represent all global defaults applied via the Skeleton stylesheet.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/globals.css'
+order: 0
+---
+
+## Customizing Globals
+
+Skeleton provides a very minimaml set of global styles out of the box. However, you are encouraged to override these styles in your app's global stylesheet as you see fit. See the [Core API](/docs/svelte/get-started/core-api) as reference for each theme property used below.
+
+## Root Element
+
+### CSS Custom Properties
+
+```css
+:root {
+	/* Defines form field placeholder text styling. */
+	--global-field-placeholder: var(--color-surface-700-300);
+}
+```
+
+### Color Scheme
+
+Controls the [Tailwind color scheme](https://tailwindcss.com/docs/color-scheme) based on the current [dark mode configuration](/docs/guides/mode).
+
+```css
+:root {
+	color-scheme: light;
+	@variant dark {
+		color-scheme: dark;
+	}
+}
+```
+
+### Scrollbars
+
+Implements themed [scrollbar styling](https://developer.chrome.com/docs/css-ui/scrollbar-styling). We recommend a transparent track for the best aesthetics.
+
+```css
+:root {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-surface-300) transparent; /* thumb / track */
+	@variant dark {
+		scrollbar-color: var(--color-surface-700) transparent;
+	}
+}
+```
+
+### Tap Highlight Color
+
+Implements a themed [tap highlight color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color). Shown briefly when tapping interactive elements such as buttons.
+
+> NOTE: This is a non-standard property and only supported by select mobile devices.
+
+```css
+:root {
+	-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
+}
+```
+
+## Body Element
+
+### Background Color
+
+Sets the app-wide background color for light and dark mode, using Skeleton theme properties.
+
+```css
+body {
+	background-color: var(--body-background-color);
+	@variant dark {
+		background-color: var(--body-background-color-dark);
+	}
+}
+```
+
+### Typography
+
+Sets the app-wide base typography settings, using Skeleton theme properties.
+
+```css
+body {
+	color: var(--typo-base--color-light);
+	font-family: var(--typo-base--font-family);
+	font-size: var(--typo-base--font-size);
+	line-height: var(--typo-base--line-height);
+	font-weight: var(--typo-base--font-weight);
+	font-style: var(--typo-base--font-style);
+	letter-spacing: var(--typo-base--letter-spacing);
+	font-stretch: var(--typo-base--font-stretch);
+	font-kerning: var(--typo-base--font-kerning);
+	text-shadow: var(--typo-base--text-shadow);
+	word-spacing: var(--typo-base--word-spacing);
+	hyphens: var(--typo-base--hyphens);
+	text-transform: var(--typo-base--text-transform);
+	@variant dark {
+		color: var(--typo-base--color-dark);
+	}
+}
+```
+
+## Miscellaneous
+
+### Selection
+
+Implements themed styles for [selection](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::selection).
+
+```css
+::selection {
+	background-color: color-mix(in srgb, var(--color-brand-light) 30%, transparent);
+	@variant dark {
+		background-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+	}
+}
+```
+
+### Disabled State
+
+Implements the default [disabled](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/disabled) state styling and provides an optional utility class.
+
+```css
+*:disabled,
+.disabled {
+	box-shadow: 0 0 transparent;
+	cursor: not-allowed;
+	opacity: 0.5;
+	& > * {
+		pointer-events: none;
+	}
+}
+```
+
+## Accessibility
+
+As a reminder, never disable `focus` or `outline` styles, as these would be harmful to [accessibility](http://www.outlinenone.com/).

@@ -1,8 +1,12 @@
 /* Base - Globals */
-/* Global styles that are enabled by default. */
+/* Skeleton global styles, enabled by default. */
 
 @layer base {
 	:root {
+		/* Properties --- */
+		/* Defines form field placeholder text styling. */
+		--global-field-placeholder: var(--color-surface-700-300);
+
 		/* Color Scheme --- */
 		/* https://tailwindcss.com/docs/color-scheme */
 		color-scheme: light;
@@ -13,25 +17,26 @@
 		/* Scrollbars --- */
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
 		/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
-		scrollbar-color: var(--color-surface-300-700) var(--color-surface-100-900); /* thumb / track */
 		scrollbar-width: thin;
-	}
+		scrollbar-color: var(--color-surface-300) transparent; /* thumb / track */
+		@variant dark {
+			scrollbar-color: var(--color-surface-700) transparent;
+		}
 
-	html {
 		/* Mobile Tap Highlight Color (WebKit only) --- */
 		/* IMPORTANT: this is useful for mobile accessibility. */
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
-		/* -webkit-tap-highlight-color: rgba(128, 128, 128, 0.5); */
 		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
 	}
 
 	body {
-		/* Background */
+		/* Background --- */
 		background-color: var(--body-background-color);
 		@variant dark {
 			background-color: var(--body-background-color-dark);
 		}
-		/* Typography */
+
+		/* Typography --- */
 		color: var(--typo-base--color-light);
 		font-family: var(--typo-base--font-family);
 		font-size: var(--typo-base--font-size);
@@ -50,26 +55,20 @@
 		}
 	}
 
-	/* Form Placeholders --- */
-
-	.input::placeholder,
-	.textarea::placeholder,
-	.ig-input::placeholder,
-	.ig-textarea::placeholder {
-		color: var(--color-surface-700-300);
-	}
-
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
-
 	::selection {
-		background-color: color-mix(in srgb, var(--color-primary-500) 50%, transparent);
+		background-color: color-mix(in srgb, var(--color-brand-light) 30%, transparent);
+		@variant dark {
+			background-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
+		}
 	}
 
-	/* States --- */
-
+	/* Disabled State --- */
 	*:disabled,
 	.disabled {
+		box-shadow: 0 0 transparent;
+		cursor: not-allowed;
 		opacity: 0.5;
 		& > * {
 			pointer-events: none;
@@ -84,11 +83,6 @@
 
 		EXAMPLE: Set a global focus style.
 		Apply this in your app's global stylesheet:
-		:focus { @apply focus:outline-primary-50; }
+		:focus { @apply focus:outline-primary-500; }
 	*/
-
-	/* Component Focus Utility */
-	/* .focused {
-		@apply ring-[2px] ring-surface-950 dark:ring-surface-50 ring-inset;
-	} */
 }
