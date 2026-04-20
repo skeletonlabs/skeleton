@@ -2,7 +2,10 @@
 	import * as constants from '$lib/constants/generator';
 	import { globals, settingsColors } from '$lib/state/generator.svelte';
 	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '$lib/utils/generator/colors';
-	import { DicesIcon, PencilIcon, SproutIcon, EraserIcon } from '@lucide/svelte';
+	import DicesIcon from '@lucide/svelte/icons/dices';
+	import EraserIcon from '@lucide/svelte/icons/eraser';
+	import PencilIcon from '@lucide/svelte/icons/pencil';
+	import SproutIcon from '@lucide/svelte/icons/sprout';
 	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
 
 	interface ColorSelection {
