@@ -2,5 +2,4 @@
 "@skeletonlabs/skeleton": minor
 ---
 
-task: updates to the global styles
-  
+task: refined global styles, redistributed placeholder color to Tailwind components  
