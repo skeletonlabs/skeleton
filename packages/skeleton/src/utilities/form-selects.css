@@ -1,12 +1,5 @@
 /* Components: Forms > Select */
 
-/*
-	BROWSER CONSISTENCY WARNING:
-	Select (especially Size and Multiple) are notoriously difficult to style
-	consistently cross-browser, so all styles adhere to progress enhancement.
-	We've styled this element within the confines of that browser's capabilities.
-*/
-
 @utility select {
 	background-color: transparent;
 	border-radius: var(--radius-base);
@@ -40,32 +33,6 @@
 	}
 	@variant focus-within {
 		--tw-ring-color: var(--color-primary-500);
-	}
-
-	/* Multiple & Size --- */
-
-	& > * + * {
-		margin-top: --spacing(2);
-	}
-
-	&[multiple] {
-		border-radius: var(--radius-container);
-		padding: --spacing(1);
-
-		& optgroup,
-		& option {
-			background-color: transparent;
-		}
-	}
-
-	&[size] {
-		border-radius: var(--radius-container);
-		padding: --spacing(1);
-
-		& optgroup,
-		& option {
-			background-color: transparent;
-		}
 	}
 
 	/* Optgroup --- */
