@@ -2,9 +2,8 @@
 	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
+	import { supportedOAuthProviders } from '$lib/server/auth/supported-oauth-providers';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
-	import DiscordIcon from 'virtual:icons/logos/discord-icon';
-	import GithubIcon from 'virtual:icons/logos/github-icon';
 
 	const user = $derived(await getUser());
 </script>
@@ -20,14 +19,11 @@
 	<SignOutButton class="btn preset-tonal-error">Sign Out</SignOutButton>
 {:else}
 	<div class="grid gap-2">
-		<SignInButton provider="github" class="btn preset-filled gap-4">
-			<GithubIcon class="size-4 grayscale" />
-			Sign in through GitHub
-		</SignInButton>
-
-		<SignInButton provider="discord" class="btn preset-filled gap-4">
-			<DiscordIcon class="size-4 grayscale" />
-			Sign in through Discord
-		</SignInButton>
+		{#each supportedOAuthProviders as oAuthProvider}
+			<SignInButton {oAuthProvider} class="btn preset-filled gap-4">
+				<oAuthProvider.Icon class="size-4 grayscale" />
+				Sign in through {oAuthProvider.name}
+			</SignInButton>
+		{/each}
 	</div>
 {/if}

@@ -2,18 +2,18 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
 	export interface Props extends HTMLButtonAttributes {
-		provider: keyof typeof auth.options.socialProviders;
+		oAuthProvider: SupportedOAuthProvider;
 	}
 </script>
 
 <script lang="ts">
 	import { signIn } from '$lib/remote/auth/sign-in.remote';
-	import type { auth } from '$lib/server/auth/auth';
+	import type { SupportedOAuthProvider } from '$lib/server/auth/supported-oauth-providers';
 
-	const { children, provider, ...attributes }: Props = $props();
+	const { children, oAuthProvider, ...attributes }: Props = $props();
 </script>
 
-<form {...signIn.for(provider)}>
-	<input {...signIn.fields.provider.as('hidden', provider)} />
+<form {...signIn.for(oAuthProvider.id)}>
+	<input {...signIn.fields.provider.as('hidden', oAuthProvider.id)} />
 	<button {...attributes}>{@render children?.()}</button>
 </form>

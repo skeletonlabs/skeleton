@@ -5,6 +5,7 @@ import { env } from '$env/dynamic/private';
 import * as schema from '$lib/server/database/schema';
 import { getRequestEvent } from '$app/server';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
+import type { SupportedOAuthProvider } from './supported-oauth-providers';
 
 export const auth = betterAuth({
 	baseURL: env.BETTER_AUTH_URL!,
@@ -23,6 +24,6 @@ export const auth = betterAuth({
 			clientSecret: env.DISCORD_CLIENT_SECRET!,
 			redirectURI: `${env.BETTER_AUTH_URL!}/api/auth/callback/discord`,
 		},
-	},
+	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	plugins: [sveltekitCookies(getRequestEvent)],
 });
