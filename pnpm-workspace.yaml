@@ -6,10 +6,10 @@ packages:
 catalog:
   '@astrojs/check': 0.9.8
   '@astrojs/mdx': 5.0.3
-  '@astrojs/partytown': 2.1.6
+  '@astrojs/partytown': 2.1.7
   '@astrojs/react': 5.0.3
   '@astrojs/sitemap': 3.7.2
-  '@astrojs/svelte': 8.0.4
+  '@astrojs/svelte': 8.0.5
   '@astrojs/vercel': 10.0.4
   '@better-auth/drizzle-adapter': 1.6.5
   '@changesets/cli': 2.30.0
@@ -17,10 +17,10 @@ catalog:
   '@faker-js/faker': 10.4.0
   '@floating-ui/dom': 1.7.6
   '@iconify-json/logos': 1.2.11
-  '@internationalized/date': 3.12.0
+  '@internationalized/date': 3.12.1
   '@lucide/svelte': 1.8.0
   '@playwright/test': 1.59.1
-  '@prettier/plugin-oxc': 0.1.3
+  '@prettier/plugin-oxc': 0.1.4
   '@resvg/resvg-js': 2.6.2
   '@shikijs/core': 4.0.2
   '@shikijs/engine-javascript': 4.0.2
@@ -37,9 +37,9 @@ catalog:
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.2.2
-  '@tanstack/react-router': 1.168.10
-  '@tanstack/react-start': 1.167.16
-  '@tanstack/router-cli': 1.166.25
+  '@tanstack/react-router': 1.168.22
+  '@tanstack/react-start': 1.167.41
+  '@tanstack/router-cli': 1.166.33
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
@@ -51,35 +51,35 @@ catalog:
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.2.0
   '@vitest/browser-playwright': 4.1.4
-  '@zag-js/accordion': 1.39.1
-  '@zag-js/avatar': 1.39.1
-  '@zag-js/carousel': 1.39.1
-  '@zag-js/collapsible': 1.39.1
-  '@zag-js/collection': 1.39.1
-  '@zag-js/combobox': 1.39.1
-  '@zag-js/date-picker': 1.39.1
-  '@zag-js/dialog': 1.39.1
-  '@zag-js/file-upload': 1.39.1
-  '@zag-js/floating-panel': 1.39.1
-  '@zag-js/listbox': 1.39.1
-  '@zag-js/menu': 1.39.1
-  '@zag-js/pagination': 1.39.1
-  '@zag-js/popover': 1.39.1
-  '@zag-js/progress': 1.39.1
-  '@zag-js/radio-group': 1.39.1
-  '@zag-js/rating-group': 1.39.1
-  '@zag-js/react': 1.39.1
-  '@zag-js/slider': 1.39.1
-  '@zag-js/steps': 1.39.1
-  '@zag-js/svelte': 1.39.1
-  '@zag-js/switch': 1.39.1
-  '@zag-js/tabs': 1.39.1
-  '@zag-js/tags-input': 1.39.1
-  '@zag-js/toast': 1.39.1
-  '@zag-js/toggle-group': 1.39.1
-  '@zag-js/tooltip': 1.39.1
-  '@zag-js/tree-view': 1.39.1
-  astro: 6.1.5
+  '@zag-js/accordion': 1.40.0
+  '@zag-js/avatar': 1.40.0
+  '@zag-js/carousel': 1.40.0
+  '@zag-js/collapsible': 1.40.0
+  '@zag-js/collection': 1.40.0
+  '@zag-js/combobox': 1.40.0
+  '@zag-js/date-picker': 1.40.0
+  '@zag-js/dialog': 1.40.0
+  '@zag-js/file-upload': 1.40.0
+  '@zag-js/floating-panel': 1.40.0
+  '@zag-js/listbox': 1.40.0
+  '@zag-js/menu': 1.40.0
+  '@zag-js/pagination': 1.40.0
+  '@zag-js/popover': 1.40.0
+  '@zag-js/progress': 1.40.0
+  '@zag-js/radio-group': 1.40.0
+  '@zag-js/rating-group': 1.40.0
+  '@zag-js/react': 1.40.0
+  '@zag-js/slider': 1.40.0
+  '@zag-js/steps': 1.40.0
+  '@zag-js/svelte': 1.40.0
+  '@zag-js/switch': 1.40.0
+  '@zag-js/tabs': 1.40.0
+  '@zag-js/tags-input': 1.40.0
+  '@zag-js/toast': 1.40.0
+  '@zag-js/toggle-group': 1.40.0
+  '@zag-js/tooltip': 1.40.0
+  '@zag-js/tree-view': 1.40.0
+  astro: 6.1.7
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.6
   astro-seo: 1.1.0
@@ -102,17 +102,17 @@ catalog:
   mdast-util-mdx: 3.0.0
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
-  nanoid: 5.1.7
+  nanoid: 5.1.9
   node-html-parser: 7.1.0
   octokit: 5.0.5
   oxc-resolver: 11.19.1
-  oxlint: 1.59.0
-  oxlint-tsgolint: 0.20.0
+  oxlint: 1.60.0
+  oxlint-tsgolint: 0.21.1
   package-manager-detector: 1.6.0
   playwright: 1.59.1
-  postcss: 8.5.9
+  postcss: 8.5.10
   postgres: 3.4.9
-  prettier: 3.8.2
+  prettier: 3.8.3
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.5.1
   react: 19.2.5
@@ -125,10 +125,10 @@ catalog:
   svelte-check: 4.4.6
   tailwindcss: 4.2.2
   tinyglobby: 0.2.16
-  ts-morph: 27.0.2
-  tsdown: 0.21.7
+  ts-morph: 28.0.0
+  tsdown: 0.21.9
   tsx: 4.21.0
-  type-fest: 5.5.0
+  type-fest: 5.6.0
   typescript: 5.9.3
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
@@ -137,7 +137,7 @@ catalog:
   vite-plugin-transform-lucide-imports: 0.3.0
   vitest: 4.1.4
   vitest-browser-react: 2.2.0
-  vitest-browser-svelte: 2.1.0
+  vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
 
 catalogMode: strict

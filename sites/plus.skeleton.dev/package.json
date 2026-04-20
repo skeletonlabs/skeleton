@@ -20,6 +20,7 @@
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
+		"@types/node": "catalog:",
 		"better-auth": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
