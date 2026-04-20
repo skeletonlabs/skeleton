@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { codeToHtml } from '@/modules/shiki.bundle';
 	import { stripShikiComments } from '@/modules/strip-shiki-comments';
-	import { CheckIcon, CopyIcon } from '@lucide/svelte';
+	import CheckIcon from '@lucide/svelte/icons/check';
+	import CopyIcon from '@lucide/svelte/icons/copy';
 	import { transformerNotationHighlight, transformerNotationWordHighlight, transformerNotationDiff } from '@shikijs/transformers';
 
 	interface Props {

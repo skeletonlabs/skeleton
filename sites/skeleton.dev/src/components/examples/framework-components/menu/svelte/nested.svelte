@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ChevronRightIcon } from '@lucide/svelte';
+	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 </script>
 

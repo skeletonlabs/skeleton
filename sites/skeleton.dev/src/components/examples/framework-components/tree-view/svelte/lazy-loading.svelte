@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { FileIcon, FolderIcon, LoaderIcon } from '@lucide/svelte';
+	import FileIcon from '@lucide/svelte/icons/file';
+	import FolderIcon from '@lucide/svelte/icons/folder';
+	import LoaderIcon from '@lucide/svelte/icons/loader';
 	import { TreeView, createTreeViewCollection, type TreeViewRootProps } from '@skeletonlabs/skeleton-svelte';
 
 	interface Node {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { XIcon } from '@lucide/svelte';
+	import XIcon from '@lucide/svelte/icons/x';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	// The following animations are optional.

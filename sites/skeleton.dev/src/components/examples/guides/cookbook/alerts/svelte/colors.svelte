@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TriangleAlertIcon } from '@lucide/svelte';
+	import TriangleAlertIcon from '@lucide/svelte/icons/triangle-alert';
 </script>
 
 <div class="w-full space-y-8">
