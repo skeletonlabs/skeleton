@@ -209,17 +209,22 @@
 }
 
 @utility kbd {
-	background-color: var(--color-surface-300-700);
+	background-color: var(--color-surface-100-900);
 	border-width: 1px;
+	border-right-width: 2px;
+	border-bottom-width: 3px;
 	border-color: var(--color-surface-600-400);
-	border-radius: var(--radius-base);
-	color: var(--color-surface-contrast-500);
+	border-radius: 4px;
+	color: var(--color-surface-contrast-100);
 	font-family: var(--font-mono);
 	font-size: var(--text-sm);
 	white-space: nowrap;
 	overflow-x: auto;
-	padding-inline: --spacing(1.5);
-	padding-block: --spacing(0.25);
+	padding-inline: --spacing(1.25);
+
+	@variant dark {
+		color: var(--color-surface-contrast-900);
+	}
 }
 
 @utility pre {
