@@ -80,19 +80,52 @@
 /* Sizes --- */
 
 /* Button */
-@utility btn-xs { --btn-size: 14px; --btn-scalar: 1.5; }
-@utility btn-sm { --btn-size: 16px; --btn-scalar: 1.75; }
-@utility btn-base { --btn-size: 18px; --btn-scalar: 2; }
-@utility btn-lg { --btn-size: 20px; --btn-scalar: 2.25; }
-@utility btn-xl { --btn-size: 22px; --btn-scalar: 2.5; }
+@utility btn-xs {
+	--btn-size: 14px;
+	--btn-scalar: 1.5;
+}
+@utility btn-sm {
+	--btn-size: 16px;
+	--btn-scalar: 1.75;
+}
+@utility btn-base {
+	--btn-size: 18px;
+	--btn-scalar: 2;
+}
+@utility btn-lg {
+	--btn-size: 20px;
+	--btn-scalar: 2.25;
+}
+@utility btn-xl {
+	--btn-size: 22px;
+	--btn-scalar: 2.5;
+}
 
 /* Button Icon */
-@utility btn-icon-xs { --btn-size: 14px; --btn-scalar: 1.5; }
-@utility btn-icon-sm { --btn-size: 16px; --btn-scalar: 1.75; }
-@utility btn-icon-base { --btn-size: 18px; --btn-scalar: 2; }
-@utility btn-icon-lg { --btn-size: 20px; --btn-scalar: 2.25; }
-@utility btn-icon-xl { --btn-size: 22px; --btn-scalar: 2.5; }
-@utility btn-icon-fab { --btn-size: 48px; --btn-scalar: 2; }
+@utility btn-icon-xs {
+	--btn-size: 14px;
+	--btn-scalar: 1.5;
+}
+@utility btn-icon-sm {
+	--btn-size: 16px;
+	--btn-scalar: 1.75;
+}
+@utility btn-icon-base {
+	--btn-size: 18px;
+	--btn-scalar: 2;
+}
+@utility btn-icon-lg {
+	--btn-size: 20px;
+	--btn-scalar: 2.25;
+}
+@utility btn-icon-xl {
+	--btn-size: 22px;
+	--btn-scalar: 2.5;
+}
+@utility btn-icon-fab {
+	--btn-size: 48px;
+	--btn-scalar: 2;
+}
 
 /* Group --- */
 

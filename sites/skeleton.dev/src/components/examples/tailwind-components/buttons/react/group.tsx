@@ -6,7 +6,12 @@ export default function ButtonGroup() {
 	return (
 		<nav className="btn-group preset-outlined-surface-200-800 flex-col md:flex-row">
 			{months.map((month, i) => (
-				<button key={i} type="button" className={`btn capitalize ${month === active ? 'preset-filled' : 'preset-tonal'}`} onClick={() => setActive(month)}>
+				<button
+					key={i}
+					type="button"
+					className={`btn capitalize ${month === active ? 'preset-filled' : 'preset-tonal'}`}
+					onClick={() => setActive(month)}
+				>
 					{month}
 				</button>
 			))}
