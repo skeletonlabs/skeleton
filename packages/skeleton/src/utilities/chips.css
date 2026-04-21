@@ -1,7 +1,11 @@
 /* Components: Chips */
 
 @utility chip {
+	--chip-size: 14px;
+	--chip-scalar: 1.5;
+
 	border-radius: var(--radius-base);
+	corner-shape: var(--corner-shape);
 
 	/* Icon Spacing */
 	display: inline-flex;
@@ -15,27 +19,32 @@
 	white-space: nowrap;
 
 	/* Size */
-	font-size: var(--text-xs);
-	line-height: var(--text-xs--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
+	font-size: var(--chip-size);
+	line-height: var(--chip-size);
+	padding-block: calc(var(--chip-scalar) * var(--spacing));
+	padding-inline: calc((var(--chip-scalar) + 1) * var(--spacing));
 
 	/* Transitions */
-	transition-property: all;
+	transition-property: var(--default-transition-property);
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
 
-	@variant hover {
-		filter: brightness(125%);
-		@variant dark {
-			filter: brightness(75%);
+	@variant not-disabled {
+		@variant hover {
+			filter: brightness(125%);
+			@variant dark {
+				filter: brightness(75%);
+			}
 		}
 	}
 }
 
 @utility chip-icon {
-	box-sizing: content-box;
+	--chip-size: 14px;
+	--chip-scalar: 1.5;
+
 	border-radius: var(--radius-base);
+	corner-shape: var(--corner-shape);
 
 	/* Center Icons */
 	display: inline-flex;
@@ -47,15 +56,23 @@
 	white-space: nowrap;
 
 	/* Size */
-	font-size: var(--text-xs);
-	width: var(--text-xs);
-	height: var(--text-xs);
-	padding: --spacing(1.5);
+	font-size: var(--chip-size);
+	line-height: var(--chip-size);
+	width: calc(var(--chip-size) + 2 * var(--chip-scalar) * var(--spacing));
+	height: calc(var(--chip-size) + 2 * var(--chip-scalar) * var(--spacing));
+	padding: calc(var(--chip-scalar) * var(--spacing));
 
-	@variant hover {
-		filter: brightness(125%);
-		@variant dark {
-			filter: brightness(75%);
+	/* Transitions */
+	transition-property: var(--default-transition-property);
+	transition-timing-function: var(--default-transition-timing-function);
+	transition-duration: var(--default-transition-duration);
+
+	@variant not-disabled {
+		@variant hover {
+			filter: brightness(125%);
+			@variant dark {
+				filter: brightness(75%);
+			}
 		}
 	}
 }
