@@ -1,5 +1,49 @@
-<div class="flex items-center gap-4">
-	<button type="button" class="btn btn-sm preset-filled">Small</button>
-	<button type="button" class="btn btn-base preset-filled">Base</button>
-	<button type="button" class="btn btn-lg preset-filled">Large</button>
+---
+import { ArrowUpRightIcon, PlusIcon } from 'lucide-react';
+---
+
+<div class="flex flex-col items-center gap-4">
+	<div class="flex items-center gap-4">
+		<button type="button" class="btn btn-xs preset-filled">Button</button>
+		<button type="button" class="btn-icon btn-icon-xs preset-filled" title="Go" aria-label="Go">
+			<ArrowUpRightIcon />
+		</button>
+	</div>
+	<div class="flex items-center gap-4">
+		<button type="button" class="btn btn-sm preset-filled">Button</button>
+		<button type="button" class="btn-icon btn-icon-sm preset-filled" title="Go" aria-label="Go">
+			<ArrowUpRightIcon />
+		</button>
+	</div>
+	<div class="flex items-center gap-4">
+		<button type="button" class="btn btn-base preset-filled">Button</button>
+		<button type="button" class="btn-icon btn-icon-base preset-filled" title="Go" aria-label="Go">
+			<ArrowUpRightIcon />
+		</button>
+	</div>
+	<div class="flex items-center gap-4">
+		<button type="button" class="btn btn-lg preset-filled">Button</button>
+		<button type="button" class="btn-icon btn-icon-lg preset-filled" title="Go" aria-label="Go">
+			<ArrowUpRightIcon />
+		</button>
+	</div>
+	<div class="flex items-center gap-4">
+		<button type="button" class="btn btn-xl preset-filled">Button</button>
+		<button type="button" class="btn-icon btn-icon-xl preset-filled" title="Go" aria-label="Go">
+			<ArrowUpRightIcon />
+		</button>
+	</div>
+	
+	<hr class="hr">
+	
+	<div class="flex items-center gap-4">
+		<!-- Shaped -->
+		<button type="button" class="btn-icon btn-icon-fab preset-filled" title="Go" aria-label="Go">
+			<PlusIcon />
+		</button>
+		<!-- Circular -->
+		<button type="button" class="btn-icon btn-icon-fab preset-filled rounded-full" title="Go" aria-label="Go">
+			<PlusIcon />
+		</button>
+	</div>
 </div>

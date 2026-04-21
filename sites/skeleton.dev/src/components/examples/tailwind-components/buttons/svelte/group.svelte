@@ -3,9 +3,9 @@
 	const months = ['january', 'february', 'march'];
 </script>
 
-<nav class="btn-group preset-outlined-surface-200-800 flex-col p-2 md:flex-row">
+<nav class="btn-group preset-outlined-surface-200-800 flex-col md:flex-row">
 	{#each months as month (month)}
-		<button type="button" class="btn capitalize" class:preset-filled={active == month} onclick={() => (active = month)}>
+		<button type="button" class="btn capitalize {month === active ? 'preset-filled' : 'preset-tonal'}" onclick={() => (active = month)}>
 			{month}
 		</button>
 	{/each}

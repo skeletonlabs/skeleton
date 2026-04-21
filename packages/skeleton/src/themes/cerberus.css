@@ -67,13 +67,13 @@
 	--typo-anchor--focus--text-underline-position: inherit;
 	--body-background-color: var(--color-surface-50);
 	--body-background-color-dark: var(--color-surface-950);
-	--radius-base: 0.25rem;
-	--radius-container: 0.25rem;
+	--radius-base: 0.5rem;
+	--radius-container: 0.5rem;
 	--default-border-width: 1px;
 	--default-outline-width: 1px;
 	--default-ring-width: 1px;
-	--corner-shape-base: inherit;
-	--corner-shape-container: inherit;
+	--corner-shape-base: squircle;
+	--corner-shape-container: squircle;
 	--color-primary-50: oklch(0.92 0.04 257.51);
 	--color-primary-100: oklch(0.84 0.08 254.62);
 	--color-primary-200: oklch(0.77 0.11 254.28);
