@@ -53,6 +53,11 @@
 		@variant dark {
 			color: var(--typo-base--color-dark);
 		}
+
+		/* Font Smoothing --- */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-rendering: optimizeLegibility;
 	}
 
 	/* Selection --- */

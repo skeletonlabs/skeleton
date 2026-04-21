@@ -1,29 +1,35 @@
 /* Components: Badges */
 
 @utility badge {
-	border-radius: var(--radius-base);
+	--badge-size: 10px;
+	--badge-scalar: 1;
+
+	border-radius: 9999px;
 
 	/* Icon Spacing */
 	display: inline-flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	gap: --spacing(2);
+	gap: --spacing(var(--badge-scalar));
 
 	/* Typography */
 	text-decoration-line: none;
 	white-space: nowrap;
+	font-weight: bold;
 
 	/* Size */
-	font-size: var(--text-xs);
-	line-height: var(--text-xs--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
+	font-size: var(--badge-size);
+	line-height: var(--badge-size);
+	padding-block: calc(var(--badge-scalar) * var(--spacing));
+	padding-inline: calc((var(--badge-scalar) + 1) * var(--spacing));
 }
 
 @utility badge-icon {
-	box-sizing: content-box;
-	border-radius: 100%;
+	--badge-size: 10px;
+	--badge-scalar: 1;
+
+	border-radius: 9999px;
 
 	/* Center Icons */
 	display: inline-flex;
@@ -33,10 +39,31 @@
 	/* Typography */
 	text-decoration-line: none;
 	white-space: nowrap;
+	font-weight: bold;
 
 	/* Size */
-	font-size: var(--text-xs);
-	width: var(--text-xs);
-	height: var(--text-xs);
-	padding: --spacing(1.5);
+	font-size: var(--badge-size);
+	line-height: var(--badge-size);
+	width: calc(var(--badge-size) + 2 * var(--badge-scalar) * var(--spacing));
+	height: calc(var(--badge-size) + 2 * var(--badge-scalar) * var(--spacing));
+	padding: calc(var(--badge-scalar) * var(--spacing));
+}
+
+@utility badge-dot {
+	--badge-size: 10px;
+
+	border-radius: 9999px;
+
+	/* Hide Inner Content */
+	display: inline-block;
+	overflow: hidden;
+	font-size: 0;
+	line-height: 0;
+	& > * {
+		display: none;
+	}
+
+	/* Size */
+	width: var(--badge-size);
+	height: var(--badge-size);
 }
