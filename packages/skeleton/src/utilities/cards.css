@@ -3,9 +3,10 @@
 @utility card {
 	border-radius: var(--radius-container);
 
-	&a {
+	&:is(a),
+	&:is(button) {
 		/* Transitions (all) */
-		transition-property: all;
+		transition-property: var(--default-transition-property);
 		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: var(--default-transition-duration);
 
@@ -20,7 +21,7 @@
 
 @utility card-hover {
 	/* Transitions (all) */
-	transition-property: all;
+	transition-property: var(--default-transition-property);
 	transition-timing-function: var(--default-transition-timing-function);
 	transition-duration: var(--default-transition-duration);
 
