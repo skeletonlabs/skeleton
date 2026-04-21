@@ -2,7 +2,7 @@
 
 /* Horizontal Rule */
 @utility hr {
-	border-color: var(--color-surface-200-800);
+	border-color: var(--color-surface-300-700);
 	border-top-width: 1px;
 	display: block;
 	width: 100%;
@@ -10,8 +10,9 @@
 
 /* Vertical Rule */
 @utility vr {
-	border-color: var(--color-surface-200-800);
+	border-color: var(--color-surface-300-700);
 	border-left-width: 1px;
 	display: inline-block;
 	height: 100%;
+	min-height: 16px;
 }
