@@ -1,22 +1,26 @@
 /* Components: Forms > Textarea */
 
 @utility textarea {
-	background-color: transparent;
-	border-radius: var(--radius-base);
+	--field-size: 18px;
+	--field-scalar: 2;
+
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
+	border-radius: var(--radius-container);
 	display: block;
 	width: 100%;
 
 	/* Size */
-	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
+	font-size: var(--field-size);
+	line-height: var(--field-size);
+	padding-block: calc(var(--field-scalar) * var(--spacing));
+	padding-inline: calc((var(--field-scalar) + 1) * var(--spacing));
 
 	/* Edges */
 	outline-color: transparent;
 	border-width: 0;
 	--tw-ring-inset: inset;
-	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-color: var(--color-surface-300-700);
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
 	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 

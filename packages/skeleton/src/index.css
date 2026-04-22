@@ -15,6 +15,7 @@
 @import './utilities/form-core.css';
 @import './utilities/form-groups.css';
 @import './utilities/form-inputs.css';
+@import './utilities/form-meter.css';
 @import './utilities/form-progress.css';
 @import './utilities/form-radios-checks.css';
 @import './utilities/form-selects.css';

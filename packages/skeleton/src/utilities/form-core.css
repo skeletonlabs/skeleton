@@ -1,13 +1,18 @@
 /* Components: Forms (Core) */
 
 @utility fieldset {
+	border: 1px solid var(--color-surface-200-800);
+	border-radius: var(--radius-container);
 	display: block;
+	padding: --spacing(4);
 	width: 100%;
 }
 
 @utility legend {
-	display: block;
-	width: 100%;
+	font-size: var(--text-xs);
+	line-height: var(--text-xs--line-height);
+	font-weight: var(--font-weight-medium);
+	padding-inline: --spacing(2);
 }
 
 @utility label {
@@ -24,4 +29,28 @@
 	line-height: var(--text-xs--line-height);
 	font-weight: var(--font-weight-medium);
 	text-decoration-line: none;
+}
+
+/* Field Sizes --- */
+
+/* Button */
+@utility field-xs {
+	--field-size: 14px;
+	--field-scalar: 1.5;
+}
+@utility field-sm {
+	--field-size: 16px;
+	--field-scalar: 1.75;
+}
+@utility field-base {
+	--field-size: 18px;
+	--field-scalar: 2;
+}
+@utility field-lg {
+	--field-size: 20px;
+	--field-scalar: 2.25;
+}
+@utility field-xl {
+	--field-size: 22px;
+	--field-scalar: 2.5;
 }
