@@ -167,16 +167,8 @@ Form fields `.input`, `.select` and `.textarea` support optional field sizes. De
 
 ## Groups
 
-Input groups support a subset of form elements and button styles. These pair well with [Presets](/docs/[framework]/design/presets).
+Apply `field-group` to create a grouping of related box-shaped fields or buttons. This acts as a [grid](https://tailwindcss.com/docs/display#grid) container, allowing for column configuration. Make use of [Presets](/docs/[framework]/design/presets) to style label columns.
 
 <Preview files={{ 'app.astro': GroupsRaw }} client:visible>
 	<Groups />
 </Preview>
-
-| Class         | Usage                                   |
-| ------------- | --------------------------------------- |
-| `input-group` | Defines the parent input group set.     |
-| `ig-cell`     | Defines a child cell for text or icons. |
-| `ig-input`    | Defines a child input of `type="text"`. |
-| `ig-select`   | Defines a child select element.         |
-| `ig-btn`      | Defines a child button.                 |

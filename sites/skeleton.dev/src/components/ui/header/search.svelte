@@ -191,7 +191,7 @@
 	<Dialog.Trigger class="btn preset-tonal justify-start">
 		<SearchIcon class="size-4 opacity-60" />
 		<span class="opacity-60">Search...</span>
-		<span class="badge badge-icon preset-outlined-surface-500 text-xs opacity-30 hidden md:flex">⌘ K</span>
+		<span class="badge preset-outlined-surface-500 hidden md:flex">⌘ K</span>
 	</Dialog.Trigger>
 	<Portal>
 		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50 backdrop-blur-[2px]" />

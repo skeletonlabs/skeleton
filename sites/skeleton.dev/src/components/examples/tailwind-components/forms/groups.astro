@@ -4,35 +4,40 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 
 <form class="w-full space-y-8">
 	<!-- Website -->
-	<div class="input-group grid-cols-[auto_1fr_auto]">
-		<div class="ig-cell preset-tonal">https://</div>
-		<input class="ig-input" type="text" placeholder="www.example.com" />
+	<div class="field-group grid-cols-[auto_1fr_auto]">
+		<label class="label label-text preset-tonal" for="url">https://</label>
+		<input class="input" type="text" name="url" id="url" placeholder="www.example.com" />
 	</div>
+
 	<!-- Amount -->
-	<div class="input-group grid-cols-[auto_1fr_auto]">
-		<div class="ig-cell preset-tonal">
+	<div class="field-group grid-cols-[auto_1fr_auto]">
+		<label class="label label-text preset-tonal-primary" for="amount" title="Money" aria-label="Money">
 			<CircleDollarSignIcon size={16} />
-		</div>
-		<input class="ig-input" type="text" placeholder="Amount" />
-		<select class="ig-select">
+		</label>
+		<input class="input" type="text" name="amount" id="amount" placeholder="Amount" />
+		<select class="select" name="currency" id="currency">
 			<option>USD</option>
 			<option>CAD</option>
 			<option>EUR</option>
 		</select>
 	</div>
+
 	<!-- Username -->
-	<div class="input-group grid-cols-[1fr_auto]">
-		<input class="ig-input" type="text" placeholder="Enter Username..." />
-		<button class="ig-btn preset-filled" title="Username already in use.">
+	<div class="field-group grid-cols-[auto_1fr_auto]">
+		<label class="label label-text preset-tonal-secondary" for="username">Username</label>
+		<input class="input" type="text" name="username" id="username" placeholder="Enter Username..." />
+		<button class="btn preset-filled" title="Username already in use.">
 			<CheckIcon size={16} />
 		</button>
 	</div>
+
 	<!-- Search -->
-	<div class="input-group grid-cols-[auto_1fr_auto]">
-		<div class="ig-cell preset-tonal">
+	<!-- NOTE: Supports field and button sizes -->
+	<div class="field-group grid-cols-[auto_1fr_auto]">
+		<label class="label label-text preset-tonal-tertiary" for="search">
 			<SearchIcon size={16} />
-		</div>
-		<input class="ig-input" type="search" placeholder="Search..." />
-		<button class="ig-btn preset-filled">Submit</button>
+		</label>
+		<input class="input field-xl" type="search" name="search" id="search" placeholder="Search..." />
+		<button class="btn btn-xl preset-filled">Submit</button>
 	</div>
 </form>

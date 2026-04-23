@@ -1,142 +1,29 @@
 /* Components: Forms > Input Group */
 
-@utility input-group {
-	border-radius: var(--radius-base);
+@utility field-group {
 	display: grid;
-	align-items: stretch;
-	overflow: hidden;
+	gap: --spacing(1);
 
-	/* Edges */
-	outline-color: transparent;
-	border-width: 0;
-	--tw-ring-inset: inset;
-	--tw-ring-color: var(--color-surface-200-800);
-	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+	& .label {
+		border-radius: var(--radius-base);
+		corner-shape: var(--corner-shape);
 
-	/* Child Edges */
-	& > :first-child {
-		border-top-left-radius: var(--radius-base);
-		border-bottom-left-radius: var(--radius-base);
-	}
-	& > :last-child {
-		border-top-right-radius: var(--radius-base);
-		border-bottom-right-radius: var(--radius-base);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		padding-inline: --spacing(3);
 	}
 
-	/* Dividers */
-	& > * + * {
-		border-left-width: 1px !important;
-		border-color: var(--color-surface-200-800);
-	}
-}
-
-/* Children: Cell --- */
-
-@utility ig-cell {
-	font-size: var(--text-sm);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-inline: --spacing(4);
-}
-
-/* Children: Form Elements --- */
-/* We recreate a subset of form element styles here */
-/* These are purpose-built to work in the group */
-
-@utility ig-input {
-	background-color: transparent;
-	display: block;
-	width: 100%;
-
-	/* Size */
-	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
-
-	/* Edges */
-	outline-color: transparent;
-	border-width: 0;
-	--tw-ring-inset: inset;
-
-	/* Placeholder */
-	&::placeholder {
-		color: var(--global-field-placeholder);
+	& > *:not(:last-child) {
+		border-start-end-radius: 0;
+		border-end-end-radius: 0;
+		corner-shape: none;
 	}
 
-	@variant active {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus-within {
-		--tw-ring-color: var(--color-primary-500);
-	}
-}
-
-@utility ig-select {
-	background-color: transparent;
-	display: block;
-	width: 100%;
-
-	/* Size */
-	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
-	padding-block: --spacing(1);
-
-	/* Edges */
-	outline-color: transparent;
-	border-width: 0;
-	--tw-ring-inset: inset;
-
-	@variant active {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus {
-		--tw-ring-color: var(--color-primary-500);
-	}
-	@variant focus-within {
-		--tw-ring-color: var(--color-primary-500);
-	}
-
-	/* Option --- */
-
-	& option {
-		background-color: var(--color-surface-50-950);
-		color: var(--color-surface-950-50);
-	}
-}
-
-@utility ig-btn {
-	/* Icon Spacing */
-	display: inline-flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	gap: --spacing(2);
-
-	/* Typography */
-	text-decoration-line: none;
-	white-space: nowrap;
-
-	/* Size */
-	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(4);
-
-	/* Transitions */
-	transition-property: all;
-	transition-timing-function: var(--default-transition-timing-function);
-	transition-duration: var(--default-transition-duration);
-
-	@variant hover {
-		filter: brightness(125%);
-		@variant dark {
-			filter: brightness(75%);
-		}
+	& > *:not(:first-child) {
+		border-start-start-radius: 0;
+		border-end-start-radius: 0;
+		corner-shape: none;
 	}
 }
