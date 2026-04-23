@@ -1,10 +1,48 @@
 <form class="mx-auto w-full max-w-md space-y-4">
-	<select class="select">
-		<option disabled selected>Preferred Flavor</option>
-		<option value="1">Strawberry</option>
-		<option value="2">Grape</option>
-		<option value="3">Watermelon</option>
-		<option value="4">Apple</option>
-		<option value="5">Mango</option>
-	</select>
+	<!-- Basic Placeholder -->
+	<label class="label">
+		<span class="label-text">Basic Placeholder</span>
+		<select class="select">
+			<option disabled selected>Preferred Flavor</option>
+			<option value="1">Strawberry</option>
+			<option value="2">Grape</option>
+			<option value="3">Watermelon</option>
+			<option value="4">Apple</option>
+			<option value="5">Mango</option>
+		</select>
+	</label>
+	<!-- Optgroup -->
+	<label class="label">
+		<span class="label-text">Optgroup</span>
+		<select class="select">
+			<optgroup label="Berries">
+				<option value="strawberry">Strawberry</option>
+				<option value="blueberry">Blueberry</option>
+				<option value="raspberry">Raspberry</option>
+			</optgroup>
+			<optgroup label="Citrus">
+				<option value="orange">Orange</option>
+				<option value="lemon">Lemon</option>
+				<option value="lime">Lime</option>
+			</optgroup>
+			<optgroup label="Tropical">
+				<option value="mango">Mango</option>
+				<option value="pineapple">Pineapple</option>
+				<option value="coconut">Coconut</option>
+			</optgroup>
+		</select>
+	</label>
+	<!-- Using Divider -->
+	<label class="label">
+		<span class="label-text">Using Divider</span>
+		<select class="select">
+			<option value="strawberry">Strawberry</option>
+			<option value="grape">Grape</option>
+			<option value="watermelon">Watermelon</option>
+			<hr />
+			<option value="dragonfruit">Dragonfruit</option>
+			<option value="lychee">Lychee</option>
+			<option value="passionfruit">Passionfruit</option>
+		</select>
+	</label>
 </form>
