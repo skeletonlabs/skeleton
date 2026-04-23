@@ -2,9 +2,15 @@
 title: Iconography
 description: Learn how to integrate Lucide for iconography in Skeleton.
 summary: Skeleton takes an agnostic approach to icons, allowing you to use any combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and match to fulfill your project's unique requirements.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/iconography.css'
 order: 50
 ---
 
+import LabelSize from '@/components/examples/design/iconography/labelSize.astro';
+import LabelSizeRaw from '@/components/examples/design/iconography/labelSize.astro?raw';
+import Size from '@/components/examples/design/iconography/size.astro';
+import SizeRaw from '@/components/examples/design/iconography/size.astro?raw';
 import HeartIcon from '@lucide/svelte/icons/heart';
 import TriangleIcon from '@lucide/svelte/icons/triangle';
 import UserRoundIcon from '@lucide/svelte/icons/user-round';
@@ -50,6 +56,38 @@ export default function App() {
 }
 ```
 </Framework>
+
+## Sizes
+
+Use `icon-*` to apply standardized icon sizes. The `base` size matches Lucide's default size of `24px`.
+
+<Preview files={{ 'app.astro': SizeRaw }} client:visible>
+	<Size />
+</Preview>
+
+As well as `icon-label-*` sizes that compliment [badge](/docs/tailwind-components/badges), [button](/docs/tailwind-components/buttons#sizes), and [field](/docs/tailwind-components/forms#field-sizes) sizing.
+
+<Preview files={{ 'app.astro': LabelSizeRaw }} client:visible>
+	<LabelSize />
+</Preview>
+
+Both utilize a simple convention, making it easy to expand with custom sizes:
+
+```css
+@utility icon-4xl {
+	--icon-size: 256px;
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+```
+
+```css
+@utility icon-label-2xl {
+	--icon-size: 24px;
+	width: var(--icon-size);
+	height: var(--icon-size);
+}
+```
 
 ## Alternatives
 
