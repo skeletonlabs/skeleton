@@ -41,7 +41,7 @@
 	}
 </script>
 
-<div class="relative" data-pagefind-ignore>
+<div class="relative ui-code" data-pagefind-ignore>
 	<header class="absolute select-none top-0 left-0 w-full h-10 px-5 text-xs flex justify-between items-center">
 		<span class="opacity-50 font-mono">{lang}</span>
 		<button onclick={copyCode} class="flex items-center gap-2 h-full">
@@ -64,10 +64,15 @@
 		font-size: 13px;
 		line-height: var(--text-sm--line-height);
 		white-space: pre-wrap;
-		padding-block: --spacing(5);
-		padding-top: --spacing(10);
+		padding-block: --spacing(4);
 		border: 1px solid var(--color-surface-100-900);
 		border-radius: var(--radius-container);
+
+		/* Header clearance — only applies when this component's wrapper
+		   (which renders the absolute-positioned lang/copy header) is present. */
+		:global(.ui-code &) {
+			padding-top: --spacing(10);
+		}
 
 		@variant dark {
 			background-color: rgba(0, 0, 0, 0.5) !important;

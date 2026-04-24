@@ -24,11 +24,17 @@
 	}
 
 	&[data-part='item'] {
-		display: flex;
+		--tg-size: var(--element-size-base);
+		--tg-scalar: var(--element-scalar-base);
+
+		display: inline-flex;
 		justify-content: center;
 		align-items: center;
-		width: --spacing(9);
-		aspect-ratio: 1;
+		font-size: var(--tg-size);
+		line-height: var(--tg-size);
+		width: calc(var(--tg-size) + 2 * var(--tg-scalar));
+		height: calc(var(--tg-size) + 2 * var(--tg-scalar));
+		padding: var(--tg-scalar);
 
 		@variant hover {
 			@apply preset-tonal;
