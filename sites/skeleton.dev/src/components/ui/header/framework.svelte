@@ -24,7 +24,7 @@
 				<Menu.ItemGroup>
 					<Menu.ItemGroupLabel>Select Framework</Menu.ItemGroupLabel>
 					{#each frameworks as framework (framework)}
-						<Menu.Item class="aria-[current=page]:preset-filled" value={framework.id}>
+						<Menu.Item class="aria-[current=page]:preset-filled mt-1" value={framework.id}>
 							{#snippet element(attributes: Record)}
 								<a
 									{...attributes}

@@ -387,7 +387,7 @@
 
 			<label class="label">
 				<span class="label-text">Message</span>
-				<textarea name="message" id="message" class="textarea rounded-container" placeholder="Provide a message..."></textarea>
+				<textarea name="message" id="message" rows="3" class="textarea rounded-container" placeholder="Provide a message..."></textarea>
 			</label>
 			<div class="flex justify-end">
 				<button class="btn preset-filled-primary-500">Submit</button>
