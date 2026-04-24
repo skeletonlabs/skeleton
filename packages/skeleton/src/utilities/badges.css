@@ -1,8 +1,8 @@
 /* Components: Badges */
 
 @utility badge {
-	--badge-size: 10px;
-	--badge-scalar: 1;
+	--badge-size: var(--element-size-xs);
+	--badge-scalar: var(--element-scalar-xs);
 
 	border-radius: 9999px;
 
@@ -11,7 +11,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	gap: --spacing(var(--badge-scalar));
+	gap: var(--badge-scalar);
 
 	/* Typography */
 	text-decoration-line: none;
@@ -21,13 +21,13 @@
 	/* Size */
 	font-size: var(--badge-size);
 	line-height: var(--badge-size);
-	padding-block: calc(var(--badge-scalar) * var(--spacing));
-	padding-inline: calc((var(--badge-scalar) + 1) * var(--spacing));
+	padding-block: var(--badge-scalar);
+	padding-inline: calc(var(--badge-scalar) + var(--spacing));
 }
 
 @utility badge-icon {
-	--badge-size: 10px;
-	--badge-scalar: 1;
+	--badge-size: var(--element-size-xs);
+	--badge-scalar: var(--element-scalar-xs);
 
 	border-radius: 9999px;
 
@@ -44,14 +44,12 @@
 	/* Size */
 	font-size: var(--badge-size);
 	line-height: var(--badge-size);
-	width: calc(var(--badge-size) + 2 * var(--badge-scalar) * var(--spacing));
-	height: calc(var(--badge-size) + 2 * var(--badge-scalar) * var(--spacing));
-	padding: calc(var(--badge-scalar) * var(--spacing));
+	width: calc(var(--badge-size) + 2 * var(--badge-scalar));
+	height: calc(var(--badge-size) + 2 * var(--badge-scalar));
+	padding: var(--badge-scalar);
 }
 
 @utility badge-dot {
-	--badge-size: 10px;
-
 	border-radius: 9999px;
 
 	/* Hide Inner Content */
@@ -64,6 +62,6 @@
 	}
 
 	/* Size */
-	width: var(--badge-size);
-	height: var(--badge-size);
+	width: 8px;
+	height: 8px;
 }

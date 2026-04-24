@@ -1,5 +1,5 @@
 [data-theme='cerberus'] {
-	--spacing: 0.25rem;
+	--spacing: 0.25rem; /* 0.22rem; | 0.25rem; | 0.28rem; */
 	--text-scaling: 1.067;
 	--typo-base--font-family: system-ui;
 	--typo-base--font-size: inherit;

@@ -1,75 +1,54 @@
 /* Iconography --- */
 
-/* NOTE: Lucide's default icon size is 24px */
-
-/* Icon Sizes --- */
-
 @utility icon-xs {
-	--icon-size: 8px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-xs);
+	height: var(--element-size-xs);
 }
 @utility icon-sm {
-	--icon-size: 16px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-sm);
+	height: var(--element-size-sm);
 }
 @utility icon-base {
-	--icon-size: 24px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-base);
+	height: var(--element-size-base);
 }
 @utility icon-lg {
-	--icon-size: 32px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-lg);
+	height: var(--element-size-lg);
 }
 @utility icon-xl {
-	--icon-size: 64px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-xl);
+	height: var(--element-size-xl);
 }
 @utility icon-2xl {
-	--icon-size: 96px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-2xl);
+	height: var(--element-size-2xl);
 }
 @utility icon-3xl {
-	--icon-size: 128px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+	width: var(--element-size-3xl);
+	height: var(--element-size-3xl);
 }
-
-/* Icon Label Sizes --- */
-/* For use within the label region of badges, buttons chips, etc. */
-
-@utility icon-label-xxs {
-	--icon-size: 10px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-4xl {
+	width: var(--element-size-4xl);
+	height: var(--element-size-4xl);
 }
-@utility icon-label-xs {
-	--icon-size: 14px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-5xl {
+	width: var(--element-size-5xl);
+	height: var(--element-size-5xl);
 }
-@utility icon-label-sm {
-	--icon-size: 16px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-6xl {
+	width: var(--element-size-6xl);
+	height: var(--element-size-6xl);
 }
-@utility icon-label-base {
-	--icon-size: 18px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-7xl {
+	width: var(--element-size-7xl);
+	height: var(--element-size-7xl);
 }
-@utility icon-label-lg {
-	--icon-size: 20px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-8xl {
+	width: var(--element-size-8xl);
+	height: var(--element-size-8xl);
 }
-@utility icon-label-xl {
-	--icon-size: 22px;
-	width: var(--icon-size);
-	height: var(--icon-size);
+@utility icon-9xl {
+	width: var(--element-size-9xl);
+	height: var(--element-size-9xl);
 }

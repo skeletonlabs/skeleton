@@ -33,24 +33,23 @@
 
 /* Field Sizes --- */
 
-/* Button */
 @utility field-xs {
-	--field-size: 14px;
-	--field-scalar: 1.5;
+	--field-size: var(--element-size-xs);
+	--field-scalar: var(--element-scalar-xs);
 }
 @utility field-sm {
-	--field-size: 16px;
-	--field-scalar: 1.75;
+	--field-size: var(--element-size-sm);
+	--field-scalar: var(--element-scalar-sm);
 }
 @utility field-base {
-	--field-size: 18px;
-	--field-scalar: 2;
+	--field-size: var(--element-size-base);
+	--field-scalar: var(--element-scalar-base);
 }
 @utility field-lg {
-	--field-size: 20px;
-	--field-scalar: 2.25;
+	--field-size: var(--element-size-lg);
+	--field-scalar: var(--element-scalar-lg);
 }
 @utility field-xl {
-	--field-size: 22px;
-	--field-scalar: 2.5;
+	--field-size: var(--element-size-xl);
+	--field-scalar: var(--element-scalar-xl);
 }

@@ -1,8 +1,8 @@
 /* Components: Chips */
 
 @utility chip {
-	--chip-size: 14px;
-	--chip-scalar: 1.5;
+	--chip-size: var(--element-size-sm);
+	--chip-scalar: var(--element-scalar-sm);
 
 	border-radius: var(--radius-base);
 	corner-shape: var(--corner-shape);
@@ -21,8 +21,8 @@
 	/* Size */
 	font-size: var(--chip-size);
 	line-height: var(--chip-size);
-	padding-block: calc(var(--chip-scalar) * var(--spacing));
-	padding-inline: calc((var(--chip-scalar) + 1) * var(--spacing));
+	padding-block: var(--chip-scalar);
+	padding-inline: calc(var(--chip-scalar) + var(--spacing));
 
 	/* Transitions */
 	transition-property: var(--default-transition-property);
@@ -40,8 +40,8 @@
 }
 
 @utility chip-icon {
-	--chip-size: 14px;
-	--chip-scalar: 1.5;
+	--chip-size: var(--element-size-sm);
+	--chip-scalar: var(--element-scalar-sm);
 
 	border-radius: var(--radius-base);
 	corner-shape: var(--corner-shape);
@@ -58,9 +58,9 @@
 	/* Size */
 	font-size: var(--chip-size);
 	line-height: var(--chip-size);
-	width: calc(var(--chip-size) + 2 * var(--chip-scalar) * var(--spacing));
-	height: calc(var(--chip-size) + 2 * var(--chip-scalar) * var(--spacing));
-	padding: calc(var(--chip-scalar) * var(--spacing));
+	width: calc(var(--chip-size) + 2 * var(--chip-scalar));
+	height: calc(var(--chip-size) + 2 * var(--chip-scalar));
+	padding: var(--chip-scalar);
 
 	/* Transitions */
 	transition-property: var(--default-transition-property);

@@ -1,8 +1,8 @@
 /* Components: Forms > Input */
 
 @utility input {
-	--field-size: 18px;
-	--field-scalar: 2;
+	--field-size: var(--element-size-base);
+	--field-scalar: var(--element-scalar-base);
 
 	background-color: var(--color-surface-50-950);
 	color: var(--color-surface-950-50);
@@ -13,8 +13,8 @@
 	/* Size */
 	font-size: var(--field-size);
 	line-height: var(--field-size);
-	padding-block: calc(var(--field-scalar) * var(--spacing));
-	padding-inline: calc((var(--field-scalar) + 1) * var(--spacing));
+	padding-block: var(--field-scalar);
+	padding-inline: calc(var(--field-scalar) + var(--spacing));
 
 	/* Edges */
 	outline-color: transparent;
@@ -26,7 +26,7 @@
 
 	/* Placeholder */
 	&::placeholder {
-		color: var(--global-field-placeholder);
+		color: var(--field-placeholder);
 	}
 
 	@variant active {
@@ -70,8 +70,8 @@
 
 	&[type='color'] {
 		border-radius: var(--radius-base);
-		width: --spacing(8.5);
-		height: --spacing(8.5);
+		width: --spacing(10);
+		height: --spacing(10);
 		padding: 0;
 		border: none;
 		outline: none;
