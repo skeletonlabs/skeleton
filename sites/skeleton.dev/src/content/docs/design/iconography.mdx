@@ -4,78 +4,67 @@ description: Learn how to integrate Lucide for iconography in Skeleton.
 summary: Skeleton takes an agnostic approach to icons, allowing you to use any combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and match to fulfill your project's unique requirements.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/iconography.css'
-order: 50
+order: 40
 ---
 
 import LabelSize from '@/components/examples/design/iconography/labelSize.astro';
 import LabelSizeRaw from '@/components/examples/design/iconography/labelSize.astro?raw';
+import DefaultReact from '@/components/examples/design/iconography/react/default';
+import DefaultReactRaw from '@/components/examples/design/iconography/react/default?raw';
 import Size from '@/components/examples/design/iconography/size.astro';
 import SizeRaw from '@/components/examples/design/iconography/size.astro?raw';
-import HeartIcon from '@lucide/svelte/icons/heart';
-import TriangleIcon from '@lucide/svelte/icons/triangle';
-import UserRoundIcon from '@lucide/svelte/icons/user-round';
+import DefaultSvelte from '@/components/examples/design/iconography/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/design/iconography/svelte/default.svelte?raw';
 
 ## Lucide
 
-<figure class="linker bg-noise">
-	<div class="flex gap-4">
-		<HeartIcon class="size-12" />
-		<UserRoundIcon class="size-12" />
-		<TriangleIcon class="size-12" />
-	</div>
-</figure>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
-While Skeleton does not bundle an official icon library, we highly recommend the use of [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all popular frameworks, while featuring a clean and modern aesthetic. All code examples within this Skeleton documentation site have been implement using **Lucide**, but feel free to replace with any alternative of your choice.
-
-## Installation
+While Skeleton is icon-agnostic, we recommend [Lucide](https://lucide.dev/) for its broad framework support and clean aesthetic. All examples found on this site use Lucide, but feel free to substitute with any alternative.
 
 <Framework id="svelte">
-	Follow the official instructions to install [Lucide for Svelte](https://lucide.dev/guide/packages/lucide-svelte).
+	<figure class="linker bg-noise">
+		<a href="https://lucide.dev/guide/packages/lucide-svelte" target="_blank" class="btn preset-filled">
+			Install Lucide
+		</a>
+	</figure>
 </Framework>
 <Framework id="react">
-	Follow the official instructions to install [Lucide for React](https://lucide.dev/guide/packages/lucide-react).
-</Framework>
-
-## Usage
-
-<Framework id="svelte">
-```svelte
-<script>
-	import SkullIcon from '@lucide/svelte/icons/skull';
-</script>
-
-<SkullIcon stroke="pink" class="size-8" />
-```
-</Framework>
-<Framework id="react">
-```tsx
-import { SkullIcon } from 'lucide-react';
-
-export default function App() {
-	return <SkullIcon stroke="pink" className="size-8" />;
-}
-```
+	<figure class="linker bg-noise">
+		<a href="https://lucide.dev/guide/packages/lucide-react" target="_blank" class="btn preset-filled">
+			Install Lucide
+		</a>
+	</figure>
 </Framework>
 
 ## Sizes
 
-Use `icon-*` to apply standardized icon sizes. The `base` size matches Lucide's default size of `24px`.
+Use `icon-*` to apply a standard array of icon sizes. `base` matches Lucide's default size of `24px`.
 
 <Preview files={{ 'app.astro': SizeRaw }} client:visible>
 	<Size />
 </Preview>
 
-As well as `icon-label-*` sizes that compliment [badge](/docs/tailwind-components/badges), [button](/docs/tailwind-components/buttons#sizes), and [field](/docs/tailwind-components/forms#field-sizes) sizing.
+As well as `icon-label-*` sizes to compliment [badges](/docs/tailwind-components/badges), [buttons](/docs/tailwind-components/buttons#sizes), [chips](/docs/tailwind-components/chips).
 
 <Preview files={{ 'app.astro': LabelSizeRaw }} client:visible>
 	<LabelSize />
 </Preview>
 
-Both utilize a simple convention, making it easy to expand with custom sizes:
+Extend with custom sizes:
 
 ```css
 @utility icon-4xl {
-	--icon-size: 256px;
+	--icon-size: 192px;
 	width: var(--icon-size);
 	height: var(--icon-size);
 }

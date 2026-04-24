@@ -5,12 +5,12 @@
 /* Icon Sizes --- */
 
 @utility icon-xs {
-	--icon-size: 12px;
+	--icon-size: 8px;
 	width: var(--icon-size);
 	height: var(--icon-size);
 }
 @utility icon-sm {
-	--icon-size: 18px;
+	--icon-size: 16px;
 	width: var(--icon-size);
 	height: var(--icon-size);
 }
@@ -25,12 +25,12 @@
 	height: var(--icon-size);
 }
 @utility icon-xl {
-	--icon-size: 48px;
+	--icon-size: 64px;
 	width: var(--icon-size);
 	height: var(--icon-size);
 }
 @utility icon-2xl {
-	--icon-size: 64px;
+	--icon-size: 96px;
 	width: var(--icon-size);
 	height: var(--icon-size);
 }
