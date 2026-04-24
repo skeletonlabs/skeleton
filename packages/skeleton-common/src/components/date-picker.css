@@ -25,7 +25,7 @@
 		inset-inline-end: --spacing(1.5);
 		top: --spacing(1.25);
 
-		@apply btn-icon btn-icon-sm preset-tonal;
+		@apply btn-icon btn-icon-xs preset-tonal;
 	}
 
 	&[data-part='preset-trigger'] {

@@ -13,9 +13,9 @@ export default function Default() {
 	];
 
 	return (
-		<div className="w-[375px] h-[667px] grid grid-rows-[1fr_auto] border border-surface-200-800">
+		<div className="w-[375px] h-[200px] grid grid-rows-[1fr_auto] border border-surface-200-800">
 			<div className="flex justify-center items-center">
-				<p>Contents</p>
+				<p className="opacity-60">...</p>
 			</div>
 			<Navigation layout="bar">
 				<Navigation.Menu className="grid grid-cols-4 gap-2">
