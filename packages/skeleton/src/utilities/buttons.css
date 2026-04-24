@@ -123,8 +123,8 @@
 	--btn-scalar: var(--element-scalar-xl);
 }
 @utility btn-icon-fab {
-	--btn-size: 48px;
-	--btn-scalar: --spacing(2);
+	--btn-size: var(--element-size-4xl);
+	--btn-scalar: var(--element-scalar-4xl);
 }
 
 /* Group --- */

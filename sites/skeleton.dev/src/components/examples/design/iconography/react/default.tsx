@@ -23,7 +23,7 @@ import {
 	CoffeeIcon,
 	ZapIcon,
 	GhostIcon,
-	SwordsIcon
+	SwordsIcon,
 } from 'lucide-react';
 
 export default function Iconography() {

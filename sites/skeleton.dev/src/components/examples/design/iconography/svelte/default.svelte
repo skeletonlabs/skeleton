@@ -1,29 +1,29 @@
 <script lang="ts">
-	import HeartIcon from '@lucide/svelte/icons/heart';
-	import UserRoundIcon from '@lucide/svelte/icons/user-round';
-	import RocketIcon from '@lucide/svelte/icons/rocket';
-	import CrownIcon from '@lucide/svelte/icons/crown';
-	import CompassIcon from '@lucide/svelte/icons/compass';
-	import SparklesIcon from '@lucide/svelte/icons/sparkles';
-	import FlameIcon from '@lucide/svelte/icons/flame';
-	import LeafIcon from '@lucide/svelte/icons/leaf';
-	import MusicIcon from '@lucide/svelte/icons/music';
-	import GemIcon from '@lucide/svelte/icons/gem';
-	import CameraIcon from '@lucide/svelte/icons/camera';
-	import MoonIcon from '@lucide/svelte/icons/moon';
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import SunIcon from '@lucide/svelte/icons/sun';
-	import FeatherIcon from '@lucide/svelte/icons/feather';
 	import AnchorIcon from '@lucide/svelte/icons/anchor';
-	import KeyIcon from '@lucide/svelte/icons/key';
 	import BellIcon from '@lucide/svelte/icons/bell';
-	import StarIcon from '@lucide/svelte/icons/star';
-	import GiftIcon from '@lucide/svelte/icons/gift';
+	import CameraIcon from '@lucide/svelte/icons/camera';
 	import CloudIcon from '@lucide/svelte/icons/cloud';
 	import CoffeeIcon from '@lucide/svelte/icons/coffee';
-	import ZapIcon from '@lucide/svelte/icons/zap';
+	import CompassIcon from '@lucide/svelte/icons/compass';
+	import CrownIcon from '@lucide/svelte/icons/crown';
+	import FeatherIcon from '@lucide/svelte/icons/feather';
+	import FlameIcon from '@lucide/svelte/icons/flame';
+	import GemIcon from '@lucide/svelte/icons/gem';
 	import GhostIcon from '@lucide/svelte/icons/ghost';
+	import GiftIcon from '@lucide/svelte/icons/gift';
+	import HeartIcon from '@lucide/svelte/icons/heart';
+	import KeyIcon from '@lucide/svelte/icons/key';
+	import LeafIcon from '@lucide/svelte/icons/leaf';
+	import MoonIcon from '@lucide/svelte/icons/moon';
+	import MusicIcon from '@lucide/svelte/icons/music';
+	import RocketIcon from '@lucide/svelte/icons/rocket';
+	import SkullIcon from '@lucide/svelte/icons/skull';
+	import SparklesIcon from '@lucide/svelte/icons/sparkles';
+	import StarIcon from '@lucide/svelte/icons/star';
+	import SunIcon from '@lucide/svelte/icons/sun';
 	import SwordsIcon from '@lucide/svelte/icons/swords';
+	import UserRoundIcon from '@lucide/svelte/icons/user-round';
+	import ZapIcon from '@lucide/svelte/icons/zap';
 </script>
 
 <div class="grid grid-cols-5 gap-4 place-items-center">
