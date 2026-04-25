@@ -1,0 +1,180 @@
+---
+title: Dialogs
+description: Display modal popups using the native HTML dialog element.
+tags: ['native', 'popover']
+stability: beta
+---
+
+import Invoker from '@/components/examples/tailwind-components/dialogs/invoker.astro';
+import InvokerRaw from '@/components/examples/tailwind-components/dialogs/invoker.astro?raw';
+import AlertDialogReact from '@/components/examples/tailwind-components/dialogs/react/alertdialog';
+import AlertDialogReactRaw from '@/components/examples/tailwind-components/dialogs/react/alertdialog.tsx?raw';
+import AnimationReact from '@/components/examples/tailwind-components/dialogs/react/animation';
+import AnimationReactRaw from '@/components/examples/tailwind-components/dialogs/react/animation.tsx?raw';
+import DefaultReact from '@/components/examples/tailwind-components/dialogs/react/default';
+import DefaultReactRaw from '@/components/examples/tailwind-components/dialogs/react/default.tsx?raw';
+import FullscreenReact from '@/components/examples/tailwind-components/dialogs/react/fullscreen';
+import FullscreenReactRaw from '@/components/examples/tailwind-components/dialogs/react/fullscreen.tsx?raw';
+import LightDismissReact from '@/components/examples/tailwind-components/dialogs/react/lightdismiss';
+import LightDismissReactRaw from '@/components/examples/tailwind-components/dialogs/react/lightdismiss.tsx?raw';
+import NonModalReact from '@/components/examples/tailwind-components/dialogs/react/nonmodal';
+import NonModalReactRaw from '@/components/examples/tailwind-components/dialogs/react/nonmodal.tsx?raw';
+import ResultReact from '@/components/examples/tailwind-components/dialogs/react/result';
+import ResultReactRaw from '@/components/examples/tailwind-components/dialogs/react/result.tsx?raw';
+import AlertDialogSvelte from '@/components/examples/tailwind-components/dialogs/svelte/alertdialog.svelte';
+import AlertDialogSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/alertdialog.svelte?raw';
+import AnimationSvelte from '@/components/examples/tailwind-components/dialogs/svelte/animation.svelte';
+import AnimationSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/animation.svelte?raw';
+import DefaultSvelte from '@/components/examples/tailwind-components/dialogs/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/default.svelte?raw';
+import FullscreenSvelte from '@/components/examples/tailwind-components/dialogs/svelte/fullscreen.svelte';
+import FullscreenSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/fullscreen.svelte?raw';
+import LightDismissSvelte from '@/components/examples/tailwind-components/dialogs/svelte/lightdismiss.svelte';
+import LightDismissSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/lightdismiss.svelte?raw';
+import NonModalSvelte from '@/components/examples/tailwind-components/dialogs/svelte/nonmodal.svelte';
+import NonModalSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/nonmodal.svelte?raw';
+import ResultSvelte from '@/components/examples/tailwind-components/dialogs/svelte/result.svelte';
+import ResultSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/result.svelte?raw';
+
+Uses the the native HTML [Dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element, HTML and Javascript APIs, paired with progressive enchanced [CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transition-behavior).
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Alert Dialog
+
+Set [`role="alertdialog"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/alertdialog_role) for dialogs that interrupt the user with a message requiring a response.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AlertDialogReactRaw }} client:visible>
+		<AlertDialogReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AlertDialogSvelteRaw }} client:visible>
+		<AlertDialogSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Non-Modal
+
+Call [`show()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/show) instead of `showModal()` to open a dialog without a backdrop or top-layer placement. Similar to a tooltip.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': NonModalReactRaw }} client:visible>
+		<NonModalReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': NonModalSvelteRaw }} client:visible>
+		<NonModalSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Fullscreen
+
+Add `dialog-fullscreen` to expand the dialog to the full viewport.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FullscreenReactRaw }} client:visible>
+		<FullscreenReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FullscreenSvelteRaw }} client:visible>
+		<FullscreenSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Animation
+
+Add `animate-dialog` to opt into a fade transition for the dialog and its backdrop.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AnimationReactRaw }} client:visible>
+		<AnimationReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AnimationSvelteRaw }} client:visible>
+		<AnimationSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Interaction
+
+### Light Dismiss
+
+Set [`closedby="any"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#closedby) to allow the user to close the dialog by clicking the backdrop or pressing Esc.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': LightDismissReactRaw }} client:visible>
+		<LightDismissReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': LightDismissSvelteRaw }} client:visible>
+		<LightDismissSvelte client:visible />
+	</Preview>
+</Framework>
+
+| Browser             | Minimum Version | Released      |
+| ------------------- | --------------- | ------------- |
+| Safari              | 18.2            | December 2024 |
+| Safari on iOS       | 18.2            | December 2024 |
+| Chrome              | 134             | March 2025    |
+| Edge                | 134             | March 2025    |
+| Chrome for Android  | 134             | March 2025    |
+| Firefox             | 136             | March 2025    |
+| Firefox for Android | 136             | March 2025    |
+
+### Result Handling
+
+Wrap controls in a [`<form method="dialog">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#usage_notes) and read each submit button's `value` from `dialog.returnValue` on the [`close`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close_event) event.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ResultReactRaw }} client:visible>
+		<ResultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ResultSvelteRaw }} client:visible>
+		<ResultSvelte client:visible />
+	</Preview>
+</Framework>
+
+### Invoker Commands
+
+Use the [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#modal_dialogs_using_invoker_commands) to control state with pure HTML.
+
+<Preview files={{ 'app.astro': InvokerRaw }} client:visible>
+	<Invoker />
+</Preview>
+
+| Browser             | Minimum Version | Released      |
+| ------------------- | --------------- | ------------- |
+| Chrome              | 135             | April 2025    |
+| Edge                | 135             | April 2025    |
+| Chrome for Android  | 135             | April 2025    |
+| Firefox             | 144             | October 2025  |
+| Firefox for Android | 144             | October 2025  |
+| Safari              | 26.2            | December 2025 |
+| Safari on iOS       | 26.2            | December 2025 |
+
+---
+
+## Alternatives
+
+Explore Skeleton's framework components for more advanced features and control:
+
+- [Dialog](/docs/[framework]/framework-components/dialog)
+- [Popover](/docs/[framework]/framework-components/popover)
+- [Portal](/docs/[framework]/framework-components/portal)
