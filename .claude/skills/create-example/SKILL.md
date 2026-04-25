@@ -11,13 +11,14 @@ Folder layout mirrors the docs tree: `examples/<category>/<slug>/`.
 
 ## Example types
 
-| Type            | Path                                                    | When to use                                                                                  |
-| --------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Astro (neutral) | `<slug>/<name>.astro`                                   | HTML/CSS-only demo; no state, events, or framework imports needed                            |
-| React           | `<slug>/react/<name>.tsx`                               | Demo needs React state/events or imports from `@skeletonlabs/skeleton-react`                 |
-| Svelte          | `<slug>/svelte/<name>.svelte`                           | Demo needs Svelte runes/snippets or imports from `@skeletonlabs/skeleton-svelte`             |
+| Type            | Path                          | When to use                                                                      |
+| --------------- | ----------------------------- | -------------------------------------------------------------------------------- |
+| Astro (neutral) | `<slug>/<name>.astro`         | HTML/CSS-only demo; no state, events, or framework imports needed                |
+| React           | `<slug>/react/<name>.tsx`     | Demo needs React state/events or imports from `@skeletonlabs/skeleton-react`     |
+| Svelte          | `<slug>/svelte/<name>.svelte` | Demo needs Svelte runes/snippets or imports from `@skeletonlabs/skeleton-svelte` |
 
 A single doc page can mix types per example. Defaults:
+
 - Tailwind-component pages → `.astro`, fall back to framework-specific only when the demo requires state/events (see [buttons/](sites/skeleton.dev/src/components/examples/tailwind-components/buttons/) — `default.astro` + `react/group.tsx` + `svelte/group.svelte`).
 - Framework-component pages → both `react/` and `svelte/`, always paired (see [accordion/](sites/skeleton.dev/src/components/examples/framework-components/accordion/)).
 
@@ -29,6 +30,7 @@ A single doc page can mix types per example. Defaults:
 - Svelte file uses `<script lang="ts">`; import icons from `@lucide/svelte/icons/<name>`.
 
 Reference files:
+
 - Astro: [buttons/sizes.astro](sites/skeleton.dev/src/components/examples/tailwind-components/buttons/sizes.astro)
 - React: [accordion/react/default.tsx](sites/skeleton.dev/src/components/examples/framework-components/accordion/react/default.tsx)
 - Svelte: [accordion/svelte/default.svelte](sites/skeleton.dev/src/components/examples/framework-components/accordion/svelte/default.svelte)
@@ -103,6 +105,7 @@ When invoked from `/create-doc` with a list of examples and an inferred type per
 ## Output
 
 For each example, produce:
+
 - Example file(s) with minimal placeholder body matching the reference convention.
 - Inserted import lines at the top of the parent `.mdx`.
 - Inserted `<Preview>` (and `<Framework>` if applicable) block in the appropriate location — top of page for `default`, under a new `## SectionName` heading otherwise.
