@@ -191,7 +191,7 @@
 	<Dialog.Trigger class="btn preset-tonal justify-start">
 		<SearchIcon class="size-4 opacity-60" />
 		<span class="opacity-60">Search...</span>
-		<span class="badge badge-icon preset-outlined-surface-500 text-xs opacity-30 hidden md:flex">⌘ K</span>
+		<span class="badge preset-outlined-surface-500 hidden md:flex opacity-60 scale-90">⌘ K</span>
 	</Dialog.Trigger>
 	<Portal>
 		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50 backdrop-blur-[2px]" />
@@ -212,11 +212,11 @@
 					open={dialog().open}
 				>
 					<div class="px-4 pt-4 pb-4 lg:pb-2">
-						<Combobox.Control class="input-group grid-cols-[auto_1fr]">
-							<div class="ig-cell preset-tonal">
+						<Combobox.Control class="field-group grid-cols-[auto_1fr]">
+							<label class="label preset-tonal" title="search" aria-label="search">
 								<SearchIcon class="size-4" />
-							</div>
-							<Combobox.Input class="ig-input rounded-s-none" type="search" />
+							</label>
+							<Combobox.Input class="input rounded-s-none" type="search" />
 						</Combobox.Control>
 					</div>
 					<hr class="hr" />

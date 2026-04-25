@@ -1,30 +1,38 @@
-<form class="w-full max-w-md space-y-4 p-4">
-	<fieldset class="space-y-4">
-		<!-- Input -->
+<form class="card bg-surface-100-900 p-4 w-full max-w-md mx-auto space-y-4">
+	<header>
+		<h3 class="h3">Account</h3>
+	</header>
+	<fieldset class="fieldset space-y-2">
+		<legend class="legend">Account Details</legend>
 		<label class="label">
-			<span class="label-text">Input</span>
-			<input class="input" type="text" placeholder="Input" />
+			<span class="label-text">Email</span>
+			<input class="input" type="email" placeholder="you@example.com" />
 		</label>
-		<!-- Select -->
+	</fieldset>
+	<fieldset class="fieldset space-y-2">
+		<legend class="legend">Shipping Address</legend>
 		<label class="label">
-			<span class="label-text">Select</span>
+			<span class="label-text">Street</span>
+			<input class="input" type="text" placeholder="123 Main St" />
+		</label>
+		<label class="label">
+			<span class="label-text">City</span>
 			<select class="select">
-				<option value="1">Option 1</option>
-				<option value="2">Option 2</option>
-				<option value="3">Option 3</option>
-				<option value="4">Option 4</option>
-				<option value="5">Option 5</option>
+				<option disabled selected>Select a city</option>
+				<option value="nyc">New York</option>
+				<option value="la">Los Angeles</option>
+				<option value="chi">Chicago</option>
 			</select>
 		</label>
-		<!-- Textarea -->
+	</fieldset>
+	<fieldset class="fieldset space-y-2">
+		<legend class="legend">Notes</legend>
 		<label class="label">
-			<span class="label-text">Textarea</span>
-			<textarea class="textarea rounded-container" rows="4" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-			></textarea>
+			<span class="label-text">Delivery Instructions</span>
+			<textarea class="textarea" rows="3" placeholder="Delivery instructions..."></textarea>
 		</label>
 	</fieldset>
-	<fieldset class="flex justify-end">
-		<!-- Button -->
-		<button type="button" class="btn preset-outlined-surface-300-700">Submit</button>
-	</fieldset>
+	<footer class="flex justify-end">
+		<button type="submit" class="btn preset-filled">Submit</button>
+	</footer>
 </form>

@@ -7,30 +7,40 @@ references:
 
 import Checkboxes from '@/components/examples/tailwind-components/forms/checkboxes.astro';
 import CheckboxesRaw from '@/components/examples/tailwind-components/forms/checkboxes.astro?raw';
+import Color from '@/components/examples/tailwind-components/forms/color.astro';
+import ColorRaw from '@/components/examples/tailwind-components/forms/color.astro?raw';
 import Default from '@/components/examples/tailwind-components/forms/default.astro';
 import DefaultRaw from '@/components/examples/tailwind-components/forms/default.astro?raw';
+import Fieldset from '@/components/examples/tailwind-components/forms/fieldset.astro';
+import FieldsetRaw from '@/components/examples/tailwind-components/forms/fieldset.astro?raw';
 import Groups from '@/components/examples/tailwind-components/forms/groups.astro';
 import GroupsRaw from '@/components/examples/tailwind-components/forms/groups.astro?raw';
 import Input from '@/components/examples/tailwind-components/forms/input.astro';
 import InputRaw from '@/components/examples/tailwind-components/forms/input.astro?raw';
+import Label from '@/components/examples/tailwind-components/forms/label.astro';
+import LabelRaw from '@/components/examples/tailwind-components/forms/label.astro?raw';
+import Meter from '@/components/examples/tailwind-components/forms/meter.astro';
+import MeterRaw from '@/components/examples/tailwind-components/forms/meter.astro?raw';
+import Progress from '@/components/examples/tailwind-components/forms/progress.astro';
+import ProgressRaw from '@/components/examples/tailwind-components/forms/progress.astro?raw';
 import Radio from '@/components/examples/tailwind-components/forms/radio.astro';
 import RadioRaw from '@/components/examples/tailwind-components/forms/radio.astro?raw';
+import Range from '@/components/examples/tailwind-components/forms/range.astro';
+import RangeRaw from '@/components/examples/tailwind-components/forms/range.astro?raw';
+import Select from '@/components/examples/tailwind-components/forms/select.astro';
 import SelectRaw from '@/components/examples/tailwind-components/forms/select.astro?raw';
-import Selection from '@/components/examples/tailwind-components/forms/selection.astro';
-import SelectionRaw from '@/components/examples/tailwind-components/forms/selection.astro?raw';
-import Special from '@/components/examples/tailwind-components/forms/special.astro';
-import SpecialRaw from '@/components/examples/tailwind-components/forms/special.astro?raw';
+import Size from '@/components/examples/tailwind-components/forms/size.astro';
+import SizeRaw from '@/components/examples/tailwind-components/forms/size.astro?raw';
+import Textarea from '@/components/examples/tailwind-components/forms/textarea.astro';
 import TextareaRaw from '@/components/examples/tailwind-components/forms/textarea.astro?raw';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
 </Preview>
 
-## Prerequisites
+## Requirements
 
-### Tailwind Forms
-
-Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling. This plugin is <u>required</u> if you wish to use any form utility classes provided on this page.
+Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin to normalize form styling, also known as a reset. This plugin is <u>required</u> if you wish to use any form utility classes provided on this page.
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
 	<a class="btn preset-filled" href="https://github.com/tailwindlabs/tailwindcss-forms" target="_blank">
@@ -38,13 +48,11 @@ Skeleton relies on the official [Tailwind Forms](https://github.com/tailwindlabs
 	</a>
 </figure>
 
-To being, install the `@tailwindcss/forms` package.
+Install the `@tailwindcss/forms` package, then implement the `@plugin` directive in your global stylesheet.
 
 ```sh
 npm install -D @tailwindcss/forms
 ```
-
-Then implement in your global stylesheet using the `@plugin` directive.
 
 ```css
 @import 'tailwindcss';
@@ -53,27 +61,31 @@ Then implement in your global stylesheet using the `@plugin` directive.
 /* ...Skeleton config here... */
 ```
 
-### Windows Bugfix
-
-To avoid a [breaking style issue in Windows-based browsers](https://github.com/skeletonlabs/skeleton/issues/3993), it's recommended you include this temporary fix into your global stylesheet. Please note this change will be automatically and permanently applied for you in Skeleton v5+.
-
-```css
-.select,
-.input,
-.textarea,
-.input-group {
-	background-color: var(--color-surface-50-950);
-	color: var(--color-surface-950-50);
-}
-```
-
-### Browser Support
+## Browser Support
 
 The quality and appearance of native and semantic HTML form elements can vary between both operating systems and browser vendors. Skeleton does its best to adhere to progressive enhancement best practices. However, we advise you validate support for each element per your target audience.
 
-## Inputs
+---
 
-Supports all [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types), within reason.
+## Fieldsets
+
+Use the optional `.fieldset` and `.legend` classes to group related form controls with an accessible title.
+
+<Preview files={{ 'app.astro': FieldsetRaw }} client:visible>
+	<Fieldset />
+</Preview>
+
+## Labels
+
+Use `.label` and `.label-text` for styling the visible label text.
+
+<Preview files={{ 'app.astro': LabelRaw }} client:visible>
+	<Label />
+</Preview>
+
+## Input
+
+Apply the `.input` class to all standard box-shaped [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types).
 
 <Preview files={{ 'app.astro': InputRaw }} client:visible>
 	<Input />
@@ -81,11 +93,23 @@ Supports all [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Ref
 
 ## Select
 
-<Preview files={{ 'app.astro': SelectionRaw }} client:visible>
-	<Selection />
+Apply the `.select` class to `<select>` elements for single or multiple option menus.
+
+<Preview files={{ 'app.astro': SelectRaw }} client:visible>
+	<Select />
+</Preview>
+
+## Textarea
+
+Apply the `.textarea` class to `<textarea>` elements for multi-line text input.
+
+<Preview files={{ 'app.astro': TextareaRaw }} client:visible>
+	<Textarea />
 </Preview>
 
 ## Checkboxes
+
+Use `type="checkbox"` for inputs that allow one or more independent options to be toggled on or off.
 
 <Preview files={{ 'app.astro': CheckboxesRaw }} client:visible>
 	<Checkboxes />
@@ -93,30 +117,58 @@ Supports all [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Ref
 
 ## Radio Groups
 
+Use `type="radio"` to present a set of mutually exclusive options where only one can be selected.
+
 <Preview files={{ 'app.astro': RadioRaw }} client:visible>
 	<Radio />
 </Preview>
 
-## Kitchen Sink
+## Range
 
-Display and functionality of these elements may vary greatly between devices and browsers.
+Use `type="range"` to allow selection of a numeric value from a continuous or stepped range via a slider.
 
-<Preview files={{ 'app.astro': SpecialRaw }} client:visible>
-	<Special />
+<Preview files={{ 'app.astro': RangeRaw }} client:visible>
+	<Range />
 </Preview>
 
-## Groups
+## Progress
 
-Input groups support a subset of form elements and button styles. These pair well with [Presets](/docs/[framework]/design/presets).
+Use `<progress>` to indicate the completion status of a task, such as a file upload or loading operation.
+
+<Preview files={{ 'app.astro': ProgressRaw }} client:visible>
+	<Progress />
+</Preview>
+
+## Meter
+
+Use `<meter>` to represent a scalar value within a known range, such as disk usage, battery level, or a score.
+
+<Preview files={{ 'app.astro': MeterRaw }} client:visible>
+	<Meter />
+</Preview>
+
+## Color
+
+Use `type="color"` to provide a native color picker for selecting a single color value.
+
+<Preview files={{ 'app.astro': ColorRaw }} client:visible>
+	<Color />
+</Preview>
+
+---
+
+## Field Sizes
+
+Form fields `.input`, `.select` and `.textarea` support optional field sizes. Designed to match [button](/docs/tailwind-components/buttons#sizes) sizes 1:1.
+
+<Preview files={{ 'app.astro': SizeRaw }} client:visible>
+	<Size />
+</Preview>
+
+## Field Groups
+
+Apply `field-group` to create a grouping of related box-shaped fields or buttons. This acts as a [grid](https://tailwindcss.com/docs/display#grid) container, allowing for column configuration. Make use of [Presets](/docs/[framework]/design/presets) to style label columns.
 
 <Preview files={{ 'app.astro': GroupsRaw }} client:visible>
 	<Groups />
 </Preview>
-
-| Class         | Usage                                   |
-| ------------- | --------------------------------------- |
-| `input-group` | Defines the parent input group set.     |
-| `ig-cell`     | Defines a child cell for text or icons. |
-| `ig-input`    | Defines a child input of `type="text"`. |
-| `ig-select`   | Defines a child select element.         |
-| `ig-btn`      | Defines a child button.                 |

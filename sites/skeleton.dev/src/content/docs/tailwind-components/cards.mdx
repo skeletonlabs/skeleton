@@ -14,6 +14,10 @@ import PresetsRaw from '@/components/examples/tailwind-components/cards/presets.
 	<Default />
 </Preview>
 
+## Hover
+
+Hover styles are applied when the card is an `anchor` or `button` element. Otherwise use class `card-hover`.
+
 <Preview files={{ 'app.astro': DetailedRaw }} client:visible>
 	<Detailed />
 </Preview>
@@ -25,3 +29,13 @@ Provides full support of [Presets](/docs/[framework]/design/presets).
 <Preview files={{ 'app.astro': PresetsRaw }} client:visible>
 	<Presets />
 </Preview>
+
+## Corner Shape
+
+Enable the `corner-shape` property from your theme by appending the following to your global stylesheet.
+
+```css
+.card {
+	corner-shape: var(--corner-shape);
+}
+```

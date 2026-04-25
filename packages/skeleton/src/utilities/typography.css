@@ -209,17 +209,22 @@
 }
 
 @utility kbd {
-	background-color: var(--color-surface-300-700);
+	background-color: var(--color-surface-100-900);
 	border-width: 1px;
+	border-right-width: 2px;
+	border-bottom-width: 3px;
 	border-color: var(--color-surface-600-400);
-	border-radius: var(--radius-base);
-	color: var(--color-surface-contrast-500);
+	border-radius: 4px;
+	color: var(--color-surface-contrast-100);
 	font-family: var(--font-mono);
 	font-size: var(--text-sm);
 	white-space: nowrap;
 	overflow-x: auto;
-	padding-inline: --spacing(1.5);
-	padding-block: --spacing(0.25);
+	padding-inline: --spacing(1.25);
+
+	@variant dark {
+		color: var(--color-surface-contrast-900);
+	}
 }
 
 @utility pre {
@@ -233,8 +238,10 @@
 	overflow-x: auto;
 }
 
-@utility code {
-	&:not(pre &, .ec-line &) {
+/* Affects <code>, but not <pre><code></code></pre> */
+/* This enables the use of presets-* styling for standalone <code> */
+@layer base {
+	code {
 		background-color: var(--color-primary-100-900);
 		border-radius: var(--radius-base);
 		color: var(--color-primary-contrast-50-950);
@@ -244,6 +251,20 @@
 		padding-inline: --spacing(1.5);
 		padding-block: --spacing(0.75);
 		overflow-x: auto;
+	}
+
+	/* Reset when code is inside pre or .ec-line */
+	pre code,
+	.ec-line code {
+		background-color: unset;
+		border-radius: unset;
+		color: unset;
+		font-family: unset;
+		font-size: unset;
+		white-space: unset;
+		padding-inline: unset;
+		padding-block: unset;
+		overflow-x: unset;
 	}
 }
 

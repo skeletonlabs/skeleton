@@ -19,13 +19,13 @@ export default function Default() {
 					</Steps.Item>
 				))}
 			</Steps.List>
-			<div className="flex flex-col grow">
+			<div className="flex flex-col grow gap-4">
 				{steps.map((item, index) => (
-					<Steps.Content key={index} index={index} className="grow">
+					<Steps.Content key={index} index={index} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow">
 						{item.content}
 					</Steps.Content>
 				))}
-				<Steps.Content index={steps.length} className="grow">
+				<Steps.Content index={steps.length} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow">
 					All done!
 				</Steps.Content>
 				<div className="flex justify-between items-center gap-2">

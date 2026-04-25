@@ -1,1 +1,17 @@
-<button type="button" class="btn preset-filled-primary-500" disabled>Button</button>
+---
+import { ArrowUpRightIcon } from 'lucide-react';
+---
+
+<div class="flex items-center gap-4">
+	<!-- A standard button -->
+	<button type="button" class="btn preset-filled" disabled>Button</button>
+	<!-- A button + icon -->
+	<button type="button" class="btn preset-filled" disabled>
+		<span>Button</span>
+		<ArrowUpRightIcon size={16} />
+	</button>
+	<!-- An icon button -->
+	<button type="button" class="btn-icon preset-filled" title="Go" aria-label="Go" disabled>
+		<ArrowUpRightIcon size={16} />
+	</button>
+</div>

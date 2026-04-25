@@ -3,15 +3,20 @@ import { HeartIcon } from 'lucide-react';
 ---
 
 <div class="flex items-center gap-4">
-	<!-- A simple icon badge -->
-	<span class="badge-icon preset-filled">
-		<HeartIcon size={16} />
-	</span>
 	<!-- A standard badge -->
-	<span class="badge preset-filled">Badge</span>
+	<span class="badge preset-filled-primary-500">Badge</span>
+
 	<!-- A badge + icon -->
-	<span class="badge preset-filled">
-		<HeartIcon size={16} />
+	<span class="badge preset-filled-primary-500">
+		<HeartIcon className="fill-current stroke-0" size={10} />
 		<span>Badge</span>
 	</span>
+
+	<!-- An icon badge -->
+	<span class="badge-icon preset-filled-primary-500">
+		<HeartIcon className="fill-current stroke-0" size={10} />
+	</span>
+
+	<!-- A badge dot -->
+	<span class="badge-dot preset-filled-primary-500"> Badge </span>
 </div>

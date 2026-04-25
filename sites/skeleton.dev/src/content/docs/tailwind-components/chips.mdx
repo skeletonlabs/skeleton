@@ -1,6 +1,6 @@
 ---
 title: Chips
-description: Provides a robust set of interactive chip styles.
+description: Use chips to enter information, make selections, filter content, or trigger actions.
 ---
 
 import Default from '@/components/examples/tailwind-components/chips/default.astro';
@@ -9,22 +9,86 @@ import Disabled from '@/components/examples/tailwind-components/chips/disabled.a
 import DisabledRaw from '@/components/examples/tailwind-components/chips/disabled.astro?raw';
 import Presets from '@/components/examples/tailwind-components/chips/presets.astro';
 import PresetsRaw from '@/components/examples/tailwind-components/chips/presets.astro?raw';
-import SelectReact from '@/components/examples/tailwind-components/chips/react/select';
-import SelectReactRaw from '@/components/examples/tailwind-components/chips/react/select?raw';
-import SelectSvelte from '@/components/examples/tailwind-components/chips/svelte/select.svelte';
-import SelectSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/select.svelte?raw';
+import AssistReact from '@/components/examples/tailwind-components/chips/react/assist';
+import AssistReactRaw from '@/components/examples/tailwind-components/chips/react/assist?raw';
+import FilterReact from '@/components/examples/tailwind-components/chips/react/filter';
+import FilterReactRaw from '@/components/examples/tailwind-components/chips/react/filter?raw';
+import InputReact from '@/components/examples/tailwind-components/chips/react/input';
+import InputReactRaw from '@/components/examples/tailwind-components/chips/react/input?raw';
+import SuggestionReact from '@/components/examples/tailwind-components/chips/react/suggestion';
+import SuggestionReactRaw from '@/components/examples/tailwind-components/chips/react/suggestion?raw';
+import AssistSvelte from '@/components/examples/tailwind-components/chips/svelte/assist.svelte';
+import AssistSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/assist.svelte?raw';
+import FilterSvelte from '@/components/examples/tailwind-components/chips/svelte/filter.svelte';
+import FilterSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/filter.svelte?raw';
+import InputSvelte from '@/components/examples/tailwind-components/chips/svelte/input.svelte';
+import InputSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/input.svelte?raw';
+import SuggestionSvelte from '@/components/examples/tailwind-components/chips/svelte/suggestion.svelte';
+import SuggestionSvelteRaw from '@/components/examples/tailwind-components/chips/svelte/suggestion.svelte?raw';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
 </Preview>
 
-## Presets
+## Assist Chips
 
-Provides full support of [Presets](/docs/[framework]/design/presets).
+Represent a group of related contextual choices.
 
-<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
-	<Presets />
-</Preview>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': AssistReactRaw }} client:visible>
+		<AssistReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': AssistSvelteRaw }} client:visible>
+		<AssistSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Filter Chips
+
+Represent a canned selection of options to choose from.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FilterReactRaw }} client:visible>
+		<FilterReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FilterSvelteRaw }} client:visible>
+		<FilterSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Input Chips
+
+Represent user input values such as contacts or search terms.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': InputReactRaw }} client:visible>
+		<InputReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InputSvelteRaw }} client:visible>
+		<InputSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Suggestion Chips
+
+Represent a canned set of suggested options for a user to choose from.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': SuggestionReactRaw }} client:visible>
+		<SuggestionReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': SuggestionSvelteRaw }} client:visible>
+		<SuggestionSvelte client:visible />
+	</Preview>
+</Framework>
 
 ## Disabled
 
@@ -34,15 +98,10 @@ When applied to a `<button>` element, you can use the `disabled` attribute.
 	<Disabled />
 </Preview>
 
-## Selection
+## Presets
 
-<Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': SelectReactRaw }} client:visible>
-		<SelectReact client:visible />
-	</Preview>
-</Framework>
-<Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': SelectSvelteRaw }} client:visible>
-		<SelectSvelte client:visible />
-	</Preview>
-</Framework>
+Provides full support of [Presets](/docs/[framework]/design/presets).
+
+<Preview files={{ 'app.astro': PresetsRaw }} client:visible>
+	<Presets />
+</Preview>

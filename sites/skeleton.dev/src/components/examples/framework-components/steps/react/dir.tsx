@@ -20,11 +20,13 @@ export default function Default() {
 				))}
 			</Steps.List>
 			{steps.map((item, index) => (
-				<Steps.Content key={index} index={index}>
+				<Steps.Content key={index} index={index} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
 					{item.content}
 				</Steps.Content>
 			))}
-			<Steps.Content index={steps.length}>All done!</Steps.Content>
+			<Steps.Content index={steps.length} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
+				All done!
+			</Steps.Content>
 			<div className="flex justify-between items-center gap-2">
 				<Steps.PrevTrigger className="btn preset-filled">Back</Steps.PrevTrigger>
 				<Steps.NextTrigger className="btn preset-filled">Next</Steps.NextTrigger>

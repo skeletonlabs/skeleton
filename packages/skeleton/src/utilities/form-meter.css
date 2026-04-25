@@ -1,0 +1,58 @@
+/* Components: Forms > Meter */
+
+/*
+	BROWSER CONSISTENCY WARNING:
+	Safari ignores most of the styles provided here.
+	Meter exposes three value states (optimum, suboptimum, even-less-good)
+	that map to success, warning, and error colors respectively.
+*/
+
+@utility meter {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border-radius: var(--radius-base);
+	background: var(--color-surface-200-800);
+	width: 100%;
+	height: --spacing(2);
+	padding: 0;
+	overflow: hidden;
+
+	/* Inner wrapper (WebKit) */
+	&::-webkit-meter-inner-element {
+		padding: 0;
+		margin: 0;
+		height: 100%;
+	}
+
+	/* Track (WebKit) */
+	&::-webkit-meter-bar {
+		border: none;
+		border-radius: var(--radius-base);
+		background: var(--color-surface-200-800);
+		height: 100%;
+	}
+
+	/* Value states (WebKit) */
+	&::-webkit-meter-optimum-value {
+		background: var(--color-success-500);
+	}
+	&::-webkit-meter-suboptimum-value {
+		background: var(--color-warning-500);
+	}
+	&::-webkit-meter-even-less-good-value {
+		background: var(--color-error-500);
+	}
+
+	/* Value states (Firefox) */
+	&::-moz-meter-bar {
+		background: var(--color-success-500);
+	}
+	&:-moz-meter-sub-optimum::-moz-meter-bar {
+		background: var(--color-warning-500);
+	}
+	&:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+		background: var(--color-error-500);
+	}
+}

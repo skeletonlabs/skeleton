@@ -40,7 +40,7 @@
 		classes = '',
 		// Pre Style Props
 		preBase = '',
-		prePadding = '[&>pre]:p-4',
+		prePadding = '',
 		preClasses = '',
 	}: CodeBlockProps = $props();
 

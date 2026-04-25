@@ -9,9 +9,19 @@ import Full from '@/components/examples/tailwind-components/tables/full.astro';
 import FullRaw from '@/components/examples/tailwind-components/tables/full.astro?raw';
 import Nav from '@/components/examples/tailwind-components/tables/nav.astro';
 import NavRaw from '@/components/examples/tailwind-components/tables/nav.astro?raw';
+import Zebra from '@/components/examples/tailwind-components/tables/zebra.astro';
+import ZebraRaw from '@/components/examples/tailwind-components/tables/zebra.astro?raw';
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
+</Preview>
+
+## Zebra Striping
+
+Apply the `table-zebra` class to add alternating row background colors.
+
+<Preview files={{ 'app.astro': ZebraRaw }} client:visible>
+	<Zebra />
 </Preview>
 
 ## Extras
@@ -24,7 +34,7 @@ Optionally add a header, footer, and caption.
 
 ## Navigation
 
-Native HTML tables do not support interaction. For accessibility, use anchors or buttons within the last cell.
+Note that table rows and cells are [not interactive](https://www.w3.org/WAI/ARIA/apg/patterns/table/). Instead, use anchors or buttons within the last cell.
 
 <Preview files={{ 'app.astro': NavRaw }} client:visible>
 	<Nav />
@@ -33,6 +43,11 @@ Native HTML tables do not support interaction. For accessibility, use anchors or
 ## Layout
 
 See [Tailwind's utility classes](https://tailwindcss.com/docs/table-layout) for adjusting the table layout algorithm. Apply this to the Table element.
+
+| Class         | Styles               |
+| ------------- | -------------------- |
+| `table-auto`  | table-layout: auto;  |
+| `table-fixed` | table-layout: fixed; |
 
 ## Hover Rows
 

@@ -5,7 +5,35 @@
 	:root {
 		/* Properties --- */
 		/* Defines form field placeholder text styling. */
-		--global-field-placeholder: var(--color-surface-700-300);
+		--field-placeholder: var(--color-surface-700-300);
+		/* Element Scale */
+		--element-size-xs: --spacing(3); /* 12px */
+		--element-size-sm: --spacing(3.5); /* 14px */
+		--element-size-base: --spacing(4); /* 16px */
+		--element-size-lg: --spacing(4.5); /* 18px */
+		--element-size-xl: --spacing(5); /* 20px */
+		--element-size-2xl: --spacing(6); /* 24px */
+		--element-size-3xl: --spacing(7.5); /* 30px */
+		--element-size-4xl: --spacing(9); /* 36px */
+		--element-size-5xl: --spacing(12); /* 48px */
+		--element-size-6xl: --spacing(15); /* 60px */
+		--element-size-7xl: --spacing(18); /* 72px */
+		--element-size-8xl: --spacing(24); /* 96px */
+		--element-size-9xl: --spacing(32); /* 128px */
+		/* Element Scalar */
+		--element-scalar-xs: --spacing(1.25); /* 5px */
+		--element-scalar-sm: --spacing(1.5); /* 6px */
+		--element-scalar-base: --spacing(1.75); /* 7px */
+		--element-scalar-lg: --spacing(2); /* 8px */
+		--element-scalar-xl: --spacing(2.25); /* 9px */
+		--element-scalar-2xl: --spacing(2.5); /* 10px */
+		--element-scalar-3xl: --spacing(2.75); /* 11px */
+		--element-scalar-4xl: --spacing(3); /* 12px */
+		--element-scalar-5xl: --spacing(3.25); /* 13px */
+		--element-scalar-6xl: --spacing(3.5); /* 14px */
+		--element-scalar-7xl: --spacing(3.75); /* 15px */
+		--element-scalar-8xl: --spacing(4); /* 16px */
+		--element-scalar-9xl: --spacing(4.5); /* 18px */
 
 		/* Color Scheme --- */
 		/* https://tailwindcss.com/docs/color-scheme */

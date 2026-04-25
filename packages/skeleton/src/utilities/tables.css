@@ -1,5 +1,7 @@
 /* Components: Tables */
 
+/* IMPORTANT: :where() is used to give user-land styles precedence. */
+
 @utility table-wrap {
 	width: 100%;
 	overflow: auto;
@@ -14,24 +16,24 @@
 
 	/* Head --- */
 
-	& thead {
+	& :where(thead) {
 		color: var(--color-surface-700-300);
 		border-bottom-width: 1px;
-		border-color: var(--color-surface-200-800);
+		border-color: var(--color-surface-300-700);
 	}
 
-	& th {
+	& :where(th) {
 		text-align: left;
 		font-weight: 400;
 	}
 
 	/* Body --- */
 
-	& tbody {
-		& > :not(:last-child) {
-			border-color: var(--color-surface-200-800);
+	& :where(tbody) {
+		& > :where(:not(:last-child)) {
+			border-color: var(--color-surface-300-700);
 		}
-		& > :not(:last-child) {
+		& > :where(:not(:last-child)) {
 			border-top-width: 0px;
 			border-bottom-width: 1px;
 		}
@@ -39,27 +41,33 @@
 
 	/* Foot --- */
 
-	& tfoot {
+	& :where(tfoot) {
 		border-top-width: 1px;
-		border-color: var(--color-surface-200-800);
+		border-color: var(--color-surface-300-700);
 		background-color: var(--color-surface-100-900);
 	}
 
 	/* Cells */
 
-	& th {
+	& :where(th) {
 		padding: --spacing(2);
 	}
 
-	& td {
+	& :where(td) {
 		padding: --spacing(2);
 	}
 
 	/* Caption */
 
-	& caption {
+	& :where(caption) {
 		color: var(--color-surface-600-400);
 		font-size: var(--text-xs);
 		line-height: var(--text-xs--line-height);
+	}
+}
+
+@utility table-zebra {
+	& :where(tbody tr:nth-child(odd)) {
+		background-color: color-mix(in oklab, var(--color-surface-100-900) 25%, transparent);
 	}
 }

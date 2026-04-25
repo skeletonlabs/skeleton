@@ -328,7 +328,7 @@
 
 /* tonal */
 @utility preset-tonal {
-	background-color: color-mix(in oklab, light-dark(var(--color-surface-950), var(--color-surface-50)) 5%, transparent);
+	background-color: color-mix(in oklab, light-dark(var(--color-surface-950), var(--color-surface-50)) 10%, transparent);
 	color: var(--color-primary-950-50);
 }
 

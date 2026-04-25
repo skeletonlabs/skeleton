@@ -24,7 +24,7 @@
 		top: 50%;
 		transform: translateY(-50%);
 
-		@apply btn-icon btn-icon-sm preset-tonal;
+		@apply btn-icon btn-icon-xs preset-tonal;
 	}
 
 	&[data-part='clear-trigger'] {

@@ -18,9 +18,20 @@ import VertRaw from '@/components/examples/tailwind-components/dividers/vert.ast
 	<Default />
 </Preview>
 
+## Vertical
+
+Apply `vr` to a `<span>` for a vertical variant.
+
+<Preview files={{ 'app.astro': VertRaw }} client:visible>
+	<Vert />
+</Preview>
+
 ## Size
 
 Use Tailwind's [border width](https://tailwindcss.com/docs/border-width) utilities to adjust thickness.
+
+- Use `border-t` (top) for horizontal
+- Use `border-l` (left) for vertical
 
 <Preview files={{ 'app.astro': SizeRaw }} client:visible>
 	<Size />
@@ -40,12 +51,4 @@ Use any Tailwind or Skeleton [colors or pairing](/docs/[framework]/design/colors
 
 <Preview files={{ 'app.astro': ColorsRaw }} client:visible>
 	<Colors />
-</Preview>
-
-## Vertical
-
-Use `vr` for a vertical rule, which supports all above styles. Make sure to set the height.
-
-<Preview files={{ 'app.astro': VertRaw }} client:visible>
-	<Vert />
 </Preview>

@@ -25,11 +25,13 @@
 		{/each}
 	</Steps.List>
 	{#each steps as item, index}
-		<Steps.Content {index}>
+		<Steps.Content {index} class="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
 			{item.content}
 		</Steps.Content>
 	{/each}
-	<Steps.Content index={steps.length}>All done!</Steps.Content>
+	<Steps.Content index={steps.length} class="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
+		>All done!</Steps.Content
+	>
 	<div class="flex justify-between items-center gap-2">
 		<Steps.PrevTrigger class="btn preset-filled">Back</Steps.PrevTrigger>
 		<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>

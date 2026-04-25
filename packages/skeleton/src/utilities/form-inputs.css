@@ -1,28 +1,32 @@
 /* Components: Forms > Input */
 
 @utility input {
-	background-color: transparent;
+	--field-size: var(--element-size-base);
+	--field-scalar: var(--element-scalar-base);
+
+	background-color: var(--color-surface-50-950);
+	color: var(--color-surface-950-50);
 	border-radius: var(--radius-base);
 	display: block;
 	width: 100%;
 
 	/* Size */
-	font-size: var(--text-base);
-	line-height: var(--text-base--line-height);
-	padding-block: --spacing(1);
-	padding-inline: --spacing(3);
+	font-size: var(--field-size);
+	line-height: var(--field-size);
+	padding-block: var(--field-scalar);
+	padding-inline: calc(var(--field-scalar) + var(--spacing));
 
 	/* Edges */
 	outline-color: transparent;
 	border-width: 0;
 	--tw-ring-inset: inset;
-	--tw-ring-color: var(--color-surface-200-800);
+	--tw-ring-color: var(--color-surface-300-700);
 	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
 	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
 	/* Placeholder */
 	&::placeholder {
-		color: var(--global-field-placeholder);
+		color: var(--field-placeholder);
 	}
 
 	@variant active {
@@ -49,7 +53,7 @@
 		font-size: var(--text-xs);
 		height: var(--text-xs--line-height);
 		padding-block: --spacing(0);
-		padding-inline: --spacing(3);
+		padding-inline: --spacing(2);
 	}
 
 	/* Range Input --- */
@@ -66,12 +70,13 @@
 
 	&[type='color'] {
 		border-radius: var(--radius-base);
-		width: --spacing(8.5);
-		height: --spacing(8.5);
+		width: --spacing(10);
+		height: --spacing(10);
 		padding: 0;
 		border: none;
 		outline: none;
 		-webkit-appearance: none;
+		appearance: none;
 	}
 	&[type='color']::-webkit-color-swatch-wrapper {
 		padding: 0;

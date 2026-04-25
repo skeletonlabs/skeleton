@@ -33,7 +33,7 @@ export default function CodeBlock({
 	classes = '',
 	// Pre Style Props
 	preBase = '',
-	prePadding = '[&>pre]:p-4',
+	prePadding = '',
 	preClasses = '',
 }: CodeBlockProps) {
 	const html = highlighter.codeToHtml(code, {

@@ -1,55 +1,71 @@
 ---
 title: Iconography
-description: Learn how to integrate Lucide for iconography in Skeleton.
+description: Learn about the Skeleton iconography system.
 summary: Skeleton takes an agnostic approach to icons, allowing you to use any combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and match to fulfill your project's unique requirements.
-order: 50
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/iconography.css'
+order: 40
 ---
 
-import HeartIcon from '@lucide/svelte/icons/heart';
-import TriangleIcon from '@lucide/svelte/icons/triangle';
-import UserRoundIcon from '@lucide/svelte/icons/user-round';
+import DefaultReact from '@/components/examples/design/iconography/react/default';
+import DefaultReactRaw from '@/components/examples/design/iconography/react/default?raw';
+import Size from '@/components/examples/design/iconography/size.astro';
+import SizeRaw from '@/components/examples/design/iconography/size.astro?raw';
+import DefaultSvelte from '@/components/examples/design/iconography/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/design/iconography/svelte/default.svelte?raw';
 
 ## Lucide
 
-<figure class="linker bg-noise">
-	<div class="flex gap-4">
-		<HeartIcon class="size-12" />
-		<UserRoundIcon class="size-12" />
-		<TriangleIcon class="size-12" />
-	</div>
-</figure>
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
 
-While Skeleton does not bundle an official icon library, we highly recommend the use of [Lucide](https://lucide.dev/). This provides a huge selection of icons that are available to all popular frameworks, while featuring a clean and modern aesthetic. All code examples within this Skeleton documentation site have been implement using **Lucide**, but feel free to replace with any alternative of your choice.
-
-## Installation
+While Skeleton is icon-agnostic, we recommend [Lucide](https://lucide.dev/) for its broad framework support and clean aesthetic. All examples found on this site use Lucide, but feel free to substitute with any alternative.
 
 <Framework id="svelte">
-	Follow the official instructions to install [Lucide for Svelte](https://lucide.dev/guide/packages/lucide-svelte).
+	<figure class="linker bg-noise">
+		<a href="https://lucide.dev/guide/packages/lucide-svelte" target="_blank" class="btn preset-filled">
+			Install Lucide
+		</a>
+	</figure>
 </Framework>
 <Framework id="react">
-	Follow the official instructions to install [Lucide for React](https://lucide.dev/guide/packages/lucide-react).
+	<figure class="linker bg-noise">
+		<a href="https://lucide.dev/guide/packages/lucide-react" target="_blank" class="btn preset-filled">
+			Install Lucide
+		</a>
+	</figure>
 </Framework>
 
-## Usage
+## Sizes
 
-<Framework id="svelte">
-```svelte
-<script>
-	import SkullIcon from '@lucide/svelte/icons/skull';
-</script>
+Use `icon-*` to apply a standard array of icon sizes.
 
-<SkullIcon stroke="pink" class="size-8" />
-```
-</Framework>
-<Framework id="react">
-```tsx
-import { SkullIcon } from 'lucide-react';
+<Preview files={{ 'app.astro': SizeRaw }} client:visible>
+	<Size />
+</Preview>
 
-export default function App() {
-	return <SkullIcon stroke="pink" className="size-8" />;
+Extend with custom sizes:
+
+```css
+:root {
+	--element-size-10xl: --spacing(48);
 }
 ```
-</Framework>
+
+```css
+@utility icon-10xl {
+	width: var(--element-size-10xl);
+	height: var(--element-size-10xl);
+}
+```
 
 ## Alternatives
 
