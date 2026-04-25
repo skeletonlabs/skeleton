@@ -7,10 +7,14 @@ references:
 order: 20
 ---
 
+import Abbr from '@/components/examples/design/typography/abbr.astro';
+import AbbrRaw from '@/components/examples/design/typography/abbr.astro?raw';
 import Anchors from '@/components/examples/design/typography/anchors.astro';
 import AnchorsRaw from '@/components/examples/design/typography/anchors.astro?raw';
 import Blockquotes from '@/components/examples/design/typography/blockquotes.astro';
 import BlockquotesRaw from '@/components/examples/design/typography/blockquotes.astro?raw';
+import Cite from '@/components/examples/design/typography/cite.astro';
+import CiteRaw from '@/components/examples/design/typography/cite.astro?raw';
 import CodeTag from '@/components/examples/design/typography/code-tag.astro';
 import CodeTagRaw from '@/components/examples/design/typography/code-tag.astro?raw';
 import Headings from '@/components/examples/design/typography/headings.astro';
@@ -25,6 +29,14 @@ import Paragraphs from '@/components/examples/design/typography/paragraphs.astro
 import ParagraphsRaw from '@/components/examples/design/typography/paragraphs.astro?raw';
 import Pre from '@/components/examples/design/typography/pre.astro';
 import PreRaw from '@/components/examples/design/typography/pre.astro?raw';
+import Q from '@/components/examples/design/typography/q.astro';
+import QRaw from '@/components/examples/design/typography/q.astro?raw';
+import Sub from '@/components/examples/design/typography/sub.astro';
+import SubRaw from '@/components/examples/design/typography/sub.astro?raw';
+import Sup from '@/components/examples/design/typography/sup.astro';
+import SupRaw from '@/components/examples/design/typography/sup.astro?raw';
+import Time from '@/components/examples/design/typography/time.astro';
+import TimeRaw from '@/components/examples/design/typography/time.astro?raw';
 
 import Lists from '@/components/examples/design/typography/lists.astro';
 import ListsRaw from '@/components/examples/design/typography/lists.astro?raw';
@@ -45,23 +57,23 @@ Skeleton provides the following utlity classes for styling semantic native HTML 
 
 ### Headings
 
+Represents six levels of section headings. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
+
 <Preview files={{ 'app.astro': HeadingsRaw }} client:visible>
 	<Headings />
 </Preview>
 
 ### Paragraphs
 
+Represents a block of running text. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p).
+
 <Preview files={{ 'app.astro': ParagraphsRaw }} client:visible>
 	<Paragraphs />
 </Preview>
 
-### Blockquotes
-
-<Preview files={{ 'app.astro': BlockquotesRaw }} client:visible>
-	<Blockquotes />
-</Preview>
-
 ### Anchor
+
+Creates a hyperlink to other pages, files, or locations within the same page. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
 
 <Preview files={{ 'app.astro': AnchorsRaw }} client:visible>
 	<Anchors />
@@ -69,13 +81,15 @@ Skeleton provides the following utlity classes for styling semantic native HTML 
 
 ### Pre-Formatted
 
+Displays preformatted text exactly as written, preserving whitespace and line breaks. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre).
+
 <Preview files={{ 'app.astro': PreRaw }} client:visible>
 	<Pre />
 </Preview>
 
 ### Code
 
-Provides support for [Presets](/docs/design/presets).
+Displays an inline fragment of computer code. Provides support for [Presets](/docs/design/presets). Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code).
 
 <Preview files={{ 'app.astro': CodeTagRaw }} client:visible>
 	<CodeTag />
@@ -83,25 +97,87 @@ Provides support for [Presets](/docs/design/presets).
 
 ### Keyboard
 
+Represents textual user input from a keyboard, voice, or other input device. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd).
+
 <Preview files={{ 'app.astro': KeyboardRaw }} client:visible>
 	<Keyboard />
 </Preview>
 
 ### Insert & Delete
 
+Marks text that has been added to or removed from a document. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins).
+
 <Preview files={{ 'app.astro': InsDelRaw }} client:visible>
 	<InsDel />
 </Preview>
 
+### Abbreviation
+
+Represents an abbreviation or acronym, optionally paired with its full expansion. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr).
+
+<Preview files={{ 'app.astro': AbbrRaw }} client:visible>
+	<Abbr />
+</Preview>
+
+### Blockquotes
+
+Indicates an extended quotation set apart from surrounding content. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote).
+
+<Preview files={{ 'app.astro': BlockquotesRaw }} client:visible>
+	<Blockquotes />
+</Preview>
+
+### Citation
+
+References the title of a creative work, such as a book, article, or film. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite).
+
+<Preview files={{ 'app.astro': CiteRaw }} client:visible>
+	<Cite />
+</Preview>
+
 ### Mark
+
+Highlights text of relevance or importance within the surrounding context. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark).
 
 <Preview files={{ 'app.astro': MarkRaw }} client:visible>
 	<Mark />
 </Preview>
 
+### Quotation
+
+Represents a short inline quotation. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q).
+
+<Preview files={{ 'app.astro': QRaw }} client:visible>
+	<Q />
+</Preview>
+
+### Subscript
+
+Renders text in subscript, typically lowered and reduced in size. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub).
+
+<Preview files={{ 'app.astro': SubRaw }} client:visible>
+	<Sub />
+</Preview>
+
+### Superscript
+
+Renders text in superscript, typically raised and reduced in size. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup).
+
+<Preview files={{ 'app.astro': SupRaw }} client:visible>
+	<Sup />
+</Preview>
+
+### Time
+
+Represents a specific period in time or a machine-readable date. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time).
+
+<Preview files={{ 'app.astro': TimeRaw }} client:visible>
+	<Time />
+</Preview>
+
 ### Lists
 
-Skeleton defers to Tailwind's built-in utility classes for common list styles.
+Represents ordered and unordered lists of items. Skeleton defers to Tailwind's built-in utility classes for common list styles. Learn more on [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul).
 
 <Preview files={{ 'app.astro': ListsRaw }} client:visible>
 	<Lists />
