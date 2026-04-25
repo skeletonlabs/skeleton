@@ -20,6 +20,7 @@ Scaffold a new `.mdx` documentation page for [sites/skeleton.dev/](sites/skeleto
 | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `framework-components/` | [accordion.mdx](sites/skeleton.dev/src/content/docs/framework-components/accordion.mdx) — Default + per-feature sections + Anatomy + API Reference |
 | `tailwind-components/`  | [buttons.mdx](sites/skeleton.dev/src/content/docs/tailwind-components/buttons.mdx) — Default `.astro` + per-feature sections                       |
+| `tailwind-utilities/`   | [presets.mdx](sites/skeleton.dev/src/content/docs/tailwind-utilities/presets.mdx) — utility class doc with `<Preview>` examples per variant        |
 | `design/`               | [colors.mdx](sites/skeleton.dev/src/content/docs/design/colors.mdx) — long-form prose with `summary`                                               |
 | `get-started/`          | [introduction.mdx](sites/skeleton.dev/src/content/docs/get-started/introduction.mdx)                                                               |
 | `guides/`               | [mode.mdx](sites/skeleton.dev/src/content/docs/guides/mode.mdx)                                                                                    |
@@ -34,6 +35,7 @@ Filename and title must be **derived from the source artifact**, never invented.
 
 - **Framework Components** — derived from `packages/skeleton-{framework}/src/components/{ComponentName}`. `Accordion` → `accordion.mdx`, title `Accordion`. If the component doesn't exist yet, flag this — user may need `/create-component` first.
 - **Tailwind Components** — derived from the CSS filename. `@btn` lives in `buttons.css` → `buttons.mdx`, title `Buttons`. Plural CSS filename verbatim.
+- **Tailwind Utilities** — derived from the CSS filename of the utility set. `presets.css` → `presets.mdx`, title `Presets`. Use this category for cross-cutting utility classes (Presets, etc.) rather than discrete component blocks.
 - **Tailwind exceptions (no new page)** — typography utilities go into [design/typography.mdx](sites/skeleton.dev/src/content/docs/design/typography.mdx); form/input fields go into [tailwind-components/forms.mdx](sites/skeleton.dev/src/content/docs/tailwind-components/forms.mdx). Recommend extending those instead of creating a new page.
 - **All other categories** — kebab-case slug from the topic, Title Case title.
 

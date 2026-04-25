@@ -32,6 +32,10 @@ export const commonSections: Section[] = [
 		docs: await getSection('design/'),
 	},
 	{
+		label: 'Tailwind Utilities',
+		docs: await getSection('tailwind-utilities/'),
+	},
+	{
 		label: 'Tailwind Components',
 		docs: await getSection('tailwind-components/'),
 	},
