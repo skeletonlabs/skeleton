@@ -1,0 +1,39 @@
+---
+title: Disclosures
+description: Toggle the visibility of collapsible content using the native HTML details element.
+tags: ['native']
+stability: beta
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/tree/[branch]/packages/skeleton/src/utilities/disclosures.css'
+---
+
+import Default from '@/components/examples/tailwind-components/disclosures/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-components/disclosures/default.astro?raw';
+import Group from '@/components/examples/tailwind-components/disclosures/group.astro';
+import GroupRaw from '@/components/examples/tailwind-components/disclosures/group.astro?raw';
+import Open from '@/components/examples/tailwind-components/disclosures/open.astro';
+import OpenRaw from '@/components/examples/tailwind-components/disclosures/open.astro?raw';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Group
+
+Wrap with `disclosure-group` and share a [`name`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details#name) attribute so only one item stays open at a time.
+
+<Preview files={{ 'app.astro': GroupRaw }} client:visible>
+	<Group />
+</Preview>
+
+## Open
+
+Add the `open` attribute to render a disclosure expanded by default.
+
+<Preview files={{ 'app.astro': OpenRaw }} client:visible>
+	<Open />
+</Preview>
+
+## Animation
+
+The slide animation is a progressive enhancement via `::details-content` and `interpolate-size: allow-keywords`. For unsupported browsers this will fall back to the native instant toggle.
