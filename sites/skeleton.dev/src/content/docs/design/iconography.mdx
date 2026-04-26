@@ -52,18 +52,24 @@ Use `icon-*` to apply a standard array of icon sizes.
 	<Size />
 </Preview>
 
-Extend with custom sizes:
+### When to Use Sizes
+
+Tailwind Components (buttons, badges, chips, etc) implement sizes automatically for any SVG-based icons (such as Lucide). Meaning explicitly setting the size is optional. The rule of thumb: only apply icon sizes when required.
+
+### Custom Sizes
+
+Sizes are based on Tailwind built-in `@theme` property for `--text-*`. Either continue the sequence or define a custom value.
 
 ```css
 :root {
-	--element-size-10xl: --spacing(48);
+	--text-10xl: --spacing(42); /* 168px */
 }
 ```
 
 ```css
 @utility icon-10xl {
-	width: var(--element-size-10xl);
-	height: var(--element-size-10xl);
+	width: var(--text-10xl);
+	height: var(--text-10xl);
 }
 ```
 

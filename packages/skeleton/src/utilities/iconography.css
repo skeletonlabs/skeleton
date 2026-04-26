@@ -1,54 +1,54 @@
 /* Iconography --- */
 
 @utility icon-xs {
-	width: var(--element-size-xs);
-	height: var(--element-size-xs);
+	width: var(--text-xs);
+	height: var(--text-xs);
 }
 @utility icon-sm {
-	width: var(--element-size-sm);
-	height: var(--element-size-sm);
+	width: var(--text-sm);
+	height: var(--text-sm);
 }
 @utility icon-base {
-	width: var(--element-size-base);
-	height: var(--element-size-base);
+	width: var(--text-base);
+	height: var(--text-base);
 }
 @utility icon-lg {
-	width: var(--element-size-lg);
-	height: var(--element-size-lg);
+	width: var(--text-lg);
+	height: var(--text-lg);
 }
 @utility icon-xl {
-	width: var(--element-size-xl);
-	height: var(--element-size-xl);
+	width: var(--text-xl);
+	height: var(--text-xl);
 }
 @utility icon-2xl {
-	width: var(--element-size-2xl);
-	height: var(--element-size-2xl);
+	width: var(--text-2xl);
+	height: var(--text-2xl);
 }
 @utility icon-3xl {
-	width: var(--element-size-3xl);
-	height: var(--element-size-3xl);
+	width: var(--text-3xl);
+	height: var(--text-3xl);
 }
 @utility icon-4xl {
-	width: var(--element-size-4xl);
-	height: var(--element-size-4xl);
+	width: var(--text-4xl);
+	height: var(--text-4xl);
 }
 @utility icon-5xl {
-	width: var(--element-size-5xl);
-	height: var(--element-size-5xl);
+	width: var(--text-5xl);
+	height: var(--text-5xl);
 }
 @utility icon-6xl {
-	width: var(--element-size-6xl);
-	height: var(--element-size-6xl);
+	width: var(--text-6xl);
+	height: var(--text-6xl);
 }
 @utility icon-7xl {
-	width: var(--element-size-7xl);
-	height: var(--element-size-7xl);
+	width: var(--text-7xl);
+	height: var(--text-7xl);
 }
 @utility icon-8xl {
-	width: var(--element-size-8xl);
-	height: var(--element-size-8xl);
+	width: var(--text-8xl);
+	height: var(--text-8xl);
 }
 @utility icon-9xl {
-	width: var(--element-size-9xl);
-	height: var(--element-size-9xl);
+	width: var(--text-9xl);
+	height: var(--text-9xl);
 }
