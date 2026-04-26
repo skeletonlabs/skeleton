@@ -39,6 +39,9 @@ Recommend structure based on component complexity, explain the reasoning, accept
 - Svelte anatomy files are `.svelte`; interfaces are in `<script lang="ts" module>`.
 - Namespace composition uses `Object.assign(Root, { ...parts })` in `modules/anatomy.ts`.
 - For static parts, include `data-scope` and `data-part` attributes.
+- For machine-backed SVG components, nest SVG child parts like `pattern` inside the frame/SVG part in examples and playgrounds so the rendered DOM is valid.
+- When adding a React playground route, place it under `playgrounds/skeleton-react/src/routes/components/<slug>/index.tsx` and regenerate the route manifest with `pnpm exec tsr generate` before validating.
+- For Svelte playground demos, prefer the current event attribute syntax like `onclick` for simple handlers.
 
 ## Prompt flow
 
@@ -55,7 +58,8 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 
 1. Add new component re-exports to [packages/skeleton-react/src/index.ts](packages/skeleton-react/src/index.ts) and [packages/skeleton-svelte/src/index.ts](packages/skeleton-svelte/src/index.ts).
 2. Keep export ordering consistent with neighboring component entries.
-3. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
+3. If the component should be previewable in the playgrounds, add matching demo entries in both frameworks and regenerate the React route manifest if a new route was added.
+4. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
 
 ## Final summary
 
