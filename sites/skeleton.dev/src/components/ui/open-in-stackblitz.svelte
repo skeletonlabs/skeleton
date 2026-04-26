@@ -20,7 +20,7 @@
 	{...rest}
 	type="button"
 	onclick={openInStackblitz}
-	class="btn-icon preset-outlined-surface-200-800 hover:preset-tonal {rest.class}"
+	class="btn-icon preset-tonal hover:preset-tonal {rest.class}"
 	title="Open on Stackblitz"
 	aria-label="Open on Stackblitz"
 >

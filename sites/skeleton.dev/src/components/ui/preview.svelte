@@ -14,6 +14,7 @@
 		'bg-linear-to-br from-tertiary-500 to-primary-500',
 	];
 	let activePreset = $state(presets[0]);
+	let direction = $state<'ltr' | 'rtl'>('ltr');
 </script>
 
 <script lang="ts">
@@ -30,9 +31,10 @@
 		children?: Snippet;
 		framework?: CollectionEntry<'frameworks'>['id'];
 		files?: Record<string, string>;
+		learnUrl?: string;
 	}
 
-	const { children, framework, files = {} }: Props = $props();
+	const { children, framework, files = {}, learnUrl }: Props = $props();
 
 	let viewMode = $state('preview');
 	let customizeMode = $state('');
@@ -43,46 +45,86 @@
 <div class="card border border-surface-200-800 max-w-full overflow-hidden">
 	<!-- Header -->
 	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
-		<!-- Mode -->
-		<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])} deselectable={false}>
-			<ToggleGroup.Item
-				value="preview"
-				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
-				title="Preview Feature"
-				aria-label="Preview Feature"
-			>
-				<EyeIcon class="size-4" />
-			</ToggleGroup.Item>
-			<ToggleGroup.Item
-				value="code"
-				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
-				title="View Code"
-				aria-label="View Code"
-			>
-				<CodeIcon class="size-4" />
-			</ToggleGroup.Item>
-		</ToggleGroup>
+		<!-- Actions Right -->
+		<div class="flex items-center gap-2">
+			<!-- Toggle Mode -->
+			<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])} deselectable={false}>
+				<ToggleGroup.Item
+					value="preview"
+					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					title="Preview Feature"
+					aria-label="Preview Feature"
+				>
+					<EyeIcon class="size-4" />
+				</ToggleGroup.Item>
+				<ToggleGroup.Item
+					value="code"
+					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					title="View Code"
+					aria-label="View Code"
+				>
+					<CodeIcon class="size-4" />
+				</ToggleGroup.Item>
+			</ToggleGroup>
 
-		<!-- Customize / Tabs -->
-		<ToggleGroup
-			value={[customizeMode]}
-			onValueChange={(details) => (customizeMode = details.value[0])}
-			class="ml-auto {viewMode === 'preview' ? 'block' : 'hidden'}"
-		>
-			<ToggleGroup.Item
-				value="customize"
-				class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
-				title="Customize"
-				aria-label="Customize"
-			>
-				<PaletteIcon class="size-4" />
-			</ToggleGroup.Item>
-		</ToggleGroup>
+			<!-- Learn More URL -->
+			{#if learnUrl}
+				<a
+					href={learnUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn preset-outlined-surface-200-800 hover:preset-tonal"
+					title="Learn how to use this feature."
+					aria-label="Learn how to use this feature."
+				>
+					Learn
+				</a>
+			{/if}
+		</div>
 
-		<!-- Stackblitz -->
-		{#if framework}
-			<OpenInStackblitz {framework} {files} />
-		{/if}
+		<!-- Actions Right -->
+		<div class="flex items-center gap-2">
+			<!-- LTR/RTL Toggle -->
+			<ToggleGroup
+				value={direction === 'rtl' ? ['rtl'] : []}
+				onValueChange={(details) => (direction = details.value[0] === 'rtl' ? 'rtl' : 'ltr')}
+				class={viewMode === 'preview' ? 'block' : 'hidden'}
+			>
+				<ToggleGroup.Item
+					value="rtl"
+					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					title="Toggle LTR/RTL Modes"
+					aria-label="Toggle LTR/RTL Modes"
+				>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+						<text x="8" y="12" text-anchor="middle" font-size="9" font-weight="bold" font-family="sans-serif">
+							{direction.toUpperCase()}
+						</text>
+					</svg>
+				</ToggleGroup.Item>
+			</ToggleGroup>
+
+			<!-- Customize / Tabs -->
+			<ToggleGroup
+				value={[customizeMode]}
+				onValueChange={(details) => (customizeMode = details.value[0])}
+				class={viewMode === 'preview' ? 'block' : 'hidden'}
+			>
+				<ToggleGroup.Item
+					value="customize"
+					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					title="Customize"
+					aria-label="Customize"
+				>
+					<PaletteIcon class="size-4" />
+				</ToggleGroup.Item>
+			</ToggleGroup>
+
+			<!-- Stackblitz -->
+			{#if framework}
+				<OpenInStackblitz {framework} {files} />
+			{/if}
+		</div>
 	</header>
 
 	<!-- Presets -->
@@ -105,7 +147,10 @@
 	</div>
 
 	<!-- Panel: Children -->
-	<div class="p-8 flex justify-center items-center {activePreset} {viewMode === 'preview' && children ? 'block' : 'hidden'}">
+	<div
+		dir={direction}
+		class="p-8 flex justify-center items-center {activePreset} {viewMode === 'preview' && children ? 'block' : 'hidden'}"
+	>
 		{@render children?.()}
 	</div>
 

@@ -36,8 +36,6 @@ import NonModalSvelteRaw from '@/components/examples/tailwind-components/dialogs
 import ResultSvelte from '@/components/examples/tailwind-components/dialogs/svelte/result.svelte';
 import ResultSvelteRaw from '@/components/examples/tailwind-components/dialogs/svelte/result.svelte?raw';
 
-Uses the the native HTML [Dialog](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) element, HTML and Javascript APIs, paired with progressive enchanced [CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transition-behavior).
-
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
@@ -126,6 +124,10 @@ Set [`closedby="any"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Referen
 	</Preview>
 </Framework>
 
+<details class="disclosure">
+<summary>⚠️ View Browser Support</summary>
+<div class="disclosure-content">
+
 | Browser             | Minimum Version | Released      |
 | ------------------- | --------------- | ------------- |
 | Safari              | 18.2            | December 2024 |
@@ -136,9 +138,12 @@ Set [`closedby="any"`](https://developer.mozilla.org/en-US/docs/Web/HTML/Referen
 | Firefox             | 136             | March 2025    |
 | Firefox for Android | 136             | March 2025    |
 
+</div>
+</details>
+
 ### Result Handling
 
-Wrap controls in a [`<form method="dialog">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#usage_notes) and read each submit button's `value` from `dialog.returnValue` on the [`close`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close_event) event.
+Wrap controls in a [`<form method="dialog">`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#usage_notes), then read each submit button's `value` from `dialog.returnValue` on [`close`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/close_event).
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': ResultReactRaw }} client:visible>
@@ -159,6 +164,10 @@ Use the [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/HTML
 	<Invoker />
 </Preview>
 
+<details class="disclosure">
+<summary>⚠️ View Browser Support</summary>
+<div class="disclosure-content">
+
 | Browser             | Minimum Version | Released      |
 | ------------------- | --------------- | ------------- |
 | Chrome              | 135             | April 2025    |
@@ -168,6 +177,9 @@ Use the [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/HTML
 | Firefox for Android | 144             | October 2025  |
 | Safari              | 26.2            | December 2025 |
 | Safari on iOS       | 26.2            | December 2025 |
+
+</div>
+</details>
 
 ---
 

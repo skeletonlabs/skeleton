@@ -32,7 +32,6 @@
 		align-items: center;
 		font-size: var(--tg-size);
 		line-height: var(--tg-size);
-		width: calc(var(--tg-size) + 2 * var(--tg-scalar));
 		height: calc(var(--tg-size) + 2 * var(--tg-scalar));
 		padding: var(--tg-scalar);
 
