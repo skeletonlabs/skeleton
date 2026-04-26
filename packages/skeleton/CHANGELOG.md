@@ -1,5 +1,17 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0-next.5
+
+### Major Changes
+
+- feature: Notable structural and design improvements for Tailwind and Framework components. Introducing variable sizing. Adds the meter component. ([#4380](https://github.com/skeletonlabs/skeleton/pull/4380))
+
+### Minor Changes
+
+- feature: Added Dialog, Disclosure, and Mask Tailwind components, expanded Typography utilities (abbr, cite, q, sub, sup, time) ([#4389](https://github.com/skeletonlabs/skeleton/pull/4389))
+
+- task: refined global styles, redistributed placeholder color to Tailwind components ([#4370](https://github.com/skeletonlabs/skeleton/pull/4370))
+
 ## 5.0.0-next.4
 
 ### Minor Changes

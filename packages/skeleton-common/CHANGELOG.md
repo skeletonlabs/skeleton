@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0-next.5
+
+### Major Changes
+
+- feature: Notable structural and design improvements for Tailwind and Framework components. Introducing variable sizing. Adds the meter component. ([#4380](https://github.com/skeletonlabs/skeleton/pull/4380))
+
 ## 5.0.0-next.4
 
 ### Minor Changes
