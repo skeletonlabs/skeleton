@@ -15,9 +15,7 @@ function Page() {
 				<div className="space-y-2">
 					<p className="text-sm uppercase tracking-[0.3em] text-surface-500-400">Playground entry</p>
 					<h1 className="h3">QR Code</h1>
-					<p className="max-w-prose text-surface-600-300">
-						Edit the encoded value and inspect the frame, pattern, and overlay parts.
-					</p>
+					<p className="max-w-prose text-surface-600-300">Edit the encoded value and inspect the frame, pattern, and overlay parts.</p>
 				</div>
 				<label className="block space-y-2">
 					<span className="text-sm font-medium">Value</span>

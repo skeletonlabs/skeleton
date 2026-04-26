@@ -9,8 +9,8 @@
 <script lang="ts">
 	import { useQrCode } from '../modules/provider.svelte';
 	import { RootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/qr-code';
+	import { mergeProps } from '@zag-js/svelte';
 
 	const props: QrCodeRootProps = $props();
 

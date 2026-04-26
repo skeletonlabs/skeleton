@@ -39,9 +39,6 @@ Recommend structure based on component complexity, explain the reasoning, accept
 - Svelte anatomy files are `.svelte`; interfaces are in `<script lang="ts" module>`.
 - Namespace composition uses `Object.assign(Root, { ...parts })` in `modules/anatomy.ts`.
 - For static parts, include `data-scope` and `data-part` attributes.
-- For machine-backed SVG components, nest SVG child parts like `pattern` inside the frame/SVG part in examples and playgrounds so the rendered DOM is valid.
-- When adding a React playground route, place it under `playgrounds/skeleton-react/src/routes/components/<slug>/index.tsx` and regenerate the route manifest with `pnpm exec tsr generate` before validating.
-- For Svelte playground demos, prefer the current event attribute syntax like `onclick` for simple handlers.
 
 ## Prompt flow
 

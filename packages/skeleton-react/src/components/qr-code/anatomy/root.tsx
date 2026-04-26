@@ -5,8 +5,7 @@ import { mergeProps } from '@zag-js/react';
 import { useQrCode } from '../modules/provider.js';
 import { RootContext } from '../modules/root-context.js';
 
-export interface QrCodeRootProps
-	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+export interface QrCodeRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
 
 export default function Root(props: QrCodeRootProps) {
 	const [qrCodeProps, componentProps] = splitProps(props);
@@ -16,5 +15,7 @@ export default function Root(props: QrCodeRootProps) {
 
 	const attributes = mergeProps(qrCode.getRootProps(), rest);
 
-	return <RootContext.Provider value={qrCode}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
+	return (
+		<RootContext.Provider value={qrCode}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+	);
 }

@@ -13,5 +13,7 @@ export default function RootProvider(props: QrCodeRootProviderProps) {
 
 	const attributes = mergeProps(qrCode.getRootProps(), rest);
 
-	return <RootContext.Provider value={qrCode}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>;
+	return (
+		<RootContext.Provider value={qrCode}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+	);
 }
