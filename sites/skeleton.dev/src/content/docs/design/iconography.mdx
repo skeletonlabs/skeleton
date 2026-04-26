@@ -48,17 +48,20 @@ While Skeleton is icon-agnostic, we recommend [Lucide](https://lucide.dev/) for 
 
 Use `icon-*` to apply a standard array of icon sizes.
 
+> TIP: Tailwind Components (buttons, badges, chips, field sizes, etc) adjust icon size automatically for any SVG-based icons (such as Lucide). Explicitly setting the size is redudant.
+
 <Preview files={{ 'app.astro': SizeRaw }} client:visible>
 	<Size />
 </Preview>
 
-### When to Use Sizes
+Icon sizes are based on Tailwind's built in `--text-*` property, which means you can match icon sizes using the following syntax for `size-*`, `w-*` or `h-*`.
 
-Tailwind Components (buttons, badges, chips, etc) implement sizes automatically for any SVG-based icons (such as Lucide). Meaning explicitly setting the size is optional. The rule of thumb: only apply icon sizes when required.
+```html
+<SomeIcon class="icon-{size}" />
+<div class="size-(--text-{size})">...</div>
+```
 
-### Custom Sizes
-
-Sizes are based on Tailwind built-in `@theme` property for `--text-*`. Either continue the sequence or define a custom value.
+As well as extend with custom icon sizes as expected.
 
 ```css
 :root {
