@@ -14,7 +14,7 @@
 		<nav class="contents">
 			<a class="anchor" href="/docs/design/themes">Themes</a>
 			<a class="anchor" href="/docs/design/colors">Colors</a>
-			<a class="anchor" href="/docs/design/presets">Presets</a>
+			<a class="anchor" href="/docs/tailwind-utilities/presets">Presets</a>
 			<a class="anchor" href="/docs/design/typography">Typography</a>
 			<a class="anchor" href="/docs/design/spacing">Spacing</a>
 			<a class="anchor" href="/docs/design/iconography">Iconography</a>

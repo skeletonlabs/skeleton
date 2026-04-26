@@ -18,7 +18,7 @@ export default function Default() {
 					<a className="anchor" href="/docs/design/colors">
 						Colors
 					</a>
-					<a className="anchor" href="/docs/design/presets">
+					<a className="anchor" href="/docs/tailwind-utilities/presets">
 						Presets
 					</a>
 					<a className="anchor" href="/docs/design/typography">

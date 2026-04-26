@@ -1,5 +1,8 @@
 /* Components: Typography */
 
+/* Headings --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements */
+
 @utility h1 {
 	color: var(--typo-heading--color-light);
 	font-family: var(--typo-heading--font-family);
@@ -151,6 +154,9 @@
 	}
 }
 
+/* Anchor --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a */
+
 @utility anchor {
 	color: var(--typo-anchor--color-light);
 	font-family: var(--typo-anchor--font-family);
@@ -201,12 +207,21 @@
 	}
 }
 
+/* Blockquote --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote */
+
 @utility blockquote {
-	border-left-width: 3px;
-	border-left-color: var(--color-primary-500);
+	border-left-width: 2px;
+	border-left-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(4);
 	padding-left: --spacing(4);
 	font-style: italic;
 }
+
+/* Keyboard Input --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd */
 
 @utility kbd {
 	background-color: var(--color-surface-100-900);
@@ -227,6 +242,9 @@
 	}
 }
 
+/* Preformatted Text --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre */
+
 @utility pre {
 	background-color: rgba(0, 0, 0, 0.85);
 	backdrop-filter: blur(var(--blur-sm));
@@ -237,6 +255,9 @@
 	padding: --spacing(4);
 	overflow-x: auto;
 }
+
+/* Code --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code */
 
 /* Affects <code>, but not <pre><code></code></pre> */
 /* This enables the use of presets-* styling for standalone <code> */
@@ -312,9 +333,59 @@
 	}
 }
 
+/* Mark --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark */
+
 @utility mark {
 	color: var(--color-tertiary-contrast-500);
 	background-color: var(--color-tertiary-500);
 	border-radius: var(--radius-sm);
 	padding-inline: --spacing(1);
+}
+
+/* Abbreviation --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr */
+
+@utility abbr {
+	font-weight: bold;
+	text-decoration: underline dotted;
+	text-decoration-color: var(--color-surface-600-400);
+	text-underline-offset: --spacing(1);
+}
+
+/* Citation --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite */
+
+@utility cite {
+	font-style: italic;
+}
+
+/* Quote --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q */
+
+@utility quote {
+	font-style: italic;
+}
+
+/* Subscript / Superscript --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup */
+
+@utility sub {
+	font-size: var(--text-xs);
+	line-height: 0;
+	vertical-align: sub;
+}
+
+@utility sup {
+	font-size: var(--text-xs);
+	line-height: 0;
+	vertical-align: super;
+}
+
+/* Time --- */
+/* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time */
+
+@utility time {
+	font-weight: bold;
 }

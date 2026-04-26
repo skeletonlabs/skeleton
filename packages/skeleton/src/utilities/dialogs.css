@@ -1,0 +1,88 @@
+/* Components: Dialogs */
+
+@utility dialog {
+	--dialog-top: 50%;
+	--dialog-left: 50%;
+	--dialog-translate: -50% -50%;
+	--dialog-width: fit-content;
+	--dialog-height: fit-content;
+	--dialog-max-width: 640px;
+	--dialog-radius: var(--radius-container);
+	--dialog-backdrop: color-mix(in oklab, var(--color-surface-50-950) 75%, transparent);
+
+	border-radius: var(--dialog-radius);
+	width: var(--dialog-width);
+	height: var(--dialog-height);
+	max-width: var(--dialog-max-width);
+	padding: --spacing(4);
+
+	/* Position */
+	top: var(--dialog-top);
+	left: var(--dialog-left);
+	translate: var(--dialog-translate);
+
+	/* Flex Layout */
+	flex-direction: column;
+	gap: --spacing(4);
+
+	/* Handle semantic element flex sizing. */
+	& > header,
+	& > footer {
+		flex-shrink: 0;
+	}
+	& > article {
+		flex-grow: 1;
+	}
+
+	&[open] {
+		display: flex;
+	}
+
+	/* Backdrop */
+	&::backdrop {
+		background-color: var(--dialog-backdrop);
+	}
+}
+
+/* Variants --- */
+
+@utility dialog-fullscreen {
+	--dialog-top: 0;
+	--dialog-left: 0;
+	--dialog-translate: none;
+	--dialog-width: 100%;
+	--dialog-height: 100%;
+	--dialog-max-width: none;
+	--dialog-radius: 0;
+	--dialog-backdrop: transparent;
+
+	max-height: none;
+	margin: 0;
+}
+
+/* Animations --- */
+
+@utility animate-dialog {
+	--anim-duration: 250ms;
+
+	&,
+	&::backdrop {
+		transition:
+			display var(--anim-duration) allow-discrete,
+			overlay var(--anim-duration) allow-discrete,
+			opacity var(--anim-duration);
+		opacity: 0;
+	}
+
+	&[open],
+	&[open]::backdrop {
+		opacity: 1;
+	}
+
+	@starting-style {
+		&[open],
+		&[open]::backdrop {
+			opacity: 0;
+		}
+	}
+}

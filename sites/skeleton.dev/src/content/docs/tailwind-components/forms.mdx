@@ -71,7 +71,7 @@ The quality and appearance of native and semantic HTML form elements can vary be
 
 Use the optional `.fieldset` and `.legend` classes to group related form controls with an accessible title.
 
-<Preview files={{ 'app.astro': FieldsetRaw }} client:visible>
+<Preview files={{ 'app.astro': FieldsetRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset" client:visible>
 	<Fieldset />
 </Preview>
 
@@ -79,7 +79,7 @@ Use the optional `.fieldset` and `.legend` classes to group related form control
 
 Use `.label` and `.label-text` for styling the visible label text.
 
-<Preview files={{ 'app.astro': LabelRaw }} client:visible>
+<Preview files={{ 'app.astro': LabelRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" client:visible>
 	<Label />
 </Preview>
 
@@ -87,7 +87,7 @@ Use `.label` and `.label-text` for styling the visible label text.
 
 Apply the `.input` class to all standard box-shaped [input types](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input#input_types).
 
-<Preview files={{ 'app.astro': InputRaw }} client:visible>
+<Preview files={{ 'app.astro': InputRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" client:visible>
 	<Input />
 </Preview>
 
@@ -95,7 +95,7 @@ Apply the `.input` class to all standard box-shaped [input types](https://develo
 
 Apply the `.select` class to `<select>` elements for single or multiple option menus.
 
-<Preview files={{ 'app.astro': SelectRaw }} client:visible>
+<Preview files={{ 'app.astro': SelectRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select" client:visible>
 	<Select />
 </Preview>
 
@@ -103,7 +103,7 @@ Apply the `.select` class to `<select>` elements for single or multiple option m
 
 Apply the `.textarea` class to `<textarea>` elements for multi-line text input.
 
-<Preview files={{ 'app.astro': TextareaRaw }} client:visible>
+<Preview files={{ 'app.astro': TextareaRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea" client:visible>
 	<Textarea />
 </Preview>
 
@@ -111,7 +111,11 @@ Apply the `.textarea` class to `<textarea>` elements for multi-line text input.
 
 Use `type="checkbox"` for inputs that allow one or more independent options to be toggled on or off.
 
-<Preview files={{ 'app.astro': CheckboxesRaw }} client:visible>
+<Preview
+	files={{ 'app.astro': CheckboxesRaw }}
+	learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox"
+	client:visible
+>
 	<Checkboxes />
 </Preview>
 
@@ -119,7 +123,11 @@ Use `type="checkbox"` for inputs that allow one or more independent options to b
 
 Use `type="radio"` to present a set of mutually exclusive options where only one can be selected.
 
-<Preview files={{ 'app.astro': RadioRaw }} client:visible>
+<Preview
+	files={{ 'app.astro': RadioRaw }}
+	learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/radio"
+	client:visible
+>
 	<Radio />
 </Preview>
 
@@ -127,7 +135,11 @@ Use `type="radio"` to present a set of mutually exclusive options where only one
 
 Use `type="range"` to allow selection of a numeric value from a continuous or stepped range via a slider.
 
-<Preview files={{ 'app.astro': RangeRaw }} client:visible>
+<Preview
+	files={{ 'app.astro': RangeRaw }}
+	learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/range"
+	client:visible
+>
 	<Range />
 </Preview>
 
@@ -135,7 +147,7 @@ Use `type="range"` to allow selection of a numeric value from a continuous or st
 
 Use `<progress>` to indicate the completion status of a task, such as a file upload or loading operation.
 
-<Preview files={{ 'app.astro': ProgressRaw }} client:visible>
+<Preview files={{ 'app.astro': ProgressRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress" client:visible>
 	<Progress />
 </Preview>
 
@@ -143,7 +155,7 @@ Use `<progress>` to indicate the completion status of a task, such as a file upl
 
 Use `<meter>` to represent a scalar value within a known range, such as disk usage, battery level, or a score.
 
-<Preview files={{ 'app.astro': MeterRaw }} client:visible>
+<Preview files={{ 'app.astro': MeterRaw }} learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" client:visible>
 	<Meter />
 </Preview>
 
@@ -151,7 +163,11 @@ Use `<meter>` to represent a scalar value within a known range, such as disk usa
 
 Use `type="color"` to provide a native color picker for selecting a single color value.
 
-<Preview files={{ 'app.astro': ColorRaw }} client:visible>
+<Preview
+	files={{ 'app.astro': ColorRaw }}
+	learnUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/color"
+	client:visible
+>
 	<Color />
 </Preview>
 
@@ -167,7 +183,7 @@ Form fields `.input`, `.select` and `.textarea` support optional field sizes. De
 
 ## Field Groups
 
-Apply `field-group` to create a grouping of related box-shaped fields or buttons. This acts as a [grid](https://tailwindcss.com/docs/display#grid) container, allowing for column configuration. Make use of [Presets](/docs/[framework]/design/presets) to style label columns.
+Apply `field-group` to create a grouping of related box-shaped fields or buttons. This acts as a [grid](https://tailwindcss.com/docs/display#grid) container, allowing for column configuration. Make use of [Presets](/docs/[framework]/tailwind-utilities/presets) to style label columns.
 
 <Preview files={{ 'app.astro': GroupsRaw }} client:visible>
 	<Groups />

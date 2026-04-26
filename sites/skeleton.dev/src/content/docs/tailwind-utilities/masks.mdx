@@ -1,0 +1,152 @@
+---
+title: Masks
+description: Clip elements to a variety of decorative shapes using CSS mask-image.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/masks.css'
+  styles: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mask'
+---
+
+import Circle from '@/components/examples/tailwind-utilities/masks/circle.astro';
+import CircleRaw from '@/components/examples/tailwind-utilities/masks/circle.astro?raw';
+import Cross from '@/components/examples/tailwind-utilities/masks/cross.astro';
+import CrossRaw from '@/components/examples/tailwind-utilities/masks/cross.astro?raw';
+import Cube from '@/components/examples/tailwind-utilities/masks/cube.astro';
+import CubeRaw from '@/components/examples/tailwind-utilities/masks/cube.astro?raw';
+import Decagon from '@/components/examples/tailwind-utilities/masks/decagon.astro';
+import DecagonRaw from '@/components/examples/tailwind-utilities/masks/decagon.astro?raw';
+import DefaultRaw from '@/components/examples/tailwind-utilities/masks/default.astro?raw';
+import Default from '@/components/examples/tailwind-utilities/masks/default.svelte';
+import Diamond from '@/components/examples/tailwind-utilities/masks/diamond.astro';
+import DiamondRaw from '@/components/examples/tailwind-utilities/masks/diamond.astro?raw';
+import Heart from '@/components/examples/tailwind-utilities/masks/heart.astro';
+import HeartRaw from '@/components/examples/tailwind-utilities/masks/heart.astro?raw';
+import Hexagon from '@/components/examples/tailwind-utilities/masks/hexagon.astro';
+import HexagonRaw from '@/components/examples/tailwind-utilities/masks/hexagon.astro?raw';
+import Octagon from '@/components/examples/tailwind-utilities/masks/octagon.astro';
+import OctagonRaw from '@/components/examples/tailwind-utilities/masks/octagon.astro?raw';
+import Pentagon from '@/components/examples/tailwind-utilities/masks/pentagon.astro';
+import PentagonRaw from '@/components/examples/tailwind-utilities/masks/pentagon.astro?raw';
+import Squircle from '@/components/examples/tailwind-utilities/masks/squircle.astro';
+import SquircleRaw from '@/components/examples/tailwind-utilities/masks/squircle.astro?raw';
+import Star from '@/components/examples/tailwind-utilities/masks/star.astro';
+import StarRaw from '@/components/examples/tailwind-utilities/masks/star.astro?raw';
+import TriangleDown from '@/components/examples/tailwind-utilities/masks/triangle-down.astro';
+import TriangleDownRaw from '@/components/examples/tailwind-utilities/masks/triangle-down.astro?raw';
+import TriangleLeft from '@/components/examples/tailwind-utilities/masks/triangle-left.astro';
+import TriangleLeftRaw from '@/components/examples/tailwind-utilities/masks/triangle-left.astro?raw';
+import TriangleRight from '@/components/examples/tailwind-utilities/masks/triangle-right.astro';
+import TriangleRightRaw from '@/components/examples/tailwind-utilities/masks/triangle-right.astro?raw';
+import TriangleUp from '@/components/examples/tailwind-utilities/masks/triangle-up.astro';
+import TriangleUpRaw from '@/components/examples/tailwind-utilities/masks/triangle-up.astro?raw';
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default client:visible />
+</Preview>
+
+## Shapes
+
+Apply classes `mask mask-{shape}` with any of the shapes defined below.
+
+### Circle
+
+<Preview files={{ 'app.astro': CircleRaw }} client:visible>
+	<Circle />
+</Preview>
+
+### Squircle
+
+<Preview files={{ 'app.astro': SquircleRaw }} client:visible>
+	<Squircle />
+</Preview>
+
+### Triangle Up
+
+<Preview files={{ 'app.astro': TriangleUpRaw }} client:visible>
+	<TriangleUp />
+</Preview>
+
+### Triangle Down
+
+<Preview files={{ 'app.astro': TriangleDownRaw }} client:visible>
+	<TriangleDown />
+</Preview>
+
+### Triangle Right
+
+<Preview files={{ 'app.astro': TriangleRightRaw }} client:visible>
+	<TriangleRight />
+</Preview>
+
+### Triangle Left
+
+<Preview files={{ 'app.astro': TriangleLeftRaw }} client:visible>
+	<TriangleLeft />
+</Preview>
+
+### Diamond
+
+<Preview files={{ 'app.astro': DiamondRaw }} client:visible>
+	<Diamond />
+</Preview>
+
+### Pentagon
+
+<Preview files={{ 'app.astro': PentagonRaw }} client:visible>
+	<Pentagon />
+</Preview>
+
+### Hexagon
+
+<Preview files={{ 'app.astro': HexagonRaw }} client:visible>
+	<Hexagon />
+</Preview>
+
+### Cube
+
+<Preview files={{ 'app.astro': CubeRaw }} client:visible>
+	<Cube />
+</Preview>
+
+### Octagon
+
+<Preview files={{ 'app.astro': OctagonRaw }} client:visible>
+	<Octagon />
+</Preview>
+
+### Decagon
+
+<Preview files={{ 'app.astro': DecagonRaw }} client:visible>
+	<Decagon />
+</Preview>
+
+### Star
+
+<Preview files={{ 'app.astro': StarRaw }} client:visible>
+	<Star />
+</Preview>
+
+### Heart
+
+<Preview files={{ 'app.astro': HeartRaw }} client:visible>
+	<Heart />
+</Preview>
+
+### Cross
+
+<Preview files={{ 'app.astro': CrossRaw }} client:visible>
+	<Cross />
+</Preview>
+
+## Custom Masks
+
+Define your own custom shape. Any valid [CSS mask source](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mask) will work.
+
+```css
+@utility mask-custom {
+	mask-image: url('/path/to/your-shape.svg');
+}
+```
+
+```html
+<img class="mask mask-custom w-32" src="https://i.pravatar.cc/150?img=48" alt="Avatar" />
+```
