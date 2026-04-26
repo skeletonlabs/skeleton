@@ -105,6 +105,30 @@
 @utility btn-xl {
 	--btn-size: var(--text-xl);
 }
+@utility btn-2xl {
+	--btn-size: var(--text-2xl);
+}
+@utility btn-3xl {
+	--btn-size: var(--text-3xl);
+}
+@utility btn-4xl {
+	--btn-size: var(--text-4xl);
+}
+@utility btn-5xl {
+	--btn-size: var(--text-5xl);
+}
+@utility btn-6xl {
+	--btn-size: var(--text-6xl);
+}
+@utility btn-7xl {
+	--btn-size: var(--text-7xl);
+}
+@utility btn-8xl {
+	--btn-size: var(--text-8xl);
+}
+@utility btn-9xl {
+	--btn-size: var(--text-9xl);
+}
 
 /* Button Icon */
 @utility btn-icon-xs {
@@ -122,8 +146,29 @@
 @utility btn-icon-xl {
 	--btn-size: var(--text-xl);
 }
-@utility btn-icon-fab {
+@utility btn-icon-2xl {
+	--btn-size: var(--text-2xl);
+}
+@utility btn-icon-3xl {
 	--btn-size: var(--text-3xl);
+}
+@utility btn-icon-4xl {
+	--btn-size: var(--text-4xl);
+}
+@utility btn-icon-5xl {
+	--btn-size: var(--text-5xl);
+}
+@utility btn-icon-6xl {
+	--btn-size: var(--text-6xl);
+}
+@utility btn-icon-7xl {
+	--btn-size: var(--text-7xl);
+}
+@utility btn-icon-8xl {
+	--btn-size: var(--text-8xl);
+}
+@utility btn-icon-9xl {
+	--btn-size: var(--text-9xl);
 }
 
 /* Group --- */

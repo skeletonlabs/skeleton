@@ -48,3 +48,27 @@
 @utility field-xl {
 	--field-size: var(--text-xl);
 }
+@utility field-2xl {
+	--field-size: var(--text-2xl);
+}
+@utility field-3xl {
+	--field-size: var(--text-3xl);
+}
+@utility field-4xl {
+	--field-size: var(--text-4xl);
+}
+@utility field-5xl {
+	--field-size: var(--text-5xl);
+}
+@utility field-6xl {
+	--field-size: var(--text-6xl);
+}
+@utility field-7xl {
+	--field-size: var(--text-7xl);
+}
+@utility field-8xl {
+	--field-size: var(--text-8xl);
+}
+@utility field-9xl {
+	--field-size: var(--text-9xl);
+}
