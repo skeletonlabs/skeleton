@@ -1,3 +1,4 @@
+export type { QrCodeDownloadTriggerProps } from './anatomy/download-trigger.svelte';
 export type { QrCodeFrameProps } from './anatomy/frame.svelte';
 export type { QrCodeOverlayProps } from './anatomy/overlay.svelte';
 export type { QrCodePatternProps } from './anatomy/pattern.svelte';

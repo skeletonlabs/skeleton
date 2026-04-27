@@ -7,4 +7,5 @@
 		<QrCode.Pattern />
 	</QrCode.Frame>
 	<QrCode.Overlay>Overlay</QrCode.Overlay>
+	<QrCode.DownloadTrigger mimeType="image/png" fileName="skeleton-qr-code">Download</QrCode.DownloadTrigger>
 </QrCode>

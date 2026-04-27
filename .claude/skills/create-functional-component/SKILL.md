@@ -11,6 +11,8 @@ Scaffold a new framework component in both Skeleton packages using the existing 
 
 - React components: [packages/skeleton-react/src/components/](packages/skeleton-react/src/components/)
 - Svelte components: [packages/skeleton-svelte/src/components/](packages/skeleton-svelte/src/components/)
+- React component tests: [packages/skeleton-react/test/components/](packages/skeleton-react/test/components/)
+- Svelte component tests: [packages/skeleton-svelte/test/components/](packages/skeleton-svelte/test/components/)
 - Public package exports: [packages/skeleton-react/src/index.ts](packages/skeleton-react/src/index.ts), [packages/skeleton-svelte/src/index.ts](packages/skeleton-svelte/src/index.ts)
 - Reference components to model after:
   - Static/non-machine: [app-bar](packages/skeleton-react/src/components/app-bar/index.ts), [app-bar](packages/skeleton-svelte/src/components/app-bar/index.ts)
@@ -55,9 +57,15 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 
 1. Add new component re-exports to [packages/skeleton-react/src/index.ts](packages/skeleton-react/src/index.ts) and [packages/skeleton-svelte/src/index.ts](packages/skeleton-svelte/src/index.ts).
 2. Keep export ordering consistent with neighboring component entries.
-3. If the component should be previewable in the playgrounds, add matching demo entries in both frameworks and regenerate the React route manifest if a new route was added.
-4. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
+3. Add tests in both frameworks:
+  - React fixture: `packages/skeleton-react/test/components/<component>.tsx`
+  - React suite: `packages/skeleton-react/test/components/<component>.test.tsx`
+  - Svelte fixture: `packages/skeleton-svelte/test/components/<component>.svelte`
+  - Svelte suite: `packages/skeleton-svelte/test/components/<component>.test.ts`
+4. For each anatomy part, include a render assertion (`toBeInTheDocument`).
+5. If the component should be previewable in the playgrounds, add matching demo entries in both frameworks and regenerate the React route manifest if a new route was added.
+6. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
 
 ## Final summary
 
-List: files created in each framework, namespace members exported, provider/context/hook files added (if any), and top-level index exports added.
+List: files created in each framework, namespace members exported, provider/context/hook files added (if any), top-level index exports added, and test files/coverage added (including prop delegation).

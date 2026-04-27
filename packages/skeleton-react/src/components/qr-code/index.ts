@@ -1,3 +1,4 @@
+export type { QrCodeDownloadTriggerProps } from './anatomy/download-trigger.jsx';
 export type { QrCodeFrameProps } from './anatomy/frame.jsx';
 export type { QrCodeOverlayProps } from './anatomy/overlay.jsx';
 export type { QrCodePatternProps } from './anatomy/pattern.jsx';
