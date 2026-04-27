@@ -61,20 +61,22 @@ Implements a themed [tap highlight color](https://developer.mozilla.org/en-US/do
 }
 ```
 
-## Body Element
+## Html Element
 
 ### Background Color
 
 Sets the app-wide background color for light and dark mode, using Skeleton theme properties.
 
 ```css
-body {
-	background-color: var(--body-background-color);
+html {
+	background-color: var(--color-root-bg-light);
 	@variant dark {
-		background-color: var(--body-background-color-dark);
+		background-color: var(--color-root-bg-dark);
 	}
 }
 ```
+
+## Body Element
 
 ### Typography
 

@@ -185,8 +185,8 @@ export interface SettingsColors {
 }
 
 export interface SettingsBackgrounds {
-	'--body-background-color': string;
-	'--body-background-color-dark': string;
+	'--color-root-bg-light': string;
+	'--color-root-bg-dark': string;
 }
 
 export interface SettingsTypography {
