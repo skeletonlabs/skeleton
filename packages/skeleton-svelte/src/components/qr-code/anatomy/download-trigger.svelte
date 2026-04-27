@@ -3,10 +3,7 @@
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 	import type { DownloadTriggerProps } from '@zag-js/qr-code';
 
-	export interface QrCodeDownloadTriggerProps
-		extends DownloadTriggerProps,
-			PropsWithElement<'button'>,
-			HTMLAttributes<'button'> {}
+	export interface QrCodeDownloadTriggerProps extends DownloadTriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">

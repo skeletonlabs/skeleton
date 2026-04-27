@@ -5,10 +5,7 @@ import { RootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface QrCodeDownloadTriggerProps
-	extends DownloadTriggerProps,
-		PropsWithElement<'button'>,
-		HTMLAttributes<'button'> {}
+export interface QrCodeDownloadTriggerProps extends DownloadTriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function DownloadTrigger(props: QrCodeDownloadTriggerProps) {
 	const qrCode = use(RootContext);
