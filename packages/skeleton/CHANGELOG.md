@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0-next.6
+
+### Minor Changes
+
+- feature: Expanded button (`btn`, `btn-icon`) and form field (`field-*`) size utilities to cover the full Tailwind type scale (`xs` through `9xl`). Removed `btn-icon-fab` in favor of the new sizes — use `btn-icon-3xl` (with `rounded-full` for circular) for an equivalent. ([#4390](https://github.com/skeletonlabs/skeleton/pull/4390))
+
 ## 5.0.0-next.5
 
 ### Major Changes
