@@ -1,0 +1,19 @@
+[data-scope='qr-code'] {
+	&[data-part='root'] {
+		display: grid;
+		gap: --spacing(2);
+	}
+	&[data-part='frame'] {
+		background-color: var(--color-surface-50);
+	}
+	&[data-part='pattern'] {
+		fill: var(--color-surface-950);
+	}
+	&[data-part='overlay'] {
+		background-color: var(--color-surface-900-100);
+		color: var(--color-surface-100-900);
+	}
+	&[data-part='download-trigger'] {
+		@apply btn preset-filled;
+	}
+}

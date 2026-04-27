@@ -67,6 +67,7 @@ catalog:
   '@zag-js/pagination': 1.40.0
   '@zag-js/popover': 1.40.0
   '@zag-js/progress': 1.40.0
+  '@zag-js/qr-code': 1.40.0
   '@zag-js/radio-group': 1.40.0
   '@zag-js/rating-group': 1.40.0
   '@zag-js/react': 1.40.0

@@ -12,6 +12,7 @@
 @import './components/navigation.css';
 @import './components/pagination.css';
 @import './components/progress.css';
+@import './components/qr-code.css';
 @import './components/rating-group.css';
 @import './components/segmented-control.css';
 @import './components/slider.css';
