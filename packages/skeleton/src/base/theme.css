@@ -1,45 +1,97 @@
-@theme {
-	/* Settings */
-	--spacing: 0.25rem;
+/*
+	Themes.css
+	This file services two purposes:
+	1. Defines a monochrome default theme for Skeleton.
+	2. Accepts Skeleton theme properties to overrides the defaults.
+*/
+
+/* Root Properties ---  */
+/* Derived tokens that are NOT supported by Tailwind's theme system */
+
+:root {
+	/* Defines a global text scaling multiplier. */
 	--text-scaling: 1;
 
+	/* Defines the corner shape for base elements (e.g. squircle). */
+	--corner-shape-base: inherit;
+
+	/* Defines the corner shape for container elements (e.g. squircle). */
+	--corner-shape-container: inherit;
+
 	/* Typography — Base */
-	--font-typo-base: system-ui;
-	--text-typo-base: inherit;
-	--color-typo-base-light: var(--color-surface-950);
-	--color-typo-base-dark: var(--color-surface-50);
-	--leading-typo-base: inherit;
-	--tracking-typo-base: 0em;
-	--text-shadow-typo-base: inherit;
+	--typo-base--font-weight: normal;
+	--typo-base--font-style: normal;
+	--typo-base--font-stretch: inherit;
+	--typo-base--font-kerning: inherit;
+	--typo-base--word-spacing: inherit;
+	--typo-base--hyphens: inherit;
+	--typo-base--text-transform: inherit;
 
 	/* Typography — Heading */
-	--font-typo-heading: inherit;
-	--color-typo-heading-light: inherit;
-	--color-typo-heading-dark: inherit;
-	--tracking-typo-heading: inherit;
-	--text-shadow-typo-heading: inherit;
+	--typo-heading--font-weight: bold;
+	--typo-heading--font-style: normal;
+	--typo-heading--font-stretch: inherit;
+	--typo-heading--font-kerning: inherit;
+	--typo-heading--word-spacing: inherit;
+	--typo-heading--hyphens: inherit;
+	--typo-heading--text-transform: inherit;
 
 	/* Typography — Anchor */
-	--font-typo-anchor: inherit;
-	--text-typo-anchor: inherit;
-	--color-typo-anchor-light: var(--color-primary-500);
-	--color-typo-anchor-dark: var(--color-primary-400);
-	--leading-typo-anchor: inherit;
-	--tracking-typo-anchor: inherit;
-	--text-shadow-typo-anchor: inherit;
+	--typo-anchor--font-weight: inherit;
+	--typo-anchor--font-style: inherit;
+	--typo-anchor--font-stretch: inherit;
+	--typo-anchor--font-kerning: inherit;
+	--typo-anchor--word-spacing: inherit;
+	--typo-anchor--hyphens: inherit;
+	--typo-anchor--text-transform: inherit;
+	--typo-anchor--text-decoration-line: none;
+	--typo-anchor--text-decoration-color: inherit;
+	--typo-anchor--text-decoration-style: inherit;
+	--typo-anchor--text-decoration-thickness: inherit;
+	--typo-anchor--text-underline-offset: inherit;
+	--typo-anchor--text-underline-position: inherit;
+
+	/* Typography — Anchor (hover) */
+	--typo-anchor--hover--text-decoration-line: underline;
+	--typo-anchor--hover--text-decoration-color: inherit;
+	--typo-anchor--hover--text-decoration-style: inherit;
+	--typo-anchor--hover--text-decoration-thickness: inherit;
+	--typo-anchor--hover--text-underline-offset: inherit;
+	--typo-anchor--hover--text-underline-position: inherit;
+
+	/* Typography — Anchor (active) */
+	--typo-anchor--active--text-decoration-line: none;
+	--typo-anchor--active--text-decoration-color: inherit;
+	--typo-anchor--active--text-decoration-style: inherit;
+	--typo-anchor--active--text-decoration-thickness: inherit;
+	--typo-anchor--active--text-underline-offset: inherit;
+	--typo-anchor--active--text-underline-position: inherit;
+
+	/* Typography — Anchor (focus) */
+	--typo-anchor--focus--text-decoration-line: none;
+	--typo-anchor--focus--text-decoration-color: inherit;
+	--typo-anchor--focus--text-decoration-style: inherit;
+	--typo-anchor--focus--text-decoration-thickness: inherit;
+	--typo-anchor--focus--text-underline-offset: inherit;
+	--typo-anchor--focus--text-underline-position: inherit;
+}
+
+/* Standard Properties --- */
+/* Derived tokens that are supported by Tailwind's theme system */
+
+@theme {
+	/* Spacing */
+	--spacing: 0.25rem;
 
 	/* Radius */
 	--radius-base: 0.25rem;
 	--radius-container: 0.25rem;
 
 	/* Edges */
+	/* NOTE: The following are undocumented but do functionally work. */
 	--default-border-width: var(--default-border-width);
 	--default-ring-width: var(--default-ring-width);
 	--default-outline-width: var(--default-outline-width);
-
-	/* Corner Shape */
-	--corner-shape-base: inherit;
-	--corner-shape-container: inherit;
 
 	/* Animations */
 	--animate-progress-linear-indeterminate-horizontal: progress-linear-indeterminate-horizontal 1.5s ease-in-out infinite;
@@ -234,6 +286,10 @@
 	--color-brand-dark: var(--color-primary-500);
 	--color-brand-contrast-dark: var(--color-primary-contrast-500);
 
+	/* Root */
+	--color-root-bg-light: var(--color-surface-50);
+	--color-root-bg-dark: var(--color-surface-950);
+
 	/* Element sizes */
 	--spacing-elem-xs: var(--text-xs);
 	--spacing-elem-sm: var(--text-sm);
@@ -250,35 +306,34 @@
 	--spacing-elem-9xl: var(--text-9xl);
 }
 
+/* Inline Properties */
+/* Derived tokens computed from other theme properties */
+
 @theme inline {
 	/* Typography — Base */
-	--font-typo-base: var(--typo-base--font-family);
-	--text-typo-base: var(--typo-base--font-size);
-	--color-typo-base-light: var(--typo-base--color-light);
-	--color-typo-base-dark: var(--typo-base--color-dark);
-	--leading-typo-base: var(--typo-base--line-height);
-	--tracking-typo-base: var(--typo-base--letter-spacing);
-	--text-shadow-typo-base: var(--typo-base--text-shadow);
+	--font-typo-base: var(--typo-base--font-family, system-ui);
+	--text-typo-base: var(--typo-base--font-size, inherit);
+	--color-typo-base-light: var(--typo-base--color-light, var(--color-surface-950));
+	--color-typo-base-dark: var(--typo-base--color-dark, var(--color-surface-50));
+	--leading-typo-base: var(--typo-base--line-height, inherit);
+	--tracking-typo-base: var(--typo-base--letter-spacing, 0em);
+	--text-shadow-typo-base: var(--typo-base--text-shadow, inherit);
 
 	/* Typography — Heading */
-	--font-typo-heading: var(--typo-heading--font-family);
-	--color-typo-heading-light: var(--typo-heading--color-light);
-	--color-typo-heading-dark: var(--typo-heading--color-dark);
-	--tracking-typo-heading: var(--typo-heading--letter-spacing);
-	--text-shadow-typo-heading: var(--typo-heading--text-shadow);
+	--font-typo-heading: var(--typo-heading--font-family, inherit);
+	--color-typo-heading-light: var(--typo-heading--color-light, inherit);
+	--color-typo-heading-dark: var(--typo-heading--color-dark, inherit);
+	--tracking-typo-heading: var(--typo-heading--letter-spacing, inherit);
+	--text-shadow-typo-heading: var(--typo-heading--text-shadow, inherit);
 
 	/* Typography — Anchor */
-	--font-typo-anchor: var(--typo-anchor--font-family);
-	--text-typo-anchor: var(--typo-anchor--font-size);
-	--color-typo-anchor-light: var(--typo-anchor--color-light);
-	--color-typo-anchor-dark: var(--typo-anchor--color-dark);
-	--leading-typo-anchor: var(--typo-anchor--line-height);
-	--tracking-typo-anchor: var(--typo-anchor--letter-spacing);
-	--text-shadow-typo-anchor: var(--typo-anchor--text-shadow);
-
-	/* Backgrounds */
-	--body-background-color: var(--color-surface-50);
-	--body-background-color-dark: var(--color-surface-950);
+	--font-typo-anchor: var(--typo-anchor--font-family, inherit);
+	--text-typo-anchor: var(--typo-anchor--font-size, inherit);
+	--color-typo-anchor-light: var(--typo-anchor--color-light, var(--color-primary-500));
+	--color-typo-anchor-dark: var(--typo-anchor--color-dark, var(--color-primary-400));
+	--leading-typo-anchor: var(--typo-anchor--line-height, inherit);
+	--tracking-typo-anchor: var(--typo-anchor--letter-spacing, inherit);
+	--text-shadow-typo-anchor: var(--typo-anchor--text-shadow, inherit);
 
 	/* Primary pairings */
 	--color-primary-50-950: light-dark(var(--color-primary-50), var(--color-primary-950));

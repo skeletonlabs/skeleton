@@ -29,13 +29,15 @@
 		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
 	}
 
-	body {
+	html {
 		/* Background --- */
-		background-color: var(--body-background-color);
+		background-color: var(--color-root-bg-light);
 		@variant dark {
-			background-color: var(--body-background-color-dark);
+			background-color: var(--color-root-bg-dark);
 		}
+	}
 
+	body {
 		/* Typography --- */
 		color: var(--typo-base--color-light);
 		font-family: var(--typo-base--font-family);

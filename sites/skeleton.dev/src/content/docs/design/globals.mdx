@@ -19,6 +19,12 @@ Skeleton provides a very minimaml set of global styles out of the box. However, 
 :root {
 	/* Defines form field placeholder text styling. */
 	--field-placeholder: var(--color-surface-700-300);
+	/* Defines a global text scaling multiplier. */
+	--text-scaling: 1;
+	/* Defines the corner shape for base elements (e.g. squircle). */
+	--corner-shape-base: inherit;
+	/* Defines the corner shape for container elements (e.g. squircle). */
+	--corner-shape-container: inherit;
 }
 ```
 
@@ -61,20 +67,22 @@ Implements a themed [tap highlight color](https://developer.mozilla.org/en-US/do
 }
 ```
 
-## Body Element
+## Html Element
 
 ### Background Color
 
 Sets the app-wide background color for light and dark mode, using Skeleton theme properties.
 
 ```css
-body {
-	background-color: var(--body-background-color);
+html {
+	background-color: var(--color-root-bg-light);
 	@variant dark {
-		background-color: var(--body-background-color-dark);
+		background-color: var(--color-root-bg-dark);
 	}
 }
 ```
+
+## Body Element
 
 ### Typography
 
