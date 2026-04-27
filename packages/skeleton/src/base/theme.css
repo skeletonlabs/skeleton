@@ -233,6 +233,21 @@
 	--color-brand-contrast-light: var(--color-primary-contrast-500);
 	--color-brand-dark: var(--color-primary-500);
 	--color-brand-contrast-dark: var(--color-primary-contrast-500);
+
+	/* Element sizes */
+	--spacing-elem-xs: var(--text-xs);
+	--spacing-elem-sm: var(--text-sm);
+	--spacing-elem-base: var(--text-base);
+	--spacing-elem-lg: var(--text-lg);
+	--spacing-elem-xl: var(--text-xl);
+	--spacing-elem-2xl: var(--text-2xl);
+	--spacing-elem-3xl: var(--text-3xl);
+	--spacing-elem-4xl: var(--text-4xl);
+	--spacing-elem-5xl: var(--text-5xl);
+	--spacing-elem-6xl: var(--text-6xl);
+	--spacing-elem-7xl: var(--text-7xl);
+	--spacing-elem-8xl: var(--text-8xl);
+	--spacing-elem-9xl: var(--text-9xl);
 }
 
 @theme inline {
