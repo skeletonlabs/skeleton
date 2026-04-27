@@ -32,11 +32,17 @@
 	}
 
 	&[data-part='item-delete-trigger'] {
-		width: var(--element-size-xs);
-		height: var(--element-size-xs);
+		width: var(--text-xs);
+		height: var(--text-xs);
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		/* Inner Icon Sizing */
+		& > :where(svg) {
+			width: var(--text-xs);
+			height: var(--text-xs);
+		}
 	}
 
 	&[data-part='item-input'] {

@@ -1,8 +1,7 @@
 /* Components: Forms > Select */
 
 @utility select {
-	--field-size: var(--element-size-base);
-	--field-scalar: var(--element-scalar-base);
+	--field-size: var(--text-base);
 
 	background-color: var(--color-surface-50-950);
 	color: var(--color-surface-950-50);
@@ -13,7 +12,7 @@
 	/* Size */
 	font-size: var(--field-size);
 	line-height: var(--field-size);
-	padding-block: var(--field-scalar);
+	padding-block: calc((var(--field-size) - --spacing(0.5)) / 2);
 
 	/*
 		WARNING
