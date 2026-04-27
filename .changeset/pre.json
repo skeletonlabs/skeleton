@@ -13,5 +13,14 @@
 		"@skeletonlabs/themes.skeleton.dev": "1.0.0",
 		"@skeletonlabs/plus.skeleton.dev": "1.0.0"
 	},
-	"changesets": ["afraid-paths-fry", "late-owls-check", "purple-clubs-serve", "upset-hairs-wave", "upset-mugs-find"]
+	"changesets": [
+		"afraid-paths-fry",
+		"busy-kids-trade",
+		"dull-chairs-teach",
+		"late-owls-check",
+		"purple-clubs-serve",
+		"tender-ends-yell",
+		"upset-hairs-wave",
+		"upset-mugs-find"
+	]
 }

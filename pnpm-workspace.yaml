@@ -5,21 +5,21 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.8
-  '@astrojs/mdx': 5.0.3
+  '@astrojs/mdx': 5.0.4
   '@astrojs/partytown': 2.1.7
-  '@astrojs/react': 5.0.3
+  '@astrojs/react': 5.0.4
   '@astrojs/sitemap': 3.7.2
   '@astrojs/svelte': 8.0.5
-  '@astrojs/vercel': 10.0.4
-  '@better-auth/drizzle-adapter': 1.6.5
-  '@changesets/cli': 2.30.0
+  '@astrojs/vercel': 10.0.5
+  '@better-auth/drizzle-adapter': 1.6.9
+  '@changesets/cli': 2.31.0
   '@clack/prompts': 1.2.0
   '@faker-js/faker': 10.4.0
   '@floating-ui/dom': 1.7.6
   '@iconify-json/logos': 1.2.11
   '@internationalized/date': 3.12.1
-  '@lucide/astro': 1.8.0
-  '@lucide/svelte': 1.8.0
+  '@lucide/astro': 1.9.0
+  '@lucide/svelte': 1.9.0
   '@playwright/test': 1.59.1
   '@prettier/plugin-oxc': 0.1.4
   '@resvg/resvg-js': 2.6.2
@@ -32,15 +32,15 @@ catalog:
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
-  '@sveltejs/kit': 2.57.1
+  '@sveltejs/kit': 2.58.0
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 5.1.1
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
-  '@tailwindcss/vite': 4.2.2
-  '@tanstack/react-router': 1.168.22
-  '@tanstack/react-start': 1.167.41
-  '@tanstack/router-cli': 1.166.33
+  '@tailwindcss/vite': 4.2.4
+  '@tanstack/react-router': 1.168.23
+  '@tanstack/react-start': 1.167.43
+  '@tanstack/router-cli': 1.166.34
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.8
@@ -51,7 +51,7 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.2.0
-  '@vitest/browser-playwright': 4.1.4
+  '@vitest/browser-playwright': 4.1.5
   '@zag-js/accordion': 1.40.0
   '@zag-js/avatar': 1.40.0
   '@zag-js/carousel': 1.40.0
@@ -81,11 +81,11 @@ catalog:
   '@zag-js/toggle-group': 1.40.0
   '@zag-js/tooltip': 1.40.0
   '@zag-js/tree-view': 1.40.0
-  astro: 6.1.7
+  astro: 6.1.9
   astro-auto-import: 0.5.1
   astro-pagefind: 1.8.6
   astro-seo: 1.1.0
-  better-auth: 1.6.5
+  better-auth: 1.6.9
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
@@ -96,7 +96,7 @@ catalog:
   fuse.js: 7.3.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
-  lucide-react: 1.8.0
+  lucide-react: 1.9.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.3
   mdast-util-gfm: 3.1.0
@@ -107,7 +107,7 @@ catalog:
   node-html-parser: 7.1.0
   octokit: 5.0.5
   oxc-resolver: 11.19.1
-  oxlint: 1.60.0
+  oxlint: 1.61.0
   oxlint-tsgolint: 0.21.1
   package-manager-detector: 1.6.0
   playwright: 1.59.1
@@ -122,19 +122,19 @@ catalog:
   semver: 7.7.4
   sharp: 0.34.5
   shiki: 4.0.2
-  svelte: 5.55.2
+  svelte: 5.55.5
   svelte-check: 4.4.6
-  tailwindcss: 4.2.2
+  tailwindcss: 4.2.4
   tinyglobby: 0.2.16
   ts-morph: 28.0.0
-  tsdown: 0.21.9
+  tsdown: 0.21.10
   type-fest: 5.6.0
   typescript: 5.9.3
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
   valibot: 1.3.1
   vite: 7.3.1
-  vitest: 4.1.4
+  vitest: 4.1.5
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
