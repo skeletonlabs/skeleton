@@ -89,9 +89,9 @@
 
 	/* Edges */
 	/* NOTE: The following are undocumented but do functionally work. */
-	--default-border-width: var(--default-border-width);
-	--default-ring-width: var(--default-ring-width);
-	--default-outline-width: var(--default-outline-width);
+	--default-border-width: var(--default-border-width, 1px);
+	--default-ring-width: var(--default-ring-width, 1px);
+	--default-outline-width: var(--default-outline-width, 1px);
 
 	/* Animations */
 	--animate-progress-linear-indeterminate-horizontal: progress-linear-indeterminate-horizontal 1.5s ease-in-out infinite;
