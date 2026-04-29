@@ -4,6 +4,7 @@ import concord from '@skeletonlabs/skeleton/themes/concord?inline';
 import crimson from '@skeletonlabs/skeleton/themes/crimson?inline';
 import fennec from '@skeletonlabs/skeleton/themes/fennec?inline';
 import hamlindigo from '@skeletonlabs/skeleton/themes/hamlindigo?inline';
+import japandi from '@skeletonlabs/skeleton/themes/japandi?inline';
 import legacy from '@skeletonlabs/skeleton/themes/legacy?inline';
 import mint from '@skeletonlabs/skeleton/themes/mint?inline';
 import modern from '@skeletonlabs/skeleton/themes/modern?inline';
@@ -51,6 +52,11 @@ export const themes = [
 		name: 'hamlindigo',
 		css: hamlindigo,
 		emoji: '👔',
+	},
+	{
+		name: 'japandi',
+		css: japandi,
+		emoji: '🪴',
 	},
 	{
 		name: 'legacy',
