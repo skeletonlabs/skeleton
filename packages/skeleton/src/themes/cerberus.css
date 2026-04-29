@@ -1,6 +1,6 @@
 [data-theme='cerberus'] {
 	--spacing: 0.25rem; /* 0.22rem; | 0.25rem; | 0.28rem; */
-	--text-scaling: 1.067;
+	--text-scaling: 1; /* 1.067 */
 	--typo-base--font-family: system-ui;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: var(--color-surface-950);
@@ -65,8 +65,6 @@
 	--typo-anchor--focus--text-decoration-thickness: inherit;
 	--typo-anchor--focus--text-underline-offset: inherit;
 	--typo-anchor--focus--text-underline-position: inherit;
-	--body-background-color: var(--color-surface-50);
-	--body-background-color-dark: var(--color-surface-950);
 	--radius-base: 0.5rem;
 	--radius-container: 0.5rem;
 	--default-border-width: 1px;
@@ -74,6 +72,12 @@
 	--default-ring-width: 1px;
 	--corner-shape-base: squircle;
 	--corner-shape-container: squircle;
+	--color-root-bg-light: var(--color-surface-50);
+	--color-root-bg-dark: var(--color-surface-950);
+	--color-brand-light: var(--color-primary-500);
+	--color-brand-contrast-light: var(--color-primary-contrast-500);
+	--color-brand-dark: var(--color-primary-500);
+	--color-brand-contrast-dark: var(--color-primary-contrast-500);
 	--color-primary-50: oklch(0.92 0.04 257.51);
 	--color-primary-100: oklch(0.84 0.08 254.62);
 	--color-primary-200: oklch(0.77 0.11 254.28);
@@ -242,8 +246,4 @@
 	--color-surface-contrast-800: var(--color-surface-contrast-light);
 	--color-surface-contrast-900: var(--color-surface-contrast-light);
 	--color-surface-contrast-950: var(--color-surface-contrast-light);
-	--color-brand-light: var(--color-primary-500);
-	--color-brand-contrast-light: var(--color-primary-contrast-500);
-	--color-brand-dark: var(--color-primary-500);
-	--color-brand-contrast-dark: var(--color-primary-contrast-500);
 }

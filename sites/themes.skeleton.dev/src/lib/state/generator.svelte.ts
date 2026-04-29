@@ -202,8 +202,8 @@ export const settingsColors: SettingsColors = $state({
 });
 
 export const settingsBackgrounds: SettingsBackgrounds = $state({
-	'--body-background-color': 'var(--color-surface-50)',
-	'--body-background-color-dark': 'var(--color-surface-950)',
+	'--color-root-bg-light': 'var(--color-surface-50)',
+	'--color-root-bg-dark': 'var(--color-surface-950)',
 });
 
 // Reference: https://designcode.io/typographic-scales

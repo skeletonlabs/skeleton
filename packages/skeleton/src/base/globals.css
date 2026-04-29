@@ -9,6 +9,7 @@
 
 		/* Color Scheme --- */
 		/* https://tailwindcss.com/docs/color-scheme */
+		/* IMPORTANT: this must retain the @variant to work. */
 		color-scheme: light;
 		@variant dark {
 			color-scheme: dark;
@@ -18,10 +19,7 @@
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color */
 		/* https://developer.chrome.com/docs/css-ui/scrollbar-styling */
 		scrollbar-width: thin;
-		scrollbar-color: var(--color-surface-300) transparent; /* thumb / track */
-		@variant dark {
-			scrollbar-color: var(--color-surface-700) transparent;
-		}
+		scrollbar-color: light-dark(var(--color-surface-300), var(--color-surface-700)) transparent; /* thumb / track */
 
 		/* Mobile Tap Highlight Color (WebKit only) --- */
 		/* IMPORTANT: this is useful for mobile accessibility. */
@@ -29,15 +27,14 @@
 		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
 	}
 
-	body {
+	html {
 		/* Background --- */
-		background-color: var(--body-background-color);
-		@variant dark {
-			background-color: var(--body-background-color-dark);
-		}
+		background-color: light-dark(var(--color-root-bg-light), var(--color-root-bg-dark));
+	}
 
+	body {
 		/* Typography --- */
-		color: var(--typo-base--color-light);
+		color: light-dark(var(--typo-base--color-light), var(--typo-base--color-dark));
 		font-family: var(--typo-base--font-family);
 		font-size: var(--typo-base--font-size);
 		line-height: var(--typo-base--line-height);
@@ -50,24 +47,18 @@
 		word-spacing: var(--typo-base--word-spacing);
 		hyphens: var(--typo-base--hyphens);
 		text-transform: var(--typo-base--text-transform);
-		@variant dark {
-			color: var(--typo-base--color-dark);
-		}
 	}
 
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 	::selection {
-		background-color: color-mix(in srgb, var(--color-brand-light) 30%, transparent);
-		@variant dark {
-			background-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
-		}
+		background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%, transparent);
 	}
 
 	/* Disabled State --- */
 	*:disabled,
 	.disabled {
-		box-shadow: 0 0 transparent;
+		box-shadow: none;
 		cursor: not-allowed;
 		opacity: 0.5;
 		& > * {

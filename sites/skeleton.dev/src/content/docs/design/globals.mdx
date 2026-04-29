@@ -42,10 +42,7 @@ Implements themed [scrollbar styling](https://developer.chrome.com/docs/css-ui/s
 ```css
 :root {
 	scrollbar-width: thin;
-	scrollbar-color: var(--color-surface-300) transparent; /* thumb / track */
-	@variant dark {
-		scrollbar-color: var(--color-surface-700) transparent;
-	}
+	scrollbar-color: light-dark(var(--color-surface-300), var(--color-surface-700)) transparent; /* thumb / track */
 }
 ```
 
@@ -61,20 +58,19 @@ Implements a themed [tap highlight color](https://developer.mozilla.org/en-US/do
 }
 ```
 
-## Body Element
+## Html Element
 
 ### Background Color
 
 Sets the app-wide background color for light and dark mode, using Skeleton theme properties.
 
 ```css
-body {
-	background-color: var(--body-background-color);
-	@variant dark {
-		background-color: var(--body-background-color-dark);
-	}
+html {
+	background-color: light-dark(var(--color-root-bg-light), var(--color-root-bg-dark));
 }
 ```
+
+## Body Element
 
 ### Typography
 
@@ -82,7 +78,7 @@ Sets the app-wide base typography settings, using Skeleton theme properties.
 
 ```css
 body {
-	color: var(--typo-base--color-light);
+	color: light-dark(var(--typo-base--color-light), var(--typo-base--color-dark));
 	font-family: var(--typo-base--font-family);
 	font-size: var(--typo-base--font-size);
 	line-height: var(--typo-base--line-height);
@@ -95,9 +91,6 @@ body {
 	word-spacing: var(--typo-base--word-spacing);
 	hyphens: var(--typo-base--hyphens);
 	text-transform: var(--typo-base--text-transform);
-	@variant dark {
-		color: var(--typo-base--color-dark);
-	}
 }
 ```
 
@@ -109,10 +102,7 @@ Implements themed styles for [selection](https://developer.mozilla.org/en-US/doc
 
 ```css
 ::selection {
-	background-color: color-mix(in srgb, var(--color-brand-light) 30%, transparent);
-	@variant dark {
-		background-color: color-mix(in srgb, var(--color-brand-dark) 30%, transparent);
-	}
+	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%, transparent);
 }
 ```
 
@@ -123,7 +113,7 @@ Implements the default [disabled](https://developer.mozilla.org/en-US/docs/Web/H
 ```css
 *:disabled,
 .disabled {
-	box-shadow: 0 0 transparent;
+	box-shadow: none;
 	cursor: not-allowed;
 	opacity: 0.5;
 	& > * {
