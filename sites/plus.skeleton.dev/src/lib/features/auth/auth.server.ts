@@ -19,12 +19,10 @@ export const auth = betterAuth({
 		github: {
 			clientId: env.GITHUB_CLIENT_ID!,
 			clientSecret: env.GITHUB_CLIENT_SECRET!,
-			redirectURI: `${getAppOrigin()}/api/auth/callback/github`,
 		},
 		discord: {
 			clientId: env.DISCORD_CLIENT_ID!,
 			clientSecret: env.DISCORD_CLIENT_SECRET!,
-			redirectURI: `${getAppOrigin()}/api/auth/callback/discord`,
 		},
 	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	trustedOrigins: ['http://localhost:5173', 'https://plusskeleton-*-skeleton-labs.vercel.app', 'https://plus.skeleton.dev'],
