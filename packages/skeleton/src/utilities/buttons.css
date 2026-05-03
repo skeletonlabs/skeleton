@@ -1,8 +1,7 @@
 /* Components: Buttons */
 
 @utility btn {
-	--btn-size: var(--element-size-base);
-	--btn-scalar: var(--element-scalar-base);
+	--btn-size: var(--text-base);
 
 	border-radius: var(--radius-base);
 	corner-shape: var(--corner-shape);
@@ -21,8 +20,14 @@
 	/* Size */
 	font-size: var(--btn-size);
 	line-height: var(--btn-size);
-	padding-block: var(--btn-scalar);
-	padding-inline: calc(var(--btn-scalar) + var(--spacing));
+	padding-block: calc((var(--btn-size) - --spacing(0.5)) / 2);
+	padding-inline: calc((var(--btn-size) - --spacing(0.5)) / 2 + var(--spacing));
+
+	/* Inner Icon Sizing */
+	& > :where(svg) {
+		width: var(--btn-size);
+		height: var(--btn-size);
+	}
 
 	/* Transitions */
 	transition-property: var(--default-transition-property);
@@ -40,8 +45,7 @@
 }
 
 @utility btn-icon {
-	--btn-size: var(--element-size-base);
-	--btn-scalar: var(--element-scalar-base);
+	--btn-size: var(--text-base);
 
 	border-radius: var(--radius-base);
 	corner-shape: var(--corner-shape);
@@ -58,9 +62,15 @@
 	/* Size */
 	font-size: var(--btn-size);
 	line-height: var(--btn-size);
-	width: calc(var(--btn-size) + 2 * var(--btn-scalar));
-	height: calc(var(--btn-size) + 2 * var(--btn-scalar));
-	padding: var(--btn-scalar);
+	width: calc(var(--btn-size) * 2 - --spacing(0.5));
+	height: calc(var(--btn-size) * 2 - --spacing(0.5));
+	padding: calc((var(--btn-size) - --spacing(0.5)) / 2);
+
+	/* Inner Icon Sizing */
+	& > :where(svg) {
+		width: var(--btn-size);
+		height: var(--btn-size);
+	}
 
 	/* Transitions */
 	transition-property: var(--default-transition-property);
@@ -81,50 +91,84 @@
 
 /* Button */
 @utility btn-xs {
-	--btn-size: var(--element-size-xs);
-	--btn-scalar: var(--element-scalar-xs);
+	--btn-size: var(--text-xs);
 }
 @utility btn-sm {
-	--btn-size: var(--element-size-sm);
-	--btn-scalar: var(--element-scalar-sm);
+	--btn-size: var(--text-sm);
 }
 @utility btn-base {
-	--btn-size: var(--element-size-base);
-	--btn-scalar: var(--element-scalar-base);
+	--btn-size: var(--text-base);
 }
 @utility btn-lg {
-	--btn-size: var(--element-size-lg);
-	--btn-scalar: var(--element-scalar-lg);
+	--btn-size: var(--text-lg);
 }
 @utility btn-xl {
-	--btn-size: var(--element-size-xl);
-	--btn-scalar: var(--element-scalar-xl);
+	--btn-size: var(--text-xl);
+}
+@utility btn-2xl {
+	--btn-size: var(--text-2xl);
+}
+@utility btn-3xl {
+	--btn-size: var(--text-3xl);
+}
+@utility btn-4xl {
+	--btn-size: var(--text-4xl);
+}
+@utility btn-5xl {
+	--btn-size: var(--text-5xl);
+}
+@utility btn-6xl {
+	--btn-size: var(--text-6xl);
+}
+@utility btn-7xl {
+	--btn-size: var(--text-7xl);
+}
+@utility btn-8xl {
+	--btn-size: var(--text-8xl);
+}
+@utility btn-9xl {
+	--btn-size: var(--text-9xl);
 }
 
 /* Button Icon */
 @utility btn-icon-xs {
-	--btn-size: var(--element-size-xs);
-	--btn-scalar: var(--element-scalar-xs);
+	--btn-size: var(--text-xs);
 }
 @utility btn-icon-sm {
-	--btn-size: var(--element-size-sm);
-	--btn-scalar: var(--element-scalar-sm);
+	--btn-size: var(--text-sm);
 }
 @utility btn-icon-base {
-	--btn-size: var(--element-size-base);
-	--btn-scalar: var(--element-scalar-base);
+	--btn-size: var(--text-base);
 }
 @utility btn-icon-lg {
-	--btn-size: var(--element-size-lg);
-	--btn-scalar: var(--element-scalar-lg);
+	--btn-size: var(--text-lg);
 }
 @utility btn-icon-xl {
-	--btn-size: var(--element-size-xl);
-	--btn-scalar: var(--element-scalar-xl);
+	--btn-size: var(--text-xl);
 }
-@utility btn-icon-fab {
-	--btn-size: var(--element-size-4xl);
-	--btn-scalar: var(--element-scalar-4xl);
+@utility btn-icon-2xl {
+	--btn-size: var(--text-2xl);
+}
+@utility btn-icon-3xl {
+	--btn-size: var(--text-3xl);
+}
+@utility btn-icon-4xl {
+	--btn-size: var(--text-4xl);
+}
+@utility btn-icon-5xl {
+	--btn-size: var(--text-5xl);
+}
+@utility btn-icon-6xl {
+	--btn-size: var(--text-6xl);
+}
+@utility btn-icon-7xl {
+	--btn-size: var(--text-7xl);
+}
+@utility btn-icon-8xl {
+	--btn-size: var(--text-8xl);
+}
+@utility btn-icon-9xl {
+	--btn-size: var(--text-9xl);
 }
 
 /* Group --- */

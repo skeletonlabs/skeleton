@@ -8,8 +8,7 @@
 }
 
 @utility disclosure {
-	--disclosure-size: var(--element-size-base);
-	--disclosure-scalar: var(--element-scalar-base);
+	--disclosure-size: var(--text-base);
 
 	interpolate-size: allow-keywords;
 
@@ -23,8 +22,14 @@
 		/* Size */
 		font-size: var(--disclosure-size);
 		line-height: var(--disclosure-size);
-		padding-block: var(--disclosure-scalar);
-		padding-inline: calc(var(--disclosure-scalar) + var(--spacing));
+		padding-block: calc((var(--disclosure-size) - --spacing(0.5)) / 2);
+		padding-inline: calc((var(--disclosure-size) - --spacing(0.5)) / 2 + var(--spacing));
+
+		/* Inner Icon Sizing */
+		& > :where(svg) {
+			width: var(--disclosure-size);
+			height: var(--disclosure-size);
+		}
 
 		/* Transitions */
 		transition-property: var(--default-transition-property);
@@ -52,6 +57,6 @@
 }
 
 @utility disclosure-content {
-	padding-block: var(--disclosure-scalar, var(--element-scalar-base));
-	padding-inline: calc(var(--disclosure-scalar, var(--element-scalar-base)) + var(--spacing));
+	padding-block: calc((var(--disclosure-size, var(--text-base)) - --spacing(0.5)) / 2);
+	padding-inline: calc((var(--disclosure-size, var(--text-base)) - --spacing(0.5)) / 2 + var(--spacing));
 }

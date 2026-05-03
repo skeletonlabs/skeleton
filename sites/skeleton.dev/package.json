@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "LOAD_COMPONENT_COLLECTION=1 astro build",
+		"build": "astro build",
 		"check": "astro check",
+		"generate-component-types": "node ./scripts/generate-component-types.ts",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
 		"postinstall": "astro sync"
 	},

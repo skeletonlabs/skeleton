@@ -24,16 +24,21 @@
 	}
 
 	&[data-part='item'] {
-		--tg-size: var(--element-size-base);
-		--tg-scalar: var(--element-scalar-base);
+		--tg-size: var(--text-base);
 
 		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 		font-size: var(--tg-size);
 		line-height: var(--tg-size);
-		height: calc(var(--tg-size) + 2 * var(--tg-scalar));
-		padding: var(--tg-scalar);
+		height: calc(var(--tg-size) * 2 - --spacing(0.5));
+		padding: calc((var(--tg-size) - --spacing(0.5)) / 2);
+
+		/* Inner Icon Sizing */
+		& > :where(svg) {
+			width: var(--tg-size);
+			height: var(--tg-size);
+		}
 
 		@variant hover {
 			@apply preset-tonal;
