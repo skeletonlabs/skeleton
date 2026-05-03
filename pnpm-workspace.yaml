@@ -10,7 +10,7 @@ catalog:
   '@astrojs/react': 6.0.0-alpha.0
   '@astrojs/sitemap': 3.7.2
   '@astrojs/svelte': 9.0.0-alpha.0
-  '@astrojs/vercel': 10.0.5
+  '@astrojs/vercel': 11.0.0-alpha.0
   '@better-auth/drizzle-adapter': 1.6.9
   '@changesets/cli': 2.31.0
   '@clack/prompts': 1.2.0
