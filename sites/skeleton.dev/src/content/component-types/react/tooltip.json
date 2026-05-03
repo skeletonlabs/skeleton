@@ -1,0 +1,377 @@
+{
+	"name": "tooltip",
+	"types": [
+		{
+			"name": "TooltipRootProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "ids",
+					"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); content: string; arrow: string; positioner: string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the tooltip. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "openDelay",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The open delay of the tooltip.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "400"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeDelay",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The close delay of the tooltip.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "150"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeOnPointerDown",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to close the tooltip on pointerdown.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeOnEscape",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to close the tooltip when the Escape key is pressed.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeOnScroll",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the tooltip should close on scroll",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeOnClick",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the tooltip should close on click",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "interactive",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the tooltip's content is interactive.\nIn this mode, the tooltip will remain open when user hovers over the content.",
+						"tags": [
+							{
+								"name": "see",
+								"value": "://www.w3.org/TR/WCAG21/#content-on-hover-or-focus"
+							},
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "onOpenChange",
+					"type": "((details: OpenChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the tooltip is opened.",
+						"tags": []
+					}
+				},
+				{
+					"name": "aria-label",
+					"type": "string | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Custom label for the tooltip.",
+						"tags": []
+					}
+				},
+				{
+					"name": "positioning",
+					"type": "PositioningOptions | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The user provided options used to position the popover content",
+						"tags": []
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the tooltip is disabled",
+						"tags": []
+					}
+				},
+				{
+					"name": "open",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled open state of the tooltip",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultOpen",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial open state of the tooltip when rendered.\nUse when you don't need to control the open state of the tooltip.",
+						"tags": []
+					}
+				},
+				{
+					"name": "triggerValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled trigger value",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultTriggerValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial trigger value when rendered.\nUse when you don't need to control the trigger value.",
+						"tags": []
+					}
+				},
+				{
+					"name": "onTriggerValueChange",
+					"type": "((details: TriggerValueChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the trigger value changes.",
+						"tags": []
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "TooltipApi<PropTypes>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(tooltip: TooltipApi<PropTypes>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipPositionerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipContentProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipArrowProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "TooltipArrowTipProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

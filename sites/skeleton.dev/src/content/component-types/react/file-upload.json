@@ -1,0 +1,528 @@
+{
+	"name": "file-upload",
+	"types": [
+		{
+			"name": "FileUploadRootProps",
+			"props": [
+				{
+					"name": "name",
+					"type": "string | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The name of the underlying file input",
+						"tags": []
+					}
+				},
+				{
+					"name": "ids",
+					"type": "Partial<{ root: string; dropzone: string; hiddenInput: string; trigger: string; label: string; item: (id: string) => string; itemName: (id: string) => string; itemSizeText: (id: string) => string; itemPreview: (id: string) => string; itemDeleteTrigger: (id: string) => string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "translations",
+					"type": "IntlTranslations | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The localized messages to use.",
+						"tags": []
+					}
+				},
+				{
+					"name": "accept",
+					"type": "Record<string, string[]> | FileMimeType | FileMimeType[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The accept file types",
+						"tags": []
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the file input is disabled",
+						"tags": []
+					}
+				},
+				{
+					"name": "required",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the file input is required",
+						"tags": []
+					}
+				},
+				{
+					"name": "allowDrop",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to allow drag and drop in the dropzone element",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "maxFileSize",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The maximum file size in bytes",
+						"tags": [
+							{
+								"name": "default",
+								"value": "Infinity"
+							}
+						]
+					}
+				},
+				{
+					"name": "minFileSize",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The minimum file size in bytes",
+						"tags": [
+							{
+								"name": "default",
+								"value": "0"
+							}
+						]
+					}
+				},
+				{
+					"name": "maxFiles",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The maximum number of files",
+						"tags": [
+							{
+								"name": "default",
+								"value": "1"
+							}
+						]
+					}
+				},
+				{
+					"name": "preventDocumentDrop",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to prevent the drop event on the document",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "validate",
+					"type": "((file: File, details: FileValidateDetails) => FileError[] | null) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to validate a file",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultAcceptedFiles",
+					"type": "File[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The default accepted files when rendered.\nUse when you don't need to control the accepted files of the input.",
+						"tags": []
+					}
+				},
+				{
+					"name": "acceptedFiles",
+					"type": "File[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled accepted files",
+						"tags": []
+					}
+				},
+				{
+					"name": "onFileChange",
+					"type": "((details: FileChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the value changes, whether accepted or rejected",
+						"tags": []
+					}
+				},
+				{
+					"name": "onFileAccept",
+					"type": "((details: FileAcceptDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the file is accepted",
+						"tags": []
+					}
+				},
+				{
+					"name": "onFileReject",
+					"type": "((details: FileRejectDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the file is rejected",
+						"tags": []
+					}
+				},
+				{
+					"name": "capture",
+					"type": "\"user\" | \"environment\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The default camera to use when capturing media",
+						"tags": []
+					}
+				},
+				{
+					"name": "directory",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to accept directories, only works in webkit browsers",
+						"tags": []
+					}
+				},
+				{
+					"name": "invalid",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the file input is invalid",
+						"tags": []
+					}
+				},
+				{
+					"name": "readOnly",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the file input is read-only",
+						"tags": []
+					}
+				},
+				{
+					"name": "transformFiles",
+					"type": "((files: File[]) => Promise<File[]>) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to transform the accepted files to apply transformations",
+						"tags": []
+					}
+				},
+				{
+					"name": "locale",
+					"type": "string | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The current locale. Based on the BCP 47 definition.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"en-US\""
+							}
+						]
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "FileUploadApi<PropTypes>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(fileUpload: FileUploadApi<PropTypes>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadLabelProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"label\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadDropzoneProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadClearTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadHiddenInputProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"input\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadItemGroupProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"ul\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadItemProps",
+			"props": [
+				{
+					"name": "file",
+					"type": "File",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "type",
+					"type": "ItemType | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"li\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadItemNameProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadItemSizeTextProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FileUploadItemDeleteTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

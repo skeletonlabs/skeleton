@@ -1,0 +1,619 @@
+{
+	"name": "floating-panel",
+	"types": [
+		{
+			"name": "FloatingPanelRootProps",
+			"props": [
+				{
+					"name": "ids",
+					"type": "Partial<{ trigger: string; positioner: string; content: string; title: string; header: string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the floating panel. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "translations",
+					"type": "IntlTranslations | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The translations for the floating panel.",
+						"tags": []
+					}
+				},
+				{
+					"name": "strategy",
+					"type": "\"absolute\" | \"fixed\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The strategy to use for positioning",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"fixed\""
+							}
+						]
+					}
+				},
+				{
+					"name": "allowOverflow",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel should be strictly contained within the boundary when dragging",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "open",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled open state of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultOpen",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial open state of the panel when rendered.\nUse when you don't need to control the open state of the panel.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "draggable",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel is draggable",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "resizable",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel is resizable",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "size",
+					"type": "Size | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The size of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultSize",
+					"type": "Size | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The default size of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "minSize",
+					"type": "Size | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The minimum size of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "maxSize",
+					"type": "Size | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The maximum size of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "position",
+					"type": "Point | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled position of the panel",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultPosition",
+					"type": "Point | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial position of the panel when rendered.\nUse when you don't need to control the position of the panel.",
+						"tags": []
+					}
+				},
+				{
+					"name": "getAnchorPosition",
+					"type": "((details: AnchorPositionDetails) => Point) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function that returns the initial position of the panel when it is opened.\nIf provided, will be used instead of the default position.",
+						"tags": []
+					}
+				},
+				{
+					"name": "lockAspectRatio",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel is locked to its aspect ratio",
+						"tags": []
+					}
+				},
+				{
+					"name": "closeOnEscape",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel should close when the escape key is pressed",
+						"tags": []
+					}
+				},
+				{
+					"name": "getBoundaryEl",
+					"type": "(() => HTMLElement | null) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The boundary of the panel. Useful for recalculating the boundary rect when\nthe it is resized.",
+						"tags": []
+					}
+				},
+				{
+					"name": "initialFocusEl",
+					"type": "(() => HTMLElement | null) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Element to receive focus when the panel is opened.\nBy default, the first focusable element in the content is focused.",
+						"tags": []
+					}
+				},
+				{
+					"name": "finalFocusEl",
+					"type": "(() => HTMLElement | null) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Element to receive focus when the panel is closed.\nBy default, the trigger element is focused.",
+						"tags": []
+					}
+				},
+				{
+					"name": "restoreFocus",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to restore focus to the trigger when the panel is closed.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel is disabled",
+						"tags": []
+					}
+				},
+				{
+					"name": "onPositionChange",
+					"type": "((details: PositionChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the position of the panel changes via dragging",
+						"tags": []
+					}
+				},
+				{
+					"name": "onPositionChangeEnd",
+					"type": "((details: PositionChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the position of the panel changes via dragging ends",
+						"tags": []
+					}
+				},
+				{
+					"name": "onOpenChange",
+					"type": "((details: OpenChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the panel is opened or closed",
+						"tags": []
+					}
+				},
+				{
+					"name": "onSizeChange",
+					"type": "((details: SizeChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the size of the panel changes via resizing",
+						"tags": []
+					}
+				},
+				{
+					"name": "onSizeChangeEnd",
+					"type": "((details: SizeChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the size of the panel changes via resizing ends",
+						"tags": []
+					}
+				},
+				{
+					"name": "persistRect",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the panel size and position should be preserved when it is closed",
+						"tags": []
+					}
+				},
+				{
+					"name": "gridSize",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The snap grid for the panel",
+						"tags": [
+							{
+								"name": "default",
+								"value": "1"
+							}
+						]
+					}
+				},
+				{
+					"name": "onStageChange",
+					"type": "((details: StageChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the stage of the panel changes",
+						"tags": []
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "children",
+					"type": "Snippet<[]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The default slot content to be rendered within the component.",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "() => FloatingPanelApi<PropTypes>",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "children",
+					"type": "Snippet<[]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The default slot content to be rendered within the component.",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "Snippet<[() => FloatingPanelApi<PropTypes>]>",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelPositionerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelContentProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelDragTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelHeaderProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelTitleProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelControlProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelStageTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				},
+				{
+					"name": "stage",
+					"type": "Stage",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": "The stage of the panel",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelCloseTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelBodyProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "FloatingPanelResizeTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				},
+				{
+					"name": "axis",
+					"type": "ResizeTriggerAxis",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": "The axis of the resize handle",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

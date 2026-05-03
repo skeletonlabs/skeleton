@@ -2,7 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
 
-const components = await getCollection('components');
+const components = await getCollection('component-types');
 
 function kebabToPascal(str: string) {
 	return str
@@ -18,7 +18,7 @@ function createCell(value: string): TableCell {
 	};
 }
 
-function createTablesForComponent(component: CollectionEntry<'components'>) {
+function createTablesForComponent(component: CollectionEntry<'component-types'>) {
 	const nodes: (Heading | Table)[] = [];
 	for (const type of component.data.types) {
 		const heading =
