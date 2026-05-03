@@ -1,0 +1,465 @@
+{
+	"name": "dialog",
+	"types": [
+		{
+			"name": "DialogRootProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "ids",
+					"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); positioner: string; backdrop: string; content: string; closeTrigger: string; title: string; description: string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the dialog. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "trapFocus",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to trap focus inside the dialog when it's opened",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "preventScroll",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to prevent scrolling behind the dialog when it's opened",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "modal",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to prevent pointer interaction outside the element and hide all content below it",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "initialFocusEl",
+					"type": "(() => MaybeElement) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Element to receive focus when the dialog is opened",
+						"tags": []
+					}
+				},
+				{
+					"name": "finalFocusEl",
+					"type": "(() => MaybeElement) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Element to receive focus when the dialog is closed",
+						"tags": []
+					}
+				},
+				{
+					"name": "restoreFocus",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to restore focus to the element that had focus before the dialog was opened",
+						"tags": []
+					}
+				},
+				{
+					"name": "closeOnInteractOutside",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to close the dialog when the outside is clicked",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "closeOnEscape",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to close the dialog when the escape key is pressed",
+						"tags": [
+							{
+								"name": "default",
+								"value": "true"
+							}
+						]
+					}
+				},
+				{
+					"name": "aria-label",
+					"type": "string | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Human readable label for the dialog, in event the dialog title is not rendered",
+						"tags": []
+					}
+				},
+				{
+					"name": "role",
+					"type": "\"dialog\" | \"alertdialog\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The dialog's role",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"dialog\""
+							}
+						]
+					}
+				},
+				{
+					"name": "open",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled open state of the dialog",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultOpen",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial open state of the dialog when rendered.\nUse when you don't need to control the open state of the dialog.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "onOpenChange",
+					"type": "((details: OpenChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to call when the dialog's open state changes",
+						"tags": []
+					}
+				},
+				{
+					"name": "triggerValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled active trigger value",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultTriggerValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial active trigger value when rendered.\nUse when you don't need to control the active trigger value.",
+						"tags": []
+					}
+				},
+				{
+					"name": "onTriggerValueChange",
+					"type": "((details: TriggerValueChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to call when the active trigger changes",
+						"tags": []
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "onEscapeKeyDown",
+					"type": "((event: KeyboardEvent) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the escape key is pressed",
+						"tags": []
+					}
+				},
+				{
+					"name": "onRequestDismiss",
+					"type": "((event: LayerDismissEvent) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when this layer is closed due to a parent layer being closed",
+						"tags": []
+					}
+				},
+				{
+					"name": "onPointerDownOutside",
+					"type": "((event: PointerDownOutsideEvent) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the pointer is pressed down outside the component",
+						"tags": []
+					}
+				},
+				{
+					"name": "onFocusOutside",
+					"type": "((event: FocusOutsideEvent) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when the focus is moved outside the component",
+						"tags": []
+					}
+				},
+				{
+					"name": "onInteractOutside",
+					"type": "((event: InteractOutsideEvent) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when an interaction happens outside the component",
+						"tags": []
+					}
+				},
+				{
+					"name": "persistentElements",
+					"type": "(() => Element | null)[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "Returns the persistent elements that:\n- should not have pointer-events disabled\n- should not trigger the dismiss event",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "DialogApi<PropTypes>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(dialog: DialogApi<PropTypes>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogBackdropProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogPositionerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogContentProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogTitleProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogDescriptionProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "DialogCloseTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}
