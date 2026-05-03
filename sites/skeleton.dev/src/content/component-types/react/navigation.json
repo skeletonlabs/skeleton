@@ -1,0 +1,180 @@
+{
+	"name": "navigation",
+	"types": [
+		{
+			"name": "NavigationRootProps",
+			"props": [
+				{
+					"name": "layout",
+					"type": "\"bar\" | \"rail\" | \"sidebar\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Sets the data-layout attribute, which modifies the visual presentation of the component set.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "bar"
+							}
+						]
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationHeaderProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"header\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationContentProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationGroupProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationLabelProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationMenuProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationTriggerAnchorProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"a\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationTriggerTextProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "NavigationFooterProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"footer\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

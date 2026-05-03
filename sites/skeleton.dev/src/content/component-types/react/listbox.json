@@ -1,0 +1,436 @@
+{
+	"name": "listbox",
+	"types": [
+		{
+			"name": "ListboxRootProps",
+			"props": [
+				{
+					"name": "orientation",
+					"type": "\"horizontal\" | \"vertical\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The orientation of the listbox.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"vertical\""
+							}
+						]
+					}
+				},
+				{
+					"name": "collection",
+					"type": "ListCollection<any> | GridCollection<any>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": "The item collection",
+						"tags": []
+					}
+				},
+				{
+					"name": "ids",
+					"type": "Partial<{ root: string; content: string; label: string; item: (id: string | number) => string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the listbox. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the listbox is disabled",
+						"tags": []
+					}
+				},
+				{
+					"name": "disallowSelectAll",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to disallow selecting all items when `meta+a` is pressed",
+						"tags": []
+					}
+				},
+				{
+					"name": "onHighlightChange",
+					"type": "((details: HighlightChangeDetails<any>) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The callback fired when the highlighted item changes.",
+						"tags": []
+					}
+				},
+				{
+					"name": "onValueChange",
+					"type": "((details: ValueChangeDetails<any>) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The callback fired when the selected item changes.",
+						"tags": []
+					}
+				},
+				{
+					"name": "value",
+					"type": "string[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled keys of the selected items",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultValue",
+					"type": "string[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial default value of the listbox when rendered.\nUse when you don't need to control the value of the listbox.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "[]"
+							}
+						]
+					}
+				},
+				{
+					"name": "highlightedValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled key of the highlighted item",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultHighlightedValue",
+					"type": "string | null | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial value of the highlighted item when opened.\nUse when you don't need to control the highlighted value of the listbox.",
+						"tags": []
+					}
+				},
+				{
+					"name": "loopFocus",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to loop the keyboard navigation through the options",
+						"tags": [
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "selectionMode",
+					"type": "SelectionMode | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "How multiple selection should behave in the listbox.\n\n- `single`: The user can select a single item.\n- `multiple`: The user can select multiple items without using modifier keys.\n- `extended`: The user can select multiple items by using modifier keys.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"single\""
+							}
+						]
+					}
+				},
+				{
+					"name": "scrollToIndexFn",
+					"type": "((details: ScrollToIndexDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to scroll to a specific index",
+						"tags": []
+					}
+				},
+				{
+					"name": "selectOnHighlight",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to select the item when it is highlighted",
+						"tags": []
+					}
+				},
+				{
+					"name": "deselectable",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to disallow empty selection",
+						"tags": []
+					}
+				},
+				{
+					"name": "typeahead",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to enable typeahead on the listbox",
+						"tags": []
+					}
+				},
+				{
+					"name": "onSelect",
+					"type": "((details: SelectionDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function called when an item is selected",
+						"tags": []
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "ListboxApi<PropTypes, any>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(listbox: ListboxApi<PropTypes, any>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxLabelProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"label\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxInputProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"input\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxContentProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"ul\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxItemGroupProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxItemGroupLabelProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxItemProps",
+			"props": [
+				{
+					"name": "item",
+					"type": "any",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": "The item to render",
+						"tags": []
+					}
+				},
+				{
+					"name": "highlightOnHover",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether to highlight the item on hover",
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"li\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxItemTextProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "ListboxItemIndicatorProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

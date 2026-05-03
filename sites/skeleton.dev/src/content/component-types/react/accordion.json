@@ -1,0 +1,317 @@
+{
+	"name": "accordion",
+	"types": [
+		{
+			"name": "AccordionRootProps",
+			"props": [
+				{
+					"name": "ids",
+					"type": "Partial<{ root: string; item: (value: string) => string; itemContent: (value: string) => string; itemTrigger: (value: string) => string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the accordion. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "multiple",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether multiple accordion items can be expanded at the same time.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "collapsible",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether an accordion item can be closed after it has been expanded.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "false"
+							}
+						]
+					}
+				},
+				{
+					"name": "value",
+					"type": "string[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled value of the expanded accordion items.",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultValue",
+					"type": "string[] | undefined",
+					"typeKind": "array",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial value of the expanded accordion items.\nUse when you don't need to control the value of the accordion.",
+						"tags": []
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the accordion items are disabled",
+						"tags": []
+					}
+				},
+				{
+					"name": "onValueChange",
+					"type": "((details: ValueChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The callback fired when the state of expanded/collapsed accordion items changes.",
+						"tags": []
+					}
+				},
+				{
+					"name": "onFocusChange",
+					"type": "((details: FocusChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "The callback fired when the focused accordion item changes.",
+						"tags": []
+					}
+				},
+				{
+					"name": "orientation",
+					"type": "\"horizontal\" | \"vertical\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The orientation of the accordion items.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"vertical\""
+							}
+						]
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "AccordionApi<PropTypes>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(accordion: AccordionApi<PropTypes>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionItemProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "string",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": "The value of the accordion item.",
+						"tags": []
+					}
+				},
+				{
+					"name": "disabled",
+					"type": "boolean | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Whether the accordion item is disabled.",
+						"tags": []
+					}
+				},
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionItemTriggerProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionItemIndicatorProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "AccordionItemContentProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "ReactNode",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}
