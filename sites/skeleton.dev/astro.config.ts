@@ -55,6 +55,7 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
+		// @ts-expect-error - Astro and Tailwind peer deps are out of sync, this doesn't effect the functionality of the plugin
 		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
