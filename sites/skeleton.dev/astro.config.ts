@@ -55,6 +55,7 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
+		// @ts-expect-error - type mistmatch
 		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
