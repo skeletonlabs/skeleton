@@ -10,12 +10,18 @@ import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
 import { execSync } from 'node:child_process';
 
+function getSite() {
+	if (import.meta.env.DEV) {
+		return 'http://localhost:4321';
+	}
+	if (process.env.VERCEL_ENV === 'production') {
+		return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+	}
+	return `https://${process.env.VERCEL_URL}`;
+}
+
 export default defineConfig({
-	site: import.meta.env.DEV
-		? 'http://localhost:4321'
-		: process.env.VERCEL_ENV === 'production'
-			? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-			: `https://${process.env.VERCEL_URL}`,
+	site: getSite(),
 	prefetch: true,
 	trailingSlash: 'never',
 	markdown: {
@@ -55,6 +61,7 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
+		// @ts-expect-error - Astro and Tailwind peer deps are out of sync, this doesn't effect the functionality of the plugin
 		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
