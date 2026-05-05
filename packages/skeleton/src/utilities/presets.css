@@ -1,7 +1,14 @@
-/* filled */
+/* Filled --- */
+
 @utility preset-filled {
 	background-color: var(--color-surface-950-50);
 	color: var(--color-surface-50-950);
+}
+
+/* filled - brand */
+@utility preset-filled-brand {
+	background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+	color: light-dark(var(--color-brand-contrast-light), var(--color-brand-contrast-dark));
 }
 
 /* filled - primary */
@@ -326,10 +333,16 @@
 	color: var(--color-surface-contrast-950-50);
 }
 
-/* tonal */
+/* Tonal --- */
+
 @utility preset-tonal {
 	background-color: color-mix(in oklab, light-dark(var(--color-surface-950), var(--color-surface-50)) 10%, transparent);
-	color: var(--color-primary-950-50);
+	color: var(--color-surface-950-50);
+}
+
+@utility preset-tonal-brand {
+	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 10%, transparent);
+	color: var(--color-surface-950-50);
 }
 
 @utility preset-tonal-primary {
@@ -361,10 +374,17 @@
 	color: var(--color-surface-950-50);
 }
 
-/* outlined */
+/* Outlined --- */
+
 @utility preset-outlined {
 	border-width: 1px;
 	border-color: var(--color-surface-950-50);
+}
+
+/* outlined - brand */
+@utility preset-outlined-brand {
+	border-width: 1px;
+	border-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 }
 
 /* outlined - primary */

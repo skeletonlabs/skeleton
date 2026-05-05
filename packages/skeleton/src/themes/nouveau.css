@@ -15,8 +15,8 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family:
-		Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+	--typo-heading--font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed,
+		sans-serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: bold;
@@ -75,8 +75,8 @@
 	--corner-shape-container: inherit;
 	--color-root-bg-light: var(--color-surface-50);
 	--color-root-bg-dark: var(--color-surface-950);
-	--color-brand-light: var(--color-primary-500);
-	--color-brand-contrast-light: var(--color-primary-contrast-500);
+	--color-brand-light: var(--color-tertiary-500);
+	--color-brand-contrast-light: var(--color-tertiary-contrast-500);
 	--color-brand-dark: var(--color-primary-500);
 	--color-brand-contrast-dark: var(--color-primary-contrast-500);
 	--color-primary-50: oklch(94.79% 0.06 98.37deg);
