@@ -341,7 +341,7 @@
 }
 
 @utility preset-tonal-brand {
-	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 20%, transparent);
+	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%, transparent);
 	color: var(--color-surface-950-50);
 }
 

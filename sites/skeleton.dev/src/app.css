@@ -54,13 +54,13 @@
 }
 
 @utility linker {
+	background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+	color: light-dark(var(--color-brand-contrast-light), var(--color-brand-contrast-dark));
 	border-radius: var(--radius-container);
 	display: flex;
 	justify-content: center;
 	padding-inline: --spacing(4);
 	padding-block: --spacing(10);
-	background-color: var(--color-primary-500);
-	color: var(--color-primary-contrast-500);
 }
 
 :root {
