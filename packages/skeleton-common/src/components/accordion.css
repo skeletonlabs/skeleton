@@ -33,7 +33,7 @@
 		text-align: start;
 
 		@variant hover {
-			@apply preset-tonal-primary;
+			@apply preset-tonal-brand;
 		}
 	}
 
