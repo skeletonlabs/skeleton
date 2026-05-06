@@ -17,7 +17,7 @@ import SidesRaw from '@/components/examples/tailwind-utilities/corner-shapes/sid
 import Theme from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro';
 import ThemeRaw from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro?raw';
 
-Pair `corner-shape-*` with a `rounded-*` utility on the same element.
+Base on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) CSS property. Pair `corner-shape-*` with a `rounded-*` utility on the same element.
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
@@ -31,6 +31,19 @@ Pair `corner-shape-*` with a `rounded-*` utility on the same element.
 | `corner-shape-scoop`    | Concave curve that scoops inward            |
 | `corner-shape-squircle` | Superellipse with a softer curve than round |
 | `corner-shape-straight` | Sharp 90° corner                            |
+
+## Browser Support Warning
+
+Currently available in a limited set of browsers. Follow progressive enhancement best practices when using it.
+
+| Browser            | Support              |
+| ------------------ | -------------------- |
+| Chrome             | 139+                 |
+| Edge               | 139+                 |
+| Firefox            | ⚠️ Not yet supported |
+| Safari             | ⚠️ Not yet supported |
+| Chrome for Android | 147+                 |
+| Safari on iOS      | ⚠️ Not yet supported |
 
 ## Individual Sides
 
@@ -87,10 +100,10 @@ Two utilities consume theme tokens, allowing the active theme to drive the corne
 	<Theme />
 </Preview>
 
-| Class                    | Theme Property                  | Role                            |
-| ------------------------ | ------------------------------- | ------------------------------- |
-| `corner-shape-base`      | `var(--corner-shape-base)`      | For small elements like buttons |
-| `corner-shape-container` | `var(--corner-shape-container)` | For large elements like cards   |
+| Class                    | Theme Property                  | Role                               |
+| ------------------------ | ------------------------------- | ---------------------------------- |
+| `corner-shape-base`      | `var(--corner-shape-base)`      | Target small elements like buttons |
+| `corner-shape-container` | `var(--corner-shape-container)` | Target large elements like cards   |
 
 ## Resetting the Shape
 
@@ -116,16 +129,3 @@ To apply a corner shape across a family of elements, target the class in your gl
 	corner-shape: var(--corner-shape-container);
 }
 ```
-
-## Browser Support
-
-Available only to very limited browsers at this time. Make sure to follow progressive enhancement best practices.
-
-| Browser            | Support       |
-| ------------------ | ------------- |
-| Chrome             | 139+          |
-| Edge               | 139+          |
-| Firefox            | Not supported |
-| Safari             | Not supported |
-| Chrome for Android | 147+          |
-| Safari on iOS      | Not supported |
