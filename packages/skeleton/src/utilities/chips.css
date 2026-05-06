@@ -4,7 +4,6 @@
 	--chip-size: var(--text-sm);
 
 	border-radius: var(--radius-base);
-	corner-shape: var(--corner-shape);
 
 	/* Icon Spacing */
 	display: inline-flex;
@@ -48,7 +47,6 @@
 	--chip-size: var(--text-sm);
 
 	border-radius: var(--radius-base);
-	corner-shape: var(--corner-shape);
 
 	/* Center Icons */
 	display: inline-flex;

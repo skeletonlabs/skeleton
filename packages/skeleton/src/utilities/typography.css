@@ -234,7 +234,6 @@
 	font-family: var(--font-mono);
 	font-size: var(--text-sm);
 	white-space: nowrap;
-	overflow-x: auto;
 	padding-inline: --spacing(1.25);
 
 	@variant dark {
@@ -271,7 +270,6 @@
 		white-space: nowrap;
 		padding-inline: --spacing(1.5);
 		padding-block: --spacing(0.75);
-		overflow-x: auto;
 	}
 
 	/* Reset when code is inside pre or .ec-line */
