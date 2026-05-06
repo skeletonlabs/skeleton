@@ -1,7 +1,3 @@
----
-import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
----
-
 <form class="w-full space-y-8">
 	<!-- Website -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
@@ -12,7 +8,7 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 	<!-- Amount -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
 		<label class="label label-text preset-tonal-primary" for="amount" title="Money" aria-label="Money">
-			<CircleDollarSignIcon size={16} />
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
 		</label>
 		<input class="input" type="text" name="amount" id="amount" placeholder="Amount" />
 		<select class="select" name="currency" id="currency">
@@ -27,7 +23,7 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 		<label class="label label-text preset-tonal-secondary" for="username">Username</label>
 		<input class="input" type="text" name="username" id="username" placeholder="Enter Username..." />
 		<button class="btn preset-filled" title="Username already in use.">
-			<CheckIcon size={16} />
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
 		</button>
 	</div>
 
@@ -35,7 +31,7 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 	<!-- NOTE: Supports field and button sizes -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
 		<label class="label label-text preset-tonal-tertiary" for="search">
-			<SearchIcon size={16} />
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg>
 		</label>
 		<input class="input field-xl" type="search" name="search" id="search" placeholder="Search..." />
 		<button class="btn btn-xl preset-filled">Submit</button>
