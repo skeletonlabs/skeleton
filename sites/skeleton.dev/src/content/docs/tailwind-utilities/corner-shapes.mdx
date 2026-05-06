@@ -31,6 +31,7 @@ Base on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Refe
 | `corner-shape-scoop`    | Concave curve that scoops inward            |
 | `corner-shape-squircle` | Superellipse with a softer curve than round |
 | `corner-shape-straight` | Sharp 90° corner                            |
+| `corner-shape-none`     | Removes any shape property                  |
 
 ## Browser Support Warning
 
@@ -105,9 +106,27 @@ Two utilities consume theme tokens, allowing the active theme to drive the corne
 | `corner-shape-base`      | `var(--corner-shape-base)`      | Target small elements like buttons |
 | `corner-shape-container` | `var(--corner-shape-container)` | Target large elements like cards   |
 
-## Resetting the Shape
+## Using a Custom Value
 
-Use `corner-shape-none` to revert an element to a standard rounded corner.
+Use the `corner-shape-[<value>]` syntax to set the corner shape based on a completely custom value.
+
+```html
+<div class="corner-shape-[squircle] rounded-2xl ...">
+	<!-- ... -->
+</div>
+```
+
+For CSS variables, you can also use the `corner-shape-(<custom-property>)` syntax.
+
+```html
+<div class="corner-shape-(--my-corner-shape) rounded-2xl ...">
+	<!-- ... -->
+</div>
+```
+
+This is just a shorthand for `corner-shape-[var(<custom-property>)]` that adds the `var()` function for you automatically.
+
+The same `[<value>]` and `(<custom-property>)` patterns work for every side, corner, and logical variant — for example `corner-shape-tl-[bevel]` or `corner-shape-s-(--my-corner-shape)`.
 
 ## Global Theming
 

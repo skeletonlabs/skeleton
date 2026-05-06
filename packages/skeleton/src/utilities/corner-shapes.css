@@ -28,6 +28,9 @@
 @utility corner-shape-container {
 	corner-shape: var(--corner-shape-container);
 }
+@utility corner-shape-* {
+	corner-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Top side (top-left + top-right) */
 @utility corner-shape-t-none {
@@ -65,6 +68,10 @@
 @utility corner-shape-t-container {
 	corner-top-left-shape: var(--corner-shape-container);
 	corner-top-right-shape: var(--corner-shape-container);
+}
+@utility corner-shape-t-* {
+	corner-top-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-top-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Right side (top-right + bottom-right) */
@@ -104,6 +111,10 @@
 	corner-top-right-shape: var(--corner-shape-container);
 	corner-bottom-right-shape: var(--corner-shape-container);
 }
+@utility corner-shape-r-* {
+	corner-top-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-bottom-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Bottom side (bottom-left + bottom-right) */
 @utility corner-shape-b-none {
@@ -141,6 +152,10 @@
 @utility corner-shape-b-container {
 	corner-bottom-left-shape: var(--corner-shape-container);
 	corner-bottom-right-shape: var(--corner-shape-container);
+}
+@utility corner-shape-b-* {
+	corner-bottom-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-bottom-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Left side (top-left + bottom-left) */
@@ -180,6 +195,10 @@
 	corner-top-left-shape: var(--corner-shape-container);
 	corner-bottom-left-shape: var(--corner-shape-container);
 }
+@utility corner-shape-l-* {
+	corner-top-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-bottom-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Inline-start side (logical: start-start + end-start) */
 @utility corner-shape-s-none {
@@ -217,6 +236,10 @@
 @utility corner-shape-s-container {
 	corner-start-start-shape: var(--corner-shape-container);
 	corner-end-start-shape: var(--corner-shape-container);
+}
+@utility corner-shape-s-* {
+	corner-start-start-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-end-start-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Inline-end side (logical: start-end + end-end) */
@@ -256,6 +279,10 @@
 	corner-start-end-shape: var(--corner-shape-container);
 	corner-end-end-shape: var(--corner-shape-container);
 }
+@utility corner-shape-e-* {
+	corner-start-end-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+	corner-end-end-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Top-left corner */
 @utility corner-shape-tl-none {
@@ -284,6 +311,9 @@
 }
 @utility corner-shape-tl-container {
 	corner-top-left-shape: var(--corner-shape-container);
+}
+@utility corner-shape-tl-* {
+	corner-top-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Top-right corner */
@@ -314,6 +344,9 @@
 @utility corner-shape-tr-container {
 	corner-top-right-shape: var(--corner-shape-container);
 }
+@utility corner-shape-tr-* {
+	corner-top-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Bottom-right corner */
 @utility corner-shape-br-none {
@@ -342,6 +375,9 @@
 }
 @utility corner-shape-br-container {
 	corner-bottom-right-shape: var(--corner-shape-container);
+}
+@utility corner-shape-br-* {
+	corner-bottom-right-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Bottom-left corner */
@@ -372,6 +408,9 @@
 @utility corner-shape-bl-container {
 	corner-bottom-left-shape: var(--corner-shape-container);
 }
+@utility corner-shape-bl-* {
+	corner-bottom-left-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* Start-start corner (logical) */
 @utility corner-shape-ss-none {
@@ -400,6 +439,9 @@
 }
 @utility corner-shape-ss-container {
 	corner-start-start-shape: var(--corner-shape-container);
+}
+@utility corner-shape-ss-* {
+	corner-start-start-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
 
 /* Start-end corner (logical) */
@@ -430,6 +472,9 @@
 @utility corner-shape-se-container {
 	corner-start-end-shape: var(--corner-shape-container);
 }
+@utility corner-shape-se-* {
+	corner-start-end-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* End-end corner (logical) */
 @utility corner-shape-ee-none {
@@ -459,6 +504,9 @@
 @utility corner-shape-ee-container {
 	corner-end-end-shape: var(--corner-shape-container);
 }
+@utility corner-shape-ee-* {
+	corner-end-end-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
+}
 
 /* End-start corner (logical) */
 @utility corner-shape-es-none {
@@ -487,4 +535,7 @@
 }
 @utility corner-shape-es-container {
 	corner-end-start-shape: var(--corner-shape-container);
+}
+@utility corner-shape-es-* {
+	corner-end-start-shape: --value("round", "bevel", "notch", "scoop", "squircle", "straight", [*]);
 }
