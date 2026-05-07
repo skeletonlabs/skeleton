@@ -1,0 +1,127 @@
+{
+	"name": "qr-code",
+	"types": [
+		{
+			"name": "QrCodeRootProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodeRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "() => Api<PropTypes>",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodeRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "Snippet<[() => Api<PropTypes>]>",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodeDownloadTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodeFrameProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"svg\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodePatternProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"path\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "QrCodeOverlayProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}
