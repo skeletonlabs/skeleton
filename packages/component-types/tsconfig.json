@@ -9,7 +9,6 @@
 		"resolveJsonModule": true,
 		"moduleDetection": "force",
 		"rewriteRelativeImportExtensions": true,
-
 		"isolatedModules": true,
 		"strict": true,
 		"noUncheckedIndexedAccess": true,

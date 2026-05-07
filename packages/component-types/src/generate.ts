@@ -4,18 +4,18 @@ import { glob } from 'tinyglobby';
 import { createProjectForConfig, createSourceFile, getInterface } from './parser.ts';
 import { getPartOrder, loadClassValues } from './anatomy.ts';
 import { kebabToPascal, kebabToCamel } from './casing.ts';
-import type { ComponentEntry } from './types.ts';
+import type { Component } from './types.ts';
 
-const MONOREPO_DIR = join(import.meta.dirname, '..', '..', '..');
+const MONOREPO_DIR = join(import.meta.dirname, '..', '..', '..', '..');
 const packageDir = (name: string) => join(MONOREPO_DIR, 'packages', name);
-const OUTPUT_DIR = join(import.meta.dirname, '..', 'data');
+const OUTPUT_DIR = join(MONOREPO_DIR, 'packages', 'component-types', 'data');
 
 async function processPart(
 	componentName: string,
 	partPath: string,
 	classValues: Map<string, string>,
 	project: ReturnType<typeof createProjectForConfig>,
-): Promise<ComponentEntry['types'][number] | undefined> {
+): Promise<Component['types'][number] | undefined> {
 	const partName = partPath.split('/').pop()?.replace(extname(partPath), '');
 	if (!partName) return;
 
@@ -50,7 +50,7 @@ async function processComponent(
 
 	const types = (await Promise.all(partPaths.map((partPath) => processPart(componentName, partPath, classValues, project)))).filter(
 		Boolean,
-	) as ComponentEntry['types'];
+	) as Component['types'];
 
 	types.sort((a, b) => {
 		const aName = a.name.replace(/Props$/, '');
@@ -58,7 +58,7 @@ async function processComponent(
 		return partOrder.indexOf(aName) - partOrder.indexOf(bName);
 	});
 
-	const entry: ComponentEntry = { name: componentName, types };
+	const entry: Component = { name: componentName, types };
 	const outputDir = join(OUTPUT_DIR, frameworkName);
 	mkdirSync(outputDir, { recursive: true });
 	writeFileSync(join(outputDir, `${componentName}.json`), JSON.stringify(entry, null, 2), 'utf-8');

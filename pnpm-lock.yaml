@@ -1033,6 +1033,9 @@ importers:
       '@shikijs/types':
         specifier: 'catalog:'
         version: 4.0.2
+      '@skeletonlabs/component-types':
+        specifier: workspace:*
+        version: link:../../packages/component-types
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton

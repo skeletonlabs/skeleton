@@ -23,7 +23,7 @@ export interface Interface {
 	props: Property[];
 }
 
-export interface ComponentEntry {
+export interface Component {
 	name: string;
 	types: Array<{
 		name: string;
