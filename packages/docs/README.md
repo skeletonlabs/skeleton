@@ -1,4 +1,4 @@
-# Component Types
+# Docs
 
 ## Installation
 

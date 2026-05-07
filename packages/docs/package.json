@@ -1,14 +1,13 @@
 {
-	"name": "@skeletonlabs/component-types",
+	"name": "@skeletonlabs/docs",
 	"version": "5.0.0-next.7",
-	"description": "Component types for Skeleton components",
+	"description": "Documentation generator for various Skeleton packages",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
-		"directory": "packages/component-types"
+		"directory": "packages/docs"
 	},
 	"files": [
-		"dist",
 		"data"
 	],
 	"sideEffects": false,
@@ -19,11 +18,7 @@
 		"postpack": "clean-package restore"
 	},
 	"exports": {
-		".": {
-			"types": "./src/index.ts",
-			"import": "./src/index.ts"
-		},
-		"./*": "./data/*.json"
+		"./components*": "./data/components.json"
 	},
 	"devDependencies": {
 		"@types/node": "catalog:",
@@ -31,7 +26,6 @@
 		"svelte": "catalog:",
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
-		"tsdown": "catalog:",
 		"typescript": "catalog:",
 		"@clack/prompts": "catalog:"
 	},
@@ -42,15 +36,6 @@
 			"scripts",
 			"devDependencies",
 			"clean-package"
-		],
-		"replace": {
-			"exports": {
-				".": {
-					"types": "./dist/index.d.mts",
-					"import": "./dist/index.mjs"
-				},
-				"./*": "./data/*.json"
-			}
-		}
+		]
 	}
 }

@@ -28,7 +28,7 @@
 		"@shikijs/themes": "catalog:",
 		"@shikijs/transformers": "catalog:",
 		"@shikijs/types": "catalog:",
-		"@skeletonlabs/component-types": "workspace:*",
+		"@skeletonlabs/docs": "workspace:*",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",

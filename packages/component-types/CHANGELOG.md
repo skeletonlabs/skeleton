@@ -1,1 +1,0 @@
-# @skeletonlabs/component-types
