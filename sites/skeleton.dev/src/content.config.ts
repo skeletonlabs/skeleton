@@ -84,38 +84,4 @@ export const collections = {
 				.optional(),
 		}),
 	}),
-	'component-types': defineCollection({
-		loader: glob({
-			base: './src/content/component-types',
-			pattern: '*/*.json',
-		}),
-		schema: z.object({
-			name: z.string(),
-			types: z.array(
-				z.object({
-					name: z.string(),
-					props: z.array(
-						z.object({
-							name: z.string(),
-							type: z.string(),
-							typeKind: z.string(),
-							optional: z.boolean(),
-							JSDoc: z.object({
-								description: z.string().nullable(),
-								tags: z.array(
-									z.object({
-										name: z.string(),
-										value: z.string().nullable(),
-									}),
-								),
-							}),
-						}),
-					),
-					metadata: z.object({
-						classValue: z.string().optional(),
-					}),
-				}),
-			),
-		}),
-	}),
 };

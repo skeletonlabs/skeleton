@@ -18,7 +18,7 @@ function createCell(value: string): TableCell {
 	};
 }
 
-function createTablesForComponent(component: CollectionEntry<'component-types'>) {
+function createTablesForComponent(component: Record<string, CollectionEntry>) {
 	const nodes: (Heading | Table)[] = [];
 	for (const type of component.data.types) {
 		const heading =
