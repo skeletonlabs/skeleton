@@ -1,8 +1,12 @@
+---
+const commonClasses = 'size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center';
+---
+
 <div class="grid grid-cols-3 gap-4">
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-round">round</div>
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-bevel">bevel</div>
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-notch">notch</div>
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-scoop">scoop</div>
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-squircle">squircle</div>
-	<div class="size-20 preset-filled rounded-xl text-xs font-medium grid place-items-center corner-shape-straight">straight</div>
+	<div class={`${commonClasses} corner-shape-round`}>round</div>
+	<div class={`${commonClasses} corner-shape-bevel`}>bevel</div>
+	<div class={`${commonClasses} corner-shape-notch`}>notch</div>
+	<div class={`${commonClasses} corner-shape-scoop`}>scoop</div>
+	<div class={`${commonClasses} corner-shape-squircle`}>squircle</div>
+	<div class={`${commonClasses} corner-shape-straight`}>straight</div>
 </div>

@@ -1,21 +1,28 @@
+---
+import { HeartIcon } from 'lucide-react';
+
+const imgSrc =
+	'https://images.unsplash.com/photo-1620122303020-87ec826cf70d?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+---
+
 <div class="flex items-center gap-4">
 	<!-- A badge dot -->
 	<div class="relative inline-block">
 		<span class="badge-dot preset-filled-success-500 absolute right-1.5 top-1.5 z-10">Badge</span>
-		<img class="size-20 overflow-hidden rounded-full grayscale" src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar" />
+		<img class="size-20 overflow-hidden rounded-full grayscale" src={imgSrc} alt="Avatar" />
 	</div>
 
 	<!-- A standard badge -->
 	<div class="relative inline-block">
 		<span class="badge preset-filled-warning-500 absolute right-0 top-0 z-10">10</span>
-		<img class="size-20 overflow-hidden rounded-full grayscale" src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar" />
+		<img class="size-20 overflow-hidden rounded-full grayscale" src={imgSrc} alt="Avatar" />
 	</div>
 
 	<!-- An icon badge -->
 	<div class="relative inline-block">
 		<span class="badge-icon preset-filled-error-500 absolute right-0 top-0 z-10">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+			<HeartIcon className="fill-current stroke-0" />
 		</span>
-		<img class="size-20 overflow-hidden rounded-full grayscale" src="https://images.unsplash.com/photo-1620122303020-87ec826cf70d?q=80&w=256&h=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Avatar" />
+		<img class="size-20 overflow-hidden rounded-full grayscale" src={imgSrc} alt="Avatar" />
 	</div>
 </div>

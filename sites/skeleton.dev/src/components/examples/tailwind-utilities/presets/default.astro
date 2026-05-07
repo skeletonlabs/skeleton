@@ -1,17 +1,21 @@
+---
+const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-center rounded-full';
+---
+
 <div class="grid grid-cols-3 gap-10">
 	<!-- Preset: Filled -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-filled-brand">Filled</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">1</div>
+		<div class={diagramCircle}>1</div>
 	</div>
 	<!-- Preset: Tonal -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-tonal-brand">Tonal</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">2</div>
+		<div class={diagramCircle}>2</div>
 	</div>
 	<!-- Preset: Outlined -->
 	<div class="flex flex-col items-center gap-4">
 		<button type="button" class="btn preset-outlined-brand">Outlined</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">3</div>
+		<div class={diagramCircle}>3</div>
 	</div>
 </div>

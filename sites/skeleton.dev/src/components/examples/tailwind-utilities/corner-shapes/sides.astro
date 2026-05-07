@@ -1,6 +1,10 @@
+---
+const commonClasses = 'size-20 preset-filled text-xs font-medium grid place-items-center';
+---
+
 <div class="grid grid-cols-2 gap-4">
-	<div class="size-20 preset-filled text-xs font-medium grid place-items-center rounded-t-xl corner-shape-t-bevel">-t-</div>
-	<div class="size-20 preset-filled text-xs font-medium grid place-items-center rounded-r-xl corner-shape-r-bevel">-r-</div>
-	<div class="size-20 preset-filled text-xs font-medium grid place-items-center rounded-b-xl corner-shape-b-bevel">-b-</div>
-	<div class="size-20 preset-filled text-xs font-medium grid place-items-center rounded-l-xl corner-shape-l-bevel">-l-</div>
+	<div class={`${commonClasses} rounded-t-xl corner-shape-t-bevel`}>-t-</div>
+	<div class={`${commonClasses} rounded-r-xl corner-shape-r-bevel`}>-r-</div>
+	<div class={`${commonClasses} rounded-b-xl corner-shape-b-bevel`}>-b-</div>
+	<div class={`${commonClasses} rounded-l-xl corner-shape-l-bevel`}>-l-</div>
 </div>

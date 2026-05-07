@@ -1,20 +1,37 @@
+---
+const presets = [
+	{
+		label: 'Glass',
+		class: 'preset-glass-brand',
+	},
+	{
+		label: 'Elevated',
+		class: 'preset-filled-surface-100-900 shadow-xl',
+	},
+	{
+		label: 'Ghost',
+		class: 'hover:preset-tonal',
+	},
+	{
+		label: 'Gradient',
+		class: 'preset-gradient-secondary-primary',
+	},
+];
+const cell = 'flex flex-col items-center gap-4';
+const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-center rounded-full';
+---
+
 <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-glass-brand">Glass</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">1</div>
-	</div>
-	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-filled-surface-100-900 shadow-xl">Elevated</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">2</div>
-	</div>
-	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn hover:preset-tonal">Ghost</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">3</div>
-	</div>
-	<div class="flex flex-col items-center gap-4">
-		<button type="button" class="btn preset-gradient-secondary-primary">Gradient</button>
-		<div class="preset-tonal w-8 aspect-square flex justify-center items-center rounded-full">4</div>
-	</div>
+	{
+		presets.map((preset, index) => (
+			<div class={cell}>
+				<button type="button" class={`btn ${preset.class}`}>
+					{preset.label}
+				</button>
+				<div class={diagramCircle}>{index + 1}</div>
+			</div>
+		))
+	}
 </div>
 
 <style>
