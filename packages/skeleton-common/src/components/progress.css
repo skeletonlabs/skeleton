@@ -67,7 +67,7 @@
 	}
 
 	&[data-part='circle-range'] {
-		stroke: var(--color-primary-500);
+		stroke: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		transition: stroke-dashoffset 200ms ease-in-out;
 
 		&[data-state='indeterminate'] {

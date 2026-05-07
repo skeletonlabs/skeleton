@@ -63,11 +63,11 @@
 		}
 
 		&[data-complete] {
-			@apply preset-filled-primary-500;
+			@apply preset-filled-brand;
 		}
 
 		&[data-current] {
-			@apply preset-outlined-primary-500;
+			@apply preset-outlined-brand;
 		}
 	}
 
@@ -77,7 +77,7 @@
 		flex-grow: 1;
 
 		&[data-complete] {
-			border-color: var(--color-primary-500);
+			border-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		}
 
 		&[data-orientation='horizontal'] {

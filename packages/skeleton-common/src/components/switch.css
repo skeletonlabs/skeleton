@@ -27,7 +27,7 @@
 		@apply preset-filled-surface-200-800;
 
 		&[data-state='checked'] {
-			@apply preset-filled-primary-500;
+			@apply preset-filled-brand;
 		}
 	}
 
