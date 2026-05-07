@@ -18,7 +18,7 @@
 		"postpack": "clean-package restore"
 	},
 	"exports": {
-		"./components*": "./data/components.json"
+		"./components.json": "./data/components.json"
 	},
 	"devDependencies": {
 		"@types/node": "catalog:",
