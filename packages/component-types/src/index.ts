@@ -16,3 +16,5 @@ await tasks(
 );
 
 outro(`Successfully generated component types for: ${frameworks.join(', ')}`);
+
+// TODO: Force package to output a single `api.json` file
