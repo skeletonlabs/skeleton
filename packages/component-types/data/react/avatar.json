@@ -1,0 +1,140 @@
+{
+  "name": "avatar",
+  "types": [
+    {
+      "name": "AvatarRootProps",
+      "props": [
+        {
+          "name": "onStatusChange",
+          "type": "((details: StatusChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Functional called when the image loading status changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; image: string; fallback: string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the avatar. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "AvatarRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "AvatarApi<PropTypes>",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "AvatarRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "(avatar: AvatarApi<PropTypes>) => ReactNode",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "AvatarImageProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"img\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "AvatarFallbackProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

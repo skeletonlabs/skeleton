@@ -1,0 +1,564 @@
+{
+  "name": "tree-view",
+  "types": [
+    {
+      "name": "TreeViewRootProps",
+      "props": [
+        {
+          "name": "translations",
+          "type": "IntlTranslations | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "Specifies the localized strings that identifies the accessibility elements and their states",
+            "tags": []
+          }
+        },
+        {
+          "name": "collection",
+          "type": "TreeCollection<T> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The tree collection data",
+            "tags": []
+          }
+        },
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; tree: string; label: string; node: (value: string) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the tree elements. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "expandedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled expanded node ids",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultExpandedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial expanded node ids when rendered.\nUse when you don't need to control the expanded node value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "selectedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled selected node value",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultSelectedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial selected node value when rendered.\nUse when you don't need to control the selected node value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultCheckedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial checked node value when rendered.\nUse when you don't need to control the checked node value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "checkedValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled checked node value",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultFocusedValue",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial focused node value when rendered.\nUse when you don't need to control the focused node value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "focusedValue",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The value of the focused node",
+            "tags": []
+          }
+        },
+        {
+          "name": "selectionMode",
+          "type": "\"single\" | \"multiple\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tree supports multiple selection\n- \"single\": only one node can be selected\n- \"multiple\": multiple nodes can be selected",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"single\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "((details: ExpandedChangeDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when the tree is opened or closed",
+            "tags": []
+          }
+        },
+        {
+          "name": "onSelectionChange",
+          "type": "((details: SelectionChangeDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when the selection changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "onFocusChange",
+          "type": "((details: FocusChangeDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when the focused node changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "onCheckedChange",
+          "type": "((details: CheckedChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when the checked value changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "canRename",
+          "type": "((node: T, indexPath: IndexPath) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to determine if a node can be renamed",
+            "tags": []
+          }
+        },
+        {
+          "name": "onRenameStart",
+          "type": "((details: RenameStartDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when a node starts being renamed",
+            "tags": []
+          }
+        },
+        {
+          "name": "onBeforeRename",
+          "type": "((details: RenameCompleteDetails) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called before a rename is completed. Return false to prevent the rename.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onRenameComplete",
+          "type": "((details: RenameCompleteDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when a node label rename is completed",
+            "tags": []
+          }
+        },
+        {
+          "name": "onLoadChildrenComplete",
+          "type": "((details: LoadChildrenCompleteDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when a node finishes loading children",
+            "tags": []
+          }
+        },
+        {
+          "name": "onLoadChildrenError",
+          "type": "((details: LoadChildrenErrorDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when loading children fails for one or more nodes",
+            "tags": []
+          }
+        },
+        {
+          "name": "expandOnClick",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether clicking on a branch should open it or not",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "typeahead",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tree supports typeahead search",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "loadChildren",
+          "type": "((details: LoadChildrenDetails<T>) => Promise<T[]>) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to load children for a node asynchronously.\nWhen provided, branches will wait for this promise to resolve before expanding.",
+            "tags": []
+          }
+        },
+        {
+          "name": "scrollToIndexFn",
+          "type": "((details: ScrollToIndexDetails<T>) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to scroll to a specific index.\nUseful for virtualized tree views.",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "TreeViewApi<PropTypes, any>",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "(treeView: TreeViewApi<PropTypes, any>) => ReactNode",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewTreeProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewLabelProps",
+      "props": [
+        {
+          "name": "level",
+          "type": "1 | 2 | 3 | 4 | 5 | 6 | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The level of the heading.",
+            "tags": [
+              {
+                "name": "defaultValue",
+                "value": "3"
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"h3\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewNodeProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "NodeProps",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewNodeContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "(treeView: NodeProps) => ReactNode",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchIndicatorProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchContentProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewBranchIndentGuideProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TreeViewItemProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

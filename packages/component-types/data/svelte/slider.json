@@ -1,0 +1,532 @@
+{
+  "name": "slider",
+  "types": [
+    {
+      "name": "SliderRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; thumb: (index: number) => string; hiddenInput: (index: number) => string; control: string; track: string; range: string; label: string; valueText: string; marker: (index: number) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the slider. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "aria-label",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The aria-label of each slider thumb. Useful for providing an accessible name to the slider",
+            "tags": []
+          }
+        },
+        {
+          "name": "aria-labelledby",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The `id` of the elements that labels each slider thumb. Useful for providing an accessible name to the slider",
+            "tags": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The name associated with each slider thumb (when used in a form)",
+            "tags": []
+          }
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The associate form of the underlying input element.",
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "number[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled value of the slider",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "number[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial value of the slider when rendered.\nUse when you don't need to control the value of the slider.",
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the slider is disabled",
+            "tags": []
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the slider is read-only",
+            "tags": []
+          }
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the slider is invalid",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function invoked when the value of the slider changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChangeEnd",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function invoked when the slider value change is done",
+            "tags": []
+          }
+        },
+        {
+          "name": "onFocusChange",
+          "type": "((details: FocusChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function invoked when the slider's focused index changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "getAriaValueText",
+          "type": "((details: ValueTextDetails) => string) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function that returns a human readable value for the slider thumb",
+            "tags": []
+          }
+        },
+        {
+          "name": "min",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The minimum value of the slider",
+            "tags": [
+              {
+                "name": "default",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "name": "max",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The maximum value of the slider",
+            "tags": [
+              {
+                "name": "default",
+                "value": "100"
+              }
+            ]
+          }
+        },
+        {
+          "name": "step",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The step value of the slider",
+            "tags": [
+              {
+                "name": "default",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "minStepsBetweenThumbs",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The minimum permitted steps between multiple thumbs.\n\n`minStepsBetweenThumbs` * `step` should reflect the gap between the thumbs.\n\n- `step: 1` and `minStepsBetweenThumbs: 10` => gap is `10`\n- `step: 10` and `minStepsBetweenThumbs: 2` => gap is `20`",
+            "tags": [
+              {
+                "name": "default",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "\"vertical\" | \"horizontal\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The orientation of the slider",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"horizontal\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "origin",
+          "type": "\"start\" | \"center\" | \"end\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The origin of the slider range. The track is filled from the origin\nto the thumb for single values.\n- \"start\": Useful when the value represents an absolute value\n- \"center\": Useful when the value represents an offset (relative)\n- \"end\": Useful when the value represents an offset from the end",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"start\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "thumbAlignment",
+          "type": "\"center\" | \"contain\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The alignment of the slider thumb relative to the track\n- `center`: the thumb will extend beyond the bounds of the slider track.\n- `contain`: the thumb will be contained within the bounds of the track.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"contain\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "thumbSize",
+          "type": "{ width: number; height: number; } | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The slider thumbs dimensions",
+            "tags": []
+          }
+        },
+        {
+          "name": "thumbCollisionBehavior",
+          "type": "\"none\" | \"push\" | \"swap\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Controls how thumbs behave when they collide during pointer interactions.\n- `none` (default): Thumbs cannot move past each other; excess movement is ignored.\n- `push`: Thumbs push each other without restoring their previous positions when dragged back.\n- `swap`: Thumbs swap places when dragged past each other.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"none\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => SliderApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => SliderApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderLabelProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"label\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderValueTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"output\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderTrackProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderRangeProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderThumbProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderHiddenInputProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderMarkerGroupProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SliderMarkerProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

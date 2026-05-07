@@ -1,0 +1,324 @@
+{
+  "name": "segmented-control",
+  "types": [
+    {
+      "name": "SegmentedControlRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; label: string; indicator: string; item: (value: string) => string; itemLabel: (value: string) => string; itemControl: (value: string) => string; itemHiddenInput: (value: string) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the radio. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled value of the radio group",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial value of the checked radio when rendered.\nUse when you don't need to control the value of the radio group.",
+            "tags": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The name of the input fields in the radio\n(Useful for form submission).",
+            "tags": []
+          }
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The associate form of the underlying input.",
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "If `true`, the radio group will be disabled",
+            "tags": []
+          }
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "If `true`, the radio group is marked as invalid.",
+            "tags": []
+          }
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "If `true`, the radio group is marked as required.",
+            "tags": []
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the radio group is read-only",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called once a radio is checked",
+            "tags": []
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Orientation of the radio group",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => RadioGroupApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => RadioGroupApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlLabelProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"span\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlIndicatorProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlItemProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"label\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlItemTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"span\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "SegmentedControlItemHiddenInputProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

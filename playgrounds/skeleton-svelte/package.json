@@ -23,5 +23,8 @@
 		"typescript": "catalog:",
 		"vite": "catalog:"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@skeletonlabs/component-types": "workspace:*"
+	}
 }

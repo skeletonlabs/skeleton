@@ -1,0 +1,622 @@
+{
+  "name": "tags-input",
+  "types": [
+    {
+      "name": "TagsInputRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; input: string; hiddenInput: string; clearBtn: string; label: string; control: string; item: (opts: ItemProps) => string; itemDeleteTrigger: (opts: ItemProps) => string; itemInput: (opts: ItemProps) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the tags input. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "translations",
+          "type": "IntlTranslations | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "Specifies the localized strings that identifies the accessibility elements and their states",
+            "tags": []
+          }
+        },
+        {
+          "name": "maxLength",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The max length of the input.",
+            "tags": []
+          }
+        },
+        {
+          "name": "delimiter",
+          "type": "string | RegExp | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The character that serves has:\n- event key to trigger the addition of a new tag\n- character used to split tags when pasting into the input",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\",\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the input should be auto-focused",
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tags input should be disabled",
+            "tags": []
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tags input should be read-only",
+            "tags": []
+          }
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tags input is invalid",
+            "tags": []
+          }
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tags input is required",
+            "tags": []
+          }
+        },
+        {
+          "name": "editable",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether a tag can be edited after creation, by pressing `Enter` or double clicking.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "inputValue",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled tag input's value",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultInputValue",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial tag input value when rendered.\nUse when you don't need to control the tag input value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled tag value",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial tag value when rendered.\nUse when you don't need to control the tag value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback fired when the tag values is updated",
+            "tags": []
+          }
+        },
+        {
+          "name": "onInputValueChange",
+          "type": "((details: InputValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback fired when the input value is updated",
+            "tags": []
+          }
+        },
+        {
+          "name": "onHighlightChange",
+          "type": "((details: HighlightChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback fired when a tag is highlighted by pointer or keyboard navigation",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueInvalid",
+          "type": "((details: ValidityChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback fired when the max tag count is reached or the `validateTag` function returns `false`",
+            "tags": []
+          }
+        },
+        {
+          "name": "validate",
+          "type": "((details: ValidateArgs) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Returns a boolean that determines whether a tag can be added.\nUseful for preventing duplicates or invalid tag values.",
+            "tags": []
+          }
+        },
+        {
+          "name": "allowDuplicates",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to allow duplicate tags.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "blurBehavior",
+          "type": "\"clear\" | \"add\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The behavior of the tags input when the input is blurred\n- `\"add\"`: add the input value as a new tag\n- `\"clear\"`: clear the input value",
+            "tags": []
+          }
+        },
+        {
+          "name": "addOnPaste",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to add a tag when you paste values into the tag input",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "max",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The max number of tags",
+            "tags": [
+              {
+                "name": "default",
+                "value": "Infinity"
+              }
+            ]
+          }
+        },
+        {
+          "name": "allowOverflow",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to allow tags to exceed max. In this case,\nwe'll attach `data-invalid` to the root",
+            "tags": []
+          }
+        },
+        {
+          "name": "sanitizeValue",
+          "type": "((value: string) => string) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to sanitize the tag value before adding.\nUseful for trimming whitespace, normalizing case, or stripping special characters.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "(value) => value.trim()"
+              },
+              {
+                "name": "example",
+                "value": "(value) => value.toLowerCase().trim()"
+              }
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The name attribute for the input. Useful for form submissions",
+            "tags": []
+          }
+        },
+        {
+          "name": "form",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The associate form of the underlying input element.",
+            "tags": []
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The placeholder text for the input",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onPointerDownOutside",
+          "type": "((event: PointerDownOutsideEvent) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the pointer is pressed down outside the component",
+            "tags": []
+          }
+        },
+        {
+          "name": "onFocusOutside",
+          "type": "((event: FocusOutsideEvent) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the focus is moved outside the component",
+            "tags": []
+          }
+        },
+        {
+          "name": "onInteractOutside",
+          "type": "((event: InteractOutsideEvent) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when an interaction happens outside the component",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => TagsInputApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => TagsInputApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputLabelProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"label\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputItemProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "string | number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"span\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputItemPreviewProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputItemTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"span\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputItemDeleteTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputItemInputProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputInputProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputClearTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TagsInputHiddenInputProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

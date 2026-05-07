@@ -1,0 +1,361 @@
+{
+  "name": "steps",
+  "types": [
+    {
+      "name": "StepsRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "ElementIds | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The custom ids for the stepper elements",
+            "tags": []
+          }
+        },
+        {
+          "name": "step",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled value of the stepper",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultStep",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial value of the stepper when rendered.\nUse when you don't need to control the value of the stepper.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onStepChange",
+          "type": "((details: StepChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback to be called when the value changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "onStepComplete",
+          "type": "VoidFunction | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback to be called when a step is completed",
+            "tags": []
+          }
+        },
+        {
+          "name": "linear",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "If `true`, the stepper requires the user to complete the steps in order",
+            "tags": []
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The orientation of the stepper",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"horizontal\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "count",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The total number of steps",
+            "tags": []
+          }
+        },
+        {
+          "name": "isStepValid",
+          "type": "((index: number) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether a step is valid. Invalid steps block forward navigation in linear mode.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "() => true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "isStepSkippable",
+          "type": "((index: number) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether a step can be skipped during navigation.\nSkippable steps are bypassed when using next/prev.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "() => false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "onStepInvalid",
+          "type": "((details: StepInvalidDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Called when navigation is blocked due to an invalid step.",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => StepsApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => StepsApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsListProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsItemProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsIndicatorProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsSeparatorProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsContentProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsPrevTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "StepsNextTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

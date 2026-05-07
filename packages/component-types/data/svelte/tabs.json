@@ -1,0 +1,317 @@
+{
+  "name": "tabs",
+  "types": [
+    {
+      "name": "TabsRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; trigger: (value: string) => string; list: string; content: (value: string) => string; indicator: string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the tabs. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "translations",
+          "type": "IntlTranslations | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "Specifies the localized strings that identifies the accessibility elements and their states",
+            "tags": []
+          }
+        },
+        {
+          "name": "loopFocus",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the keyboard navigation will loop from last tab to first, and vice versa.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "value",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled selected tab value",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | null | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial selected tab value when rendered.\nUse when you don't need to control the selected tab value.",
+            "tags": []
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The orientation of the tabs. Can be `horizontal` or `vertical`\n- `horizontal`: only left and right arrow key navigation will work.\n- `vertical`: only up and down arrow key navigation will work.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"horizontal\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "activationMode",
+          "type": "\"manual\" | \"automatic\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The activation mode of the tabs. Can be `manual` or `automatic`\n- `manual`: Tabs are activated when clicked or press `enter` key.\n- `automatic`: Tabs are activated when receiving focus",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"automatic\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback to be called when the selected/active tab changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "onFocusChange",
+          "type": "((details: FocusChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Callback to be called when the focused tab changes",
+            "tags": []
+          }
+        },
+        {
+          "name": "composite",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tab is composite",
+            "tags": []
+          }
+        },
+        {
+          "name": "deselectable",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the active tab can be deselected when clicking on it.",
+            "tags": []
+          }
+        },
+        {
+          "name": "navigate",
+          "type": "((details: NavigateDetails) => void) | null | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to navigate to the selected tab when clicking on it.\nUseful if tab triggers are anchor elements.",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => TabsApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => TabsApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsListProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsTriggerProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": "The value of the tab",
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the tab is disabled",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsIndicatorProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "TabsContentProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": "The value of the tab",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

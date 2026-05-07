@@ -1,0 +1,51 @@
+{
+  "name": "portal",
+  "types": [
+    {
+      "name": "PortalRootProps",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "If true, the portal functionality is disabled and children are rendered in place.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "target",
+          "type": "HTMLElement | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The HTML element to which the portal content will be appended.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "document.body"
+              }
+            ]
+          }
+        },
+        {
+          "name": "children",
+          "type": "string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<...> | null",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

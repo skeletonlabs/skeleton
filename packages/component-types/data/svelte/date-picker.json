@@ -1,0 +1,995 @@
+{
+  "name": "date-picker",
+  "types": [
+    {
+      "name": "DatePickerRootProps",
+      "props": [
+        {
+          "name": "locale",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The locale (BCP 47 language tag) to use when formatting the date.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"en-US\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "createCalendar",
+          "type": "((identifier: CalendarIdentifier) => Calendar) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A function that creates a Calendar object for a given calendar identifier.\nEnables non-Gregorian calendar support (Persian, Buddhist, Islamic, etc.)\nwithout bundling all calendars by default.",
+            "tags": [
+              {
+                "name": "example",
+                "value": "import { createCalendar } from \"@internationalized/date\"\n{ locale: \"fa-IR\", createCalendar }"
+              }
+            ]
+          }
+        },
+        {
+          "name": "translations",
+          "type": "IntlTranslations | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The localized messages to use.",
+            "tags": []
+          }
+        },
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; label: (index: number) => string; table: (id: string) => string; tableHeader: (id: string) => string; tableBody: (id: string) => string; tableRow: (id: string) => string; ... 11 more ...; positioner: string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the date picker. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The `name` attribute of the input element.",
+            "tags": []
+          }
+        },
+        {
+          "name": "timeZone",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The time zone to use",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"UTC\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the calendar is disabled.",
+            "tags": []
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the calendar is read-only.",
+            "tags": []
+          }
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the date picker is required",
+            "tags": []
+          }
+        },
+        {
+          "name": "invalid",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the date picker is invalid",
+            "tags": []
+          }
+        },
+        {
+          "name": "outsideDaySelectable",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether day outside the visible range can be selected.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "min",
+          "type": "DateValue | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The minimum date that can be selected.",
+            "tags": []
+          }
+        },
+        {
+          "name": "max",
+          "type": "DateValue | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The maximum date that can be selected.",
+            "tags": []
+          }
+        },
+        {
+          "name": "closeOnSelect",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the calendar should close after the date selection is complete.\nThis is ignored when the selection mode is `multiple`.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "openOnClick",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to open the calendar when the input is clicked.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "value",
+          "type": "DateValue[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled selected date(s).",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "DateValue[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial selected date(s) when rendered.\nUse when you don't need to control the selected date(s) of the date picker.",
+            "tags": []
+          }
+        },
+        {
+          "name": "focusedValue",
+          "type": "DateValue | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled focused date.",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultFocusedValue",
+          "type": "DateValue | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial focused date when rendered.\nUse when you don't need to control the focused date of the date picker.",
+            "tags": []
+          }
+        },
+        {
+          "name": "numOfMonths",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The number of months to display.",
+            "tags": []
+          }
+        },
+        {
+          "name": "startOfWeek",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The first day of the week.\n `0` - Sunday\n `1` - Monday\n `2` - Tuesday\n `3` - Wednesday\n `4` - Thursday\n `5` - Friday\n `6` - Saturday",
+            "tags": []
+          }
+        },
+        {
+          "name": "fixedWeeks",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the calendar should have a fixed number of weeks.\nThis renders the calendar with 6 weeks instead of 5 or 6.",
+            "tags": []
+          }
+        },
+        {
+          "name": "showWeekNumbers",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to show the week number column in the day view.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the value changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onFocusChange",
+          "type": "((details: FocusChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the focused date changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onViewChange",
+          "type": "((details: ViewChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the view changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onVisibleRangeChange",
+          "type": "((details: VisibleRangeChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the visible range changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onOpenChange",
+          "type": "((details: OpenChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the calendar opens or closes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "isDateUnavailable",
+          "type": "((date: DateValue, locale: string) => boolean) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Returns whether a date of the calendar is available.",
+            "tags": []
+          }
+        },
+        {
+          "name": "selectionMode",
+          "type": "SelectionMode | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The selection mode of the calendar.\n- `single` - only one date can be selected\n- `multiple` - multiple dates can be selected\n- `range` - a range of dates can be selected",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"single\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "maxSelectedDates",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The maximum number of dates that can be selected.\nThis is only applicable when `selectionMode` is `multiple`.",
+            "tags": []
+          }
+        },
+        {
+          "name": "format",
+          "type": "((date: DateValue, details: LocaleDetails) => string) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "The format of the date to display in the input.",
+            "tags": []
+          }
+        },
+        {
+          "name": "parse",
+          "type": "((value: string, details: LocaleDetails) => DateValue | undefined) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to parse the date from the input back to a DateValue.",
+            "tags": []
+          }
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The placeholder text to display in the input.",
+            "tags": []
+          }
+        },
+        {
+          "name": "view",
+          "type": "DateView | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The view of the calendar",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultView",
+          "type": "DateView | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The default view of the calendar",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"day\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "minView",
+          "type": "DateView | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The minimum view of the calendar",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"day\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "maxView",
+          "type": "DateView | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The maximum view of the calendar",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"year\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "positioning",
+          "type": "PositioningOptions | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The user provided options used to position the date picker content",
+            "tags": []
+          }
+        },
+        {
+          "name": "open",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled open state of the date picker",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultOpen",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial open state of the date picker when rendered.\nUse when you don't need to control the open state of the date picker.",
+            "tags": []
+          }
+        },
+        {
+          "name": "inline",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to render the date picker inline",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => DatePickerApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => DatePickerApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerLabelProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"label\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerPresetTriggerProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "PresetTriggerValue",
+          "typeKind": "array",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerInputProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The index of the input to focus.",
+            "tags": []
+          }
+        },
+        {
+          "name": "fixOnBlur",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to fix the input value on blur.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"input\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerPositionerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerContentProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerYearSelectProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"select\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerMonthSelectProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"select\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerViewProps",
+      "props": [
+        {
+          "name": "view",
+          "type": "DateView | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerViewControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerPrevTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerViewTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerRangeTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerNextTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"table\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableHeadProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"thead\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableRowProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"tr\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableHeaderProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"th\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableBodyProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"tbody\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableCellProps",
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "number | DateValue",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "columns",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "visibleRange",
+          "type": "VisibleRange | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"td\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "DatePickerTableCellTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

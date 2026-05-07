@@ -1,0 +1,527 @@
+{
+  "name": "carousel",
+  "types": [
+    {
+      "name": "CarouselRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; item: (index: number) => string; itemGroup: string; nextTrigger: string; prevTrigger: string; indicatorGroup: string; indicator: (index: number) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the carousel. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "translations",
+          "type": "IntlTranslations | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The localized messages to use.",
+            "tags": []
+          }
+        },
+        {
+          "name": "slidesPerPage",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The number of slides to show at a time.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "autoSize",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to enable variable width slides.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "slidesPerMove",
+          "type": "number | \"auto\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The number of slides to scroll at a time.\n\nWhen set to `auto`, the number of slides to scroll is determined by the\n`slidesPerPage` property.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"auto\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "autoplay",
+          "type": "boolean | { delay: number; } | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to scroll automatically. The default delay is 4000ms.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "allowMouseDrag",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to allow scrolling via dragging with mouse",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "loop",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the carousel should loop around.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "page",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled page of the carousel.",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultPage",
+          "type": "number | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial page to scroll to when rendered.\nUse when you don't need to control the page of the carousel.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "0"
+              }
+            ]
+          }
+        },
+        {
+          "name": "spacing",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The amount of space between items.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"0px\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "padding",
+          "type": "string | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Defines the extra space added around the scrollable area,\nenabling nearby items to remain partially in view.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onPageChange",
+          "type": "((details: PageChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the page changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "inViewThreshold",
+          "type": "number | number[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The threshold for determining if an item is in view.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "0.6"
+              }
+            ]
+          }
+        },
+        {
+          "name": "snapType",
+          "type": "\"proximity\" | \"mandatory\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The snap type of the item.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"mandatory\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "slideCount",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": "The total number of slides.\nUseful for SSR to render the initial ating the snap points.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onDragStatusChange",
+          "type": "((details: DragStatusDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the drag status changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onAutoplayStatusChange",
+          "type": "((details: AutoplayStatusDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function called when the autoplay status changes.",
+            "tags": []
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "\"horizontal\" | \"vertical\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The orientation of the element.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"horizontal\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "CarouselApi<PropTypes>",
+          "typeKind": "object",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "(carousel: CarouselApi<PropTypes>) => ReactNode",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselControlProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselItemGroupProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselItemProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": "The index of the item.",
+            "tags": []
+          }
+        },
+        {
+          "name": "snapAlign",
+          "type": "\"start\" | \"end\" | \"center\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The snap alignment of the item.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"start\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselPrevTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselNextTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselAutoplayTriggerProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselIndicatorGroupProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselIndicatorProps",
+      "props": [
+        {
+          "name": "index",
+          "type": "number",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": "The index of the indicator.",
+            "tags": []
+          }
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the indicator is read only.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "false"
+              }
+            ]
+          }
+        },
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "CarouselProgressTextProps",
+      "props": [
+        {
+          "name": "element",
+          "type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

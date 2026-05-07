@@ -1,0 +1,244 @@
+{
+  "name": "toggle-group",
+  "types": [
+    {
+      "name": "ToggleGroupRootProps",
+      "props": [
+        {
+          "name": "ids",
+          "type": "Partial<{ root: string; item: (value: string) => string; }> | undefined",
+          "typeKind": "object",
+          "optional": true,
+          "JSDoc": {
+            "description": "The ids of the elements in the toggle. Useful for composition.",
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the toggle is disabled.",
+            "tags": []
+          }
+        },
+        {
+          "name": "value",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The controlled selected value of the toggle group.",
+            "tags": []
+          }
+        },
+        {
+          "name": "defaultValue",
+          "type": "string[] | undefined",
+          "typeKind": "array",
+          "optional": true,
+          "JSDoc": {
+            "description": "The initial selected value of the toggle group when rendered.\nUse when you don't need to control the selected value of the toggle group.",
+            "tags": []
+          }
+        },
+        {
+          "name": "onValueChange",
+          "type": "((details: ValueChangeDetails) => void) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Function to call when the toggle is clicked.",
+            "tags": []
+          }
+        },
+        {
+          "name": "loopFocus",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to loop focus inside the toggle group.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "rovingFocus",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to use roving tab index to manage focus.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "orientation",
+          "type": "Orientation | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The orientation of the toggle group.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"horizontal\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "multiple",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether to allow multiple toggles to be selected.",
+            "tags": []
+          }
+        },
+        {
+          "name": "deselectable",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "Whether the toggle group allows empty selection.\n**Note:** This is ignored if `multiple` is `true`.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "true"
+              }
+            ]
+          }
+        },
+        {
+          "name": "dir",
+          "type": "\"ltr\" | \"rtl\" | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": "The document's text/writing direction.",
+            "tags": [
+              {
+                "name": "default",
+                "value": "\"ltr\""
+              }
+            ]
+          }
+        },
+        {
+          "name": "getRootNode",
+          "type": "(() => ShadowRoot | Node | Document) | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "ToggleGroupRootProviderProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "() => ToggleGroupApi<PropTypes>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "ToggleGroupRootContextProps",
+      "props": [
+        {
+          "name": "children",
+          "type": "Snippet<[() => ToggleGroupApi<PropTypes>]>",
+          "typeKind": "function",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "name": "ToggleGroupItemProps",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "typeKind": "primitive",
+          "optional": false,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "typeKind": "primitive",
+          "optional": true,
+          "JSDoc": {
+            "description": null,
+            "tags": []
+          }
+        },
+        {
+          "name": "element",
+          "type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+          "typeKind": "function",
+          "optional": true,
+          "JSDoc": {
+            "description": "Render the element yourself",
+            "tags": []
+          }
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}
