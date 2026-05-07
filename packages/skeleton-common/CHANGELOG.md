@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0-next.7
+
+### Minor Changes
+
+- task: Add Corner Shape utility and apply brand color defaults across components, typography, and links. ([#4408](https://github.com/skeletonlabs/skeleton/pull/4408))
+
 ## 5.0.0-next.6
 
 ## 5.0.0-next.5
