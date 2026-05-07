@@ -3,6 +3,7 @@
 	"tag": "next",
 	"initialVersions": {
 		"skeleton": "4.15.2",
+		"@skeletonlabs/component-types": "4.15.2",
 		"@skeletonlabs/skeleton": "4.15.2",
 		"@skeletonlabs/skeleton-common": "4.15.2",
 		"@skeletonlabs/skeleton-react": "4.15.2",
