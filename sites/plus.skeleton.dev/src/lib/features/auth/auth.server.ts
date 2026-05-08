@@ -7,12 +7,11 @@ import { getRequestEvent } from '$app/server';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
 import { oAuthProxy } from 'better-auth/plugins';
+import { getAppOrigin } from '$lib/infrastructure/http/get-app-origin';
 
 export const auth = betterAuth({
-	baseURL: {
-		allowedHosts: ['localhost:*', 'plusskeleton-*-skeleton-labs.vercel.app', 'plus.skeleton.dev'],
-		protocol: 'https',
-	},
+	baseURL: getAppOrigin(),
+	secret: env.BETTER_AUTH_SECRET!,
 	database: drizzleAdapter(db, {
 		provider: 'pg',
 		schema,
