@@ -40,7 +40,7 @@ export async function getFramework(frameworkName: string) {
 }
 
 interface GetComponentOptions {
-	onProcessedComponent?: (componentName: string) => void;
+	onComponentLoaded?: (componentName: string) => void;
 }
 
 export async function getComponents(framework: Awaited<ReturnType<typeof getFramework>>, options: GetComponentOptions = {}) {
@@ -66,7 +66,7 @@ export async function getComponents(framework: Awaited<ReturnType<typeof getFram
 				return partOrder.indexOf(aName) - partOrder.indexOf(bName);
 			});
 
-			options.onProcessedComponent?.(componentName);
+			options.onComponentLoaded?.(componentName);
 
 			return {
 				name: componentName,
