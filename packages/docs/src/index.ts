@@ -1,23 +1,30 @@
-import { intro, outro, spinner } from '@clack/prompts';
+import { intro, outro, taskLog } from '@clack/prompts';
 import { processFramework } from './generate.ts';
 import { writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 
 intro('Generating documentation');
 
-const s = spinner();
+const log = taskLog({
+	title: 'Generating component documentation',
+});
 
-s.start('Generating component documentation for Svelte');
+log.message('Generating component documentation for Svelte');
 
 const svelteComponents = await processFramework('svelte');
 
-s.message('Generating component documentation for React');
+log.message('Generated component documentation for Svelte');
+
+log.message('Generating component documentation for React');
 
 const reactComponents = await processFramework('react');
 
-s.message('Writing component documentation to file');
+log.message('Generated component documentation for React');
+
+log.message('Writing component documentation to file');
 
 await writeFile(
-	'./components.json',
+	join(import.meta.dirname, '..', 'data', 'components.json'),
 	JSON.stringify(
 		[
 			{
@@ -35,6 +42,8 @@ await writeFile(
 	'utf-8',
 );
 
-s.stop('Component documentation generated');
+log.message('Written component documentation to file');
+
+log.success('Successfully generated component documentation');
 
 outro('Successfully generated documentation');
