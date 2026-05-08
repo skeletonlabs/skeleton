@@ -1,8 +1,6 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
 import { visit, SKIP } from 'unist-util-visit';
-
-const components = await getCollection('component-types');
+import components from '@skeletonlabs/docs/components.json';
 
 function kebabToPascal(str: string) {
 	return str
@@ -18,12 +16,12 @@ function createCell(value: string): TableCell {
 	};
 }
 
-function createTablesForComponent(component: CollectionEntry<'component-types'>) {
+function createTablesForComponent(component: (typeof components)[number]['components'][number]) {
 	const nodes: (Heading | Table)[] = [];
-	for (const type of component.data.types) {
+	for (const type of component.types) {
 		const heading =
 			type.name
-				.replace(kebabToPascal(component.id.split('/').at(-1) ?? ''), '')
+				.replace(kebabToPascal(component.name.split('/').at(-1) ?? ''), '')
 				.replace('Props', '')
 				.replace('Root', '')
 				.trim() || 'Root';
@@ -67,7 +65,15 @@ export function processApiReferenceComponents(root: Root) {
 		if (!idAttribute) {
 			return;
 		}
-		const component = components.find((comp) => comp.id === idAttribute.value);
+		if (!idAttribute.value || typeof idAttribute.value !== 'string') {
+			return;
+		}
+		const [frameworkName, componentName] = idAttribute.value.split('/');
+		const framework = components.find((f) => f.framework === frameworkName);
+		if (!framework) {
+			return;
+		}
+		const component = framework.components.find((c) => c.name === componentName);
 		if (!component) {
 			return;
 		}

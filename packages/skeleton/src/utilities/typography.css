@@ -234,7 +234,6 @@
 	font-family: var(--font-mono);
 	font-size: var(--text-sm);
 	white-space: nowrap;
-	overflow-x: auto;
 	padding-inline: --spacing(1.25);
 
 	@variant dark {
@@ -263,15 +262,14 @@
 /* This enables the use of presets-* styling for standalone <code> */
 @layer base {
 	code {
-		background-color: var(--color-primary-100-900);
+		background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%, transparent);
+		color: var(--color-surface-950-50);
 		border-radius: var(--radius-base);
-		color: var(--color-primary-contrast-50-950);
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
 		white-space: nowrap;
 		padding-inline: --spacing(1.5);
 		padding-block: --spacing(0.75);
-		overflow-x: auto;
 	}
 
 	/* Reset when code is inside pre or .ec-line */
