@@ -1,5 +1,5 @@
 import { intro, outro, taskLog } from '@clack/prompts';
-import { processFramework } from './generate.ts';
+import { getComponents, getFramework } from './generate.ts';
 import { writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -7,21 +7,16 @@ intro('Generating documentation');
 
 const log = taskLog({
 	title: 'Generating component documentation',
+	limit: 5,
 });
 
-log.message('Generating component documentation for Svelte');
-
-const svelteComponents = await processFramework('svelte');
-
-log.message('Generated component documentation for Svelte');
-
-log.message('Generating component documentation for React');
-
-const reactComponents = await processFramework('react');
-
-log.message('Generated component documentation for React');
-
-log.message('Writing component documentation to file');
+const [svelteComponents, reactComponents] = await Promise.all(
+	['svelte', 'react'].map(async (framework) =>
+		getComponents(await getFramework(framework), {
+			onProcessedComponent: (componentName) => log.message(`✓ ${componentName} (${framework})`),
+		}),
+	),
+);
 
 await writeFile(
 	join(import.meta.dirname, '..', 'data', 'components.json'),

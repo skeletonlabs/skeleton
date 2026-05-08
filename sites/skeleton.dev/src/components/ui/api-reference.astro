@@ -1,17 +1,24 @@
 ---
-import { getEntry, type CollectionEntry } from 'astro:content';
-import Code from '@/components/ui/code.svelte';
+import components from '@skeletonlabs/docs/components.json';
 
 interface Props {
-	id: CollectionEntry<'component-types'>['id'];
+	id: `${string}/${string}`;
 }
 
 const { id } = Astro.props;
 
-const component = await getEntry('component-types', id);
+const [frameworkName, componentName] = id.split('/');
+
+const framework = components.find((f) => f.framework === frameworkName);
+
+if (!framework) {
+	throw new Error(`Framework with name "${frameworkName}" not found.`);
+}
+
+const component = framework?.components.find((c) => c.name === componentName);
 
 if (!component) {
-	throw new Error(`Component with id "${id}" not found in "component-types" collection.`);
+	throw new Error(`Component with name "${componentName}" not found.`);
 }
 
 function kebabToPascal(str: string) {
@@ -23,7 +30,7 @@ function kebabToPascal(str: string) {
 ---
 
 {
-	component.data.types.map((type) => (
+	component.types.map((type) => (
 		<>
 			<h3 class="h3">
 				{type.name
@@ -31,7 +38,6 @@ function kebabToPascal(str: string) {
 					.replace('Props', '')
 					.replace('Root', '') || 'Root'}
 			</h3>
-			{type.metadata.classValue && type.metadata.classValue !== "''" && <Code code={type.metadata.classValue} client:visible />}
 			<div class="table-wrap card border border-surface-200-800 rounded-container">
 				<table class="table">
 					<thead class="bg-surface-100-900/50">
