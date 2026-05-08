@@ -65,7 +65,10 @@ export function processApiReferenceComponents(root: Root) {
 		if (!idAttribute) {
 			return;
 		}
-		const [frameworkName, componentName] = String(idAttribute.value).split('/');
+		if (!idAttribute.value || typeof idAttribute.value !== 'string') {
+			return;
+		}
+		const [frameworkName, componentName] = idAttribute.value.split('/');
 		const framework = components.find((f) => f.framework === frameworkName);
 		if (!framework) {
 			return;
