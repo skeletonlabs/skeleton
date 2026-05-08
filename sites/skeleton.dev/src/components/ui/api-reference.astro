@@ -15,7 +15,7 @@ if (!framework) {
 	throw new Error(`Framework with name "${frameworkName}" not found.`);
 }
 
-const component = framework?.components.find((c) => c.name === componentName);
+const component = framework.components.find((c) => c.name === componentName);
 
 if (!component) {
 	throw new Error(`Component with name "${componentName}" not found.`);
