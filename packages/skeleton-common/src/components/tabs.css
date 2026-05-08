@@ -37,7 +37,7 @@
 		@apply btn;
 
 		@variant hover {
-			@apply preset-tonal-primary;
+			@apply preset-tonal-brand;
 		}
 
 		&[data-disabled] {

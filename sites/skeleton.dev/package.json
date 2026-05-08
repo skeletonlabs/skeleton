@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
-		"build": "LOAD_COMPONENT_COLLECTION=1 astro build",
+		"build": "astro build",
 		"check": "astro check",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
 		"postinstall": "astro sync"
@@ -28,6 +28,7 @@
 		"@shikijs/themes": "catalog:",
 		"@shikijs/transformers": "catalog:",
 		"@shikijs/types": "catalog:",
+		"@skeletonlabs/docs": "workspace:*",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-react": "workspace:*",

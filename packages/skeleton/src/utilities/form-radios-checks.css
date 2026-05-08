@@ -17,7 +17,7 @@
 	width: --spacing(5);
 
 	@variant focus-within {
-		--tw-ring-color: var(--color-primary-500);
+		--tw-ring-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 	}
 	@variant hover {
 		filter: brightness(105%);
@@ -27,31 +27,31 @@
 	}
 
 	&:checked {
-		background-color: var(--color-primary-500);
-		accent-color: var(--color-primary-500);
+		background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+		accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 
 		@variant hover {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		}
 		@variant focus {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 			border: 0;
 		}
 	}
 
 	&:indeterminate {
-		background-color: var(--color-primary-500);
-		accent-color: var(--color-primary-500);
+		background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+		accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 
 		@variant hover {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		}
 		@variant focus {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 			border: 0;
 		}
 	}
@@ -72,7 +72,7 @@
 	width: --spacing(5);
 
 	@variant focus-within {
-		--tw-ring-color: var(--color-primary-500);
+		--tw-ring-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 	}
 	@variant hover {
 		filter: brightness(105%);
@@ -82,16 +82,16 @@
 	}
 
 	&:checked {
-		background-color: var(--color-primary-500);
-		accent-color: var(--color-primary-500);
+		background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+		accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 
 		@variant hover {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		}
 		@variant focus {
-			background-color: var(--color-primary-500);
-			accent-color: var(--color-primary-500);
+			background-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
+			accent-color: light-dark(var(--color-brand-light), var(--color-brand-dark));
 			border: 0;
 		}
 	}

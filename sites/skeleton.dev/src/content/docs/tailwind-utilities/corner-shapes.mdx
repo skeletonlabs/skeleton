@@ -1,0 +1,150 @@
+---
+title: Corner Shapes
+description: Specifies the shape of a box's corners, within the area specified by its border-radius.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/corner-shapes.css'
+stability: beta
+---
+
+import Corners from '@/components/examples/tailwind-utilities/corner-shapes/corners.astro';
+import CornersRaw from '@/components/examples/tailwind-utilities/corner-shapes/corners.astro?raw';
+import Default from '@/components/examples/tailwind-utilities/corner-shapes/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-utilities/corner-shapes/default.astro?raw';
+import Logical from '@/components/examples/tailwind-utilities/corner-shapes/logical.astro';
+import LogicalRaw from '@/components/examples/tailwind-utilities/corner-shapes/logical.astro?raw';
+import Sides from '@/components/examples/tailwind-utilities/corner-shapes/sides.astro';
+import SidesRaw from '@/components/examples/tailwind-utilities/corner-shapes/sides.astro?raw';
+import Theme from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro';
+import ThemeRaw from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro?raw';
+
+Base on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) CSS property. Pair `corner-shape-*` with a `rounded-*` utility on the same element.
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+| Class                   | Description                                 |
+| ----------------------- | ------------------------------------------- |
+| `corner-shape-round`    | Standard circular curve (default)           |
+| `corner-shape-bevel`    | Straight diagonal cut across the corner     |
+| `corner-shape-notch`    | Inverted bevel that carves into the corner  |
+| `corner-shape-scoop`    | Concave curve that scoops inward            |
+| `corner-shape-squircle` | Superellipse with a softer curve than round |
+| `corner-shape-straight` | Sharp 90° corner                            |
+| `corner-shape-none`     | Removes any shape property                  |
+
+## Browser Support Warning
+
+Currently available in a limited set of browsers. Follow progressive enhancement best practices when using it.
+
+| Browser            | Support              |
+| ------------------ | -------------------- |
+| Chrome             | 139+                 |
+| Edge               | 139+                 |
+| Firefox            | ⚠️ Not yet supported |
+| Safari             | ⚠️ Not yet supported |
+| Chrome for Android | 147+                 |
+| Safari on iOS      | ⚠️ Not yet supported |
+
+## Individual Sides
+
+Target a single physical side; each covers its two adjacent corners.
+
+<Preview files={{ 'app.astro': SidesRaw }} client:visible>
+	<Sides />
+</Preview>
+
+| Class              | Description |
+| ------------------ | ----------- |
+| `corner-shape-t-*` | Top side    |
+| `corner-shape-r-*` | Right side  |
+| `corner-shape-b-*` | Bottom side |
+| `corner-shape-l-*` | Left side   |
+
+## Individual Corners
+
+Target a single physical corner.
+
+<Preview files={{ 'app.astro': CornersRaw }} client:visible>
+	<Corners />
+</Preview>
+
+| Class               | Description         |
+| ------------------- | ------------------- |
+| `corner-shape-tl-*` | Top-left corner     |
+| `corner-shape-tr-*` | Top-right corner    |
+| `corner-shape-br-*` | Bottom-right corner |
+| `corner-shape-bl-*` | Bottom-left corner  |
+
+## Logical Properties
+
+Target sides and corners that flow with the document's writing direction. These flip automatically in right-to-left layouts.
+
+<Preview files={{ 'app.astro': LogicalRaw }} client:visible>
+	<Logical />
+</Preview>
+
+| Class               | Description        |
+| ------------------- | ------------------ |
+| `corner-shape-s-*`  | Inline-start side  |
+| `corner-shape-e-*`  | Inline-end side    |
+| `corner-shape-ss-*` | Start-start corner |
+| `corner-shape-se-*` | Start-end corner   |
+| `corner-shape-ee-*` | End-end corner     |
+| `corner-shape-es-*` | End-start corner   |
+
+## Theme Variables
+
+Two utilities consume theme tokens, allowing the active theme to drive the corner shape across your interface.
+
+<Preview files={{ 'app.astro': ThemeRaw }} client:visible>
+	<Theme />
+</Preview>
+
+| Class                    | Theme Property                  | Role                               |
+| ------------------------ | ------------------------------- | ---------------------------------- |
+| `corner-shape-base`      | `var(--corner-shape-base)`      | Target small elements like buttons |
+| `corner-shape-container` | `var(--corner-shape-container)` | Target large elements like cards   |
+
+## Using a Custom Value
+
+Use the `corner-shape-[<value>]` syntax to set the corner shape based on a completely custom value.
+
+```html
+<div class="corner-shape-[squircle] rounded-2xl ...">
+	<!-- ... -->
+</div>
+```
+
+For CSS variables, you can also use the `corner-shape-(<custom-property>)` syntax.
+
+```html
+<div class="corner-shape-(--my-corner-shape) rounded-2xl ...">
+	<!-- ... -->
+</div>
+```
+
+This is just a shorthand for `corner-shape-[var(<custom-property>)]` that adds the `var()` function for you automatically.
+
+The same `[<value>]` and `(<custom-property>)` patterns work for every side, corner, and logical variant — for example `corner-shape-tl-[bevel]` or `corner-shape-s-(--my-corner-shape)`.
+
+## Global Theming
+
+To apply a corner shape across a family of elements, target the class in your global stylesheet and pair it with a matching radius scale. Note this pattern works with any class or element that uses `border-radius`.
+
+```css
+.btn,
+.btn-icon,
+.chip,
+.chip-icon,
+.badge,
+.badge-icon {
+	corner-shape: var(--corner-shape-base);
+}
+```
+
+```css
+.card {
+	corner-shape: var(--corner-shape-container);
+}
+```

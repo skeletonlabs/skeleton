@@ -1,0 +1,369 @@
+{
+	"name": "pagination",
+	"types": [
+		{
+			"name": "PaginationRootProps",
+			"props": [
+				{
+					"name": "ids",
+					"type": "Partial<{ root: string; ellipsis: (index: number) => string; firstTrigger: string; prevTrigger: string; nextTrigger: string; lastTrigger: string; item: (page: number) => string; }> | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "The ids of the elements in the accordion. Useful for composition.",
+						"tags": []
+					}
+				},
+				{
+					"name": "translations",
+					"type": "IntlTranslations | undefined",
+					"typeKind": "object",
+					"optional": true,
+					"JSDoc": {
+						"description": "Specifies the localized strings that identifies the accessibility elements and their states",
+						"tags": []
+					}
+				},
+				{
+					"name": "count",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Total number of data items",
+						"tags": []
+					}
+				},
+				{
+					"name": "pageSize",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled number of data items per page",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultPageSize",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial number of data items per page when rendered.\nUse when you don't need to control the page size of the pagination.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "10"
+							}
+						]
+					}
+				},
+				{
+					"name": "siblingCount",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Number of pages to show beside active page",
+						"tags": [
+							{
+								"name": "default",
+								"value": "1"
+							}
+						]
+					}
+				},
+				{
+					"name": "boundaryCount",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "Number of pages to show at the beginning and end",
+						"tags": [
+							{
+								"name": "default",
+								"value": "1"
+							}
+						]
+					}
+				},
+				{
+					"name": "page",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The controlled active page",
+						"tags": []
+					}
+				},
+				{
+					"name": "defaultPage",
+					"type": "number | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The initial active page when rendered.\nUse when you don't need to control the active page of the pagination.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "1"
+							}
+						]
+					}
+				},
+				{
+					"name": "onPageChange",
+					"type": "((details: PageChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Called when the page number is changed",
+						"tags": []
+					}
+				},
+				{
+					"name": "onPageSizeChange",
+					"type": "((details: PageSizeChangeDetails) => void) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Called when the page size is changed",
+						"tags": []
+					}
+				},
+				{
+					"name": "type",
+					"type": "\"button\" | \"link\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The type of the trigger element",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"button\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getPageUrl",
+					"type": "((details: PageUrlDetails) => string) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Function to generate href attributes for pagination links.\nOnly used when `type` is set to \"link\".",
+						"tags": []
+					}
+				},
+				{
+					"name": "dir",
+					"type": "\"ltr\" | \"rtl\" | undefined",
+					"typeKind": "primitive",
+					"optional": true,
+					"JSDoc": {
+						"description": "The document's text/writing direction.",
+						"tags": [
+							{
+								"name": "default",
+								"value": "\"ltr\""
+							}
+						]
+					}
+				},
+				{
+					"name": "getRootNode",
+					"type": "(() => ShadowRoot | Node | Document) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"nav\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationRootProviderProps",
+			"props": [
+				{
+					"name": "value",
+					"type": "PaginationApi<PropTypes>",
+					"typeKind": "object",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"nav\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationRootContextProps",
+			"props": [
+				{
+					"name": "children",
+					"type": "(pagination: PaginationApi<PropTypes>) => ReactNode",
+					"typeKind": "function",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationFirstTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationPrevTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationItemProps",
+			"props": [
+				{
+					"name": "type",
+					"type": "\"page\"",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "value",
+					"type": "number",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"a\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationEllipsisProps",
+			"props": [
+				{
+					"name": "index",
+					"type": "number",
+					"typeKind": "primitive",
+					"optional": false,
+					"JSDoc": {
+						"description": null,
+						"tags": []
+					}
+				},
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"span\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationNextTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		},
+		{
+			"name": "PaginationLastTriggerProps",
+			"props": [
+				{
+					"name": "element",
+					"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+					"typeKind": "function",
+					"optional": true,
+					"JSDoc": {
+						"description": "Render the element yourself",
+						"tags": []
+					}
+				}
+			],
+			"metadata": {}
+		}
+	]
+}

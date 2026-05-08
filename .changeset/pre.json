@@ -3,6 +3,7 @@
 	"tag": "next",
 	"initialVersions": {
 		"skeleton": "4.15.2",
+		"@skeletonlabs/docs": "4.15.2",
 		"@skeletonlabs/skeleton": "4.15.2",
 		"@skeletonlabs/skeleton-common": "4.15.2",
 		"@skeletonlabs/skeleton-react": "4.15.2",
@@ -16,10 +17,12 @@
 	"changesets": [
 		"afraid-paths-fry",
 		"busy-kids-trade",
+		"cool-toes-care",
 		"dull-chairs-teach",
 		"late-owls-check",
 		"puny-melons-report",
 		"purple-clubs-serve",
+		"strict-candles-camp",
 		"tender-ends-yell",
 		"upset-hairs-wave",
 		"upset-mugs-find",

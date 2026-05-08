@@ -1,4 +1,3 @@
-import { createComponentsLoader } from '@/modules/loaders/components';
 import { glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 import { Octokit } from 'octokit';
@@ -83,37 +82,6 @@ export const collections = {
 					instructions: z.array(z.string()),
 				})
 				.optional(),
-		}),
-	}),
-	components: defineCollection({
-		loader: createComponentsLoader(),
-		schema: z.object({
-			name: z.string(),
-			types: z.array(
-				z.object({
-					name: z.string(),
-					props: z.array(
-						z.object({
-							name: z.string(),
-							type: z.string(),
-							typeKind: z.string(),
-							optional: z.boolean(),
-							JSDoc: z.object({
-								description: z.string().nullable(),
-								tags: z.array(
-									z.object({
-										name: z.string(),
-										value: z.string().nullable(),
-									}),
-								),
-							}),
-						}),
-					),
-					metadata: z.object({
-						classValue: z.string().optional(),
-					}),
-				}),
-			),
 		}),
 	}),
 };
