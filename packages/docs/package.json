@@ -14,7 +14,7 @@
 	"scripts": {
 		"generate": "node ./src/index.ts",
 		"check": "tsc",
-		"prepack": "pnpm build && clean-package",
+		"prepack": "clean-package",
 		"postpack": "clean-package restore"
 	},
 	"exports": {
