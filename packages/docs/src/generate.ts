@@ -1,4 +1,3 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
 import { extname, join } from 'node:path';
 import { glob } from 'tinyglobby';
 import { createProjectForConfig, createSourceFile, getInterface } from './parser.ts';
@@ -6,9 +5,8 @@ import { getPartOrder, loadClassValues } from './anatomy.ts';
 import { kebabToPascal, kebabToCamel } from './casing.ts';
 import type { Component } from './types.ts';
 
-const MONOREPO_DIR = join(import.meta.dirname, '..', '..', '..', '..');
+const MONOREPO_DIR = join(import.meta.dirname, '..', '..', '..');
 const packageDir = (name: string) => join(MONOREPO_DIR, 'packages', name);
-const OUTPUT_DIR = join(MONOREPO_DIR, 'packages', 'component-types', 'data');
 
 async function processPart(
 	componentName: string,
@@ -35,7 +33,7 @@ async function processComponent(
 	frameworkName: string,
 	componentPath: string,
 	project: ReturnType<typeof createProjectForConfig>,
-): Promise<void> {
+): Promise<Component | undefined> {
 	const componentName = componentPath.split('/').filter(Boolean).pop();
 	if (!componentName) return;
 
@@ -58,13 +56,13 @@ async function processComponent(
 		return partOrder.indexOf(aName) - partOrder.indexOf(bName);
 	});
 
-	const entry: Component = { name: componentName, types };
-	const outputDir = join(OUTPUT_DIR, frameworkName);
-	mkdirSync(outputDir, { recursive: true });
-	writeFileSync(join(outputDir, `${componentName}.json`), JSON.stringify(entry, null, 2), 'utf-8');
+	return {
+		name: componentName,
+		types,
+	};
 }
 
-export async function processFramework(frameworkName: string): Promise<void> {
+export async function processFramework(frameworkName: string): Promise<Component[]> {
 	const pkgDir = packageDir(`skeleton-${frameworkName}`);
 	const project = createProjectForConfig(join(pkgDir, 'tsconfig.json'));
 	const componentPaths = await glob('src/components/*', {
@@ -72,6 +70,7 @@ export async function processFramework(frameworkName: string): Promise<void> {
 		onlyDirectories: true,
 		absolute: true,
 	});
-
-	await Promise.all(componentPaths.map((componentPath) => processComponent(frameworkName, componentPath, project)));
+	return (await Promise.all(componentPaths.map((componentPath) => processComponent(frameworkName, componentPath, project)))).filter(
+		(c): c is Component => !!c,
+	);
 }
