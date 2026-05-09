@@ -28,7 +28,6 @@ export const auth = betterAuth({
 	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	plugins: [
 		oAuthProxy({
-			currentURL: import.meta.env.DEV ? 'http://localhost:5173' : 'https://plus.skeleton.dev',
 			productionURL: 'https://plus.skeleton.dev',
 		}),
 		/**
