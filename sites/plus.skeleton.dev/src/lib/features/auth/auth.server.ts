@@ -10,7 +10,7 @@ import { oAuthProxy } from 'better-auth/plugins';
 
 export const auth = betterAuth({
 	baseURL: {
-		allowedHosts: ['localhost:*', '*.vercel.app','plus.skeleton.dev'],
+		allowedHosts: ['localhost:*', 'plus.skeleton.dev'],
 	},
 	database: drizzleAdapter(db, {
 		provider: 'pg',
@@ -28,7 +28,9 @@ export const auth = betterAuth({
 	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	plugins: [
 		oAuthProxy({
+			currentURL: import.meta.env.DEV ? 'http://localhost:5173' : 'https://plus.skeleton.dev',
 			productionURL: 'https://plus.skeleton.dev',
+			secret: env.BETTER_AUTH_PROXY_SECRET!,
 		}),
 		/**
 		 * Important: `sveltekitCookies` must be the last plugin
