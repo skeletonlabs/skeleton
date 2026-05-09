@@ -28,11 +28,7 @@ export const auth = betterAuth({
 	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	plugins: [
 		oAuthProxy({
-			currentURL: import.meta.env.DEV
-				? 'http://localhost:5173'
-				: process.env.VERCEL_ENV === 'production'
-					? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-					: `https://${process.env.VERCEL_URL}`,
+			currentURL: import.meta.env.DEV ? 'http://localhost:5173' : 'https://plus.skeleton.dev',
 			productionURL: 'https://plus.skeleton.dev',
 		}),
 		/**
