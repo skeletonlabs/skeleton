@@ -8,7 +8,7 @@
 
 ## Checklist
 
-Please read our [contribution requirements](https://skeleton.dev/docs/resources/contribute/) and make sure you:
+Please read our [contribution requirements](https://skeleton.dev/docs/resources/contribute/) and make sure you have:
 
 - [ ] Prefixed your branch name with: `docs/`, `feature/`, `task/`, `bugfix/`
 - [ ] Targeted the `main` branch
