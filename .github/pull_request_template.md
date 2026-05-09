@@ -13,7 +13,7 @@ Please read our [contribution requirements](https://skeleton.dev/docs/svelte/res
 - [ ] Prefixed your branch name with: `docs/`, `feature/`, `task/`, `bugfix/`
 - [ ] Targeted the `main` branch
 - [ ] Documented any changes made
-- [ ] Suppplied a [changeset](#changesets) (if changes were made to any project within `/packages`)
+- [ ] Supplied a [changeset](#changesets) (if changes were made to any project within `/packages`)
 
 ## Changesets
 
