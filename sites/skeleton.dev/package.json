@@ -15,7 +15,7 @@
 		"@types/react": "^19.1.8",
 		"@types/react-dom": "^19.1.6",
 		"colorette": "^2.0.20",
-		"next": "15.4.1",
+		"next": "15.4.10",
 		"tinyglobby": "^0.2.14",
 		"tsx": "^4.20.3",
 		"vite-plugin-pagefind": "^1.0.6"
