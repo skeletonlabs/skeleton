@@ -9,10 +9,7 @@ import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-
 import { oAuthProxy } from 'better-auth/plugins';
 
 export const auth = betterAuth({
-	baseURL: {
-		allowedHosts: ['localhost:*', 'plusskeleton-*-skeleton-labs.vercel.app', 'plus.skeleton.dev'],
-		protocol: 'https',
-	},
+	trustedOrigins: ['http://localhost:5173', 'https://*.vercel.app', 'https://plus.skeleton.dev'],
 	database: drizzleAdapter(db, {
 		provider: 'pg',
 		schema,
