@@ -10,7 +10,7 @@ import { oAuthProxy } from 'better-auth/plugins';
 
 export const auth = betterAuth({
 	baseURL: {
-		allowedHosts: ['localhost:*', '*.vercel.app', 'plus.skeleton.dev'],
+		allowedHosts: ['localhost:*', 'plus.skeleton.dev'],
 	},
 	database: drizzleAdapter(db, {
 		provider: 'pg',
