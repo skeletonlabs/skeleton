@@ -7,8 +7,10 @@ import { getRequestEvent } from '$app/server';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
 import { oAuthProxy } from 'better-auth/plugins';
+import { getBaseURL } from '$lib/infrastructure/http/get-base-url';
 
 export const auth = betterAuth({
+	baseURL: getBaseURL(),
 	trustedOrigins: ['http://localhost:5173', 'https://*.vercel.app', 'https://plus.skeleton.dev'],
 	database: drizzleAdapter(db, {
 		provider: 'pg',
