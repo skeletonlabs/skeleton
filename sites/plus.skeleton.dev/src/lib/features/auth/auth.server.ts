@@ -27,9 +27,13 @@ export const auth = betterAuth({
 		},
 	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 	plugins: [
-		sveltekitCookies(getRequestEvent),
 		oAuthProxy({
 			productionURL: 'https://plus.skeleton.dev',
 		}),
+		/**
+		 * Important: `sveltekitCookies` must be the last plugin
+		 * @see https://better-auth.com/docs/integrations/svelte-kit#server-action-cookies
+		 */
+		sveltekitCookies(getRequestEvent),
 	],
 });
