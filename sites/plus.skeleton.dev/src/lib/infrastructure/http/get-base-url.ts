@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 
-export function getAppOrigin() {
+export function getBaseURL() {
 	if (dev) {
 		return 'http://localhost:5173';
 	}
