@@ -20,6 +20,7 @@ catalog:
   '@internationalized/date': 3.12.1
   '@lucide/astro': 1.14.0
   '@lucide/svelte': 1.14.0
+  '@neondatabase/serverless': 1.1.0
   '@playwright/test': 1.59.1
   '@prettier/plugin-oxc': 0.1.4
   '@resvg/resvg-js': 2.6.2
@@ -111,7 +112,6 @@ catalog:
   package-manager-detector: 1.6.0
   playwright: 1.59.1
   postcss: 8.5.13
-  postgres: 3.4.9
   prettier: 3.8.3
   prettier-plugin-astro: 0.14.1
   prettier-plugin-svelte: 3.5.1

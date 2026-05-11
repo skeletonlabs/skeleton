@@ -6,13 +6,13 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"drizzle:push": "drizzle-kit push --config ./drizzle.config.ts",
 		"drizzle:studio": "drizzle-kit studio --config ./drizzle.config.ts",
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
 		"@better-auth/drizzle-adapter": "catalog:",
 		"@iconify-json/logos": "catalog:",
+		"@neondatabase/serverless": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
 		"@sveltejs/adapter-vercel": "catalog:",
@@ -24,7 +24,6 @@
 		"better-auth": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
-		"postgres": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",
