@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0-next.9
+
+### Major Changes
+
+- task: remove `card-hover` utility ([#4417](https://github.com/skeletonlabs/skeleton/pull/4417))
+
 ## 5.0.0-next.8
 
 ## 5.0.0-next.7
