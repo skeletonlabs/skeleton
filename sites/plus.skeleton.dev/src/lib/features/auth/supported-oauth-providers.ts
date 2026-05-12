@@ -1,5 +1,5 @@
-import DiscordIcon from 'virtual:icons/logos/discord-icon';
-import GithubIcon from 'virtual:icons/logos/github-icon';
+import DiscordIcon from 'virtual:icons/simple-icons/discord';
+import GithubIcon from 'virtual:icons/simple-icons/github';
 
 export const supportedOAuthProviders = [
 	{
