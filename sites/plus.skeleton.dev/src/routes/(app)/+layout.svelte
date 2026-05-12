@@ -1,12 +1,12 @@
 <script lang="ts">
-	import SiteFooter from '$lib/components/SiteFooter/SiteFooter.svelte';
-	import Siteheader from '$lib/components/SiteHeader/Siteheader.svelte';
+	import AppFooter from '$lib/components/App/AppFooter.svelte';
+	import AppHeader from '$lib/components/App/AppHeader.svelte';
 
 	const { children } = $props();
 </script>
 
 <div class="grid grid-rows-[auto_1fr_auto] min-h-dvh">
-	<Siteheader />
+	<AppHeader />
 	<main class="container mx-auto border-l border-r border-surface-200-800">{@render children()}</main>
-	<SiteFooter />
+	<AppFooter />
 </div>
