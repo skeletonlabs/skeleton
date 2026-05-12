@@ -1,4 +1,3 @@
 <div class="app-container-page">
-	<h1 class="h1">Skeleton Plus</h1>
-	<p>Welcome to the homepage.</p>
+	<p>Now viewing <code class="code">homepage</code></p>
 </div>

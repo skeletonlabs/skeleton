@@ -1,23 +1,34 @@
 <script lang="ts">
+	import Skeleton from '$lib/components/Branding/Skeleton.svelte';
 	import { getUser } from '$lib/features/auth/get-user.remote';
 	import SignOutButton from '$lib/features/auth/sign-out-button.svelte';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import SkullIcon from '@lucide/svelte/icons/skull';
 	import { AppBar, Avatar, Menu, Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
+	// Current User
 	const user = $derived(await getUser());
-	// const user = {
-	// 	name: 'Jane Doe',
-	// 	image: 'https://i.pravatar.cc/150?u=skeleton-plus',
-	// };
+
+	// Navigation
+	const navigationDesign = [
+		{ value: 'themes', href: '/design/themes', label: 'Theme Studio' },
+		{ value: 'presets', href: '/design/presets', label: 'Preset Studio' },
+		{ value: 'mesh', href: '/design/mesh', label: 'Mesh Studio' },
+	];
+	const navigation = [
+		{ href: '/content/blocks', label: 'Blocks' },
+		{ href: '/content/templates', label: 'Templates' },
+		{ href: '/content/ui-kit', label: 'UI Kit' },
+		{ href: '/content/tutorials', label: 'Tutorials' },
+		{ href: '/content/community', label: 'Community' },
+	];
 </script>
 
-<div class="sticky top-0 z-30 bg-surface-50-950 border-b border-surface-200-800">
+<div class="sticky top-0 z-30 bg-surface-50-950/75 backdrop-blur-lg border-b border-surface-200-800">
 	<AppBar class="container mx-auto bg-transparent">
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 			<AppBar.Lead>
 				<a href="/" aria-label="Homepage" title="Homepage">
-					<SkullIcon />
+					<Skeleton class="fill-current size-elem-3xl" />
 				</a>
 			</AppBar.Lead>
 			<AppBar.Headline class="flex items-center justify-start gap-1">
@@ -29,32 +40,22 @@
 					<Portal>
 						<Menu.Positioner>
 							<Menu.Content class="z-50">
-								<Menu.Item value="themes" class="p-0">
-									<a href="/content/design/themes" class="block w-full px-2 py-1">
-										<Menu.ItemText>Theme Studio</Menu.ItemText>
-									</a>
-								</Menu.Item>
-								<Menu.Item value="presets" class="p-0">
-									<a href="/content/design/presets" class="block w-full px-2 py-1">
-										<Menu.ItemText>Preset Studio</Menu.ItemText>
-									</a>
-								</Menu.Item>
-								<Menu.Item value="mesh" class="p-0">
-									<a href="/content/design/mesh" class="block w-full px-2 py-1">
-										<Menu.ItemText>Mesh Studio</Menu.ItemText>
-									</a>
-								</Menu.Item>
+								{#each navigationDesign as item (item.value)}
+									<Menu.Item value={item.value} class="p-0">
+										<a href={item.href} class="block w-full px-2 py-1">
+											<Menu.ItemText>{item.label}</Menu.ItemText>
+										</a>
+									</Menu.Item>
+								{/each}
 							</Menu.Content>
 						</Menu.Positioner>
 					</Portal>
 				</Menu>
-				<a href="/content/blocks" class="btn btn-sm hover:preset-tonal">Blocks</a>
-				<a href="/content/templates" class="btn btn-sm hover:preset-tonal">Templates</a>
-				<a href="/content/ui-kit" class="btn btn-sm hover:preset-tonal">UI Kit</a>
-				<a href="/content/tutorials" class="btn btn-sm hover:preset-tonal">Tutorials</a>
-				<a href="/content/community" class="btn btn-sm hover:preset-tonal">Community</a>
+				{#each navigation as anchor (anchor.href)}
+					<a href={anchor.href} class="btn btn-sm hover:preset-tonal">{anchor.label}</a>
+				{/each}
 			</AppBar.Headline>
-			<AppBar.Trail class="gap-1">
+			<AppBar.Trail class="flex gap-2">
 				{#if user}
 					<Popover>
 						<Popover.Trigger>
@@ -73,7 +74,8 @@
 						</Portal>
 					</Popover>
 				{:else}
-					<a href="/auth/login" class="btn preset-filled">Login</a>
+					<a href="/auth/login" class="btn hover:preset-tonal">Login</a>
+					<a href="/overview/pricing" class="btn preset-tonal">Get Full Access</a>
 				{/if}
 			</AppBar.Trail>
 		</AppBar.Toolbar>

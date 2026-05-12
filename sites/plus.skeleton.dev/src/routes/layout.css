@@ -5,6 +5,7 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton-svelte';
 
+/* NOTE: currently using OS preference */
 /* @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *)); */
 
 html {
@@ -15,9 +16,9 @@ html {
 }
 
 .app-container-page {
-	padding: --spacing(4);
+	padding: --spacing(8);
 
 	& > :not(:last-child) {
-		margin-block-end: --spacing(4);
+		margin-block-end: --spacing(8);
 	}
 }
