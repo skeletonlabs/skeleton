@@ -23,8 +23,8 @@ export const auth = betterAuth({
 							{
 								providerId: 'local',
 								discoveryUrl: 'http://localhost:8080/local/.well-known/openid-configuration',
-								clientId: 'test-client-id',
-								clientSecret: 'test-client-secret',
+								clientId: 'local-client-id',
+								clientSecret: 'local-client-secret',
 								scopes: ['openid', 'profile'],
 							},
 						],
@@ -46,5 +46,9 @@ export const auth = betterAuth({
 			clientId: env.DISCORD_CLIENT_ID!,
 			clientSecret: env.DISCORD_CLIENT_SECRET!,
 		},
-	} satisfies Record<Exclude<SupportedOAuthProvider['id'], 'local'>, unknown>,
+		local: {
+			clientId: 'local-client-id',
+			clientSecret: 'local-client-secret',
+		},
+	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
 });
