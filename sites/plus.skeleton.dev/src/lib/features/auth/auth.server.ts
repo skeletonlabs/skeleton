@@ -1,11 +1,13 @@
+import { dev } from '$app/environment';
+import { getRequestEvent } from '$app/server';
+import { env } from '$env/dynamic/private';
+import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
+import { db } from '$lib/infrastructure/database/db';
+import * as schema from '$lib/infrastructure/database/schema';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import { db } from '$lib/infrastructure/database/db';
-import { env } from '$env/dynamic/private';
-import * as schema from '$lib/infrastructure/database/schema';
-import { getRequestEvent } from '$app/server';
+import { genericOAuth } from 'better-auth/plugins';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
-import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
 
 export const auth = betterAuth({
 	baseURL: import.meta.env.DEV ? 'http://localhost:5173' : `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`,
@@ -14,6 +16,21 @@ export const auth = betterAuth({
 		schema,
 	}),
 	plugins: [
+		...(dev
+			? [
+					genericOAuth({
+						config: [
+							{
+								providerId: 'local',
+								discoveryUrl: 'http://localhost:8080/local/.well-known/openid-configuration',
+								clientId: 'test-client-id',
+								clientSecret: 'test-client-secret',
+								scopes: ['openid', 'profile'],
+							},
+						],
+					}),
+				]
+			: []),
 		/**
 		 * `sveltekitCookies` must be the last plugin
 		 * @see https://better-auth.com/docs/integrations/svelte-kit#server-action-cookies
@@ -29,5 +46,5 @@ export const auth = betterAuth({
 			clientId: env.DISCORD_CLIENT_ID!,
 			clientSecret: env.DISCORD_CLIENT_SECRET!,
 		},
-	} satisfies Record<SupportedOAuthProvider['id'], unknown>,
+	} satisfies Record<Exclude<SupportedOAuthProvider['id'], 'local'>, unknown>,
 });

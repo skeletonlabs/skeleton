@@ -1,10 +1,13 @@
+/// <reference types="node" />
+import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 
+if (!process.env.DATABASE_URL) throw new Error('DATABASE_URL is not set');
+
 export default defineConfig({
-	dialect: 'postgresql',
 	schema: './src/lib/infrastructure/database/schema.ts',
-	dbCredentials: {
-		url: process.env.DATABASE_URL!,
-		ssl: 'require',
-	},
+	dialect: 'postgresql',
+	dbCredentials: { url: process.env.DATABASE_URL, ssl: process.env.NODE_ENV === 'production' ? 'require' : false },
+	verbose: true,
+	strict: true,
 });
