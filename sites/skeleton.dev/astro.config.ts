@@ -55,7 +55,6 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
-		// @ts-expect-error - Astro/TailwindCSS Vite type mistmatch
 		plugins: [tailwindcss()],
 	},
 	adapter: vercel(),
