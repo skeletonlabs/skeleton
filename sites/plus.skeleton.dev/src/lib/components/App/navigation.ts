@@ -18,9 +18,9 @@ export const navigation = {
 		{ label: 'Mesh Studio', href: '/content/design/mesh', enabled: true },
 	],
 	legal: [
-		{ label: 'License', href: '/legal/license', enabled: true },
 		{ label: 'Privacy', href: '/legal/privacy', enabled: true },
 		{ label: 'Terms', href: '/legal/terms', enabled: true },
+		{ label: 'License', href: '/legal/license', enabled: true },
 	],
 	links: [
 		{ label: 'Skeleton', href: 'https://www.skeleton.dev', enabled: true },

@@ -12,7 +12,7 @@
 </script>
 
 <footer class="container mx-auto border-t border-l border-r border-surface-200-800">
-	<!-- Navigation -->
+	<!-- Navigation Row -->
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
 		{#each Object.entries(navSections) as [section, items] (section)}
 			<nav class="space-y-4">
@@ -39,8 +39,7 @@
 			</nav>
 		{/each}
 	</div>
-
-	<!-- Branding -->
+	<!-- Bottom Row -->
 	<div class="border-t border-surface-200-800 flex justify-between items-center gap-4 p-8">
 		<div class="flex items-center gap-2">
 			<a href="/" aria-label="Homepage" title="Homepage" class="inline-flex">

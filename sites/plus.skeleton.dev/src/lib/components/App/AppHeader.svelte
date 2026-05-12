@@ -18,7 +18,7 @@
 		'transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0';
 </script>
 
-{#snippet headlineMobile()}
+{#snippet navigationMobile()}
 	<Dialog open={drawerOpen} onOpenChange={(e) => (drawerOpen = e.open)}>
 		<Dialog.Trigger class="btn-icon hover:preset-tonal lg:hidden" aria-label="Open menu">
 			<MenuIcon />
@@ -60,8 +60,9 @@
 	</Dialog>
 {/snippet}
 
-{#snippet headlineDesktop()}
+{#snippet navigationDesktop()}
 	<div class="hidden lg:flex items-center justify-start">
+		<!-- Menu: Design -->
 		<Menu>
 			<Menu.Trigger class="btn btn-sm hover:preset-tonal">
 				<span>Design</span>
@@ -83,6 +84,7 @@
 				</Menu.Positioner>
 			</Portal>
 		</Menu>
+		<!-- Navigation -->
 		{#each navigation.content as anchor (anchor.href)}
 			{#if anchor.enabled}
 				<a href={anchor.href} class="btn btn-sm hover:preset-tonal">{anchor.label}</a>
@@ -100,8 +102,8 @@
 				</a>
 			</AppBar.Lead>
 			<AppBar.Headline>
-				{@render headlineMobile()}
-				{@render headlineDesktop()}
+				{@render navigationMobile()}
+				{@render navigationDesktop()}
 			</AppBar.Headline>
 			<AppBar.Trail class="flex gap-2">
 				{#if user}
