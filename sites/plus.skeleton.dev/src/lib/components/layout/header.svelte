@@ -5,9 +5,12 @@
 	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import { routes } from '../../client/navigation/routes';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import LifeBuoyIcon from '@lucide/svelte/icons/life-buoy';
+	import LogOutIcon from '@lucide/svelte/icons/log-out';
 	import MenuIcon from '@lucide/svelte/icons/menu';
+	import UserIcon from '@lucide/svelte/icons/user';
 	import XIcon from '@lucide/svelte/icons/x';
-	import { AppBar, Avatar, Dialog, Menu, Popover, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
+	import { AppBar, Avatar, Dialog, Menu, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
 
 	const user = $derived(await getUser());
 
@@ -108,22 +111,58 @@
 			</AppBar.Headline>
 			<AppBar.Trail class="flex gap-2">
 				{#if user}
-					<Popover>
-						<Popover.Trigger>
+					<Menu>
+						<Menu.Trigger>
 							<Avatar class="size-10">
 								<Avatar.Image src={user.image} alt="Avatar" />
 								<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
 							</Avatar>
-						</Popover.Trigger>
+						</Menu.Trigger>
 						<Portal>
-							<Popover.Positioner>
-								<Popover.Content class="card bg-surface-100-900 p-4 space-y-4 shadow-xl z-50">
-									<p>{user.name}</p>
-									<SignOutButton class="btn preset-tonal-error">Sign Out</SignOutButton>
-								</Popover.Content>
-							</Popover.Positioner>
+							<Menu.Positioner>
+								<Menu.Content class="z-50">
+									<!-- Header -->
+									<div class="flex items-center gap-2 px-4 py-2">
+										<Avatar class="size-10">
+											<Avatar.Image src={user.image} alt="Avatar" />
+											<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
+										</Avatar>
+										<div class="space-y-0.5">
+											<p class="font-bold truncate">{user.name}</p>
+											<p class="text-xs opacity-60 truncate">{user.email}</p>
+										</div>
+									</div>
+									<Menu.Separator class="hr" />
+									<!-- Account -->
+									<Menu.Item value="account" class="p-0">
+										<a href="/account" class="flex items-center gap-3 w-full px-4 py-2">
+											<UserIcon class="size-elem-base opacity-60" />
+											<Menu.ItemText class="flex-1">Account</Menu.ItemText>
+										</a>
+									</Menu.Item>
+									<!-- Support -->
+									<Menu.Item value="support" class="p-0">
+										<a
+											href="https://github.com/skeletonlabs/skeleton/discussions"
+											target="_blank"
+											class="flex items-center gap-3 w-full px-4 py-2"
+										>
+											<LifeBuoyIcon class="size-elem-base opacity-60" />
+											<Menu.ItemText class="flex-1">Support</Menu.ItemText>
+										</a>
+									</Menu.Item>
+									<Menu.Separator class="hr" />
+									<!-- Sign Out -->
+									<Menu.Item value="sign-out" class="p-0">
+										<SignOutButton class="flex items-center gap-3 w-full px-4 py-2 text-left">
+											<LogOutIcon class="size-elem-base opacity-60" />
+											<span>Sign Out</span>
+										</SignOutButton>
+									</Menu.Item>
+								</Menu.Content>
+							</Menu.Positioner>
 						</Portal>
-					</Popover>
+					</Menu>
 				{:else}
 					<a href="/auth/sign-in" class="btn hover:preset-tonal">Sign In</a>
 					<a href="/overview/pricing" class="btn preset-tonal">Get Full Access</a>

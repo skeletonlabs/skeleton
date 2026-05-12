@@ -2,12 +2,20 @@
 	import { routes } from '$lib/client/navigation/routes';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
+
+	// A subset of routes in a set order
+	const navColuns = {
+		overview: routes.overview,
+		design: routes.design,
+		content: routes.content,
+		links: routes.links,
+	};
 </script>
 
 <footer class="container mx-auto border-t border-l border-r border-surface-200-800">
 	<!-- Navigation Row -->
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
-		{#each Object.entries(routes) as [section, items] (section)}
+		{#each Object.entries(navColuns) as [section, items] (section)}
 			<nav class="space-y-4">
 				<h2 class="font-bold capitalize">{section}</h2>
 				<ul class="space-y-2">
