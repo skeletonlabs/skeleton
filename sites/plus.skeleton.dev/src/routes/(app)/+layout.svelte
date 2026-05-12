@@ -1,6 +1,6 @@
 <script lang="ts">
-	import AppFooter from '$lib/components/App/AppFooter.svelte';
-	import AppHeader from '$lib/components/App/AppHeader.svelte';
+	import AppFooter from '$lib/components/app/app-footer.svelte';
+	import AppHeader from '$lib/components/app/app-header.svelte';
 
 	const { children } = $props();
 </script>

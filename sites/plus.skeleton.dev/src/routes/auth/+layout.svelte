@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AuthCarousel from '$lib/components/AuthCarousel/AuthCarousel.svelte';
-	import Skeleton from '$lib/components/Branding/Skeleton.svelte';
+	import Skeleton from '$lib/components/branding/skeleton.svelte';
 
 	let { children } = $props();
 </script>

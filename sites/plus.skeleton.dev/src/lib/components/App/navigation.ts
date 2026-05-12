@@ -29,4 +29,4 @@ export const navigation = {
 		{ label: 'Bluesky', href: 'https://bsky.app/profile/skeleton.dev', enabled: true },
 		{ label: 'Ko-Fi', href: 'https://ko-fi.com/skeletonlabs', enabled: true },
 	],
-};
+} as const;

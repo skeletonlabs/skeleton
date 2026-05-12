@@ -1,17 +1,17 @@
 import { dev } from '$app/environment';
 import { getRequestEvent } from '$app/server';
 import { env } from '$env/dynamic/private';
-import type { SupportedOAuthProvider } from '$lib/features/auth/supported-oauth-providers';
-import { db } from '$lib/infrastructure/database/db';
-import * as schema from '$lib/infrastructure/database/schema';
+import type { SupportedOAuthProvider } from '$lib/server/authentication/supported-oauth-providers';
+import { database } from '$lib/server/database/database';
+import * as schema from '$lib/server/database/schema';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { genericOAuth } from 'better-auth/plugins';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 
-export const auth = betterAuth({
+export const authentication = betterAuth({
 	baseURL: import.meta.env.DEV ? 'http://localhost:5173' : `https://${env.VERCEL_PROJECT_PRODUCTION_URL}`,
-	database: drizzleAdapter(db, {
+	database: drizzleAdapter(database, {
 		provider: 'pg',
 		schema,
 	}),

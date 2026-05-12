@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Skeleton from '$lib/components/Branding/Skeleton.svelte';
+	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import { getUser } from '$lib/features/auth/get-user.remote';
 	import SignOutButton from '$lib/features/auth/sign-out-button.svelte';
 	import { navigation } from './navigation';
