@@ -12,10 +12,10 @@ export const signIn = form(
 		const event = getRequestEvent();
 
 		if (dev) {
-			const signIn = await auth.api.signInSocial({
+			const signIn = await auth.api.signInWithOAuth2({
 				headers: event.request.headers,
 				body: {
-					provider: 'local',
+					providerId: 'local',
 				},
 			});
 
