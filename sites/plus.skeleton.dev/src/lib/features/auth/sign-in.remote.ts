@@ -6,25 +6,10 @@ import * as v from 'valibot';
 
 export const signIn = form(
 	v.object({
-		provider: v.picklist(Object.keys(auth.options.socialProviders)),
+		provider: v.picklist([...Object.keys(auth.options.socialProviders), ...(dev ? ['local'] : [])]),
 	}),
 	async (data) => {
 		const event = getRequestEvent();
-
-		if (dev) {
-			const signIn = await auth.api.signInWithOAuth2({
-				headers: event.request.headers,
-				body: {
-					providerId: 'local',
-				},
-			});
-
-			if (!signIn.redirect || !signIn.url) {
-				error(500, 'Failed to initiate social sign-in');
-			}
-
-			redirect(303, signIn.url);
-		}
 
 		const signIn = await auth.api.signInWithOAuth2({
 			headers: event.request.headers,
