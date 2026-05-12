@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
@@ -6,28 +7,28 @@
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import MenuIcon from '@lucide/svelte/icons/menu';
 	import XIcon from '@lucide/svelte/icons/x';
-	import { AppBar, Avatar, Dialog, Menu, Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { AppBar, Avatar, Dialog, Menu, Popover, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
 
-	// Current User
 	const user = $derived(await getUser());
 
-	// Drawer
-	let drawerOpen = $state(false);
-	const animBackdrop = 'transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100';
-	const animDrawer =
-		'transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0';
+	const id = $props.id();
+	const drawer = useDialog({ id });
+
+	onNavigate(() => drawer().setOpen(false));
 </script>
 
 {#snippet navigationMobile()}
-	<Dialog open={drawerOpen} onOpenChange={(e) => (drawerOpen = e.open)}>
+	<Dialog.Provider value={drawer}>
 		<Dialog.Trigger class="btn-icon hover:preset-tonal lg:hidden" aria-label="Open menu">
 			<MenuIcon />
 		</Dialog.Trigger>
 		<Portal>
-			<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50 {animBackdrop}" />
+			<Dialog.Backdrop
+				class="fixed inset-0 z-50 bg-surface-50-950/50 transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
+			/>
 			<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
 				<Dialog.Content
-					class="h-screen card bg-surface-50-950/75 backdrop-blur-lg border-r border-surface-200-800 w-sm p-4 space-y-4 shadow-xl {animDrawer}"
+					class="h-screen card bg-surface-50-950/75 backdrop-blur-lg border-r border-surface-200-800 w-sm p-4 space-y-4 shadow-xl transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
 				>
 					<header class="flex justify-between items-center">
 						<Dialog.Title aria-label="Skeleton Plus">
@@ -40,7 +41,7 @@
 					<div class="space-y-4">
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} onclick={() => (drawerOpen = false)} class="block btn hover:preset-tonal justify-start">
+								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
 									{anchor.label}
 								</a>
 							{/if}
@@ -48,7 +49,7 @@
 						<hr class="hr" />
 						{#each routes.content as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} onclick={() => (drawerOpen = false)} class="block btn hover:preset-tonal justify-start">
+								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
 									{anchor.label}
 								</a>
 							{/if}
@@ -57,7 +58,7 @@
 				</Dialog.Content>
 			</Dialog.Positioner>
 		</Portal>
-	</Dialog>
+	</Dialog.Provider>
 {/snippet}
 
 {#snippet navigationDesktop()}
