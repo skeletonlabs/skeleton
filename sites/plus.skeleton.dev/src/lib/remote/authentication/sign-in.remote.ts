@@ -2,7 +2,7 @@ import { form, getRequestEvent } from '$app/server';
 import { authentication } from '$lib/server/authentication/authentication';
 import { error, redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
-import { supportedOAuthProviders } from '../../server/authentication/supported-oauth-providers';
+import { supportedOAuthProviders } from '../../client/authentication/supported-oauth-providers';
 
 export const signIn = form(
 	v.object({
