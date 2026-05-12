@@ -1,4 +1,6 @@
+import { dev } from '$app/environment';
 import DiscordIcon from 'virtual:icons/simple-icons/discord';
+import DockerIcon from 'virtual:icons/simple-icons/docker';
 import GithubIcon from 'virtual:icons/simple-icons/github';
 
 export const supportedOAuthProviders = [
@@ -12,6 +14,15 @@ export const supportedOAuthProviders = [
 		name: 'Discord',
 		Icon: DiscordIcon,
 	},
+	...(dev
+		? [
+				{
+					id: 'local',
+					name: 'Local',
+					Icon: DockerIcon,
+				} as const,
+			]
+		: []),
 ] as const;
 
 export type SupportedOAuthProvider = (typeof supportedOAuthProviders)[number];

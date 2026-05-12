@@ -1,24 +1,25 @@
-import * as v from 'valibot';
 import { form, getRequestEvent } from '$app/server';
-import { error, redirect } from '@sveltejs/kit';
 import { auth } from '$lib/features/auth/auth.server';
+import { error, redirect } from '@sveltejs/kit';
+import * as v from 'valibot';
+import { supportedOAuthProviders } from './supported-oauth-providers';
 
 export const signIn = form(
 	v.object({
-		provider: v.picklist(Object.keys(auth.options.socialProviders)),
+		provider: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
 	}),
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await auth.api.signInSocial({
+		const signIn = await auth.api.signInWithOAuth2({
 			headers: event.request.headers,
 			body: {
-				provider: data.provider,
+				providerId: data.provider,
 			},
 		});
 
 		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate social sign-in');
+			error(500, 'Failed to initiate OAuth2 sign-in');
 		}
 
 		redirect(303, signIn.url);

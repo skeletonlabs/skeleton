@@ -330,6 +330,9 @@ catalogs:
     postcss:
       specifier: 8.5.14
       version: 8.5.14
+    postgres:
+      specifier: 3.4.9
+      version: 3.4.9
     prettier:
       specifier: 3.8.3
       version: 3.8.3
@@ -955,6 +958,9 @@ importers:
       drizzle-orm:
         specifier: 'catalog:'
         version: 0.45.2(@neondatabase/serverless@1.1.0)(@opentelemetry/api@1.9.1)(kysely@0.28.16)(postgres@3.4.9)
+      postgres:
+        specifier: 'catalog:'
+        version: 3.4.9
       svelte:
         specifier: 'catalog:'
         version: 5.55.5
@@ -12196,8 +12202,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postgres@3.4.9:
-    optional: true
+  postgres@3.4.9: {}
 
   prettier-plugin-astro@0.14.1:
     dependencies:
