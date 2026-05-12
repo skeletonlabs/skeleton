@@ -6,7 +6,7 @@ services:
       - 5432:5432
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_PASSWORD: root
       POSTGRES_DB: local
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -30,13 +30,13 @@ services:
                   "requestParam": "code",
                   "match": "*",
                   "claims": {
-                    "sub": "local-dev-user",
-                    "name": "Local Dev User",
-                    "given_name": "Local",
-                    "family_name": "Dev User",
-                    "email": "local@dev.local",
+                    "sub": "john-doe",
+                    "name": "John Doe",
+                    "given_name": "John",
+                    "family_name": "Doe",
+                    "email": "john.doe@example.com",
                     "email_verified": true,
-                    "picture": "https://gravatar.com/avatar/0000000000000000000000000000000000000000?d=mp",
+                    "picture": "https://i.pravatar.cc/100",
                     "aud": ["test-client-id"],
                     "scope": ["openid", "profile"]
                   }

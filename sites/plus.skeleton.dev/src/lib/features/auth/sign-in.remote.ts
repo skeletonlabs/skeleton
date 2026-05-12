@@ -4,22 +4,18 @@ import { auth } from '$lib/features/auth/auth.server';
 import { error, redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 
-const socialProviderIds = Object.keys(auth.options.socialProviders ?? {});
-const genericOAuthProviderIds = dev ? ['local'] : [];
-const allProviderIds = [...socialProviderIds, ...genericOAuthProviderIds] as [string, ...string[]];
-
 export const signIn = form(
 	v.object({
-		provider: v.picklist(allProviderIds),
+		provider: v.picklist(Object.keys(auth.options.socialProviders)),
 	}),
 	async (data) => {
 		const event = getRequestEvent();
 
-		if (dev && socialProviderIds.includes(data.provider)) {
+		if (dev) {
 			const signIn = await auth.api.signInSocial({
 				headers: event.request.headers,
 				body: {
-					provider: data.provider,
+					provider: 'local',
 				},
 			});
 
@@ -28,19 +24,19 @@ export const signIn = form(
 			}
 
 			redirect(303, signIn.url);
-		} else {
-			const signIn = await auth.api.signInWithOAuth2({
-				headers: event.request.headers,
-				body: {
-					providerId: data.provider,
-				},
-			});
-
-			if (!signIn.redirect || !signIn.url) {
-				error(500, 'Failed to initiate OAuth2 sign-in');
-			}
-
-			redirect(303, signIn.url);
 		}
+
+		const signIn = await auth.api.signInWithOAuth2({
+			headers: event.request.headers,
+			body: {
+				providerId: data.provider,
+			},
+		});
+
+		if (!signIn.redirect || !signIn.url) {
+			error(500, 'Failed to initiate OAuth2 sign-in');
+		}
+
+		redirect(303, signIn.url);
 	},
 );
