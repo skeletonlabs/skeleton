@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Skeleton from '../branding/skeleton.svelte';
+	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import { navigation } from './navigation';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 
