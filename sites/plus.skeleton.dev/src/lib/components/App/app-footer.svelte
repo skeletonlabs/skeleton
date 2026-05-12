@@ -1,20 +1,13 @@
 <script lang="ts">
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { navigation } from './navigation';
+	import { routes } from '../../client/navigation/routes';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-
-	const navSections = {
-		overview: navigation.overview,
-		design: navigation.design,
-		content: navigation.content,
-		links: navigation.links,
-	};
 </script>
 
 <footer class="container mx-auto border-t border-l border-r border-surface-200-800">
 	<!-- Navigation Row -->
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
-		{#each Object.entries(navSections) as [section, items] (section)}
+		{#each Object.entries(routes) as [section, items] (section)}
 			<nav class="space-y-4">
 				<h2 class="font-bold capitalize">{section}</h2>
 				<ul class="space-y-2">
@@ -48,7 +41,7 @@
 			<a href="https://www.skeletonlabs.co/" target="_blank" class="text-xs hover:underline">Skeleton Labs</a>
 		</div>
 		<div class="flex items-center gap-4">
-			{#each navigation.legal as { label, href } (label)}
+			{#each routes.legal as { label, href } (label)}
 				<a {href} class="text-xs hover:underline">{label}</a>
 			{/each}
 		</div>

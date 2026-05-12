@@ -1,6 +1,4 @@
-// Sitemap Navigation
-
-export const navigation = {
+export const routes = {
 	overview: [
 		{ label: 'About', href: '/overview/about', enabled: true },
 		{ label: 'Pricing', href: '/overview/pricing', enabled: true },

@@ -2,7 +2,7 @@
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
-	import { navigation } from './navigation';
+	import { routes } from '../../client/navigation/routes';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import MenuIcon from '@lucide/svelte/icons/menu';
 	import XIcon from '@lucide/svelte/icons/x';
@@ -38,7 +38,7 @@
 						</Dialog.CloseTrigger>
 					</header>
 					<div class="space-y-4">
-						{#each navigation.design as anchor (anchor.href)}
+						{#each routes.design as anchor}
 							{#if anchor.enabled}
 								<a href={anchor.href} onclick={() => (drawerOpen = false)} class="block btn hover:preset-tonal justify-start">
 									{anchor.label}
@@ -46,7 +46,7 @@
 							{/if}
 						{/each}
 						<hr class="hr" />
-						{#each navigation.content as anchor (anchor.href)}
+						{#each routes.content as anchor}
 							{#if anchor.enabled}
 								<a href={anchor.href} onclick={() => (drawerOpen = false)} class="block btn hover:preset-tonal justify-start">
 									{anchor.label}
@@ -71,7 +71,7 @@
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content class="z-50">
-						{#each navigation.design as anchor (anchor.label)}
+						{#each routes.design as anchor}
 							{#if anchor.enabled}
 								<Menu.Item value={anchor.label} class="p-0">
 									<a href={anchor.href} class="block w-full px-2 py-1">
@@ -85,7 +85,7 @@
 			</Portal>
 		</Menu>
 		<!-- Navigation -->
-		{#each navigation.content as anchor (anchor.href)}
+		{#each routes.content as anchor}
 			{#if anchor.enabled}
 				<a href={anchor.href} class="btn btn-sm hover:preset-tonal">{anchor.label}</a>
 			{/if}
