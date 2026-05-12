@@ -1,7 +1,7 @@
 <script lang="ts">
-	import SignOutButton from '$lib/components/authentication/sign-out-button.svelte';
+	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { getUser } from '$lib/remote/authentication/get-user.remote';
+	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import { navigation } from './navigation';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import MenuIcon from '@lucide/svelte/icons/menu';

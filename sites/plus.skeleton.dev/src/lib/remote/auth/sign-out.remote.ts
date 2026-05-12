@@ -1,11 +1,11 @@
 import { form, getRequestEvent } from '$app/server';
 import { error } from '@sveltejs/kit';
-import { authentication } from '$lib/server/authentication/authentication';
+import { auth } from '$lib/server/auth/auth';
 
 export const signOut = form('unchecked', async () => {
 	const event = getRequestEvent();
 
-	const signOut = await authentication.api.signOut({
+	const signOut = await auth.api.signOut({
 		headers: event.request.headers,
 	});
 
