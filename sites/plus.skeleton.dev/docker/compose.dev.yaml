@@ -32,8 +32,6 @@ services:
                   "claims": {
                     "sub": "john-doe",
                     "name": "John Doe",
-                    "given_name": "John",
-                    "family_name": "Doe",
                     "email": "john.doe@example.com",
                     "email_verified": true,
                     "picture": "https://i.pravatar.cc/100",
