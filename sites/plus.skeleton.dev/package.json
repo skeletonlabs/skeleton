@@ -6,8 +6,8 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"db:start": "docker compose -f ./docker/compose.dev.yaml up -d",
-		"db:stop": "docker compose -f ./docker/compose.dev.yaml down",
+		"env:start": "docker compose -f ./docker/compose.dev.yaml up -d",
+		"env:stop": "docker compose -f ./docker/compose.dev.yaml down",
 		"drizzle:studio": "drizzle-kit studio --config ./drizzle.config.ts",
 		"postinstall": "svelte-kit sync"
 	},
