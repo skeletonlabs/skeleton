@@ -1,7 +1,7 @@
 services:
   db:
-    image: postgres
-    restart: always
+    image: postgres:17
+    restart: unless-stopped
     ports:
       - 5432:5432
     environment:
@@ -9,6 +9,6 @@ services:
       POSTGRES_PASSWORD: mysecretpassword
       POSTGRES_DB: local
     volumes:
-      - pgdata:/var/lib/postgresql
+      - pgdata:/var/lib/postgresql/data
 volumes:
   pgdata:
