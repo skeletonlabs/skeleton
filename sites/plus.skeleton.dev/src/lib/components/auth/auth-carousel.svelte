@@ -4,6 +4,7 @@
 	import PaletteIcon from '@lucide/svelte/icons/palette';
 	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import WandIcon from '@lucide/svelte/icons/wand-2';
+	import { Carousel } from '@skeletonlabs/skeleton-svelte';
 
 	const slides = [
 		{
@@ -32,43 +33,29 @@
 			description: 'Kickstart your next project with complete templates — fully themed, responsive, and styled with Skeleton.',
 		},
 	];
-	let carouselIndex = $state(0);
-	const slide = $derived(slides[carouselIndex]);
-	let carouselInterval: ReturnType<typeof setInterval> | undefined;
-
-	function startCarousel() {
-		carouselInterval = setInterval(() => {
-			carouselIndex = (carouselIndex + 1) % slides.length;
-		}, 5000);
-	}
-
-	function setSlide(index: number) {
-		carouselIndex = index;
-		clearInterval(carouselInterval);
-		startCarousel();
-	}
-
-	$effect(() => {
-		startCarousel();
-		return () => clearInterval(carouselInterval);
-	});
 </script>
 
-<div class="max-w-md space-y-4">
-	<div class="preset-filled-primary-500 inline-flex items-center justify-center p-3 rounded-lg">
-		<slide.Icon class="size-elem-6xl" />
-	</div>
-	<h2 class="h3">{slide.title}</h2>
-	<p class="opacity-60">{slide.description}</p>
-	<div class="flex items-center gap-2">
-		{#each slides as _, i (i)}
-			<button
-				type="button"
-				onclick={() => setSlide(i)}
-				aria-label="Go to slide {i + 1}"
-				aria-current={i === carouselIndex}
-				class="size-2 aspect-square rounded-full {i === carouselIndex ? 'preset-filled' : 'preset-tonal'}"
-			></button>
+<Carousel slideCount={slides.length} slidesPerPage={1} loop autoplay>
+	<Carousel.ItemGroup>
+		{#each slides as slide, i}
+			<Carousel.Item index={i} class="space-y-4 p-4 flex flex-col items-start">
+				<div class="preset-filled-primary-500 inline-flex items-center justify-center p-3 rounded-lg">
+					<slide.Icon class="size-6" />
+				</div>
+
+				<h2 class="h3">{slide.title}</h2>
+				<p class="opacity-60">{slide.description}</p>
+			</Carousel.Item>
 		{/each}
-	</div>
-</div>
+	</Carousel.ItemGroup>
+
+	<Carousel.IndicatorGroup>
+		<Carousel.Context>
+			{#snippet children(carousel)}
+				{#each carousel().pageSnapPoints as _, index}
+					<Carousel.Indicator {index} />
+				{/each}
+			{/snippet}
+		</Carousel.Context>
+	</Carousel.IndicatorGroup>
+</Carousel>
