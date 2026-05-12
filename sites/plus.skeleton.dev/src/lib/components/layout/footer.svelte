@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { routes } from '$lib/client/navigation/routes';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { routes } from '../../client/navigation/routes';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 </script>
 
