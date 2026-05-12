@@ -20,7 +20,6 @@ services:
     environment:
       JSON_CONFIG: |
         {
-          "interactiveLogin": true,
           "httpServer": "NettyWrapper",
           "tokenCallbacks": [
             {
