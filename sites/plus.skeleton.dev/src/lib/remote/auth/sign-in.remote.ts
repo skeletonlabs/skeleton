@@ -1,8 +1,8 @@
 import { form, getRequestEvent } from '$app/server';
-import { authentication } from '$lib/server/authentication/authentication';
+import { auth } from '$lib/server/auth/auth';
 import { error, redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
-import { supportedOAuthProviders } from '../../client/authentication/supported-oauth-providers';
+import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
 
 export const signIn = form(
 	v.object({
@@ -11,7 +11,7 @@ export const signIn = form(
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await authentication.api.signInWithOAuth2({
+		const signIn = await auth.api.signInWithOAuth2({
 			headers: event.request.headers,
 			body: {
 				providerId: data.provider,
