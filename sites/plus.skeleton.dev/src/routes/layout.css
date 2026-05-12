@@ -1,6 +1,23 @@
 @import 'tailwindcss';
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton-svelte';
-@import '@skeletonlabs/skeleton/themes/cerberus';
+@plugin "@tailwindcss/forms";
 
-@plugin '@tailwindcss/forms';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton-svelte';
+
+html {
+	/* Background Gradient */
+	background-attachment: fixed;
+	background-image:
+		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+}
+
+/* Page wrapping container */
+.container-page {
+	padding: --spacing(8);
+
+	& > :not(:last-child) {
+		margin-block-end: --spacing(8);
+	}
+}
