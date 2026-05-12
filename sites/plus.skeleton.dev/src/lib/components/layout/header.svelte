@@ -125,7 +125,7 @@
 						</Portal>
 					</Popover>
 				{:else}
-					<a href="/auth/login" class="btn hover:preset-tonal">Login</a>
+					<a href="/auth/sign-in" class="btn hover:preset-tonal">Sign In</a>
 					<a href="/overview/pricing" class="btn preset-tonal">Get Full Access</a>
 				{/if}
 			</AppBar.Trail>
