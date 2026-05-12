@@ -2,10 +2,11 @@ import { form, getRequestEvent } from '$app/server';
 import { auth } from '$lib/features/auth/auth.server';
 import { error, redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
+import { supportedOAuthProviders } from './supported-oauth-providers';
 
 export const signIn = form(
 	v.object({
-		provider: v.picklist(Object.keys(auth.options.socialProviders)),
+		provider: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
 	}),
 	async (data) => {
 		const event = getRequestEvent();

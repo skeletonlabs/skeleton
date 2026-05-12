@@ -14,7 +14,15 @@ export const supportedOAuthProviders = [
 		name: 'Discord',
 		Icon: DiscordIcon,
 	},
-	...(dev ? [{ id: 'local', name: 'Local', Icon: DockerIcon } as const] : []),
+	...(dev
+		? [
+				{
+					id: 'local',
+					name: 'Local',
+					Icon: DockerIcon,
+				} as const,
+			]
+		: []),
 ] as const;
 
 export type SupportedOAuthProvider = (typeof supportedOAuthProviders)[number];
