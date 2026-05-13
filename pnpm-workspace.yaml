@@ -91,8 +91,8 @@ catalog:
   colorette: 2.0.20
   commander: 14.0.3
   detect-indent: 7.0.2
-  drizzle-kit: 0.31.10
-  drizzle-orm: 0.45.2
+  drizzle-kit: 1.0.0-beta.22
+  drizzle-orm: 1.0.0-beta.22
   fuse.js: 7.3.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
