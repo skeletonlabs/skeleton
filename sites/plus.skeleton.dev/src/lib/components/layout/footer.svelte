@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { routes, type Route } from '$lib/client/navigation/routes';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
@@ -46,7 +47,7 @@
 	<!-- Bottom Row -->
 	<div class="container-cell border-t border-surface-200-800 flex justify-between items-center gap-4">
 		<div class="flex items-center gap-2">
-			<a href="/" aria-label="Homepage" title="Homepage" class="inline-flex">
+			<a href={resolve('/')} aria-label="Homepage" title="Homepage" class="inline-flex">
 				<Skeleton class="fill-current size-elem-2xl" />
 			</a>
 			<a href="https://www.skeletonlabs.co/" target="_blank" class="text-xs hover:underline">Skeleton Labs</a>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { ArrowDownIcon } from '@lucide/svelte';
 	import VisaIcon from 'virtual:icons/simple-icons/visa';
@@ -59,7 +60,7 @@
 						<p class="text-xs font-bold">Tax / VAT</p>
 						<p class="opacity-60">No tax info on file</p>
 					</div>
-					<a href="/account/billing" class="btn preset-outlined-surface-200-800">Add</a>
+					<a href={resolve('/account/billing')} class="btn preset-outlined-surface-200-800">Add</a>
 				</div>
 			</section>
 		</div>
