@@ -11,7 +11,7 @@ Please ensure you have the following software installed:
 
 See `.env.example`.
 
-Note: You do not need to populate the OAuth provider variables during development due to the local oauth server.
+Note: For local development, you only need to populate the `DATABASE_URL` variable set to your local database instance, the docker container postgres database defaults to `postgres://postgres:postgres@localhost:5432/postgres`
 
 ## Developing
 
