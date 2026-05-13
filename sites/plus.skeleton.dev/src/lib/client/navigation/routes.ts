@@ -30,7 +30,7 @@ export const routes = {
 		{ href: '/account/team', label: 'Team', icon: UsersIcon, enabled: true },
 		{ href: '/account/billing', label: 'Billing', icon: CreditCardIcon, enabled: true },
 		{ href: '/account/notifications', label: 'Notifications', icon: BellIcon, enabled: true },
-		{ href: '/account/api', label: 'Dev Tools', icon: CodeIcon, enabled: true },
+		{ href: '/account/api', label: 'API & CLI', icon: CodeIcon, enabled: true },
 	],
 	content: [
 		{ label: 'Blocks', href: '/content/blocks', icon: BlocksIcon, enabled: true },

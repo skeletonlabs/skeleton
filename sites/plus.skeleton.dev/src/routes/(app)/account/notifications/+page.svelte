@@ -1,3 +1,11 @@
-<div class="container-page">
-	<p>Now viewing <code class="code">account/notifications</code></p>
+<script lang="ts">
+	import PageHeader from '$lib/components/layout/page-header.svelte';
+</script>
+
+<div>
+	<PageHeader title="Notifications"></PageHeader>
+
+	<div class="container-page">
+		<p>Now viewing <code class="code">account/notifications</code></p>
+	</div>
 </div>

@@ -13,17 +13,25 @@ html {
 		radial-gradient(at 85% 6%, color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px, transparent 30%);
 }
 
-/* Common Styles --- */
+/* Block Containers --- */
+/* Used to handle the bento-box sections. */
 
-/* Common Page Layouts */
 .container-cell {
-	padding: --spacing(8);
+	padding: --spacing(4);
+	@variant lg {
+		padding: --spacing(8);
+	}
 }
 .container-page {
-	padding: --spacing(8);
-
+	padding: --spacing(4);
 	& > :not(:last-child) {
-		margin-block-end: --spacing(8);
+		margin-block-end: --spacing(4);
+	}
+	@variant lg {
+		padding: --spacing(8);
+		& > :not(:last-child) {
+			margin-block-end: --spacing(8);
+		}
 	}
 }
 

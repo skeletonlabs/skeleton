@@ -14,7 +14,7 @@
 
 <footer class="container mx-auto border-t border-l border-r border-surface-200-800">
 	<!-- Navigation Row -->
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-8 p-8">
+	<div class="container-cell grid grid-cols-2 md:grid-cols-4 gap-8">
 		{#each Object.entries(navColuns) as [section, items] (section)}
 			<nav class="space-y-4">
 				<h2 class="font-bold capitalize">{section}</h2>
@@ -44,7 +44,7 @@
 		{/each}
 	</div>
 	<!-- Bottom Row -->
-	<div class="border-t border-surface-200-800 flex justify-between items-center gap-4 p-8">
+	<div class="container-cell border-t border-surface-200-800 flex justify-between items-center gap-4">
 		<div class="flex items-center gap-2">
 			<a href="/" aria-label="Homepage" title="Homepage" class="inline-flex">
 				<Skeleton class="fill-current size-elem-2xl" />

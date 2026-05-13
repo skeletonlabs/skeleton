@@ -1,4 +1,6 @@
 <script lang="ts">
+	import PageHeader from '$lib/components/layout/page-header.svelte';
+
 	const oauthAccounts: { provider: string; username: string; email: string; connected: boolean }[] = [
 		{ provider: 'Github', username: '@placeholder', email: 'placeholder@emailcom', connected: true },
 		{ provider: 'Discord', username: '@placeholder', email: 'placeholder@emailcom', connected: false },
@@ -6,11 +8,11 @@
 </script>
 
 <div>
-	<!-- TODO: convert this to a reusable <PageHeader> component -->
-	<header class="container-page border-b border-surface-200-800 space-y-2!">
-		<p class="text-sm opacity-60">Account</p>
-		<h1 class="h1">Profile</h1>
-	</header>
+	<PageHeader title="Profile">
+		{#snippet description()}
+			<p class="opacity-60">Adjust settings related to your account.</p>
+		{/snippet}
+	</PageHeader>
 
 	<div class="container-page">
 		<!-- oAuth Accounts -->
