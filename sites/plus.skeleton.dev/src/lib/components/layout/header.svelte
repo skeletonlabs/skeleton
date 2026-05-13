@@ -40,19 +40,28 @@
 							<XIcon />
 						</Dialog.CloseTrigger>
 					</header>
+					<hr class="hr" />
 					<div class="space-y-4">
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
-									{anchor.label}
+								{@const Icon = anchor.icon}
+								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+									{#if Icon}
+										<Icon class="size-elem-base opacity-60" />
+									{/if}
+									<span>{anchor.label}</span>
 								</a>
 							{/if}
 						{/each}
 						<hr class="hr" />
 						{#each routes.content as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
-									{anchor.label}
+								{@const Icon = anchor.icon}
+								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+									{#if Icon}
+										<Icon class="size-elem-base opacity-60" />
+									{/if}
+									<span>{anchor.label}</span>
 								</a>
 							{/if}
 						{/each}
@@ -76,9 +85,13 @@
 					<Menu.Content class="z-50">
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
+								{@const Icon = anchor.icon}
 								<Menu.Item value={anchor.label} class="p-0">
-									<a href={anchor.href} class="block w-full px-2 py-1">
-										<Menu.ItemText>{anchor.label}</Menu.ItemText>
+									<a href={anchor.href} class="flex items-center gap-3 w-full px-2 py-1">
+										{#if Icon}
+											<Icon class="size-elem-base opacity-60" />
+										{/if}
+										<Menu.ItemText class="flex-1">{anchor.label}</Menu.ItemText>
 									</a>
 								</Menu.Item>
 							{/if}
