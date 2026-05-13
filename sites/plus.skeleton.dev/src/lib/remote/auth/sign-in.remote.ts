@@ -11,15 +11,15 @@ export const signIn = form(
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await auth.api.signInWithOAuth2({
+		const signIn = await auth.api.signInSocial({
 			headers: event.request.headers,
 			body: {
-				providerId: data.provider,
+				provider: data.provider,
 			},
 		});
 
 		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate OAuth2 sign-in');
+			error(500, 'Failed to initiate social sign-in');
 		}
 
 		redirect(303, signIn.url);
