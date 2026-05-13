@@ -11,10 +11,10 @@ export const signIn = form(
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await auth.api.signInWithOAuth2({
+		const signIn = await auth.api.signInSocial({
 			headers: event.request.headers,
 			body: {
-				providerId: data.provider,
+				provider: data.provider,
 			},
 		});
 
