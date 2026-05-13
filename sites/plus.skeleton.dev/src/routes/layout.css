@@ -9,15 +9,26 @@ html {
 	/* Background Gradient */
 	background-attachment: fixed;
 	background-image:
-		radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
-		radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+		radial-gradient(at 80% 35%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 85% 6%, color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px, transparent 30%);
 }
 
-/* Page wrapping container */
+/* Common Styles --- */
+
+/* Common Page Layouts */
+.container-cell {
+	padding: --spacing(8);
+}
 .container-page {
 	padding: --spacing(8);
 
 	& > :not(:last-child) {
 		margin-block-end: --spacing(8);
 	}
+}
+
+/* Overrides --- */
+
+.hr {
+	border-color: var(--color-surface-200-800);
 }
