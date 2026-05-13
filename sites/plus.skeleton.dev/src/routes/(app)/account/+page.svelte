@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
+	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
+	import UnlinkAccountButton from '$lib/components/auth/unlink-account-button.svelte';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { getAccounts } from '$lib/remote/auth/get-accounts.remote';
 
@@ -16,7 +18,7 @@
 	<div class="container-page">
 		<!-- oAuth Accounts -->
 		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
-			<h2 class="h3">oAuth Accounts</h2>
+			<h2 class="h3">Linked Accounts</h2>
 			<p class="opacity-60">Connect your account to one or more oAuth providers.</p>
 			<div class="table-wrap">
 				<table class="table caption-bottom">
@@ -35,9 +37,11 @@
 								</td>
 								<td class="text-right">
 									{#if accounts.find((account) => account.providerId === provider.id)}
-										<button type="button" class="btn preset-outlined-surface-200-800">Disconnect</button>
+										<UnlinkAccountButton {provider} class="btn preset-outlined-surface-200-800 ml-2" disabled={accounts.length <= 1}
+											>Disconnect</UnlinkAccountButton
+										>
 									{:else}
-										<button type="button" class="btn preset-filled">Connect</button>
+										<SignInButton {provider} class="btn preset-filled">Connect</SignInButton>
 									{/if}
 								</td>
 							</tr>

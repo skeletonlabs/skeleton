@@ -1,27 +1,23 @@
 import { form, getRequestEvent } from '$app/server';
+import { error } from '@sveltejs/kit';
 import { auth } from '$lib/server/auth/auth';
-import { error, redirect } from '@sveltejs/kit';
 import * as v from 'valibot';
 import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
 
-export const signIn = form(
+export const unlinkAccount = form(
 	v.object({
 		providerId: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
 	}),
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await auth.api.signInSocial({
+		const unlink = await auth.api.unlinkAccount({
+			body: data,
 			headers: event.request.headers,
-			body: {
-				provider: data.providerId,
-			},
 		});
 
-		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate social sign-in');
+		if (!unlink.status) {
+			error(500, 'Failed to unlink account');
 		}
-
-		redirect(303, signIn.url);
 	},
 );

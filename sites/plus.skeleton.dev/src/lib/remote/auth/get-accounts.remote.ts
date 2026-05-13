@@ -1,24 +1,19 @@
-import { query } from '$app/server';
+import { getRequestEvent, query } from '$app/server';
 import { getUser } from './get-user.remote';
 import { error } from '@sveltejs/kit';
-import { database } from '$lib/server/database/database';
-import { account } from '$lib/server/database/schema';
-import { eq } from 'drizzle-orm';
+import { auth } from '$lib/server/auth/auth';
 
 export const getAccounts = query(async () => {
+	const event = getRequestEvent();
 	const user = await getUser();
 
 	if (!user) {
 		error(401, 'Unauthorized');
 	}
 
-	const accounts = database
-		.select({
-			id: account.id,
-			providerId: account.providerId,
-		})
-		.from(account)
-		.where(eq(account.userId, user.id));
+	const accounts = await auth.api.listUserAccounts({
+		headers: event.request.headers,
+	});
 
 	return accounts;
 });
