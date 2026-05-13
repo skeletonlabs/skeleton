@@ -8,7 +8,6 @@
 	import LifeBuoyIcon from '@lucide/svelte/icons/life-buoy';
 	import LogOutIcon from '@lucide/svelte/icons/log-out';
 	import MenuIcon from '@lucide/svelte/icons/menu';
-	import UserIcon from '@lucide/svelte/icons/user';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { AppBar, Avatar, Dialog, Menu, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
 
@@ -22,7 +21,7 @@
 
 {#snippet navigationMobile()}
 	<Dialog.Provider value={drawer}>
-		<Dialog.Trigger class="btn-icon hover:preset-tonal lg:hidden" aria-label="Open menu">
+		<Dialog.Trigger class="btn-icon hover:preset-tonal lg:hidden" aria-label="Navigate">
 			<MenuIcon />
 		</Dialog.Trigger>
 		<Portal>
@@ -41,19 +40,28 @@
 							<XIcon />
 						</Dialog.CloseTrigger>
 					</header>
+					<hr class="hr" />
 					<div class="space-y-4">
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
-									{anchor.label}
+								{@const Icon = anchor.icon}
+								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+									{#if Icon}
+										<Icon class="size-elem-base opacity-60" />
+									{/if}
+									<span>{anchor.label}</span>
 								</a>
 							{/if}
 						{/each}
 						<hr class="hr" />
 						{#each routes.content as anchor}
 							{#if anchor.enabled}
-								<a href={anchor.href} class="block btn hover:preset-tonal justify-start">
-									{anchor.label}
+								{@const Icon = anchor.icon}
+								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+									{#if Icon}
+										<Icon class="size-elem-base opacity-60" />
+									{/if}
+									<span>{anchor.label}</span>
 								</a>
 							{/if}
 						{/each}
@@ -77,9 +85,13 @@
 					<Menu.Content class="z-50">
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
+								{@const Icon = anchor.icon}
 								<Menu.Item value={anchor.label} class="p-0">
-									<a href={anchor.href} class="block w-full px-2 py-1">
-										<Menu.ItemText>{anchor.label}</Menu.ItemText>
+									<a href={anchor.href} class="flex items-center gap-3 w-full px-2 py-1">
+										{#if Icon}
+											<Icon class="size-elem-base opacity-60" />
+										{/if}
+										<Menu.ItemText class="flex-1">{anchor.label}</Menu.ItemText>
 									</a>
 								</Menu.Item>
 							{/if}
@@ -122,7 +134,7 @@
 							<Menu.Positioner>
 								<Menu.Content class="z-50">
 									<!-- Header -->
-									<div class="flex items-center gap-2 px-4 py-2">
+									<header class="flex items-center gap-2 px-4 py-2">
 										<Avatar class="size-10">
 											<Avatar.Image src={user.image} alt="Avatar" />
 											<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
@@ -131,15 +143,23 @@
 											<p class="font-bold truncate">{user.name}</p>
 											<p class="text-xs opacity-60 truncate">{user.email}</p>
 										</div>
-									</div>
+									</header>
 									<Menu.Separator class="hr" />
 									<!-- Account -->
-									<Menu.Item value="account" class="p-0">
-										<a href="/account" class="flex items-center gap-3 w-full px-4 py-2">
-											<UserIcon class="size-elem-base opacity-60" />
-											<Menu.ItemText class="flex-1">Account</Menu.ItemText>
-										</a>
-									</Menu.Item>
+									{#each routes.account as anchor}
+										{#if anchor.enabled}
+											{@const Icon = anchor.icon}
+											<Menu.Item value={anchor.label} class="p-0">
+												<a href={anchor.href} class="flex items-center gap-3 w-full px-4 py-2">
+													{#if Icon}
+														<Icon class="size-elem-base opacity-60" />
+													{/if}
+													<Menu.ItemText class="flex-1">{anchor.label}</Menu.ItemText>
+												</a>
+											</Menu.Item>
+										{/if}
+									{/each}
+									<Menu.Separator class="hr" />
 									<!-- Support -->
 									<Menu.Item value="support" class="p-0">
 										<a
