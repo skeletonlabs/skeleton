@@ -19,7 +19,7 @@ export const signIn = form(
 		});
 
 		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate OAuth2 sign-in');
+			error(500, 'Failed to initiate social sign-in');
 		}
 
 		redirect(303, signIn.url);
