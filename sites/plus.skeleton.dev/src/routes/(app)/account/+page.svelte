@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
-	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
+	import LinkAccountButton from '$lib/components/auth/link-account-button.svelte';
 	import UnlinkAccountButton from '$lib/components/auth/unlink-account-button.svelte';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { getAccounts } from '$lib/remote/auth/get-accounts.remote';
@@ -36,11 +36,11 @@
 								</td>
 								<td class="text-right">
 									{#if accounts.find((account) => account.providerId === provider.id)}
-										<UnlinkAccountButton {provider} class="btn preset-outlined-surface-200-800 ml-2" disabled={accounts.length <= 1}
-											>Disconnect</UnlinkAccountButton
-										>
+										<UnlinkAccountButton {provider} class="btn preset-outlined-surface-200-800 ml-2" disabled={accounts.length <= 1}>
+											Disconnect
+										</UnlinkAccountButton>
 									{:else}
-										<SignInButton {provider} class="btn preset-filled">Connect</SignInButton>
+										<LinkAccountButton {provider} class="btn preset-filled">Connect</LinkAccountButton>
 									{/if}
 								</td>
 							</tr>
