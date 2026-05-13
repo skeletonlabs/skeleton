@@ -1,4 +1,5 @@
 import { pgTable, text, timestamp, boolean, index, unique } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 
 export const account = pgTable(
 	'account',
@@ -16,8 +17,10 @@ export const account = pgTable(
 		refreshTokenExpiresAt: timestamp('refresh_token_expires_at'),
 		scope: text(),
 		password: text(),
-		createdAt: timestamp('created_at').defaultNow().notNull(),
-		updatedAt: timestamp('updated_at').defaultNow().notNull(),
+		createdAt: timestamp('created_at')
+			.default(sql`now()`)
+			.notNull(),
+		updatedAt: timestamp('updated_at').notNull(),
 	},
 	(table) => [index('account_userId_idx').using('btree', table.userId.asc().nullsLast())],
 );
@@ -28,8 +31,10 @@ export const session = pgTable(
 		id: text().primaryKey(),
 		expiresAt: timestamp('expires_at').notNull(),
 		token: text().notNull(),
-		createdAt: timestamp('created_at').defaultNow().notNull(),
-		updatedAt: timestamp('updated_at').defaultNow().notNull(),
+		createdAt: timestamp('created_at')
+			.default(sql`now()`)
+			.notNull(),
+		updatedAt: timestamp('updated_at').notNull(),
 		ipAddress: text('ip_address'),
 		userAgent: text('user_agent'),
 		userId: text('user_id')
@@ -47,8 +52,12 @@ export const user = pgTable(
 		email: text().notNull(),
 		emailVerified: boolean('email_verified').default(false).notNull(),
 		image: text(),
-		createdAt: timestamp('created_at').defaultNow().notNull(),
-		updatedAt: timestamp('updated_at').defaultNow().notNull(),
+		createdAt: timestamp('created_at')
+			.default(sql`now()`)
+			.notNull(),
+		updatedAt: timestamp('updated_at')
+			.default(sql`now()`)
+			.notNull(),
 	},
 	(table) => [unique('user_email_unique').on(table.email)],
 );
@@ -60,8 +69,12 @@ export const verification = pgTable(
 		identifier: text().notNull(),
 		value: text().notNull(),
 		expiresAt: timestamp('expires_at').notNull(),
-		createdAt: timestamp('created_at').defaultNow().notNull(),
-		updatedAt: timestamp('updated_at').defaultNow().notNull(),
+		createdAt: timestamp('created_at')
+			.default(sql`now()`)
+			.notNull(),
+		updatedAt: timestamp('updated_at')
+			.default(sql`now()`)
+			.notNull(),
 	},
 	(table) => [index('verification_identifier_idx').using('btree', table.identifier.asc().nullsLast())],
 );
