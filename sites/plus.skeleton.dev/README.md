@@ -11,6 +11,8 @@ Please ensure you have the following software installed:
 
 See `.env.example`.
 
+Note: You do not need to populate the OAuth provider variables during development due to the local oauth server.
+
 ## Developing
 
 1. Run `pnpm env:start` (This will spin up the docker container containing both a local postgres database and local oauth server)
