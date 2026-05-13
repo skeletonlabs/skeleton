@@ -1,14 +1,15 @@
 import { getRequestEvent, query } from '$app/server';
 import { getUser } from './get-user.remote';
-import { error } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
 import { auth } from '$lib/server/auth/auth';
+import { resolve } from '$app/paths';
 
 export const getAccounts = query(async () => {
 	const event = getRequestEvent();
 	const user = await getUser();
 
 	if (!user) {
-		error(401, 'Unauthorized');
+		redirect(303, resolve('/auth/sign-in'));
 	}
 
 	const accounts = await auth.api.listUserAccounts({
