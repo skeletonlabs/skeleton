@@ -1,10 +1,9 @@
 <script lang="ts">
+	import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import { getAccounts } from '$lib/remote/auth/get-accounts.remote';
 
-	const oauthAccounts: { provider: string; username: string; email: string; connected: boolean }[] = [
-		{ provider: 'Github', username: '@placeholder', email: 'placeholder@emailcom', connected: true },
-		{ provider: 'Discord', username: '@placeholder', email: 'placeholder@emailcom', connected: false },
-	];
+	const accounts = $derived(await getAccounts());
 </script>
 
 <div>
@@ -24,19 +23,18 @@
 					<thead>
 						<tr>
 							<th>Provider</th>
-							<th>Username</th>
-							<th>Email</th>
 							<th class="text-right!"></th>
 						</tr>
 					</thead>
 					<tbody>
-						{#each oauthAccounts as { provider, username, email, connected } (provider)}
+						{#each supportedOAuthProviders as provider}
 							<tr>
-								<td class="font-bold">{provider}</td>
-								<td>{username}</td>
-								<td>{email}</td>
+								<td class="font-bold flex items-center gap-2">
+									<provider.Icon />
+									{provider.name}
+								</td>
 								<td class="text-right">
-									{#if connected}
+									{#if accounts.find((account) => account.providerId === provider.id)}
 										<button type="button" class="btn preset-outlined-surface-200-800">Disconnect</button>
 									{:else}
 										<button type="button" class="btn preset-filled">Connect</button>
