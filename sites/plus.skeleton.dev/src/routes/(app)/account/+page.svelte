@@ -16,9 +16,8 @@
 	</PageHeader>
 
 	<div class="container-page">
-		<!-- oAuth Accounts -->
 		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
-			<h2 class="h3">Linked Accounts</h2>
+			<h2 class="h3">Connected Accounts</h2>
 			<p class="opacity-60">Connect your account to one or more oAuth providers.</p>
 			<div class="table-wrap">
 				<table class="table caption-bottom">
