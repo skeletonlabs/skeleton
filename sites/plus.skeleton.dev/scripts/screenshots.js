@@ -22,7 +22,7 @@ const OUT = path.join(__dirname, '../src/lib/assets/images/community');
 
 // Config ---
 // Add a new entry here for each community project. The slug must match the
-// project's slug in get-projects.remote.ts and the output directory name.
+// project's directory name under src/lib/assets/images/community/.
 
 const projects = [
 	{
@@ -57,6 +57,16 @@ async function dismissOverlays(page) {
 	} catch {}
 }
 
+// Injects CSS to suppress scrollbars on third-party pages that ignore --hide-scrollbars.
+async function hideScrollbars(page) {
+	await page.addStyleTag({
+		content: `
+			::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+			* { scrollbar-width: none !important; -ms-overflow-style: none !important; }
+		`,
+	});
+}
+
 // Opens a page, waits for it to settle, then returns a raw screenshot buffer.
 async function capturePage(browser, { url, width, height, scrollY = 0 }) {
 	const ctx = await browser.newContext({
@@ -68,6 +78,7 @@ async function capturePage(browser, { url, width, height, scrollY = 0 }) {
 
 	await page.goto(url, { waitUntil: 'load', timeout: 45000 });
 	await page.waitForTimeout(2000);
+	await hideScrollbars(page);
 	await dismissOverlays(page);
 
 	if (scrollY > 0) {
@@ -84,9 +95,9 @@ async function capturePage(browser, { url, width, height, scrollY = 0 }) {
 
 async function captureHero(browser, url, dest) {
 	console.log(`  hero -> ${url}`);
-	const buffer = await capturePage(browser, { url, width: 1600, height: 900 });
+	const buffer = await capturePage(browser, { url, width: 1280, height: 720 });
 
-	await sharp(buffer).resize(1280, 560, { fit: 'cover', position: 'top' }).webp({ quality: 92 }).toFile(path.join(dest, 'hero.webp'));
+	await sharp(buffer).resize(1280, 720, { fit: 'cover', position: 'top' }).webp({ quality: 92 }).toFile(path.join(dest, 'hero.webp'));
 	console.log('    saved hero.webp');
 }
 
@@ -95,8 +106,8 @@ async function captureScreenshot(browser, { url, scrollY }, index, dest) {
 	console.log(`  ${filename} -> ${url}`);
 
 	try {
-		const buffer = await capturePage(browser, { url, width: 1440, height: 900, scrollY });
-		await sharp(buffer).resize(600, 400, { fit: 'cover', position: 'top' }).webp({ quality: 85 }).toFile(path.join(dest, filename));
+		const buffer = await capturePage(browser, { url, width: 1280, height: 720, scrollY });
+		await sharp(buffer).resize(960, 540, { fit: 'cover', position: 'top' }).webp({ quality: 85 }).toFile(path.join(dest, filename));
 		console.log(`    saved ${filename}`);
 	} catch (e) {
 		console.error(`    FAILED: ${e.message}`);
@@ -118,8 +129,8 @@ function printSummary(projects) {
 
 // Main ---
 
-// --hide-scrollbars suppresses scrollbars at the browser level — more reliable
-// than CSS injection for capturing third-party sites.
+// --hide-scrollbars suppresses scrollbars at the browser level; hideScrollbars()
+// also injects CSS as a fallback for sites that render their own scrollbar styles.
 const browser = await chromium.launch({ args: ['--hide-scrollbars'] });
 
 for (const project of projects) {

@@ -48,7 +48,6 @@ export interface CommunityProject {
 	categories: CommunityCategory[];
 	author: {
 		handle: string;
-		verified: boolean;
 		avatar: string;
 	};
 	images: {
@@ -74,7 +73,6 @@ const projects: CommunityProject[] = [
 		categories: ['design', 'tooling'],
 		author: {
 			handle: '@etesie',
-			verified: true,
 			avatar: 'https://www.google.com/s2/favicons?domain=etesie.dev&sz=64',
 		},
 		images: {
@@ -86,7 +84,7 @@ const projects: CommunityProject[] = [
 			],
 		},
 		quickInfo: {
-			type: 'Design system & Figma kit',
+			type: 'Design System, Figma kit, and more.',
 			pricing: 'Free + Paid',
 			license: 'Commercial',
 		},
@@ -102,7 +100,6 @@ const projects: CommunityProject[] = [
 		categories: ['branding', 'typography'],
 		author: {
 			handle: '@typogramco',
-			verified: false,
 			avatar: 'https://www.google.com/s2/favicons?domain=typogram.co&sz=64',
 		},
 		images: {
@@ -114,8 +111,8 @@ const projects: CommunityProject[] = [
 			],
 		},
 		quickInfo: {
-			type: 'Web-based design tool',
-			pricing: 'Paid',
+			type: 'Web-based typography design tool.',
+			pricing: 'Free Trial + Paid',
 			license: 'Per-brand lifetime',
 		},
 		socialLinks: [{ label: 'X', href: 'https://twitter.com/typogramco' }],
