@@ -52,7 +52,11 @@
 		<!-- Title -->
 		<h1 class="h1">{title}</h1>
 		<!-- Description -->
-		{#if description}{@render description()}{/if}
+		{#if description}
+			<div class="space-y-2">
+				{@render description()}
+			</div>
+		{/if}
 	</div>
 	<!-- Trail -->
 	{#if trail}
