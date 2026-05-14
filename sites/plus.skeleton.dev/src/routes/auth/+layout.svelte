@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import AuthCarousel from '$lib/components/auth/auth-carousel.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
 
@@ -23,9 +24,9 @@
 		<footer class="flex items-center justify-between text-xs opacity-60">
 			<p>By <a href="https://www.skeletonlabs.co/" target="_blank" class="hover:underline">Skeleton Labs</a></p>
 			<nav class="flex items-center gap-2">
-				<a href="/legal/terms" class="hover:underline">Terms</a>
+				<a href={resolve('/legal/terms')} class="hover:underline">Terms</a>
 				<span class="opacity-60" aria-hidden="true">&bull;</span>
-				<a href="/legal/privacy" class="hover:underline">Privacy</a>
+				<a href={resolve('/legal/privacy')} class="hover:underline">Privacy</a>
 			</nav>
 		</footer>
 	</section>

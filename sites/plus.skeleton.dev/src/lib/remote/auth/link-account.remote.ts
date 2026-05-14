@@ -1,27 +1,27 @@
 import { form, getRequestEvent } from '$app/server';
-import { auth } from '$lib/server/auth/auth';
 import { error, redirect } from '@sveltejs/kit';
+import { auth } from '$lib/server/auth/auth';
 import * as v from 'valibot';
 import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
 
-export const signIn = form(
+export const linkAccount = form(
 	v.object({
 		providerId: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
 	}),
 	async (data) => {
 		const event = getRequestEvent();
 
-		const signIn = await auth.api.signInSocial({
+		const link = await auth.api.linkSocialAccount({
 			headers: event.request.headers,
 			body: {
 				provider: data.providerId,
 			},
 		});
 
-		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate social sign-in');
+		if (!link.redirect || !link.url) {
+			error(500, 'Failed to link account');
 		}
 
-		redirect(303, signIn.url);
+		redirect(303, link.url);
 	},
 );

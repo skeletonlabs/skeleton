@@ -8,12 +8,12 @@
 
 <script lang="ts">
 	import type { SupportedOAuthProvider } from '$lib/client/auth/supported-oauth-providers';
-	import { signIn } from '$lib/remote/auth/sign-in.remote';
+	import { linkAccount } from '$lib/remote/auth/link-account.remote';
 
 	const { children, provider, ...attributes }: Props = $props();
 </script>
 
-<form {...signIn.for(provider.id)}>
-	<input {...signIn.fields.providerId.as('hidden', provider.id)} />
+<form {...linkAccount.for(provider.id)}>
+	<input {...linkAccount.fields.providerId.as('hidden', provider.id)} />
 	<button {...attributes}>{@render children?.()}</button>
 </form>

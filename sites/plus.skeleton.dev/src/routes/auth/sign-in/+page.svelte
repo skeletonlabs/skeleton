@@ -9,10 +9,10 @@
 		<p class="opacity-60">Choose a service and sign in to Skeleton Plus.</p>
 	</header>
 	<div class="grid grid-cols-1 items-center gap-2">
-		{#each supportedOAuthProviders as oAuthProvider (oAuthProvider.id)}
-			<SignInButton {oAuthProvider} class="btn btn-lg preset-filled w-full max-w-xs">
-				<oAuthProvider.Icon />
-				<span>{oAuthProvider.name}</span>
+		{#each supportedOAuthProviders as provider}
+			<SignInButton {provider} class="btn btn-lg preset-filled w-full max-w-xs">
+				<provider.Icon />
+				<span>{provider.name}</span>
 			</SignInButton>
 		{/each}
 	</div>
