@@ -9,6 +9,7 @@ import GraduationCapIcon from '@lucide/svelte/icons/graduation-cap';
 import Grid3x3Icon from '@lucide/svelte/icons/grid-3x3';
 import LayoutTemplateIcon from '@lucide/svelte/icons/layout-template';
 import PaletteIcon from '@lucide/svelte/icons/palette';
+import SlidersHorizontalIcon from '@lucide/svelte/icons/sliders-horizontal';
 import ScaleIcon from '@lucide/svelte/icons/scale';
 import ShieldIcon from '@lucide/svelte/icons/shield';
 import SquareIcon from '@lucide/svelte/icons/square';
@@ -34,14 +35,15 @@ export const routes = {
 		{ href: resolve('/account/api'), label: 'API & CLI', icon: CodeIcon, enabled: true },
 	],
 	content: [
+		{ label: 'Themes', href: resolve('/content/themes'), icon: PaletteIcon, enabled: true },
 		{ label: 'Blocks', href: resolve('/content/blocks'), icon: BlocksIcon, enabled: true },
 		{ label: 'Templates', href: resolve('/content/templates'), icon: LayoutTemplateIcon, enabled: true },
-		{ label: 'UI Kit', href: resolve('/content/ui-kit'), icon: ComponentIcon, enabled: true },
-		{ label: 'Tutorials', href: resolve('/content/tutorials'), icon: GraduationCapIcon, enabled: true },
 		{ label: 'Community', href: resolve('/content/community'), icon: UsersIcon, enabled: true },
+		{ label: 'Tutorials', href: resolve('/content/tutorials'), icon: GraduationCapIcon, enabled: true },
+		{ label: 'UI Kit', href: resolve('/content/ui-kit'), icon: ComponentIcon, enabled: true },
 	],
 	design: [
-		{ label: 'Theme Studio', href: resolve('/content/design/themes'), icon: PaletteIcon, enabled: true },
+		{ label: 'Theme Studio', href: resolve('/content/design/themes'), icon: SlidersHorizontalIcon, enabled: true },
 		{ label: 'Preset Studio', href: resolve('/content/design/presets'), icon: SquareIcon, enabled: true },
 		{ label: 'Mesh Studio', href: resolve('/content/design/mesh'), icon: Grid3x3Icon, enabled: true },
 	],
