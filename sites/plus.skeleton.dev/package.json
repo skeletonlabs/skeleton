@@ -12,6 +12,7 @@
 		"drizzle:push": "drizzle-kit push",
 		"drizzle:generate": "drizzle-kit generate",
 		"drizzle:studio": "drizzle-kit studio --config ./drizzle.config.ts",
+		"screenshots": "node scripts/screenshots.js",
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
@@ -30,7 +31,9 @@
 		"better-auth": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
+		"playwright": "catalog:",
 		"postgres": "catalog:",
+		"sharp": "catalog:",
 		"svelte": "catalog:",
 		"svelte-check": "catalog:",
 		"tailwindcss": "catalog:",

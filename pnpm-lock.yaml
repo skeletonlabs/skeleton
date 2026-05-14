@@ -958,9 +958,15 @@ importers:
       drizzle-orm:
         specifier: 'catalog:'
         version: 1.0.0-beta.22(@neondatabase/serverless@1.1.0)(@opentelemetry/api@1.9.1)(postgres@3.4.9)(valibot@1.4.0(typescript@5.9.3))(zod@4.3.6)
+      playwright:
+        specifier: 'catalog:'
+        version: 1.59.1
       postgres:
         specifier: 'catalog:'
         version: 3.4.9
+      sharp:
+        specifier: 'catalog:'
+        version: 0.34.5
       svelte:
         specifier: 'catalog:'
         version: 5.55.5
@@ -8039,7 +8045,7 @@ snapshots:
       https-proxy-agent: 7.0.6
       node-fetch: 2.7.0
       nopt: 8.1.0
-      semver: 7.7.4
+      semver: 7.8.0
       tar: 7.5.13
     transitivePeerDependencies:
       - encoding
@@ -12482,7 +12488,7 @@ snapshots:
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
-      semver: 7.7.4
+      semver: 7.8.0
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.5
       '@img/sharp-darwin-x64': 0.34.5
@@ -12765,7 +12771,7 @@ snapshots:
 
   typescript-auto-import-cache@0.3.6:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.0
 
   typescript@5.9.3: {}
 
@@ -13066,7 +13072,7 @@ snapshots:
   volar-service-typescript@0.0.70(@volar/language-service@2.4.28):
     dependencies:
       path-browserify: 1.0.1
-      semver: 7.7.4
+      semver: 7.8.0
       typescript-auto-import-cache: 0.3.6
       vscode-languageserver-textdocument: 1.0.12
       vscode-nls: 5.2.0
