@@ -5,6 +5,9 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton-svelte';
 
+/* NOTE: we're using OS preference; but keep this for debugging. */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
 html {
 	/* Background Gradient */
 	background-attachment: fixed;

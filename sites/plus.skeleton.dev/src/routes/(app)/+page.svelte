@@ -1,4 +1,5 @@
 <script lang="ts">
+	import ThemesMarquee from '$lib/components/marquee/themes-marquee.svelte';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import BlocksIcon from '@lucide/svelte/icons/blocks';
@@ -13,7 +14,7 @@
 
 <!-- Hero -->
 <section class="border-b border-surface-200-800">
-	<div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-x divide-surface-200-800">
+	<div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800">
 		<!-- Left -->
 		<div class="container-cell p-10! lg:p-20! gap-4">
 			<p class="text-sm font-semibold uppercase tracking-widest opacity-60">Skeleton Plus</p>
@@ -40,9 +41,7 @@
 </section>
 
 <!-- Features -->
-<section
-	class="bg-surface-50-950 grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-b border-surface-200-800"
->
+<section class="grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-b border-surface-200-800">
 	<div class="container-cell p-4 flex lg:justify-center items-center gap-3 transition-colors">
 		<PaletteIcon class="size-elem-3xl stroke-primary-500" />
 		<div>
@@ -67,7 +66,7 @@
 </section>
 
 <!-- Themes Repository -->
-<section class="border-b border-surface-200-800">
+<section class="border-b border-surface-200-800 bg-linear-to-b from-transparent to-(--color-surface-50-950)">
 	<header class="container-cell lg:pt-20! max-w-6xl mx-auto space-y-4">
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-end gap-4">
 			<div class="space-y-2">
@@ -80,15 +79,13 @@
 			</a>
 		</div>
 	</header>
-	<!-- Placeholder: theme color rows -->
-	<div class="bg-surface-500/30 p-20 flex items-center justify-center">
-		<p class="opacity-40 text-sm">(themes marquee here)</p>
-	</div>
+	<!-- Themes Marquee -->
+	<ThemesMarquee />
 </section>
 
 <!-- Features -->
 <section class="container-page lg:py-20! border-b border-surface-200-800">
-	<h2 class="h3 text-center">Explore everything Skeleton Plus has to offer.</h2>
+	<h2 class="h3 text-center">Explore the feature of Skeleton Plus.</h2>
 	<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 		<!-- Design Tools -->
 		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
