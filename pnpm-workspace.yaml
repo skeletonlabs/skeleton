@@ -151,6 +151,8 @@ minimumReleaseAgeExclude:
   - '@zag-js/*'
   # Renovate security update: svelte@5.55.7
   - svelte@5.55.7
+  # Renovate security update: devalue@5.8.1
+  - devalue@5.8.1
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
