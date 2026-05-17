@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
+	import { supportedOAuthProviders } from '$lib/auth/supported-oauth-providers';
 	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
 </script>
 
