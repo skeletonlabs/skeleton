@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import { routes, type Route } from '$lib/client/navigation/routes';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
+	import { routes, type Route } from '$lib/navigation/routes';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 
 	// A subset of routes in a set order
