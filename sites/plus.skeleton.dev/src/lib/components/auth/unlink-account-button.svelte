@@ -1,19 +1,18 @@
 <script lang="ts" module>
+	import type { UnlinkAccountSchema } from '$lib/schemas/auth/unlink-account-schema';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import * as v from 'valibot';
 
-	export interface Props extends HTMLButtonAttributes {
-		provider: SupportedOAuthProvider;
-	}
+	export interface Props extends v.InferInput<typeof UnlinkAccountSchema>, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
-	import type { SupportedOAuthProvider } from '$lib/client/auth/supported-oauth-providers';
 	import { unlinkAccount } from '$lib/remote/auth/unlink-account.remote';
 
-	const { children, provider, ...attributes }: Props = $props();
+	const { children, providerId, ...attributes }: Props = $props();
 </script>
 
-<form {...unlinkAccount.for(provider.id)}>
-	<input {...unlinkAccount.fields.providerId.as('hidden', provider.id)} />
+<form {...unlinkAccount.for(providerId)}>
+	<input {...unlinkAccount.fields.providerId.as('hidden', providerId)} />
 	<button {...attributes}>{@render children?.()}</button>
 </form>

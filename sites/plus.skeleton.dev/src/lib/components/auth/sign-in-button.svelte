@@ -1,19 +1,18 @@
 <script lang="ts" module>
+	import type { SignInSchema } from '$lib/schemas/auth/sign-in-schema';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import * as v from 'valibot';
 
-	export interface Props extends HTMLButtonAttributes {
-		provider: SupportedOAuthProvider;
-	}
+	export interface Props extends v.InferInput<typeof SignInSchema>, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
-	import type { SupportedOAuthProvider } from '$lib/client/auth/supported-oauth-providers';
 	import { signIn } from '$lib/remote/auth/sign-in.remote';
 
-	const { children, provider, ...attributes }: Props = $props();
+	const { children, providerId, ...attributes }: Props = $props();
 </script>
 
-<form {...signIn.for(provider.id)}>
-	<input {...signIn.fields.providerId.as('hidden', provider.id)} />
+<form {...signIn.for(providerId)}>
+	<input {...signIn.fields.providerId.as('hidden', providerId)} />
 	<button {...attributes}>{@render children?.()}</button>
 </form>
