@@ -1,19 +1,21 @@
 <script lang="ts" module>
+	import type { LinkAccountSchema } from '$lib/schemas/auth/link-account-schema';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import * as v from 'valibot';
 
-	export interface Props extends HTMLButtonAttributes {
-		provider: SupportedOAuthProvider;
-	}
+	export interface Props extends v.InferInput<typeof LinkAccountSchema>, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
-	import type { SupportedOAuthProvider } from '$lib/client/auth/supported-oauth-providers';
 	import { linkAccount } from '$lib/remote/auth/link-account.remote';
 
-	const { children, provider, ...attributes }: Props = $props();
+	const { children, providerId, callbackURL, ...attributes }: Props = $props();
 </script>
 
-<form {...linkAccount.for(provider.id)}>
-	<input {...linkAccount.fields.providerId.as('hidden', provider.id)} />
+<form {...linkAccount.for(providerId)}>
+	<input {...linkAccount.fields.providerId.as('hidden', providerId)} />
+	{#if callbackURL}
+		<input {...linkAccount.fields.callbackURL.as('hidden', callbackURL)} />
+	{/if}
 	<button {...attributes}>{@render children?.()}</button>
 </form>

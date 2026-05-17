@@ -1,27 +1,22 @@
 import { form, getRequestEvent } from '$app/server';
 import { auth } from '$lib/server/auth/auth';
 import { error, redirect } from '@sveltejs/kit';
-import * as v from 'valibot';
-import { supportedOAuthProviders } from '$lib/client/auth/supported-oauth-providers';
+import { SignInSchema } from '$lib/schemas/auth/sign-in-schema';
 
-export const signIn = form(
-	v.object({
-		providerId: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
-	}),
-	async (data) => {
-		const event = getRequestEvent();
+export const signIn = form(SignInSchema, async (data) => {
+	const event = getRequestEvent();
 
-		const signIn = await auth.api.signInSocial({
-			headers: event.request.headers,
-			body: {
-				provider: data.providerId,
-			},
-		});
+	const signIn = await auth.api.signInSocial({
+		headers: event.request.headers,
+		body: {
+			provider: data.providerId,
+			callbackURL: data.callbackURL,
+		},
+	});
 
-		if (!signIn.redirect || !signIn.url) {
-			error(500, 'Failed to initiate social sign-in');
-		}
+	if (!signIn.redirect || !signIn.url) {
+		error(500, 'Failed to initiate social sign-in');
+	}
 
-		redirect(303, signIn.url);
-	},
-);
+	redirect(303, signIn.url);
+});

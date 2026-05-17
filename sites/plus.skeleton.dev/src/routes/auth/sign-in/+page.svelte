@@ -10,7 +10,7 @@
 	</header>
 	<div class="grid grid-cols-1 items-center gap-2">
 		{#each supportedOAuthProviders as provider}
-			<SignInButton {provider} class="btn btn-lg preset-filled w-full max-w-xs">
+			<SignInButton providerId={provider.id} class="btn btn-lg preset-filled w-full max-w-xs">
 				<provider.Icon />
 				<span>{provider.name}</span>
 			</SignInButton>
