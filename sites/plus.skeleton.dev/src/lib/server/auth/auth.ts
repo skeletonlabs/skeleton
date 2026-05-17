@@ -1,7 +1,7 @@
 import { dev } from '$app/environment';
 import { getRequestEvent } from '$app/server';
 import { env } from '$env/dynamic/private';
-import type { SupportedOAuthProvider } from '$lib/client/auth/supported-oauth-providers';
+import type { SupportedOAuthProvider } from '$lib/auth/supported-oauth-providers';
 import { database } from '$lib/server/database/database';
 import * as schema from '$lib/server/database/schema';
 import { betterAuth } from 'better-auth/minimal';

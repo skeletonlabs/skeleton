@@ -3,8 +3,8 @@
 	import { resolve } from '$app/paths';
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
+	import { routes } from '$lib/navigation/routes';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
-	import { routes } from '../../client/navigation/routes';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import LifeBuoyIcon from '@lucide/svelte/icons/life-buoy';
 	import LogOutIcon from '@lucide/svelte/icons/log-out';

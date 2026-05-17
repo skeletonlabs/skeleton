@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { routes } from '$lib/client/navigation/routes';
+	import { routes } from '$lib/navigation/routes';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 
