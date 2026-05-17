@@ -39,7 +39,7 @@
 										<UnlinkAccountButton
 											providerId={provider.id}
 											class="btn preset-outlined-surface-200-800 ml-2"
-											disabled={accounts.length <= 1}
+											disabled={accounts.length === 1}
 										>
 											Disconnect
 										</UnlinkAccountButton>
