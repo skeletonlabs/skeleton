@@ -122,7 +122,7 @@ catalog:
   semver: 7.8.0
   sharp: 0.34.5
   shiki: 4.0.2
-  svelte: 5.55.5
+  svelte: 5.55.7
   svelte-check: 4.4.8
   tailwindcss: 4.3.0
   tinyglobby: 0.2.16
@@ -149,6 +149,10 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: svelte@5.55.7
+  - svelte@5.55.7
+  # Renovate security update: devalue@5.8.1
+  - devalue@5.8.1
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
