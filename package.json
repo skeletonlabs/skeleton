@@ -32,7 +32,7 @@
 		"vitest": "catalog:"
 	},
 	"engines": {
-		"node": "26.x",
+		"node": "24.x",
 		"pnpm": "11.x"
 	},
 	"packageManager": "pnpm@11.1.2"
