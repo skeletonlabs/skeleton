@@ -5,7 +5,7 @@ import type { SupportedOAuthProvider } from '$lib/auth/supported-oauth-providers
 import { database } from '$lib/server/database/database';
 import * as schema from '$lib/server/database/schema';
 import { betterAuth } from 'better-auth/minimal';
-import { drizzleAdapter } from '@better-auth/drizzle-adapter';
+import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { genericOAuth } from 'better-auth/plugins';
 import { sveltekitCookies } from 'better-auth/svelte-kit';
 
