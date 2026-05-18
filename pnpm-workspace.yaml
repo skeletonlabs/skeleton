@@ -153,11 +153,10 @@ minimumReleaseAgeExclude:
   # Renovate security update: devalue@5.8.1
   - devalue@5.8.1
 
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - sharp
-  - supabase
+allowBuilds:
+  '@parcel/watcher': true
+  '@tailwindcss/oxide': true
+  esbuild: true
+  sharp: true
 
 savePrefix: ''
