@@ -16,7 +16,6 @@ export default defineConfig({
 		: process.env.VERCEL_ENV === 'production'
 			? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
 			: `https://${process.env.VERCEL_URL}`,
-	prefetch: true,
 	trailingSlash: 'never',
 	markdown: {
 		syntaxHighlight: false,
