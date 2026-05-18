@@ -1,6 +1,42 @@
 @import 'tailwindcss';
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton-svelte';
-@import '@skeletonlabs/skeleton/themes/cerberus';
+@plugin "@tailwindcss/forms";
 
-@plugin '@tailwindcss/forms';
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/themes/cerberus';
+@import '@skeletonlabs/skeleton-svelte';
+
+html {
+	/* Background Gradient */
+	background-attachment: fixed;
+	background-image:
+		radial-gradient(at 80% 35%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
+		radial-gradient(at 85% 6%, color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px, transparent 30%);
+}
+
+/* Block Containers --- */
+/* Used to handle the bento-box sections. */
+
+.container-cell {
+	padding: --spacing(4);
+	@variant lg {
+		padding: --spacing(8);
+	}
+}
+.container-page {
+	padding: --spacing(4);
+	& > :not(:last-child) {
+		margin-block-end: --spacing(4);
+	}
+	@variant lg {
+		padding: --spacing(8);
+		& > :not(:last-child) {
+			margin-block-end: --spacing(8);
+		}
+	}
+}
+
+/* Overrides --- */
+
+.hr {
+	border-color: var(--color-surface-200-800);
+}

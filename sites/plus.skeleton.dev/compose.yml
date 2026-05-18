@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  oauth2-server:
+    image: ghcr.io/navikt/mock-oauth2-server:3.0.3
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    hostname: host.docker.internal
+    environment:
+      JSON_CONFIG: |
+        {
+          "httpServer": "NettyWrapper",
+          "tokenCallbacks": [
+            {
+              "issuerId": "local",
+              "tokenExpiry": 120,
+              "requestMappings": [
+                {
+                  "requestParam": "code",
+                  "match": "*",
+                  "claims": {
+                    "sub": "john-doe",
+                    "name": "John Doe",
+                    "email": "john.doe@example.com",
+                    "email_verified": true,
+                    "picture": "https://i.pravatar.cc/100",
+                    "aud": ["test-client-id"],
+                    "scope": ["openid", "profile"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+
+volumes:
+  pgdata:
