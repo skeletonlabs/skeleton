@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"types": ["astro/client"],
 		"jsx": "react-jsx",
-		"jsxImportSource": "reac",
+		"jsxImportSource": "react",
 		"paths": {
 			"@/*": ["./src/*"]
 		}
