@@ -16,7 +16,6 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
-		"@better-auth/drizzle-adapter": "catalog:",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
