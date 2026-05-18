@@ -154,10 +154,9 @@ minimumReleaseAgeExclude:
   - devalue@5.8.1
 
 allowBuilds:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - sharp
-  - supabase
+  '@parcel/watcher': true
+  '@tailwindcss/oxide': true
+  esbuild: true
+  sharp: true
 
 savePrefix: ''
