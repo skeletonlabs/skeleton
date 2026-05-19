@@ -183,6 +183,9 @@ catalogs:
     '@zag-js/listbox':
       specifier: 1.40.0
       version: 1.40.0
+    '@zag-js/marquee':
+      specifier: 1.40.0
+      version: 1.40.0
     '@zag-js/menu':
       specifier: 1.40.0
       version: 1.40.0
@@ -604,6 +607,9 @@ importers:
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.40.0
+      '@zag-js/marquee':
+        specifier: 'catalog:'
+        version: 1.40.0
       '@zag-js/menu':
         specifier: 'catalog:'
         version: 1.40.0
@@ -729,6 +735,9 @@ importers:
         specifier: 'catalog:'
         version: 1.40.0
       '@zag-js/listbox':
+        specifier: 'catalog:'
+        version: 1.40.0
+      '@zag-js/marquee':
         specifier: 'catalog:'
         version: 1.40.0
       '@zag-js/menu':
@@ -3815,6 +3824,9 @@ packages:
 
   '@zag-js/live-region@1.40.0':
     resolution: {integrity: sha512-i1Dx02KGcQOAZGNhkFe8kz26gYJcn7KsT/M1UovjS9RTbl9diY8ShiyfIAhqruoaHQyqsHMRh/f7Idu45HdiDA==}
+
+  '@zag-js/marquee@1.40.0':
+    resolution: {integrity: sha512-XfvAwSNYXV3fEIRc44a9sAsoJoLKt+CWbpSPgQBpiFPpWh0rZ8frUZCslevTzBB3ifIWoSg+svDHQOGsDa8wGA==}
 
   '@zag-js/menu@1.40.0':
     resolution: {integrity: sha512-FRBqwsOjxBi0eSwqwrOw2td1rd0Xxl0f41J2lGc8E7z+2PabbBcJ/poqSiEn8YoaCT4mAWNjt4QQU/Pe1bRJ/g==}
@@ -9269,6 +9281,14 @@ snapshots:
       '@zag-js/utils': 1.40.0
 
   '@zag-js/live-region@1.40.0': {}
+
+  '@zag-js/marquee@1.40.0':
+    dependencies:
+      '@zag-js/anatomy': 1.40.0
+      '@zag-js/core': 1.40.0
+      '@zag-js/dom-query': 1.40.0
+      '@zag-js/types': 1.40.0
+      '@zag-js/utils': 1.40.0
 
   '@zag-js/menu@1.40.0':
     dependencies:
