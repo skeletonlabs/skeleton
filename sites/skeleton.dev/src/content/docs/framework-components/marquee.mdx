@@ -1,0 +1,124 @@
+---
+title: Marquee
+description: Auto-scrolls content like logos, announcements, or featured items.
+stability: beta
+---
+
+import DefaultReact from '@/components/examples/framework-components/marquee/react/default';
+import DefaultReactRaw from '@/components/examples/framework-components/marquee/react/default?raw';
+import DefaultSvelte from '@/components/examples/framework-components/marquee/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/framework-components/marquee/svelte/default.svelte?raw';
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Usage
+
+Access `contentCount` via `Marquee.Context` to render the correct number of content blocks. Zag handles duplication for seamless looping — your items only need to be written once inside `Marquee.Content`.
+
+```svelte
+<Marquee autoFill pauseOnInteraction>
+	<Marquee.Edge side="start" />
+	<Marquee.Viewport>
+		<Marquee.Context>
+			{#snippet children(marquee)}
+				{#each Array.from({ length: marquee().contentCount }) as _, index}
+					<Marquee.Content {index}>
+						<!-- items here -->
+					</Marquee.Content>
+				{/each}
+			{/snippet}
+		</Marquee.Context>
+	</Marquee.Viewport>
+	<Marquee.Edge side="end" />
+</Marquee>
+```
+
+## Controlled
+
+Use `useMarquee` to control pause state from outside the component.
+
+```svelte
+<script lang="ts">
+	import { Marquee, useMarquee } from '@skeletonlabs/skeleton-svelte';
+
+	const marquee = useMarquee(() => ({ autoFill: true, pauseOnInteraction: true }));
+</script>
+
+<button onclick={() => marquee().togglePause()}>Toggle Pause</button>
+<Marquee.Provider value={marquee}>...</Marquee.Provider>
+```
+
+## Anatomy
+
+Here's an overview of how the Marquee component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { Marquee } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return (
+		<Marquee>
+			<Marquee.Edge side="start" />
+			<Marquee.Viewport>
+				<Marquee.Context>
+					{(marquee) =>
+						Array.from({ length: marquee.contentCount }).map((_, index) => (
+							<Marquee.Content key={index} index={index}>
+								{/* items */}
+							</Marquee.Content>
+						))
+					}
+				</Marquee.Context>
+			</Marquee.Viewport>
+			<Marquee.Edge side="end" />
+		</Marquee>
+	);
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { Marquee } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<Marquee>
+	<Marquee.Edge side="start" />
+	<Marquee.Viewport>
+		<Marquee.Context>
+			{#snippet children(marquee)}
+				{#each Array.from({ length: marquee().contentCount }) as _, index}
+					<Marquee.Content {index}>
+						<!-- items -->
+					</Marquee.Content>
+				{/each}
+			{/snippet}
+		</Marquee.Context>
+	</Marquee.Viewport>
+	<Marquee.Edge side="end" />
+</Marquee>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/marquee" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/marquee" />
+</Framework>
