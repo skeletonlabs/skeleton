@@ -31,11 +31,11 @@
 									rel={external ? 'noopener noreferrer' : undefined}
 								>
 									{#if Icon}
-										<Icon class="size-elem-sm" />
+										<Icon class="size-elem-base" />
 									{/if}
 									{label}
 									{#if external}
-										<ArrowUpRightIcon class="size-elem-sm" />
+										<ArrowUpRightIcon class="size-elem-base" />
 									{/if}
 								</a>
 							</li>{/if}

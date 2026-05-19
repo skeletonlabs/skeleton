@@ -3,11 +3,10 @@
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import BlocksIcon from '@lucide/svelte/icons/blocks';
-	import BookOpenIcon from '@lucide/svelte/icons/book-open';
-	import GlobeIcon from '@lucide/svelte/icons/globe';
+	import GraduationCapIcon from '@lucide/svelte/icons/graduation-cap';
 	import LayersIcon from '@lucide/svelte/icons/layers';
 	import LayoutTemplateIcon from '@lucide/svelte/icons/layout-template';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
+	import PaintbrushIcon from '@lucide/svelte/icons/paintbrush';
 	import SlidersHorizontalIcon from '@lucide/svelte/icons/sliders-horizontal';
 	import UsersIcon from '@lucide/svelte/icons/users';
 </script>
@@ -23,7 +22,7 @@
 		<!-- Right -->
 		<div class="container-cell p-10! lg:p-20! flex flex-col justify-center items-start gap-4">
 			<p class="opacity-60">
-				<strong>Skeleton Plus</strong> features a collection of design tools, helpful resources, and community offerings. Purpose built on the
+				<strong>Skeleton Plus</strong> features a collection of design tools, resources, and community offerings. Purpose built for use with the
 				Skeleton open source library.
 			</p>
 			<div class="flex flex-wrap gap-3">
@@ -41,26 +40,28 @@
 </section>
 
 <!-- Features -->
-<section class="grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-b border-surface-200-800">
-	<div class="container-cell p-4 flex lg:justify-center items-center gap-3 transition-colors">
-		<PaletteIcon class="size-elem-3xl stroke-primary-500" />
+<section
+	class="hidden lg:grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-b border-surface-200-800"
+>
+	<div class="container-cell p-4 flex justify-center items-center gap-3 transition-colors">
+		<PaintbrushIcon class="size-elem-3xl stroke-primary-500" />
 		<div>
 			<p class="text-xl font-semibold">Design Tools</p>
 			<p class="text-xs opacity-60">Create themes, presets, and meshes.</p>
 		</div>
 	</div>
-	<div class="container-cell p-4 flex lg:justify-center items-center gap-3 transition-colors">
-		<BookOpenIcon class="size-elem-3xl stroke-secondary-500" />
+	<div class="container-cell p-4 flex justify-center items-center gap-3 transition-colors">
+		<BlocksIcon class="size-elem-3xl stroke-secondary-500" />
 		<div>
 			<p class="text-xl font-semibold">Resources</p>
 			<p class="text-xs opacity-60">Get blocks, templates, and more.</p>
 		</div>
 	</div>
-	<div class="container-cell p-4 flex lg:justify-center items-center gap-3 transition-colors">
+	<div class="container-cell p-4 flex justify-center items-center gap-3 transition-colors">
 		<UsersIcon class="size-elem-3xl stroke-tertiary-500" />
 		<div>
 			<p class="text-xl font-semibold">Community</p>
-			<p class="text-xs opacity-60">Tools from the community.</p>
+			<p class="text-xs opacity-60">Powerful tools from the community.</p>
 		</div>
 	</div>
 </section>
@@ -69,10 +70,10 @@
 <section class="border-b border-surface-200-800 bg-linear-to-b from-transparent to-(--color-surface-50-950)">
 	<header class="container-cell lg:pt-20! max-w-6xl mx-auto space-y-4">
 		<div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-end gap-4">
-			<div class="space-y-2">
+			<header class="space-y-2">
 				<h2 class="h2">Themes Repository.</h2>
-				<p class="opacity-60">Explore themes crafted by the Skeleton community. No account needed.</p>
-			</div>
+				<p class="opacity-60">Explore and download themes crafted by the Skeleton community. No account needed.</p>
+			</header>
 			<a href="/content/themes" class="btn preset-filled">
 				<span>Explore Themes</span>
 				<ArrowRightIcon />
@@ -85,7 +86,10 @@
 
 <!-- Features -->
 <section class="container-page lg:py-20! border-b border-surface-200-800">
-	<h2 class="h3 text-center">Explore the feature of Skeleton Plus.</h2>
+	<header class="text-center space-y-2">
+		<h2 class="h3">Skeleton Plus at a glance.</h2>
+		<p class="opacity-60">Tools, templates, and resources to help you ship polished Skeleton apps faster.</p>
+	</header>
 	<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 		<!-- Design Tools -->
 		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
@@ -120,7 +124,7 @@
 		</div>
 		<!-- Community -->
 		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
-			<div class="flex justify-center"><GlobeIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
+			<div class="flex justify-center"><UsersIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
 			<div class="space-y-2 flex-1">
 				<h3 class="h4">Community</h3>
 				<p class="opacity-60">A collection of community maintained tools aimed at designers and developers.</p>
@@ -129,7 +133,7 @@
 		</div>
 		<!-- Tutorials -->
 		<div class="disabled card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
-			<div class="flex justify-center"><BookOpenIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
+			<div class="flex justify-center"><GraduationCapIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
 			<div class="space-y-2 flex-1">
 				<h3 class="h4">Tutorials</h3>
 				<p class="opacity-60">Step-by-step guides covering fundamentals and advanced integration patterns.</p>
@@ -163,7 +167,7 @@
 		</div>
 		<!-- Right -->
 		<div class="container-cell p-10! lg:p-20! flex flex-col justify-center items-start gap-4">
-			<h2 class="h2 text-balance">Purchase once. Access forever.</h2>
+			<h2 class="h2 text-balance">Pay once. Access forever.</h2>
 			<p class="opacity-60">
 				Get lifetime access to all premium content, including new additions added in the future for a upfront one-time cost.
 			</p>
