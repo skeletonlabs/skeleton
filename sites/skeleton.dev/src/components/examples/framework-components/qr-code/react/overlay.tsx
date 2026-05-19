@@ -1,16 +1,14 @@
 import { QrCode } from '@skeletonlabs/skeleton-react';
-import { DownloadCloud } from 'lucide-react';
+import favicon from '@/assets/favicon.png';
 
 export default function OverlayDemo() {
 	return (
 		<QrCode value="https://skeleton.dev">
-			<QrCode.Frame>
+			<QrCode.Frame className="size-full max-size-36">
 				<QrCode.Pattern />
 			</QrCode.Frame>
 			<QrCode.Overlay>
-				<div className="size-8 bg-surface-50 rounded p-2 flex items-center justify-center">
-					<DownloadCloud className="size-4" />
-				</div>
+				<img src={favicon.src} alt="Skeleton Logo" className="size-12" />
 			</QrCode.Overlay>
 		</QrCode>
 	);

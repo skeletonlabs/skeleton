@@ -4,9 +4,8 @@
 
 <QrCode value="https://skeleton.dev">
 	<QrCode.DownloadTrigger fileName="skeleton-dev" mimeType="image/png">
-		<QrCode.Frame>
+		<QrCode.Frame class="size-full max-size-36">
 			<QrCode.Pattern />
 		</QrCode.Frame>
 	</QrCode.DownloadTrigger>
-	<QrCode.Overlay />
 </QrCode>
