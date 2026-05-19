@@ -1,5 +1,5 @@
 ---
-name: create-functional-component
+name: create-framework-component
 description: Create Skeleton functional components in both React and Svelte packages using the repository's anatomy/modules conventions.
 ---
 
