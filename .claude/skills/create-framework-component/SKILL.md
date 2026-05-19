@@ -1,9 +1,9 @@
 ---
 name: create-framework-component
-description: Create Skeleton functional components in both React and Svelte packages using the repository's anatomy/modules conventions.
+description: Create Skeleton framework components in both React and Svelte packages using the repository's anatomy/modules conventions.
 ---
 
-# Create Functional Component
+# Create Framework Component
 
 Scaffold a new framework component in both Skeleton packages using the existing anatomy/modules authoring style.
 
