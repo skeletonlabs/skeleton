@@ -48,10 +48,8 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 
 1. **Component name** — kebab-case folder and PascalCase namespace. Recommend both, accept overrides.
 2. **Type** — static/simple or machine-backed (Zag). This resolves required module files.
-3. **Parts list** — root-only or full anatomy list (`root`, `trigger`, `content`, etc.).
-4. **Elements per part** — default HTML tag for each part (`div`, `button`, `header`, etc.).
-5. **Exports** — whether to include `Provider`, `Context`, and `useX` public exports.
-6. **Confirm** — show planned file tree for both frameworks and namespace API before writing.
+3. **Exports** — whether to include `Provider`, `Context`, and `useX` public exports.
+4. **Confirm** — show planned file tree for both frameworks and namespace API before writing.
 
 ## After scaffolding
 
@@ -65,7 +63,7 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 - Svelte suite: `packages/skeleton-svelte/test/components/<component>.test.ts`
 
 4. For each anatomy part, include a render assertion (`toBeInTheDocument`).
-5. If the component should be previewable in the playgrounds, add matching demo entries in both frameworks and regenerate the React route manifest if a new route was added.
+5. For each framework, add the component to the corresponding playground sites (`playgrounds/skeleton-{framework}`).
 6. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
 
 ## Final summary
