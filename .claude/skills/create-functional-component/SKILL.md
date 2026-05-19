@@ -64,7 +64,8 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 
 4. For each anatomy part, include a render assertion (`toBeInTheDocument`).
 5. For each framework, add the component to the corresponding playground sites (`playgrounds/skeleton-{framework}`).
-6. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
+6. Update the generated docs by running `pnpm generate` in `packages/docs`.
+7. If requested, trigger `/create-doc` using the new component slug for framework docs scaffolding.
 
 ## Final summary
 
