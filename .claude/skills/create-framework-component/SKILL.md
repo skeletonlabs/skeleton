@@ -9,14 +9,14 @@ Scaffold a new framework component in both Skeleton packages using the existing 
 
 ## Where things live
 
-- React components: [packages/skeleton-react/src/components/](packages/skeleton-react/src/components/)
-- Svelte components: [packages/skeleton-svelte/src/components/](packages/skeleton-svelte/src/components/)
-- React component tests: [packages/skeleton-react/test/components/](packages/skeleton-react/test/components/)
-- Svelte component tests: [packages/skeleton-svelte/test/components/](packages/skeleton-svelte/test/components/)
-- Public package exports: [packages/skeleton-react/src/index.ts](packages/skeleton-react/src/index.ts), [packages/skeleton-svelte/src/index.ts](packages/skeleton-svelte/src/index.ts)
+- React components: [packages/skeleton-react/src/components/](../../../packages/skeleton-react/src/components/)
+- Svelte components: [packages/skeleton-svelte/src/components/](../../../packages/skeleton-svelte/src/components/)
+- React component tests: [packages/skeleton-react/test/components/](../../../packages/skeleton-react/test/components/)
+- Svelte component tests: [packages/skeleton-svelte/test/components/](../../../packages/skeleton-svelte/test/components/)
+- Public package exports: [packages/skeleton-react/src/index.ts](../../../packages/skeleton-react/src/index.ts), [packages/skeleton-svelte/src/index.ts](../../../packages/skeleton-svelte/src/index.ts)
 - Reference components to model after:
-  - Static/non-machine: [app-bar](packages/skeleton-react/src/components/app-bar/index.ts), [app-bar](packages/skeleton-svelte/src/components/app-bar/index.ts)
-  - Machine-backed: [accordion](packages/skeleton-react/src/components/accordion/index.ts), [accordion](packages/skeleton-svelte/src/components/accordion/index.ts)
+  - Static/non-machine: [app-bar](../../../packages/skeleton-react/src/components/app-bar/index.ts), [app-bar](../../../packages/skeleton-svelte/src/components/app-bar/index.ts)
+  - Machine-backed: [accordion](../../../packages/skeleton-react/src/components/accordion/index.ts), [accordion](../../../packages/skeleton-svelte/src/components/accordion/index.ts)
 
 ## File destination rules
 
@@ -53,7 +53,7 @@ Ask one at a time, confirm each, write nothing until all are answered and the us
 
 ## After scaffolding
 
-1. Add new component re-exports to [packages/skeleton-react/src/index.ts](packages/skeleton-react/src/index.ts) and [packages/skeleton-svelte/src/index.ts](packages/skeleton-svelte/src/index.ts).
+1. Add new component re-exports to [packages/skeleton-react/src/index.ts](../../../packages/skeleton-react/src/index.ts) and [packages/skeleton-svelte/src/index.ts](../../../packages/skeleton-svelte/src/index.ts).
 2. Keep export ordering consistent with neighboring component entries.
 3. Add tests in both frameworks:
 

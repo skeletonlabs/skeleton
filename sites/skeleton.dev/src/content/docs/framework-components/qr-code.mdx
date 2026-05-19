@@ -7,6 +7,18 @@ import DefaultReact from '@/components/examples/framework-components/qr-code/rea
 import DefaultReactRaw from '@/components/examples/framework-components/qr-code/react/default?raw';
 import DefaultSvelte from '@/components/examples/framework-components/qr-code/svelte/default.svelte';
 import DefaultSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/default.svelte?raw';
+import FrameColorsReact from '@/components/examples/framework-components/qr-code/react/frame-colors';
+import FrameColorsReactRaw from '@/components/examples/framework-components/qr-code/react/frame-colors?raw';
+import OverlayReact from '@/components/examples/framework-components/qr-code/react/overlay';
+import OverlayReactRaw from '@/components/examples/framework-components/qr-code/react/overlay?raw';
+import ClickableReact from '@/components/examples/framework-components/qr-code/react/clickable-download';
+import ClickableReactRaw from '@/components/examples/framework-components/qr-code/react/clickable-download?raw';
+import FrameColorsSvelte from '@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte';
+import FrameColorsSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte?raw';
+import OverlaySvelte from '@/components/examples/framework-components/qr-code/svelte/overlay.svelte';
+import OverlaySvelteRaw from '@/components/examples/framework-components/qr-code/svelte/overlay.svelte?raw';
+import ClickableSvelte from '@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte';
+import ClickableSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -16,6 +28,51 @@ import DefaultSvelteRaw from '@/components/examples/framework-components/qr-code
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Frame Colors
+
+Use brand color for the frame and a contrasting fill for the QR pattern.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': FrameColorsReactRaw }} client:visible>
+		<FrameColorsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': FrameColorsSvelteRaw }} client:visible>
+		<FrameColorsSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Overlay
+
+Demonstrates an overlay with an icon and a contrasting square background to separate it visually from the pattern.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': OverlayReactRaw }} client:visible>
+		<OverlayReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': OverlaySvelteRaw }} client:visible>
+		<OverlaySvelte client:visible />
+	</Preview>
+</Framework>
+
+## Clickable download
+
+Wrap the visual frame/pattern in the download trigger so clicking the code initiates a download.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': ClickableReactRaw }} client:visible>
+		<ClickableReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': ClickableSvelteRaw }} client:visible>
+		<ClickableSvelte client:visible />
 	</Preview>
 </Framework>
 
