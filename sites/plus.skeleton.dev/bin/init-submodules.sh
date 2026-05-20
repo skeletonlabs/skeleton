@@ -4,9 +4,13 @@ set -euo pipefail
 # ── 1. Set up SSH agent with the deploy key ────────────────────────────────
 eval "$(ssh-agent -s)"
 
-echo "$GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY" | tr -d '\r' | ssh-add -
+KEY_FILE="$(mktemp)"
+echo "$GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY" | base64 -d > "$KEY_FILE"
+chmod 600 "$KEY_FILE"
+ssh-add "$KEY_FILE"
+rm -f "$KEY_FILE"
 
-# Trust GitHub's host key (avoids interactive prompt on Vercel)
+# Trust GitHub's host key
 mkdir -p ~/.ssh
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
