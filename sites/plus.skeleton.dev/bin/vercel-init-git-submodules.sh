@@ -1,18 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Load all SSH deploy keys from environment variables prefixed with SSH_SUBMODULE_KEY_
-eval "$(ssh-agent -s)"
-while IFS='=' read -r name value; do
-  KEY_FILE="$(mktemp)"
-  echo "$value" | base64 -d > "$KEY_FILE"
-  chmod 600 "$KEY_FILE"
-  ssh-add "$KEY_FILE"
-  rm -f "$KEY_FILE"
-done < <(env | grep '^SSH_SUBMODULE_KEY_')
-
-# Tell git to skip host verification when cloning over SSH
-export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
+# Inject the GitHub PAT into git's credential store
+git config --global url."https://${GITHUB_PAT}@github.com/".insteadOf "https://github.com/"
 
 # Clone the submodules
 cd "$(git rev-parse --show-toplevel)"
