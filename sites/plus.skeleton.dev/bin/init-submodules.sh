@@ -1,35 +1,28 @@
 #!/usr/bin/env bash
 set -euo pipefail
- 
-# Move to the repo root
-cd "$(git rev-parse --show-toplevel)"
- 
-# Ensure we’re not in a detached HEAD or bare repo
-if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  echo "Not inside a valid Git working tree."
-  exit 1
-fi
- 
-# Remove existing submodule entry (if any)
-if git config --file .gitmodules --get-regexp "^submodule\.content\." > /dev/null 2>&1; then
-  echo "Removing existing submodule config..."
-  git submodule deinit -f content || true
-  git rm -f content || true
-  rm -rf .git/modules/content
-fi
- 
-# Clean local content dir if needed
-rm -rf content
 
-# Clean existing submodules
-echo "Cleaning existing submodules..."
-git submodule deinit -f --all
- 
-# Add the submodule
-echo "Adding submodule..."
-git submodule add -f "https://github.com/skeletonlabs/skeleton-plus-free.git" sites/plus.skeleton.dev/src/lib/tiers/free
-git submodule add -f "https://skeletonlabs:${GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY}@github.com/skeletonlabs/skeleton-plus-premiumt.git" sites/plus.skeleton.dev/src/lib/tiers/premium
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
 
-# Sync & init
-git submodule sync
+echo "Hard resetting submodules..."
+
+# 1. Deinit everything safely
+git submodule deinit -f --all || true
+
+# 2. Remove submodule entries from index
+git rm -rf sites/plus.skeleton.dev/src/lib/tiers/free || true
+git rm -rf sites/plus.skeleton.dev/src/lib/tiers/premium || true
+
+# 3. Remove metadata
+rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/free || true
+rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/premium || true
+
+# 4. Clean working tree directories
+rm -rf sites/plus.skeleton.dev/src/lib/tiers/free
+rm -rf sites/plus.skeleton.dev/src/lib/tiers/premium
+
+# 5. Ensure .gitmodules is correct BEFORE this step
+git submodule sync --recursive
+
+# 6. Re-init cleanly
 git submodule update --init --recursive
