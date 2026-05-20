@@ -12,7 +12,7 @@
 		"drizzle:push": "drizzle-kit push",
 		"drizzle:generate": "drizzle-kit generate",
 		"drizzle:studio": "drizzle-kit studio --config ./drizzle.config.ts",
-		"vercel:prepare": "bash ./bin/init-submodules.sh",
+		"vercel:prepare": "bash ./bin/vercel-init-git-submodules.sh",
 		"screenshots": "node scripts/screenshots.js",
 		"postinstall": "svelte-kit sync"
 	},
