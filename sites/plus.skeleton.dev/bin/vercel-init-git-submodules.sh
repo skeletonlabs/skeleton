@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Load the SSH deploy key from the environment variable
+# Load all SSH deploy keys from environment variables prefixed with SSH_SUBMODULE_KEY_
 eval "$(ssh-agent -s)"
-KEY_FILE="$(mktemp)"
-echo "$GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY" | base64 -d > "$KEY_FILE"
-chmod 600 "$KEY_FILE"
-ssh-add "$KEY_FILE"
-rm -f "$KEY_FILE"
+while IFS='=' read -r name value; do
+  KEY_FILE="$(mktemp)"
+  echo "$value" | base64 -d > "$KEY_FILE"
+  chmod 600 "$KEY_FILE"
+  ssh-add "$KEY_FILE"
+  rm -f "$KEY_FILE"
+done < <(env | grep '^SSH_SUBMODULE_KEY_')
 
 # Tell git to skip host verification when cloning over SSH
 export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
@@ -16,7 +18,6 @@ export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
 cd "$(git rev-parse --show-toplevel)"
 git submodule deinit -f --all 2>/dev/null || true
 
-# Read submodule paths from .gitmodules and clean them up
 while IFS= read -r path; do
   rm -rf ".git/modules/$path"
   rm -rf "$path"
