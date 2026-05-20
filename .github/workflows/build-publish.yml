@@ -20,6 +20,8 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.GH_PAT }}
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
