@@ -20,11 +20,15 @@ fi
  
 # Clean local content dir if needed
 rm -rf content
+
+# Clean existing submodules
+echo "Cleaning existing submodules..."
+git submodule deinit -f --all
  
 # Add the submodule
 echo "Adding submodule..."
+git submodule add -f "https://github.com/skeletonlabs/skeleton-plus-free.git" sites/plus.skeleton.dev/src/lib/tiers/free
 git submodule add -f "https://skeletonlabs:${GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY}@github.com/skeletonlabs/skeleton-plus-premiumt.git" sites/plus.skeleton.dev/src/lib/tiers/premium
-
 
 # Sync & init
 git submodule sync
