@@ -6,14 +6,17 @@ import { UnlinkAccountSchema } from '$lib/schemas/auth/unlink-account-schema';
 export const unlinkAccount = form(UnlinkAccountSchema, async (data) => {
 	const event = getRequestEvent();
 
-	const unlink = await auth.api.unlinkAccount({
-		headers: event.request.headers,
-		body: {
-			providerId: data.providerId,
-		},
-	});
-
-	if (!unlink.status) {
-		error(500, 'Failed to unlink account');
+	try {
+		await auth.api.unlinkAccount({
+			headers: event.request.headers,
+			body: {
+				providerId: data.providerId,
+			},
+		});
+	} catch (e) {
+		if (e instanceof Error) {
+			throw error(400, e.message);
+		}
+		throw error(400, 'An unknown error occurred while unlinking the account');
 	}
 });
