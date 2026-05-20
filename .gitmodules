@@ -1,0 +1,6 @@
+[submodule "plus/premium"]
+	path = plus/premium
+	url = https://github.com/skeletonlabs/skeleton-plus-premium.git
+[submodule "plus/free"]
+	path = plus/free
+	url = https://github.com/skeletonlabs/skeleton-plus-free.git
