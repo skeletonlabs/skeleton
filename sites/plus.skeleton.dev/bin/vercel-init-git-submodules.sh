@@ -10,7 +10,7 @@ ssh-add "$KEY_FILE"
 rm -f "$KEY_FILE"
 
 # Tell git to skip host verification when cloning over SSH
-export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
+# export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no"
 
 # Clone the submodules
 cd "$(git rev-parse --show-toplevel)"
