@@ -1,3 +1,5 @@
+name: plus-skeleton-dev
+
 services:
   postgres:
     image: postgres:17

@@ -1,0 +1,130 @@
+@keyframes marqueeX {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(var(--marquee-translate));
+	}
+}
+
+@keyframes marqueeY {
+	0% {
+		transform: translateY(0%);
+	}
+	100% {
+		transform: translateY(var(--marquee-translate));
+	}
+}
+
+[data-scope='marquee'] {
+	&[data-part='root'] {
+		position: relative;
+		overflow: hidden;
+
+		&[data-paused] {
+			& [data-part='content'] {
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	&[data-part='viewport'] {
+		display: flex;
+		overflow: hidden;
+		gap: var(--marquee-spacing);
+
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
+		}
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+		}
+	}
+
+	&[data-part='content'] {
+		display: flex;
+		flex-shrink: 0;
+		gap: var(--marquee-spacing);
+		animation-timing-function: linear;
+		animation-duration: var(--marquee-duration);
+		animation-delay: var(--marquee-delay);
+		animation-iteration-count: var(--marquee-loop-count);
+
+		&[data-orientation='horizontal'] {
+			flex-direction: row;
+		}
+
+		&[data-orientation='vertical'] {
+			flex-direction: column;
+		}
+
+		&[data-side='start'],
+		&[data-side='end'] {
+			animation-name: marqueeX;
+		}
+
+		&[data-side='top'],
+		&[data-side='bottom'] {
+			animation-name: marqueeY;
+		}
+
+		&[data-reverse] {
+			animation-direction: reverse;
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			animation: none !important;
+		}
+	}
+
+	&[data-part='edge'] {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		z-index: 10;
+		pointer-events: none;
+
+		&[data-side='start'] {
+			left: 0;
+			width: 20%;
+			background: linear-gradient(to right, var(--color-surface-50), transparent);
+			@variant dark {
+				background: linear-gradient(to right, var(--color-surface-950), transparent);
+			}
+		}
+
+		&[data-side='end'] {
+			right: 0;
+			width: 20%;
+			background: linear-gradient(to left, var(--color-surface-50), transparent);
+			@variant dark {
+				background: linear-gradient(to left, var(--color-surface-950), transparent);
+			}
+		}
+
+		&[data-side='top'] {
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: auto;
+			height: 20%;
+			background: linear-gradient(to bottom, var(--color-surface-50), transparent);
+			@variant dark {
+				background: linear-gradient(to bottom, var(--color-surface-950), transparent);
+			}
+		}
+
+		&[data-side='bottom'] {
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: auto;
+			height: 20%;
+			background: linear-gradient(to top, var(--color-surface-50), transparent);
+			@variant dark {
+				background: linear-gradient(to top, var(--color-surface-950), transparent);
+			}
+		}
+	}
+}

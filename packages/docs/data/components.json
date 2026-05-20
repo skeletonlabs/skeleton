@@ -4983,6 +4983,401 @@
 				]
 			},
 			{
+				"name": "marquee",
+				"types": [
+					{
+						"name": "MarqueeRootProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "ids",
+								"type": "Partial<{ root: string; viewport: string; content: (index: number) => string; }> | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The ids of the elements in the marquee. Useful for composition.",
+									"tags": []
+								}
+							},
+							{
+								"name": "translations",
+								"type": "IntlTranslations | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The localized messages to use.",
+									"tags": []
+								}
+							},
+							{
+								"name": "side",
+								"type": "Side | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The side/direction the marquee scrolls towards.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"start\""
+										}
+									]
+								}
+							},
+							{
+								"name": "speed",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The speed of the marquee animation in pixels per second.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "50"
+										}
+									]
+								}
+							},
+							{
+								"name": "delay",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The delay before the animation starts (in seconds).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "0"
+										}
+									]
+								}
+							},
+							{
+								"name": "loopCount",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The number of times to loop the animation (0 = infinite).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "0"
+										}
+									]
+								}
+							},
+							{
+								"name": "spacing",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The spacing between marquee items.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"1rem\""
+										}
+									]
+								}
+							},
+							{
+								"name": "autoFill",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to automatically duplicate content to fill the container.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "pauseOnInteraction",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to pause the marquee on user interaction (hover, focus).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "reverse",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to reverse the animation direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "paused",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the marquee is paused.",
+									"tags": []
+								}
+							},
+							{
+								"name": "defaultPaused",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the marquee is paused by default.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "onPauseChange",
+								"type": "((details: PauseStatusDetails) => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the pause status changes.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onLoopComplete",
+								"type": "(() => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the marquee completes one loop iteration.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onComplete",
+								"type": "(() => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the marquee completes all loops and stops.\nOnly fires for finite loops (loopCount > 0).",
+									"tags": []
+								}
+							},
+							{
+								"name": "dir",
+								"type": "\"ltr\" | \"rtl\" | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The document's text/writing direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"ltr\""
+										}
+									]
+								}
+							},
+							{
+								"name": "getRootNode",
+								"type": "(() => ShadowRoot | Node | Document) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeRootProviderProps",
+						"props": [
+							{
+								"name": "value",
+								"type": "MarqueeApi<PropTypes>",
+								"typeKind": "object",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "(marquee: MarqueeApi<PropTypes>) => ReactNode",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeViewportProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeContentProps",
+						"props": [
+							{
+								"name": "index",
+								"type": "number",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The index of the content instance (0 for original, 1+ for duplicates).",
+									"tags": []
+								}
+							},
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeEdgeProps",
+						"props": [
+							{
+								"name": "side",
+								"type": "Side",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The side where the edge gradient should appear.",
+									"tags": []
+								}
+							},
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"name": "menu",
 				"types": [
 					{
@@ -16093,6 +16488,351 @@
 							{
 								"name": "element",
 								"type": "Snippet<[HTMLAttributes<\"span\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "marquee",
+				"types": [
+					{
+						"name": "MarqueeRootProps",
+						"props": [
+							{
+								"name": "ids",
+								"type": "Partial<{ root: string; viewport: string; content: (index: number) => string; }> | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The ids of the elements in the marquee. Useful for composition.",
+									"tags": []
+								}
+							},
+							{
+								"name": "translations",
+								"type": "IntlTranslations | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The localized messages to use.",
+									"tags": []
+								}
+							},
+							{
+								"name": "side",
+								"type": "Side | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The side/direction the marquee scrolls towards.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"start\""
+										}
+									]
+								}
+							},
+							{
+								"name": "speed",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The speed of the marquee animation in pixels per second.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "50"
+										}
+									]
+								}
+							},
+							{
+								"name": "delay",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The delay before the animation starts (in seconds).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "0"
+										}
+									]
+								}
+							},
+							{
+								"name": "loopCount",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The number of times to loop the animation (0 = infinite).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "0"
+										}
+									]
+								}
+							},
+							{
+								"name": "spacing",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The spacing between marquee items.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"1rem\""
+										}
+									]
+								}
+							},
+							{
+								"name": "autoFill",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to automatically duplicate content to fill the container.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "pauseOnInteraction",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to pause the marquee on user interaction (hover, focus).",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "reverse",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether to reverse the animation direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "paused",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the marquee is paused.",
+									"tags": []
+								}
+							},
+							{
+								"name": "defaultPaused",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the marquee is paused by default.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "false"
+										}
+									]
+								}
+							},
+							{
+								"name": "onPauseChange",
+								"type": "((details: PauseStatusDetails) => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the pause status changes.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onLoopComplete",
+								"type": "(() => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the marquee completes one loop iteration.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onComplete",
+								"type": "(() => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Function called when the marquee completes all loops and stops.\nOnly fires for finite loops (loopCount > 0).",
+									"tags": []
+								}
+							},
+							{
+								"name": "dir",
+								"type": "\"ltr\" | \"rtl\" | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The document's text/writing direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"ltr\""
+										}
+									]
+								}
+							},
+							{
+								"name": "getRootNode",
+								"type": "(() => ShadowRoot | Node | Document) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeRootProviderProps",
+						"props": [
+							{
+								"name": "value",
+								"type": "() => MarqueeApi<PropTypes>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "Snippet<[() => MarqueeApi<PropTypes>]>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeViewportProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeContentProps",
+						"props": [
+							{
+								"name": "index",
+								"type": "number",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The index of the content instance (0 for original, 1+ for duplicates).",
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "MarqueeEdgeProps",
+						"props": [
+							{
+								"name": "side",
+								"type": "Side",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The side where the edge gradient should appear.",
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {

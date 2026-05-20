@@ -55,6 +55,7 @@ catalog:
   '@zag-js/accordion': 1.40.0
   '@zag-js/avatar': 1.40.0
   '@zag-js/carousel': 1.40.0
+  '@zag-js/marquee': 1.40.0
   '@zag-js/collapsible': 1.40.0
   '@zag-js/collection': 1.40.0
   '@zag-js/combobox': 1.40.0
@@ -148,10 +149,6 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
-  # Renovate security update: svelte@5.55.7
-  - svelte@5.55.7
-  # Renovate security update: devalue@5.8.1
-  - devalue@5.8.1
 
 allowBuilds:
   '@parcel/watcher': true

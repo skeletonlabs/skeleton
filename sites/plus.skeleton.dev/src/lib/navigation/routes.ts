@@ -2,16 +2,17 @@ import type { LucideProps } from '@lucide/svelte';
 import type { Component } from 'svelte';
 import BellIcon from '@lucide/svelte/icons/bell';
 import BlocksIcon from '@lucide/svelte/icons/blocks';
-import ComponentIcon from '@lucide/svelte/icons/component';
+import LayersIcon from '@lucide/svelte/icons/layers';
 import CreditCardIcon from '@lucide/svelte/icons/credit-card';
 import FileTextIcon from '@lucide/svelte/icons/file-text';
 import GraduationCapIcon from '@lucide/svelte/icons/graduation-cap';
 import Grid3x3Icon from '@lucide/svelte/icons/grid-3x3';
 import LayoutTemplateIcon from '@lucide/svelte/icons/layout-template';
 import PaletteIcon from '@lucide/svelte/icons/palette';
+import PaintbrushIcon from '@lucide/svelte/icons/paintbrush';
 import ScaleIcon from '@lucide/svelte/icons/scale';
 import ShieldIcon from '@lucide/svelte/icons/shield';
-import SquareIcon from '@lucide/svelte/icons/square';
+import SqareRoundCornerIcon from '@lucide/svelte/icons/square-round-corner';
 import CodeIcon from '@lucide/svelte/icons/code';
 import UserIcon from '@lucide/svelte/icons/user';
 import UsersIcon from '@lucide/svelte/icons/users';
@@ -24,7 +25,7 @@ export interface Route {
 	enabled?: boolean;
 }
 
-/** Common Routes - sorted alphabetically */
+/** Common Routes */
 export const routes = {
 	account: [
 		{ href: resolve('/account'), label: 'Profile', icon: UserIcon, enabled: true },
@@ -34,15 +35,16 @@ export const routes = {
 		{ href: resolve('/account/api'), label: 'API & CLI', icon: CodeIcon, enabled: true },
 	],
 	content: [
+		{ label: 'Themes', href: resolve('/content/themes'), icon: PaletteIcon, enabled: true },
 		{ label: 'Blocks', href: resolve('/content/blocks'), icon: BlocksIcon, enabled: true },
 		{ label: 'Templates', href: resolve('/content/templates'), icon: LayoutTemplateIcon, enabled: true },
-		{ label: 'UI Kit', href: resolve('/content/ui-kit'), icon: ComponentIcon, enabled: true },
 		{ label: 'Tutorials', href: resolve('/content/tutorials'), icon: GraduationCapIcon, enabled: true },
+		{ label: 'UI Kit', href: resolve('/content/ui-kit'), icon: LayersIcon, enabled: true },
 		{ label: 'Community', href: resolve('/content/community'), icon: UsersIcon, enabled: true },
 	],
 	design: [
-		{ label: 'Theme Studio', href: resolve('/content/design/themes'), icon: PaletteIcon, enabled: true },
-		{ label: 'Preset Studio', href: resolve('/content/design/presets'), icon: SquareIcon, enabled: true },
+		{ label: 'Theme Studio', href: resolve('/content/design/themes'), icon: PaintbrushIcon, enabled: true },
+		{ label: 'Preset Studio', href: resolve('/content/design/presets'), icon: SqareRoundCornerIcon, enabled: true },
 		{ label: 'Mesh Studio', href: resolve('/content/design/mesh'), icon: Grid3x3Icon, enabled: true },
 	],
 	legal: [
