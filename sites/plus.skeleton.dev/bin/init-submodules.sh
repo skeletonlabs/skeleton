@@ -1,28 +1,30 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# ── 1. Set up SSH agent with the deploy key ────────────────────────────────
+eval "$(ssh-agent -s)"
+
+echo "$GITHUB_SKELETON_PLUS_PREMIUM_SSH_KEY" | tr -d '\r' | ssh-add -
+
+# Trust GitHub's host key (avoids interactive prompt on Vercel)
+mkdir -p ~/.ssh
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+# ── 2. Navigate to repo root ───────────────────────────────────────────────
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-echo "Hard resetting submodules..."
+# ── 3. Tear down any broken submodule state ───────────────────────────────
+git submodule deinit -f --all 2>/dev/null || true
 
-# 1. Deinit everything safely
-git submodule deinit -f --all || true
+rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/free
+rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/premium
 
-# 2. Remove submodule entries from index
-git rm -rf sites/plus.skeleton.dev/src/lib/tiers/free || true
-git rm -rf sites/plus.skeleton.dev/src/lib/tiers/premium || true
-
-# 3. Remove metadata
-rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/free || true
-rm -rf .git/modules/sites/plus.skeleton.dev/src/lib/tiers/premium || true
-
-# 4. Clean working tree directories
 rm -rf sites/plus.skeleton.dev/src/lib/tiers/free
 rm -rf sites/plus.skeleton.dev/src/lib/tiers/premium
 
-# 5. Ensure .gitmodules is correct BEFORE this step
+# ── 4. Sync URLs from .gitmodules, then clone ─────────────────────────────
 git submodule sync --recursive
-
-# 6. Re-init cleanly
 git submodule update --init --recursive
+
+echo "✓ Submodules ready"
