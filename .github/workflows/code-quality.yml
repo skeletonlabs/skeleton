@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
@@ -29,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
@@ -41,6 +45,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
@@ -53,6 +59,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          submodules: recursive
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:
