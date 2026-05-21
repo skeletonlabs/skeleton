@@ -10,6 +10,8 @@
 		"sourceMap": true,
 		"strict": true,
 		"moduleResolution": "bundler",
-		"types": ["node"]
+		"types": ["node"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react"
 	}
 }

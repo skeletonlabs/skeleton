@@ -28,6 +28,8 @@
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
 		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
 		"better-auth": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",

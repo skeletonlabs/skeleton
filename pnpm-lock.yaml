@@ -952,6 +952,12 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 25.8.0
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.14
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.2.3(@types/react@19.2.14)
       better-auth:
         specifier: 'catalog:'
         version: 1.6.11(@sveltejs/kit@2.60.1(@sveltejs/vite-plugin-svelte@7.1.2(svelte@5.55.7)(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(yaml@2.8.3)))(svelte@5.55.7)(typescript@6.0.3)(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(yaml@2.8.3)))(@tanstack/react-start@1.167.65(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(vite@8.0.13(@types/node@25.8.0)(esbuild@0.27.7)(jiti@2.7.0)(yaml@2.8.3)))(drizzle-kit@1.0.0-rc.2-e38a2ba)(drizzle-orm@1.0.0-rc.2-e38a2ba(@neondatabase/serverless@1.1.0)(postgres@3.4.9)(valibot@1.4.0(typescript@6.0.3))(zod@4.3.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(svelte@5.55.7)(vitest@4.1.6)
