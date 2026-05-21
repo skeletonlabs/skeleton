@@ -1,8 +1,8 @@
 <script lang="ts">
-	import FreeBlockReact from '$lib/tiers/free/blocks/example/react/free-block?raw';
-	import FreeBlock from '$lib/tiers/free/blocks/example/svelte/free-block.svelte';
-	import PremiumBlockReact from '$lib/tiers/premium/blocks/example/react/premium-block?raw';
-	import PremiumBlock from '$lib/tiers/premium/blocks/example/svelte/premium-block.svelte';
+	import FreeBlockReact from '$lib/content/free/blocks/example/react/free-block?raw';
+	import FreeBlock from '$lib/content/free/blocks/example/svelte/free-block.svelte';
+	import PremiumBlockReact from '$lib/content/premium/blocks/example/react/premium-block?raw';
+	import PremiumBlock from '$lib/content/premium/blocks/example/svelte/premium-block.svelte';
 </script>
 
 <div class="container-page">
