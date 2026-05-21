@@ -1,6 +1,6 @@
 [submodule "sites/plus.skeleton.dev/src/lib/submodules/premium"]
-	path = sites/plus.skeleton.dev/src/lib/tiers/premium
+	path = sites/plus.skeleton.dev/src/lib/content/premium
 	url = https://github.com/skeletonlabs/skeleton-plus-premium.git
 [submodule "sites/plus.skeleton.dev/src/lib/submodules/free"]
-	path = sites/plus.skeleton.dev/src/lib/tiers/free
+	path = sites/plus.skeleton.dev/src/lib/content/free
 	url = https://github.com/skeletonlabs/skeleton-plus-free.git
