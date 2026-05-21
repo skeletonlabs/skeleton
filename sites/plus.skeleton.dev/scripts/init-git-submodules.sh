@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Inject the PAT into git's credential handling
+# Inject the SKELETONLABS_REPOSITORY_PAT into git's credential store
 git config --global url."https://${SKELETONLABS_PLUS_REPOSITORIES_PAT}@github.com/".insteadOf "https://github.com/"
 
 # Clone the submodules
@@ -15,13 +15,5 @@ done < <(git config --file .gitmodules --get-regexp 'submodule\..*\.path' | awk 
 
 git submodule sync --recursive
 git submodule update --init --recursive
-
-echo "=== SUBMODULE STATE ==="
-git submodule status --recursive
-
-git submodule foreach --recursive '
-  echo "--- $path ---"
-  git rev-parse HEAD
-'
 
 echo "✓ Submodules ready"
