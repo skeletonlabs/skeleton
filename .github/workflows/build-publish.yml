@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-          token: ${{ secrets.GH_PAT }}
+          token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
       - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v6
         with:

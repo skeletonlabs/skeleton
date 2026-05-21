@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Inject the GitHub PAT into git's credential store
-git config --global url."https://${GITHUB_PAT}@github.com/".insteadOf "https://github.com/"
+# Inject the SKELETONLABS_REPOSITORY_PAT into git's credential store
+git config --global url."https://${SKELETONLABS_PLUS_REPOSITORIES_PAT}@github.com/".insteadOf "https://github.com/"
 
 # Clone the submodules
 cd "$(git rev-parse --show-toplevel)"
