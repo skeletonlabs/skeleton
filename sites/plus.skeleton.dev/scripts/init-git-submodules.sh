@@ -16,13 +16,12 @@ done < <(git config --file .gitmodules --get-regexp 'submodule\..*\.path' | awk 
 git submodule sync --recursive
 git submodule update --init --recursive
 
-echo "✓ Submodules ready"
-
-echo ""
-echo "=== Debug: submodule files ==="
+echo "=== SUBMODULE STATE ==="
+git submodule status --recursive
 
 git submodule foreach --recursive '
-  echo ""
-  echo "--- $name ($path) ---"
-  find . -maxdepth 2 -type f | sort
+  echo "--- $path ---"
+  git rev-parse HEAD
 '
+
+echo "✓ Submodules ready"
