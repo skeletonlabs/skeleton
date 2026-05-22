@@ -1,64 +1,12 @@
 <script lang="ts">
 	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
+	import { getFrameworks, getBlocks } from '$lib/remote/blocks/get-blocks.remote';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import SearchIcon from '@lucide/svelte/icons/search';
+	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 
-	const categories = [
-		{ label: 'All blocks', count: null },
-		{ label: 'Marketing', count: 82 },
-		{ label: 'Application UI', count: 194 },
-		{ label: 'Ecommerce', count: 98 },
-		{ label: 'Forms', count: 38 },
-		{ label: 'Page examples', count: 45 },
-	];
-
-	const frameworks = ['React', 'Svelte', 'Vue', 'Solid.js', 'Astro'];
-
-	const blockGroups = [
-		{
-			label: 'Marketing',
-			count: 148,
-			items: [
-				{ label: 'Hero sections', count: 8 },
-				{ label: 'Feature sections', count: 11 },
-				{ label: 'Pricing', count: 14 },
-				{ label: 'CTA', count: 17 },
-				{ label: 'Headers', count: 20 },
-				{ label: 'Footers', count: 23 },
-				{ label: 'Testimonials', count: 26 },
-				{ label: 'Logo clouds', count: 29 },
-			],
-		},
-		{
-			label: 'Application UI',
-			count: 148,
-			items: [
-				{ label: 'Forms', count: 8 },
-				{ label: 'Tables', count: 11 },
-				{ label: 'Modals', count: 14 },
-				{ label: 'Dropdowns', count: 17 },
-				{ label: 'Stats', count: 20 },
-				{ label: 'Page shells', count: 23 },
-				{ label: 'Sidebars', count: 26 },
-				{ label: 'Empty states', count: 29 },
-			],
-		},
-		{
-			label: 'Ecommerce',
-			count: 148,
-			items: [
-				{ label: 'Product listings', count: 8 },
-				{ label: 'Shopping cart', count: 11 },
-				{ label: 'Checkout', count: 14 },
-				{ label: 'Order summary', count: 17 },
-				{ label: 'Product detail', count: 20 },
-				{ label: 'Category pages', count: 23 },
-				{ label: 'Reviews', count: 26 },
-				{ label: 'Promotions', count: 29 },
-			],
-		},
-	];
+	const frameworks = $derived(await getFrameworks());
+	const blockGroups = $derived(await getBlocks());
 </script>
 
 <!-- Page Header -->
@@ -69,29 +17,31 @@
 	{#snippet trail()}
 		<a href="/overview/pricing" class="btn preset-filled">
 			<LockIcon />
-			<span>Unlock with Plus</span>
+			<span>Unlock All with Plus</span>
 		</a>
 	{/snippet}
 </PageHeader>
 
-<!-- Body -->
 <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] items-start">
 	<!-- Main Content -->
 	<div class="container-page space-y-10">
 		{#each blockGroups as group (group.label)}
-			<section class="space-y-4">
-				<header class="flex items-center justify-between">
-					<h2 class="h3">{group.label}</h2>
-					<a href="/content/blocks/{group.label.toLowerCase().replace(/\s+/g, '-')}" class="btn preset-tonal">
-						{group.count} categories
-						<ChevronRightIcon class="size-elem-sm" />
-					</a>
+			<section id={group.id} class="space-y-4">
+				<header>
+					<h2 class="h2">{group.label}</h2>
 				</header>
 				<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
 					{#each group.items as item (item.label)}
-						<a href="/#" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
-							<img src="https://placehold.co/640x360/000000/888888?text={item.label.replace(/ /g, '+')}" alt={item.label} class="w-full" />
-							<footer class="p-2 flex items-center justify-between">
+						<a href="/content/blocks/{group.id}/{item.slug}" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
+							<header class="aspect-video border-b border-surface-200-800 flex justify-center items-center">
+								<!-- <img
+									src="https://placehold.co/640x360/000000/888888?text={item.label.replace(/ /g, '+')}"
+									alt={item.label}
+									class="w-full"
+								/> -->
+								<SparklesIcon class="size-elem-6xl stroke-[1px] opacity-60" />
+							</header>
+							<footer class="p-4 flex items-center justify-between">
 								<span class="text-sm font-medium">{item.label}</span>
 								<span class="text-xs opacity-60">{item.count}</span>
 							</footer>
@@ -117,17 +67,14 @@
 		<div class="p-4 border-b border-surface-200-800 space-y-2">
 			<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Categories</p>
 			<ul class="space-y-1">
-				{#each categories as category, i (category.label)}
+				{#each blockGroups as category (category.label)}
 					<li>
-						<button
-							type="button"
-							class="w-full flex items-center justify-between btn {i === 0 ? 'preset-outlined-surface-200-800' : 'hover:preset-tonal'}"
-						>
+						<a href="/content/blocks#{category.id}" class="w-full btn hover:preset-tonal justify-between">
 							<span>{category.label}</span>
 							{#if category.count}
 								<span class="text-xs opacity-60">{category.count}</span>
 							{/if}
-						</button>
+						</a>
 					</li>
 				{/each}
 			</ul>
@@ -148,10 +95,10 @@
 		<div class="p-4 space-y-2">
 			<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Framework</p>
 			<ul class="space-y-2">
-				{#each frameworks as fw (fw)}
+				{#each frameworks as fw (fw.key)}
 					<li class="flex items-center gap-2">
-						<input type="checkbox" class="checkbox" id="fw-{fw.toLowerCase()}" />
-						<label for="fw-{fw.toLowerCase()}" class="text-sm">{fw}</label>
+						<input type="checkbox" class="checkbox" id="fw-{fw.key}" />
+						<label for="fw-{fw.key}" class="text-sm">{fw.label}</label>
 					</li>
 				{/each}
 			</ul>
