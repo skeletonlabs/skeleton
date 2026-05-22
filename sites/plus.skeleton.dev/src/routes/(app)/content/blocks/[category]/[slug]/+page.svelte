@@ -5,17 +5,17 @@
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	const detail = $derived(await getBlockBySlug());
+	const block = $derived(await getBlockBySlug());
 	const frameworks = $derived(await getFrameworks());
 
 	let selectedFramework = $state('svelte');
 	const selectedLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
 </script>
 
-{#if detail}
-	<PageHeader title={detail.item.label}>
+{#if block}
+	<PageHeader title={block.label}>
 		{#snippet description()}
-			<p class="opacity-60">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+			<p class="opacity-60">{block.description}</p>
 		{/snippet}
 		{#snippet trail()}
 			<!-- Framework Selection -->
