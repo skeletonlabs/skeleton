@@ -71,9 +71,7 @@
 					<li>
 						<a href="/content/blocks#{category.id}" class="w-full btn hover:preset-tonal justify-between">
 							<span>{category.label}</span>
-							{#if category.count}
-								<span class="text-xs opacity-60">{category.count}</span>
-							{/if}
+							<span class="text-xs opacity-60">{category.items.length}</span>
 						</a>
 					</li>
 				{/each}

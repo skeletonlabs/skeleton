@@ -1,26 +1,25 @@
 import { getRequestEvent, query } from '$app/server';
 
+export interface Framework {
+	key: string;
+	label: string;
+}
+
+export interface BlockGroup {
+	id: string;
+	label: string;
+	items: BlockItem[];
+}
+
 export interface BlockItem {
 	slug: string;
 	label: string;
 	count: number;
 }
 
-export interface BlockGroup {
-	id: string;
-	label: string;
-	count: number;
-	items: BlockItem[];
-}
-
 export interface BlockDetail {
 	item: BlockItem;
 	group: BlockGroup;
-}
-
-export interface Framework {
-	key: string;
-	label: string;
 }
 
 const frameworkList: Framework[] = [
@@ -40,7 +39,6 @@ const blockGroups: BlockGroup[] = [
 	{
 		id: 'marketing',
 		label: 'Marketing',
-		count: 179,
 		items: [
 			{ slug: 'hero-sections', label: 'Hero Sections', count: 12 },
 			{ slug: 'feature-sections', label: 'Feature Sections', count: 15 },
@@ -70,7 +68,6 @@ const blockGroups: BlockGroup[] = [
 	{
 		id: 'applications',
 		label: 'Applications',
-		count: 364,
 		items: [
 			{ slug: 'stacked-layouts', label: 'Stacked Layouts', count: 9 },
 			{ slug: 'sidebar-layouts', label: 'Sidebar Layouts', count: 8 },
@@ -126,7 +123,6 @@ const blockGroups: BlockGroup[] = [
 	{
 		id: 'ecommerce',
 		label: 'Ecommerce',
-		count: 114,
 		items: [
 			{ slug: 'product-overviews', label: 'Product Overviews', count: 5 },
 			{ slug: 'product-lists', label: 'Product Lists', count: 11 },
