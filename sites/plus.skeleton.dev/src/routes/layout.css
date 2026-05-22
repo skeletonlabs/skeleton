@@ -14,6 +14,7 @@ html {
 	background-image:
 		radial-gradient(at 80% 35%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
 		radial-gradient(at 85% 6%, color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px, transparent 30%);
+	scrollbar-gutter: stable;
 }
 
 /* Block Containers --- */
