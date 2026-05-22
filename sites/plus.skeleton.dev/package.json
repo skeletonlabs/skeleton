@@ -34,6 +34,7 @@
 		"better-auth": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
+		"neverthrow": "catalog:",
 		"playwright": "catalog:",
 		"postgres": "catalog:",
 		"sharp": "catalog:",

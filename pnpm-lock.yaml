@@ -306,6 +306,9 @@ catalogs:
     nanoid:
       specifier: 5.1.11
       version: 5.1.11
+    neverthrow:
+      specifier: 8.2.0
+      version: 8.2.0
     node-html-parser:
       specifier: 7.1.0
       version: 7.1.0
@@ -967,6 +970,9 @@ importers:
       drizzle-orm:
         specifier: 'catalog:'
         version: 1.0.0-rc.2-e38a2ba(@neondatabase/serverless@1.1.0)(postgres@3.4.9)(valibot@1.4.0(typescript@6.0.3))(zod@4.3.6)
+      neverthrow:
+        specifier: 'catalog:'
+        version: 8.2.0
       playwright:
         specifier: 'catalog:'
         version: 1.60.0
@@ -3142,6 +3148,12 @@ packages:
     peerDependenciesMeta:
       rollup:
         optional: true
+
+  '@rollup/rollup-linux-x64-gnu@4.60.4':
+    resolution: {integrity: sha512-Boiz5+MsaROEWDf+GGEwF8VMHGhlUoQMtIPjOgA5fv4osupqTVnJteQNKJwUcnUog2G55jYXH7KZFFiJe0TEzQ==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
 
   '@shikijs/core@4.0.2':
     resolution: {integrity: sha512-hxT0YF4ExEqB8G/qFdtJvpmHXBYJ2lWW7qTHDarVkIudPFE6iCIrqdgWxGn5s+ppkGXI0aEGlibI0PAyzP3zlw==}
@@ -5403,6 +5415,10 @@ packages:
   neotraverse@0.6.18:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
+
+  neverthrow@8.2.0:
+    resolution: {integrity: sha512-kOCT/1MCPAxY5iUV3wytNFUMUolzuwd/VF/1KCx7kf6CutrOsTie+84zTGTpgQycjvfLdBBdvBvFLqFD2c0wkQ==}
+    engines: {node: '>=18'}
 
   nlcst-to-string@4.0.0:
     resolution: {integrity: sha512-YKLBCcUYKAg0FNlOBT6aI91qFmSiFKiluk655WzPF+DDMA02qIyy8uiRqI8QXtcFpEvll12LpL5MXqEmAZ+dcA==}
@@ -8364,6 +8380,9 @@ snapshots:
       estree-walker: 2.0.2
       picomatch: 4.0.4
 
+  '@rollup/rollup-linux-x64-gnu@4.60.4':
+    optional: true
+
   '@shikijs/core@4.0.2':
     dependencies:
       '@shikijs/primitive': 4.0.2
@@ -11177,6 +11196,10 @@ snapshots:
   nanostores@1.2.0: {}
 
   neotraverse@0.6.18: {}
+
+  neverthrow@8.2.0:
+    optionalDependencies:
+      '@rollup/rollup-linux-x64-gnu': 4.60.4
 
   nlcst-to-string@4.0.0:
     dependencies:
