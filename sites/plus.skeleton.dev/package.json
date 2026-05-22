@@ -7,6 +7,7 @@
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"env:start": "docker compose up -d",
+		"env:status": "docker compose ps",
 		"env:stop": "docker compose down",
 		"env:remove": "docker compose down --rmi all --volumes",
 		"drizzle:push": "drizzle-kit push",
