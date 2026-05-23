@@ -118,8 +118,9 @@
 			<LockIcon />
 			<span>Unlock All Blocks</span>
 		</a>
-		<button type="button" class="btn-icon preset-outlined" title="Filters" aria-label="Filters" onclick={() => (drawerOpen = !drawerOpen)}>
+		<button type="button" class="btn preset-outlined" onclick={() => (drawerOpen = !drawerOpen)}>
 			<SearchIcon />
+			<span>Search</span>
 		</button>
 	{/snippet}
 </PageHeader>
