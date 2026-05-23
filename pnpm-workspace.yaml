@@ -97,6 +97,7 @@ catalog:
   fuse.js: 7.3.0
   html-escaper: 3.0.3
   latest-version: 9.0.0
+  lightningcss: 1.32.0
   lucide-react: 1.16.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.3

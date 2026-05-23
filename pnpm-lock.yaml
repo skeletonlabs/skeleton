@@ -285,6 +285,9 @@ catalogs:
     latest-version:
       specifier: 9.0.0
       version: 9.0.0
+    lightningcss:
+      specifier: 1.32.0
+      version: 1.32.0
     lucide-react:
       specifier: 1.16.0
       version: 1.16.0
@@ -976,6 +979,9 @@ importers:
       drizzle-orm:
         specifier: 'catalog:'
         version: 1.0.0-rc.2-e38a2ba(@neondatabase/serverless@1.1.0)(postgres@3.4.9)(valibot@1.4.0(typescript@6.0.3))(zod@4.3.6)
+      lightningcss:
+        specifier: 'catalog:'
+        version: 1.32.0
       playwright:
         specifier: 'catalog:'
         version: 1.60.0
