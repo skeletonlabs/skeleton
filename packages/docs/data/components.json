@@ -7502,6 +7502,126 @@
 				]
 			},
 			{
+				"name": "qr-code",
+				"types": [
+					{
+						"name": "QrCodeRootProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeRootProviderProps",
+						"props": [
+							{
+								"name": "value",
+								"type": "Api<PropTypes>",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "(qrCode: Api<PropTypes>) => ReactNode",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeDownloadTriggerProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeFrameProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"svg\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodePatternProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"path\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeOverlayProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"name": "rating-group",
 				"types": [
 					{
@@ -18897,6 +19017,126 @@
 							{
 								"name": "element",
 								"type": "Snippet<[HTMLAttributes<\"circle\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "qr-code",
+				"types": [
+					{
+						"name": "QrCodeRootProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeRootProviderProps",
+						"props": [
+							{
+								"name": "value",
+								"type": "() => Api<PropTypes>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							},
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "Snippet<[() => Api<PropTypes>]>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeDownloadTriggerProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeFrameProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"svg\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodePatternProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"path\">]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Render the element yourself",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "QrCodeOverlayProps",
+						"props": [
+							{
+								"name": "element",
+								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
