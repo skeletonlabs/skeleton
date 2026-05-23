@@ -7,11 +7,3 @@
 
 	<Code code="console.log('Hello, World!');" lang="ts" />
 </div>
-
-<style>
-	@reference "../../../layout.css";
-
-	:global(.shiki) {
-		/* Override shiki styles here */
-	}
-</style>
