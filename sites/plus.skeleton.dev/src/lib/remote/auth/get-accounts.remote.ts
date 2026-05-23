@@ -1,20 +1,33 @@
 import { getRequestEvent, query } from '$app/server';
 import { getUser } from './get-user.remote';
-import { redirect } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 import { auth } from '$lib/server/auth/auth';
 import { resolve } from '$app/paths';
+import { ResultAsync } from 'neverthrow';
 
 export const getAccounts = query(async () => {
 	const event = getRequestEvent();
-	const user = await getUser();
 
-	if (!user) {
+	const userResult = await ResultAsync.fromPromise(getUser(), (e) => new Error('Failed to fetch user', { cause: e }));
+
+	if (userResult.isErr()) {
+		error(500, userResult.error.message);
+	}
+
+	if (!userResult.value) {
 		redirect(303, resolve('/auth/sign-in'));
 	}
 
-	const accounts = await auth.api.listUserAccounts({
-		headers: event.request.headers,
-	});
+	const accountsResult = await ResultAsync.fromPromise(
+		auth.api.listUserAccounts({
+			headers: event.request.headers,
+		}),
+		(e) => new Error('Failed to fetch user accounts', { cause: e }),
+	);
 
-	return accounts;
+	if (accountsResult.isErr()) {
+		error(500, accountsResult.error.message);
+	}
+
+	return accountsResult.value;
 });
