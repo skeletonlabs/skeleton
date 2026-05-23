@@ -3,6 +3,7 @@
 	import { resolve } from '$app/paths';
 	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
 	import Skeleton from '$lib/components/branding/skeleton.svelte';
+	import { dialogDrawerLeft } from '$lib/components/modal-styles';
 	import { routes } from '$lib/navigation/routes';
 	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
@@ -26,13 +27,9 @@
 			<MenuIcon />
 		</Dialog.Trigger>
 		<Portal>
-			<Dialog.Backdrop
-				class="fixed inset-0 z-50 bg-surface-50-950/50 transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100"
-			/>
-			<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
-				<Dialog.Content
-					class="h-screen card bg-surface-50-950/75 backdrop-blur-lg border-r border-surface-200-800 w-sm p-4 space-y-4 shadow-xl transition transition-discrete opacity-0 -translate-x-full starting:data-[state=open]:opacity-0 starting:data-[state=open]:-translate-x-full data-[state=open]:opacity-100 data-[state=open]:translate-x-0"
-				>
+			<Dialog.Backdrop class={dialogDrawerLeft.backdrop} />
+			<Dialog.Positioner class={dialogDrawerLeft.positioner}>
+				<Dialog.Content class={dialogDrawerLeft.content}>
 					<header class="flex justify-between items-center">
 						<Dialog.Title aria-label="Skeleton Plus">
 							<Skeleton class="size-elem-3xl" />

@@ -44,3 +44,9 @@ html {
 .hr {
 	border-color: var(--color-surface-200-800);
 }
+
+/* Tailwind Utilities --- */
+
+@utility scroll-mt-header {
+	scroll-margin-top: 6rem;
+}

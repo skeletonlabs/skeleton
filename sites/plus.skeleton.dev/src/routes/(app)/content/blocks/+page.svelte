@@ -1,30 +1,133 @@
 <script lang="ts">
-	import FreeBlockReact from '$lib/content/free/blocks/example/react/free-block?raw';
-	import FreeBlock from '$lib/content/free/blocks/example/svelte/free-block.svelte';
-	import PremiumBlockReact from '$lib/content/premium/blocks/example/react/premium-block?raw';
-	import PremiumBlock from '$lib/content/premium/blocks/example/svelte/premium-block.svelte';
+	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import { dialogDrawerRight } from '$lib/components/modal-styles';
+	import { iconMap } from '$lib/remote/blocks/block-icons';
+	import { getFrameworks, getBlocks, getCategories } from '$lib/remote/blocks/get-blocks.remote';
+	import LockIcon from '@lucide/svelte/icons/lock';
+	import SearchIcon from '@lucide/svelte/icons/search';
+	import XIcon from '@lucide/svelte/icons/x';
+	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+
+	const frameworks = $derived(await getFrameworks());
+	const categories = $derived(await getCategories());
+	const blocks = $derived(await getBlocks());
+
+	let drawerOpen = $state(false);
+	let searchQuery = $state('');
+
+	const filteredBlocks = $derived(
+		searchQuery.trim() ? blocks.filter((b) => b.label.toLowerCase().includes(searchQuery.trim().toLowerCase())) : blocks,
+	);
 </script>
 
-<div class="container-page">
-	<p>Now viewing <code class="code">blocks</code></p>
+<!-- Modal: Filters -->
+<Dialog preventScroll={false} open={drawerOpen} onOpenChange={({ open }) => (drawerOpen = open)}>
+	<Portal>
+		<!-- <Dialog.Backdrop class={dialogDrawerRight.backdrop} /> -->
+		<Dialog.Positioner class={dialogDrawerRight.positioner}>
+			<Dialog.Content class={dialogDrawerRight.content}>
+				<header class="p-4 flex justify-between items-center">
+					<Dialog.Title class="font-semibold">Filters</Dialog.Title>
+					<Dialog.CloseTrigger class="btn-icon preset-tonal">
+						<XIcon />
+					</Dialog.CloseTrigger>
+				</header>
+				<hr class="hr" />
+				<!-- Search -->
+				<div class="p-4">
+					<div class="field-group grid-cols-[auto_1fr]">
+						<label class="label label-text preset-tonal" for="block-search" aria-label="Search">
+							<SearchIcon class="size-elem-sm" aria-hidden="true" />
+						</label>
+						<input class="input" id="block-search" type="search" placeholder="Search..." bind:value={searchQuery} />
+					</div>
+				</div>
+				<hr class="hr" />
+				<!-- Categories -->
+				<div class="p-4 space-y-2">
+					<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Categories</p>
+					<ul class="space-y-1">
+						{#each categories as category (category.id)}
+							<li>
+								<a
+									href="/content/blocks#{category.id}"
+									class="w-full btn hover:preset-tonal justify-between"
+									onclick={() => (drawerOpen = false)}
+								>
+									<span>{category.label}</span>
+									<span class="text-xs opacity-60">{filteredBlocks.filter((b) => b.category === category.id).length}</span>
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<hr class="hr" />
+				<!-- Framework -->
+				<!-- TODO: implement -->
+				<div class="p-4 space-y-2">
+					<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Framework</p>
+					<ul class="space-y-2">
+						{#each frameworks as fw (fw.key)}
+							<li class="flex items-center gap-2">
+								<input type="checkbox" class="checkbox" id="fw-{fw.key}" />
+								<label for="fw-{fw.key}" class="text-sm">{fw.label}</label>
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</Dialog.Content>
+		</Dialog.Positioner>
+	</Portal>
+</Dialog>
 
-	<h2>Free Block (Svelte + Rendered)</h2>
+{#snippet categorySection(id: string, heading: string)}
+	{@const sectionBlocks = filteredBlocks.filter((b) => b.category === id).sort((a, b) => a.label.localeCompare(b.label))}
+	{#if sectionBlocks.length > 0}
+		<section {id} class="scroll-mt-header space-y-4">
+			<header>
+				<h2 class="h2">{heading}</h2>
+			</header>
+			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+				{#each sectionBlocks as item (item.slug)}
+					{@const Icon = iconMap[item.iconName]}
+					<a
+						href="/content/blocks/{item.category}/{item.slug}"
+						class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden"
+					>
+						<header class="aspect-video preset-tonal-primary flex justify-center items-center">
+							<Icon class="size-elem-8xl stroke-[1px] opacity-60" />
+						</header>
+						<footer class="p-4 flex items-center justify-between">
+							<span class="text-sm font-medium truncate">{item.label}</span>
+							<span class="text-xs opacity-60">{item.count}</span>
+						</footer>
+					</a>
+				{/each}
+			</div>
+		</section>
+	{/if}
+{/snippet}
 
-	<FreeBlock />
+<!-- Page Header -->
+<PageHeader title="Blocks">
+	{#snippet description()}
+		<p class="opacity-60">Partial interface sections for use within your Skeleton app.</p>
+	{/snippet}
+	{#snippet trail()}
+		<a href="/overview/pricing" class="btn preset-filled">
+			<LockIcon />
+			<span>Unlock All Blocks</span>
+		</a>
+		<button type="button" class="btn preset-outlined" onclick={() => (drawerOpen = !drawerOpen)}>
+			<SearchIcon />
+			<span>Search</span>
+		</button>
+	{/snippet}
+</PageHeader>
 
-	<h2>Free Block (React)</h2>
-
-	<code class="code">
-		{FreeBlockReact}
-	</code>
-
-	<h2>Premium Block (Svelte + Rendered)</h2>
-
-	<PremiumBlock />
-
-	<h2>Premium Block (React)</h2>
-
-	<code class="code">
-		{PremiumBlockReact}
-	</code>
+<!-- Category Grids -->
+<div class="container-page space-y-10">
+	{@render categorySection('marketing', 'Marketing')}
+	{@render categorySection('applications', 'Applications')}
+	{@render categorySection('ecommerce', 'Ecommerce')}
 </div>
