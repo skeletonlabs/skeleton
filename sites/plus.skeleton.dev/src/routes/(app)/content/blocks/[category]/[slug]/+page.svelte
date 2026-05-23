@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import Preview from '$lib/components/utlity/preview.svelte';
 	import { getBlockBySlug, getFrameworks } from '$lib/remote/blocks/get-blocks.remote';
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
@@ -10,6 +11,12 @@
 
 	let selectedFramework = $state('svelte');
 	const selectedLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
+
+	const blockExamples = [
+		{ title: 'Example 1', code: '<h1 class="h1">Hello World</h1>' },
+		{ title: 'Example 2', code: '<h2 class="h2">Hello World</h2>' },
+		{ title: 'Example 3', code: '<h3 class="h3">Hello World</h3>' },
+	];
 </script>
 
 {#if block}
@@ -48,11 +55,11 @@
 			</Menu>
 		{/snippet}
 	</PageHeader>
-
-	<!-- Placeholder -->
-	<div class="container-page">
-		<div class="card bg-surface-50-950 border border-surface-200-800 p-10 text-center space-y-2">
-			<p class="opacity-60">Preview Blocks Here</p>
-		</div>
-	</div>
 {/if}
+
+<!-- Examples -->
+<div class="container-page space-y-10">
+	{#each blockExamples as { title, code } (title)}
+		<Preview {title} {code} />
+	{/each}
+</div>
