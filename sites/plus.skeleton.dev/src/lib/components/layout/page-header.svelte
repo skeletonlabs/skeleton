@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import DecorCorners from './decor-corners.svelte';
+	import DecorStripes from './decor-stripes.svelte';
 	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
@@ -31,45 +33,50 @@
 	});
 </script>
 
-<header {...rest} class="container-cell border-b border-surface-200-800 flex flex-col lg:flex-row lg:items-center gap-4 {classes}">
-	<!-- Lead -->
-	{#if lead}
-		<div>{@render lead()}</div>
-	{/if}
-	<!-- Content -->
-	<div class="flex-1 space-y-1">
-		<!-- Breadcrumbs -->
-		{#if crumbs.length > 1}
-			<nav aria-label="Breadcrumb">
-				<ol class="flex items-center gap-2 text-sm">
-					{#each crumbs as crumb, i (crumb.href)}
-						{#if i > 0}
-							<li aria-hidden="true">
-								<ChevronRightIcon class="opacity-50 size-elem-sm" />
-							</li>
-						{/if}
-						<li>
-							{#if crumb.current}
-								<span aria-current="page">{crumb.label}</span>
-							{:else}
-								<a class="opacity-60 hover:underline" href={crumb.href}>{crumb.label}</a>
+<DecorCorners corners={['bl', 'br']}>
+	<header class="container-cell border-b border-surface-200-800 flex flex-col lg:flex-row lg:items-center gap-4 {classes}">
+		<!-- Lead -->
+		{#if lead}
+			<div>{@render lead()}</div>
+		{/if}
+		<!-- Content -->
+		<div class="flex-1 space-y-1">
+			<!-- Breadcrumbs -->
+			{#if crumbs.length > 1}
+				<nav aria-label="Breadcrumb">
+					<ol class="flex items-center gap-2 text-sm">
+						{#each crumbs as crumb, i (crumb.href)}
+							{#if i > 0}
+								<li aria-hidden="true">
+									<ChevronRightIcon class="opacity-50 size-elem-sm" />
+								</li>
 							{/if}
-						</li>
-					{/each}
-				</ol>
-			</nav>
+							<li>
+								{#if crumb.current}
+									<span aria-current="page">{crumb.label}</span>
+								{:else}
+									<a class="opacity-60 hover:underline" href={crumb.href}>{crumb.label}</a>
+								{/if}
+							</li>
+						{/each}
+					</ol>
+				</nav>
+			{/if}
+			<!-- Title -->
+			<h1 class="h1">{title}</h1>
+			<!-- Description -->
+			{#if description}
+				<div class="space-y-2">
+					{@render description()}
+				</div>
+			{/if}
+		</div>
+		<!-- Trail -->
+		{#if trail}
+			<div class="lg:self-end flex items-center gap-2">{@render trail()}</div>
 		{/if}
-		<!-- Title -->
-		<h1 class="h1">{title}</h1>
-		<!-- Description -->
-		{#if description}
-			<div class="space-y-2">
-				{@render description()}
-			</div>
-		{/if}
-	</div>
-	<!-- Trail -->
-	{#if trail}
-		<div class="lg:self-end flex items-center gap-2">{@render trail()}</div>
-	{/if}
-</header>
+	</header>
+</DecorCorners>
+
+<!-- Decore: Stripes -->
+<DecorStripes class="h-6" />

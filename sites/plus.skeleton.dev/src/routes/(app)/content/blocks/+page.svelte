@@ -118,7 +118,7 @@
 			<LockIcon />
 			<span>Unlock All Blocks</span>
 		</a>
-		<button type="button" class="btn preset-tonal" title="Filters" aria-label="Filters" onclick={() => (drawerOpen = !drawerOpen)}>
+		<button type="button" class="btn-icon preset-outlined" title="Filters" aria-label="Filters" onclick={() => (drawerOpen = !drawerOpen)}>
 			<SearchIcon />
 		</button>
 	{/snippet}

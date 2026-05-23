@@ -1,4 +1,6 @@
 <script lang="ts">
+	import DecorCorners from '$lib/components/layout/decor-corners.svelte';
+	import DecorStripes from '$lib/components/layout/decor-stripes.svelte';
 	import ThemesMarquee from '$lib/components/marquee/themes-marquee.svelte';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
@@ -12,7 +14,7 @@
 </script>
 
 <!-- Hero -->
-<section class="border-b border-surface-200-800">
+<section>
 	<div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800">
 		<!-- Left -->
 		<div class="container-cell p-10! lg:p-20! gap-4">
@@ -39,9 +41,13 @@
 	</div>
 </section>
 
+<!-- Decore: Stripes -->
+<DecorStripes class="h-6" />
+
 <!-- Features -->
-<section
-	class="hidden lg:grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-b border-surface-200-800"
+<DecorCorners
+	corners={['tl', 'tr', 'bl', 'br']}
+	class="grid grid-cols-1 md:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800 border-t border-b border-surface-200-800"
 >
 	<div class="container-cell p-4 flex justify-center items-center gap-3 transition-colors">
 		<PaintbrushIcon class="size-elem-3xl stroke-primary-500" />
@@ -64,7 +70,10 @@
 			<p class="text-xs opacity-60">Powerful tools from the community.</p>
 		</div>
 	</div>
-</section>
+</DecorCorners>
+
+<!-- Decore: Stripes -->
+<DecorStripes class="h-6" />
 
 <!-- Themes Repository -->
 <section class="border-b border-surface-200-800 bg-linear-to-b from-transparent to-(--color-surface-50-950)">
