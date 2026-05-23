@@ -17,7 +17,7 @@
 
 	// ******* If Plus Unlocked ******
 	// TRUE = unlocked, FALSE = locked
-	let plusAvailable = $state(false);
+	let plusAvailable = $state(true);
 	// *******************************
 
 	let view = $state<'preview' | 'code'>('preview');
@@ -114,7 +114,7 @@
 	<!-- View -->
 	{#if view === 'preview'}
 		<DecorStripes
-			class="card border border-surface-200-800 flex justify-center items-center p-4 md:p-8 {mode === 'light'
+			class="card border border-surface-200-800 preset-filled-surface-50-950 flex justify-center items-center p-4 md:p-8 {mode === 'light'
 				? 'scheme-light'
 				: 'scheme-dark'} {className}"
 		>
