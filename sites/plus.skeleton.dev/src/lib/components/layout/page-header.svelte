@@ -13,12 +13,20 @@
 
 	const { title, lead, description, trail, class: classes, ...rest }: Props = $props();
 
+	// Exclude leading paths such as `/content`
+	const crumbExclusions = ['content'];
+
 	const crumbs = $derived.by(() => {
-		const segments = page.url.pathname.split('/').filter(Boolean);
-		return segments.map((segment, i) => ({
-			label: segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+		const segments = page.url.pathname.split('/').filter((s) => s);
+		const withHrefs = segments.map((segment, i) => ({
+			segment,
 			href: '/' + segments.slice(0, i + 1).join('/'),
-			current: i === segments.length - 1,
+		}));
+		const visible = withHrefs.filter(({ segment }) => !crumbExclusions.includes(segment));
+		return visible.map(({ segment, href }, i) => ({
+			label: segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+			href,
+			current: i === visible.length - 1,
 		}));
 	});
 </script>
@@ -31,24 +39,26 @@
 	<!-- Content -->
 	<div class="flex-1 space-y-1">
 		<!-- Breadcrumbs -->
-		<nav aria-label="Breadcrumb">
-			<ol class="flex items-center gap-2 text-sm">
-				{#each crumbs as crumb, i (crumb.href)}
-					{#if i > 0}
-						<li aria-hidden="true">
-							<ChevronRightIcon class="opacity-50 size-elem-sm" />
-						</li>
-					{/if}
-					<li>
-						{#if crumb.current}
-							<span aria-current="page">{crumb.label}</span>
-						{:else}
-							<a class="opacity-60 hover:underline" href={crumb.href}>{crumb.label}</a>
+		{#if crumbs.length > 1}
+			<nav aria-label="Breadcrumb">
+				<ol class="flex items-center gap-2 text-sm">
+					{#each crumbs as crumb, i (crumb.href)}
+						{#if i > 0}
+							<li aria-hidden="true">
+								<ChevronRightIcon class="opacity-50 size-elem-sm" />
+							</li>
 						{/if}
-					</li>
-				{/each}
-			</ol>
-		</nav>
+						<li>
+							{#if crumb.current}
+								<span aria-current="page">{crumb.label}</span>
+							{:else}
+								<a class="opacity-60 hover:underline" href={crumb.href}>{crumb.label}</a>
+							{/if}
+						</li>
+					{/each}
+				</ol>
+			</nav>
+		{/if}
 		<!-- Title -->
 		<h1 class="h1">{title}</h1>
 		<!-- Description -->
