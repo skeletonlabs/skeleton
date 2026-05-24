@@ -5,8 +5,20 @@
  */
 
 import { getRequestEvent, query } from '$app/server';
-import personaHero from '$lib/assets/images/templates/persona/hero.png';
-import stardustHero from '$lib/assets/images/templates/stardust/hero.png';
+
+import personaCard from '$lib/assets/images/templates/persona/card.webp';
+import personaHero from '$lib/assets/images/templates/persona/hero.webp';
+import personaScreenshot001 from '$lib/assets/images/templates/persona/screenshot-001.webp';
+import personaScreenshot002 from '$lib/assets/images/templates/persona/screenshot-002.webp';
+import personaScreenshot003 from '$lib/assets/images/templates/persona/screenshot-003.webp';
+import personaScreenshot004 from '$lib/assets/images/templates/persona/screenshot-004.webp';
+
+import stardustCard from '$lib/assets/images/templates/stardust/card.webp';
+import stardustHero from '$lib/assets/images/templates/stardust/hero.webp';
+import stardustScreenshot001 from '$lib/assets/images/templates/stardust/screenshot-001.webp';
+import stardustScreenshot002 from '$lib/assets/images/templates/stardust/screenshot-002.webp';
+import stardustScreenshot003 from '$lib/assets/images/templates/stardust/screenshot-003.webp';
+import stardustScreenshot004 from '$lib/assets/images/templates/stardust/screenshot-004.webp';
 
 export interface TemplateImage {
 	src: string;
@@ -35,15 +47,7 @@ export interface Template {
 	downloads: TemplateDownload[];
 }
 
-const placeholder = (size: string) => `https://placehold.co/${size}/1f1f1f/666666/webp?font=raleway`;
-
-const placeholderDownloads: TemplateDownload[] = [
-	{ key: 'svelte', label: 'Svelte', href: '#' },
-	{ key: 'react', label: 'React', href: '#' },
-	{ key: 'vue', label: 'Vue', href: '#' },
-	{ key: 'solid', label: 'Solid.js', href: '#' },
-	{ key: 'astro', label: 'Astro', href: '#' },
-];
+// const placeholder = (size: string) => `https://placehold.co/${size}/1f1f1f/666666/webp?font=raleway`;
 
 const placeholderDescription =
 	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
@@ -59,13 +63,13 @@ const templates: Template[] = [
 		isPremium: false,
 		previewUrl: 'https://skeleton-template-portfolio.vercel.app/',
 		images: {
-			card: { src: personaHero, alt: 'Persona template screenshot' },
+			card: { src: personaCard, alt: 'Persona template screenshot' },
 			hero: { src: personaHero, alt: 'Persona homepage hero' },
 			screenshots: [
-				{ src: placeholder('426x240'), alt: 'Persona about page' },
-				{ src: placeholder('426x240'), alt: 'Persona case study page' },
-				{ src: placeholder('426x240'), alt: 'Persona blog index' },
-				{ src: placeholder('426x240'), alt: 'Persona blog post' },
+				{ src: personaScreenshot001, alt: 'Persona about page' },
+				{ src: personaScreenshot002, alt: 'Persona projects index' },
+				{ src: personaScreenshot003, alt: 'Persona project detail page' },
+				{ src: personaScreenshot004, alt: 'Persona design project page' },
 			],
 		},
 		downloads: [
@@ -82,59 +86,44 @@ const templates: Template[] = [
 		isPremium: false,
 		previewUrl: 'https://skeleton-template-blog.vercel.app/',
 		images: {
-			card: { src: stardustHero, alt: 'Stardust template screenshot' },
+			card: { src: stardustCard, alt: 'Stardust template screenshot' },
 			hero: { src: stardustHero, alt: 'Stardust homepage hero' },
 			screenshots: [
-				{ src: placeholder('426x240'), alt: 'Stardust article page' },
-				{ src: placeholder('426x240'), alt: 'Stardust tag archive' },
-				{ src: placeholder('426x240'), alt: 'Stardust author page' },
-				{ src: placeholder('426x240'), alt: 'Stardust newsletter signup' },
+				{ src: stardustScreenshot001, alt: 'Stardust about page' },
+				{ src: stardustScreenshot002, alt: 'Stardust blog index' },
+				{ src: stardustScreenshot003, alt: 'Stardust blog post' },
+				{ src: stardustScreenshot004, alt: 'Stardust blog post' },
 			],
 		},
 		downloads: [{ key: 'astro', label: 'Astro', href: 'https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/blog' }],
 	},
-	// Placeholder
-	{
-		slug: 'helix',
-		name: 'Helix',
-		category: 'Admin',
-		tagline: 'An admin dashboard template with analytics, billing, and settings.',
-		description: placeholderDescription,
-		isPremium: true,
-		previewUrl: 'https://example.skeleton.dev',
-		images: {
-			card: { src: placeholder('768x432'), alt: 'Helix template screenshot' },
-			hero: { src: placeholder('1920x960'), alt: 'Helix dashboard hero' },
-			screenshots: [
-				{ src: placeholder('426x240'), alt: 'Helix dashboard' },
-				{ src: placeholder('426x240'), alt: 'Helix analytics' },
-				{ src: placeholder('426x240'), alt: 'Helix billing' },
-				{ src: placeholder('426x240'), alt: 'Helix team management' },
-			],
-		},
-		downloads: placeholderDownloads,
-	},
-	// Placeholder
-	{
-		slug: 'quantum',
-		name: 'Quantum',
-		category: 'Landing',
-		tagline: 'A high-conversion landing page template for product launches.',
-		description: placeholderDescription,
-		isPremium: true,
-		previewUrl: 'https://example.skeleton.dev',
-		images: {
-			card: { src: placeholder('768x432'), alt: 'Quantum template screenshot' },
-			hero: { src: placeholder('1920x960'), alt: 'Quantum landing hero' },
-			screenshots: [
-				{ src: placeholder('426x240'), alt: 'Quantum features section' },
-				{ src: placeholder('426x240'), alt: 'Quantum pricing section' },
-				{ src: placeholder('426x240'), alt: 'Quantum testimonials' },
-				{ src: placeholder('426x240'), alt: 'Quantum FAQ section' },
-			],
-		},
-		downloads: placeholderDownloads,
-	},
+	// Premium: Placeholder
+	// {
+	// 	slug: 'placeholder',
+	// 	name: 'Placeholder',
+	// 	category: 'Admin',
+	// 	tagline: 'An admin dashboard template with analytics, billing, and settings.',
+	// 	description: placeholderDescription,
+	// 	isPremium: true,
+	// 	previewUrl: 'https://example.skeleton.dev',
+	// 	images: {
+	// 		card: { src: placeholder('768x432'), alt: 'Placeholder template screenshot' },
+	// 		hero: { src: placeholder('1920x960'), alt: 'Placeholder dashboard hero' },
+	// 		screenshots: [
+	// 			{ src: placeholder('426x240'), alt: 'Placeholder dashboard' },
+	// 			{ src: placeholder('426x240'), alt: 'Placeholder analytics' },
+	// 			{ src: placeholder('426x240'), alt: 'Placeholder billing' },
+	// 			{ src: placeholder('426x240'), alt: 'Placeholder team management' },
+	// 		],
+	// 	},
+	// 	downloads: [
+	// 		{ key: 'svelte', label: 'Svelte', href: '#' },
+	// 		{ key: 'react', label: 'React', href: '#' },
+	// 		{ key: 'vue', label: 'Vue', href: '#' },
+	// 		{ key: 'solid', label: 'Solid.js', href: '#' },
+	// 		{ key: 'astro', label: 'Astro', href: '#' },
+	// 	],
+	// },
 ];
 
 /** Get all templates */
