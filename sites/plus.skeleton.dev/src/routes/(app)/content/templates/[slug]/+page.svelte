@@ -2,6 +2,7 @@
 	import DecorStripes from '$lib/components/layout/decor-stripes.svelte';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { getTemplate } from '$lib/remote/templates/get-templates.remote';
+	import { frameworkIconMap } from '$lib/remote/templates/template-icons';
 	import { plusState } from '$lib/state/plus.svelte';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
@@ -39,11 +40,15 @@
 						<Menu.Positioner>
 							<Menu.Content class="z-50">
 								<Menu.ItemGroup>
-									<Menu.ItemGroupLabel>Choose your framework</Menu.ItemGroupLabel>
+									<Menu.ItemGroupLabel>Choose a Framework</Menu.ItemGroupLabel>
 									{#each template.downloads as fw (fw.key)}
+										{@const FrameworkIcon = frameworkIconMap[fw.key]}
 										<Menu.Item value={fw.key}>
 											{#snippet element(attributes: Record<string, unknown>)}
-												<a {...attributes} href={fw.href} download>
+												<a {...attributes} href={fw.href} target="_blank" download class="justify-start gap-2">
+													{#if FrameworkIcon}
+														<FrameworkIcon />
+													{/if}
 													<Menu.ItemText>{fw.label}</Menu.ItemText>
 												</a>
 											{/snippet}
@@ -69,8 +74,8 @@
 		<div
 			class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-surface-200-800 divide-x divide-y lg:divide-y-0 divide-surface-200-800"
 		>
-			{#each template.images.screenshots as screenshot (screenshot.src)}
-				<img src={screenshot.src} alt={screenshot.alt} class="w-full aspect-square" />
+			{#each template.images.screenshots as screenshot, i (i)}
+				<img src={screenshot.src} alt={screenshot.alt} class="w-full aspect-video" />
 			{/each}
 		</div>
 	{/if}
@@ -82,11 +87,17 @@
 			<p class="opacity-60">{template.description}</p>
 		</section>
 
-		<!-- Stack -->
-		<section class="container-cell space-y-4" aria-label="Stack">
-			{#each template.stack as name (name)}
-				<p class="font-medium">{name}</p>
-			{/each}
+		<!-- Supports -->
+		<section class="container-cell space-y-4">
+			<h3 class="text-xs font-medium uppercase opacity-60">Supports</h3>
+			<div class="flex items-center gap-4">
+				{#each template.downloads as fw (fw.key)}
+					{@const FrameworkIcon = frameworkIconMap[fw.key]}
+					{#if FrameworkIcon}
+						<FrameworkIcon class="size-elem-4xl" />
+					{/if}
+				{/each}
+			</div>
 		</section>
 	</div>
 {/if}

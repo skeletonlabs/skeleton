@@ -5,8 +5,8 @@
  */
 
 import { getRequestEvent, query } from '$app/server';
-
-export type TemplateCategory = 'Portfolio' | 'Blog' | 'Admin' | 'Landing';
+import personaHero from '$lib/assets/images/templates/persona/hero.png';
+import stardustHero from '$lib/assets/images/templates/stardust/hero.png';
 
 export interface TemplateImage {
 	src: string;
@@ -22,7 +22,7 @@ export interface TemplateDownload {
 export interface Template {
 	slug: string;
 	name: string;
-	category: TemplateCategory;
+	category: string;
 	tagline: string;
 	description: string;
 	isPremium: boolean;
@@ -32,12 +32,10 @@ export interface Template {
 		hero: TemplateImage;
 		screenshots: TemplateImage[];
 	};
-	stack: string[];
 	downloads: TemplateDownload[];
 }
 
-const placeholder = (size: string, label: string) =>
-	`https://placehold.co/${size}/1f1f1f/666666/webp?text=${encodeURIComponent(label)}&font=raleway`;
+const placeholder = (size: string) => `https://placehold.co/${size}/1f1f1f/666666/webp?font=raleway`;
 
 const placeholderDownloads: TemplateDownload[] = [
 	{ key: 'svelte', label: 'Svelte', href: '#' },
@@ -47,95 +45,94 @@ const placeholderDownloads: TemplateDownload[] = [
 	{ key: 'astro', label: 'Astro', href: '#' },
 ];
 
-const placeholderStack: string[] = ['SvelteKit', 'Svelte', 'Skeleton', 'Tailwind CSS', 'TypeScript', 'Vite'];
+const placeholderDescription =
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
 const templates: Template[] = [
+	// Free: Portfolio Site
 	{
-		slug: 'pebble',
-		name: 'Pebble',
+		slug: 'persona',
+		name: 'Persona',
 		category: 'Portfolio',
-		tagline: 'A portfolio template with case-studies, blog & contact.',
-		description:
-			'A polished portfolio template designed for designers, developers, and studios who want a focused, content-first online presence. Pebble leads with quiet typography and generous whitespace, letting your work do the talking without competing for attention. The case-study layouts are built for narrative depth — extended write-ups, inline image galleries, pull quotes, and process breakdowns are all first-class citizens, so you can walk visitors through the thinking behind a project rather than just the final pixels. A long-form blog is included for essays, notes, and changelogs, and supports tagging, reading time estimates, and a clean archive view. The contact flow is intentionally minimal: a single form, an inbox-friendly layout, and pre-wired hooks ready to drop into your transactional email provider, CRM, or service of choice. Every page is responsive down to mobile, dark-mode aware, and tuned for fast time-to-content so prospective clients land on your strongest work within a heartbeat.',
+		tagline: 'A personal portfolio website for promoting yourself.',
+		description: placeholderDescription,
 		isPremium: false,
-		previewUrl: 'https://example.skeleton.dev',
+		previewUrl: 'https://skeleton-template-portfolio.vercel.app/',
 		images: {
-			card: { src: placeholder('1280x720', 'Pebble'), alt: 'Pebble template screenshot' },
-			hero: { src: placeholder('1920x960', 'Pebble — Main Hero'), alt: 'Pebble homepage hero' },
+			card: { src: personaHero, alt: 'Persona template screenshot' },
+			hero: { src: personaHero, alt: 'Persona homepage hero' },
 			screenshots: [
-				{ src: placeholder('800x800', 'About'), alt: 'Pebble about page' },
-				{ src: placeholder('800x800', 'Case Study'), alt: 'Pebble case study page' },
-				{ src: placeholder('800x800', 'Blog Index'), alt: 'Pebble blog index' },
-				{ src: placeholder('800x800', 'Blog Post'), alt: 'Pebble blog post' },
+				{ src: placeholder('426x240'), alt: 'Persona about page' },
+				{ src: placeholder('426x240'), alt: 'Persona case study page' },
+				{ src: placeholder('426x240'), alt: 'Persona blog index' },
+				{ src: placeholder('426x240'), alt: 'Persona blog post' },
 			],
 		},
-		stack: placeholderStack,
-		downloads: placeholderDownloads,
+		downloads: [
+			{ key: 'svelte', label: 'SvelteKit', href: 'https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/portfolio' },
+		],
 	},
+	// Free: Blog Site
 	{
-		slug: 'pulse',
-		name: 'Pulse',
+		slug: 'stardust',
+		name: 'Stardust',
 		category: 'Blog',
-		tagline: 'A modern blog template with featured posts and tag pages.',
-		description:
-			'Pulse is a magazine-style blog template built for editors and small publications that ship new writing on a steady cadence. The homepage is anchored by a featured-posts hero that surfaces your latest headline alongside a curated rail of secondary stories, giving the front page the rhythm of a real publication rather than a reverse-chronological dump. Tag and author archives are first-class: every contributor gets a proper bio page with social links and a backlog of their writing, and every tag rolls up into a topical landing page you can deep-link from social or newsletters. The article layout itself is tuned for long-form reading, with comfortable measure, careful vertical rhythm, captioned figures, blockquote treatments, and inline code styling that holds up for technical posts. A built-in newsletter capture, search page, and reading-progress indicator round out the editorial toolkit, and the entire template is wired to be content-source agnostic — point it at Markdown files, a headless CMS, or your database and it will keep its shape.',
+		tagline: 'An personal blog template powered by markdown.',
+		description: placeholderDescription,
 		isPremium: false,
-		previewUrl: 'https://example.skeleton.dev',
+		previewUrl: 'https://skeleton-template-blog.vercel.app/',
 		images: {
-			card: { src: placeholder('1280x720', 'Pulse'), alt: 'Pulse template screenshot' },
-			hero: { src: placeholder('1920x960', 'Pulse — Main Hero'), alt: 'Pulse homepage hero' },
+			card: { src: stardustHero, alt: 'Stardust template screenshot' },
+			hero: { src: stardustHero, alt: 'Stardust homepage hero' },
 			screenshots: [
-				{ src: placeholder('800x800', 'Article'), alt: 'Pulse article page' },
-				{ src: placeholder('800x800', 'Tag Archive'), alt: 'Pulse tag archive' },
-				{ src: placeholder('800x800', 'Author'), alt: 'Pulse author page' },
-				{ src: placeholder('800x800', 'Newsletter'), alt: 'Pulse newsletter signup' },
+				{ src: placeholder('426x240'), alt: 'Stardust article page' },
+				{ src: placeholder('426x240'), alt: 'Stardust tag archive' },
+				{ src: placeholder('426x240'), alt: 'Stardust author page' },
+				{ src: placeholder('426x240'), alt: 'Stardust newsletter signup' },
 			],
 		},
-		stack: placeholderStack,
-		downloads: placeholderDownloads,
+		downloads: [{ key: 'astro', label: 'Astro', href: 'https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/blog' }],
 	},
+	// Placeholder
 	{
 		slug: 'helix',
 		name: 'Helix',
 		category: 'Admin',
 		tagline: 'An admin dashboard template with analytics, billing, and settings.',
-		description:
-			'Helix is a full admin shell that gives a SaaS product everything it needs behind the login screen, without the months of internal-tools work that usually precedes a real dashboard. It opens onto an overview page with composable analytics — trend lines, sparkline tiles, segment breakdowns, and a recent-activity feed — all backed by chart primitives you can repoint at your own data. A complete billing surface covers plan selection, payment methods, invoice history, and seat-based upgrades, with empty and error states designed alongside the happy path. Team management includes invitations, role assignment, and a permissions matrix that is straightforward to extend, while the deep settings area is organized into a nested sidebar covering profile, workspace, security, integrations, notifications, and API keys. The shell uses a collapsible primary sidebar with a command palette, breadcrumbed page headers, and a slide-over panel pattern for secondary tasks, and every screen is responsive down to mobile so on-call work from a phone is genuinely usable rather than a fallback.',
+		description: placeholderDescription,
 		isPremium: true,
 		previewUrl: 'https://example.skeleton.dev',
 		images: {
-			card: { src: placeholder('1280x720', 'Helix'), alt: 'Helix template screenshot' },
-			hero: { src: placeholder('1920x960', 'Helix — Main Hero'), alt: 'Helix dashboard hero' },
+			card: { src: placeholder('768x432'), alt: 'Helix template screenshot' },
+			hero: { src: placeholder('1920x960'), alt: 'Helix dashboard hero' },
 			screenshots: [
-				{ src: placeholder('800x800', 'Dashboard'), alt: 'Helix dashboard' },
-				{ src: placeholder('800x800', 'Analytics'), alt: 'Helix analytics' },
-				{ src: placeholder('800x800', 'Billing'), alt: 'Helix billing' },
-				{ src: placeholder('800x800', 'Team'), alt: 'Helix team management' },
+				{ src: placeholder('426x240'), alt: 'Helix dashboard' },
+				{ src: placeholder('426x240'), alt: 'Helix analytics' },
+				{ src: placeholder('426x240'), alt: 'Helix billing' },
+				{ src: placeholder('426x240'), alt: 'Helix team management' },
 			],
 		},
-		stack: placeholderStack,
 		downloads: placeholderDownloads,
 	},
+	// Placeholder
 	{
 		slug: 'quantum',
 		name: 'Quantum',
 		category: 'Landing',
 		tagline: 'A high-conversion landing page template for product launches.',
-		description:
-			'Quantum is a marketing-first landing page template engineered around the rhythm of a high-conversion launch sequence, where every section earns its place by moving the reader one step closer to a decision. The hero pairs a confident headline slot with a supporting subhead, primary and secondary calls to action, and an integrated product visual that holds its own on widescreen and on mobile. Beneath it sits a social-proof band — logos, ratings, and a press strip — followed by a feature bento that mixes large narrative tiles with smaller spec callouts, so you can sell both the big idea and the concrete details on the same scroll. A pricing section ships with monthly/annual toggles, a recommended-plan accent, and tiered feature comparison; a testimonial block, FAQ accordion, and final CTA round out the page with the kind of objection-handling that actually moves a launch from interest to signup. Designed to drop in cleanly, restyle to your brand in an afternoon, and convert visitors on first read.',
+		description: placeholderDescription,
 		isPremium: true,
 		previewUrl: 'https://example.skeleton.dev',
 		images: {
-			card: { src: placeholder('1280x720', 'Quantum'), alt: 'Quantum template screenshot' },
-			hero: { src: placeholder('1920x960', 'Quantum — Main Hero'), alt: 'Quantum landing hero' },
+			card: { src: placeholder('768x432'), alt: 'Quantum template screenshot' },
+			hero: { src: placeholder('1920x960'), alt: 'Quantum landing hero' },
 			screenshots: [
-				{ src: placeholder('800x800', 'Features'), alt: 'Quantum features section' },
-				{ src: placeholder('800x800', 'Pricing'), alt: 'Quantum pricing section' },
-				{ src: placeholder('800x800', 'Testimonials'), alt: 'Quantum testimonials' },
-				{ src: placeholder('800x800', 'FAQ'), alt: 'Quantum FAQ section' },
+				{ src: placeholder('426x240'), alt: 'Quantum features section' },
+				{ src: placeholder('426x240'), alt: 'Quantum pricing section' },
+				{ src: placeholder('426x240'), alt: 'Quantum testimonials' },
+				{ src: placeholder('426x240'), alt: 'Quantum FAQ section' },
 			],
 		},
-		stack: placeholderStack,
 		downloads: placeholderDownloads,
 	},
 ];
