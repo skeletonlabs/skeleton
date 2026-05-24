@@ -610,6 +610,9 @@ importers:
       '@zag-js/floating-panel':
         specifier: 'catalog:'
         version: 1.40.0
+      '@zag-js/i18n-utils':
+        specifier: 'catalog:'
+        version: 1.41.0
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.40.0
