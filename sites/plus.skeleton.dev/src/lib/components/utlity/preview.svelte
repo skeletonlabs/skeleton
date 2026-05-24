@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { codeToHtml } from '$lib/code-highlight/shiki.bundle';
 	import Code from '../code/code.svelte';
 	import DecorStripes from '../layout/decor-stripes.svelte';
 	import CopyIcon from '@lucide/svelte/icons/copy';
@@ -7,40 +9,43 @@
 	import SunIcon from '@lucide/svelte/icons/sun';
 	import ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';
 	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import type { Snippet } from 'svelte';
 
 	interface Props {
 		title?: string;
-		code?: string;
-		lang?: string;
+		code: Parameters<typeof codeToHtml>[0];
+		lang: Parameters<typeof codeToHtml>[1]['lang'];
+		locked?: boolean;
 		class?: string;
+		children?: Snippet;
 	}
 
-	let { title = '(Title Missing)', code = '(Code Missing)', lang = 'plaintext', class: className }: Props = $props();
-
-	// ******* If Plus Unlocked ******
-	// TRUE = unlocked, FALSE = locked
-	let plusAvailable = $state(true);
-	// *******************************
+	let { title = '(Title Missing)', code = '(Code Missing)', lang, locked = false, children }: Props = $props();
 
 	let view = $state<'preview' | 'code'>('preview');
-	let mode = $state<'light' | 'dark'>(
-		// Match OS preference on load
-		typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-	);
+	let mode = $state<'light' | 'dark' | null>(null);
 	let copied = $state(false);
 
+	// Default OS preference, keep in sync with OS changes.
 	$effect(() => {
-		// Live update when OS mode changes
 		const mq = window.matchMedia('(prefers-color-scheme: dark)');
+		mode = mq.matches ? 'dark' : 'light';
 		const handler = (e: MediaQueryListEvent) => (mode = e.matches ? 'dark' : 'light');
 		mq.addEventListener('change', handler);
 		return () => mq.removeEventListener('change', handler);
 	});
 
+	// Handle copied state
+	$effect(() => {
+		if (!copied) return;
+		const timeout = setTimeout(() => (copied = false), 2000);
+		return () => clearTimeout(timeout);
+	});
+
 	function copyCode() {
-		if (code) navigator.clipboard.writeText(code);
+		if (!code) return;
+		navigator.clipboard.writeText(code);
 		copied = true;
-		setTimeout(() => (copied = false), 2000);
 	}
 </script>
 
@@ -50,7 +55,7 @@
 		<!-- Title -->
 		<div class="flex items-center gap-2">
 			<h2 class="text-xl font-medium">{title}</h2>
-			{#if !plusAvailable}<span class="badge preset-tonal">Preview</span>{/if}
+			{#if locked}<span class="badge preset-tonal">Preview</span>{/if}
 		</div>
 
 		<!-- Actions -->
@@ -76,7 +81,7 @@
 
 			<span class="vr hidden md:inline-block"></span>
 
-			{#if plusAvailable}
+			{#if !locked}
 				<!-- View: Preview / Code -->
 				<SegmentedControl value={view} onValueChange={(details) => (view = (details.value as typeof view) ?? 'preview')}>
 					<SegmentedControl.Control class="p-1">
@@ -105,7 +110,7 @@
 					{#if copied}<ThumbsUpIcon />{:else}<CopyIcon />{/if}
 				</button>
 			{:else}
-				<a href="/overview/pricing" class="btn preset-tonal">
+				<a href={resolve('/overview/pricing')} class="btn preset-tonal">
 					<LockIcon />
 					<span>Unlock Block</span>
 				</a>
@@ -119,9 +124,11 @@
 		<DecorStripes
 			class="card border border-surface-200-800 preset-filled-surface-50-950 flex justify-center items-center p-4 md:p-8 {mode === 'light'
 				? 'scheme-light'
-				: 'scheme-dark'} {className}"
+				: mode === 'dark'
+					? 'scheme-dark'
+					: ''}"
 		>
-			{@html code}
+			{@render children?.()}
 		</DecorStripes>
 	{:else}
 		<!-- Code -->

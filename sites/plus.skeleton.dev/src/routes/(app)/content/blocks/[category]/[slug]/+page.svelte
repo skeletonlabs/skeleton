@@ -60,6 +60,9 @@
 <!-- Examples -->
 <div class="container-page space-y-10">
 	{#each blockExamples as { title, code, lang } (title)}
-		<Preview {title} {code} {lang} />
+		<Preview {title} {code} {lang}>
+			<!-- NOTE: this is a placeholder for a component -->
+			{@html code}
+		</Preview>
 	{/each}
 </div>
