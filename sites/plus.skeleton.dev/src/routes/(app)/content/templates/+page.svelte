@@ -16,7 +16,7 @@
 	{#snippet trail()}
 		<a href="/overview/pricing" class="btn preset-filled">
 			<LockIcon />
-			<span>Unlock All Blocks</span>
+			<span>Unlock All Templates</span>
 		</a>
 	{/snippet}
 </PageHeader>
