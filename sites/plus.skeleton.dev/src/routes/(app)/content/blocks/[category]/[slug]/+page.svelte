@@ -13,9 +13,9 @@
 	const selectedLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
 
 	const blockExamples = [
-		{ title: 'Example 1', code: '<h1 class="h1">Hello World</h1>' },
-		{ title: 'Example 2', code: '<h2 class="h2">Hello World</h2>' },
-		{ title: 'Example 3', code: '<h3 class="h3">Hello World</h3>' },
+		{ title: 'Example 1', code: '<h1 class="h1">Hello World</h1>', lang: 'svelte' },
+		{ title: 'Example 2', code: '<h2 class="h2">Hello World</h2>', lang: 'svelte' },
+		{ title: 'Example 3', code: '<h3 class="h3">Hello World</h3>', lang: 'svelte' },
 	];
 </script>
 
@@ -59,7 +59,7 @@
 
 <!-- Examples -->
 <div class="container-page space-y-10">
-	{#each blockExamples as { title, code } (title)}
-		<Preview {title} {code} />
+	{#each blockExamples as { title, code, lang } (title)}
+		<Preview {title} {code} {lang} />
 	{/each}
 </div>
