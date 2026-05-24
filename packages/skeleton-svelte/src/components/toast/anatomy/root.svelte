@@ -13,6 +13,7 @@
 </script>
 
 <script lang="ts">
+	import { RootContext as LocaleContext } from '../../locale-provider/modules/root-context.js';
 	import { GroupContext } from '../modules/group-context.js';
 	import { RootContext } from '../modules/root-context.js';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
@@ -21,11 +22,13 @@
 	const props: ToastRootProps = $props();
 
 	const group = GroupContext.consume();
+	const local = LocaleContext.consume();
 
 	const { element, children, toast: toastProps, ...rest } = $derived(props);
 
 	const service = useMachine(machine, () => ({
 		...toastProps,
+		dir: local().dir,
 		parent: group(),
 	}));
 	const toast = $derived(connect(service, normalizeProps));

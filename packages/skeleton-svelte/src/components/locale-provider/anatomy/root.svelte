@@ -1,6 +1,5 @@
 <script lang="ts" module>
 	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
-	import { RootContext } from '../modules/root-context.js';
 
 	export interface LocaleProviderRootProps extends PropsWithChildren {
 		/**
@@ -12,6 +11,7 @@
 </script>
 
 <script lang="ts">
+	import { RootContext } from '../modules/root-context.js';
 	import { isRTL } from '@zag-js/i18n-utils';
 
 	const props: LocaleProviderRootProps = $props();
