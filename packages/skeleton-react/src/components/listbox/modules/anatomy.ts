@@ -6,13 +6,13 @@ import ItemIndicator from '../anatomy/item-indicator.jsx';
 import ItemText from '../anatomy/item-text.jsx';
 import Item from '../anatomy/item.jsx';
 import Label from '../anatomy/label.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import ListboxRootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 
 export const Listbox = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: ListboxRootContext,
 	Label: Label,
 	Input: Input,
 	Content: Content,

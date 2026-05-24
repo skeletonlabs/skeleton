@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SegmentedControlRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlLabelProps = $props();
 
-	const segmentedControl = RootContext.consume();
+	const segmentedControl = SegmentedControlRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

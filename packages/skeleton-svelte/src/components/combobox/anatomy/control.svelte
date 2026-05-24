@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxControlProps = $props();
 
-	const combobox = RootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

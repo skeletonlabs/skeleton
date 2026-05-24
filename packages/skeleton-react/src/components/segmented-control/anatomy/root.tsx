@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useSegmentedControl } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { SegmentedControlRootContext } from '../modules/root-context.js';
 import { splitProps } from '@zag-js/radio-group';
 import type { Props } from '@zag-js/radio-group';
 import { mergeProps } from '@zag-js/react';
@@ -18,8 +18,8 @@ export default function Root(props: SegmentedControlRootProps) {
 	const attributes = mergeProps(segmentedControl.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={segmentedControl}>
+		<SegmentedControlRootContext.Provider value={segmentedControl}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</RootContext.Provider>
+		</SegmentedControlRootContext.Provider>
 	);
 }

@@ -1,2 +1,2 @@
-export type { LocaleProviderRootProps } from './anatomy/root.js';
+export type { LocaleProviderRootProps } from './anatomy/root.ts';
 export { LocaleProvider } from './modules/anatomy.js';

@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 
 	const props: MenuRootContextProps = $props();
 
-	const menu = RootContext.consume();
+	const menu = MenuRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

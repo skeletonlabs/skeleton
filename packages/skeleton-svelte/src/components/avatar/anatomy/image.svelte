@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { AvatarRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AvatarImageProps = $props();
 
-	const avatar = RootContext.consume();
+	const avatar = AvatarRootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

@@ -3,12 +3,12 @@ import CloseTrigger from '../anatomy/close-trigger.jsx';
 import Description from '../anatomy/description.jsx';
 import Group from '../anatomy/group.jsx';
 import Message from '../anatomy/message.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import ToastRootContext from '../anatomy/root-context.jsx';
 import Root from '../anatomy/root.jsx';
 import Title from '../anatomy/title.jsx';
 
 export const Toast = Object.assign(Root, {
-	Context: RootContext,
+	Context: ToastRootContext,
 	Group: Group,
 	Message: Message,
 	Title: Title,

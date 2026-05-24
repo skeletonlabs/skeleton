@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { AvatarRootContext } from '../modules/root-context.js';
 
 	const props: AvatarRootContextProps = $props();
 
-	const avatar = RootContext.consume();
+	const avatar = AvatarRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

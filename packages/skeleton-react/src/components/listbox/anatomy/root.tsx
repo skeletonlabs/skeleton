@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useListbox } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { ListboxRootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/listbox';
 import { mergeProps } from '@zag-js/react';
 
@@ -17,6 +17,8 @@ export default function Root(props: ListboxRootProps) {
 	const attributes = mergeProps(listbox.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={listbox}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<ListboxRootContext.Provider value={listbox}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</ListboxRootContext.Provider>
 	);
 }

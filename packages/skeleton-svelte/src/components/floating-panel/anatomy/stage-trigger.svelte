@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { FloatingPanelRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FloatingPanelStageTriggerProps = $props();
 
-	const floatingPanel = RootContext.consume();
+	const floatingPanel = FloatingPanelRootContext.consume();
 
 	const { element, children, stage, ...rest } = $derived(props);
 

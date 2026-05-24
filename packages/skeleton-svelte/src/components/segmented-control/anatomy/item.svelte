@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { SegmentedControlItemContext } from '../modules/item-context.js';
+	import { SegmentedControlRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/radio-group';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlItemProps = $props();
 
-	const segmentedControl = RootContext.consume();
+	const segmentedControl = SegmentedControlRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(segmentedControl().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	SegmentedControlItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

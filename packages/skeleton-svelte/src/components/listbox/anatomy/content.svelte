@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxContentProps = $props();
 
-	const listbox = RootContext.consume();
+	const listbox = ListboxRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

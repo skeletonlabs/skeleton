@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerRangeTextProps = $props();
 
-	const datePicker = RootContext.consume();
+	const datePicker = DatePickerRootContext.consume();
 
 	const rangeText = $derived(Array.from(new Set([datePicker().visibleRangeText.start, datePicker().visibleRangeText.end])).join(' - '));
 

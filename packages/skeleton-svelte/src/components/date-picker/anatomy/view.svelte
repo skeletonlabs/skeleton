@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { ViewContext } from '../modules/view-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
+	import { DatePickerViewContext } from '../modules/view-context.js';
 	import { splitViewProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerViewProps = $props();
 
-	const datePicker = RootContext.consume();
+	const datePicker = DatePickerRootContext.consume();
 
 	const [viewProps, componentProps] = $derived(splitViewProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(datePicker().getViewProps(viewProps), rest));
 
-	ViewContext.provide(() => viewProps);
+	DatePickerViewContext.provide(() => viewProps);
 </script>
 
 {#if element}

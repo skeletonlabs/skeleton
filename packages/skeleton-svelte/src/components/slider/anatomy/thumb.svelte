@@ -7,20 +7,20 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { ThumbContext } from '../modules/thumb-context.js';
+	import { SliderRootContext } from '../modules/root-context.js';
+	import { SliderThumbContext } from '../modules/thumb-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderThumbProps = $props();
 
-	const slider = RootContext.consume();
+	const slider = SliderRootContext.consume();
 
 	const [thumbProps, componentProps] = $derived(splitThumbProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(slider().getThumbProps(thumbProps), rest));
 
-	ThumbContext.provide(() => thumbProps);
+	SliderThumbContext.provide(() => thumbProps);
 </script>
 
 {#if element}

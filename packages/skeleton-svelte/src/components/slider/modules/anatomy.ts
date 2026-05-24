@@ -4,7 +4,7 @@ import Label from '../anatomy/label.svelte';
 import MarkerGroup from '../anatomy/marker-group.svelte';
 import Marker from '../anatomy/marker.svelte';
 import Range from '../anatomy/range.svelte';
-import RootContext from '../anatomy/root-context.svelte';
+import SliderRootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Thumb from '../anatomy/thumb.svelte';
@@ -13,7 +13,7 @@ import ValueText from '../anatomy/value-text.svelte';
 
 export const Slider = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: SliderRootContext,
 	Label: Label,
 	ValueText: ValueText,
 	Control: Control,

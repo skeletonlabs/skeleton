@@ -7,14 +7,14 @@
 
 <script lang="ts">
 	import ChevronRight from '../../../internal/components/chevron-right.svelte';
-	import { NodeContext } from '../modules/node-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { TreeViewNodeContext } from '../modules/node-context.js';
+	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewBranchIndicatorProps = $props();
 
-	const treeView = RootContext.consume();
-	const nodeProps = NodeContext.consume();
+	const treeView = TreeViewRootContext.consume();
+	const nodeProps = TreeViewNodeContext.consume();
 
 	const { element, children = chevronRight, ...rest } = $derived(props);
 

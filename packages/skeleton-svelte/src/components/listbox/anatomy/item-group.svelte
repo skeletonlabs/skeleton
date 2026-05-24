@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxItemGroupContext } from '../modules/item-group-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { splitItemGroupProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxItemGroupProps = $props();
 
-	const listbox = RootContext.consume();
+	const listbox = ListboxRootContext.consume();
 
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
@@ -27,7 +27,7 @@
 
 	const attributes = $derived(mergeProps(listbox().getItemGroupProps(itemGroupProps), rest));
 
-	ItemGroupContext.provide(() => itemGroupProps);
+	ListboxItemGroupContext.provide(() => itemGroupProps);
 </script>
 
 {#if element}

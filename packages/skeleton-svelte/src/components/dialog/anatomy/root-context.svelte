@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DialogRootContext } from '../modules/root-context.js';
 
 	const props: DialogRootContextProps = $props();
 
-	const dialog = RootContext.consume();
+	const dialog = DialogRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { QrCodeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: QrCodeOverlayProps = $props();
 
-	const qrCode = RootContext.consume();
+	const qrCode = QrCodeRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

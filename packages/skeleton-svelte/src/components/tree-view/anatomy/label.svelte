@@ -13,12 +13,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewLabelProps = $props();
 
-	const treeView = RootContext.consume();
+	const treeView = TreeViewRootContext.consume();
 
 	const { level = 3, element, children, ...rest } = $derived(props);
 

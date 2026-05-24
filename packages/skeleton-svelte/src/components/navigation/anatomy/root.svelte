@@ -13,7 +13,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { NavigationRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationRootProps = $props();
@@ -30,7 +30,7 @@
 		),
 	);
 
-	RootContext.provide(() => ({ layout }));
+	NavigationRootContext.provide(() => ({ layout }));
 </script>
 
 {#if element}

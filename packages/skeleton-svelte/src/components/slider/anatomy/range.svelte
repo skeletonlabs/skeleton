@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SliderRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderRangeProps = $props();
 
-	const slider = RootContext.consume();
+	const slider = SliderRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -8,20 +8,20 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { FileUploadItemContext } from '../modules/item-context.js';
+	import { FileUploadRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemProps = $props();
 
-	const fileUpload = RootContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(fileUpload().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	FileUploadItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

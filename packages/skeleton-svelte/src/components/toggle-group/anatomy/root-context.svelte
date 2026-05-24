@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ToggleGroupRootContext } from '../modules/root-context.js';
 
 	const props: ToggleGroupRootContextProps = $props();
 
-	const toggleGroup = RootContext.consume();
+	const toggleGroup = ToggleGroupRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

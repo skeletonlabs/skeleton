@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { FileUploadRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(fileUpload().getRootProps(), rest));
 
-	RootContext.provide(() => fileUpload());
+	FileUploadRootContext.provide(() => fileUpload());
 </script>
 
 {#if element}

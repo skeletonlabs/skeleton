@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { useSegmentedControl } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { SegmentedControlRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 
 export interface SegmentedControlRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
@@ -14,8 +14,8 @@ export default function RootProvider(props: SegmentedControlRootProviderProps) {
 	const attributes = mergeProps(segmentedControl.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={segmentedControl}>
+		<SegmentedControlRootContext.Provider value={segmentedControl}>
 			{element ? element(attributes) : <div {...attributes}>{children}</div>}
-		</RootContext.Provider>
+		</SegmentedControlRootContext.Provider>
 	);
 }

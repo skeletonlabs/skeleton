@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuItemContext } from '../modules/item-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuItemTextProps = $props();
 
-	const menu = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const menu = MenuRootContext.consume();
+	const itemProps = MenuItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MarqueeViewportProps = $props();
 
-	const marquee = RootContext.consume();
+	const marquee = MarqueeRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -1,12 +1,12 @@
 import Fallback from '../anatomy/fallback.jsx';
 import Image from '../anatomy/image.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import AvatarRootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 
 export const Avatar = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: AvatarRootContext,
 	Image: Image,
 	Fallback: Fallback,
 });

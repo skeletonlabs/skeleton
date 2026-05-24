@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useRatingGroup } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { RatingGroupRootContext } from '../modules/root-context.js';
 import { splitProps } from '@zag-js/rating-group';
 import type { Props } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
@@ -18,6 +18,8 @@ export default function Root(props: RatingGroupRootProps) {
 	const attributes = mergeProps(ratingGroup.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={ratingGroup}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<RatingGroupRootContext.Provider value={ratingGroup}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</RatingGroupRootContext.Provider>
 	);
 }

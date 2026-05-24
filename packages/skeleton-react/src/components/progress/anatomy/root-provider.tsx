@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { useProgress } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { ProgressRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 
 export interface ProgressRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
@@ -14,6 +14,8 @@ export default function RootProvider(props: ProgressRootProviderProps) {
 	const attributes = mergeProps(progress.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={progress}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<ProgressRootContext.Provider value={progress}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</ProgressRootContext.Provider>
 	);
 }

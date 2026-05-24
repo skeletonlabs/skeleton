@@ -3,12 +3,12 @@ import CloseTrigger from '../anatomy/close-trigger.svelte';
 import Description from '../anatomy/description.svelte';
 import Group from '../anatomy/group.svelte';
 import Message from '../anatomy/message.svelte';
-import RootContext from '../anatomy/root-context.svelte';
+import ToastRootContext from '../anatomy/root-context.svelte';
 import Root from '../anatomy/root.svelte';
 import Title from '../anatomy/title.svelte';
 
 export const Toast = Object.assign(Root, {
-	Context: RootContext,
+	Context: ToastRootContext,
 	Group: Group,
 	Message: Message,
 	Title: Title,

@@ -6,13 +6,13 @@ import ItemIndicator from '../anatomy/item-indicator.svelte';
 import ItemText from '../anatomy/item-text.svelte';
 import Item from '../anatomy/item.svelte';
 import Label from '../anatomy/label.svelte';
-import RootContext from '../anatomy/root-context.svelte';
+import ListboxRootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 
 export const Listbox = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: ListboxRootContext,
 	Label: Label,
 	Input: Input,
 	Content: Content,

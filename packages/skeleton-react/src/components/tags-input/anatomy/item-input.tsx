@@ -1,15 +1,15 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ItemContext } from '../modules/item-context.js';
-import { RootContext } from '../modules/root-context.js';
+import { TagsInputItemContext } from '../modules/item-context.js';
+import { TagsInputRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
 export interface TagsInputItemInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input', 'children'> {}
 
 export default function ItemInput(props: TagsInputItemInputProps) {
-	const tagsInput = use(RootContext);
-	const itemProps = use(ItemContext);
+	const tagsInput = use(TagsInputRootContext);
+	const itemProps = use(TagsInputItemContext);
 
 	const { element, ...rest } = props;
 

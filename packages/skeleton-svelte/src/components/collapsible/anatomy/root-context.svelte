@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { CollapsibleRootContext } from '../modules/root-context.js';
 
 	const props: CollapsibleRootContextProps = $props();
 
-	const collapsible = RootContext.consume();
+	const collapsible = CollapsibleRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

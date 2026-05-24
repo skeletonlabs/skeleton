@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ProgressRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ProgressTrackProps = $props();
 
-	const progress = RootContext.consume();
+	const progress = ProgressRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

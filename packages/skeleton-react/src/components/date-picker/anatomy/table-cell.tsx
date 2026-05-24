@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { Union } from '../../../internal/union.js';
-import { RootContext } from '../modules/root-context.js';
-import { TableCellContext } from '../modules/table-cell-context.js';
-import { ViewContext } from '../modules/view-context.js';
+import { DatePickerRootContext } from '../modules/root-context.js';
+import { DatePickerTableCellContext } from '../modules/table-cell-context.js';
+import { DatePickerViewContext } from '../modules/view-context.js';
 import { splitTableCellProps, type DayTableCellProps, type TableCellProps } from '@zag-js/date-picker';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -11,8 +11,8 @@ import { use } from 'react';
 export interface DatePickerTableCellProps extends Union<TableCellProps, DayTableCellProps>, PropsWithElement<'td'>, HTMLAttributes<'td'> {}
 
 export default function TableCell(props: DatePickerTableCellProps) {
-	const datePicker = use(RootContext);
-	const viewProps = use(ViewContext);
+	const datePicker = use(DatePickerRootContext);
+	const viewProps = use(DatePickerViewContext);
 
 	const [tableCellProps, componentProps] = splitTableCellProps(props as unknown as TableCellProps) as unknown as [
 		Union<TableCellProps, DayTableCellProps>,
@@ -35,8 +35,8 @@ export default function TableCell(props: DatePickerTableCellProps) {
 	const attributes = mergeProps(getTableCellProps(tableCellProps as TableCellProps), rest);
 
 	return (
-		<TableCellContext.Provider value={tableCellProps}>
+		<DatePickerTableCellContext.Provider value={tableCellProps}>
 			{element ? element(attributes) : <td {...attributes}>{children}</td>}
-		</TableCellContext.Provider>
+		</DatePickerTableCellContext.Provider>
 	);
 }

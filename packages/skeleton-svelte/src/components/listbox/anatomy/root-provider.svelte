@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(listbox().getRootProps(), rest));
 
-	RootContext.provide(() => listbox());
+	ListboxRootContext.provide(() => listbox());
 </script>
 
 {#if element}

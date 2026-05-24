@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { AccordionItemContext } from '../modules/item-context.js';
+	import { AccordionRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionItemTriggerProps = $props();
 
-	const accordion = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const accordion = AccordionRootContext.consume();
+	const itemProps = AccordionItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

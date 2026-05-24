@@ -6,21 +6,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { TriggerItemContext } from '../modules/trigger-item-context.js';
+	import { MenuItemContext } from '../modules/item-context.js';
+	import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
 	import { splitItemProps, type ItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuTriggerItemProps = $props();
 
-	const triggerItemProps = TriggerItemContext.consume();
+	const triggerItemProps = MenuTriggerItemContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(triggerItemProps(), rest));
 
-	ItemContext.provide(() => itemProps);
+	MenuItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

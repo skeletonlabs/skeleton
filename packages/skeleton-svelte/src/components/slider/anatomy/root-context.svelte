@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SliderRootContext } from '../modules/root-context.js';
 
 	const props: SliderRootContextProps = $props();
 
-	const slider = RootContext.consume();
+	const slider = SliderRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { RatingGroupRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: RatingGroupControlProps = $props();
 
-	const ratingGroup = RootContext.consume();
+	const ratingGroup = RatingGroupRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

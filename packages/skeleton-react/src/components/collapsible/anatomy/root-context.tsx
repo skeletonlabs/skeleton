@@ -1,5 +1,5 @@
 import type { useCollapsible } from '../modules/provider.js';
-import { RootContext as RootContext_ } from '../modules/root-context.js';
+import { CollapsibleRootContext as RootContext_ } from '../modules/root-context.js';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -7,7 +7,7 @@ export interface CollapsibleRootContextProps {
 	children: (collapsible: ReturnType<typeof useCollapsible>) => ReactNode;
 }
 
-export default function RootContext(props: CollapsibleRootContextProps) {
+export default function CollapsibleRootContext(props: CollapsibleRootContextProps) {
 	const collapsible = use(RootContext_);
 
 	const { children } = props;

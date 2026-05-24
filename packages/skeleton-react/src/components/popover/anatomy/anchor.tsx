@@ -1,13 +1,13 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { PopoverRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { type PropsWithChildren, use } from 'react';
 
 export interface PopoverAnchorProps extends PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Anchor(props: PopoverAnchorProps) {
-	const popover = use(RootContext);
+	const popover = use(PopoverRootContext);
 
 	const { element, children, ...rest } = props;
 

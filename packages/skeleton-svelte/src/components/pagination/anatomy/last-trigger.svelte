@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationLastTriggerProps = $props();
 
-	const pagination = RootContext.consume();
+	const pagination = PaginationRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

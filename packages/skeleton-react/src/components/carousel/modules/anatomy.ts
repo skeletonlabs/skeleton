@@ -7,13 +7,13 @@ import ItemGroup from '../anatomy/item-group.jsx';
 import NextTrigger from '../anatomy/next-trigger.jsx';
 import PrevTrigger from '../anatomy/prev-trigger.jsx';
 import ProgressText from '../anatomy/progress-text.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import CarouselRootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 
 export const Carousel = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: CarouselRootContext,
 	Control: Control,
 	ItemGroup: ItemGroup,
 	Item: Item,

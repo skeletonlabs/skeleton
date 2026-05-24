@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { StepsItemContext } from '../modules/item-context.js';
+	import { StepsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsTriggerProps = $props();
 
-	const steps = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const steps = StepsRootContext.consume();
+	const itemProps = StepsItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

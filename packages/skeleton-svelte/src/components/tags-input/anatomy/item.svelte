@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { TagsInputItemContext } from '../modules/item-context.js';
+	import { TagsInputRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/tags-input';
 
 	const props: TagsInputItemProps = $props();
 
-	const tagsInput = RootContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(tagsInput().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	TagsInputItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

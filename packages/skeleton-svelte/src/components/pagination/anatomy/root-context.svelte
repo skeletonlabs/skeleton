@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from '../modules/root-context.js';
 
 	const props: PaginationRootContextProps = $props();
 
-	const pagination = RootContext.consume();
+	const pagination = PaginationRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

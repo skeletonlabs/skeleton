@@ -9,7 +9,7 @@
 
 <script lang="ts">
 	import { useSlider } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { SliderRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/slider';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -26,7 +26,7 @@
 
 	const attributes = $derived(mergeProps(slider().getRootProps(), rest));
 
-	RootContext.provide(() => slider());
+	SliderRootContext.provide(() => slider());
 </script>
 
 {#if element}

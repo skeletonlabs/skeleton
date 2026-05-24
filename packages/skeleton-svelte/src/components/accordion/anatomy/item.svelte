@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { AccordionItemContext } from '../modules/item-context.js';
+	import { AccordionRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/accordion';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionItemProps = $props();
 
-	const accordion = RootContext.consume();
+	const accordion = AccordionRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(accordion().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	AccordionItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

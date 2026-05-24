@@ -8,15 +8,15 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuItemGroupContext } from '../modules/item-group-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 	import { splitItemGroupLabelProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuItemGroupLabelProps = $props();
 
-	const menu = RootContext.consume();
-	const itemGroupProps = ItemGroupContext.consume();
+	const menu = MenuRootContext.consume();
+	const itemGroupProps = MenuItemGroupContext.consume();
 
 	const [labelProps, componentProps] = $derived(
 		splitItemGroupLabelProps({

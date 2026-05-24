@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
 	import { splitPresetTriggerProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerPresetTriggerProps = $props();
 
-	const datePicker = RootContext.consume();
+	const datePicker = DatePickerRootContext.consume();
 
 	const [presetTriggerProps, componentProps] = $derived(splitPresetTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

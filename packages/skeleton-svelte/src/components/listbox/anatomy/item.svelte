@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxItemContext } from '../modules/item-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxItemProps = $props();
 
-	const listbox = RootContext.consume();
+	const listbox = ListboxRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(listbox().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	ListboxItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

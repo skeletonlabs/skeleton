@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuItemContext } from '../modules/item-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 	import { splitOptionItemProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuOptionItemProps = $props();
 
-	const menu = RootContext.consume();
+	const menu = MenuRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitOptionItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(menu().getOptionItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	MenuItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

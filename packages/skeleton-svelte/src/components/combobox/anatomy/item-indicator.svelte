@@ -7,14 +7,14 @@
 
 <script lang="ts">
 	import Check from '../../../internal/components/check.svelte';
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxItemContext } from '../modules/item-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemIndicatorProps = $props();
 
-	const combobox = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const combobox = ComboboxRootContext.consume();
+	const itemProps = ComboboxItemContext.consume();
 
 	const { element, children = check, ...rest } = $derived(props);
 

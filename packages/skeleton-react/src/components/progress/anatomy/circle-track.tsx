@@ -1,13 +1,13 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { ProgressRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
 export interface ProgressCircleTrackProps extends PropsWithElement<'circle'>, HTMLAttributes<'circle', 'children'> {}
 
 export default function CircleTrack(props: ProgressCircleTrackProps) {
-	const progress = use(RootContext);
+	const progress = use(ProgressRootContext);
 
 	const { element, ...rest } = props;
 

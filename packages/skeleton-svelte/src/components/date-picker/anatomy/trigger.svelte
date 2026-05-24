@@ -7,12 +7,12 @@
 
 <script lang="ts">
 	import CalendarIcon from '../../../internal/components/calendar.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTriggerProps = $props();
 
-	const datePicker = RootContext.consume();
+	const datePicker = DatePickerRootContext.consume();
 
 	const { element, children = calendarIcon, ...rest } = $derived(props);
 

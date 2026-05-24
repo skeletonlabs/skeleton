@@ -6,20 +6,20 @@ import BranchText from '../anatomy/branch-text.jsx';
 import Branch from '../anatomy/branch.jsx';
 import Item from '../anatomy/item.jsx';
 import Label from '../anatomy/label.jsx';
-import NodeContext from '../anatomy/node-context.jsx';
+import TreeViewNodeContext from '../anatomy/node-context.jsx';
 import NodeProvider from '../anatomy/node-provider.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import TreeViewRootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 import Tree from '../anatomy/tree.jsx';
 
 export const TreeView = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: TreeViewRootContext,
 	Tree: Tree,
 	Label: Label,
 	NodeProvider: NodeProvider,
-	NodeContext: NodeContext,
+	TreeViewNodeContext: TreeViewNodeContext,
 	Branch: Branch,
 	BranchControl: BranchControl,
 	BranchText: BranchText,

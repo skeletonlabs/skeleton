@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useMenu } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
-import { TriggerItemContext } from '../modules/trigger-item-context.js';
+import { MenuRootContext } from '../modules/root-context.js';
+import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
 import { splitProps } from '@zag-js/menu';
 import type { Props } from '@zag-js/menu';
 import { use, useEffect } from 'react';
@@ -11,7 +11,7 @@ export interface MenuRootProps
 	extends Omit<Props, 'id'>, PropsWithElement<'div'>, Omit<HTMLAttributes<'div', 'id' | 'dir'>, 'onSelect' | 'aria-label'> {}
 
 export default function Root(props: MenuRootProps) {
-	const parentMenu = use(RootContext);
+	const parentMenu = use(MenuRootContext);
 
 	const [menuProps, componentProps] = splitProps(props);
 	const { children } = componentProps;
@@ -28,8 +28,8 @@ export default function Root(props: MenuRootProps) {
 	}, []);
 
 	return (
-		<RootContext.Provider value={menu}>
-			<TriggerItemContext.Provider value={parentMenu?.getTriggerItemProps(menu)}>{children}</TriggerItemContext.Provider>
-		</RootContext.Provider>
+		<MenuRootContext.Provider value={menu}>
+			<MenuTriggerItemContext.Provider value={parentMenu?.getTriggerItemProps(menu)}>{children}</MenuTriggerItemContext.Provider>
+		</MenuRootContext.Provider>
 	);
 }

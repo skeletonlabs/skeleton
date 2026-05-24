@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { FileUploadItemContext } from '../modules/item-context.js';
+	import { FileUploadRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FileUploadItemNameProps = $props();
 
-	const fileUpload = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const fileUpload = FileUploadRootContext.consume();
+	const itemProps = FileUploadItemContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

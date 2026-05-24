@@ -8,13 +8,13 @@ import ItemPreview from '../anatomy/item-preview.jsx';
 import ItemText from '../anatomy/item-text.jsx';
 import Item from '../anatomy/item.jsx';
 import Label from '../anatomy/label.jsx';
-import RootContext from '../anatomy/root-context.jsx';
+import TagsInputRootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 
 export const TagsInput = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: RootContext,
+	Context: TagsInputRootContext,
 	Label: Label,
 	Control: Control,
 	Item: Item,

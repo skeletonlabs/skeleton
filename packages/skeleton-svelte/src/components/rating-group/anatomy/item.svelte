@@ -29,14 +29,14 @@
 	import StarEmpty from '../../../internal/components/star-empty.svelte';
 	import StarFull from '../../../internal/components/star-full.svelte';
 	import StarHalf from '../../../internal/components/star-half.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { RatingGroupRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/rating-group';
 	import { mergeProps } from '@zag-js/svelte';
 	import type { Snippet } from 'svelte';
 
 	const props: RatingGroupItemProps = $props();
 
-	const ratingGroup = RootContext.consume();
+	const ratingGroup = RatingGroupRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, empty = starEmpty, half = starHalf, full = starFull, ...rest } = $derived(componentProps);

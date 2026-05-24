@@ -1,4 +1,4 @@
-import { RootContext } from '../modules/root-context.js';
+import { FloatingPanelRootContext } from '../modules/root-context.js';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { type StageTriggerProps } from '@zag-js/floating-panel';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface FloatingPanelStageTriggerProps extends StageTriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 
 export default function StageTrigger(props: FloatingPanelStageTriggerProps) {
-	const floatingPanel = use(RootContext);
+	const floatingPanel = use(FloatingPanelRootContext);
 
 	const { element, children, stage, ...rest } = props;
 

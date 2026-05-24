@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TooltipRootContext } from '../modules/root-context.js';
 
 	const props: TooltipRootContextProps = $props();
 
-	const tooltip = RootContext.consume();
+	const tooltip = TooltipRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

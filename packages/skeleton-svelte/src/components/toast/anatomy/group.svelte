@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import { GroupContext } from '../modules/group-context.js';
+	import { ToastGroupContext } from '../modules/group-context.js';
 	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
 	import { group } from '@zag-js/toast';
 
@@ -31,7 +31,7 @@
 
 	const attributes = $derived(mergeProps(api.getGroupProps(), rest));
 
-	GroupContext.provide(() => service);
+	ToastGroupContext.provide(() => service);
 </script>
 
 {#if element}

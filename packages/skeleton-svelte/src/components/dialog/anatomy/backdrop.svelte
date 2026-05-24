@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DialogRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DialogBackdropProps = $props();
 
-	const dialog = RootContext.consume();
+	const dialog = DialogRootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

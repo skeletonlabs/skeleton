@@ -9,12 +9,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { TriggerItemContext } from '../modules/trigger-item-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
+	import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
 
 	const props: MenuRootProviderProps = $props();
 
-	const parentMenu = RootContext.consume();
+	const parentMenu = MenuRootContext.consume();
 
 	const { children, value: menu } = $derived(props);
 
@@ -28,8 +28,8 @@
 		}),
 	);
 
-	RootContext.provide(() => menu());
-	TriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));
+	MenuRootContext.provide(() => menu());
+	MenuTriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));
 </script>
 
 {@render children?.()}

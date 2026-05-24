@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuContextTriggerProps = $props();
 
-	const menu = RootContext.consume();
+	const menu = MenuRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

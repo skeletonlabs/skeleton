@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ItemContext } from '../modules/item-context.js';
-import { RootContext } from '../modules/root-context.js';
+import { TagsInputItemContext } from '../modules/item-context.js';
+import { TagsInputRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { type ItemProps, splitItemProps } from '@zag-js/tags-input';
 import { use } from 'react';
@@ -9,7 +9,7 @@ import { use } from 'react';
 export interface TagsInputItemProps extends ItemProps, PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function Item(props: TagsInputItemProps) {
-	const tagsInput = use(RootContext);
+	const tagsInput = use(TagsInputRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;
@@ -17,6 +17,8 @@ export default function Item(props: TagsInputItemProps) {
 	const attributes = mergeProps(tagsInput.getItemProps(itemProps), rest);
 
 	return (
-		<ItemContext.Provider value={itemProps}>{element ? element(attributes) : <span {...attributes}>{children}</span>}</ItemContext.Provider>
+		<TagsInputItemContext.Provider value={itemProps}>
+			{element ? element(attributes) : <span {...attributes}>{children}</span>}
+		</TagsInputItemContext.Provider>
 	);
 }

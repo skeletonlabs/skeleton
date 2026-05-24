@@ -1,5 +1,5 @@
 import type { useAvatar } from '../modules/provider.js';
-import { RootContext as RootContext_ } from '../modules/root-context.js';
+import { AvatarRootContext as RootContext_ } from '../modules/root-context.js';
 import { use } from 'react';
 import type { ReactNode } from 'react';
 
@@ -7,7 +7,7 @@ export interface AvatarRootContextProps {
 	children: (avatar: ReturnType<typeof useAvatar>) => ReactNode;
 }
 
-export default function RootContext(props: AvatarRootContextProps) {
+export default function AvatarRootContext(props: AvatarRootContextProps) {
 	const avatar = use(RootContext_);
 
 	const { children } = props;

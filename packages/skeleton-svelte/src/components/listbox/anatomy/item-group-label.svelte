@@ -7,15 +7,15 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxItemGroupContext } from '../modules/item-group-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ListboxItemGroupLabelProps = $props();
 
-	const listbox = RootContext.consume();
-	const itemGroupProps = ItemGroupContext.consume();
+	const listbox = ListboxRootContext.consume();
+	const itemGroupProps = ListboxItemGroupContext.consume();
 
 	const [itemGroupLabelProps] = $derived(
 		splitItemGroupLabelProps({

@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { MenuItemGroupContext } from '../modules/item-group-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
 	import { splitItemGroupProps } from '@zag-js/menu';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MenuItemGroupProps = $props();
 
-	const menu = RootContext.consume();
+	const menu = MenuRootContext.consume();
 
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
@@ -27,7 +27,7 @@
 
 	const attributes = $derived(mergeProps(menu().getItemGroupProps(itemGroupProps), rest));
 
-	ItemGroupContext.provide(() => itemGroupProps);
+	MenuItemGroupContext.provide(() => itemGroupProps);
 </script>
 
 {#if element}
