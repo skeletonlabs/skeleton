@@ -940,6 +940,21 @@ importers:
       '@neondatabase/serverless':
         specifier: 'catalog:'
         version: 1.1.0
+      '@shikijs/core':
+        specifier: 'catalog:'
+        version: 4.0.2
+      '@shikijs/engine-javascript':
+        specifier: 'catalog:'
+        version: 4.0.2
+      '@shikijs/langs':
+        specifier: 'catalog:'
+        version: 4.0.2
+      '@shikijs/themes':
+        specifier: 'catalog:'
+        version: 4.0.2
+      '@shikijs/types':
+        specifier: 'catalog:'
+        version: 4.0.2
       '@skeletonlabs/skeleton':
         specifier: workspace:*
         version: link:../../packages/skeleton
