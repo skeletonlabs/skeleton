@@ -4,7 +4,7 @@ import Label from '../anatomy/label.jsx';
 import MarkerGroup from '../anatomy/marker-group.jsx';
 import Marker from '../anatomy/marker.jsx';
 import Range from '../anatomy/range.jsx';
-import SliderRootContext from '../anatomy/root-context.jsx';
+import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 import Thumb from '../anatomy/thumb.jsx';
@@ -13,7 +13,7 @@ import ValueText from '../anatomy/value-text.jsx';
 
 export const Slider = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: SliderRootContext,
+	Context: RootContext,
 	Label: Label,
 	ValueText: ValueText,
 	Control: Control,

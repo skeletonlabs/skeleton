@@ -8,7 +8,7 @@ import Item from '../anatomy/item.svelte';
 import Label from '../anatomy/label.svelte';
 import TreeViewNodeContext from '../anatomy/node-context.svelte';
 import NodeProvider from '../anatomy/node-provider.svelte';
-import TreeViewRootContext from '../anatomy/root-context.svelte';
+import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Tree from '../anatomy/tree.svelte';
@@ -28,7 +28,7 @@ export const TreeView: typeof Root & {
 	Item: typeof Item;
 } = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: TreeViewRootContext,
+	Context: RootContext,
 	Tree: Tree,
 	Label: Label,
 	NodeProvider: NodeProvider,

@@ -10,7 +10,7 @@ import ItemText from '../anatomy/item-text.svelte';
 import Item from '../anatomy/item.svelte';
 import OptionItem from '../anatomy/option-item.svelte';
 import Positioner from '../anatomy/positioner.svelte';
-import MenuRootContext from '../anatomy/root-context.svelte';
+import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Separator from '../anatomy/separator.svelte';
@@ -19,7 +19,7 @@ import Trigger from '../anatomy/trigger.svelte';
 
 export const Menu = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: MenuRootContext,
+	Context: RootContext,
 	Trigger: Trigger,
 	ContextTrigger: ContextTrigger,
 	Indicator: Indicator,

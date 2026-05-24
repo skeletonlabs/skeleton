@@ -4,13 +4,13 @@ import Item from '../anatomy/item.jsx';
 import LastTrigger from '../anatomy/last-trigger.jsx';
 import NextTrigger from '../anatomy/next-trigger.jsx';
 import PrevTrigger from '../anatomy/prev-trigger.jsx';
-import PaginationRootContext from '../anatomy/root-context.jsx';
+import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 
 export const Pagination = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: PaginationRootContext,
+	Context: RootContext,
 	FirstTrigger: FirstTrigger,
 	PrevTrigger: PrevTrigger,
 	Item: Item,

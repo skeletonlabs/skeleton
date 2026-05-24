@@ -8,7 +8,7 @@ import Positioner from '../anatomy/positioner.jsx';
 import PresetTrigger from '../anatomy/preset-trigger.jsx';
 import PrevTrigger from '../anatomy/prev-trigger.jsx';
 import RangeText from '../anatomy/range-text.jsx';
-import DatePickerRootContext from '../anatomy/root-context.jsx';
+import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 import TableBody from '../anatomy/table-body.jsx';
@@ -26,7 +26,7 @@ import YearSelect from '../anatomy/year-select.jsx';
 
 export const DatePicker = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: DatePickerRootContext,
+	Context: RootContext,
 	Label: Label,
 	Control: Control,
 	PresetTrigger: PresetTrigger,

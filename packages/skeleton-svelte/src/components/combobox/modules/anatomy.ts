@@ -9,14 +9,14 @@ import ItemText from '../anatomy/item-text.svelte';
 import Item from '../anatomy/item.svelte';
 import Label from '../anatomy/label.svelte';
 import Positioner from '../anatomy/positioner.svelte';
-import ComboboxRootContext from '../anatomy/root-context.svelte';
+import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Trigger from '../anatomy/trigger.svelte';
 
 export const Combobox = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: ComboboxRootContext,
+	Context: RootContext,
 	Label: Label,
 	Control: Control,
 	Input: Input,

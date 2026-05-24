@@ -8,14 +8,14 @@ import Item from '../anatomy/item.jsx';
 import Label from '../anatomy/label.jsx';
 import TreeViewNodeContext from '../anatomy/node-context.jsx';
 import NodeProvider from '../anatomy/node-provider.jsx';
-import TreeViewRootContext from '../anatomy/root-context.jsx';
+import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 import Tree from '../anatomy/tree.jsx';
 
 export const TreeView = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: TreeViewRootContext,
+	Context: RootContext,
 	Tree: Tree,
 	Label: Label,
 	NodeProvider: NodeProvider,

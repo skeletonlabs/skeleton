@@ -7,13 +7,13 @@ import ItemGroup from '../anatomy/item-group.svelte';
 import NextTrigger from '../anatomy/next-trigger.svelte';
 import PrevTrigger from '../anatomy/prev-trigger.svelte';
 import ProgressText from '../anatomy/progress-text.svelte';
-import CarouselRootContext from '../anatomy/root-context.svelte';
+import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 
 export const Carousel = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: CarouselRootContext,
+	Context: RootContext,
 	Control: Control,
 	ItemGroup: ItemGroup,
 	Item: Item,

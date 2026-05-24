@@ -10,7 +10,7 @@ import ItemText from '../anatomy/item-text.js';
 import Item from '../anatomy/item.jsx';
 import OptionItem from '../anatomy/option-item.js';
 import Positioner from '../anatomy/positioner.jsx';
-import MenuRootContext from '../anatomy/root-context.jsx';
+import RootContext from '../anatomy/root-context.jsx';
 import RootProvider from '../anatomy/root-provider.jsx';
 import Root from '../anatomy/root.jsx';
 import Separator from '../anatomy/separator.jsx';
@@ -19,7 +19,7 @@ import Trigger from '../anatomy/trigger.jsx';
 
 export const Menu = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: MenuRootContext,
+	Context: RootContext,
 	Trigger: Trigger,
 	ContextTrigger: ContextTrigger,
 	Indicator: Indicator,

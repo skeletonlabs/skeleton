@@ -8,7 +8,7 @@ import Positioner from '../anatomy/positioner.svelte';
 import PresetTrigger from '../anatomy/preset-trigger.svelte';
 import PrevTrigger from '../anatomy/prev-trigger.svelte';
 import RangeText from '../anatomy/range-text.svelte';
-import DatePickerRootContext from '../anatomy/root-context.svelte';
+import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import TableBody from '../anatomy/table-body.svelte';
@@ -26,7 +26,7 @@ import YearSelect from '../anatomy/year-select.svelte';
 
 export const DatePicker = Object.assign(Root, {
 	Provider: RootProvider,
-	Context: DatePickerRootContext,
+	Context: RootContext,
 	Label: Label,
 	Control: Control,
 	PresetTrigger: PresetTrigger,
