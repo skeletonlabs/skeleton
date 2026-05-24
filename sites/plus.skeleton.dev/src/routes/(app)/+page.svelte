@@ -41,7 +41,7 @@
 	</div>
 </section>
 
-<!-- Decore: Stripes -->
+<!-- Decor: Stripes -->
 <DecorStripes class="h-6" />
 
 <!-- Features -->
@@ -72,7 +72,7 @@
 	</div>
 </DecorCorners>
 
-<!-- Decore: Stripes -->
+<!-- Decor: Stripes -->
 <DecorStripes class="h-6" />
 
 <!-- Themes Repository -->
