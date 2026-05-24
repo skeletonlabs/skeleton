@@ -1,22 +1,23 @@
 import { form, getRequestEvent } from '$app/server';
 import { error } from '@sveltejs/kit';
 import { auth } from '$lib/server/auth/auth';
+import { ResultAsync } from 'neverthrow';
 
 export const signOut = form('unchecked', async () => {
 	const event = getRequestEvent();
 
-	try {
-		const signOut = await auth.api.signOut({
+	const signOutResult = await ResultAsync.fromPromise(
+		auth.api.signOut({
 			headers: event.request.headers,
-		});
+		}),
+		(e) => new Error('Failed to sign out', { cause: e }),
+	);
 
-		if (!signOut.success) {
-			error(500, 'Failed to sign out');
-		}
-	} catch (e) {
-		if (e instanceof Error) {
-			throw error(400, e.message);
-		}
-		throw error(400, 'An unknown error occurred while signing out');
+	if (signOutResult.isErr()) {
+		error(500, signOutResult.error.message);
+	}
+
+	if (!signOutResult.value.success) {
+		error(500, 'Failed to sign out');
 	}
 });

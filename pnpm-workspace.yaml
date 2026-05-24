@@ -140,6 +140,7 @@ catalog:
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
+  neverthrow: 8.2.0
 
 catalogMode: strict
 
