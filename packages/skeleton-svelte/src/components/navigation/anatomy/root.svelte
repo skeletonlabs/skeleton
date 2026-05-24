@@ -1,6 +1,7 @@
 <script lang="ts" module>
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
 
 	export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
 		/**
@@ -17,11 +18,15 @@
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: NavigationRootProps = $props();
+
+	const locale = LocaleProviderRootContext.consume();
+
 	const { layout = 'bar', element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
 			{
+				dir: locale().dir,
 				'data-scope': 'navigation',
 				'data-part': 'root',
 				'data-layout': layout,

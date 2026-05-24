@@ -1,16 +1,24 @@
 <script lang="ts" module>
-	import type { LocaleProviderRootProps } from './root.ts';
+	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+
+	export interface LocaleProviderRootProps extends PropsWithChildren {
+		/**
+		 * The locale to use for the application.
+		 * @default 'en-US'
+		 */
+		locale: string;
+	}
 </script>
 
 <script lang="ts">
-	import { LocaleProviderContext } from '../modules/root-context.js';
+	import { LocaleProviderRootContext } from '../modules/root-context.js';
 	import { isRTL } from '@zag-js/i18n-utils';
 
 	const props: LocaleProviderRootProps = $props();
 
 	const { children, locale } = $derived(props);
 
-	LocaleProviderContext.provide(() => ({
+	LocaleProviderRootContext.provide(() => ({
 		locale: locale,
 		dir: isRTL(locale) ? 'rtl' : 'ltr',
 	}));

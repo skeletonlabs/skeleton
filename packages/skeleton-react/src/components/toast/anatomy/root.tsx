@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { ToastGroupContext } from '../modules/group-context.js';
-import { LocaleProviderContext as LocaleContext } from '../../locale-provider/modules/root-context.js';
+import { LocaleProviderRootContext as LocaleContext } from '../../locale-provider/modules/root-context.js';
 import { ToastRootContext } from '../modules/root-context.js';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { connect, machine } from '@zag-js/toast';

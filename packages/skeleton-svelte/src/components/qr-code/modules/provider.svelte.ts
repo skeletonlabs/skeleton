@@ -1,9 +1,9 @@
-import { LocaleProviderContext } from '../../locale-provider/modules/root-context.js';
+import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
 import { connect, machine, type Api, type Props } from '@zag-js/qr-code';
 import { normalizeProps, useMachine, type PropTypes } from '@zag-js/svelte';
 
 export function useQrCode(props: Props | (() => Props)): () => Api<PropTypes> {
-	const local = LocaleProviderContext.consume();
+	const local = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
 		dir: local().dir,
 		...(typeof props === 'function' ? props() : props),

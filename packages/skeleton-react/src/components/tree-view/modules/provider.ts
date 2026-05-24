@@ -2,10 +2,10 @@ import { normalizeProps, useMachine, type PropTypes } from '@zag-js/react';
 import { connect, machine } from '@zag-js/tree-view';
 import type { Api, Props, TreeNode } from '@zag-js/tree-view';
 import { use, useId } from 'react';
-import { LocaleProviderContext } from '../../locale-provider/modules/root-context.js';
+import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
 
 export function useTreeView<T extends TreeNode = TreeNode>(props: Omit<Props<T>, 'id'> = {}): Api<PropTypes> {
-	const locale = use(LocaleProviderContext);
+	const locale = use(LocaleProviderRootContext);
 
 	const service = useMachine(machine, {
 		id: useId(),
