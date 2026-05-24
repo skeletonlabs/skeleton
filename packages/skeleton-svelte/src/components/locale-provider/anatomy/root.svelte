@@ -18,12 +18,10 @@
 
 	const { children, locale } = $derived(props);
 
-	const rootContext = $derived<ReturnType<UseLocaleContext>>({
-		locale,
+	RootContext.provide(() => ({
+		locale: locale,
 		dir: isRTL(locale) ? 'rtl' : 'ltr',
-	});
-
-	RootContext.provide(() => {});
+	}));
 </script>
 
 {@render children?.()}
