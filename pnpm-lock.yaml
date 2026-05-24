@@ -180,6 +180,9 @@ catalogs:
     '@zag-js/floating-panel':
       specifier: 1.40.0
       version: 1.40.0
+    '@zag-js/i18n-utils':
+      specifier: 1.41.0
+      version: 1.41.0
     '@zag-js/listbox':
       specifier: 1.40.0
       version: 1.40.0
@@ -737,6 +740,9 @@ importers:
       '@zag-js/floating-panel':
         specifier: 'catalog:'
         version: 1.40.0
+      '@zag-js/i18n-utils':
+        specifier: 'catalog:'
+        version: 1.41.0
       '@zag-js/listbox':
         specifier: 'catalog:'
         version: 1.40.0
@@ -3831,6 +3837,9 @@ packages:
   '@zag-js/dom-query@1.40.0':
     resolution: {integrity: sha512-4J3EO2gHpZ1VZiGLuMlH6G1Tsp4gKB8PPt2yKeNQWYGEXyrHUXrvMhRUzv7Z4/2I1s1tnxlFG4F8ovB3kTpz/Q==}
 
+  '@zag-js/dom-query@1.41.0':
+    resolution: {integrity: sha512-10KVw1sZNKsiGcR9nC+xazn6r2hAijrJFcMJWWmtrXuskezV04/axCaWdEGHkPloddaoADecWwCAsD4+kOmKFg==}
+
   '@zag-js/file-upload@1.40.0':
     resolution: {integrity: sha512-hUZlJYjSGk7SAflTmQIjZv6M+icujaHS6I+dik2LM48rLWwNa/GYTNx+uY4zJLd9oW1eEj+6NcCYZpPWzKku4Q==}
 
@@ -3848,6 +3857,9 @@ packages:
 
   '@zag-js/i18n-utils@1.40.0':
     resolution: {integrity: sha512-8D3ki9V81gMKZvtRfNVoHCBDVYjr+WJLBvdfSv3cdOsVM2/E8//xAfYbYzl5Fdmeny3H71fxBNqOX05GN4K6OA==}
+
+  '@zag-js/i18n-utils@1.41.0':
+    resolution: {integrity: sha512-+Ov6MJRSquHSFnUnCAWI/G5Xxaf0d64BsV+vzEFV0JPkLFT/2+ePzTwaVyYa+R55erHuMbpIxK/5PoxiLfEYkg==}
 
   '@zag-js/interact-outside@1.40.0':
     resolution: {integrity: sha512-Fws+O4uD9vS0I5KVcf3U2tNjLKvqlv+RExFbTywckDLOCJ145M/pMQWTr1FHil04jk5PFyM1iGfsbom8tozHpQ==}
@@ -3937,6 +3949,9 @@ packages:
 
   '@zag-js/types@1.40.0':
     resolution: {integrity: sha512-LVvxEyqFv/u9SEe5xdivvG2vYb9cCmbkD+5r6s+IGljpDLaRgv4BYyxEh40ri1ai070tL08ZKmoLfx2/xfvY/A==}
+
+  '@zag-js/types@1.41.0':
+    resolution: {integrity: sha512-CNTzGNjJU1e7VAzucjcjqBzpU7e1EBwRH29hCdyoigB4e4uDb+NrKUBHyAkfBVeNMLhpmXxnQfMDlvYt7K3W1A==}
 
   '@zag-js/utils@1.40.0':
     resolution: {integrity: sha512-XUpqDtXfHe7CySjOhLPLj9H8rxbiFUJAGgmBzNdpsGPP4wx12cpOXrpSjRXZ2kMwooMPz/P7RPDBteto8sqhAQ==}
@@ -9268,6 +9283,10 @@ snapshots:
     dependencies:
       '@zag-js/types': 1.40.0
 
+  '@zag-js/dom-query@1.41.0':
+    dependencies:
+      '@zag-js/types': 1.41.0
+
   '@zag-js/file-upload@1.40.0':
     dependencies:
       '@zag-js/anatomy': 1.40.0
@@ -9304,6 +9323,10 @@ snapshots:
   '@zag-js/i18n-utils@1.40.0':
     dependencies:
       '@zag-js/dom-query': 1.40.0
+
+  '@zag-js/i18n-utils@1.41.0':
+    dependencies:
+      '@zag-js/dom-query': 1.41.0
 
   '@zag-js/interact-outside@1.40.0':
     dependencies:
@@ -9515,6 +9538,10 @@ snapshots:
       '@zag-js/utils': 1.40.0
 
   '@zag-js/types@1.40.0':
+    dependencies:
+      csstype: 3.2.3
+
+  '@zag-js/types@1.41.0':
     dependencies:
       csstype: 3.2.3
 
