@@ -4,9 +4,9 @@ import { connect, machine } from '@zag-js/tabs';
 import type { Api, Props } from '@zag-js/tabs';
 
 export function useTabs(props: Props | (() => Props)): () => Api<PropTypes> {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const tabs = $derived(connect(service, normalizeProps));

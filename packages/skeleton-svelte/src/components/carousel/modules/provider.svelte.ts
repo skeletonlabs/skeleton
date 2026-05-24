@@ -4,9 +4,9 @@ import { connect, machine } from '@zag-js/carousel';
 import type { Api, Props } from '@zag-js/carousel';
 
 export function useCarousel(props: Props | (() => Props)): () => Api<PropTypes> {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const carousel = $derived(connect(service, normalizeProps));

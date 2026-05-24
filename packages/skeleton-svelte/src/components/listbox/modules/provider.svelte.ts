@@ -3,9 +3,9 @@ import { type Api, connect, machine, type Props } from '@zag-js/listbox';
 import { normalizeProps, useMachine, type PropTypes } from '@zag-js/svelte';
 
 export function useListbox(props: Props | (() => Props)): () => Api<PropTypes> {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const listbox = $derived(connect(service, normalizeProps));

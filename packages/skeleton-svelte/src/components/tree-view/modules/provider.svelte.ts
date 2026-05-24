@@ -4,9 +4,9 @@ import { connect, machine } from '@zag-js/tree-view';
 import type { Api, Props, TreeNode } from '@zag-js/tree-view';
 
 export function useTreeView<T extends TreeNode = TreeNode>(props: Props<T> | (() => Props<T>)): () => Api<PropTypes> {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const treeView = $derived(connect(service, normalizeProps));

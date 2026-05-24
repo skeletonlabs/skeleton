@@ -4,9 +4,9 @@ import type { Api, Props } from '@zag-js/accordion';
 import { normalizeProps, useMachine, type PropTypes } from '@zag-js/svelte';
 
 export function useAccordion(props: Props | (() => Props)): () => Api<PropTypes> {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const accordion = $derived(connect(service, normalizeProps));

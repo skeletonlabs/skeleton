@@ -3,9 +3,9 @@ import { type Api, connect, machine, type Props, type Service } from '@zag-js/me
 import { normalizeProps, useMachine, type PropTypes } from '@zag-js/svelte';
 
 export function useMenu(props: Props | (() => Props)): () => Api<PropTypes> & { service: Service } {
-	const local = LocaleProviderRootContext.consume();
+	const locale = LocaleProviderRootContext.consume();
 	const service = useMachine(machine, () => ({
-		dir: local().dir,
+		dir: locale().dir,
 		...(typeof props === 'function' ? props() : props),
 	}));
 	const menu = $derived(connect(service, normalizeProps));
