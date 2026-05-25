@@ -1,15 +1,15 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ItemContext } from '../modules/item-context.js';
-import { RootContext } from '../modules/root-context.js';
+import { ListboxItemContext } from '../modules/item-context.js';
+import { ListboxRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
 export interface ListboxItemTextProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function ItemText(props: ListboxItemTextProps) {
-	const listbox = use(RootContext);
-	const itemProps = use(ItemContext);
+	const listbox = use(ListboxRootContext);
+	const itemProps = use(ListboxItemContext);
 
 	const { element, children, ...rest } = props;
 

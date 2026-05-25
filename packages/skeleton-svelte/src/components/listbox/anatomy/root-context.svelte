@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 
 	const props: ListboxRootContextProps = $props();
 
-	const listbox = RootContext.consume();
+	const listbox = ListboxRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

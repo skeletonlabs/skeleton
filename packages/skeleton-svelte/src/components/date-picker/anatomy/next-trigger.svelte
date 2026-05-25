@@ -7,14 +7,14 @@
 
 <script lang="ts">
 	import ChevronRightIcon from '../../../internal/components/chevron-right.svelte';
-	import { RootContext } from '../modules/root-context.js';
-	import { ViewContext } from '../modules/view-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
+	import { DatePickerViewContext } from '../modules/view-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerNextTriggerProps = $props();
 
-	const datePicker = RootContext.consume();
-	const viewProps = ViewContext.consume();
+	const datePicker = DatePickerRootContext.consume();
+	const viewProps = DatePickerViewContext.consume();
 
 	const { element, children = chevronRight, ...rest } = $derived(props);
 

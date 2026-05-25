@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { QrCodeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: QrCodeRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(qrCode().getRootProps(), rest));
 
-	RootContext.provide(() => qrCode());
+	QrCodeRootContext.provide(() => qrCode());
 </script>
 
 {#if element}

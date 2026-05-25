@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ToggleGroupRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToggleGroupRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(toggleGroup().getRootProps(), rest));
 
-	RootContext.provide(() => toggleGroup());
+	ToggleGroupRootContext.provide(() => toggleGroup());
 </script>
 
 {#if element}

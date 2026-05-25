@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { CarouselRootContext } from '../modules/root-context.js';
 
 	const props: CarouselRootContextProps = $props();
 
-	const carousel = RootContext.consume();
+	const carousel = CarouselRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

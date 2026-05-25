@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
 
 	const props: DatePickerRootContextProps = $props();
 
-	const datePicker = RootContext.consume();
+	const datePicker = DatePickerRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

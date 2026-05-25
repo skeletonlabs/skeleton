@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useCollapsible } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { CollapsibleRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/collapsible';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -25,7 +25,7 @@
 
 	const attributes = $derived(mergeProps(collapsible().getRootProps(), rest));
 
-	RootContext.provide(() => collapsible());
+	CollapsibleRootContext.provide(() => collapsible());
 </script>
 
 {#if element}

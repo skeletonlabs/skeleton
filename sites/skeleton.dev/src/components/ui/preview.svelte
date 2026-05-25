@@ -23,7 +23,7 @@
 	import CodeIcon from '@lucide/svelte/icons/code';
 	import EyeIcon from '@lucide/svelte/icons/eye';
 	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import { Tabs, ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs, ToggleGroup, LocaleProvider } from '@skeletonlabs/skeleton-svelte';
 	import type { CollectionEntry } from 'astro:content';
 	import type { Snippet } from 'svelte';
 
@@ -151,7 +151,9 @@
 		dir={direction}
 		class="p-8 flex justify-center items-center {activePreset} {viewMode === 'preview' && children ? 'block' : 'hidden'}"
 	>
-		{@render children?.()}
+		<LocaleProvider locale={direction === 'ltr' ? 'en-US' : 'ar-SA'}>
+			{@render children?.()}
+		</LocaleProvider>
 	</div>
 
 	<!-- Panel: Files -->

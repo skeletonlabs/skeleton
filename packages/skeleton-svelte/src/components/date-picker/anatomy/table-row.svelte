@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { ViewContext } from '../modules/view-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
+	import { DatePickerViewContext } from '../modules/view-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableRowProps = $props();
 
-	const datePicker = RootContext.consume();
-	const viewProps = ViewContext.consume();
+	const datePicker = DatePickerRootContext.consume();
+	const viewProps = DatePickerViewContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

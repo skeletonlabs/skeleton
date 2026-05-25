@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import type { useMarquee } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { MarqueeRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import type { PropsWithChildren } from 'react';
 
@@ -15,6 +15,8 @@ export default function RootProvider(props: MarqueeRootProviderProps) {
 	const attributes = mergeProps(marquee.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={marquee}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<MarqueeRootContext.Provider value={marquee}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</MarqueeRootContext.Provider>
 	);
 }

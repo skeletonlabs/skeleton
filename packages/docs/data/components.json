@@ -4983,6 +4983,56 @@
 				]
 			},
 			{
+				"name": "locale-provider",
+				"types": [
+					{
+						"name": "LocaleProviderRootProps",
+						"props": [
+							{
+								"name": "locale",
+								"type": "string",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The locale to use for the application.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "'en-US'"
+										}
+									]
+								}
+							},
+							{
+								"name": "children",
+								"type": "ReactNode",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "LocaleProviderRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "(locale: Locale) => ReactNode",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"name": "marquee",
 				"types": [
 					{
@@ -7508,6 +7558,91 @@
 						"name": "QrCodeRootProps",
 						"props": [
 							{
+								"name": "value",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The controlled value to encode.",
+									"tags": []
+								}
+							},
+							{
+								"name": "defaultValue",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The initial value to encode when rendered.\nUse when you don't need to control the value of the qr code.",
+									"tags": []
+								}
+							},
+							{
+								"name": "ids",
+								"type": "Partial<{ root: string; frame: string; }> | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The element ids.",
+									"tags": []
+								}
+							},
+							{
+								"name": "encoding",
+								"type": "QrCodeGenerateOptions | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The qr code encoding options.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onValueChange",
+								"type": "((details: ValueChangeDetails) => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Callback fired when the value changes.",
+									"tags": []
+								}
+							},
+							{
+								"name": "pixelSize",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The pixel size of the qr code.",
+									"tags": []
+								}
+							},
+							{
+								"name": "dir",
+								"type": "\"ltr\" | \"rtl\" | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The document's text/writing direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"ltr\""
+										}
+									]
+								}
+							},
+							{
+								"name": "getRootNode",
+								"type": "(() => ShadowRoot | Node | Document) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+									"tags": []
+								}
+							},
+							{
 								"name": "element",
 								"type": "((attributes: HTMLAttributes<\"div\">) => Element) | undefined",
 								"typeKind": "function",
@@ -7524,8 +7659,8 @@
 						"props": [
 							{
 								"name": "value",
-								"type": "Api<PropTypes>",
-								"typeKind": "primitive",
+								"type": "QrCodeApi<PropTypes>",
+								"typeKind": "object",
 								"optional": false,
 								"JSDoc": {
 									"description": null,
@@ -7549,7 +7684,7 @@
 						"props": [
 							{
 								"name": "children",
-								"type": "(qrCode: Api<PropTypes>) => ReactNode",
+								"type": "(qrCode: QrCodeApi<PropTypes>) => ReactNode",
 								"typeKind": "function",
 								"optional": false,
 								"JSDoc": {
@@ -7562,6 +7697,36 @@
 					{
 						"name": "QrCodeDownloadTriggerProps",
 						"props": [
+							{
+								"name": "mimeType",
+								"type": "DataUrlType",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The mime type of the image.",
+									"tags": []
+								}
+							},
+							{
+								"name": "quality",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The quality of the image.",
+									"tags": []
+								}
+							},
+							{
+								"name": "fileName",
+								"type": "string",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The name of the file.",
+									"tags": []
+								}
+							},
 							{
 								"name": "element",
 								"type": "((attributes: HTMLAttributes<\"button\">) => Element) | undefined",
@@ -11118,6 +11283,21 @@
 				"name": "tree-view",
 				"types": [
 					{
+						"name": "TreeViewNodeContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "(treeView: NodeProps) => ReactNode",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
 						"name": "TreeViewRootProps",
 						"props": [
 							{
@@ -11535,21 +11715,6 @@
 								"type": "ReactNode",
 								"typeKind": "object",
 								"optional": true,
-								"JSDoc": {
-									"description": null,
-									"tags": []
-								}
-							}
-						]
-					},
-					{
-						"name": "TreeViewNodeContextProps",
-						"props": [
-							{
-								"name": "children",
-								"type": "(treeView: NodeProps) => ReactNode",
-								"typeKind": "function",
-								"optional": false,
 								"JSDoc": {
 									"description": null,
 									"tags": []
@@ -16620,6 +16785,56 @@
 				]
 			},
 			{
+				"name": "locale-provider",
+				"types": [
+					{
+						"name": "LocaleProviderRootProps",
+						"props": [
+							{
+								"name": "locale",
+								"type": "string",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The locale to use for the application.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "'en-US'"
+										}
+									]
+								}
+							},
+							{
+								"name": "children",
+								"type": "Snippet<[]> | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "The default slot content to be rendered within the component.",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "LocaleProviderRootContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "Snippet<[any]>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					}
+				]
+			},
+			{
 				"name": "marquee",
 				"types": [
 					{
@@ -19035,6 +19250,91 @@
 						"name": "QrCodeRootProps",
 						"props": [
 							{
+								"name": "value",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The controlled value to encode.",
+									"tags": []
+								}
+							},
+							{
+								"name": "defaultValue",
+								"type": "string | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The initial value to encode when rendered.\nUse when you don't need to control the value of the qr code.",
+									"tags": []
+								}
+							},
+							{
+								"name": "ids",
+								"type": "Partial<{ root: string; frame: string; }> | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The element ids.",
+									"tags": []
+								}
+							},
+							{
+								"name": "encoding",
+								"type": "QrCodeGenerateOptions | undefined",
+								"typeKind": "object",
+								"optional": true,
+								"JSDoc": {
+									"description": "The qr code encoding options.",
+									"tags": []
+								}
+							},
+							{
+								"name": "onValueChange",
+								"type": "((details: ValueChangeDetails) => void) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "Callback fired when the value changes.",
+									"tags": []
+								}
+							},
+							{
+								"name": "pixelSize",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The pixel size of the qr code.",
+									"tags": []
+								}
+							},
+							{
+								"name": "dir",
+								"type": "\"ltr\" | \"rtl\" | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The document's text/writing direction.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "\"ltr\""
+										}
+									]
+								}
+							},
+							{
+								"name": "getRootNode",
+								"type": "(() => ShadowRoot | Node | Document) | undefined",
+								"typeKind": "function",
+								"optional": true,
+								"JSDoc": {
+									"description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron.",
+									"tags": []
+								}
+							},
+							{
 								"name": "element",
 								"type": "Snippet<[HTMLAttributes<\"div\">]> | undefined",
 								"typeKind": "function",
@@ -19051,7 +19351,7 @@
 						"props": [
 							{
 								"name": "value",
-								"type": "() => Api<PropTypes>",
+								"type": "() => QrCodeApi<PropTypes>",
 								"typeKind": "function",
 								"optional": false,
 								"JSDoc": {
@@ -19076,7 +19376,7 @@
 						"props": [
 							{
 								"name": "children",
-								"type": "Snippet<[() => Api<PropTypes>]>",
+								"type": "Snippet<[() => QrCodeApi<PropTypes>]>",
 								"typeKind": "function",
 								"optional": false,
 								"JSDoc": {
@@ -19089,6 +19389,36 @@
 					{
 						"name": "QrCodeDownloadTriggerProps",
 						"props": [
+							{
+								"name": "mimeType",
+								"type": "DataUrlType",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The mime type of the image.",
+									"tags": []
+								}
+							},
+							{
+								"name": "quality",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The quality of the image.",
+									"tags": []
+								}
+							},
+							{
+								"name": "fileName",
+								"type": "string",
+								"typeKind": "primitive",
+								"optional": false,
+								"JSDoc": {
+									"description": "The name of the file.",
+									"tags": []
+								}
+							},
 							{
 								"name": "element",
 								"type": "Snippet<[HTMLAttributes<\"button\">]> | undefined",
@@ -22635,6 +22965,21 @@
 				"name": "tree-view",
 				"types": [
 					{
+						"name": "TreeViewNodeContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "Snippet<[() => NodeProps]>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
 						"name": "TreeViewRootProps",
 						"props": [
 							{
@@ -23054,21 +23399,6 @@
 								"optional": true,
 								"JSDoc": {
 									"description": "The default slot content to be rendered within the component.",
-									"tags": []
-								}
-							}
-						]
-					},
-					{
-						"name": "TreeViewNodeContextProps",
-						"props": [
-							{
-								"name": "children",
-								"type": "Snippet<[() => NodeProps]>",
-								"typeKind": "function",
-								"optional": false,
-								"JSDoc": {
-									"description": null,
 									"tags": []
 								}
 							}

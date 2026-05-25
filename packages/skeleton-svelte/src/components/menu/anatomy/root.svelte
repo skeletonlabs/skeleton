@@ -8,14 +8,14 @@
 
 <script lang="ts">
 	import { useMenu } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
-	import { TriggerItemContext } from '../modules/trigger-item-context.js';
+	import { MenuRootContext } from '../modules/root-context.js';
+	import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
 	import { splitProps } from '@zag-js/menu';
 	import { untrack } from 'svelte';
 
 	const props: MenuRootProps = $props();
 
-	const parentMenu = RootContext.consume();
+	const parentMenu = MenuRootContext.consume();
 
 	const [menuProps, componentProps] = $derived(splitProps(props));
 	const { children } = $derived(componentProps);
@@ -36,8 +36,8 @@
 		}),
 	);
 
-	RootContext.provide(() => menu());
-	TriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));
+	MenuRootContext.provide(() => menu());
+	MenuTriggerItemContext.provide(() => parentMenu?.().getTriggerItemProps(menu()));
 </script>
 
 {@render children?.()}

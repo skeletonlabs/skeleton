@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationEllipsisProps = $props();
 
-	const pagination = RootContext.consume();
+	const pagination = PaginationRootContext.consume();
 
 	const [ellipsisProps, componentProps] = $derived(splitEllipsisProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

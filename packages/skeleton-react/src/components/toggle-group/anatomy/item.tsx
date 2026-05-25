@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { ToggleGroupRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { splitItemProps, type ItemProps } from '@zag-js/toggle-group';
 import { use } from 'react';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface ToggleGroupItemProps extends ItemProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
 
 export default function Item(props: ToggleGroupItemProps) {
-	const toggleGroup = use(RootContext);
+	const toggleGroup = use(ToggleGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, ...rest } = componentProps;

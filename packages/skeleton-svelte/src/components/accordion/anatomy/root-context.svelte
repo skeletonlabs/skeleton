@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { AccordionRootContext } from '../modules/root-context.js';
 
 	const props: AccordionRootContextProps = $props();
 
-	const accordion = RootContext.consume();
+	const accordion = AccordionRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

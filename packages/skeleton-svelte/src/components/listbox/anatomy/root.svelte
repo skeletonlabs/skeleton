@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useListbox } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { ListboxRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/listbox';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -24,7 +24,7 @@
 
 	const attributes = $derived(mergeProps(listbox().getRootProps(), rest));
 
-	RootContext.provide(() => listbox());
+	ListboxRootContext.provide(() => listbox());
 </script>
 
 {#if element}

@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { AvatarRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AvatarRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(avatar().getRootProps(), rest));
 
-	RootContext.provide(() => avatar());
+	AvatarRootContext.provide(() => avatar());
 </script>
 
 {#if element}

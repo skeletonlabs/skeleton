@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { StepsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsContentProps = $props();
 
-	const steps = RootContext.consume();
+	const steps = StepsRootContext.consume();
 
 	// @zag-js/steps does not currently provide a splitItemProps function, so manually destructure
 	const { element, children, index, ...rest } = $derived(props);

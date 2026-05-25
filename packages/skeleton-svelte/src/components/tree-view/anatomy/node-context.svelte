@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { NodeContext } from '../modules/node-context.js';
+	import { TreeViewNodeContext } from '../modules/node-context.js';
 
 	const props: TreeViewNodeContextProps = $props();
 
-	const nodeProps = NodeContext.consume();
+	const nodeProps = TreeViewNodeContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { FloatingPanelRootContext } from '../modules/root-context.js';
 	import { splitResizeTriggerProps } from '@zag-js/floating-panel';
 	import type { ResizeTriggerProps as ZagResizeTriggerProps } from '@zag-js/floating-panel';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: FloatingPanelResizeTriggerProps = $props();
 
-	const floatingPanel = RootContext.consume();
+	const floatingPanel = FloatingPanelRootContext.consume();
 
 	const [resizeTriggerProps, componentProps] = $derived(splitResizeTriggerProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

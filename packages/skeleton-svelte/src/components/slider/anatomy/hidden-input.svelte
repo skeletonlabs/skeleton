@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { ThumbContext } from '../modules/thumb-context.js';
+	import { SliderRootContext } from '../modules/root-context.js';
+	import { SliderThumbContext } from '../modules/thumb-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SliderHiddenInputProps = $props();
 
-	const slider = RootContext.consume();
-	const thumbProps = ThumbContext.consume();
+	const slider = SliderRootContext.consume();
+	const thumbProps = SliderThumbContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

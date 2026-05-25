@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { PaginationRootContext } from '../modules/root-context.js';
 import { splitEllipsisProps, type EllipsisProps } from '@zag-js/pagination';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
@@ -8,7 +8,7 @@ import { use } from 'react';
 export interface PaginationEllipsisProps extends EllipsisProps, PropsWithElement<'span'>, HTMLAttributes<'span'> {}
 
 export default function Ellipsis(props: PaginationEllipsisProps) {
-	const pagination = use(RootContext);
+	const pagination = use(PaginationRootContext);
 
 	const [ellipsisProps, componentProps] = splitEllipsisProps(props);
 	const { element, children, ...rest } = componentProps;

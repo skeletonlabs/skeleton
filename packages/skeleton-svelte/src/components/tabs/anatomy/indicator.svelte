@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TabsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TabsIndicatorProps = $props();
 
-	const tabs = RootContext.consume();
+	const tabs = TabsRootContext.consume();
 
 	const { element, ...rest } = $derived(props);
 

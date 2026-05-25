@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { usePagination } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { PaginationRootContext } from '../modules/root-context.js';
 import { splitProps } from '@zag-js/pagination';
 import type { Props } from '@zag-js/pagination';
 import { mergeProps } from '@zag-js/react';
@@ -17,6 +17,8 @@ export default function PaginationRoot(props: PaginationRootProps) {
 	const attributes = mergeProps(pagination.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={pagination}>{element ? element(attributes) : <nav {...attributes}>{children}</nav>}</RootContext.Provider>
+		<PaginationRootContext.Provider value={pagination}>
+			{element ? element(attributes) : <nav {...attributes}>{children}</nav>}
+		</PaginationRootContext.Provider>
 	);
 }

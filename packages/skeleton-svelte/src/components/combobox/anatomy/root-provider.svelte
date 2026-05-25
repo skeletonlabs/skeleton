@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(combobox().getRootProps(), rest));
 
-	RootContext.provide(() => combobox());
+	ComboboxRootContext.provide(() => combobox());
 </script>
 
 {#if element}

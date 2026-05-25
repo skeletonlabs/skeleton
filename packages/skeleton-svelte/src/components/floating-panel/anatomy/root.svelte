@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { useFloatingPanel } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { FloatingPanelRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/floating-panel';
 
 	const props: FloatingPanelRootProps = $props();
@@ -21,7 +21,7 @@
 		id: id,
 	}));
 
-	RootContext.provide(() => floatingPanel());
+	FloatingPanelRootContext.provide(() => floatingPanel());
 </script>
 
 {@render children?.()}

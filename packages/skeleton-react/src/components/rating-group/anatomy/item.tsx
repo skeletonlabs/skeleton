@@ -3,7 +3,7 @@ import StarFull from '../../../internal/components/star-full.jsx';
 import StarHalf from '../../../internal/components/star-half.jsx';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { RatingGroupRootContext } from '../modules/root-context.js';
 import { splitItemProps } from '@zag-js/rating-group';
 import type { ItemProps } from '@zag-js/rating-group';
 import { mergeProps } from '@zag-js/react';
@@ -32,7 +32,7 @@ export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'
 }
 
 export default function Item(props: RatingGroupItemProps) {
-	const ratingGroup = use(RootContext);
+	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
 	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;

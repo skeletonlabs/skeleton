@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MarqueeRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(marquee().getRootProps(), rest));
 
-	RootContext.provide(() => marquee());
+	MarqueeRootContext.provide(() => marquee());
 </script>
 
 {#if element}

@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ToastRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToastDescriptionProps = $props();
 
-	const toast = RootContext.consume();
+	const toast = ToastRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

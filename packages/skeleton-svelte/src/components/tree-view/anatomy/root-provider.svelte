@@ -9,7 +9,7 @@
 
 <script lang="ts">
 	import { useTreeView } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(treeView().getRootProps(), rest));
 
-	RootContext.provide(() => treeView());
+	TreeViewRootContext.provide(() => treeView());
 </script>
 
 {#if element}

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useDatePicker } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { DatePickerRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 
 export interface DatePickerRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
@@ -14,6 +14,8 @@ export default function RootProvider(props: DatePickerRootProviderProps) {
 	const attributes = mergeProps(datePicker.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={datePicker}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<DatePickerRootContext.Provider value={datePicker}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</DatePickerRootContext.Provider>
 	);
 }

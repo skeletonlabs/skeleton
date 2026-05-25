@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SegmentedControlRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SegmentedControlRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(segmentedControl().getRootProps(), rest));
 
-	RootContext.provide(() => segmentedControl());
+	SegmentedControlRootContext.provide(() => segmentedControl());
 </script>
 
 {#if element}

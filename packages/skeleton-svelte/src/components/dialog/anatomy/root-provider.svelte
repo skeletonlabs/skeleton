@@ -8,13 +8,13 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DialogRootContext } from '../modules/root-context.js';
 
 	const props: DialogRootProviderProps = $props();
 
 	const { children, value: dialog } = $derived(props);
 
-	RootContext.provide(() => dialog());
+	DialogRootContext.provide(() => dialog());
 </script>
 
 {@render children?.()}

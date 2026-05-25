@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(datePicker().getRootProps(), rest));
 
-	RootContext.provide(() => datePicker());
+	DatePickerRootContext.provide(() => datePicker());
 </script>
 
 {#if element}

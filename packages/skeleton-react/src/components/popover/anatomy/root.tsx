@@ -1,5 +1,5 @@
 import { usePopover } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { PopoverRootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/popover';
 import { type PropsWithChildren } from 'react';
 
@@ -11,5 +11,5 @@ export default function Root(props: PopoverRootProps) {
 
 	const popover = usePopover(popoverProps);
 
-	return <RootContext.Provider value={popover}>{children}</RootContext.Provider>;
+	return <PopoverRootContext.Provider value={popover}>{children}</PopoverRootContext.Provider>;
 }

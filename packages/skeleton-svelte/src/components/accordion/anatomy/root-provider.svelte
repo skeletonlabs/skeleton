@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { AccordionRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AccordionRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(accordion().getRootProps(), rest));
 
-	RootContext.provide(() => accordion());
+	AccordionRootContext.provide(() => accordion());
 </script>
 
 {#if element}

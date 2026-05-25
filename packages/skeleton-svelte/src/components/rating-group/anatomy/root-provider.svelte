@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { RatingGroupRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: RatingGroupRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(ratingGroup().getRootProps(), rest));
 
-	RootContext.provide(() => ratingGroup());
+	RatingGroupRootContext.provide(() => ratingGroup());
 </script>
 
 {#if element}

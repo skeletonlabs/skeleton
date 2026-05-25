@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { TreeViewRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use, type JSX } from 'react';
 
@@ -14,7 +14,7 @@ export interface TreeViewLabelProps extends PropsWithElement<'h3'>, HTMLAttribut
 }
 
 export default function Label(props: TreeViewLabelProps) {
-	const treeView = use(RootContext);
+	const treeView = use(TreeViewRootContext);
 
 	const { element, children, level = 3, ...rest } = props;
 

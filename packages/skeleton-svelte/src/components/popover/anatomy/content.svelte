@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { PopoverRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PopoverContentProps = $props();
 
-	const popover = RootContext.consume();
+	const popover = PopoverRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

@@ -7,14 +7,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemGroupContext } from '../modules/item-group-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxItemGroupContext } from '../modules/item-group-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { splitItemGroupProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemGroupProps = $props();
 
-	const combobox = RootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const id = $props.id();
 	const [itemGroupProps, componentProps] = $derived(
@@ -27,7 +27,7 @@
 
 	const attributes = $derived(mergeProps(combobox().getItemGroupProps(itemGroupProps), rest));
 
-	ItemGroupContext.provide(() => itemGroupProps);
+	ComboboxItemGroupContext.provide(() => itemGroupProps);
 </script>
 
 {#if element}

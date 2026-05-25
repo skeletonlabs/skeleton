@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { useTooltip } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { TooltipRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/tooltip';
 
 	const props: TooltipRootProps = $props();
@@ -21,7 +21,7 @@
 		id: id,
 	}));
 
-	RootContext.provide(() => tooltip());
+	TooltipRootContext.provide(() => tooltip());
 </script>
 
 {@render children?.()}

@@ -8,13 +8,13 @@
 
 <script lang="ts">
 	import { useTooltip } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { TooltipRootContext } from '../modules/root-context.js';
 
 	const props: TooltipRootProviderProps = $props();
 
 	const { children, value: tooltip } = $derived(props);
 
-	RootContext.provide(() => tooltip());
+	TooltipRootContext.provide(() => tooltip());
 </script>
 
 {@render children?.()}

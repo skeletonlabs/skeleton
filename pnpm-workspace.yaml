@@ -140,6 +140,7 @@ catalog:
   vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
   neverthrow: 8.2.0
+  '@zag-js/i18n-utils': 1.41.0
 
 catalogMode: strict
 

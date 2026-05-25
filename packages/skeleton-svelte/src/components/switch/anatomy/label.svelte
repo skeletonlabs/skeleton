@@ -6,12 +6,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SwitchRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SwitchLabelProps = $props();
 
-	const switch_ = RootContext.consume();
+	const switch_ = SwitchRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

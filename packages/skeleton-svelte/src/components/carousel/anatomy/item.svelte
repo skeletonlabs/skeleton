@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { CarouselRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/carousel';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CarouselItemProps = $props();
 
-	const carousel = RootContext.consume();
+	const carousel = CarouselRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

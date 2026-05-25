@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { GroupContext } from '../modules/group-context.js';
+import { ToastGroupContext } from '../modules/group-context.js';
 import type { ToastOptions } from './root.js';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { group } from '@zag-js/toast';
@@ -27,8 +27,8 @@ export default function Group(props: ToastGroupProps) {
 	const attributes = mergeProps(api.getGroupProps(), rest);
 
 	return (
-		<GroupContext.Provider value={service}>
+		<ToastGroupContext.Provider value={service}>
 			{element ? element(attributes) : <div {...attributes}>{api.getToasts().map((toast, index) => children?.({ ...toast, index }))}</div>}
-		</GroupContext.Provider>
+		</ToastGroupContext.Provider>
 	);
 }

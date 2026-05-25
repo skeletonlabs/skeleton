@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { ToggleGroupRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitItemProps } from '@zag-js/toggle-group';
 
 	const props: ToggleGroupItemProps = $props();
 
-	const toggleGroup = RootContext.consume();
+	const toggleGroup = ToggleGroupRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { FloatingPanelRootContext } from '../modules/root-context.js';
 
 	const props: FloatingPanelRootContextProps = $props();
 
-	const floatingPanel = RootContext.consume();
+	const floatingPanel = FloatingPanelRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

@@ -1,5 +1,5 @@
 import type { useFloatingPanel } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { FloatingPanelRootContext } from '../modules/root-context.js';
 import { type PropsWithChildren } from 'react';
 
 export interface FloatingPanelRootProviderProps extends PropsWithChildren {
@@ -9,5 +9,5 @@ export interface FloatingPanelRootProviderProps extends PropsWithChildren {
 export default function RootProvider(props: FloatingPanelRootProviderProps) {
 	const { children, value: floatingPanel } = props;
 
-	return <RootContext.Provider value={floatingPanel}>{children}</RootContext.Provider>;
+	return <FloatingPanelRootContext.Provider value={floatingPanel}>{children}</FloatingPanelRootContext.Provider>;
 }

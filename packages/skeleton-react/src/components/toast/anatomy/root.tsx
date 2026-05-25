@@ -1,7 +1,8 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { GroupContext } from '../modules/group-context.js';
-import { RootContext } from '../modules/root-context.js';
+import { ToastGroupContext } from '../modules/group-context.js';
+import { LocaleProviderRootContext as LocaleContext } from '../../locale-provider/modules/root-context.js';
+import { ToastRootContext } from '../modules/root-context.js';
 import { mergeProps, normalizeProps, useMachine } from '@zag-js/react';
 import { connect, machine } from '@zag-js/toast';
 import type { Options } from '@zag-js/toast';
@@ -17,12 +18,14 @@ export interface ToastRootProps extends PropsWithElement<'div'>, HTMLAttributes<
 }
 
 export default function Root(props: ToastRootProps) {
-	const group = use(GroupContext);
+	const group = use(ToastGroupContext);
+	const locale = use(LocaleContext);
 
 	const { element, children, toast: toastProps, ...rest } = props;
 
 	const service = useMachine(machine, {
 		...toastProps,
+		dir: locale.dir,
 		parent: group,
 	});
 	const toast = connect(service, normalizeProps);
@@ -30,7 +33,7 @@ export default function Root(props: ToastRootProps) {
 	const attributes = mergeProps(toast.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={toast}>
+		<ToastRootContext.Provider value={toast}>
 			{element ? (
 				element(attributes)
 			) : (
@@ -40,6 +43,6 @@ export default function Root(props: ToastRootProps) {
 					<div {...toast.getGhostAfterProps()}></div>
 				</div>
 			)}
-		</RootContext.Provider>
+		</ToastRootContext.Provider>
 	);
 }

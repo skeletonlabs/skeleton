@@ -8,11 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from '../modules/root-context.js';
 
 	const props: MarqueeRootContextProps = $props();
 
-	const marquee = RootContext.consume();
+	const marquee = MarqueeRootContext.consume();
 
 	const { children } = $derived(props);
 </script>

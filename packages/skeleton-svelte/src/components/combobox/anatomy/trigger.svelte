@@ -7,12 +7,12 @@
 
 <script lang="ts">
 	import ChevronDownIcon from '../../../internal/components/chevron-down.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxTriggerProps = $props();
 
-	const combobox = RootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const { element, children = chevronDown, ...rest } = $derived(props);
 

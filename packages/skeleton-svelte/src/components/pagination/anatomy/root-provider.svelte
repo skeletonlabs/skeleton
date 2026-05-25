@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: PaginationRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(pagination().getRootProps(), rest));
 
-	RootContext.provide(() => pagination());
+	PaginationRootContext.provide(() => pagination());
 </script>
 
 {#if element}

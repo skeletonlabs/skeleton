@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useCarousel } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { CarouselRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { splitProps } from '@zag-js/carousel';
 import type { Props } from '@zag-js/carousel';
@@ -17,6 +17,8 @@ export default function Root(props: CarouselRootProps) {
 	const attributes = mergeProps(carousel.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={carousel}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<CarouselRootContext.Provider value={carousel}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</CarouselRootContext.Provider>
 	);
 }

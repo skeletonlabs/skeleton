@@ -1,5 +1,5 @@
 import { useDialog } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { DialogRootContext } from '../modules/root-context.js';
 import { type Props, splitProps } from '@zag-js/dialog';
 import { type PropsWithChildren } from 'react';
 
@@ -11,5 +11,5 @@ export default function Root(props: DialogRootProps) {
 
 	const dialog = useDialog(dialogProps);
 
-	return <RootContext.Provider value={dialog}>{children}</RootContext.Provider>;
+	return <DialogRootContext.Provider value={dialog}>{children}</DialogRootContext.Provider>;
 }

@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { CarouselRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: CarouselRootProviderProps = $props();
@@ -17,7 +17,7 @@
 
 	const attributes = $derived(mergeProps(carousel().getRootProps(), rest));
 
-	RootContext.provide(() => carousel());
+	CarouselRootContext.provide(() => carousel());
 </script>
 
 {#if element}

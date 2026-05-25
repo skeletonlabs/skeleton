@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { QrCodeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: QrCodeDownloadTriggerProps = $props();
 
-	const qrCode = RootContext.consume();
+	const qrCode = QrCodeRootContext.consume();
 
 	const { mimeType, fileName, quality, element, children, ...rest } = $derived(props);
 

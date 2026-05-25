@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
 import { useSwitch } from '../modules/provider.js';
-import { RootContext } from '../modules/root-context.js';
+import { SwitchRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { splitProps } from '@zag-js/switch';
 import type { Props } from '@zag-js/switch';
@@ -17,6 +17,8 @@ export default function Root(props: SwitchRootProps) {
 	const attributes = mergeProps(switch_.getRootProps(), rest);
 
 	return (
-		<RootContext.Provider value={switch_}>{element ? element(attributes) : <label {...attributes}>{children}</label>}</RootContext.Provider>
+		<SwitchRootContext.Provider value={switch_}>
+			{element ? element(attributes) : <label {...attributes}>{children}</label>}
+		</SwitchRootContext.Provider>
 	);
 }

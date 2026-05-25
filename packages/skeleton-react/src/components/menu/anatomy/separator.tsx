@@ -1,13 +1,13 @@
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { MenuRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
 export interface MenuSeparatorProps extends PropsWithElement<'hr'>, HTMLAttributes<'hr', 'id' | 'dir' | 'children'> {}
 
 export default function Separator(props: MenuSeparatorProps) {
-	const menu = use(RootContext);
+	const menu = use(MenuRootContext);
 
 	const { element, ...rest } = props;
 

@@ -9,16 +9,16 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
-	import { TableCellContext } from '../modules/table-cell-context.js';
-	import { ViewContext } from '../modules/view-context.js';
+	import { DatePickerRootContext } from '../modules/root-context.js';
+	import { DatePickerTableCellContext } from '../modules/table-cell-context.js';
+	import { DatePickerViewContext } from '../modules/view-context.js';
 	import { splitTableCellProps } from '@zag-js/date-picker';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: DatePickerTableCellProps = $props();
 
-	const datePicker = RootContext.consume();
-	const viewProps = ViewContext.consume();
+	const datePicker = DatePickerRootContext.consume();
+	const viewProps = DatePickerViewContext.consume();
 
 	const [tableCellProps, componentProps] = $derived(
 		splitTableCellProps(props as unknown as TableCellProps) as unknown as [
@@ -39,7 +39,7 @@
 
 	const attributes = $derived(mergeProps(refinedTableCellProps, rest));
 
-	TableCellContext.provide(() => tableCellProps);
+	DatePickerTableCellContext.provide(() => tableCellProps);
 </script>
 
 {#if element}

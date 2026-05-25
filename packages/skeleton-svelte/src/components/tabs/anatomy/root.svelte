@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useTabs } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { TabsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitProps } from '@zag-js/tabs';
 
@@ -24,7 +24,7 @@
 
 	const attributes = $derived(mergeProps(tabs().getRootProps(), rest));
 
-	RootContext.provide(() => tabs());
+	TabsRootContext.provide(() => tabs());
 </script>
 
 {#if element}

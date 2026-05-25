@@ -6,15 +6,19 @@
 </script>
 
 <script lang="ts">
+	import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: AppBarRootProps = $props();
+
+	const locale = LocaleProviderRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(
 		mergeProps(
 			{
+				dir: locale().dir,
 				'data-scope': 'app-bar',
 				'data-part': 'root',
 			},

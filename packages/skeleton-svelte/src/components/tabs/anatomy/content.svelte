@@ -7,13 +7,13 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TabsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 	import { splitContentProps } from '@zag-js/tabs';
 
 	const props: TabsContentProps = $props();
 
-	const tabs = RootContext.consume();
+	const tabs = TabsRootContext.consume();
 
 	const [contentProps, componentProps] = $derived(splitContentProps(props));
 	const { element, children, ...rest } = $derived(componentProps);

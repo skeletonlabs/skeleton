@@ -7,12 +7,12 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: MarqueeEdgeProps = $props();
 
-	const marquee = RootContext.consume();
+	const marquee = MarqueeRootContext.consume();
 
 	const { element, children, side, ...rest } = $derived(props);
 

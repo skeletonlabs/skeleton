@@ -1,6 +1,8 @@
+import { use } from 'react';
 import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RootContext } from '../modules/root-context.js';
+import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
+import { NavigationRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 
 export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {
@@ -15,8 +17,11 @@ export interface NavigationRootProps extends PropsWithElement<'div'>, HTMLAttrib
 export default function NavigationRoot(props: NavigationRootProps) {
 	const { layout = 'bar', element, children, ...rest } = props;
 
+	const locale = use(LocaleProviderRootContext);
+
 	const attributes = mergeProps(
 		{
+			dir: locale.dir,
 			'data-scope': 'navigation',
 			'data-part': 'root',
 			'data-layout': layout,
@@ -25,6 +30,8 @@ export default function NavigationRoot(props: NavigationRootProps) {
 	);
 
 	return (
-		<RootContext.Provider value={{ layout }}>{element ? element(attributes) : <div {...attributes}>{children}</div>}</RootContext.Provider>
+		<NavigationRootContext.Provider value={{ layout }}>
+			{element ? element(attributes) : <div {...attributes}>{children}</div>}
+		</NavigationRootContext.Provider>
 	);
 }

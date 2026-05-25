@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { TagsInputRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputRootProviderProps = $props();
@@ -17,7 +17,7 @@
 
 	const attributes = $derived(mergeProps(tagsInput().getRootProps(), rest));
 
-	RootContext.provide(() => tagsInput());
+	TagsInputRootContext.provide(() => tagsInput());
 </script>
 
 {#if element}

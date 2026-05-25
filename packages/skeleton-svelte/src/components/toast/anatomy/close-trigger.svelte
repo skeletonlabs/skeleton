@@ -7,12 +7,12 @@
 
 <script lang="ts">
 	import X from '../../../internal/components/x.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { ToastRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ToastCloseTriggerProps = $props();
 
-	const toast = RootContext.consume();
+	const toast = ToastRootContext.consume();
 
 	const { element, children = x, ...rest } = $derived(props);
 

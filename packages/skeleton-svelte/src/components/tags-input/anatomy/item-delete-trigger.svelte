@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { TagsInputItemContext } from '../modules/item-context.js';
+	import { TagsInputRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TagsInputItemDeleteTriggerProps = $props();
 
-	const tagsInput = RootContext.consume();
-	const itemProps = ItemContext.consume();
+	const tagsInput = TagsInputRootContext.consume();
+	const itemProps = TagsInputItemContext.consume();
 
 	const { element, children = times, ...rest } = $derived(props);
 

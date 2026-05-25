@@ -7,21 +7,21 @@
 </script>
 
 <script lang="ts">
-	import { ItemContext } from '../modules/item-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { ComboboxItemContext } from '../modules/item-context.js';
+	import { ComboboxRootContext } from '../modules/root-context.js';
 	import { splitItemProps } from '@zag-js/combobox';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: ComboboxItemProps = $props();
 
-	const combobox = RootContext.consume();
+	const combobox = ComboboxRootContext.consume();
 
 	const [itemProps, componentProps] = $derived(splitItemProps(props));
 	const { element, children, ...rest } = $derived(componentProps);
 
 	const attributes = $derived(mergeProps(combobox().getItemProps(itemProps), rest));
 
-	ItemContext.provide(() => itemProps);
+	ComboboxItemContext.provide(() => itemProps);
 </script>
 
 {#if element}

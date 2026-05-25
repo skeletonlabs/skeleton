@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { StepsRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: StepsRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(steps().getRootProps(), rest));
 
-	RootContext.provide(() => steps());
+	StepsRootContext.provide(() => steps());
 </script>
 
 {#if element}

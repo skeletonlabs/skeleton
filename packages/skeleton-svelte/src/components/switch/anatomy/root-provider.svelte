@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { RootContext } from '../modules/root-context.js';
+	import { SwitchRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: SwitchRootProviderProps = $props();
@@ -18,7 +18,7 @@
 
 	const attributes = $derived(mergeProps(switch_().getRootProps(), rest));
 
-	RootContext.provide(() => switch_());
+	SwitchRootContext.provide(() => switch_());
 </script>
 
 {#if element}

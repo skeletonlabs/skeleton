@@ -7,7 +7,7 @@
 
 <script lang="ts">
 	import { usePopover } from '../modules/provider.svelte';
-	import { RootContext } from '../modules/root-context.js';
+	import { PopoverRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/popover';
 
 	const props: PopoverRootProps = $props();
@@ -21,7 +21,7 @@
 		id: id,
 	}));
 
-	RootContext.provide(() => popover());
+	PopoverRootContext.provide(() => popover());
 </script>
 
 {@render children?.()}

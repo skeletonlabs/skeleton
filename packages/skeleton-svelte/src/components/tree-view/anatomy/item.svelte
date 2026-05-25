@@ -6,14 +6,14 @@
 </script>
 
 <script lang="ts">
-	import { NodeContext } from '../modules/node-context.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { TreeViewNodeContext } from '../modules/node-context.js';
+	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
 	const props: TreeViewItemProps = $props();
 
-	const treeView = RootContext.consume();
-	const nodeProps = NodeContext.consume();
+	const treeView = TreeViewRootContext.consume();
+	const nodeProps = TreeViewNodeContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 

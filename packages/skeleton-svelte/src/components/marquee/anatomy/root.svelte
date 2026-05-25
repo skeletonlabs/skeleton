@@ -8,7 +8,7 @@
 
 <script lang="ts">
 	import { useMarquee } from '../modules/provider.svelte.js';
-	import { RootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from '../modules/root-context.js';
 	import { splitProps } from '@zag-js/marquee';
 	import { mergeProps } from '@zag-js/svelte';
 
@@ -25,7 +25,7 @@
 
 	const attributes = $derived(mergeProps(marquee().getRootProps(), rest));
 
-	RootContext.provide(() => marquee());
+	MarqueeRootContext.provide(() => marquee());
 </script>
 
 {#if element}
