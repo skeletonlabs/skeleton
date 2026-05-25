@@ -15,7 +15,7 @@ jobs:
       id-token: write
     name: Build & Publish
     if: github.repository == 'skeletonlabs/skeleton'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: actions/checkout@v6
         with:
