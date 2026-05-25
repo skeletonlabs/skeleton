@@ -29,8 +29,8 @@
 						</header>
 						<!-- Image -->
 						<img
-							src={project.images.hero.src}
-							alt={project.images.hero.alt}
+							src={project.images.card.src}
+							alt={project.images.card.alt}
 							class="w-full aspect-video border border-surface-200-800 rounded-container"
 						/>
 						<!-- Footer -->

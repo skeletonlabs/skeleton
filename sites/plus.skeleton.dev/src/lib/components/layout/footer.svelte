@@ -47,7 +47,7 @@
 		{/each}
 	</DecorCorners>
 
-	<!-- Decore: Stripes -->
+	<!-- Decor: Stripes -->
 	<DecorStripes class="h-6" />
 
 	<!-- Bottom Row -->

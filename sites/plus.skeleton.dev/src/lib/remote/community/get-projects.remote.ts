@@ -7,11 +7,13 @@
 
 import { getRequestEvent, query } from '$app/server';
 
+import etesieCard from '$lib/assets/images/community/etesie/card.webp';
 import etesieHero from '$lib/assets/images/community/etesie/hero.webp';
 import etesieScreenshot001 from '$lib/assets/images/community/etesie/screenshot-001.webp';
 import etesieScreenshot002 from '$lib/assets/images/community/etesie/screenshot-002.webp';
 import etesieScreenshot003 from '$lib/assets/images/community/etesie/screenshot-003.webp';
 
+import typogramCard from '$lib/assets/images/community/typogram/card.webp';
 import typogramHero from '$lib/assets/images/community/typogram/hero.webp';
 import typogramScreenshot001 from '$lib/assets/images/community/typogram/screenshot-001.webp';
 import typogramScreenshot002 from '$lib/assets/images/community/typogram/screenshot-002.webp';
@@ -51,6 +53,7 @@ export interface CommunityProject {
 		avatar: string;
 	};
 	images: {
+		card: CommunityImage;
 		hero: CommunityImage;
 		screenshots: CommunityImage[];
 	};
@@ -76,6 +79,7 @@ const projects: CommunityProject[] = [
 			avatar: 'https://www.google.com/s2/favicons?domain=etesie.dev&sz=64',
 		},
 		images: {
+			card: { src: etesieCard, alt: 'Etesie homepage — frontend foundations for product teams' },
 			hero: { src: etesieHero, alt: 'Etesie homepage — frontend foundations for product teams' },
 			screenshots: [
 				{ src: etesieScreenshot001, alt: 'Etesie theme browser' },
@@ -103,6 +107,7 @@ const projects: CommunityProject[] = [
 			avatar: 'https://www.google.com/s2/favicons?domain=typogram.co&sz=64',
 		},
 		images: {
+			card: { src: typogramCard, alt: 'Typogram homepage — logo and brand design tool' },
 			hero: { src: typogramHero, alt: 'Typogram homepage — logo and brand design tool' },
 			screenshots: [
 				{ src: typogramScreenshot001, alt: 'Typogram studio interface' },
