@@ -1,5 +1,22 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.0-next.10
+
+### Minor Changes
+
+- feature: `QrCode` component ([#4394](https://github.com/skeletonlabs/skeleton/pull/4394))
+
+- feature: `LocaleProvider` component ([#4479](https://github.com/skeletonlabs/skeleton/pull/4479))
+
+- feature: Added marquee component ([#4456](https://github.com/skeletonlabs/skeleton/pull/4456))
+
+### Patch Changes
+
+- task: bump `zag` to `1.41.0` ([#4480](https://github.com/skeletonlabs/skeleton/pull/4480))
+
+- Updated dependencies [[`851579f`](https://github.com/skeletonlabs/skeleton/commit/851579fcc9d57c4aa9a45ff45963aa8f961f229f), [`960cd5a`](https://github.com/skeletonlabs/skeleton/commit/960cd5acc8179da46fcf03bd6a0c24c8c8332155)]:
+  - @skeletonlabs/skeleton-common@5.0.0-next.10
+
 ## 5.0.0-next.9
 
 ### Patch Changes
