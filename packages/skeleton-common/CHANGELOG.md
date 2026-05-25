@@ -1,5 +1,13 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0-next.10
+
+### Minor Changes
+
+- feature: `QrCode` component ([#4394](https://github.com/skeletonlabs/skeleton/pull/4394))
+
+- feature: Added marquee component ([#4456](https://github.com/skeletonlabs/skeleton/pull/4456))
+
 ## 5.0.0-next.9
 
 ## 5.0.0-next.8
