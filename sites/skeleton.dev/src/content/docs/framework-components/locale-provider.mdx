@@ -1,0 +1,67 @@
+---
+title: LocaleProvider
+description: Provides locale context and formatting utilities for Skeleton components.
+---
+
+## Usage
+
+<Framework id="react">
+
+```tsx
+import { LocaleProvider } from '@skeletonlabs/skeleton-react';
+
+export default function App() {
+	return <LocaleProvider locale="en-US">{/* your app */}</LocaleProvider>;
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { LocaleProvider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<LocaleProvider locale="en-US">
+	<slot />
+</LocaleProvider>
+```
+
+</Framework>
+
+## Anatomy
+
+Here's an overview of how the LocaleProvider component is structured in code:
+
+<Framework id="react">
+
+```tsx
+import { LocaleProvider } from '@skeletonlabs/skeleton-react';
+
+export default function Anatomy() {
+	return <LocaleProvider></LocaleProvider>;
+}
+```
+
+</Framework>
+<Framework id="svelte">
+
+```svelte
+<script lang="ts">
+	import { LocaleProvider } from '@skeletonlabs/skeleton-svelte';
+</script>
+
+<LocaleProvider></LocaleProvider>
+```
+
+</Framework>
+
+## API Reference
+
+<Framework id="react">
+	<ApiReference id="react/locale-provider" />
+</Framework>
+<Framework id="svelte">
+	<ApiReference id="svelte/locale-provider" />
+</Framework>
