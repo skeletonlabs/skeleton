@@ -6,33 +6,20 @@ import BranchText from '../anatomy/branch-text.svelte';
 import Branch from '../anatomy/branch.svelte';
 import Item from '../anatomy/item.svelte';
 import Label from '../anatomy/label.svelte';
-import TreeViewNodeContext from '../anatomy/node-context.svelte';
+import NodeContext from '../anatomy/node-context.svelte';
 import NodeProvider from '../anatomy/node-provider.svelte';
 import RootContext from '../anatomy/root-context.svelte';
 import RootProvider from '../anatomy/root-provider.svelte';
 import Root from '../anatomy/root.svelte';
 import Tree from '../anatomy/tree.svelte';
 
-export const TreeView: typeof Root & {
-	Provider: typeof RootProvider;
-	Context: typeof TreeViewRootContext;
-	Tree: typeof Tree;
-	Label: typeof Label;
-	NodeProvider: typeof NodeProvider;
-	Branch: typeof Branch;
-	BranchControl: typeof BranchControl;
-	BranchText: typeof BranchText;
-	BranchIndicator: typeof BranchIndicator;
-	BranchContent: typeof BranchContent;
-	BranchIndentGuide: typeof BranchIndentGuide;
-	Item: typeof Item;
-} = Object.assign(Root, {
+export const TreeView = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
 	Tree: Tree,
 	Label: Label,
 	NodeProvider: NodeProvider,
-	TreeViewNodeContext: TreeViewNodeContext,
+	NodeContext: NodeContext,
 	Branch: Branch,
 	BranchControl: BranchControl,
 	BranchText: BranchText,
