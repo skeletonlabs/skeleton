@@ -22,4 +22,6 @@
 	);
 </script>
 
-{@html html}
+<div class="*:first:card *:first:p-4">
+	{@html html}
+</div>
