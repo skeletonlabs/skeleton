@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { ClassValue } from 'svelte/elements';
 
 	interface Props {
-		class?: string;
+		class?: ClassValue;
 		children?: Snippet;
 	}
 
 	let { class: classList, children }: Props = $props();
 </script>
 
-<section class="stripes {classList}">
+<section class={['stripes', classList]}>
 	{@render children?.()}
 </section>
 

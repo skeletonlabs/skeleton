@@ -20,7 +20,7 @@
 		children?: Snippet;
 	}
 
-	let { title = '(Title Missing)', code = '(Code Missing)', lang, locked = false, children }: Props = $props();
+	const { title = '(Title Missing)', code = '(Code Missing)', lang, locked = false, children }: Props = $props();
 
 	let view = $state<'preview' | 'code'>('preview');
 	let mode = $state<'light' | 'dark' | null>(null);
@@ -35,16 +35,15 @@
 		return () => mq.removeEventListener('change', handler);
 	});
 
-	// Handle copied state
 	$effect(() => {
 		if (!copied) return;
 		const timeout = setTimeout(() => (copied = false), 2000);
 		return () => clearTimeout(timeout);
 	});
 
-	function copyCode() {
+	async function copyCode() {
 		if (!code) return;
-		navigator.clipboard.writeText(code);
+		await navigator.clipboard.writeText(code);
 		copied = true;
 	}
 </script>
@@ -107,7 +106,11 @@
 					title="Copy Code"
 					aria-label="Copy Code"
 				>
-					{#if copied}<ThumbsUpIcon />{:else}<CopyIcon />{/if}
+					{#if copied}
+						<ThumbsUpIcon />
+					{:else}
+						<CopyIcon />
+					{/if}
 				</button>
 			{:else}
 				<a href={resolve('/overview/pricing')} class="btn preset-tonal">
@@ -122,11 +125,10 @@
 	{#if view === 'preview'}
 		<!-- Preview -->
 		<DecorStripes
-			class="card border border-surface-200-800 preset-filled-surface-50-950 flex justify-center items-center p-4 md:p-8 {mode === 'light'
-				? 'scheme-light'
-				: mode === 'dark'
-					? 'scheme-dark'
-					: ''}"
+			class={[
+				'card border border-surface-200-800 preset-filled-surface-50-950 flex justify-center items-center p-4 md:p-8',
+				{ 'scheme-light': mode === 'light', 'scheme-dark': mode === 'dark' },
+			]}
 		>
 			{@render children?.()}
 		</DecorStripes>
