@@ -3,17 +3,19 @@
 	import { dialogDrawerRight } from '$lib/components/modal-styles';
 	import { iconMap } from '$lib/remote/blocks/block-icons';
 	import { getFrameworks, getBlocks, getCategories } from '$lib/remote/blocks/get-blocks.remote';
-	import LockIcon from '@lucide/svelte/icons/lock';
+	import CheckIcon from '@lucide/svelte/icons/check';
+	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
-	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Menu, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	const frameworks = $derived(await getFrameworks());
-	const categories = $derived(await getCategories());
-	const blocks = $derived(await getBlocks());
+	const [frameworks, categories, blocks] = $derived(await Promise.all([getFrameworks(), getCategories(), getBlocks()]));
 
 	let drawerOpen = $state(false);
 	let searchQuery = $state('');
+	let selectedFramework = $state('svelte');
+
+	const selectedFrameworkLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
 
 	const filteredBlocks = $derived(
 		searchQuery.trim() ? blocks.filter((b) => b.label.toLowerCase().includes(searchQuery.trim().toLowerCase())) : blocks,
@@ -21,7 +23,7 @@
 </script>
 
 <!-- Modal: Filters -->
-<Dialog preventScroll={false} open={drawerOpen} onOpenChange={({ open }) => (drawerOpen = open)}>
+<Dialog preventScroll={false} open={drawerOpen} onOpenChange={({ open }: { open: boolean }) => (drawerOpen = open)}>
 	<Portal>
 		<!-- <Dialog.Backdrop class={dialogDrawerRight.backdrop} /> -->
 		<Dialog.Positioner class={dialogDrawerRight.positioner}>
@@ -61,32 +63,20 @@
 						{/each}
 					</ul>
 				</div>
-				<hr class="hr" />
-				<!-- Framework -->
-				<!-- TODO: implement -->
-				<div class="p-4 space-y-2">
-					<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Framework</p>
-					<ul class="space-y-2">
-						{#each frameworks as fw (fw.key)}
-							<li class="flex items-center gap-2">
-								<input type="checkbox" class="checkbox" id="fw-{fw.key}" />
-								<label for="fw-{fw.key}" class="text-sm">{fw.label}</label>
-							</li>
-						{/each}
-					</ul>
-				</div>
 			</Dialog.Content>
 		</Dialog.Positioner>
 	</Portal>
 </Dialog>
 
 {#snippet categorySection(id: string, heading: string)}
-	{@const sectionBlocks = filteredBlocks.filter((b) => b.category === id).sort((a, b) => a.label.localeCompare(b.label))}
-	{#if sectionBlocks.length > 0}
-		<section {id} class="scroll-mt-header space-y-4">
-			<header>
-				<h2 class="h2">{heading}</h2>
-			</header>
+	{@const sectionBlocks = filteredBlocks
+		.filter((b) => b.category === id && (b.frameworkCounts[selectedFramework] ?? 0) > 0)
+		.sort((a, b) => a.label.localeCompare(b.label))}
+	<section {id} class="scroll-mt-header space-y-4">
+		<header>
+			<h2 class="h2">{heading}</h2>
+		</header>
+		{#if sectionBlocks.length > 0}
 			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 				{#each sectionBlocks as item (item.slug)}
 					{@const Icon = iconMap[item.iconName]}
@@ -99,13 +89,15 @@
 						</header>
 						<footer class="p-4 flex items-center justify-between">
 							<span class="text-sm font-medium truncate">{item.label}</span>
-							<span class="text-xs opacity-60">{item.count}</span>
+							<span class="text-xs opacity-60">{item.frameworkCounts[selectedFramework] ?? 0}</span>
 						</footer>
 					</a>
 				{/each}
 			</div>
-		</section>
-	{/if}
+		{:else}
+			<p class="opacity-60">Currently no components available for this category.</p>
+		{/if}
+	</section>
 {/snippet}
 
 <!-- Page Header -->
@@ -114,10 +106,34 @@
 		<p class="opacity-60">Partial interface sections for use within your Skeleton app.</p>
 	{/snippet}
 	{#snippet trail()}
-		<a href="/overview/pricing" class="btn preset-filled">
-			<LockIcon />
-			<span>Unlock All Blocks</span>
-		</a>
+		<!-- Framework Picker -->
+		<Menu>
+			<Menu.Trigger class="btn preset-filled">
+				<span>{selectedFrameworkLabel}</span>
+				<ChevronDownIcon />
+			</Menu.Trigger>
+			<Portal>
+				<Menu.Positioner>
+					<Menu.Content class="z-50">
+						{#each frameworks as fw (fw.key)}
+							<Menu.OptionItem
+								type="radio"
+								value={fw.key}
+								checked={selectedFramework === fw.key}
+								onCheckedChange={(checked) => {
+									if (checked) selectedFramework = fw.key;
+								}}
+							>
+								<Menu.ItemText>{fw.label}</Menu.ItemText>
+								<Menu.ItemIndicator class="hidden data-[state=checked]:block">
+									<CheckIcon class="size-4" />
+								</Menu.ItemIndicator>
+							</Menu.OptionItem>
+						{/each}
+					</Menu.Content>
+				</Menu.Positioner>
+			</Portal>
+		</Menu>
 		<button type="button" class="btn preset-outlined" onclick={() => (drawerOpen = !drawerOpen)}>
 			<SearchIcon />
 			<span>Search</span>
@@ -127,7 +143,7 @@
 
 <!-- Category Grids -->
 <div class="container-page space-y-10">
-	{@render categorySection('marketing', 'Marketing')}
-	{@render categorySection('applications', 'Applications')}
-	{@render categorySection('ecommerce', 'Ecommerce')}
+	{#each categories as category (category.id)}
+		{@render categorySection(category.id, category.label)}
+	{/each}
 </div>

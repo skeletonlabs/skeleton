@@ -5,18 +5,37 @@
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import type { Component } from 'svelte';
 
 	const block = $derived(await getBlockBySlug());
 	const frameworks = $derived(await getFrameworks());
 
-	let selectedFramework = $state('svelte');
-	const selectedLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
+	// Svelte Modules
+	const allSvelteModules = import.meta.glob<{ default: Component }>('/src/lib/content/{free,premium}/blocks/*/*/svelte/*.svelte');
 
-	const blockExamples = [
-		{ title: 'Example 1', code: '<h1 class="h1">Hello World</h1>', lang: 'svelte' },
-		{ title: 'Example 2', code: '<h2 class="h2">Hello World</h2>', lang: 'svelte' },
-		{ title: 'Example 3', code: '<h3 class="h3">Hello World</h3>', lang: 'svelte' },
-	];
+	// Framework Selection
+	const availableFrameworks = $derived(block ? frameworks.filter((f) => block.frameworks.includes(f.key)) : []);
+	let selectedFramework = $state('svelte');
+
+	const selectedMeta = $derived(frameworks.find((f) => f.key === selectedFramework));
+	const selectedLabel = $derived(selectedMeta?.label ?? 'Svelte');
+	const selectedLang = $derived(selectedMeta?.lang ?? selectedFramework);
+
+	function parsePreviewName(name: string): string {
+		return name
+			.replace(/^\d+-/, '')
+			.split('-')
+			.map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+			.join(' ');
+	}
+
+	// Find a Svelte module loader by searching glob keys for matching path segments
+	// Avoids depending on the exact key prefix Vite uses when resolving the $lib alias
+	function findSvelteLoader(tier: 'free' | 'premium', category: string, slug: string, name: string) {
+		const suffix = `/${tier}/blocks/${category}/${slug}/svelte/${name}.svelte`;
+		const key = Object.keys(allSvelteModules).find((k) => k.endsWith(suffix));
+		return key ? allSvelteModules[key] : undefined;
+	}
 </script>
 
 {#if block}
@@ -34,7 +53,7 @@
 				<Portal>
 					<Menu.Positioner>
 						<Menu.Content class="z-50">
-							{#each frameworks as fw (fw.key)}
+							{#each availableFrameworks as fw (fw.key)}
 								<Menu.OptionItem
 									type="radio"
 									value={fw.key}
@@ -57,12 +76,26 @@
 	</PageHeader>
 {/if}
 
-<!-- Examples -->
+<!-- Component Previews -->
 <div class="container-page space-y-10">
-	{#each blockExamples as { title, code, lang } (title)}
-		<Preview {title} {code} {lang}>
-			<!-- NOTE: this is a placeholder for a component -->
-			{@html code}
-		</Preview>
-	{/each}
+	{#if block}
+		{#each block.components as component (component.tier + component.name)}
+			{@const svelteLoader = findSvelteLoader(component.tier, block.category, block.slug, component.name)}
+			<Preview
+				title={parsePreviewName(component.name)}
+				code={component.code[selectedFramework] ?? ''}
+				lang={selectedLang}
+				locked={component.tier === 'premium'}
+			>
+				{#if svelteLoader}
+					{#await svelteLoader() then mod}
+						{@const Component = mod.default}
+						<Component />
+					{/await}
+				{:else}
+					<p class="opacity-60 italic">(Svelte Preview Missing)</p>
+				{/if}
+			</Preview>
+		{/each}
+	{/if}
 </div>
