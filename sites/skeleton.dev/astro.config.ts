@@ -55,8 +55,8 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
-		// @ts-ignore - this type mistmatch sometimes shows up after a minor dependency update, we should keep this ignore comment until Astro updates Vite to 8.x.x
-		plugins: [tailwindcss()],
+		// "fixes" the `excessive stack depth` error
+		plugins: [tailwindcss() as unknown as any],
 	},
 	adapter: vercel(),
 });
