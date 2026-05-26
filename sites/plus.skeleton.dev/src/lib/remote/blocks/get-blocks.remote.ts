@@ -2,12 +2,6 @@ import { getRequestEvent, query } from '$app/server';
 
 // Types ---
 
-export interface Framework {
-	key: string;
-	label: string;
-	lang: string;
-}
-
 export type BlockCategory = string;
 
 export interface BlockCategoryItem {
@@ -47,14 +41,6 @@ interface BlockMeta {
 }
 
 // Consts ---
-
-const frameworkList: Framework[] = [
-	{ key: 'react', label: 'React', lang: 'tsx' },
-	{ key: 'svelte', label: 'Svelte', lang: 'svelte' },
-	{ key: 'vue', label: 'Vue', lang: 'vue' },
-	{ key: 'solid', label: 'Solid.js', lang: 'tsx' },
-	{ key: 'astro', label: 'Astro', lang: 'astro' },
-];
 
 const freeMetaFiles = import.meta.glob('/src/lib/content/free/blocks/*/*/meta.json', { eager: true }) as Record<string, BlockMeta>;
 
@@ -123,15 +109,11 @@ function buildBlocks(): Block[] {
 }
 
 const blocks: Block[] = buildBlocks();
-const categoryItems: BlockCategoryItem[] = knownCategories.map((id) => ({ id, label: formatLabel(id) }));
 
 // Query Functions ---
 
 /** Get all categories discovered from meta.json files in the content directories */
-export const getCategories = query(async (): Promise<BlockCategoryItem[]> => categoryItems);
-
-/** Get all supported frameworks */
-export const getFrameworks = query(async (): Promise<Framework[]> => frameworkList);
+export const getCategories = query(async (): Promise<BlockCategoryItem[]> => knownCategories.map((id) => ({ id, label: formatLabel(id) })));
 
 /** Get all blocks derived from the content filesystem */
 export const getBlocks = query(async (): Promise<Block[]> => blocks);
@@ -171,9 +153,7 @@ export const getBlockBySlug = query(async (): Promise<BlockDetail | undefined> =
 		}),
 	);
 
-	// Available frameworks in frameworkList order
-	const presentFrameworks = new Set(tierFiles.map((f) => f.parsed.framework));
-	const frameworks = frameworkList.map((f) => f.key).filter((k) => presentFrameworks.has(k));
+	const frameworks = [...new Set(tierFiles.map((f) => f.parsed.framework))];
 
 	// Sort: free first, then premium; within each tier sort by name
 	const components = [...componentMap.values()].sort((a, b) => {
