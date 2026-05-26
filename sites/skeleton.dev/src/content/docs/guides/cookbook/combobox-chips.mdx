@@ -1,0 +1,27 @@
+---
+title: Combobox with Chips
+description: A multi-select Combobox that displays selected items as removable chips.
+tags: ['combobox', 'chips', 'multi-select', 'forms']
+---
+
+import DefaultReact from '@/components/examples/guides/cookbook/combobox-chips/react/default';
+import DefaultReactRaw from '@/components/examples/guides/cookbook/combobox-chips/react/default.tsx?raw';
+import DefaultSvelte from '@/components/examples/guides/cookbook/combobox-chips/svelte/default.svelte';
+import DefaultSvelteRaw from '@/components/examples/guides/cookbook/combobox-chips/svelte/default.svelte?raw';
+
+## How It Works
+
+Enable `multiple` on the `Combobox` root to allow selecting more than one item. Each time the user picks an option, `onValueChange` fires with the full list of selected items. Store that list in local state and render each item as a removable `chip` above the input. Clicking ✕ on a chip filters it out of the selected list, which also updates the controlled `value` passed back to the `Combobox`.
+
+## Multi-Select with Chips
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+		<DefaultReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+		<DefaultSvelte client:visible />
+	</Preview>
+</Framework>
