@@ -15,6 +15,10 @@
 
 	const { title, lead, description, trail, class: classes, ...rest }: Props = $props();
 
+	function formatLabel(segment: string): string {
+		return segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+	}
+
 	// Exclude leading paths such as `/content`
 	const crumbExclusions = ['content'];
 
@@ -26,11 +30,13 @@
 		}));
 		const visible = withHrefs.filter(({ segment }) => !crumbExclusions.includes(segment));
 		return visible.map(({ segment, href }, i) => ({
-			label: segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+			label: formatLabel(segment),
 			href,
 			current: i === visible.length - 1,
 		}));
 	});
+
+	const currentLabel = $derived(crumbs.findLast((c) => c.current)?.label);
 </script>
 
 <DecorCorners corners={['bl', 'br']}>
@@ -63,7 +69,7 @@
 				</nav>
 			{/if}
 			<!-- Title -->
-			<h1 class="h1">{title}</h1>
+			<h1 class="h1">{title ?? currentLabel}</h1>
 			<!-- Description -->
 			{#if description}
 				<div class="space-y-2">
