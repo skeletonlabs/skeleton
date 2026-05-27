@@ -39,7 +39,8 @@ export const routes = {
 		{ label: 'Blocks', href: resolve('/content/blocks'), icon: BlocksIcon, enabled: true },
 		{ label: 'Templates', href: resolve('/content/templates'), icon: LayoutTemplateIcon, enabled: true },
 		{ label: 'Tutorials', href: resolve('/content/tutorials'), icon: GraduationCapIcon, enabled: true },
-		{ label: 'UI Kit', href: resolve('/content/ui-kit'), icon: LayersIcon, enabled: true },
+		// { label: 'UI Kit', href: resolve('/content/ui-kit'), icon: LayersIcon, enabled: true },
+		{ label: 'UI Kit', href: resolve('/content/community/etesie'), icon: LayersIcon, enabled: true } /* temporary */,
 		{ label: 'Community', href: resolve('/content/community'), icon: UsersIcon, enabled: true },
 	],
 	design: [
