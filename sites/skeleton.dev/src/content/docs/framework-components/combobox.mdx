@@ -17,6 +17,8 @@ import GroupReact from '@/components/examples/framework-components/combobox/reac
 import GroupReactRaw from '@/components/examples/framework-components/combobox/react/group?raw';
 import MultipleReact from '@/components/examples/framework-components/combobox/react/multiple';
 import MultipleReactRaw from '@/components/examples/framework-components/combobox/react/multiple?raw';
+import MultipleChipsReact from '@/components/examples/framework-components/combobox/react/multiple-chips';
+import MultipleChipsReactRaw from '@/components/examples/framework-components/combobox/react/multiple-chips?raw';
 import AutoHighlightSvelte from '@/components/examples/framework-components/combobox/svelte/auto-highlight.svelte';
 import AutoHighlightSvelteRaw from '@/components/examples/framework-components/combobox/svelte/auto-highlight.svelte?raw';
 import CustomFilterSvelte from '@/components/examples/framework-components/combobox/svelte/custom-filter.svelte';
@@ -31,6 +33,8 @@ import GroupSvelte from '@/components/examples/framework-components/combobox/sve
 import GroupSvelteRaw from '@/components/examples/framework-components/combobox/svelte/group.svelte?raw';
 import MultipleSvelte from '@/components/examples/framework-components/combobox/svelte/multiple.svelte';
 import MultipleSvelteRaw from '@/components/examples/framework-components/combobox/svelte/multiple.svelte?raw';
+import MultipleChipsSvelte from '@/components/examples/framework-components/combobox/svelte/multiple-chips.svelte';
+import MultipleChipsSvelteRaw from '@/components/examples/framework-components/combobox/svelte/multiple-chips.svelte?raw';
 
 <Framework id="react">
 	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
@@ -85,6 +89,21 @@ To maintain filtering functionality and improve clarity for users, we recommend 
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
 		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Multiple with Chips
+
+Extend the multi-select pattern with removable chip elements. Each selected item is rendered as a chip with a dismiss button — clicking it deselects the item and syncs the controlled `value` back to the Combobox.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': MultipleChipsReactRaw }} client:visible>
+		<MultipleChipsReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': MultipleChipsSvelteRaw }} client:visible>
+		<MultipleChipsSvelte client:visible />
 	</Preview>
 </Framework>
 
