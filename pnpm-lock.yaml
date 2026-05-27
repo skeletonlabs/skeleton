@@ -1009,6 +1009,9 @@ importers:
       lightningcss:
         specifier: 'catalog:'
         version: 1.32.0
+      lucide-react:
+        specifier: 'catalog:'
+        version: 1.16.0(react@19.2.6)
       neverthrow:
         specifier: 'catalog:'
         version: 8.2.0

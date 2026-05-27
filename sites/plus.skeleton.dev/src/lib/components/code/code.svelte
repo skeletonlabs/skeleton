@@ -22,6 +22,6 @@
 	);
 </script>
 
-<div class="*:first:card *:first:p-4">
+<div class="*:first:card *:first:bg-neutral-950! *:first:text-sm *:first:p-4">
 	{@html html}
 </div>

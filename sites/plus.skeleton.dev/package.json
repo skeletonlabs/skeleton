@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
+		"lucide-react": "catalog:",
 		"@neondatabase/serverless": "catalog:",
 		"@shikijs/core": "catalog:",
 		"@shikijs/engine-javascript": "catalog:",
