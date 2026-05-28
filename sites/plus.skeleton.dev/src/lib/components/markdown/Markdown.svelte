@@ -5,8 +5,7 @@
 	import githubDark from '@shikijs/themes/github-dark';
 	import githubLight from '@shikijs/themes/github-light';
 	import alert from 'comark/plugins/alert';
-	import breaks from 'comark/plugins/breaks';
-	import emoji from 'comark/plugins/emoji';
+import emoji from 'comark/plugins/emoji';
 	import highlight from 'comark/plugins/highlight';
 	import taskList from 'comark/plugins/task-list';
 
@@ -17,7 +16,6 @@
 			plugins: [
 				alert(),
 				taskList(),
-				breaks(),
 				emoji(),
 				highlight({
 					themes: { light: githubLight, dark: githubDark },
