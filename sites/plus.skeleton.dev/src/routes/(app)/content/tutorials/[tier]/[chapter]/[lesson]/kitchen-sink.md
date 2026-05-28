@@ -1,4 +1,11 @@
-# Kitchen Sink
+---
+title: Kitchen Sink
+author: Chris Simmons
+date: 2026-5-28
+tags:
+  - markdown
+  - documentation
+---
 
 A comprehensive test document covering CommonMark and GitHub Flavored Markdown features.
 
@@ -76,11 +83,28 @@ You can also use **bold**, _italic_, and **_combined_** styles.
 >
 > Multiple paragraphs inside a blockquote.
 
+### Alerts (GFM)
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
 ---
 
 ## Code Blocks
 
-Fenced with TypeScript:
+### Language Only
 
 ```ts
 interface Lesson {
@@ -93,7 +117,34 @@ async function getLesson(id: string): Promise<Lesson> {
 }
 ```
 
-Fenced with Svelte:
+### With Filename
+
+```ts [lesson.ts]
+interface Lesson {
+	title: string;
+	markdown: string;
+}
+```
+
+### With Line Highlighting
+
+```ts {2-3}
+interface Lesson {
+	title: string;
+	markdown: string;
+}
+```
+
+### Combined Metadata (language + highlights + filename)
+
+```ts {2-3} [lesson.ts]
+interface Lesson {
+	title: string;
+	markdown: string;
+}
+```
+
+### Svelte
 
 ```svelte
 <script lang="ts">
@@ -105,14 +156,14 @@ Fenced with Svelte:
 </button>
 ```
 
-Fenced with Bash:
+### Bash
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Indented code block:
+### Indented
 
     const x = 1;
     const y = 2;
@@ -122,26 +173,41 @@ Indented code block:
 
 ## Tables (GFM)
 
+### Basic
+
 | Name       | Type     | Default | Description          |
 | ---------- | -------- | ------- | -------------------- |
 | `title`    | `string` | —       | Page title           |
 | `size`     | `number` | `16`    | Font size in pixels  |
 | `disabled` | `bool`   | `false` | Disables the element |
 
-Left, center, and right aligned:
+### Aligned Columns
 
 | Left         |     Center     |         Right |
 | :----------- | :------------: | ------------: |
 | left-aligned | center-aligned | right-aligned |
 | data         |      data      |          data |
 
+### Inline Markdown in Cells
+
+| Feature  | Status     | Link                                             |
+| -------- | ---------- | ------------------------------------------------ |
+| **Bold** | _Italic_   | [Skeleton](https://skeleton.dev)                 |
+| `Code`   | ~~Strike~~ | ![img](https://placehold.co/80x20/png 'example') |
+
 ---
 
 ## Horizontal Rules
 
----
+Three-dash:
 
 ---
+
+Three-asterisk:
+
+---
+
+Three-underscore:
 
 ---
 
@@ -157,9 +223,32 @@ Line two (backslash above)
 
 ---
 
+## Emojis
+
+Using `:emoji_name:` syntax:
+
+:wave: :rocket: :smile: :heart: :fire: :sparkles: :tada: :thinking: :eyes: :star: :zap: :bulb: :warning:
+
+---
+
+## Comments
+
+HTML-style comments are preserved in the AST but not rendered:
+
+<!-- This is a single-line comment -->
+
+<!--
+This is a multi-line comment.
+It can contain any text and won't appear in output.
+-->
+
+Text continues after the comment above.
+
+---
+
 ## HTML Inline
 
-Text with a <kbd>Ctrl</kbd> + <kbd>S</kbd> shortcut.
+Text with a <kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">S</kbd> shortcut.
 
 Text with a <mark>highlighted</mark> word.
 

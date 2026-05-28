@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	let { children }: { children?: Snippet } = $props();
+	let { children, class: className, ...rest }: { children?: Snippet; class?: string; [key: string]: unknown } = $props();
 </script>
 
-{@render children?.()}
+<pre class={className} {...rest}>{@render children?.()}</pre>

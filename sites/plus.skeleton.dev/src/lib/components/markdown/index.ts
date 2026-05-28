@@ -11,6 +11,9 @@ import ProseHr from './ProseHr.svelte';
 import ProseMark from './ProseMark.svelte';
 import ProsePre from './ProsePre.svelte';
 import ProseTable from './ProseTable.svelte';
+import ProseUl from './ProseUl.svelte';
+import ProseOl from './ProseOl.svelte';
+import ProseLi from './ProseLi.svelte';
 
 export const markdownComponents = {
 	ProseA,
@@ -25,5 +28,8 @@ export const markdownComponents = {
 	ProseHr,
 	ProseMark,
 	ProsePre,
-	ProseTable
+	ProseTable,
+	ProseUl,
+	ProseOl,
+	ProseLi
 };

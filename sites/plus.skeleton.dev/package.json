@@ -19,6 +19,7 @@
 	},
 	"devDependencies": {
 		"@comark/svelte": "^0.3.1",
+		"comark": "^0.3.2",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
