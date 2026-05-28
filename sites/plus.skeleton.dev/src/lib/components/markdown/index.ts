@@ -31,5 +31,5 @@ export const markdownComponents = {
 	ProseTable,
 	ProseUl,
 	ProseOl,
-	ProseLi
+	ProseLi,
 };
