@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import { getTutorialsList, type TutorialListChapter, type TutorialList } from '$lib/remote/tutorials/get-tutorials.remote';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import BookOpenIcon from '@lucide/svelte/icons/book-open';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
@@ -8,25 +9,32 @@
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
 	let tier = $state(page.url.searchParams.get('tier') ?? 'beginner');
+	let search = $state('');
 
-	const placeholderDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
-	const placeholderLessons = [
-		{ title: 'Lesson 1', description: placeholderDescription, href: '/content/tutorials/beginner/fundamentals/lession-1' },
-		{ title: 'Lesson 2', description: placeholderDescription, href: '/content/tutorials/beginner/fundamentals/lession-2' },
-		{ title: 'Lesson 3', description: placeholderDescription, href: '/content/tutorials/beginner/fundamentals/lession-3' },
-	];
-	const tiers = {
-		beginner: [
-			{ value: 'fundamentals', title: 'Fundamentals', lessons: placeholderLessons },
-			{ value: 'integrations', title: 'Integrations', lessons: placeholderLessons },
-		],
-		advanced: [
-			{ value: 'dynamic-theme-loading', title: 'Dynamic Theme Loading', lessons: placeholderLessons },
-			{ value: 'light-switch', title: 'Light Switch', lessons: placeholderLessons },
-			{ value: 'table-of-contents', title: 'Table of Contents', lessons: placeholderLessons },
-			{ value: 'floating-ui-attachments', title: 'Floating UI Attachments', lessons: placeholderLessons },
-		],
-	};
+	const locked = $derived(tier == 'advanced');
+	const tutorialsList = $derived(await getTutorialsList());
+	const filteredTiers = $derived(
+		(Object.entries(tutorialsList) as [string, TutorialListChapter[]][]).reduce((acc, [key, chapters]) => {
+			acc[key] = chapters
+				.map((chapter) => ({
+					...chapter,
+					lessons: fuzzyMatch(search, chapter.title) ? chapter.lessons : chapter.lessons.filter((l) => fuzzyMatch(search, l.title)),
+				}))
+				.filter((chapter) => fuzzyMatch(search, chapter.title) || chapter.lessons.length > 0);
+			return acc;
+		}, {} as TutorialList),
+	);
+
+	function fuzzyMatch(query: string, target: string): boolean {
+		if (!query) return true;
+		const q = query.toLowerCase();
+		const t = target.toLowerCase();
+		let qi = 0;
+		for (let i = 0; i < t.length && qi < q.length; i++) {
+			if (t[i] === q[qi]) qi++;
+		}
+		return qi === q.length;
+	}
 </script>
 
 <PageHeader title="Tutorials">
@@ -34,7 +42,7 @@
 		<p class="opacity-60">Learn how to Skeleton works, from fundamentals to advanced usage</p>
 	{/snippet}
 	{#snippet trail()}
-		{#if tier === 'advanced'}
+		{#if locked}
 			<a href="/overview/pricing" class="btn preset-filled" aria-label="Unlock with Plus">
 				<LockIcon />
 				<span>Unlock with Plus</span>
@@ -59,34 +67,39 @@
 				</SegmentedControl.Item>
 			</SegmentedControl.Control>
 		</SegmentedControl>
+		<!-- Search -->
 		<div>
 			<label class="label">
 				<span class="sr-only">Search</span>
-				<input type="search" class="input" placeholder="Search..." />
+				<input type="search" class="input" placeholder="Search..." bind:value={search} />
 			</label>
 		</div>
 	</header>
 	<!-- Content -->
 	<section class="space-y-2">
-		<!-- Chapters -->
+		<!-- Chapters List -->
 		<Accordion collapsible>
-			{#each tiers[tier as keyof typeof tiers] as chapter (chapter.value)}
+			{#each filteredTiers[tier] as chapter (chapter.value)}
 				<Accordion.Item value={chapter.value} disabled={tier === 'advanced'}>
+					<!-- Chapter Card -->
 					<Accordion.ItemTrigger
-						class="card bg-surface-100-900 border border-surface-200-800 p-4 grid grid-cols-[auto_1fr_auto] items-center gap-4"
+						class="card bg-surface-50-950 border border-surface-200-800 p-4 grid grid-cols-[auto_1fr_auto] items-center gap-4"
 					>
-						<figure class="h-full aspect-square preset-filled-primary-500 flex justify-center items-center rounded-container">
+						<figure class="h-full max-h-8 aspect-square preset-filled-primary-500 flex justify-center items-center rounded-container">
 							<BookOpenIcon class="size-[50%]" />
 						</figure>
-						<h3 class="h3">{chapter.title}</h3>
+						<h3 class="h5 md:h3">{chapter.title}</h3>
 						<div class="flex items-center gap-4">
 							<span class="text-sm opacity-60">{chapter.lessons.length} Lessons</span>
-							<Accordion.ItemIndicator>
-								<ChevronDownIcon class="size-4 transition-transform group-data-[state=open]:rotate-180" />
-							</Accordion.ItemIndicator>
+							{#if !locked}
+								<Accordion.ItemIndicator>
+									<ChevronDownIcon class="size-4 transition-transform group-data-[state=open]:rotate-180" />
+								</Accordion.ItemIndicator>
+							{/if}
 						</div>
 					</Accordion.ItemTrigger>
-					{#if tier !== 'advanced'}
+					<!-- Lessons List -->
+					{#if !locked}
 						<Accordion.ItemContent class="space-y-4">
 							{#each chapter.lessons as lesson, i}
 								{#if i > 0}<hr class="hr" />{/if}
