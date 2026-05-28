@@ -18,6 +18,7 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
+		"@comark/svelte": "^0.3.1",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
