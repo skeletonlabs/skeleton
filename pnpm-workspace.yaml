@@ -7,10 +7,10 @@ catalog:
   '@astrojs/check': 0.9.9
   '@astrojs/mdx': 6.0.1
   '@astrojs/partytown': 2.1.7
-  '@astrojs/react': 6.0.0-alpha.0
+  '@astrojs/react': 5.0.6
   '@astrojs/sitemap': 3.7.3
-  '@astrojs/svelte': 9.0.0-alpha.0
-  '@astrojs/vercel': 11.0.0-alpha.0
+  '@astrojs/svelte': 8.1.2
+  '@astrojs/vercel': 10.0.8
   '@changesets/cli': 2.31.0
   '@clack/prompts': 1.4.0
   '@faker-js/faker': 10.4.0
@@ -35,7 +35,6 @@ catalog:
   '@sveltejs/kit': 2.61.1
   '@sveltejs/package': 2.5.7
   '@sveltejs/vite-plugin-svelte': 7.1.2
-  '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.3.0
   '@tanstack/react-router': 1.170.9
@@ -63,6 +62,7 @@ catalog:
   '@zag-js/dialog': 1.41.1
   '@zag-js/file-upload': 1.41.1
   '@zag-js/floating-panel': 1.41.1
+  '@zag-js/i18n-utils': 1.41.1
   '@zag-js/listbox': 1.41.1
   '@zag-js/menu': 1.41.1
   '@zag-js/pagination': 1.41.1
@@ -82,7 +82,7 @@ catalog:
   '@zag-js/toggle-group': 1.41.1
   '@zag-js/tooltip': 1.41.1
   '@zag-js/tree-view': 1.41.1
-  astro: 7.0.0-alpha.1
+  astro: 6.4.0
   astro-auto-import: 0.5.1
   astro-pagefind: 2.0.0
   astro-seo: 1.1.0
@@ -135,13 +135,12 @@ catalog:
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
   valibot: 1.4.1
-  vite: 8.0.14
+  vite: 7.3.3
   vitest: 4.1.7
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
   neverthrow: 8.2.0
-  '@zag-js/i18n-utils': 1.41.1
 
 catalogMode: strict
 
@@ -151,11 +150,7 @@ engineStrict: true
 
 minimumReleaseAge: 4320
 
-minimumReleaseAgeExclude:
-  - '@zag-js/*'
-
 allowBuilds:
-  '@parcel/watcher': true
   '@tailwindcss/oxide': true
   esbuild: true
   sharp: true

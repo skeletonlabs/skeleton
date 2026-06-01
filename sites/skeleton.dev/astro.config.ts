@@ -55,7 +55,6 @@ export default defineConfig({
 			},
 		},
 		assetsInclude: '**/pagefind.js',
-		// "fixes" the `excessive stack depth` error
 		plugins: [tailwindcss() as unknown as any],
 	},
 	adapter: vercel(),
