@@ -117,7 +117,7 @@ catalog:
   postgres: 3.4.9
   prettier: 3.8.3
   prettier-plugin-astro: 0.14.1
-  prettier-plugin-svelte: 3.5.2
+  prettier-plugin-svelte: 4.0.1
   react: 19.2.6
   react-dom: 19.2.6
   satori: 0.26.0
