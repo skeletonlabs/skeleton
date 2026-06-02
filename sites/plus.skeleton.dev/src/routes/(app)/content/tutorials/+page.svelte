@@ -39,7 +39,7 @@
 
 <PageHeader title="Tutorials">
 	{#snippet description()}
-		<p class="opacity-60">Learn how to Skeleton works, from fundamentals to advanced usage</p>
+		<p class="opacity-60">Learn how to use Skeleton using our guided tutorials.</p>
 	{/snippet}
 	{#snippet trail()}
 		{#if locked}
