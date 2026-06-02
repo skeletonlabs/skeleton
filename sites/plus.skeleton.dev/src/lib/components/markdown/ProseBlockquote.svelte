@@ -8,23 +8,23 @@
 	const alertConfig: Record<AlertType, { title: string; classes: string }> = {
 		note: {
 			title: 'Note',
-			classes: 'preset-tonal border-l border-surface-950-50',
+			classes: 'preset-tonal border-surface-950-50',
 		},
 		tip: {
 			title: 'Tip',
-			classes: 'preset-tonal-primary border-l border-primary-500',
+			classes: 'preset-tonal-primary border-primary-500',
 		},
 		important: {
 			title: 'Important',
-			classes: 'preset-tonal-success border-l border-success-500',
+			classes: 'preset-tonal-success border-success-500',
 		},
 		warning: {
 			title: 'Warning',
-			classes: 'preset-tonal-warning border-l border-warning-500',
+			classes: 'preset-tonal-warning border-warning-500',
 		},
 		caution: {
 			title: 'Caution',
-			classes: 'preset-tonal-error border-l border-error-500',
+			classes: 'preset-tonal-error border-error-500',
 		},
 	};
 
@@ -32,10 +32,12 @@
 </script>
 
 {#if config}
-	<div class="space-y-1 rounded-r-container border-l-4 px-4 py-3 {config.classes}">
-		<p class="text-sm font-semibold tracking-wide uppercase">{config.title}</p>
-		<div class="text-inherit">{@render children?.()}</div>
+	<!-- Alert -->
+	<div class="border-l-4 py-3 px-4 space-y-1 {config.classes}">
+		<p class="font-bold uppercase">{config.title}</p>
+		<p class="text-sm">{@render children?.()}</p>
 	</div>
 {:else}
+	<!-- Standard -->
 	<blockquote class="blockquote">{@render children?.()}</blockquote>
 {/if}

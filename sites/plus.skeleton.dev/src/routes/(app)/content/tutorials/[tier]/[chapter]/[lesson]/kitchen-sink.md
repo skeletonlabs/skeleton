@@ -163,14 +163,6 @@ pnpm install
 pnpm dev
 ```
 
-### Indented
-
-    const x = 1;
-    const y = 2;
-    console.log(x + y);
-
----
-
 ## Tables (GFM)
 
 ### Basic
@@ -199,17 +191,7 @@ pnpm dev
 
 ## Horizontal Rules
 
-Three-dash:
-
----
-
-Three-asterisk:
-
----
-
-Three-underscore:
-
----
+Shown below:
 
 ---
 
@@ -250,7 +232,7 @@ Text continues after the comment above.
 
 Text with a <kbd class="kbd">Ctrl</kbd> + <kbd class="kbd">S</kbd> shortcut.
 
-Text with a <mark>highlighted</mark> word.
+Text with a <mark class="mark">highlighted</mark> word.
 
 <details>
 <summary>Expandable section</summary>

@@ -4,4 +4,4 @@
 	let { children }: { children?: Snippet } = $props();
 </script>
 
-<ol class="list-decimal list-outside pl-5 space-y-1">{@render children?.()}</ol>
+<ol class="list-decimal list-outside pl-4 space-y-1">{@render children?.()}</ol>
