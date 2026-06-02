@@ -1,6 +1,6 @@
 <script lang="ts">
 	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import Markdown from '$lib/components/markdown/Markdown.svelte';
+	import Markdown from '$lib/components/markdown/markdown-renderer.svelte';
 	import { getTutorialLesson } from '$lib/remote/tutorials/get-tutorials.remote';
 
 	const lesson = $derived(await getTutorialLesson());

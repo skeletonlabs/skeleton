@@ -1,11 +1,7 @@
-<script lang="ts">
-	import type { Snippet } from 'svelte';
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	type AlertType = 'note' | 'tip' | 'important' | 'warning' | 'caution';
-
-	let { children, as: alertType }: { children?: Snippet; as?: AlertType } = $props();
-
-	const alertConfig: Record<AlertType, { title: string; classes: string }> = {
+	const alerts = {
 		note: {
 			title: 'Note',
 			classes: 'preset-tonal border-surface-950-50',
@@ -26,18 +22,30 @@
 			title: 'Caution',
 			classes: 'preset-tonal-error border-error-500',
 		},
-	};
+	} as const;
 
-	const config = $derived(alertType ? alertConfig[alertType] : null);
+	export interface Props extends HTMLAttributes<HTMLElement> {
+		type?: keyof typeof alerts;
+	}
+</script>
+
+<script lang="ts">
+	const { children, type, ...rest }: Props = $props();
+
+	const config = $derived(type ? alerts[type] : null);
 </script>
 
 {#if config}
 	<!-- Alert -->
-	<div class="border-l-4 py-3 px-4 space-y-1 {config.classes}">
+	<div class="border-l-4 py-3 px-4 space-y-1 {config.classes}" {...rest}>
 		<p class="font-bold uppercase">{config.title}</p>
-		<p class="text-sm">{@render children?.()}</p>
+		<p class="text-sm">
+			{@render children?.()}
+		</p>
 	</div>
 {:else}
 	<!-- Standard -->
-	<blockquote class="blockquote">{@render children?.()}</blockquote>
+	<blockquote class="blockquote" {...rest}>
+		{@render children?.()}
+	</blockquote>
 {/if}

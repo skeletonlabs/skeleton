@@ -1,23 +1,20 @@
-<script lang="ts">
-	import CopyIcon from '@lucide/svelte/icons/copy';
-	import ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';
-	import type { Snippet } from 'svelte';
+<script lang="ts" module>
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	let {
-		children,
-		class: className,
-		filename,
-		highlights,
-		language,
-		...rest
-	}: {
-		children?: Snippet;
+	export interface Props extends HTMLAttributes<HTMLPreElement> {
 		class?: string;
 		filename?: string;
 		highlights?: number[];
 		language?: string;
 		[key: string]: unknown;
-	} = $props();
+	}
+</script>
+
+<script lang="ts">
+	import CopyIcon from '@lucide/svelte/icons/copy';
+	import ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';
+
+	const { children, filename, highlights, language, ...rest }: Props = $props();
 
 	let preRef: HTMLPreElement | undefined = $state();
 	let copied = $state(false);
@@ -49,7 +46,7 @@
 			</button>
 		</header>
 	{/if}
-	<pre bind:this={preRef} class="rounded-tl-none! rounded-tr-none! {className}" {...rest}>{@render children?.()}</pre>
+	<pre bind:this={preRef} class="rounded-tl-none! rounded-tr-none!" {...rest}>{@render children?.()}</pre>
 </div>
 
 <style>
