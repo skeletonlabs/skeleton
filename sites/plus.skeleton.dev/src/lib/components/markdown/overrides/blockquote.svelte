@@ -25,12 +25,12 @@
 	} as const;
 
 	export interface Props extends HTMLAttributes<HTMLElement> {
-		type?: keyof typeof alerts;
+		as?: keyof typeof alerts;
 	}
 </script>
 
 <script lang="ts">
-	const { children, type, ...rest }: Props = $props();
+	const { children, as: type, ...rest }: Props = $props();
 
 	const config = $derived(type ? alerts[type] : null);
 </script>
