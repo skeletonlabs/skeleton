@@ -36,9 +36,9 @@
 	}
 </script>
 
-<div class="prose-pre">
+<div class="prose-pre shadow-lg">
 	{#if filename || language}
-		<header class="bg-neutral-50 dark:bg-neutral-950 pt-4 px-4 flex justify-between items-center">
+		<header class="rounded-tl-container rounded-tr-container bg-white dark:bg-neutral-950 pt-4 px-4 flex justify-between items-center">
 			<span class="text-xs opacity-50">{filename ?? language}</span>
 			<button class="btn-icon btn-icon-sm opacity-50 hover:opacity-100 hover:preset-tonal" onclick={copyCode}>
 				{#if copied}
