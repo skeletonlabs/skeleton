@@ -2,21 +2,27 @@
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { dialogDrawerRight } from '$lib/components/modal-styles';
 	import { iconMap } from '$lib/remote/blocks/block-icons';
-	import { getFrameworks, getBlocks, getCategories } from '$lib/remote/blocks/get-blocks.remote';
+	import { getFrameworks, getBlocks, type Category, type BlockCategory } from '$lib/remote/blocks/get-blocks.remote';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
 	const frameworks = $derived(await getFrameworks());
-	const categories = $derived(await getCategories());
 	const blocks = $derived(await getBlocks());
 
 	let drawerOpen = $state(false);
 	let searchQuery = $state('');
 
 	const filteredBlocks = $derived(
-		searchQuery.trim() ? blocks.filter((b) => b.label.toLowerCase().includes(searchQuery.trim().toLowerCase())) : blocks,
+		searchQuery.trim()
+			? (Object.fromEntries(
+					Object.entries(blocks).map(([cat, items]) => [
+						cat,
+						items.filter((b) => b.name.toLowerCase().includes(searchQuery.trim().toLowerCase())),
+					]),
+				) as Record<Category, BlockCategory[]>)
+			: blocks,
 	);
 </script>
 
@@ -47,15 +53,11 @@
 				<div class="p-4 space-y-2">
 					<p class="text-xs font-semibold uppercase tracking-widest opacity-60">Categories</p>
 					<ul class="space-y-1">
-						{#each categories as category (category.id)}
+						{#each Object.entries(blocks) as [id] (id)}
 							<li>
-								<a
-									href="/content/blocks#{category.id}"
-									class="w-full btn hover:preset-tonal justify-between"
-									onclick={() => (drawerOpen = false)}
-								>
-									<span>{category.label}</span>
-									<span class="text-xs opacity-60">{filteredBlocks.filter((b) => b.category === category.id).length}</span>
+								<a href="/content/blocks#{id}" class="w-full btn hover:preset-tonal justify-between" onclick={() => (drawerOpen = false)}>
+									<span>{id.charAt(0).toUpperCase() + id.slice(1)}</span>
+									<span class="text-xs opacity-60">{(filteredBlocks[id as Category] ?? []).length}</span>
 								</a>
 							</li>
 						{/each}
@@ -80,26 +82,23 @@
 	</Portal>
 </Dialog>
 
-{#snippet categorySection(id: string, heading: string)}
-	{@const sectionBlocks = filteredBlocks.filter((b) => b.category === id).sort((a, b) => a.label.localeCompare(b.label))}
+{#snippet categorySection(id: Category, heading: string)}
+	{@const sectionBlocks = (filteredBlocks[id] ?? []).sort((a, b) => a.name.localeCompare(b.name))}
 	{#if sectionBlocks.length > 0}
 		<section {id} class="scroll-mt-header space-y-4">
 			<header>
 				<h2 class="h2">{heading}</h2>
 			</header>
 			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-				{#each sectionBlocks as item (item.slug)}
-					{@const Icon = iconMap[item.iconName]}
-					<a
-						href="/content/blocks/{item.category}/{item.slug}"
-						class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden"
-					>
+				{#each sectionBlocks as item (item.name)}
+					{@const Icon = iconMap[item.meta.iconName]}
+					<a href="/content/blocks/{id}/{item.name}" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
 						<header class="aspect-video preset-tonal-primary flex justify-center items-center">
 							<Icon class="size-elem-8xl stroke-[1px] opacity-60" />
 						</header>
 						<footer class="p-4 flex items-center justify-between">
-							<span class="text-sm font-medium truncate">{item.label}</span>
-							<span class="text-xs opacity-60">{item.count}</span>
+							<span class="text-sm font-medium truncate">{item.name}</span>
+							<span class="text-xs opacity-60">{item.svelte}</span>
 						</footer>
 					</a>
 				{/each}

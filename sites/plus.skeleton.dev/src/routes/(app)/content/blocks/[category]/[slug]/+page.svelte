@@ -9,26 +9,20 @@
 	const block = $derived(await getBlockBySlug());
 	const frameworks = $derived(await getFrameworks());
 
-	let selectedFramework = $state('svelte');
-	const selectedLabel = $derived(frameworks.find((f) => f.key === selectedFramework)?.label ?? 'Svelte');
-
-	const blockExamples = [
-		{ title: 'Example 1', code: '<h1 class="h1">Hello World</h1>', lang: 'svelte' },
-		{ title: 'Example 2', code: '<h2 class="h2">Hello World</h2>', lang: 'svelte' },
-		{ title: 'Example 3', code: '<h3 class="h3">Hello World</h3>', lang: 'svelte' },
-	];
+	let selectedFrameworkKey = $derived(frameworks[0].key);
+	const selectedFrameworkLabel = $derived(frameworks.find((f) => f.key === selectedFrameworkKey));
 </script>
 
 {#if block}
-	<PageHeader title={block.label}>
+	<PageHeader title={block.name}>
 		{#snippet description()}
-			<p class="opacity-60">{block.description}</p>
+			<p class="opacity-60">{block.meta.description}</p>
 		{/snippet}
 		{#snippet trail()}
 			<!-- Framework Selection -->
 			<Menu>
 				<Menu.Trigger class="btn preset-filled">
-					<span>{selectedLabel}</span>
+					<span>{selectedFrameworkLabel?.label}</span>
 					<ChevronDownIcon />
 				</Menu.Trigger>
 				<Portal>
@@ -38,9 +32,9 @@
 								<Menu.OptionItem
 									type="radio"
 									value={fw.key}
-									checked={selectedFramework === fw.key}
+									checked={selectedFrameworkKey === fw.key}
 									onCheckedChange={(checked) => {
-										if (checked) selectedFramework = fw.key;
+										if (checked) selectedFrameworkKey = fw.key;
 									}}
 								>
 									<Menu.ItemText>{fw.label}</Menu.ItemText>
@@ -59,10 +53,14 @@
 
 <!-- Examples -->
 <div class="container-page space-y-10">
-	{#each blockExamples as { title, code, lang } (title)}
-		<Preview {title} {code} {lang}>
-			<!-- NOTE: this is a placeholder for a component -->
-			{@html code}
-		</Preview>
+	{#each Object.entries(block?.examples ?? {}) as [framework, examples] (framework)}
+		{#if framework === selectedFrameworkKey}
+			{#each examples as { title, code, lang } (title)}
+				<Preview {title} {code} {lang}>
+					<!-- NOTE: this is a placeholder for a component -->
+					{@html code}
+				</Preview>
+			{/each}
+		{/if}
 	{/each}
 </div>
