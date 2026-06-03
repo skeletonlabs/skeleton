@@ -28,7 +28,7 @@ export const blockCategories: Record<string, BlockCategory[]> = {
 	applications: [
 		{
 			name: 'stacked-layouts',
-			meta: { description: placeholderDesc, iconName: 'LayersIcon' },
+			meta: { description: placeholderDesc, iconName: 'StarIcon' },
 			react: 9,
 			svelte: 9,
 		},
@@ -36,7 +36,7 @@ export const blockCategories: Record<string, BlockCategory[]> = {
 	ecommerce: [
 		{
 			name: 'product-overviews',
-			meta: { description: placeholderDesc, iconName: 'PackageIcon' },
+			meta: { description: placeholderDesc, iconName: 'StarIcon' },
 			react: 5,
 			svelte: 5,
 		},
@@ -44,7 +44,7 @@ export const blockCategories: Record<string, BlockCategory[]> = {
 	marketing: [
 		{
 			name: 'hero-sections',
-			meta: { description: placeholderDesc, iconName: 'SparklesIcon' },
+			meta: { description: placeholderDesc, iconName: 'StarIcon' },
 			react: 12,
 			svelte: 12,
 		},
@@ -53,7 +53,7 @@ export const blockCategories: Record<string, BlockCategory[]> = {
 
 export const blockDetails = {
 	name: 'stacked-layouts',
-	meta: { description: placeholderDesc, iconName: 'LayersIcon' },
+	meta: { description: placeholderDesc, iconName: 'StarIcon' },
 	examples: {
 		react: placeholderBlocks,
 		svelte: placeholderBlocks,
