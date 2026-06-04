@@ -82,31 +82,6 @@
 	</Portal>
 </Dialog>
 
-{#snippet categorySection(id: Category, heading: string)}
-	{@const sectionBlocks = (filteredBlocks[id] ?? []).sort((a, b) => a.name.localeCompare(b.name))}
-	{#if sectionBlocks.length > 0}
-		<section {id} class="scroll-mt-header space-y-4">
-			<header>
-				<h2 class="h2">{heading}</h2>
-			</header>
-			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-				{#each sectionBlocks as item (item.name)}
-					{@const Icon = iconMap[item.meta.iconName]}
-					<a href="/content/blocks/{id}/{item.name}" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
-						<header class="aspect-video preset-tonal-primary flex justify-center items-center">
-							<Icon class="size-elem-8xl stroke-[1px] opacity-60" />
-						</header>
-						<footer class="p-4 flex items-center justify-between">
-							<span class="text-sm font-medium truncate">{item.name}</span>
-							<span class="text-xs opacity-60">{item.svelte}</span>
-						</footer>
-					</a>
-				{/each}
-			</div>
-		</section>
-	{/if}
-{/snippet}
-
 <!-- Page Header -->
 <PageHeader title="Blocks">
 	{#snippet description()}
@@ -124,9 +99,33 @@
 	{/snippet}
 </PageHeader>
 
-<!-- Category Grids -->
+<!-- Category List -->
 <div class="container-page space-y-10">
-	{@render categorySection('marketing', 'Marketing')}
-	{@render categorySection('applications', 'Applications')}
-	{@render categorySection('ecommerce', 'Ecommerce')}
+	{#each Object.entries(filteredBlocks) as [id, items] (id)}
+		{@const sectionBlocks = items.sort((a, b) => a.name.localeCompare(b.name))}
+		{#if sectionBlocks.length > 0}
+			<!-- Category -->
+			<section {id} class="scroll-mt-header space-y-4">
+				<header>
+					<h2 class="h2 capitalize">{id}</h2>
+				</header>
+				<!-- Blocks Grid -->
+				<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+					{#each sectionBlocks as item (item.name)}
+						{@const Icon = iconMap[item.meta.iconName]}
+						<!-- Block -->
+						<a href="/content/blocks/{id}/{item.name}" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
+							<header class="aspect-video preset-tonal-primary flex justify-center items-center">
+								<Icon class="size-elem-8xl stroke-[1px] opacity-60" />
+							</header>
+							<footer class="p-4 flex items-center justify-between">
+								<span class="text-sm font-medium truncate">{item.name}</span>
+								<span class="text-xs opacity-60">{item.svelte}</span>
+							</footer>
+						</a>
+					{/each}
+				</div>
+			</section>
+		{/if}
+	{/each}
 </div>
