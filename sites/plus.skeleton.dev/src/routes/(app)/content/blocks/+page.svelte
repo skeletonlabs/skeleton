@@ -2,14 +2,13 @@
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { dialogDrawerRight } from '$lib/components/modal-styles';
 	import { iconMap } from '$lib/remote/blocks/block-icons';
-	import { getFrameworks, getBlocks, type Category, type BlockCategory } from '$lib/remote/blocks/get-blocks.remote';
+	import { getFrameworks, getBlocks, type BlockCategory } from '$lib/remote/blocks/get-blocks.remote';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	const frameworks = $derived(await getFrameworks());
-	const blocks = $derived(await getBlocks());
+	const [frameworks, blocks] = $derived(await Promise.all([getFrameworks(), getBlocks()]));
 
 	let drawerOpen = $state(false);
 	let searchQuery = $state('');
@@ -21,7 +20,7 @@
 						cat,
 						items.filter((b) => b.name.toLowerCase().includes(searchQuery.trim().toLowerCase())),
 					]),
-				) as Record<Category, BlockCategory[]>)
+				) as Record<string, BlockCategory[]>)
 			: blocks,
 	);
 </script>
@@ -57,7 +56,7 @@
 							<li>
 								<a href="/content/blocks#{id}" class="w-full btn hover:preset-tonal justify-between" onclick={() => (drawerOpen = false)}>
 									<span>{id.charAt(0).toUpperCase() + id.slice(1)}</span>
-									<span class="text-xs opacity-60">{(filteredBlocks[id as Category] ?? []).length}</span>
+									<span class="text-xs opacity-60">{(filteredBlocks[id as string] ?? []).length}</span>
 								</a>
 							</li>
 						{/each}

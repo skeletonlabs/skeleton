@@ -1,13 +1,27 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import Preview from '$lib/components/utlity/preview.svelte';
-	import { getBlockBySlug, getFrameworks } from '$lib/remote/blocks/get-blocks.remote';
+	import { getBlock, getFrameworks } from '$lib/remote/blocks/get-blocks.remote';
+	import { svelteModules } from '$lib/remote/blocks/svelte-modules';
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import type { Component } from 'svelte';
 
-	const block = $derived(await getBlockBySlug());
-	const frameworks = $derived(await getFrameworks());
+	const category = $derived(page.params.category ?? '');
+	const slug = $derived(page.params.slug ?? '');
+
+	const [frameworks, block] = $derived(await Promise.all([getFrameworks(), getBlock({ category, block: slug })]));
+
+	const svelteComponents = $derived(
+		await Promise.all(
+			(block?.examples.svelte ?? []).map(async (ex) => {
+				const loader = svelteModules[ex.path];
+				return loader ? ((await loader()) as { default: Component }).default : undefined;
+			}),
+		),
+	);
 
 	let selectedFrameworkKey = $derived(frameworks[0].key);
 	const selectedFrameworkLabel = $derived(frameworks.find((f) => f.key === selectedFrameworkKey));
@@ -53,14 +67,12 @@
 
 <!-- Examples -->
 <div class="container-page space-y-10">
-	{#each Object.entries(block?.examples ?? {}) as [framework, examples] (framework)}
-		{#if framework === selectedFrameworkKey}
-			{#each examples as { title, code, lang, isPremium }, i (i)}
-				<Preview {title} {code} {lang} locked={isPremium}>
-					<!-- NOTE: this is a placeholder for a component -->
-					{@html code}
-				</Preview>
-			{/each}
-		{/if}
+	{#each block?.examples.svelte ?? [] as svelteExample, i (svelteExample.title)}
+		{@const frameworkExamples = block?.examples[selectedFrameworkKey] ?? []}
+		{@const match = frameworkExamples.find((e) => e.title === svelteExample.title) ?? svelteExample}
+		{@const BlockComponent = svelteComponents?.[i]}
+		<Preview title={svelteExample.title} code={match.code} lang={match.lang} locked={svelteExample.isPremium}>
+			{#if BlockComponent}<BlockComponent />{/if}
+		</Preview>
 	{/each}
 </div>
