@@ -2,7 +2,6 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	export interface Props extends HTMLAttributes<HTMLPreElement> {
-		class?: string;
 		filename?: string;
 		highlights?: number[];
 		language?: string;
