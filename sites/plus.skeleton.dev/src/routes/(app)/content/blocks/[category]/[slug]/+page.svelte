@@ -55,8 +55,8 @@
 <div class="container-page space-y-10">
 	{#each Object.entries(block?.examples ?? {}) as [framework, examples] (framework)}
 		{#if framework === selectedFrameworkKey}
-			{#each examples as { title, code, lang } (title)}
-				<Preview {title} {code} {lang}>
+			{#each examples as { title, code, lang, isPremium }, i (i)}
+				<Preview {title} {code} {lang} locked={isPremium}>
 					<!-- NOTE: this is a placeholder for a component -->
 					{@html code}
 				</Preview>
