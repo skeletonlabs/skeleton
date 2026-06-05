@@ -13,12 +13,13 @@
 	{#snippet description()}
 		<p class="opacity-60">Ready-to-use website templates built with Skeleton.</p>
 	{/snippet}
-	{#snippet trail()}
+	<!-- TODO: restore when Plus available -->
+	<!-- {#snippet trail()}
 		<a href="/overview/pricing" class="btn preset-filled">
 			<LockIcon />
 			<span>Unlock All Templates</span>
 		</a>
-	{/snippet}
+	{/snippet} -->
 </PageHeader>
 
 <div class="container-page">

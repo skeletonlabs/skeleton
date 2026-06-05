@@ -96,7 +96,7 @@
 <!-- Features -->
 <section class="container-page lg:py-20! border-b border-surface-200-800">
 	<header class="text-center space-y-2">
-		<h2 class="h3">Skeleton Plus at a glance.</h2>
+		<h2 class="h2">Everything at a glance.</h2>
 		<p class="opacity-60">Tools, templates, and resources to help you ship polished Skeleton apps faster.</p>
 	</header>
 	<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -131,6 +131,24 @@
 			</div>
 			<a href="/content/templates" class="btn preset-tonal">Browse Themes</a>
 		</div>
+		<!-- Tutorials -->
+		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
+			<div class="flex justify-center"><GraduationCapIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
+			<div class="space-y-2 flex-1">
+				<h3 class="h4">Tutorials</h3>
+				<p class="opacity-60">Step-by-step guides covering fundamentals and advanced integration patterns.</p>
+			</div>
+			<a href="/content/tutorials" class="btn preset-tonal">Browse Tutorials</a>
+		</div>
+		<!-- UI Kit -->
+		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
+			<div class="flex justify-center"><LayersIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
+			<div class="space-y-2 flex-1">
+				<h3 class="h4">UI Kit</h3>
+				<p class="opacity-60">Figma assets that compliment Skeleton's design system. Design and code in perfect sync.</p>
+			</div>
+			<a href="/content/community/etesie" class="btn preset-tonal">Browse UI Kit</a>
+		</div>
 		<!-- Community -->
 		<div class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
 			<div class="flex justify-center"><UsersIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
@@ -138,25 +156,7 @@
 				<h3 class="h4">Community</h3>
 				<p class="opacity-60">A collection of community maintained tools aimed at designers and developers.</p>
 			</div>
-			<a href="/content/community" class="btn preset-tonal">Browse Projects</a>
-		</div>
-		<!-- Tutorials -->
-		<div class="disabled card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
-			<div class="flex justify-center"><GraduationCapIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
-			<div class="space-y-2 flex-1">
-				<h3 class="h4">Tutorials</h3>
-				<p class="opacity-60">Step-by-step guides covering fundamentals and advanced integration patterns.</p>
-			</div>
-			<button type="button" class="btn preset-outlined-surface-200-800">Coming Soon</button>
-		</div>
-		<!-- UI Kit -->
-		<div class="disabled card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4 flex flex-col">
-			<div class="flex justify-center"><LayersIcon class="size-elem-9xl stroke-[0.5px] opacity-40" /></div>
-			<div class="space-y-2 flex-1">
-				<h3 class="h4">UI Kit</h3>
-				<p class="opacity-60">Figma assets that compliment Skeleton's design system. Design and code in perfect sync.</p>
-			</div>
-			<button type="button" class="btn preset-outlined-surface-200-800">Coming Soon</button>
+			<a href="/content/community" class="btn preset-tonal">Browse Community</a>
 		</div>
 	</div>
 </section>
