@@ -9,13 +9,20 @@ export interface Framework {
 }
 
 export interface BlockCategory {
-	name: string;
+	slug: string;
+	label: string;
 	meta: {
 		description: string;
 		iconName: string;
 	};
 	react: number;
 	svelte: number;
+}
+
+export interface BlockGroup {
+	slug: string;
+	label: string;
+	blocks: BlockCategory[];
 }
 
 export interface Block {
@@ -26,7 +33,12 @@ export interface Block {
 	path: string;
 }
 
-// Glob Imports ---
+// Data ---
+
+const frameworkList: Framework[] = [
+	{ key: 'react', label: 'React' },
+	{ key: 'svelte', label: 'Svelte' },
+];
 
 const freeMetaModules = import.meta.glob('../../content/free/blocks/**/meta.json', { eager: true });
 const freeSvelteModules = import.meta.glob('../../content/free/blocks/**/svelte/*.svelte');
@@ -39,6 +51,10 @@ const premiumReactSources = import.meta.glob('../../content/premium/blocks/**/re
 const premiumSvelteSources = import.meta.glob('../../content/premium/blocks/**/svelte/*.svelte', { query: '?raw', import: 'default' });
 
 // Helpers ---
+
+function slugToLabel(slug: string): string {
+	return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
 function parseCategoryAndName(path: string): { category: string; name: string } | null {
 	const afterBlocks = path.split('/blocks/')[1];
@@ -61,7 +77,7 @@ function buildBlockCategories(
 		const { category, name } = parsed;
 		result[category] ??= new Map();
 		const meta = (mod as { default: { description: string; iconName: string } }).default;
-		result[category].set(name, { name, meta, react: 0, svelte: 0 });
+		result[category].set(name, { slug: name, label: slugToLabel(name), meta, react: 0, svelte: 0 });
 	}
 
 	for (const [files, field] of [
@@ -73,7 +89,13 @@ function buildBlockCategories(
 			if (!parsed) continue;
 			const { category, name } = parsed;
 			result[category] ??= new Map();
-			const entry = result[category].get(name) ?? { name, meta: { description: '', iconName: '' }, react: 0, svelte: 0 };
+			const entry = result[category].get(name) ?? {
+				slug: name,
+				label: slugToLabel(name),
+				meta: { description: '', iconName: '' },
+				react: 0,
+				svelte: 0,
+			};
 			entry[field]++;
 			result[category].set(name, entry);
 		}
@@ -97,11 +119,8 @@ async function buildBlockExamples(
 		paths.map(async (path) => {
 			const code = (await sources[path]()) as string;
 			const filename = path.split('/').pop()!;
-			const title = filename
-				.replace(/\.\w+$/, '')
-				.replace(/^\d+-/, '')
-				.replace(/-/g, ' ')
-				.replace(/\b\w/g, (c) => c.toUpperCase());
+			const rawSlug = filename.replace(/\.\w+$/, '').replace(/^\d+-/, '');
+			const title = slugToLabel(rawSlug);
 			return { title, code, lang, isPremium, path };
 		}),
 	);
@@ -109,43 +128,35 @@ async function buildBlockExamples(
 
 // Data Functions ---
 
-const frameworkList: Framework[] = [
-	{ key: 'react', label: 'React' },
-	{ key: 'svelte', label: 'Svelte' },
-	{ key: 'vue', label: 'Vue' },
-	{ key: 'solid', label: 'Solid.js' },
-	{ key: 'astro', label: 'Astro' },
-];
-
 /** Get all supported frameworks */
 export const getFrameworks = query(async (): Promise<Framework[]> => {
 	return frameworkList;
 });
 
 /** Get all block categories */
-export const getBlocks = query(async () => {
+export const getBlocks = query(async (): Promise<BlockGroup[]> => {
 	const blockCategoriesFree = buildBlockCategories(freeMetaModules, freeReactSources, freeSvelteModules);
 	const blockCategoriesPremium = buildBlockCategories(premiumMetaModules, premiumReactSources, premiumSvelteModules);
-	const result: Record<string, BlockCategory[]> = {};
 	const allKeys = new Set([...Object.keys(blockCategoriesFree), ...Object.keys(blockCategoriesPremium)]);
+	const groups: BlockGroup[] = [];
 	for (const key of allKeys) {
 		const map = new Map<string, BlockCategory>();
-		for (const cat of blockCategoriesFree[key] ?? []) map.set(cat.name, { ...cat });
+		for (const cat of blockCategoriesFree[key] ?? []) map.set(cat.slug, { ...cat });
 		for (const cat of blockCategoriesPremium[key] ?? []) {
-			const existing = map.get(cat.name);
+			const existing = map.get(cat.slug);
 			if (existing) {
 				existing.react += cat.react;
 				existing.svelte += cat.svelte;
 			} else {
-				map.set(cat.name, { ...cat });
+				map.set(cat.slug, { ...cat });
 			}
 		}
-		result[key] = Array.from(map.values());
+		groups.push({ slug: key, label: slugToLabel(key), blocks: Array.from(map.values()) });
 	}
-	return result;
+	return groups;
 });
 
-/** Get single block details */
+/** Get individual block details */
 export const getBlock = query(v.object({ category: v.string(), block: v.string() }), async ({ category, block }) => {
 	const metaPath = Object.keys(freeMetaModules).find((p) => p.includes(`/blocks/${category}/${block}/`));
 	const meta = metaPath
@@ -160,7 +171,8 @@ export const getBlock = query(v.object({ category: v.string(), block: v.string()
 	]);
 
 	return {
-		name: block,
+		slug: block,
+		label: slugToLabel(block),
 		meta,
 		examples: {
 			react: [...freeReact, ...premiumReact],

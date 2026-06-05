@@ -28,7 +28,7 @@
 </script>
 
 {#if block}
-	<PageHeader title={block.name}>
+	<PageHeader title={block.label}>
 		{#snippet description()}
 			<p class="opacity-60">{block.meta.description}</p>
 		{/snippet}
