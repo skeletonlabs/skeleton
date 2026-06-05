@@ -7,7 +7,7 @@
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
-	import type { Component } from 'svelte';
+	import { untrack, type Component } from 'svelte';
 
 	const category = $derived(page.params.category ?? '');
 	const slug = $derived(page.params.slug ?? '');
@@ -23,7 +23,7 @@
 		),
 	);
 
-	let selectedFrameworkKey = $derived(frameworks[0].key);
+	let selectedFrameworkKey = $state(untrack(() => frameworks[0]?.key ?? ''));
 	const selectedFrameworkLabel = $derived(frameworks.find((f) => f.key === selectedFrameworkKey));
 </script>
 

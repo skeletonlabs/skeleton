@@ -2,31 +2,28 @@
 	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { dialogDrawerRight } from '$lib/components/modal-styles';
 	import { iconMap } from '$lib/remote/blocks/block-icons';
-	import { getFrameworks, getBlocks, type BlockGroup } from '$lib/remote/blocks/get-blocks.remote';
+	import { getBlocks, type BlockGroup } from '$lib/remote/blocks/get-blocks.remote';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
 	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
 
-	const [frameworks, blocks] = $derived(await Promise.all([getFrameworks(), getBlocks()]));
+	const blocks = $derived(await getBlocks());
 
 	let drawerOpen = $state(false);
 	let searchQuery = $state('');
 
-	const filteredBlocks = $derived(
-		searchQuery.trim()
-			? (blocks
-					.map((group) => ({
-						...group,
-						blocks: group.blocks.filter(
-							(b) =>
-								b.slug.toLowerCase().includes(searchQuery.trim().toLowerCase()) ||
-								b.label.toLowerCase().includes(searchQuery.trim().toLowerCase()),
-						),
-					}))
-					.filter((group) => group.blocks.length > 0) as BlockGroup[])
-			: blocks,
-	);
+	const filteredBlocks = $derived.by(() => {
+		const q = searchQuery.trim().toLowerCase();
+		const sorted = (group: BlockGroup) => group.blocks.slice().sort((a, b) => a.slug.localeCompare(b.slug));
+		if (!q) return blocks.map((group) => ({ ...group, blocks: sorted(group) }));
+		return blocks
+			.map((group) => ({
+				...group,
+				blocks: sorted(group).filter((b) => b.slug.toLowerCase().includes(q) || b.label.toLowerCase().includes(q)),
+			}))
+			.filter((group) => group.blocks.length > 0) as BlockGroup[];
+	});
 </script>
 
 <!-- Modal: Filters -->
@@ -94,7 +91,6 @@
 <!-- Category List -->
 <div class="container-page space-y-10">
 	{#each filteredBlocks as group (group.slug)}
-		{@const sectionBlocks = group.blocks.slice().sort((a, b) => a.slug.localeCompare(b.slug))}
 		<!-- Category -->
 		<section id={group.slug} class="scroll-mt-header space-y-4">
 			<header>
@@ -102,7 +98,7 @@
 			</header>
 			<!-- Blocks Grid -->
 			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-				{#each sectionBlocks as item (item.slug)}
+				{#each group.blocks as item (item.slug)}
 					{@const Icon = iconMap[item.meta.iconName]}
 					<!-- Block -->
 					<a href="/content/blocks/{group.slug}/{item.slug}" class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
