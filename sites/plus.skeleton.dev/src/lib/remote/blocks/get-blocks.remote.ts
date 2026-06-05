@@ -29,10 +29,8 @@ export interface Block {
 // Glob Imports ---
 
 const freeMetaModules = import.meta.glob('../../content/free/blocks/**/meta.json', { eager: true });
-const freeReactModules = import.meta.glob('../../content/free/blocks/**/react/*.tsx');
 const freeSvelteModules = import.meta.glob('../../content/free/blocks/**/svelte/*.svelte');
 const premiumMetaModules = import.meta.glob('../../content/premium/blocks/**/meta.json', { eager: true });
-const premiumReactModules = import.meta.glob('../../content/premium/blocks/**/react/*.tsx');
 const premiumSvelteModules = import.meta.glob('../../content/premium/blocks/**/svelte/*.svelte');
 
 const freeReactSources = import.meta.glob('../../content/free/blocks/**/react/*.tsx', { query: '?raw', import: 'default' });
@@ -126,8 +124,8 @@ export const getFrameworks = query(async (): Promise<Framework[]> => {
 
 /** Get all block categories */
 export const getBlocks = query(async () => {
-	const blockCategoriesFree = buildBlockCategories(freeMetaModules, freeReactModules, freeSvelteModules);
-	const blockCategoriesPremium = buildBlockCategories(premiumMetaModules, premiumReactModules, premiumSvelteModules);
+	const blockCategoriesFree = buildBlockCategories(freeMetaModules, freeReactSources, freeSvelteModules);
+	const blockCategoriesPremium = buildBlockCategories(premiumMetaModules, premiumReactSources, premiumSvelteModules);
 	const result: Record<string, BlockCategory[]> = {};
 	const allKeys = new Set([...Object.keys(blockCategoriesFree), ...Object.keys(blockCategoriesPremium)]);
 	for (const key of allKeys) {
