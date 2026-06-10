@@ -1,28 +1,26 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTutorialsList, type TutorialListChapter, type TutorialList } from '$lib/remote/tutorials/get-tutorials.remote';
+	import { getTutorialChaptersFree, getTutorialChaptersPremium } from '$lib/remote/tutorials/get-tutorials.remote';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import BookOpenIcon from '@lucide/svelte/icons/book-open';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
-	let tier = $state(page.url.searchParams.get('tier') ?? 'beginner');
+	let tier = $state(page.url.searchParams.get('tier') ?? 'free');
+	const locked = $derived(tier === 'premium');
 	let search = $state('');
 
-	const locked = $derived(tier == 'advanced');
-	const tutorialsList = $derived(await getTutorialsList());
-	const filteredTiers = $derived(
-		(Object.entries(tutorialsList) as [string, TutorialListChapter[]][]).reduce((acc, [key, chapters]) => {
-			acc[key] = chapters
-				.map((chapter) => ({
-					...chapter,
-					lessons: fuzzyMatch(search, chapter.title) ? chapter.lessons : chapter.lessons.filter((l) => fuzzyMatch(search, l.title)),
-				}))
-				.filter((chapter) => fuzzyMatch(search, chapter.title) || chapter.lessons.length > 0);
-			return acc;
-		}, {} as TutorialList),
+	const [chaptersFree, chaptersPremium] = $derived(await Promise.all([getTutorialChaptersFree(), getTutorialChaptersPremium()]));
+	const activeChapters = $derived(tier === 'free' ? chaptersFree : chaptersPremium);
+	const filteredChapters = $derived(
+		activeChapters
+			.map((chapter) => ({
+				...chapter,
+				lessons: fuzzyMatch(search, chapter.title) ? chapter.lessons : chapter.lessons.filter((l) => fuzzyMatch(search, l.title)),
+			}))
+			.filter((chapter) => fuzzyMatch(search, chapter.title) || chapter.lessons.length > 0),
 	);
 
 	function fuzzyMatch(query: string, target: string): boolean {
@@ -57,12 +55,12 @@
 		<SegmentedControl value={tier} onValueChange={(details) => (tier = details.value ?? tier)} class="inline-block">
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
-				<SegmentedControl.Item value="beginner">
-					<SegmentedControl.ItemText>Beginner</SegmentedControl.ItemText>
+				<SegmentedControl.Item value="free">
+					<SegmentedControl.ItemText>Free</SegmentedControl.ItemText>
 					<SegmentedControl.ItemHiddenInput />
 				</SegmentedControl.Item>
-				<SegmentedControl.Item value="advanced">
-					<SegmentedControl.ItemText>Advanced</SegmentedControl.ItemText>
+				<SegmentedControl.Item value="premium">
+					<SegmentedControl.ItemText>Premium</SegmentedControl.ItemText>
 					<SegmentedControl.ItemHiddenInput />
 				</SegmentedControl.Item>
 			</SegmentedControl.Control>
@@ -79,8 +77,8 @@
 	<section class="space-y-2">
 		<!-- Chapters List -->
 		<Accordion collapsible>
-			{#each filteredTiers[tier] as chapter (chapter.value)}
-				<Accordion.Item value={chapter.value} disabled={tier === 'advanced'}>
+			{#each filteredChapters as chapter (chapter.value)}
+				<Accordion.Item value={chapter.value} disabled={tier === 'premium'}>
 					<!-- Chapter Card -->
 					<Accordion.ItemTrigger
 						class="card bg-surface-50-950 border border-surface-200-800 p-4 grid grid-cols-[auto_1fr_auto] items-center gap-4"

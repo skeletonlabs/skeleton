@@ -22,6 +22,6 @@
 	);
 </script>
 
-<div class="card bg-neutral-50 dark:bg-neutral-950 p-4 shadow-lg text-xs *:first:bg-transparent!">
+<div class="card bg-neutral-50 dark:bg-neutral-950 p-4 shadow-lg text-xs *:first:bg-transparent! *first:whitespace-pre-wrap">
 	{@html html}
 </div>

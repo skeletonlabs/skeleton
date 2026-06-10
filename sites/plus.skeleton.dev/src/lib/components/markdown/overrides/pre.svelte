@@ -34,9 +34,9 @@
 
 <div class="prose-pre shadow-lg">
 	{#if filename || language}
-		<header class="rounded-tl-container rounded-tr-container bg-white dark:bg-neutral-950 pt-4 px-4 flex justify-between items-center">
+		<header class="pb-2 flex justify-between items-center">
 			<span class="text-xs opacity-50">{filename ?? language}</span>
-			<button class="btn-icon btn-icon-sm opacity-50 hover:opacity-100 hover:preset-tonal" onclick={copyCode}>
+			<button class="btn-icon btn-icon-sm preset-outlined-surface-200-800 hover:preset-tonal" onclick={copyCode}>
 				{#if copied}
 					<ThumbsUpIcon />
 				{:else}
@@ -45,7 +45,7 @@
 			</button>
 		</header>
 	{/if}
-	<pre bind:this={preRef} class="rounded-tl-none! rounded-tr-none!" {...rest}>{@render children?.()}</pre>
+	<pre bind:this={preRef} {...rest} style="white-space: pre-wrap;">{@render children?.()}</pre>
 </div>
 
 <style>
