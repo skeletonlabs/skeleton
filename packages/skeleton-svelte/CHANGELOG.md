@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.0-next.11
+
+### Patch Changes
+
+- task: bump `zag` to `1.41.2` ([#4492](https://github.com/skeletonlabs/skeleton/pull/4492))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@5.0.0-next.11
+
 ## 5.0.0-next.10
 
 ### Minor Changes
