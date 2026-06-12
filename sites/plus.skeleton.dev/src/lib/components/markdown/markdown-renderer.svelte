@@ -33,4 +33,4 @@
 	);
 </script>
 
-<ComarkRenderer {tree} {components} class="space-y-4" />
+<ComarkRenderer {tree} {components} class="space-y-8" />
