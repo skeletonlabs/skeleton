@@ -5,100 +5,100 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.9
-  '@astrojs/mdx': 6.0.0-alpha.0
+  '@astrojs/mdx': 6.0.2
   '@astrojs/partytown': 2.1.7
   '@astrojs/react': 6.0.0-alpha.0
-  '@astrojs/sitemap': 3.7.2
-  '@astrojs/svelte': 9.0.0-alpha.0
+  '@astrojs/sitemap': 3.7.3
+  '@astrojs/svelte': 9.0.0-alpha.2
   '@astrojs/vercel': 11.0.0-alpha.0
   '@changesets/cli': 2.31.0
-  '@clack/prompts': 1.4.0
+  '@clack/prompts': 1.5.1
   '@faker-js/faker': 10.4.0
   '@floating-ui/dom': 1.7.6
-  '@iconify-json/simple-icons': 1.2.83
-  '@internationalized/date': 3.12.1
-  '@lucide/astro': 1.16.0
-  '@lucide/svelte': 1.16.0
+  '@iconify-json/simple-icons': 1.2.86
+  '@internationalized/date': 3.12.2
+  '@lucide/astro': 1.17.0
+  '@lucide/svelte': 1.17.0
   '@neondatabase/serverless': 1.1.0
   '@playwright/test': 1.60.0
   '@prettier/plugin-oxc': 0.1.4
   '@resvg/resvg-js': 2.6.2
-  '@shikijs/core': 4.1.0
-  '@shikijs/engine-javascript': 4.1.0
-  '@shikijs/langs': 4.1.0
-  '@shikijs/themes': 4.1.0
-  '@shikijs/transformers': 4.1.0
-  '@shikijs/types': 4.1.0
+  '@shikijs/core': 4.2.0
+  '@shikijs/engine-javascript': 4.2.0
+  '@shikijs/langs': 4.2.0
+  '@shikijs/themes': 4.2.0
+  '@shikijs/transformers': 4.2.0
+  '@shikijs/types': 4.2.0
   '@stackblitz/sdk': 1.11.0
   '@sveltejs/adapter-auto': 7.0.1
   '@sveltejs/adapter-vercel': 6.3.3
-  '@sveltejs/kit': 2.60.1
-  '@sveltejs/package': 2.5.7
+  '@sveltejs/kit': 2.64.0
+  '@sveltejs/package': 2.5.8
   '@sveltejs/vite-plugin-svelte': 7.1.2
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.3.0
-  '@tanstack/react-router': 1.170.7
-  '@tanstack/react-start': 1.168.10
-  '@tanstack/router-cli': 1.167.9
+  '@tanstack/react-router': 1.170.15
+  '@tanstack/react-start': 1.168.25
+  '@tanstack/router-cli': 1.167.17
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.9
   '@types/html-escaper': 3.0.4
   '@types/mdast': 4.0.4
-  '@types/node': 25.9.1
-  '@types/react': 19.2.15
+  '@types/node': 25.9.2
+  '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
   '@types/semver': 7.7.1
   '@vitejs/plugin-react': 5.2.0
-  '@vitest/browser-playwright': 4.1.7
-  '@zag-js/accordion': 1.41.0
-  '@zag-js/avatar': 1.41.0
-  '@zag-js/carousel': 1.41.0
-  '@zag-js/marquee': 1.41.0
-  '@zag-js/collapsible': 1.41.0
-  '@zag-js/collection': 1.41.0
-  '@zag-js/combobox': 1.41.0
-  '@zag-js/date-picker': 1.41.0
-  '@zag-js/dialog': 1.41.0
-  '@zag-js/file-upload': 1.41.0
-  '@zag-js/floating-panel': 1.41.0
-  '@zag-js/listbox': 1.41.0
-  '@zag-js/menu': 1.41.0
-  '@zag-js/pagination': 1.41.0
-  '@zag-js/popover': 1.41.0
-  '@zag-js/progress': 1.41.0
-  '@zag-js/qr-code': 1.41.0
-  '@zag-js/radio-group': 1.41.0
-  '@zag-js/rating-group': 1.41.0
-  '@zag-js/react': 1.41.0
-  '@zag-js/slider': 1.41.0
-  '@zag-js/steps': 1.41.0
-  '@zag-js/svelte': 1.41.0
-  '@zag-js/switch': 1.41.0
-  '@zag-js/tabs': 1.41.0
-  '@zag-js/tags-input': 1.41.0
-  '@zag-js/toast': 1.41.0
-  '@zag-js/toggle-group': 1.41.0
-  '@zag-js/tooltip': 1.41.0
-  '@zag-js/tree-view': 1.41.0
-  astro: 7.0.0-alpha.1
+  '@vitest/browser-playwright': 4.1.8
+  '@zag-js/accordion': 1.41.2
+  '@zag-js/avatar': 1.41.2
+  '@zag-js/carousel': 1.41.2
+  '@zag-js/marquee': 1.41.2
+  '@zag-js/collapsible': 1.41.2
+  '@zag-js/collection': 1.41.2
+  '@zag-js/combobox': 1.41.2
+  '@zag-js/date-picker': 1.41.2
+  '@zag-js/dialog': 1.41.2
+  '@zag-js/file-upload': 1.41.2
+  '@zag-js/floating-panel': 1.41.2
+  '@zag-js/listbox': 1.41.2
+  '@zag-js/menu': 1.41.2
+  '@zag-js/pagination': 1.41.2
+  '@zag-js/popover': 1.41.2
+  '@zag-js/progress': 1.41.2
+  '@zag-js/qr-code': 1.41.2
+  '@zag-js/radio-group': 1.41.2
+  '@zag-js/rating-group': 1.41.2
+  '@zag-js/react': 1.41.2
+  '@zag-js/slider': 1.41.2
+  '@zag-js/steps': 1.41.2
+  '@zag-js/svelte': 1.41.2
+  '@zag-js/switch': 1.41.2
+  '@zag-js/tabs': 1.41.2
+  '@zag-js/tags-input': 1.41.2
+  '@zag-js/toast': 1.41.2
+  '@zag-js/toggle-group': 1.41.2
+  '@zag-js/tooltip': 1.41.2
+  '@zag-js/tree-view': 1.41.2
+  astro: 7.0.0-alpha.2
   astro-auto-import: 0.5.1
   astro-pagefind: 2.0.0
   astro-seo: 1.1.0
-  better-auth: 1.6.11
+  better-auth: 1.6.15
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
-  commander: 14.0.3
+  commander: 15.0.0
   detect-indent: 7.0.2
-  drizzle-kit: 1.0.0-rc.4-5d5b77c
+  drizzle-kit: 1.0.0-rc.4-ca0f029
   drizzle-orm: 1.0.0-rc.4-5d5b77c
-  fuse.js: 7.3.0
+  fuse.js: 7.4.2
   html-escaper: 3.0.3
   latest-version: 9.0.0
   lightningcss: 1.32.0
-  lucide-react: 1.16.0
+  lucide-react: 1.17.0
   magic-string: 0.30.21
   mdast-util-from-markdown: 2.0.3
   mdast-util-gfm: 3.1.0
@@ -108,8 +108,8 @@ catalog:
   nanoid: 5.1.11
   node-html-parser: 7.1.0
   octokit: 5.0.5
-  oxc-resolver: 11.19.1
-  oxlint: 1.66.0
+  oxc-resolver: 11.20.0
+  oxlint: 1.69.0
   oxlint-tsgolint: 0.23.0
   package-manager-detector: 1.6.0
   playwright: 1.60.0
@@ -117,31 +117,31 @@ catalog:
   postgres: 3.4.9
   prettier: 3.8.3
   prettier-plugin-astro: 0.14.1
-  prettier-plugin-svelte: 4.0.1
-  react: 19.2.6
-  react-dom: 19.2.6
+  prettier-plugin-svelte: 4.1.0
+  react: 19.2.7
+  react-dom: 19.2.7
   satori: 0.26.0
-  semver: 7.8.1
+  semver: 7.8.3
   sharp: 0.34.5
-  shiki: 4.1.0
-  svelte: 5.55.9
-  svelte-check: 4.4.8
+  shiki: 4.2.0
+  svelte: 5.56.3
+  svelte-check: 4.6.0
   tailwindcss: 4.3.0
-  tinyglobby: 0.2.16
+  tinyglobby: 0.2.17
   ts-morph: 28.0.0
-  tsdown: 0.22.0
-  type-fest: 5.6.0
+  tsdown: 0.22.2
+  type-fest: 5.7.0
   typescript: 6.0.3
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
-  valibot: 1.4.0
-  vite: 8.0.14
-  vitest: 4.1.7
+  valibot: 1.4.1
+  vite: 8.0.16
+  vitest: 4.1.8
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.1.1
   zimmerframe: 1.1.4
   neverthrow: 8.2.0
-  '@zag-js/i18n-utils': 1.41.0
+  '@zag-js/i18n-utils': 1.41.2
 
 catalogMode: strict
 
