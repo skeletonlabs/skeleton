@@ -78,12 +78,13 @@
 		<p class="opacity-60">Partial interface sections for use within your Skeleton app.</p>
 	{/snippet}
 	{#snippet trail()}
-		<a href="/overview/pricing" class="btn preset-filled">
+		<!-- <a href="/overview/pricing" class="btn preset-filled">
 			<LockIcon />
 			<span>Unlock All Blocks</span>
-		</a>
-		<button type="button" class="btn-icon preset-outlined" onclick={() => (drawerOpen = !drawerOpen)} title="Search" aria-label="Search">
+		</a> -->
+		<button type="button" class="btn preset-outlined" onclick={() => (drawerOpen = !drawerOpen)} title="Search" aria-label="Search">
 			<SearchIcon />
+			<span>Search</span>
 		</button>
 	{/snippet}
 </PageHeader>

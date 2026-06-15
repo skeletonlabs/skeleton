@@ -50,8 +50,8 @@
 </PageHeader>
 
 <div class="container-page">
-	<!-- Tier Selection -->
-	<header class="flex justify-between items-center gap-4">
+	<!-- Filters -->
+	<!-- <header class="flex justify-between items-center gap-4">
 		<SegmentedControl value={tier} onValueChange={(details) => (tier = details.value ?? tier)} class="inline-block">
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
@@ -65,14 +65,13 @@
 				</SegmentedControl.Item>
 			</SegmentedControl.Control>
 		</SegmentedControl>
-		<!-- Search -->
 		<div>
 			<label class="label">
 				<span class="sr-only">Search</span>
 				<input type="search" class="input" placeholder="Search..." bind:value={search} />
 			</label>
 		</div>
-	</header>
+	</header> -->
 	<!-- Content -->
 	<section class="space-y-2">
 		<!-- Chapters List -->

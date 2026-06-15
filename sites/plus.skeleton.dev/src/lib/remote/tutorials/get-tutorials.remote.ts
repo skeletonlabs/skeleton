@@ -48,6 +48,7 @@ function buildChapters(files: Record<string, string>, tier: 'free' | 'premium'):
 		const parts = path.split('/');
 		const chapterDir = parts[parts.length - 2];
 		const lessonFile = parts[parts.length - 1];
+		if (chapterDir.startsWith('_')) continue;
 		if (!chapterMap.has(chapterDir)) chapterMap.set(chapterDir, []);
 		chapterMap.get(chapterDir)!.push({ raw, lessonFile });
 	}
