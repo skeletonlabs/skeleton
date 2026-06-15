@@ -32,7 +32,8 @@
 					<span>Skeleton</span>
 					<ArrowUpRightIcon />
 				</a>
-				<a href="/content/themes" class="btn lg:btn-lg preset-filled">
+				<!-- TODO: replace with `/themes` -->
+				<a href="/content/blocks" class="btn lg:btn-lg preset-filled">
 					<span>Get Started</span>
 					<ArrowRightIcon />
 				</a>
@@ -83,10 +84,12 @@
 				<h2 class="h2">Themes Repository.</h2>
 				<p class="opacity-60">Explore and download themes crafted by the Skeleton community. No account needed.</p>
 			</header>
-			<a href="/content/themes" class="btn preset-filled">
+			<!-- TODO -->
+			<!-- <a href="/content/themes" class="btn preset-filled">
 				<span>Explore Themes</span>
 				<ArrowRightIcon />
-			</a>
+			</a> -->
+			<button type="button" class="btn preset-outlined" disabled> Coming Soon! </button>
 		</div>
 	</header>
 	<!-- Themes Marquee -->
@@ -107,10 +110,10 @@
 				<h3 class="h4">Design Tools</h3>
 				<p class="opacity-60">Powerful tools for creating themes, presets, and mesh gradients for your applications.</p>
 			</div>
-			<div class="grid grid-cols-3 gap-2">
+			<div class="grid grid-cols-2 gap-2">
 				<a href="/design/themes" class="btn preset-tonal">Themes</a>
 				<a href="/design/presets" class="btn preset-tonal">Presets</a>
-				<a href="/design/mesh" class="btn preset-tonal">Meshes</a>
+				<!-- <a href="/design/mesh" class="btn preset-tonal">Meshes</a> -->
 			</div>
 		</div>
 		<!-- Blocks -->
@@ -161,9 +164,9 @@
 	</div>
 </section>
 
-<section class="preset-tonal-primary border-t border-b border-surface-200-800">
+<!-- TODO -->
+<!-- <section class="preset-tonal-primary border-t border-b border-surface-200-800">
 	<div class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-primary-200-800">
-		<!-- Left -->
 		<div class="container-cell p-10! lg:p-20! flex flex-col justify-center items-start gap-4">
 			<h2 class="h2 text-balance">Access Free Resources.</h2>
 			<p class="opacity-60">
@@ -174,7 +177,6 @@
 				<ArrowRightIcon class="size-elem-sm" />
 			</a>
 		</div>
-		<!-- Right -->
 		<div class="container-cell p-10! lg:p-20! flex flex-col justify-center items-start gap-4">
 			<h2 class="h2 text-balance">Pay once. Access forever.</h2>
 			<p class="opacity-60">
@@ -186,4 +188,4 @@
 			</a>
 		</div>
 	</div>
-</section>
+</section> -->

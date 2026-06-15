@@ -8,7 +8,8 @@
 
 	// A subset of routes in a set order
 	const navColuns: Record<string, readonly Route[]> = {
-		overview: routes.overview,
+		// TODO
+		// overview: routes.overview,
 		design: routes.design,
 		content: routes.content,
 		links: routes.links,
@@ -17,7 +18,7 @@
 
 <footer class="container mx-auto border-t border-l border-r border-surface-200-800">
 	<!-- Navigation Row -->
-	<DecorCorners corners={['tl', 'tr', 'bl', 'br']} class="container-cell grid grid-cols-2 md:grid-cols-4 gap-8">
+	<DecorCorners corners={['tl', 'tr', 'bl', 'br']} class="container-cell grid grid-cols-2 md:grid-cols-3 gap-8">
 		{#each Object.entries(navColuns) as [section, items] (section)}
 			<nav class="space-y-4">
 				<h2 class="font-bold capitalize">{section}</h2>
