@@ -49,8 +49,8 @@ export const routes = {
 		{ label: 'Mesh Studio', href: resolve('/content/design/mesh'), icon: Grid3x3Icon, enabled: false },
 	],
 	legal: [
-		// NOTE: Keep this during initial launch, all launch content is FOSS
 		{ label: 'License', href: 'https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file', icon: ScaleIcon, enabled: true },
+		// TODO
 		// { label: 'Privacy', href: resolve('/legal/privacy'), icon: ShieldIcon, enabled: true },
 		// { label: 'Terms', href: resolve('/legal/terms'), icon: FileTextIcon, enabled: true },
 		// { label: 'License', href: resolve('/legal/license'), icon: ScaleIcon, enabled: true },
@@ -62,8 +62,9 @@ export const routes = {
 		{ label: 'Bluesky', href: 'https://bsky.app/profile/skeleton.dev', enabled: true },
 		{ label: 'Ko-Fi', href: 'https://ko-fi.com/skeletonlabs', enabled: true },
 	],
-	overview: [
-		{ label: 'About', href: resolve('/overview/about'), enabled: true },
-		{ label: 'Pricing', href: resolve('/overview/pricing'), enabled: false },
-	],
+	// TODO
+	// overview: [
+	// 	{ label: 'About', href: resolve('/overview/about'), enabled: false },
+	// 	{ label: 'Pricing', href: resolve('/overview/pricing'), enabled: false },
+	// ],
 } as const satisfies Record<string, readonly Route[]>;
