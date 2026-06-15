@@ -70,14 +70,12 @@ function buildChapters(files: Record<string, string>, tier: 'free' | 'premium'):
 
 // Data Functions ---
 
-/** Get all free tutorial chapters */
-export const getTutorialChaptersFree = query(async (): Promise<TutorialListChapter[]> => {
-	return buildChapters(freeFiles, 'free');
-});
-
-/** Get all premium tutorial chapters */
-export const getTutorialChaptersPremium = query(async (): Promise<TutorialListChapter[]> => {
-	return buildChapters(premiumFiles, 'premium');
+/** Get all tutorial chapters (free and premium) */
+export const getTutorialChapters = query(async (): Promise<{ free: TutorialListChapter[]; premium: TutorialListChapter[] }> => {
+	return {
+		free: buildChapters(freeFiles, 'free'),
+		premium: buildChapters(premiumFiles, 'premium'),
+	};
 });
 
 /** Get a single tutorial lesson by tier, chapter, and lesson slug */

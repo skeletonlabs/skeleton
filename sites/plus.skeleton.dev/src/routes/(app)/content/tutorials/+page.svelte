@@ -1,19 +1,19 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTutorialChaptersFree, getTutorialChaptersPremium } from '$lib/remote/tutorials/get-tutorials.remote';
+	import { getTutorialChapters } from '$lib/remote/tutorials/get-tutorials.remote';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import BookOpenIcon from '@lucide/svelte/icons/book-open';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import LockIcon from '@lucide/svelte/icons/lock';
-	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion } from '@skeletonlabs/skeleton-svelte';
 
 	let tier = $state(page.url.searchParams.get('tier') ?? 'free');
 	const locked = $derived(tier === 'premium');
 	let search = $state('');
 
-	const [chaptersFree, chaptersPremium] = $derived(await Promise.all([getTutorialChaptersFree(), getTutorialChaptersPremium()]));
-	const activeChapters = $derived(tier === 'free' ? chaptersFree : chaptersPremium);
+	const chapters = $derived(await getTutorialChapters());
+	const activeChapters = $derived(tier === 'free' ? chapters.free : chapters.premium);
 	const filteredChapters = $derived(
 		activeChapters
 			.map((chapter) => ({
