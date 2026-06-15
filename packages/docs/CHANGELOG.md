@@ -1,5 +1,7 @@
 # @skeletonlabs/docs
 
+## 5.0.0-next.11
+
 ## 5.0.0-next.10
 
 ### Minor Changes
