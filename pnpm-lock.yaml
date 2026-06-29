@@ -319,8 +319,8 @@ catalogs:
       specifier: 8.2.0
       version: 8.2.0
     node-html-parser:
-      specifier: 7.1.0
-      version: 7.1.0
+      specifier: 8.0.3
+      version: 8.0.3
     octokit:
       specifier: 5.0.5
       version: 5.0.5
@@ -487,7 +487,7 @@ importers:
         version: 5.1.11
       node-html-parser:
         specifier: 'catalog:'
-        version: 7.1.0
+        version: 8.0.3
       package-manager-detector:
         specifier: 'catalog:'
         version: 1.6.0
@@ -5362,10 +5362,6 @@ packages:
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
-  he@1.2.0:
-    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
-    hasBin: true
-
   hex-rgb@4.3.0:
     resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
     engines: {node: '>=6'}
@@ -5938,8 +5934,8 @@ packages:
     resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
     hasBin: true
 
-  node-html-parser@7.1.0:
-    resolution: {integrity: sha512-iJo8b2uYGT40Y8BTyy5ufL6IVbN8rbm/1QK2xffXU/1a/v3AAa0d1YAoqBNYqaS4R/HajkWIpIfdE6KcyFh1AQ==}
+  node-html-parser@8.0.3:
+    resolution: {integrity: sha512-ilV20e83nDfiFoEyhlvgqks23Hmy6pySF6UNb8DpgmxnTbXDGgShYKzH2+7ctJK42LXyo+IFOgxCkXmmbacm8w==}
 
   node-mock-http@1.0.4:
     resolution: {integrity: sha512-8DY+kFsDkNXy1sJglUfuODx1/opAGJGyrTuFqEoN90oRc2Vk0ZbD4K2qmKXBBEhZQzdKHIVfEJpDU8Ak2NJEvQ==}
@@ -11280,8 +11276,6 @@ snapshots:
       property-information: 7.1.0
       space-separated-tokens: 2.0.2
 
-  he@1.2.0: {}
-
   hex-rgb@4.3.0: {}
 
   hookable@6.1.1: {}
@@ -12034,10 +12028,10 @@ snapshots:
 
   node-gyp-build@4.8.4: {}
 
-  node-html-parser@7.1.0:
+  node-html-parser@8.0.3:
     dependencies:
       css-select: 5.2.2
-      he: 1.2.0
+      entities: 8.0.0
 
   node-mock-http@1.0.4: {}
 
