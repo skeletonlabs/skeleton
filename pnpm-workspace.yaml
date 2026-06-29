@@ -5,7 +5,7 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.9
-  '@astrojs/mdx': 6.0.3
+  '@astrojs/mdx': 7.0.0
   '@astrojs/partytown': 2.1.7
   '@astrojs/react': 6.0.0-alpha.0
   '@astrojs/sitemap': 3.7.3
