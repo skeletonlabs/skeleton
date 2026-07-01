@@ -253,11 +253,7 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Letter Spacing</span>
-					<select
-						class="select"
-						name="--typo-heading--letter-spacing"
-						bind:value={settingsTypography['--typo-heading--letter-spacing']}
-					>
+					<select class="select" name="--typo-heading--letter-spacing" bind:value={settingsTypography['--typo-heading--letter-spacing']}>
 						{#each constants.letterSpacings as letterSpacing}
 							<option value={letterSpacing}>{letterSpacing}</option>
 						{/each}
@@ -297,11 +293,7 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Text Transform</span>
-					<select
-						class="select"
-						name="--typo-heading--text-transform"
-						bind:value={settingsTypography['--typo-heading--text-transform']}
-					>
+					<select class="select" name="--typo-heading--text-transform" bind:value={settingsTypography['--typo-heading--text-transform']}>
 						{#each constants.textTransforms as textTransform}
 							<option value={textTransform}>{textTransform}</option>
 						{/each}
@@ -400,11 +392,7 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Letter Spacing</span>
-					<select
-						class="select"
-						name="--typo-anchor--letter-spacing"
-						bind:value={settingsTypography['--typo-anchor--letter-spacing']}
-					>
+					<select class="select" name="--typo-anchor--letter-spacing" bind:value={settingsTypography['--typo-anchor--letter-spacing']}>
 						{#each constants.letterSpacings as letterSpacing}
 							<option value={letterSpacing}>{letterSpacing}</option>
 						{/each}
@@ -444,11 +432,7 @@
 				</label>
 				<label class="label">
 					<span class="label-text">Text Transform</span>
-					<select
-						class="select"
-						name="--typo-anchor--text-transform"
-						bind:value={settingsTypography['--typo-anchor--text-transform']}
-					>
+					<select class="select" name="--typo-anchor--text-transform" bind:value={settingsTypography['--typo-anchor--text-transform']}>
 						{#each constants.textTransforms as textTransform}
 							<option value={textTransform}>{textTransform}</option>
 						{/each}
@@ -479,10 +463,7 @@
 						<div class="grid grid-cols-2 gap-4">
 							<label class="label">
 								<span class="label-text">Line</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-line')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-line')]}>
 									{#each constants.textDecorations as textDecoration}
 										<option value={textDecoration}>{textDecoration}</option>
 									{/each}
@@ -490,10 +471,7 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Color</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-color')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-color')]}>
 									<option value="inherit">inherit</option>
 									{#each constants.colorNames as colorName}
 										<optgroup label={colorName}>
@@ -506,10 +484,7 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Style</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-style')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-style')]}>
 									{#each constants.decorationStyles as decorationStyle}
 										<option value={decorationStyle}>{decorationStyle}</option>
 									{/each}
@@ -517,10 +492,7 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Thickness</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-thickness')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-thickness')]}>
 									{#each constants.decorationThicknesses as decorationThickness}
 										<option value={decorationThickness}>{decorationThickness}</option>
 									{/each}
@@ -528,10 +500,7 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Underline Offset</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-underline-offset')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-underline-offset')]}>
 									{#each constants.underlineOffsets as underlineOffset}
 										<option value={underlineOffset}>{underlineOffset}</option>
 									{/each}
@@ -539,10 +508,7 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Underline Position</span>
-								<select
-									class="select"
-									bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-underline-position')]}
-								>
+								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-underline-position')]}>
 									{#each constants.underlinePositions as underlinePosition}
 										<option value={underlinePosition}>{underlinePosition}</option>
 									{/each}

@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/generator';
 	// Components
 	import Edges from '$lib/components/generator/Edges/Edges.svelte';
+	import * as constants from '$lib/constants/generator';
 	// State
 	import { settingsCorners, settingsEdges } from '$lib/state/generator.svelte';
 </script>

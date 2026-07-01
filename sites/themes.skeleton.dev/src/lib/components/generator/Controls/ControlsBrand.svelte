@@ -33,14 +33,13 @@
 
 <div class="space-y-4">
 	<p class="opacity-60">
-		A variable accent color for your design system, referencing any color/shade from your palette. Use this as the default when
-		styling elements and components (ex: <code class="code">preset-filled-brand</code>).
+		A variable accent color for your design system, referencing any color/shade from your palette. Use this as the default when styling
+		elements and components (ex: <code class="code">preset-filled-brand</code>).
 	</p>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label space-y-2">
 			<span class="label-text">Light Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-light']}
-			></div>
+			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-light']}></div>
 			<select class="select" bind:value={lightColorName}>
 				{#each constants.colorNames as colorName}
 					<option value={colorName}>{colorName}</option>
@@ -54,8 +53,7 @@
 		</label>
 		<label class="label space-y-2">
 			<span class="label-text">Dark Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-dark']}
-			></div>
+			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-dark']}></div>
 			<select class="select" bind:value={darkColorName}>
 				{#each constants.colorNames as colorName}
 					<option value={colorName}>{colorName}</option>
