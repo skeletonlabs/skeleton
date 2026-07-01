@@ -6,14 +6,25 @@
 	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
 	// Utils
 	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
+	import { importThemeV5, parseThemeProperties } from '$lib/utils/importer/import-theme-v5';
+	import { isV5Format } from '$lib/utils/importer/migrate-legacy-keys';
 	import FileUpIcon from '@lucide/svelte/icons/file-up';
 	import { FileUpload, type FileUploadRootProps } from '@skeletonlabs/skeleton-svelte';
 
 	const defaultThemeName = 'cerberus';
 
+	/** Routes a CSS theme file to the v5 importer directly, or through the legacy (v3) migration first. */
+	function importThemeCss(fileText: string, fileName: string) {
+		if (isV5Format(parseThemeProperties(fileText))) {
+			importThemeV5(fileText, fileName);
+		} else {
+			importThemeV3(fileText, fileName);
+		}
+	}
+
 	function resetToDefaults() {
 		const defaultTheme = themes.find((t) => t.name === defaultThemeName)!;
-		importThemeV3(defaultTheme.css, defaultThemeName);
+		importThemeCss(defaultTheme.css, defaultThemeName);
 	}
 
 	function onSelectTemplate(fileCss: string, fileName: string) {
@@ -22,7 +33,7 @@
 			resetToDefaults();
 		}
 		// Run template import
-		importThemeV3(fileCss, fileName);
+		importThemeCss(fileCss, fileName);
 		// Redirect to Generator page
 		goto(resolve('/themes/create'));
 	}
@@ -39,14 +50,12 @@
 
 		// Run Importer
 		if (isCssFormat) {
-			importThemeV3(fileText, fileName);
+			importThemeCss(fileText, fileName);
 		} else {
+			// Legacy v2 format (.ts/.js) — colors-only, upconverts into v5 state automatically since
+			// the reset-to-defaults pass above already seeded everything else with v5 (Cerberus) values.
 			importThemeV2(fileText, fileName);
 		}
-
-		// ******** DEBUG ONLY ********
-		// importThemeV3Rc1(fileText, fileName);
-		// ************ / *************
 
 		// Redirect to Generator page
 		goto('/themes/create');

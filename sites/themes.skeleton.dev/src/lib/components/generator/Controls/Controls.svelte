@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { globals } from '$lib/state/generator.svelte';
 	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
+	import ControlsBrand from './ControlsBrand.svelte';
 	import ControlsColors from './ControlsColors.svelte';
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsEdges from './ControlsEdges.svelte';
@@ -12,6 +13,7 @@
 	import LayersIcon from '@lucide/svelte/icons/layers';
 	import PaletteIcon from '@lucide/svelte/icons/palette';
 	import ScalingIcon from '@lucide/svelte/icons/scaling';
+	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
@@ -21,6 +23,12 @@
 			icon: PaletteIcon,
 			label: 'Color Palette',
 			component: ControlsColors,
+		},
+		{
+			value: 'brand',
+			icon: SparklesIcon,
+			label: 'Brand Color',
+			component: ControlsBrand,
 		},
 		{
 			value: 'backgrounds',

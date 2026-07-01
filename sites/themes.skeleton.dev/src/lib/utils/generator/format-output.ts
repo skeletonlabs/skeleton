@@ -2,8 +2,10 @@
 // Deep clones each state object and formats as needed.
 import type {
 	SettingsBackgrounds,
+	SettingsBrand,
 	SettingsColors,
 	SettingsCore,
+	SettingsCorners,
 	SettingsEdges,
 	SettingsSpacing,
 	SettingsTypography,
@@ -48,6 +50,16 @@ export function formageEdges(edges: SettingsEdges) {
 export function formatBackgrounds(backgrounds: SettingsBackgrounds) {
 	const _backgrounds = JSON.parse(JSON.stringify(backgrounds));
 	return objectToCssProperties(_backgrounds);
+}
+
+export function formatCorners(corners: SettingsCorners) {
+	const _corners = JSON.parse(JSON.stringify(corners));
+	return objectToCssProperties(_corners);
+}
+
+export function formatBrand(brand: SettingsBrand) {
+	const _brand = JSON.parse(JSON.stringify(brand));
+	return objectToCssProperties(_brand);
 }
 
 export function formatColors(colors: SettingsColors) {
