@@ -1,8 +1,10 @@
 <script lang="ts">
+	// Constants
 	// Components
 	import Edges from '$lib/components/generator/Edges/Edges.svelte';
+	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsEdges } from '$lib/state/generator.svelte';
+	import { settingsCorners, settingsEdges } from '$lib/state/generator.svelte';
 </script>
 
 <div class="space-y-4">
@@ -36,8 +38,28 @@
 		<Edges name="rings" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-ring-width']} thickness />
 	</div>
 	<div class="label">
-		<!-- ['0rem', '0.063rem', '0.125rem', '0.25rem',' 0.375rem'] -->
-		<span class="label-text">Divider Width</span>
-		<Edges name="dividers" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-divide-width']} thickness />
+		<span class="label-text">Outline Width</span>
+		<p class="text-xs opacity-50">Never set to 0px — required for accessible focus states.</p>
+		<Edges name="outlines" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-outline-width']} thickness />
+	</div>
+	<h2 class="h5">Corner Shape</h2>
+	<p class="text-xs opacity-50">Limited browser support — verify progressive fallbacks before relying on this.</p>
+	<div class="grid grid-cols-2 gap-4">
+		<label class="label">
+			<span class="label-text">Base</span>
+			<select class="select" name="--corner-shape-base" bind:value={settingsCorners['--corner-shape-base']}>
+				{#each constants.cornerShapes as cornerShape}
+					<option value={cornerShape}>{cornerShape}</option>
+				{/each}
+			</select>
+		</label>
+		<label class="label">
+			<span class="label-text">Container</span>
+			<select class="select" name="--corner-shape-container" bind:value={settingsCorners['--corner-shape-container']}>
+				{#each constants.cornerShapes as cornerShape}
+					<option value={cornerShape}>{cornerShape}</option>
+				{/each}
+			</select>
+		</label>
 	</div>
 </div>

@@ -162,4 +162,45 @@ export const fontWeights = [
 
 export const fontStyles = ['inherit', 'normal', 'italic'];
 export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.01em'];
+export const wordSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.1em'];
 export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
+
+// Typography — Extended (v5) ---
+
+export const fontStretches = [
+	'inherit',
+	'normal',
+	'ultra-condensed',
+	'extra-condensed',
+	'condensed',
+	'semi-condensed',
+	'semi-expanded',
+	'expanded',
+	'extra-expanded',
+	'ultra-expanded',
+] as const;
+
+export const fontKernings = ['inherit', 'auto', 'normal', 'none'] as const;
+
+export const hyphensOptions = ['inherit', 'none', 'manual', 'auto'] as const;
+
+export const textTransforms = ['inherit', 'none', 'capitalize', 'uppercase', 'lowercase'] as const;
+
+export const textShadows = [
+	'inherit',
+	'none',
+	'1px 1px 2px rgba(0, 0, 0, 0.3)',
+	'0 1px 3px rgba(0, 0, 0, 0.4)',
+	'0 0 8px rgba(0, 0, 0, 0.5)',
+] as const;
+
+// Anchor Decoration — Sub-properties (v5) ---
+
+export const decorationStyles = ['inherit', 'solid', 'double', 'dotted', 'dashed', 'wavy'] as const;
+export const decorationThicknesses = ['inherit', 'auto', 'from-font', '1px', '2px', '3px'] as const;
+export const underlineOffsets = ['inherit', 'auto', '1px', '2px', '4px'] as const;
+export const underlinePositions = ['inherit', 'auto', 'under', 'from-font'] as const;
+
+// Corner Shape (v5) ---
+
+export const cornerShapes = ['inherit', 'round', 'bevel', 'notch', 'scoop', 'squircle', 'straight'] as const;

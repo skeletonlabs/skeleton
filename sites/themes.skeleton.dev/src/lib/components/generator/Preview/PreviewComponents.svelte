@@ -41,13 +41,10 @@
 				</Tabs.List>
 			</Tabs>
 			<!-- Avatars -->
-			<div class="grid grid-cols-6 gap-4">
+			<div class="grid grid-cols-5 gap-2">
 				<!-- Source: https://avatar.iran.liara.run/ -->
 				<Avatar>
 					<Avatar.Image src="/images/male.png" class="grayscale" />
-				</Avatar>
-				<Avatar>
-					<Avatar.Image src="/images/female.png" class="grayscale" />
 				</Avatar>
 				<Avatar>
 					<Avatar.Fallback class={currentPresets.filled}>SS</Avatar.Fallback>
@@ -235,3 +232,46 @@
 		</div>
 	</div>
 </div>
+
+<!-- <hr class="hr" /> -->
+
+<!-- New in v5 -->
+<!-- <div class="space-y-10">
+	<h2 class="h4">New in v5</h2>
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+		// Brand Color
+		<div class="space-y-2">
+			<small class="text-base opacity-60">Brand Color</small>
+			<div class="flex flex-wrap gap-2">
+				<span class="badge preset-filled-brand">Filled</span>
+				<span class="badge preset-tonal-brand">Tonal</span>
+				<span class="badge preset-outlined-brand">Outlined</span>
+			</div>
+		</div>
+		// Corner Shape
+		<div class="space-y-2">
+			<small class="text-base opacity-60">Corner Shape</small>
+			<div class="flex gap-4">
+				<div class="flex flex-col items-center gap-1">
+					<div class="corner-shape-base size-16 bg-surface-300-700"></div>
+					<span class="text-xs opacity-50">Base</span>
+				</div>
+				<div class="flex flex-col items-center gap-1">
+					<div class="corner-shape-container size-16 bg-surface-300-700"></div>
+					<span class="text-xs opacity-50">Container</span>
+				</div>
+			</div>
+		</div>
+		// Outline Width
+		<div class="space-y-2">
+			<small class="text-base opacity-60">Outline Width</small>
+			<button
+				type="button"
+				class="btn preset-outlined-surface-200-800"
+				style="outline: var(--default-outline-width) solid var(--color-primary-500); outline-offset: 2px;"
+			>
+				Focused (example)
+			</button>
+		</div>
+	</div>
+</div> -->
