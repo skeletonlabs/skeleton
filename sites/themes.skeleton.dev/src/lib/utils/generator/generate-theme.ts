@@ -18,14 +18,14 @@ import {
 	formatCore,
 	formatCorners,
 	formatSpacing,
-	formatTypography,
+	formatTypographyForTheme,
 } from '$lib/utils/generator/format-output';
 
 export function generateTheme() {
 	const _settingsCore = formatCore(settingsCore);
 	const themeCss = `
 [data-theme='${_settingsCore.name}'] {
-${formatTypography(settingsTypography)}
+${formatTypographyForTheme(settingsTypography)}
 ${formatSpacing(settingsSpacing)}
 ${formageEdges(settingsEdges)}
 ${formatCorners(settingsCorners)}

@@ -35,14 +35,41 @@ const FONT_CATEGORY_FALLBACK: Record<string, string> = {
 	display: 'serif',
 };
 
-/** Extracts a Fontsource font id from a full URL (`https://fontsource.org/fonts/poppins`) or a bare id. */
+/** Extracts a Fontsource font id from a full URL (`https://fontsource.org/fonts/poppins`, with an
+ optional `/install` or `/cdn` suffix) or a bare font name (`poppins`, `Noto Sans`). Throws if the
+ input can't be resolved to a plausible font id. */
 export function parseFontsourceId(input: string): string {
 	const trimmed = input.trim();
-	if (/^https?:\/\//i.test(trimmed) || trimmed.includes('fontsource.org')) {
-		const segments = trimmed.split('/').filter(Boolean);
-		return (segments[segments.length - 1] ?? trimmed).toLowerCase();
+	if (!trimmed) throw new Error('Please enter a Fontsource URL or font name.');
+
+	const looksLikeUrl = /^https?:\/\//i.test(trimmed) || trimmed.includes('fontsource.org');
+
+	let id: string;
+	if (looksLikeUrl) {
+		const normalized = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+		let url: URL;
+		try {
+			url = new URL(normalized);
+		} catch {
+			throw new Error("That doesn't look like a valid Fontsource URL.");
+		}
+		if (!/(^|\.)fontsource\.org$/i.test(url.hostname)) {
+			throw new Error('Please enter a URL from fontsource.org (ex: https://fontsource.org/fonts/poppins).');
+		}
+		// Path is typically /fonts/{id}[/install|/cdn]; take the segment right after "fonts".
+		const segments = url.pathname.split('/').filter(Boolean);
+		const fontsIndex = segments.findIndex((segment) => segment.toLowerCase() === 'fonts');
+		id = (fontsIndex !== -1 ? segments[fontsIndex + 1] : segments[segments.length - 1]) ?? '';
+		if (!id) throw new Error('Could not find a font name in that URL.');
+	} else {
+		id = trimmed.replace(/\s+/g, '-');
 	}
-	return trimmed.toLowerCase();
+
+	id = id.toLowerCase();
+	if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)) {
+		throw new Error(`"${id}" doesn't look like a valid Fontsource font name.`);
+	}
+	return id;
 }
 
 /** Fetches font metadata from the Fontsource API and flattens it into a `CustomFont`. */
