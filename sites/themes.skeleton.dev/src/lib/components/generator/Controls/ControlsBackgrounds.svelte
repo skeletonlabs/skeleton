@@ -40,7 +40,10 @@
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label space-y-2">
 			<span class="label-text">Light Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBackgrounds['--color-root-bg-light']}></div>
+			<div
+				class="w-full h-4 border border-surface-200-800 rounded-base"
+				style:background={settingsBackgrounds['--color-root-bg-light']}
+			></div>
 			<select class="select" bind:value={lightColorName}>
 				<option value="white">white</option>
 				{#each constants.colorNames as colorName}
@@ -57,7 +60,10 @@
 		</label>
 		<label class="label space-y-2">
 			<span class="label-text">Dark Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBackgrounds['--color-root-bg-dark']}></div>
+			<div
+				class="w-full h-4 border border-surface-200-800 rounded-base"
+				style:background={settingsBackgrounds['--color-root-bg-dark']}
+			></div>
 			<select class="select" bind:value={darkColorName}>
 				<option value="black">black</option>
 				{#each constants.colorNames as colorName}

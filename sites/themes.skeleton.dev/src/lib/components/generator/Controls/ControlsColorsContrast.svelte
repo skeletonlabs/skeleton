@@ -35,11 +35,13 @@
 	let darkShade: string = $state(initialDark.shade);
 
 	$effect(() => {
-		settingsColors[getColorKey(colorValue, 'contrast-light')] = lightColorName === 'white' ? WHITE : `var(--color-${lightColorName}-${lightShade})`;
+		settingsColors[getColorKey(colorValue, 'contrast-light')] =
+			lightColorName === 'white' ? WHITE : `var(--color-${lightColorName}-${lightShade})`;
 	});
 
 	$effect(() => {
-		settingsColors[getColorKey(colorValue, 'contrast-dark')] = darkColorName === 'black' ? BLACK : `var(--color-${darkColorName}-${darkShade})`;
+		settingsColors[getColorKey(colorValue, 'contrast-dark')] =
+			darkColorName === 'black' ? BLACK : `var(--color-${darkColorName}-${darkShade})`;
 	});
 </script>
 
