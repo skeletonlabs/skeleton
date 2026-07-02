@@ -106,7 +106,7 @@ catalog:
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 5.1.11
-  node-html-parser: 7.1.0
+  node-html-parser: 8.0.4
   octokit: 5.0.5
   oxc-resolver: 11.20.0
   oxlint: 1.69.0
