@@ -30,6 +30,6 @@ ${formatBackgrounds(settingsBackgrounds)}
 ${formatBrand(settingsBrand)}
 ${formatColors(settingsColors)}
 `.trim();
-	// See root +layout.svelte to reference where this attribute is used
-	return `[data-theme="generated"] {\n${themeCss}\n}`;
+	// Appended `:root` to handle non-native Tailwind properties (ex: corner-shape)
+	return `:root[data-theme="generated"] {\n${themeCss}\n}`;
 }
