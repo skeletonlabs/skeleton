@@ -27,23 +27,6 @@
 		/>
 	</div>
 
-	<!-- Edge Width -->
-	<h2 class="h5">Edge Widths</h2>
-	<div class="label">
-		<span class="label-text">Border Width</span>
-		<!--  -->
-		<Edges name="borders" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-border-width']} thickness />
-	</div>
-	<div class="label">
-		<!-- ['0rem', '0.063rem', '0.125rem', '0.25rem',' 0.375rem'] -->
-		<span class="label-text">Ring Width</span>
-		<Edges name="rings" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-ring-width']} thickness />
-	</div>
-	<div class="label">
-		<span class="label-text">Outline Width</span>
-		<Edges name="outlines" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-outline-width']} thickness />
-	</div>
-
 	<!-- Corner Shape -->
 	<h2 class="h5">Corner Shape</h2>
 	<p class="opacity-50">
@@ -71,5 +54,23 @@
 				{/each}
 			</select>
 		</label>
+	</div>
+
+	<!-- Edge Width -->
+	<h2 class="h5">Edge Widths</h2>
+	<p class="opacity-50">Set the default border, width, and outline sizes.</p>
+	<div class="label">
+		<span class="label-text">Border Width</span>
+		<!--  -->
+		<Edges name="borders" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-border-width']} thickness />
+	</div>
+	<div class="label">
+		<!-- ['0rem', '0.063rem', '0.125rem', '0.25rem',' 0.375rem'] -->
+		<span class="label-text">Ring Width</span>
+		<Edges name="rings" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-ring-width']} thickness />
+	</div>
+	<div class="label">
+		<span class="label-text">Outline Width</span>
+		<Edges name="outlines" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-outline-width']} thickness />
 	</div>
 </div>

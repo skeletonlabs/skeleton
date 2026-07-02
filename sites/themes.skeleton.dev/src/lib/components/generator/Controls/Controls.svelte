@@ -57,7 +57,7 @@
 	];
 </script>
 
-<section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
+<section class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto">
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>

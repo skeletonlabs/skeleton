@@ -26,7 +26,7 @@
 	<article class="container mx-auto">
 		{#if globals.panel === 'preview'}
 			<!-- Components -->
-			<section class="p-10 space-y-10">
+			<section class="p-8 space-y-10">
 				<PreviewComponents />
 				<hr class="hr" />
 				<PreviewPalette />
@@ -35,7 +35,7 @@
 			</section>
 		{:else}
 			<!-- Theme Output -->
-			<section class="py-10 px-5 space-y-5">
+			<section class="py-8 space-y-5">
 				<header class="flex justify-between items-center gap-4">
 					<!-- prettier-ignore -->
 					<p>

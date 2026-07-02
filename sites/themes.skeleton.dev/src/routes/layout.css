@@ -27,3 +27,12 @@
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
+
+/* Preview: Corner Shape --- */
+
+.btn {
+	corner-shape: var(--corner-shape-base);
+}
+.card {
+	corner-shape: var(--corner-shape-container);
+}

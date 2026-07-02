@@ -17,20 +17,27 @@
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
 </script>
 
-<div class="space-y-10">
+<div class="space-y-6">
+	<!-- Component Masonry -->
+	<header class="flex justify-between items-end">
+		<h1 class="h1">Theme Generator</h1>
+		<a href="https://www.skeleton.dev/docs/svelte/design/themes" target="_blank" class="btn preset-tonal">View Docs</a>
+	</header>
+
 	<!-- Swatches -->
-	<div class="h-2 grid grid-cols-6 gap-1">
+	<div class="h-3 grid grid-cols-7 gap-1">
 		<div class="bg-primary-500 h-full"></div>
 		<div class="bg-secondary-500 h-full"></div>
 		<div class="bg-tertiary-500 h-full"></div>
 		<div class="bg-success-500 h-full"></div>
 		<div class="bg-warning-500 h-full"></div>
 		<div class="bg-error-500 h-full"></div>
+		<div class="bg-surface-500 h-full"></div>
 	</div>
-	<!-- Masonry -->
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
+
+	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
 		<!-- Column 1 -->
-		<div class="space-y-10">
+		<div class="space-y-6">
 			<!-- Tabs -->
 			<Tabs defaultValue="planes">
 				<Tabs.List>
@@ -79,53 +86,55 @@
 				money, materials, and methods. Third, adjust all your means to that end.
 			</blockquote>
 		</div>
-		<!-- Column 2 -->
-		<form class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-5">
-			<fieldset class="space-y-2">
-				<h2 class="h2">Login</h2>
-				<p class="opacity-60">Select a login method below.</p>
-			</fieldset>
-			<fieldset class="space-y-2">
-				<label class="label">
-					<span class="label-text">Email</span>
-					<input class="input {currentPresets.input}" type="text" placeholder="email@example.com" autocomplete="off" />
-				</label>
-				<label class="label">
-					<span class="label-text">Password</span>
-					<input class="input {currentPresets.input}" type="password" value="skeleton" autocomplete="off" />
-				</label>
-			</fieldset>
-			<fieldset>
-				<button type="button" class="btn {currentPresets.filled} w-full">Sign In Now</button>
-			</fieldset>
-			<hr class="hr" />
-			<fieldset class="space-y-5">
-				<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full">Continue with Github</button>
-			</fieldset>
-		</form>
+		<div class="space-y-6">
+			<!-- Column 2 -->
+			<form class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-5">
+				<fieldset class="space-y-2">
+					<h2 class="h2">Login</h2>
+					<p class="opacity-60">Select a login method below.</p>
+				</fieldset>
+				<fieldset class="space-y-2">
+					<label class="label">
+						<span class="label-text">Email</span>
+						<input class="input {currentPresets.input}" type="text" placeholder="email@example.com" autocomplete="off" />
+					</label>
+					<label class="label">
+						<span class="label-text">Password</span>
+						<input class="input {currentPresets.input}" type="password" value="skeleton" autocomplete="off" />
+					</label>
+				</fieldset>
+				<fieldset>
+					<button type="button" class="btn {currentPresets.filled} w-full">Sign In Now</button>
+				</fieldset>
+				<hr class="hr" />
+				<fieldset class="space-y-5">
+					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal w-full">Continue with Github</button>
+				</fieldset>
+			</form>
+		</div>
 		<!-- Column 3 -->
-		<div class="space-y-10">
+		<div class="space-y-5">
+			<!-- Switch -->
+			<div class="card border border-surface-200-800 p-2 flex justify-center">
+				<Switch name="example" defaultChecked={true}>
+					<Switch.Control class={currentPresets.filled}>
+						<Switch.Thumb />
+					</Switch.Control>
+					<Switch.Label>Opt-In to Newsletter</Switch.Label>
+					<Switch.HiddenInput />
+				</Switch>
+			</div>
 			<!-- Badges -->
-			<div class="grid grid-cols-4 gap-4">
-				<span class="badge preset-filled">Badge</span>
+			<div class="grid grid-cols-3 gap-2">
 				<span class="badge {currentPresets.filled}">Badge</span>
 				<span class="badge {currentPresets.tonal}">Badge</span>
 				<span class="badge {currentPresets.outlined}">Badge</span>
 			</div>
 			<!-- Buttons -->
-			<div class="grid grid-cols-[auto_1fr] item-center gap-4">
-				<Switch name="example" defaultChecked={true}>
-					<Switch.Control>
-						<Switch.Thumb />
-					</Switch.Control>
-					<Switch.HiddenInput />
-				</Switch>
-				<div class="grid grid-cols-4 gap-4">
-					<button type="button" class="btn preset-filled"><SkullIcon size={20} /></button>
-					<button type="button" class="btn {currentPresets.filled}"><SkullIcon size={20} /></button>
-					<button type="button" class="btn {currentPresets.tonal}"><SkullIcon size={20} /></button>
-					<button type="button" class="btn {currentPresets.outlined}"><SkullIcon size={20} /></button>
-				</div>
+			<div class="grid grid-cols-3 gap-2">
+				<button type="button" class="btn {currentPresets.filled}">Button</button>
+				<button type="button" class="btn {currentPresets.tonal}">Button</button>
+				<button type="button" class="btn {currentPresets.outlined}">Button</button>
 			</div>
 			<!-- Segment Control -->
 			<SegmentedControl defaultValue="left" class="w-full">
@@ -158,28 +167,22 @@
 				</SegmentedControl.Control>
 			</SegmentedControl>
 			<!-- Cards -->
-			<div class="space-y-4">
-				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar class="size-14">
-						<Avatar.Image src="/images/male.png" class="grayscale" />
-					</Avatar>
-					<div>
-						<p class="font-bold">Gregory Smith</p>
-						<p class="opacity-60 text-xs">gregory.smith@example.com</p>
-					</div>
-				</div>
-				<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
-					<Avatar class="size-14">
-						<Avatar.Image src="/images/female.png" class="grayscale" />
-					</Avatar>
-					<div>
-						<p class="font-bold">Stephanie Collins</p>
-						<p class="opacity-60 text-xs">stephanie.collins@example.com</p>
-					</div>
+			<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+				<Avatar class="size-14">
+					<Avatar.Image src="/images/male.png" class="grayscale" />
+				</Avatar>
+				<div>
+					<p class="font-bold">Gregory Smith</p>
+					<p class="opacity-60 text-xs">gregory.smith@example.com</p>
 				</div>
 			</div>
+			<!-- Outline -->
+			<button type="button" class="btn w-full preset-outlined-surface-200-800 outline {currentPresets.outline} outline-offset-3">
+				Outline (focused)
+			</button>
 		</div>
 	</div>
+
 	<!-- App Bar -->
 	<AppBar>
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
@@ -196,23 +199,22 @@
 			</AppBar.Trail>
 		</AppBar.Toolbar>
 	</AppBar>
-	<!-- Masonry -->
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-10">
+
+	<!-- Fancy Cards -->
+	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
 		<!-- Column 1: Image -->
 		<div
 			class="relative w-full shadow bg-surface-100-900 rounded-container overflow-hidden"
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
-			<div class="absolute bottom-4 left-4 z-[2] flex justify-center items-center">
-				<p class="text-4xl text-balance max-w-[250px] font-bold inline-block {currentPresets.contrast}">
-					Example text over a static image.
-				</p>
+			<div class="absolute bottom-4 left-4 z-2 flex justify-center items-center">
+				<p class="text-4xl text-balance max-w-62.5 font-bold inline-block {currentPresets.contrast}">Example text over a static image.</p>
 			</div>
-			<div class="absolute top-0 left-0 z-[1] w-full h-full bg-gradient-to-b from-transparent {currentPresets.gradient}"></div>
+			<div class="absolute top-0 left-0 z-1 w-full h-full bg-linear-to-b from-transparent {currentPresets.gradient}"></div>
 		</div>
 		<!-- Column 2: Chart -->
 		<div class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-2">
-			<header>
+			<header class="flex justify-between items-start">
 				<small class="text-base">Earnings</small>
 				<h2 class="h2 font-normal">$14,546</h2>
 			</header>
@@ -229,43 +231,6 @@
 					<p>New users in 30 days.</p>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
-
-<!-- <hr class="hr" /> -->
-
-<!-- New in v5 -->
-<div class="space-y-10">
-	<h2 class="h4">New in v5</h2>
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-		<!-- Brand Color -->
-		<div class="space-y-2">
-			<p class="text-base opacity-60">Brand Color</p>
-			<div class="flex flex-wrap gap-2">
-				<span class="badge preset-filled-brand">Filled</span>
-				<span class="badge preset-tonal-brand">Tonal</span>
-				<span class="badge preset-outlined-brand">Outlined</span>
-			</div>
-		</div>
-		<!-- Corner Shape -->
-		<div class="space-y-2">
-			<p class="text-base opacity-60">Corner Shape</p>
-			<div class="flex gap-4">
-				<div class="card p-4 preset-filled corner-shape-base">Base</div>
-				<div class="card p-4 preset-filled corner-shape-container">Container</div>
-			</div>
-		</div>
-		<!-- Outline Width -->
-		<div class="space-y-2">
-			<p class="text-base opacity-60">Outline Width</p>
-			<button
-				type="button"
-				class="btn preset-outlined-surface-200-800"
-				style="outline: var(--default-outline-width) solid var(--color-primary-500); outline-offset: 2px;"
-			>
-				Focused (example)
-			</button>
 		</div>
 	</div>
 </div>
