@@ -64,7 +64,7 @@
 		<Tabs.List class="justify-between">
 			<Tabs.Indicator />
 			{#each colorSelection as color (color)}
-				<Tabs.Trigger value={color.value} class="aspect-square w-[52px] flex justify-center items-center {color.class}">
+				<Tabs.Trigger value={color.value} class="aspect-square w-13 flex justify-center items-center {color.class}">
 					<Tabs.Context>
 						{#snippet children(tabs)}
 							{#if tabs().value === color.value}

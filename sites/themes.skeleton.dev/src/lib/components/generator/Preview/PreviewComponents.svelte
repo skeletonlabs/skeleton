@@ -64,7 +64,7 @@
 				</Avatar>
 			</div>
 			<!-- Alert -->
-			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
+			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto] corner-shape-container">
 				<div>
 					<p class="font-bold">Success</p>
 					<p>Task has been completed.</p>
@@ -236,35 +236,29 @@
 <!-- <hr class="hr" /> -->
 
 <!-- New in v5 -->
-<!-- <div class="space-y-10">
+<div class="space-y-10">
 	<h2 class="h4">New in v5</h2>
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-		// Brand Color
+		<!-- Brand Color -->
 		<div class="space-y-2">
-			<small class="text-base opacity-60">Brand Color</small>
+			<p class="text-base opacity-60">Brand Color</p>
 			<div class="flex flex-wrap gap-2">
 				<span class="badge preset-filled-brand">Filled</span>
 				<span class="badge preset-tonal-brand">Tonal</span>
 				<span class="badge preset-outlined-brand">Outlined</span>
 			</div>
 		</div>
-		// Corner Shape
+		<!-- Corner Shape -->
 		<div class="space-y-2">
-			<small class="text-base opacity-60">Corner Shape</small>
+			<p class="text-base opacity-60">Corner Shape</p>
 			<div class="flex gap-4">
-				<div class="flex flex-col items-center gap-1">
-					<div class="corner-shape-base size-16 bg-surface-300-700"></div>
-					<span class="text-xs opacity-50">Base</span>
-				</div>
-				<div class="flex flex-col items-center gap-1">
-					<div class="corner-shape-container size-16 bg-surface-300-700"></div>
-					<span class="text-xs opacity-50">Container</span>
-				</div>
+				<div class="card p-4 preset-filled corner-shape-base">Base</div>
+				<div class="card p-4 preset-filled corner-shape-container">Container</div>
 			</div>
 		</div>
-		// Outline Width
+		<!-- Outline Width -->
 		<div class="space-y-2">
-			<small class="text-base opacity-60">Outline Width</small>
+			<p class="text-base opacity-60">Outline Width</p>
 			<button
 				type="button"
 				class="btn preset-outlined-surface-200-800"
@@ -274,4 +268,4 @@
 			</button>
 		</div>
 	</div>
-</div> -->
+</div>

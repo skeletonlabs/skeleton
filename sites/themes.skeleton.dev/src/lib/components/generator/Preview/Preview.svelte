@@ -1,5 +1,4 @@
 <script lang="ts">
-	// State
 	// Components (common)
 	import CodeBlock from '$lib/components/common/CodeBlock/CodeBlock.svelte';
 	import { globals } from '$lib/state/generator.svelte';
@@ -9,6 +8,8 @@
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';
 	import PreviewTypography from './PreviewTypography.svelte';
+	// Icons
+	import CopyIcon from '@lucide/svelte/icons/copy';
 
 	function copyToClipboard() {
 		if (!window.isSecureContext) {
@@ -35,12 +36,15 @@
 		{:else}
 			<!-- Theme Output -->
 			<section class="py-10 px-5 space-y-5">
-				<header class="flex justify-between gap-4">
+				<header class="flex justify-between items-center gap-4">
 					<!-- prettier-ignore -->
 					<p>
-						Copy the theme code below, then follow the <a href="https://skeleton.dev/docs/design/themes" target="_blank" class="anchor">documentation instructions</a>.
+						Copy the theme code, then follow these <a href="https://www.skeleton.dev/docs/svelte/design/themes" target="_blank" class="anchor">documentation instructions</a>.
 					</p>
-					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal" onclick={copyToClipboard}>Copy</button>
+					<button type="button" class="btn preset-filled" onclick={copyToClipboard}>
+						<CopyIcon />
+						<span>Copy</span>
+					</button>
 				</header>
 				<CodeBlock lang="css" code={generateTheme()} />
 			</section>

@@ -47,12 +47,12 @@
 	<!-- Corner Shape -->
 	<h2 class="h5">Corner Shape</h2>
 	<p class="opacity-50">
-		Progressive support for the <a
+		Implemented using the <a
 			class="underline"
 			href="https://skeleton.dev/docs/svelte/tailwind-utilities/corner-shapes"
 			target="_blank"
 			rel="noopener noreferrer">corner shape</a
-		> property.
+		> utility.
 	</p>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
