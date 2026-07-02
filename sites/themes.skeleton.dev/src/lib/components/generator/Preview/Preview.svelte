@@ -1,8 +1,9 @@
 <script lang="ts">
 	// Components (common)
 	import CodeBlock from '$lib/components/common/CodeBlock/CodeBlock.svelte';
-	import { globals } from '$lib/state/generator.svelte';
+	import { globals, settingsCustomFonts } from '$lib/state/generator.svelte';
 	// Utils
+	import { generateFontImports, generateFontInstallCommand } from '$lib/utils/generator/generate-font-install';
 	import { generateTheme } from '$lib/utils/generator/generate-theme';
 	// Components (generator)
 	import PreviewComponents from './PreviewComponents.svelte';
@@ -35,11 +36,19 @@
 			</section>
 		{:else}
 			<!-- Theme Output -->
-			<section class="py-8 space-y-5">
+			<section class="p-8 space-y-5">
+				{#if settingsCustomFonts.font1 || settingsCustomFonts.font2}
+					<div class="space-y-5">
+						<p class="opacity-60">Install you custom fonts via Fontsource.</p>
+						<CodeBlock lang="console" code={generateFontInstallCommand()} />
+						<p class="opacity-60">Import and register the fonts in your global CSS stylesheet.</p>
+						<CodeBlock lang="css" code={generateFontImports()} />
+					</div>
+				{/if}
 				<header class="flex justify-between items-center gap-4">
 					<!-- prettier-ignore -->
 					<p>
-						Copy the theme code, then follow these <a href="https://www.skeleton.dev/docs/svelte/design/themes" target="_blank" class="anchor">documentation instructions</a>.
+						<span class="opacity-60">Copy the theme code, then follow these</span> <a href="https://www.skeleton.dev/docs/svelte/design/themes" target="_blank" class="anchor">documentation instructions</a>.
 					</p>
 					<button type="button" class="btn preset-filled" onclick={copyToClipboard}>
 						<CopyIcon />

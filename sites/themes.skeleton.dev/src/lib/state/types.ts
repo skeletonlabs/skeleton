@@ -263,6 +263,32 @@ export interface SettingsTypography {
 	'--typo-anchor--focus--text-decoration-thickness': string;
 	'--typo-anchor--focus--text-underline-offset': string;
 	'--typo-anchor--focus--text-underline-position': string;
+	// Custom Fonts (empty string until a slot resolves)
+	'--font-custom-1': string;
+	'--font-custom-2': string;
+}
+
+export interface CustomFontVariant {
+	weight: string;
+	style: string;
+	woff2: string;
+}
+
+export interface CustomFont {
+	id: string;
+	family: string;
+	category: string;
+	variable: boolean;
+	isVariableOnly: boolean;
+	defSubset: string;
+	unicodeRange: string;
+	styles: string[];
+	variants: CustomFontVariant[]; // empty when isVariableOnly === true
+}
+
+export interface SettingsCustomFonts {
+	font1: CustomFont | null;
+	font2: CustomFont | null;
 }
 
 export interface SettingsSpacing {

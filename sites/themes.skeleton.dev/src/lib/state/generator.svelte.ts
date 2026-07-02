@@ -6,6 +6,7 @@ import type {
 	SettingsColors,
 	SettingsCore,
 	SettingsCorners,
+	SettingsCustomFonts,
 	SettingsEdges,
 	SettingsSpacing,
 	SettingsTypography,
@@ -208,6 +209,11 @@ export const settingsBackgrounds: SettingsBackgrounds = $state({
 	'--color-root-bg-dark': 'var(--color-surface-950)',
 });
 
+export const settingsCustomFonts: SettingsCustomFonts = $state({
+	font1: null,
+	font2: null,
+});
+
 // Reference: https://designcode.io/typographic-scales
 export const settingsTypography: SettingsTypography = $state({
 	// Scale Factor
@@ -283,6 +289,9 @@ export const settingsTypography: SettingsTypography = $state({
 	'--typo-anchor--focus--text-decoration-thickness': 'inherit',
 	'--typo-anchor--focus--text-underline-offset': 'inherit',
 	'--typo-anchor--focus--text-underline-position': 'inherit',
+	// Custom Fonts
+	'--font-custom-1': '',
+	'--font-custom-2': '',
 });
 
 // Reference: https://tailwindcss.com/docs/customizing-spacing

@@ -2,7 +2,8 @@
 	// Constants
 	import * as constants from '$lib/constants/generator';
 	// State
-	import { settingsTypography } from '$lib/state/generator.svelte';
+	import { settingsCustomFonts, settingsTypography } from '$lib/state/generator.svelte';
+	import { customFontOptionValue, fetchFontsourceFont, parseFontsourceId } from '$lib/utils/generator/fonts';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	import chroma from 'chroma-js';
 
@@ -111,16 +112,62 @@
 				decorationColorName[state] === 'inherit' ? 'inherit' : `var(--color-${decorationColorName[state]}-${decorationColorShade[state]})`;
 		}
 	});
+
+	async function promptCustomFont(slot: 'font1' | 'font2') {
+		const input = prompt('Fontsource URL (ex: https://fontsource.org/fonts/poppins)');
+		if (!input) return;
+		try {
+			const font = await fetchFontsourceFont(parseFontsourceId(input));
+			settingsCustomFonts[slot] = font;
+			settingsTypography[slot === 'font1' ? '--font-custom-1' : '--font-custom-2'] = customFontOptionValue(font);
+		} catch (err) {
+			alert(err instanceof Error ? err.message : 'Failed to load font from Fontsource.');
+		}
+	}
 </script>
 
 <div class="space-y-4">
-	<!-- <p class="opacity-60">Define all typographic settings for your theme.</p> -->
-	<!-- Scale -->
-	<div class="label">
-		<div class="flex justify-between items-center gap-4">
-			<h3 class="h5">Typographic Scale</h3>
-			<a class="text-inherit underline label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
+	<!-- Custom Fonts -->
+	<section class="space-y-4">
+		<header class="flex justify-between items-center gap-4">
+			<div class="flex items-center gap-2">
+				<h3 class="h5">Custom Fonts</h3>
+				<span class="badge preset-filled-primary-500">Beta</span>
+			</div>
+			<a class="btn btn-xs preset-tonal" href="https://skeleton.dev/docs/svelte/design/themes#custom-fonts" target="_blank">View Docs</a>
+		</header>
+		<p class="opacity-60">
+			Import custom fonts to preview via <a href="https://fontsource.org/" target="_blank" class="underline">Fontsource</a>.
+		</p>
+		<div class="grid grid-cols-2 gap-4">
+			<div class="label space-y-2">
+				<span class="label-text">Custom Font 1</span>
+				<button
+					type="button"
+					class="chip w-full justify-center {settingsCustomFonts.font1 ? 'preset-tonal' : 'preset-outlined-surface-300-700 hover:preset-tonal'}"
+					onclick={() => promptCustomFont('font1')}
+				>
+					{settingsCustomFonts.font1?.family ?? 'Import'}
+				</button>
+			</div>
+			<div class="label space-y-2">
+				<span class="label-text">Custom Font 2</span>
+				<button
+					type="button"
+					class="chip w-full justify-center {settingsCustomFonts.font2 ? 'preset-tonal' : 'preset-outlined-surface-300-700 hover:preset-tonal'}"
+					onclick={() => promptCustomFont('font2')}
+				>
+					{settingsCustomFonts.font2?.family ?? 'Import'}
+				</button>
+			</div>
 		</div>
+	</section>
+	<!-- Scale -->
+	<section class="space-y-4">
+		<header class="flex justify-between items-center gap-4">
+			<h3 class="h5">Typographic Scale</h3>
+			<a class="btn btn-xs preset-tonal" href="https://designcode.io/typographic-scales" target="_blank">View Docs</a>
+		</header>
 		<!-- --text-scaling -->
 		<div
 			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
@@ -138,7 +185,7 @@
 				</button>
 			{/each}
 		</div>
-	</div>
+	</section>
 	<h3 class="h5">Typographic Feature</h3>
 	<Tabs value={category} onValueChange={(e) => (category = e.value as typeof category)}>
 		<Tabs.List>
@@ -197,6 +244,12 @@
 						{#each constants.fontFamilies as fontFamily}
 							<option value={fontFamily}>{fontFamily}</option>
 						{/each}
+						{#if settingsCustomFonts.font1}
+							<option value="var(--font-custom-1)">{settingsCustomFonts.font1.family}</option>
+						{/if}
+						{#if settingsCustomFonts.font2}
+							<option value="var(--font-custom-2)">{settingsCustomFonts.font2.family}</option>
+						{/if}
 					</select>
 				</label>
 				<hr class="hr col-span-2" />
@@ -346,6 +399,12 @@
 						{#each constants.fontFamilies as fontFamily}
 							<option value={fontFamily}>{fontFamily}</option>
 						{/each}
+						{#if settingsCustomFonts.font1}
+							<option value="var(--font-custom-1)">{settingsCustomFonts.font1.family}</option>
+						{/if}
+						{#if settingsCustomFonts.font2}
+							<option value="var(--font-custom-2)">{settingsCustomFonts.font2.family}</option>
+						{/if}
 					</select>
 				</label>
 				<hr class="hr col-span-2" />
@@ -477,6 +536,12 @@
 						{#each constants.fontFamilies as fontFamily}
 							<option value={fontFamily}>{fontFamily}</option>
 						{/each}
+						{#if settingsCustomFonts.font1}
+							<option value="var(--font-custom-1)">{settingsCustomFonts.font1.family}</option>
+						{/if}
+						{#if settingsCustomFonts.font2}
+							<option value="var(--font-custom-2)">{settingsCustomFonts.font2.family}</option>
+						{/if}
 					</select>
 				</label>
 				<hr class="hr col-span-2" />

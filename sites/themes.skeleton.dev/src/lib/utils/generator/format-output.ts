@@ -12,10 +12,13 @@ import type {
 } from '$lib/state/types';
 import chroma from 'chroma-js';
 
-/** UTIL: Format from JS Object to CSS properties format. */
+/** UTIL: Format from JS Object to CSS properties format. Omits empty-string values (e.g. unset custom fonts). */
 function objectToCssProperties(obj: Record<string, string>) {
 	let css = '';
-	Object.entries(obj).forEach(([key, value]) => (css += `\t${key}: ${value};\n`));
+	Object.entries(obj).forEach(([key, value]) => {
+		if (value === '') return;
+		css += `\t${key}: ${value};\n`;
+	});
 	return `\t${css.trim()}`;
 }
 
