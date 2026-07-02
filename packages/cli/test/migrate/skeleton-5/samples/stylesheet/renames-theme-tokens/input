@@ -1,0 +1,14 @@
+[data-theme='example'] {
+	--base-font-family: system-ui;
+	--base-font-color: var(--color-surface-950);
+	--base-font-color-dark: var(--color-surface-50);
+	--heading-font-size: 2rem;
+	--heading-line-height: 1.2;
+	--anchor-text-decoration: none;
+	--anchor-text-decoration-hover: underline;
+	--body-background-color: var(--color-surface-50);
+	--body-background-color-dark: var(--color-surface-950);
+	--default-divide-width: 1px;
+	--default-border-width: 1px;
+	color: var(--base-font-color);
+}

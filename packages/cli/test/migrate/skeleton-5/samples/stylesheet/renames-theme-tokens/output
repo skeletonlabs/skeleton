@@ -1,0 +1,11 @@
+[data-theme='example'] {
+	--typo-base--font-family: system-ui;
+	--typo-base--color-light: var(--color-surface-950);
+	--typo-base--color-dark: var(--color-surface-50);
+	--typo-anchor--text-decoration-line: none;
+	--typo-anchor--hover--text-decoration-line: underline;
+	--color-root-bg-light: var(--color-surface-50);
+	--color-root-bg-dark: var(--color-surface-950);
+	--default-border-width: 1px;
+	color: var(--typo-base--color-light);
+}
