@@ -133,7 +133,7 @@
 											<!-- Known issue in Chrome; can ignore the console warning -->
 											<!-- https://github.com/sveltejs/svelte/issues/8446#issuecomment-2213484541 -->
 											<input
-												class="input"
+												class="input scale-85"
 												type="color"
 												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												oninput={() => genColorRamp(showAllShades, color.value)}

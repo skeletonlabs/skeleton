@@ -2,14 +2,13 @@
 	import Edge from '$lib/components/generator/Edges/EdgeOption.svelte';
 
 	interface EdgesProps {
-		thickness?: boolean;
+		mode?: 'radius' | 'thickness' | 'corner';
 		name: string;
 		value: string;
 		items: string[];
-		gridCols?: string;
 	}
 
-	let { thickness = false, name, value = $bindable(), items = [], gridCols = 'grid-cols-7' }: EdgesProps = $props();
+	let { mode = 'radius', name, value = $bindable(), items = [] }: EdgesProps = $props();
 
 	function setValue(v: string) {
 		value = v;
@@ -20,9 +19,9 @@
 	<!-- Hidden Input -->
 	<input {name} type="hidden" />
 	<!-- Selection List -->
-	<div class="grid {gridCols} gap-4">
+	<div class="grid gap-4" style="grid-template-columns: repeat({items.length}, minmax(0, 1fr));">
 		{#each items as itemValue (itemValue)}
-			<Edge value={itemValue} active={value} onselect={setValue} {thickness} />
+			<Edge value={itemValue} active={value} onselect={setValue} {mode} />
 		{/each}
 	</div>
 </div>
