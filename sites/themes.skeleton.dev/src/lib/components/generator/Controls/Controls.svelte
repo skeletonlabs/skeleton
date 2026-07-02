@@ -27,7 +27,7 @@
 		{
 			value: 'brand',
 			icon: SparklesIcon,
-			label: 'Brand Color',
+			label: 'Brand',
 			component: ControlsBrand,
 		},
 		{
@@ -114,6 +114,6 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<p class="text-xs opacity-50">When ready, tap the <strong>Code</strong> button to obtain your theme.</p>
+		<p class="text-xs opacity-50 text-center">When ready, tap the <strong>Code</strong> button to obtain your theme.</p>
 	</footer>
 </section>

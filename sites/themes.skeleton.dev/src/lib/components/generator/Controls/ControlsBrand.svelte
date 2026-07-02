@@ -32,10 +32,7 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">
-		A variable accent color for your design system, referencing any color/shade from your palette. Use this as the default when styling
-		elements and components (ex: <code class="code">preset-filled-brand</code>).
-	</p>
+	<p class="opacity-60">A variable accent color for your design system.</p>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label space-y-2">
 			<span class="label-text">Light Mode</span>

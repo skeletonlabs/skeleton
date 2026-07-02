@@ -14,7 +14,7 @@
 
 	// Reactive
 	let rxActive = $derived(value === active ? `preset-tonal border-surface-950-50` : `border-surface-500/10 hover:border-surface-500`);
-	let rxStyles = $derived(thickness ? `border-top-width: ${value}px; border-left-width: ${value}px` : `border-top-left-radius: ${value}px`);
+	let rxStyles = $derived(thickness ? `border-top-width: ${value}; border-left-width: ${value}` : `border-top-left-radius: ${value}`);
 </script>
 
 <div class="space-y-1">

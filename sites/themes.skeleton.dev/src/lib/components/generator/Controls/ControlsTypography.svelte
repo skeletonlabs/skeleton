@@ -4,24 +4,121 @@
 	// State
 	import { settingsTypography } from '$lib/state/generator.svelte';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import chroma from 'chroma-js';
+
+	const WHITE = 'oklch(1 0 0 / 1)';
+	const BLACK = 'oklch(0 0 0 / 1)';
+
+	type DecorationState = 'default' | 'hover' | 'active' | 'focus';
 
 	// Local
 	let category: 'base' | 'headings' | 'anchors' = $state('base');
-	let decorationState: 'default' | 'hover' | 'active' | 'focus' = $state('default');
+	let decorationState: DecorationState = $state('default');
+	const decorationStates = ['default', 'hover', 'active', 'focus'] as const satisfies DecorationState[];
 
 	/** Builds a `--typo-anchor--[state--]{suffix}` key for the current decoration state. */
-	function anchorDecorationKey(state: typeof decorationState, suffix: string): keyof typeof settingsTypography {
+	function anchorDecorationKey(state: DecorationState, suffix: string): keyof typeof settingsTypography {
 		const infix = state === 'default' ? '' : `${state}--`;
 		return `--typo-anchor--${infix}${suffix}` as keyof typeof settingsTypography;
 	}
+
+	/**
+	 * Parses a `var(--color-{name}-{shade})` reference back into its parts, or detects `inherit` /
+	 * a literal pure black/white (imported themes may carry these as hex/oklch rather than a palette var).
+	 */
+	function parseColorRef(value: string, specialHex: string | null, specialName: string, fallbackShade: string) {
+		if (value === 'inherit') return { name: 'inherit', shade: fallbackShade };
+		if (specialHex && chroma.valid(value) && chroma(value).hex() === specialHex) return { name: specialName, shade: fallbackShade };
+		const match = value.match(/^var\(--color-([a-z]+)-(\d+)\)$/);
+		return match ? { name: match[1], shade: match[2] } : { name: 'surface', shade: fallbackShade };
+	}
+
+	const initialBaseLight = parseColorRef(settingsTypography['--typo-base--color-light'], '#000000', 'black', '950');
+	const initialBaseDark = parseColorRef(settingsTypography['--typo-base--color-dark'], '#ffffff', 'white', '50');
+	const initialHeadingLight = parseColorRef(settingsTypography['--typo-heading--color-light'], '#000000', 'black', '950');
+	const initialHeadingDark = parseColorRef(settingsTypography['--typo-heading--color-dark'], '#ffffff', 'white', '50');
+	const initialAnchorLight = parseColorRef(settingsTypography['--typo-anchor--color-light'], null, '', '500');
+	const initialAnchorDark = parseColorRef(settingsTypography['--typo-anchor--color-dark'], null, '', '500');
+
+	let baseLightColorName: string = $state(initialBaseLight.name);
+	let baseLightShade: string = $state(initialBaseLight.shade);
+	let baseDarkColorName: string = $state(initialBaseDark.name);
+	let baseDarkShade: string = $state(initialBaseDark.shade);
+	let headingLightColorName: string = $state(initialHeadingLight.name);
+	let headingLightShade: string = $state(initialHeadingLight.shade);
+	let headingDarkColorName: string = $state(initialHeadingDark.name);
+	let headingDarkShade: string = $state(initialHeadingDark.shade);
+	let anchorLightColorName: string = $state(initialAnchorLight.name);
+	let anchorLightShade: string = $state(initialAnchorLight.shade);
+	let anchorDarkColorName: string = $state(initialAnchorDark.name);
+	let anchorDarkShade: string = $state(initialAnchorDark.shade);
+
+	const initialDecorationColor = Object.fromEntries(
+		decorationStates.map((state) => [
+			state,
+			parseColorRef(settingsTypography[anchorDecorationKey(state, 'text-decoration-color')], null, '', '500'),
+		]),
+	) as Record<DecorationState, { name: string; shade: string }>;
+
+	let decorationColorName: Record<DecorationState, string> = $state(
+		Object.fromEntries(decorationStates.map((state) => [state, initialDecorationColor[state].name])) as Record<DecorationState, string>,
+	);
+	let decorationColorShade: Record<DecorationState, string> = $state(
+		Object.fromEntries(decorationStates.map((state) => [state, initialDecorationColor[state].shade])) as Record<DecorationState, string>,
+	);
+
+	$effect(() => {
+		settingsTypography['--typo-base--color-light'] =
+			baseLightColorName === 'black' ? BLACK : `var(--color-${baseLightColorName}-${baseLightShade})`;
+	});
+
+	$effect(() => {
+		settingsTypography['--typo-base--color-dark'] =
+			baseDarkColorName === 'white' ? WHITE : `var(--color-${baseDarkColorName}-${baseDarkShade})`;
+	});
+
+	$effect(() => {
+		settingsTypography['--typo-heading--color-light'] =
+			headingLightColorName === 'inherit'
+				? 'inherit'
+				: headingLightColorName === 'black'
+					? BLACK
+					: `var(--color-${headingLightColorName}-${headingLightShade})`;
+	});
+
+	$effect(() => {
+		settingsTypography['--typo-heading--color-dark'] =
+			headingDarkColorName === 'inherit'
+				? 'inherit'
+				: headingDarkColorName === 'white'
+					? WHITE
+					: `var(--color-${headingDarkColorName}-${headingDarkShade})`;
+	});
+
+	$effect(() => {
+		settingsTypography['--typo-anchor--color-light'] =
+			anchorLightColorName === 'inherit' ? 'inherit' : `var(--color-${anchorLightColorName}-${anchorLightShade})`;
+	});
+
+	$effect(() => {
+		settingsTypography['--typo-anchor--color-dark'] =
+			anchorDarkColorName === 'inherit' ? 'inherit' : `var(--color-${anchorDarkColorName}-${anchorDarkShade})`;
+	});
+
+	$effect(() => {
+		for (const state of decorationStates) {
+			settingsTypography[anchorDecorationKey(state, 'text-decoration-color')] =
+				decorationColorName[state] === 'inherit' ? 'inherit' : `var(--color-${decorationColorName[state]}-${decorationColorShade[state]})`;
+		}
+	});
 </script>
 
 <div class="space-y-4">
 	<!-- <p class="opacity-60">Define all typographic settings for your theme.</p> -->
 	<!-- Scale -->
 	<div class="label">
-		<div class="flex justify-between gap-4">
-			<span class="label-text">Typographic Scale</span>
+		<div class="flex justify-between items-center gap-4">
+			<h3 class="h5">Typographic Scale</h3>
 			<a class="text-inherit underline label-text" href="https://designcode.io/typographic-scales" target="_blank">What's This?</a>
 		</div>
 		<!-- --text-scaling -->
@@ -42,6 +139,7 @@
 			{/each}
 		</div>
 	</div>
+	<h3 class="h5">Typographic Feature</h3>
 	<Tabs value={category} onValueChange={(e) => (category = e.value as typeof category)}>
 		<Tabs.List>
 			<Tabs.Indicator />
@@ -58,16 +156,19 @@
 						class="w-full h-4 border border-surface-200-800 rounded-base"
 						style:background={`${settingsTypography['--typo-base--color-light']}`}
 					></div>
-					<select class="select" name="--typo-base--color-light" bind:value={settingsTypography['--typo-base--color-light']}>
-						<option value="oklch(0 0 0 / 1)">Black</option>
+					<select class="select" bind:value={baseLightColorName}>
+						<option value="black">Black</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if baseLightColorName !== 'black'}
+						<select class="select" bind:value={baseLightShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
@@ -75,17 +176,21 @@
 						class="w-full h-4 border border-surface-200-800 rounded-base"
 						style:background={`${settingsTypography['--typo-base--color-dark']}`}
 					></div>
-					<select class="select" name="--typo-base--color-dark" bind:value={settingsTypography['--typo-base--color-dark']}>
-						<option value="oklch(1 0 0 / 1)">White</option>
+					<select class="select" bind:value={baseDarkColorName}>
+						<option value="white">White</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if baseDarkColorName !== 'white'}
+						<select class="select" bind:value={baseDarkShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label col-span-2">
 					<span class="label-text">Font Family</span>
 					<select class="select" name="--typo-base--font-family" bind:value={settingsTypography['--typo-base--font-family']}>
@@ -94,6 +199,7 @@
 						{/each}
 					</select>
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label">
 					<span class="label-text">Font Size</span>
 					<select class="select" name="--typo-base--font-size" bind:value={settingsTypography['--typo-base--font-size']}>
@@ -174,7 +280,7 @@
 						{/each}
 					</select>
 				</label>
-				<label class="label col-span-2">
+				<label class="label">
 					<span class="label-text">Text Shadow</span>
 					<select class="select" name="--typo-base--text-shadow" bind:value={settingsTypography['--typo-base--text-shadow']}>
 						{#each constants.textShadows as textShadow}
@@ -195,17 +301,20 @@
 							? `${settingsTypography['--typo-base--color-light']}`
 							: `${settingsTypography['--typo-heading--color-light']}`}
 					></div>
-					<select class="select" name="--typo-heading--color-light" bind:value={settingsTypography['--typo-heading--color-light']}>
+					<select class="select" bind:value={headingLightColorName}>
 						<option value="inherit">inherit</option>
-						<option value="oklch(0 0 0 / 1)">Black</option>
+						<option value="black">Black</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if headingLightColorName !== 'inherit' && headingLightColorName !== 'black'}
+						<select class="select" bind:value={headingLightShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
@@ -215,18 +324,22 @@
 							? `${settingsTypography['--typo-base--color-dark']}`
 							: `${settingsTypography['--typo-heading--color-dark']}`}
 					></div>
-					<select class="select" name="--typo-heading--color-dark" bind:value={settingsTypography['--typo-heading--color-dark']}>
+					<select class="select" bind:value={headingDarkColorName}>
 						<option value="inherit">inherit</option>
-						<option value="oklch(1 0 0 / 1)">White</option>
+						<option value="white">White</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if headingDarkColorName !== 'inherit' && headingDarkColorName !== 'white'}
+						<select class="select" bind:value={headingDarkShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label col-span-2">
 					<span class="label-text">Font Family</span>
 					<select class="select" name="--typo-heading--font-family" bind:value={settingsTypography['--typo-heading--font-family']}>
@@ -235,6 +348,7 @@
 						{/each}
 					</select>
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label">
 					<span class="label-text">Font Weight</span>
 					<select class="select" name="--typo-heading--font-weight" bind:value={settingsTypography['--typo-heading--font-weight']}>
@@ -299,7 +413,7 @@
 						{/each}
 					</select>
 				</label>
-				<label class="label col-span-2">
+				<label class="label">
 					<span class="label-text">Text Shadow</span>
 					<select class="select" name="--typo-heading--text-shadow" bind:value={settingsTypography['--typo-heading--text-shadow']}>
 						{#each constants.textShadows as textShadow}
@@ -320,16 +434,19 @@
 							? `${settingsTypography['--typo-base--color-light']}`
 							: `${settingsTypography['--typo-anchor--color-light']}`}
 					></div>
-					<select class="select" name="--typo-anchor--color-light" bind:value={settingsTypography['--typo-anchor--color-light']}>
+					<select class="select" bind:value={anchorLightColorName}>
 						<option value="inherit">inherit</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if anchorLightColorName !== 'inherit'}
+						<select class="select" bind:value={anchorLightShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
@@ -339,17 +456,21 @@
 							? `${settingsTypography['--typo-base--color-dark']}`
 							: `${settingsTypography['--typo-anchor--color-dark']}`}
 					></div>
-					<select class="select" name="--typo-anchor--color-dark" bind:value={settingsTypography['--typo-anchor--color-dark']}>
+					<select class="select" bind:value={anchorDarkColorName}>
 						<option value="inherit">inherit</option>
 						{#each constants.colorNames as colorName}
-							<optgroup label={colorName}>
-								{#each constants.colorShades as colorShade}
-									<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-								{/each}
-							</optgroup>
+							<option value={colorName}>{colorName}</option>
 						{/each}
 					</select>
+					{#if anchorDarkColorName !== 'inherit'}
+						<select class="select" bind:value={anchorDarkShade}>
+							{#each constants.colorShades as colorShade}
+								<option value={colorShade.toString()}>{colorShade}</option>
+							{/each}
+						</select>
+					{/if}
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label col-span-2">
 					<span class="label-text">Font Family</span>
 					<select class="select" name="--typo-anchor--font-family" bind:value={settingsTypography['--typo-anchor--font-family']}>
@@ -358,6 +479,7 @@
 						{/each}
 					</select>
 				</label>
+				<hr class="hr col-span-2" />
 				<label class="label">
 					<span class="label-text">Font Size</span>
 					<select class="select" name="--typo-anchor--font-size" bind:value={settingsTypography['--typo-anchor--font-size']}>
@@ -438,7 +560,7 @@
 						{/each}
 					</select>
 				</label>
-				<label class="label col-span-2">
+				<label class="label">
 					<span class="label-text">Text Shadow</span>
 					<select class="select" name="--typo-anchor--text-shadow" bind:value={settingsTypography['--typo-anchor--text-shadow']}>
 						{#each constants.textShadows as textShadow}
@@ -447,10 +569,9 @@
 					</select>
 				</label>
 			</div>
-			<!-- Decoration -->
+			<!-- Anchor Decoration -->
 			<div class="mt-8 space-y-4">
-				<h2 class="h5">Decoration</h2>
-				<p class="opacity-60">Configure text decoration for each interaction state.</p>
+				<h2 class="h5">Anchor Decoration</h2>
 				<Tabs value={decorationState} onValueChange={(e) => (decorationState = e.value as typeof decorationState)}>
 					<Tabs.List>
 						<Tabs.Indicator />
@@ -471,16 +592,19 @@
 							</label>
 							<label class="label">
 								<span class="label-text">Color</span>
-								<select class="select" bind:value={settingsTypography[anchorDecorationKey(decorationState, 'text-decoration-color')]}>
+								<select class="select" bind:value={decorationColorName[decorationState]}>
 									<option value="inherit">inherit</option>
 									{#each constants.colorNames as colorName}
-										<optgroup label={colorName}>
-											{#each constants.colorShades as colorShade}
-												<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-											{/each}
-										</optgroup>
+										<option value={colorName}>{colorName}</option>
 									{/each}
 								</select>
+								{#if decorationColorName[decorationState] !== 'inherit'}
+									<select class="select" bind:value={decorationColorShade[decorationState]}>
+										{#each constants.colorShades as colorShade}
+											<option value={colorShade.toString()}>{colorShade}</option>
+										{/each}
+									</select>
+								{/if}
 							</label>
 							<label class="label">
 								<span class="label-text">Style</span>

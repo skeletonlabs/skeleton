@@ -8,7 +8,7 @@
 </script>
 
 <div class="space-y-4">
-	<p class="opacity-60">Set border radius and edge widths.</p>
+	<p class="opacity-60">Control settings for element edges.</p>
 	<h2 class="h5">Border Radius</h2>
 	<div class="label">
 		<!--  -->
@@ -26,7 +26,9 @@
 			bind:value={settingsEdges['--radius-container']}
 		/>
 	</div>
-	<h2 class="h5">Default Edge Widths</h2>
+
+	<!-- Edge Width -->
+	<h2 class="h5">Edge Widths</h2>
 	<div class="label">
 		<span class="label-text">Border Width</span>
 		<!--  -->
@@ -39,11 +41,19 @@
 	</div>
 	<div class="label">
 		<span class="label-text">Outline Width</span>
-		<p class="text-xs opacity-50">Never set to 0px — required for accessible focus states.</p>
 		<Edges name="outlines" items={['1px', '2px', '4px', '6px']} bind:value={settingsEdges['--default-outline-width']} thickness />
 	</div>
+
+	<!-- Corner Shape -->
 	<h2 class="h5">Corner Shape</h2>
-	<p class="text-xs opacity-50">Limited browser support — verify progressive fallbacks before relying on this.</p>
+	<p class="opacity-50">
+		Progressive support for the <a
+			class="underline"
+			href="https://skeleton.dev/docs/svelte/tailwind-utilities/corner-shapes"
+			target="_blank"
+			rel="noopener noreferrer">corner shape</a
+		> property.
+	</p>
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label">
 			<span class="label-text">Base</span>
