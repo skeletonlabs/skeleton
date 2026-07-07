@@ -144,7 +144,9 @@
 				<span class="label-text">Custom Font 1</span>
 				<button
 					type="button"
-					class="chip w-full justify-center {settingsCustomFonts.font1 ? 'preset-tonal' : 'preset-outlined-surface-300-700 hover:preset-tonal'}"
+					class="chip w-full justify-center {settingsCustomFonts.font1
+						? 'preset-tonal'
+						: 'preset-outlined-surface-300-700 hover:preset-tonal'}"
 					onclick={() => promptCustomFont('font1')}
 				>
 					{settingsCustomFonts.font1?.family ?? 'Import'}
@@ -154,7 +156,9 @@
 				<span class="label-text">Custom Font 2</span>
 				<button
 					type="button"
-					class="chip w-full justify-center {settingsCustomFonts.font2 ? 'preset-tonal' : 'preset-outlined-surface-300-700 hover:preset-tonal'}"
+					class="chip w-full justify-center {settingsCustomFonts.font2
+						? 'preset-tonal'
+						: 'preset-outlined-surface-300-700 hover:preset-tonal'}"
 					onclick={() => promptCustomFont('font2')}
 				>
 					{settingsCustomFonts.font2?.family ?? 'Import'}
