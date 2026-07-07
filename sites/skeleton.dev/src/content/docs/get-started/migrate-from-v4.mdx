@@ -1,0 +1,339 @@
+---
+title: Migrate from v4
+description: Learn how to migrate from Skeleton v4 to the latest v5 release.
+summary: Skeleton v5 focuses on the core API and theme layer, including new and updated theme format and design tokens, expanded elements and size options, as well as the introduction of the new brand color.
+order: 8888
+---
+
+## Prerequisites
+
+We recommend you handle all migration changes on a dedicated feature branch, allowing you to easily revert if needed.
+
+```bash
+git checkout -b migration
+```
+
+Make sure you've accounted for the following:
+
+- Your app is running the latest release of Skeleton v4.x (`4.15.2`)
+- All critical dependencies have been updated (optional but recommended)
+- Your app is in a fully functional state before you proceed
+
+Note the `svelte` peer dependency has been raised from `^5.29.0` to `^5.40.0`. React remains unchanged.
+
+```bash
+npm install svelte@latest
+```
+
+---
+
+## Themes
+
+### Preset Themes
+
+Preset themes will automatically update with all changes.
+
+### Custom Themes
+
+We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure any new or updated features, while future-proofing the new design.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://themes.skeleton.dev/themes/import" target="_blank" rel="noopener noreferrer">
+		Auto-Convert Themes &rarr;
+	</a>
+</figure>
+
+> NOTE: custom fonts will not be imported. You can implement these via the Typography controls immediately after import.
+
+### Tokens
+
+Please refer to [Core API](/docs/[framework]/get-started/core-api#base) for a complete token reference. See the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a full theme reference. We'll cover all notable changes below.
+
+#### Renamed
+
+Note that only the token key changes, each value should remain as is.
+
+**Base Typography**
+
+| v4 Token                 | v5 Token                      |
+| ------------------------ | ----------------------------- |
+| `--base-font-family`     | `--typo-base--font-family`    |
+| `--base-font-size`       | `--typo-base--font-size`      |
+| `--base-font-color`      | `--typo-base--color-light`    |
+| `--base-font-color-dark` | `--typo-base--color-dark`     |
+| `--base-line-height`     | `--typo-base--line-height`    |
+| `--base-font-weight`     | `--typo-base--font-weight`    |
+| `--base-font-style`      | `--typo-base--font-style`     |
+| `--base-letter-spacing`  | `--typo-base--letter-spacing` |
+
+**Heading Typography**
+
+| v4 Token                    | v5 Token                         |
+| --------------------------- | -------------------------------- |
+| `--heading-font-family`     | `--typo-heading--font-family`    |
+| `--heading-font-color`      | `--typo-heading--color-light`    |
+| `--heading-font-color-dark` | `--typo-heading--color-dark`     |
+| `--heading-font-weight`     | `--typo-heading--font-weight`    |
+| `--heading-font-style`      | `--typo-heading--font-style`     |
+| `--heading-letter-spacing`  | `--typo-heading--letter-spacing` |
+
+**Anchor Typography**
+
+| v4 Token                   | v5 Token                        |
+| -------------------------- | ------------------------------- |
+| `--anchor-font-family`     | `--typo-anchor--font-family`    |
+| `--anchor-font-size`       | `--typo-anchor--font-size`      |
+| `--anchor-font-color`      | `--typo-anchor--color-light`    |
+| `--anchor-font-color-dark` | `--typo-anchor--color-dark`     |
+| `--anchor-line-height`     | `--typo-anchor--line-height`    |
+| `--anchor-font-weight`     | `--typo-anchor--font-weight`    |
+| `--anchor-font-style`      | `--typo-anchor--font-style`     |
+| `--anchor-letter-spacing`  | `--typo-anchor--letter-spacing` |
+
+**Anchor Decoration**
+
+| v4 Token                          | v5 Token                                      |
+| --------------------------------- | --------------------------------------------- |
+| `--anchor-text-decoration`        | `--typo-anchor--text-decoration-line`         |
+| `--anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-line`  |
+| `--anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-line` |
+| `--anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-line`  |
+
+**Root Background**
+
+| v4 Token                       | v5 Token                |
+| ------------------------------ | ----------------------- |
+| `--body-background-color`      | `--color-root-bg-light` |
+| `--body-background-color-dark` | `--color-root-bg-dark`  |
+
+#### Added
+
+**Typography**
+
+| Token                         | Default |
+| ----------------------------- | ------- |
+| `--typo-base--font-stretch`   | inherit |
+| `--typo-base--font-kerning`   | inherit |
+| `--typo-base--text-shadow`    | inherit |
+| `--typo-base--word-spacing`   | inherit |
+| `--typo-base--hyphens`        | inherit |
+| `--typo-base--text-transform` | inherit |
+
+| Token                            | Default |
+| -------------------------------- | ------- |
+| `--typo-heading--font-stretch`   | inherit |
+| `--typo-heading--font-kerning`   | inherit |
+| `--typo-heading--text-shadow`    | inherit |
+| `--typo-heading--word-spacing`   | inherit |
+| `--typo-heading--hyphens`        | inherit |
+| `--typo-heading--text-transform` | inherit |
+
+| Token                           | Default |
+| ------------------------------- | ------- |
+| `--typo-anchor--font-stretch`   | inherit |
+| `--typo-anchor--font-kerning`   | inherit |
+| `--typo-anchor--text-shadow`    | inherit |
+| `--typo-anchor--word-spacing`   | inherit |
+| `--typo-anchor--hyphens`        | inherit |
+| `--typo-anchor--text-transform` | inherit |
+
+**Anchor Decorations**
+
+| Token                                      | Default |
+| ------------------------------------------ | ------- |
+| `--typo-anchor--text-decoration-color`     | inherit |
+| `--typo-anchor--text-decoration-style`     | inherit |
+| `--typo-anchor--text-decoration-thickness` | inherit |
+| `--typo-anchor--text-underline-offset`     | inherit |
+| `--typo-anchor--text-underline-position`   | inherit |
+
+| Token                                             | Default |
+| ------------------------------------------------- | ------- |
+| `--typo-anchor--hover--text-decoration-color`     | inherit |
+| `--typo-anchor--hover--text-decoration-style`     | inherit |
+| `--typo-anchor--hover--text-decoration-thickness` | inherit |
+| `--typo-anchor--hover--text-underline-offset`     | inherit |
+| `--typo-anchor--hover--text-underline-position`   | inherit |
+
+| Token                                              | Default |
+| -------------------------------------------------- | ------- |
+| `--typo-anchor--active--text-decoration-color`     | inherit |
+| `--typo-anchor--active--text-decoration-style`     | inherit |
+| `--typo-anchor--active--text-decoration-thickness` | inherit |
+| `--typo-anchor--active--text-underline-offset`     | inherit |
+| `--typo-anchor--active--text-underline-position`   | inherit |
+
+| Token                                             | Default |
+| ------------------------------------------------- | ------- |
+| `--typo-anchor--focus--text-decoration-color`     | inherit |
+| `--typo-anchor--focus--text-decoration-style`     | inherit |
+| `--typo-anchor--focus--text-decoration-thickness` | inherit |
+| `--typo-anchor--focus--text-underline-offset`     | inherit |
+| `--typo-anchor--focus--text-underline-position`   | inherit |
+
+**Edges**
+
+| Key                       | Default |
+| ------------------------- | ------- |
+| `--default-outline-width` | 1px     |
+
+**Corner Shapes**
+
+| Key                        | Default |
+| -------------------------- | ------- |
+| `--corner-shape-base`      | initial |
+| `--corner-shape-container` | initial |
+
+**Colors**
+
+| Key                            | Default                           |
+| ------------------------------ | --------------------------------- |
+| `--color-brand-light`          | var(--color-primary-500)          |
+| `--color-brand-contrast-light` | var(--color-primary-contrast-500) |
+| `--color-brand-dark`           | var(--color-primary-500)          |
+| `--color-brand-contrast-dark`  | var(--color-primary-contrast-500) |
+
+#### Removed
+
+| Key                      | Notes                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------- |
+| `--default-divide-width` | No utility class changes; derives from `--default-border-width`                             |
+| `--heading-font-size`    | Derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+| `--heading-line-height`  | Derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+
+---
+
+## Utility Classes
+
+| v4 Class                | v5 Replacement                                                          | Docs                                                             |
+| ----------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `card-hover`            | These styles are applied automatically to `<a>` and `<button>` elements | [View](/docs/[framework]/tailwind-components/cards#hover)        |
+| `input-group`           | `field-group`                                                           | [View](/docs/[framework]/tailwind-components/forms#field-groups) |
+| `ig-cell`               | `label label-text`; use a semantic `<label>`                            | --                                                               |
+| `ig-input`              | `input`                                                                 | --                                                               |
+| `ig-select`             | `select`                                                                | --                                                               |
+| `ig-btn`                | `btn`                                                                   | --                                                               |
+| `theme-[name]:` variant | Permanently removed                                                     | --                                                               |
+
+### Migrate Field Groups
+
+Input Groups have now been replaced with the much more intuitive [Field Groups](/docs/[framework]/tailwind-components/forms#field-groups) feature.
+
+```html
+<!-- v4 -->
+<div class="input-group grid-cols-[auto_1fr_auto]">
+	<div class="ig-cell preset-tonal">https://</div>
+	<input class="ig-input" type="text" />
+</div>
+
+<!-- v5 -->
+<div class="field-group grid-cols-[auto_1fr_auto]">
+	<label class="label label-text preset-tonal" for="url">https://</label>
+	<input class="input" type="text" id="url" />
+</div>
+```
+
+---
+
+## Brand Color
+
+A new `--color-brand-*` token is now utilized as the default accent color for a number of Skeleton features. Refer to the new [Core APIs](/docs/svelte/get-started/core-api#brand) and updated [Color documentation](/docs/svelte/design/colors#brand-color) details.
+
+- New presets have been added, including: `preset-filled-brand`, `preset-tonal-brand`, `preset-outlined-brand`.
+- Brand color is now the default for: checkboxes, radios, circular progress, steps, switches, tabs, and accordions.
+- Most Skeleton preset themes default to `primary-500`, which should result in little to no visual changes out of the box.
+- The `nouveau` theme is the only exception; it sets a different brand color between light and dark mode.
+
+This can be customized for any preset Skeleton theme (eg: Cerberus) using [this pattern](/docs/svelte/design/themes#modify-properties) in your global stylesheet.
+
+```css
+[data-theme='cerberus'] {
+	--color-brand-light: var(--color-secondary-500);
+	--color-brand-contrast-light: var(--color-secondary-contrast-500);
+	--color-brand-dark: var(--color-secondary-500);
+	--color-brand-contrast-dark: var(--color-secondary-contrast-500);
+}
+```
+
+---
+
+## Element Sizing
+
+### Buttons
+
+Button sizes via `btn-{size}` have been greatly expanded. Refer to [Button Sizes](/docs/svelte/tailwind-components/buttons#sizes) for details.
+
+| v4 Class   | v5 Class   |
+| ---------- | ---------- |
+| --         | `btn-xs`   |
+| `btn-sm`   | `btn-sm`   |
+| `btn-base` | `btn-base` |
+| `btn-lg`   | `btn-lg`   |
+| --         | `btn-xl`   |
+| --         | `btn-2xl`  |
+| --         | `btn-3xl`  |
+| --         | `btn-4xl`  |
+| --         | `btn-5xl`  |
+| --         | `btn-6xl`  |
+| --         | `btn-7xl`  |
+| --         | `btn-8xl`  |
+| --         | `btn-9xl`  |
+
+### Form Fields
+
+Form fields gained the same scale via new `field-{size}` utility classes. Refer to [Field Sizes](/docs/[framework]/tailwind-components/forms#field-sizes) for details.
+
+### Spacing
+
+A new set of spacing properties using this same scale are available via `spacing-elem-{size}`. Use this for `w-*`, `h-*`, `m-*`, `p-*` and more. Refer to [Element Sizes](/docs/[framework]/get-started/core-api#element-sizes) for details.
+
+---
+
+## Additional Features
+
+The following features are new additions, included for the sake of completeness.
+
+### Meter Element
+
+| Feature | Docs                                                      | Description                                                                       |
+| ------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Meter   | [View](/docs/[framework]/tailwind-components/forms#meter) | Display a scalar measurement within a known range using the native meter element. |
+
+### Tailwind Utilities
+
+| Feature      | Docs                                                       | Description                                                                             |
+| ------------ | ---------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Mask         | [View](/docs/[framework]/tailwind-utilities/masks)         | Clip elements to a variety of decorative shapes using CSS mask-image.                   |
+| Corner Shape | [View](/docs/[framework]/tailwind-utilities/corner-shapes) | Specifies the shape of a box's corners, within the area specified by its border-radius. |
+
+### Tailwind Components
+
+| Feature    | Docs                                                              | Description                                                                         |
+| ---------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Dialog     | [View](/docs/[framework]/tailwind-components/dialogs)             | Display modal popups using the native HTML dialog element.                          |
+| Disclosure | [View](/docs/[framework]/tailwind-components/disclosures)         | Toggle the visibility of collapsible content using the native HTML details element. |
+| Typography | [View](/docs/[framework]/design/typography#native-element-styles) | Expanded native element styles: `abbr`, `cite`, `q`, `sub`, `sup`, `time`.          |
+
+### Framework Components
+
+| Feature        | Docs                                                           | Description                                                                     |
+| -------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Marquee        | [View](/docs/[framework]/framework-components/marquee)         | Auto-scrolls content like logos, announcements, or featured items.              |
+| QrCode         | [View](/docs/[framework]/framework-components/qr-code)         | Render scannable QR codes with a frame, overlay, pattern, and download trigger. |
+| LocaleProvider | [View](/docs/[framework]/framework-components/locale-provider) | Provides locale context to components for controlling reading direction.        |
+
+---
+
+## Migration Complete
+
+If you've completed all steps above in full, your application should once again be in a functional state. Run your application's local dev server to confirm. Then remember to merge all changes into your primary branch.
+
+```bash
+npm run dev
+```
+
+---
+
+## Support and Feedback
+
+If you have any questions or issues about the migration process, please contact us on [Discord](https://discord.gg/EXqV7W8MtY) (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!
