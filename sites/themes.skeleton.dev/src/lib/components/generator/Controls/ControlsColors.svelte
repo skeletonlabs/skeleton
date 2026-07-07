@@ -2,11 +2,12 @@
 	import * as constants from '$lib/constants/generator';
 	import { globals, settingsColors } from '$lib/state/generator.svelte';
 	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '$lib/utils/generator/colors';
+	import ControlsColorsContrast from './ControlsColorsContrast.svelte';
 	import DicesIcon from '@lucide/svelte/icons/dices';
 	import EraserIcon from '@lucide/svelte/icons/eraser';
 	import PencilIcon from '@lucide/svelte/icons/pencil';
 	import SproutIcon from '@lucide/svelte/icons/sprout';
-	import { Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 
 	interface ColorSelection {
 		label: string;
@@ -63,7 +64,7 @@
 		<Tabs.List class="justify-between">
 			<Tabs.Indicator />
 			{#each colorSelection as color (color)}
-				<Tabs.Trigger value={color.value} class="aspect-square w-[52px] flex justify-center items-center {color.class}">
+				<Tabs.Trigger value={color.value} class="aspect-square w-13 flex justify-center items-center {color.class}">
 					<Tabs.Context>
 						{#snippet children(tabs)}
 							{#if tabs().value === color.value}
@@ -80,7 +81,7 @@
 				{#if color.value === globals.activeColor}
 					{@const activeColorLabel = colorSelection.find((c) => c.value === globals.activeColor)?.label}
 					<div class="space-y-4">
-						<div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-2">
+						<div class="grid grid-cols-[1fr_auto_auto] items-center gap-2">
 							<h3 class="h5">{activeColorLabel}</h3>
 							<button
 								type="button"
@@ -100,19 +101,19 @@
 								<DicesIcon size={14} />
 								<span>Random</span>
 							</button>
-							<Switch name="example" checked={showAllShades} onCheckedChange={(e) => (showAllShades = e.checked)} class="!gap-2">
-								<Switch.Control>
-									<Switch.Thumb />
-								</Switch.Control>
-								<Switch.HiddenInput />
-								<Switch.Label>All</Switch.Label>
-							</Switch>
 						</div>
+						<Tabs value={showAllShades ? 'all-stops' : 'three-stops'} onValueChange={(e) => (showAllShades = e.value === 'all-stops')}>
+							<Tabs.List>
+								<Tabs.Indicator />
+								<Tabs.Trigger value="three-stops" class="flex-1">Three Stops</Tabs.Trigger>
+								<Tabs.Trigger value="all-stops" class="flex-1">All Stops</Tabs.Trigger>
+							</Tabs.List>
+						</Tabs>
 						<div>
 							{#if showAllShades}
-								<p class="opacity-60">All shades must be manually defined.</p>
+								<p class="opacity-60">All stops must be manually defined.</p>
 							{:else}
-								<p class="opacity-60">Shades automatically blend between 50/500/950.</p>
+								<p class="opacity-60">Stops automatically blend between 50/500/950.</p>
 							{/if}
 						</div>
 						<table class="table">
@@ -132,7 +133,7 @@
 											<!-- Known issue in Chrome; can ignore the console warning -->
 											<!-- https://github.com/sveltejs/svelte/issues/8446#issuecomment-2213484541 -->
 											<input
-												class="input"
+												class="input scale-85"
 												type="color"
 												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
 												oninput={() => genColorRamp(showAllShades, color.value)}
@@ -142,52 +143,7 @@
 								{/each}
 							</tbody>
 						</table>
-						<div class="space-y-4">
-							<div class="grid grid-cols-2 gap-4">
-								<label class="label space-y-2">
-									<span class="label-text">Light Contrast</span>
-									<div
-										class="w-full h-4 border border-surface-200-800 rounded-base"
-										style:background={`${settingsColors[getColorKey(color.value, 'contrast-light')]}`}
-									></div>
-									<select
-										class="select"
-										name={`--color-${color.value}-contrast-light`}
-										bind:value={settingsColors[getColorKey(color.value, 'contrast-light')]}
-									>
-										<option value="oklch(1 0 0 / 1)">White</option>
-										{#each constants.colorNames as colorName}
-											<optgroup label={colorName}>
-												{#each constants.colorShades as colorShade}
-													<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-												{/each}
-											</optgroup>
-										{/each}
-									</select>
-								</label>
-								<label class="label space-y-2">
-									<span class="label-text">Dark Contrast</span>
-									<div
-										class="w-full h-4 border border-surface-200-800 rounded-base"
-										style:background={`${settingsColors[getColorKey(color.value, 'contrast-dark')]}`}
-									></div>
-									<select
-										class="select"
-										name={`--color-${color.value}-contrast-dark`}
-										bind:value={settingsColors[getColorKey(color.value, 'contrast-dark')]}
-									>
-										<option value="oklch(0 0 0 / 1)">Black</option>
-										{#each constants.colorNames as colorName}
-											<optgroup label={colorName}>
-												{#each constants.colorShades as colorShade}
-													<option value={`var(--color-${colorName}-${colorShade})`}>{`${colorName}-${colorShade}`}</option>
-												{/each}
-											</optgroup>
-										{/each}
-									</select>
-								</label>
-							</div>
-						</div>
+						<ControlsColorsContrast colorValue={color.value} />
 					</div>
 				{/if}
 			</Tabs.Content>

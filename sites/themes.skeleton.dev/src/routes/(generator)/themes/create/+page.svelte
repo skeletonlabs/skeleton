@@ -5,12 +5,15 @@
 	import Preview from '$lib/components/generator/Preview/Preview.svelte';
 	// Utils
 	import { generatePreviewCss } from '$lib/utils/generator/generate-css';
+	import { generateFontFaces } from '$lib/utils/generator/generate-font-faces';
 </script>
 
 <!-- Live Preview CSS -->
 <svelte:head>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html `<style>${generatePreviewCss()}</style>`}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html `<style>${generateFontFaces()}</style>`}
 </svelte:head>
 
 <!-- Warning: Mobile Not Supported -->

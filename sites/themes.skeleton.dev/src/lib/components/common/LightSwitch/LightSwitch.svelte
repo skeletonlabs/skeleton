@@ -15,30 +15,6 @@
 	}
 </script>
 
-<svelte:head>
-	<script>
-		const FALLBACK_THEME = 'cerberus';
-
-		function applyTheme() {
-			const storedTheme = localStorage.getItem('theme');
-			const theme = storedTheme ?? FALLBACK_THEME;
-			document.documentElement.setAttribute('data-theme', theme);
-		}
-
-		const FALLBACK_MODE = 'light';
-
-		function applyMode() {
-			const storedMode = localStorage.getItem('mode');
-			const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			const mode = storedMode ?? preferredMode ?? FALLBACK_MODE;
-			document.documentElement.setAttribute('data-mode', mode);
-		}
-
-		applyTheme();
-		applyMode();
-	</script>
-</svelte:head>
-
 <button
 	class="btn-icon hover:preset-tonal"
 	onclick={() => setMode(mode === 'dark' ? 'light' : 'dark')}

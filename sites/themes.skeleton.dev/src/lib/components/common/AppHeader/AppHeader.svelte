@@ -1,25 +1,23 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	// Components (common)
 	import LightSwitch from '$lib/components/common/LightSwitch/LightSwitch.svelte';
 	import Logo from '$lib/components/common/Logo/Logo.svelte';
+	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 </script>
 
-<header class="sticky top-0 z-10 border-b-[1px] border-surface-500/20 bg-surface-50-950 w-full px-5 py-3">
-	<div class="flex justify-between gap-4">
-		<div class="flex items-center justify-start gap-6">
+<AppBar class="sticky top-0 z-10 border-b-[1px] border-surface-500/20 bg-surface-50-950">
+	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto] justify-between">
+		<AppBar.Lead class="flex items-center gap-6">
 			<a href="https://skeleton.dev/docs/design/themes" title="Skeleton" class="flex items-center gap-4">
 				<Logo />
 			</a>
-			<nav class="flex gap-6 opacity-60">
-				<!-- <a href="/" class="hover:underline">Browse</a> -->
-				<a href={resolve('/themes/create')} class="hover:underline">Create</a>
-				<a href={resolve('/themes/import')} class="hover:underline">Import</a>
-			</nav>
-		</div>
-		<nav class="flex items-center gap-4">
+		</AppBar.Lead>
+		<AppBar.Headline class="flex opacity-60">
+			<a href={resolve('/themes/create')} class="btn hover:preset-tonal">Create</a>
+			<a href={resolve('/themes/import')} class="btn hover:preset-tonal">Import</a>
+		</AppBar.Headline>
+		<AppBar.Trail class="flex items-center gap-4">
 			<LightSwitch />
-			<!-- <button class="btn preset-filled">Login</button> -->
-		</nav>
-	</div>
-</header>
+		</AppBar.Trail>
+	</AppBar.Toolbar>
+</AppBar>
