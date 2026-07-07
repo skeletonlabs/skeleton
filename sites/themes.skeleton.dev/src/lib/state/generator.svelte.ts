@@ -217,7 +217,7 @@ export const settingsCustomFonts: SettingsCustomFonts = $state({
 // Reference: https://designcode.io/typographic-scales
 export const settingsTypography: SettingsTypography = $state({
 	// Scale Factor
-	'--text-scaling': '1.067',
+	'--text-scaling': '1',
 	// Base
 	'--typo-base--font-family': constants.fontFamilies[1],
 	'--typo-base--font-size': 'inherit',

@@ -17,6 +17,7 @@
 	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
+	let view = $derived(globals.panel);
 	const items = [
 		{
 			value: 'colors',
@@ -61,12 +62,7 @@
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>
-		<SegmentedControl
-			name="display"
-			defaultValue={globals.panel}
-			onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)}
-			class="w-full"
-		>
+		<SegmentedControl name="display" value={view} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} class="w-full">
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
 				<SegmentedControl.Item value="preview" class="w-full">
@@ -114,6 +110,6 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<p class="text-xs opacity-50 text-center">When ready, tap the <strong>Code</strong> button to obtain your theme.</p>
+		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = 'code')}>Export Theme</button>
 	</footer>
 </section>

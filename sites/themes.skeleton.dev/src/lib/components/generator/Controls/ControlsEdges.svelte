@@ -13,8 +13,8 @@
 <div class="space-y-8">
 	<section class="space-y-2">
 		<header>
-			<p class="opacity-60">Control settings for element edges.</p>
 			<h2 class="h5">Border Radius</h2>
+			<p class="opacity-50">Adjust settings for border radius utility classes.</p>
 		</header>
 		<div class="label">
 			<span class="label-text">Base</span>
@@ -39,7 +39,7 @@
 		<header>
 			<h2 class="h5">Corner Shape</h2>
 			<p class="opacity-50">
-				Implemented using the <a
+				Available via the the <a
 					class="underline"
 					href="https://skeleton.dev/docs/svelte/tailwind-utilities/corner-shapes"
 					target="_blank"
@@ -66,7 +66,7 @@
 	<section class="space-y-4">
 		<header>
 			<h2 class="h5">Edge Defaults</h2>
-			<p class="opacity-50">Set the default border, width, and outline sizes.</p>
+			<p class="opacity-50">Set the default edge sizing.</p>
 		</header>
 		<div class="label">
 			<span class="label-text">Border Width</span>

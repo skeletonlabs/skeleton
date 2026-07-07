@@ -114,6 +114,12 @@
 		</div>
 		<!-- Column 3 -->
 		<div class="space-y-5">
+			<!-- Badges -->
+			<div class="grid grid-cols-3 gap-2">
+				<span class="badge {currentPresets.filled}">Badge</span>
+				<span class="badge {currentPresets.tonal}">Badge</span>
+				<span class="badge {currentPresets.outlined}">Badge</span>
+			</div>
 			<!-- Switch -->
 			<div class="card border border-surface-200-800 p-2 flex justify-center">
 				<Switch name="example" defaultChecked={true}>
@@ -123,12 +129,6 @@
 					<Switch.Label>Opt-In to Newsletter</Switch.Label>
 					<Switch.HiddenInput />
 				</Switch>
-			</div>
-			<!-- Badges -->
-			<div class="grid grid-cols-3 gap-2">
-				<span class="badge {currentPresets.filled}">Badge</span>
-				<span class="badge {currentPresets.tonal}">Badge</span>
-				<span class="badge {currentPresets.outlined}">Badge</span>
 			</div>
 			<!-- Buttons -->
 			<div class="grid grid-cols-3 gap-2">
@@ -169,11 +169,11 @@
 			<!-- Cards -->
 			<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
 				<Avatar class="size-14">
-					<Avatar.Image src="/images/male.png" class="grayscale" />
+					<Avatar.Image src="/images/female.png" class="grayscale" />
 				</Avatar>
 				<div>
-					<p class="font-bold">Gregory Smith</p>
-					<p class="opacity-60 text-xs">gregory.smith@example.com</p>
+					<p class="font-bold">Georgia Smith</p>
+					<p class="opacity-60 text-xs">georgia.smith@example.com</p>
 				</div>
 			</div>
 			<!-- Outline -->
