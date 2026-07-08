@@ -1,11 +1,18 @@
 ---
 title: Migrate from v4
 description: Learn how to migrate from Skeleton v4 to the latest v5 release.
-summary: Skeleton v5 focuses on the core API and theme layer, including new and updated theme format and design tokens, expanded elements and size options, as well as the introduction of the new brand color.
+summary: Skeleton v5 represents a notable update to the core API and theme layer. This improves and expands your theme's design tokens, introduces new Tailwind Components such as Disclosures, provides size options for buttons and form fields, establishes the new brand color properties, and more.
 order: 8888
 ---
 
 ## Prerequisites
+
+For older versions of Skeleton, please complete the following guides below before you proceed.
+
+| Path             | Guide                                                                         |
+| ---------------- | ----------------------------------------------------------------------------- |
+| Version v2 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v2) |
+| Version v3 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v3) |
 
 We recommend you handle all migration changes on a dedicated feature branch, allowing you to easily revert if needed.
 
@@ -19,7 +26,7 @@ Make sure you've accounted for the following:
 - All critical dependencies have been updated (optional but recommended)
 - Your app is in a fully functional state before you proceed
 
-Note the `svelte` peer dependency has been raised from `^5.29.0` to `^5.40.0`. React remains unchanged.
+For `svelte`, the minimum peer dependency has been raised from `^5.29.0` to `^5.40.0`. React remains unchanged.
 
 ```bash
 npm install svelte@latest
@@ -31,11 +38,11 @@ npm install svelte@latest
 
 ### Preset Themes
 
-Preset themes will automatically update with all changes.
+Preset themes will automatically update with all changes. No action is required on your part.
 
 ### Custom Themes
 
-We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure any new or updated settings, while proofing the design.
+We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure any new or updated settings, while fine tuning the overall design.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://themes.skeleton.dev/themes/import" target="_blank" rel="noopener noreferrer">
@@ -43,15 +50,15 @@ We recommend importing custom themes into the Theme Generator to automatically c
 	</a>
 </figure>
 
-> NOTE: custom fonts will not be imported. You can implement these via the Typography controls immediately after import.
+> TIP: custom fonts will not be imported. You can, however, implement these via the **Typography** controls.
 
-### Tokens
+### Design Tokens
 
-Please refer to [Core API](/docs/[framework]/get-started/core-api#base) for a complete token reference. See the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a full theme reference. We'll cover all notable changes below.
+Please refer to the [Core API](/docs/[framework]/get-started/core-api#base) documentation for a complete token reference. Refer to the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a complete theme reference. We'll now cover all notable changes below.
 
 #### Renamed
 
-Note that only the token key changes, each value should remain as is.
+The following token keys have changed, each value remains the same.
 
 **Base Typography**
 
@@ -107,6 +114,8 @@ Note that only the token key changes, each value should remain as is.
 | `--body-background-color-dark` | `--color-root-bg-dark`  |
 
 #### Added
+
+The following tokens expand the capabilities of your themes. Recommended default values have been provided.
 
 **Typography**
 
@@ -195,29 +204,31 @@ Note that only the token key changes, each value should remain as is.
 
 #### Removed
 
-| Key                      | Notes                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------------- |
-| `--default-divide-width` | No utility class changes; derives from `--default-border-width`                             |
-| `--heading-font-size`    | Derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
-| `--heading-line-height`  | Derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+| Key                      | Notes                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| `--default-divide-width` | This is a bugfix; the value is derived from `--default-border-width`                            |
+| `--heading-font-size`    | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+| `--heading-line-height`  | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
 
 ---
 
 ## Utility Classes
 
-| v4 Class                | v5 Replacement                                                          | Docs                                                             |
-| ----------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `card-hover`            | These styles are applied automatically to `<a>` and `<button>` elements | [View](/docs/[framework]/tailwind-components/cards#hover)        |
-| `input-group`           | `field-group`                                                           | [View](/docs/[framework]/tailwind-components/forms#field-groups) |
-| `ig-cell`               | `label label-text`; use a semantic `<label>`                            | --                                                               |
-| `ig-input`              | `input`                                                                 | --                                                               |
-| `ig-select`             | `select`                                                                | --                                                               |
-| `ig-btn`                | `btn`                                                                   | --                                                               |
-| `theme-[name]:` variant | Permanently removed                                                     | --                                                               |
+Several utility classes have been replaced or removed. Relevant replacements are noted below.
+
+| v4 Class                | v5 Replacement                                             | Docs                                                             |
+| ----------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| `card-hover`            | The `card` utility auto-applies styles to `<a>`/`<button>` | [View](/docs/[framework]/tailwind-components/cards#hover)        |
+| `input-group`           | Replaced with the `field-group` feature                    | [View](/docs/[framework]/tailwind-components/forms#field-groups) |
+| `ig-cell`               | `label label-text`; use a semantic `<label>`               | --                                                               |
+| `ig-input`              | `input`                                                    | --                                                               |
+| `ig-select`             | `select`                                                   | --                                                               |
+| `ig-btn`                | `btn`                                                      | --                                                               |
+| `@variant theme-[name]` | Permanently removed                                        | [View](/docs/svelte/design/themes#target-themes)                 |
 
 ### Migrate Field Groups
 
-Input Groups have now been replaced with the much more intuitive [Field Groups](/docs/[framework]/tailwind-components/forms#field-groups) feature.
+Input Groups have now been replaced with the intuitive [Field Groups](/docs/[framework]/tailwind-components/forms#field-groups) feature.
 
 ```html
 <!-- v4 -->
@@ -237,7 +248,7 @@ Input Groups have now been replaced with the much more intuitive [Field Groups](
 
 ## Brand Color
 
-A new `--color-brand-*` token is now utilized as the default accent color for a number of Skeleton features. Refer to the new [Core APIs](/docs/svelte/get-started/core-api#brand) and updated [Color documentation](/docs/svelte/design/colors#brand-color) details.
+A new `--color-brand-*` token provides a default accent color for a number of Skeleton features. Refer to the new [Core API](/docs/svelte/get-started/core-api#brand) and updated [Colors](/docs/svelte/design/colors#brand-color) documentation for details.
 
 - New presets have been added, including: `preset-filled-brand`, `preset-tonal-brand`, `preset-outlined-brand`.
 - Brand color is now the default for: checkboxes, radios, circular progress, steps, switches, tabs, and accordions.
@@ -259,9 +270,26 @@ This can be customized for any preset Skeleton theme (eg: Cerberus) using [this 
 
 ## Element Sizing
 
+A new universal scaling system has been introduced for keeping element sizes uniform, using the new `--spacing-elem-{size}` token. Use this with `w-*`, `h-*`, `size-*`, `m-*`, `p-*` and more, paired with `xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl`. Refer to [Element Sizes](/docs/[framework]/get-started/core-api#element-sizes) for details.
+
+```html
+<!-- SVG icon sized to match the "lg" element scale -->
+<svg class="size-elem-lg">...</svg>
+
+<!-- Width/height set independently -->
+<div class="w-elem-base h-elem-base">...</div>
+
+<!-- Padding/margin using the same scale -->
+<div class="p-elem-sm m-elem-xl">...</div>
+```
+
+### Icons
+
+Refer to [Icon Sizes](/docs/svelte/design/iconography#sizes) for more explicit examples and details. Note that icons used within Tailwind Components such as buttons, badges, chips, and field groups are sized **automatically**. Adding an explicit sizing utility is redundant.
+
 ### Buttons
 
-Button sizes via `btn-{size}` have been greatly expanded. Refer to [Button Sizes](/docs/svelte/tailwind-components/buttons#sizes) for details.
+Button sizes have been greatly expanded when using the `btn-{size}` utility. Refer to [Button Sizes](/docs/svelte/tailwind-components/buttons#sizes) for details.
 
 | v4 Class   | v5 Class   |
 | ---------- | ---------- |
@@ -281,23 +309,19 @@ Button sizes via `btn-{size}` have been greatly expanded. Refer to [Button Sizes
 
 ### Form Fields
 
-Form fields gained the same scale via new `field-{size}` utility classes. Refer to [Field Sizes](/docs/[framework]/tailwind-components/forms#field-sizes) for details.
-
-### Spacing
-
-A new set of spacing properties using this same scale are available via `spacing-elem-{size}`. Use this for `w-*`, `h-*`, `m-*`, `p-*` and more. Refer to [Element Sizes](/docs/[framework]/get-started/core-api#element-sizes) for details.
+Form fields honor the same scale via new `field-{size}` utility. Refer to [Field Sizes](/docs/[framework]/tailwind-components/forms#field-sizes) for details.
 
 ---
 
 ## Additional Features
 
-The following features are new additions, included for the sake of completeness.
+The following features are new additions. These are not breaking changes and are included for completeness.
 
-### Meter Element
+### Design System
 
-| Feature | Docs                                                      | Description                                                                       |
-| ------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Meter   | [View](/docs/[framework]/tailwind-components/forms#meter) | Display a scalar measurement within a known range using the native meter element. |
+| Feature    | Docs                                                              | Description                                                                |
+| ---------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Typography | [View](/docs/[framework]/design/typography#native-element-styles) | Expanded native element styles: `abbr`, `cite`, `q`, `sub`, `sup`, `time`. |
 
 ### Tailwind Utilities
 
@@ -308,32 +332,34 @@ The following features are new additions, included for the sake of completeness.
 
 ### Tailwind Components
 
-| Feature    | Docs                                                              | Description                                                                         |
-| ---------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Dialog     | [View](/docs/[framework]/tailwind-components/dialogs)             | Display modal popups using the native HTML dialog element.                          |
-| Disclosure | [View](/docs/[framework]/tailwind-components/disclosures)         | Toggle the visibility of collapsible content using the native HTML details element. |
-| Typography | [View](/docs/[framework]/design/typography#native-element-styles) | Expanded native element styles: `abbr`, `cite`, `q`, `sub`, `sup`, `time`.          |
+| Feature          | Docs                                                      | Description                                                                         |
+| ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Dialog           | [View](/docs/[framework]/tailwind-components/dialogs)     | Display modal popups using the native HTML dialog element.                          |
+| Disclosure       | [View](/docs/[framework]/tailwind-components/disclosures) | Toggle the visibility of collapsible content using the native HTML details element. |
+| Forms and Inputs | [View](/docs/[framework]/tailwind-components/forms#meter) | A new `meter` component has been added.                                             |
 
 ### Framework Components
 
-| Feature        | Docs                                                           | Description                                                                     |
-| -------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Marquee        | [View](/docs/[framework]/framework-components/marquee)         | Auto-scrolls content like logos, announcements, or featured items.              |
-| QrCode         | [View](/docs/[framework]/framework-components/qr-code)         | Render scannable QR codes with a frame, overlay, pattern, and download trigger. |
-| LocaleProvider | [View](/docs/[framework]/framework-components/locale-provider) | Provides locale context to components for controlling reading direction.        |
+| Feature         | Docs                                                           | Description                                                                     |
+| --------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Marquee         | [View](/docs/[framework]/framework-components/marquee)         | Auto-scrolls content like logos, announcements, or featured items.              |
+| QR Code         | [View](/docs/[framework]/framework-components/qr-code)         | Render scannable QR codes with a frame, overlay, pattern, and download trigger. |
+| Locale Provider | [View](/docs/[framework]/framework-components/locale-provider) | Provides locale context to components for controlling reading direction.        |
 
 ---
 
 ## Migration Complete
 
-If you've completed all steps above in full, your application should once again be in a functional state. Run your application's local dev server to confirm. Then remember to merge all changes into your primary branch.
+If you've completed all steps above, then your app is now fully migrated. Run your local dev server to confirm.
 
 ```bash
 npm run dev
 ```
 
+> TIP: remember to merge all changes into your primary branch!
+
 ---
 
 ## Support and Feedback
 
-If you have any questions or issues about the migration process, please contact us on [Discord](https://discord.gg/EXqV7W8MtY) (the `#contributors` channel) or via [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We are here to help!
+Need help or support? Contact the Skeleton team using either [Discord](https://discord.gg/EXqV7W8MtY) or [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We're here to help!
