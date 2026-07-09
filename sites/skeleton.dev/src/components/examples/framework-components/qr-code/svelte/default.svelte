@@ -7,7 +7,7 @@
 	<QrCode.Frame class="size-full max-size-36">
 		<QrCode.Pattern />
 	</QrCode.Frame>
-	<QrCode.Overlay>
+	<QrCode.Overlay class="bg-white rounded-full p-1">
 		<img src={favicon.src} alt="Skeleton Logo" class="size-12" />
 	</QrCode.Overlay>
 	<QrCode.DownloadTrigger fileName="skeleton-dev" mimeType="image/png">Download</QrCode.DownloadTrigger>
