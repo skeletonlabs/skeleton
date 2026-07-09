@@ -1,0 +1,13 @@
+<script lang="ts">
+	let count = 0;
+</script>
+
+<a href="/" class="anchor">{count}</a>
+
+<style>
+	:global([data-theme='example']) {
+		--typo-base--font-family: system-ui;
+		--typo-anchor--color-light: var(--color-primary-500);
+		--typo-anchor--text-decoration-line: none;
+	}
+</style>

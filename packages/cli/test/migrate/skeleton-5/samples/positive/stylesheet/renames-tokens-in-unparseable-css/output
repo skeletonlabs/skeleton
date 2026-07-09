@@ -1,0 +1,4 @@
+[data-theme='example'] {
+	--typo-base--font-family: system-ui;
+	// margin-top: -15px;
+}

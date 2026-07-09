@@ -1,0 +1,8 @@
+[data-theme='example'] {
+	--typo-heading--font-family: Georgia, serif;
+	--typo-heading--color-light: var(--color-surface-950);
+	--typo-heading--color-dark: var(--color-surface-50);
+	--typo-heading--letter-spacing: 0.05em;
+	--typo-anchor--active--text-decoration-line: none;
+	--typo-anchor--focus--text-decoration-line: underline;
+}

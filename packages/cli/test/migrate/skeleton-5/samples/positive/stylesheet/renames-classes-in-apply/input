@@ -1,0 +1,7 @@
+.field {
+	@apply input-group ig-input ig-select ig-btn;
+}
+
+.promo {
+	@apply card card-hover;
+}

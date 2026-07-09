@@ -1,0 +1,13 @@
+<script lang="ts">
+	let count = 0;
+</script>
+
+<a href="/" class="anchor">{count}</a>
+
+<style>
+	:global([data-theme='example']) {
+		--base-font-family: system-ui;
+		--anchor-font-color: var(--color-primary-500);
+		--anchor-text-decoration: none;
+	}
+</style>

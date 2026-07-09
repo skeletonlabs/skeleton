@@ -1,0 +1,10 @@
+:root {
+	--my-brand-color: #ff0000;
+	--base-font-family-custom: 'Comic Sans';
+	--heading-gap: 1rem;
+}
+
+.card {
+	color: var(--my-brand-color);
+	padding: 1rem;
+}

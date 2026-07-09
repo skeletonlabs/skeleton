@@ -1,4 +1,5 @@
 import { REMOVED_TOKENS, TOKEN_MAPPINGS } from '../utility/token-mappings.js';
+import { transformClasses } from './transform-classes.js';
 import { log } from '@clack/prompts';
 import { parse } from 'postcss';
 
@@ -19,6 +20,9 @@ export function transformStylesheet(content: string) {
 			if (REMOVED_TOKENS.includes(decl.prop)) {
 				decl.remove();
 			}
+		});
+		ast.walkAtRules('apply', (atRule) => {
+			atRule.params = transformClasses(atRule.params).code;
 		});
 		return {
 			code: ast.toString(),

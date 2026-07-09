@@ -1,0 +1,6 @@
+<div class="field-group grid-cols-[auto_1fr_auto]">
+	<input class="input" type="text" />
+	<select class="select"></select>
+	<button class="btn">Go</button>
+</div>
+<a class="card" href="/">Card</a>

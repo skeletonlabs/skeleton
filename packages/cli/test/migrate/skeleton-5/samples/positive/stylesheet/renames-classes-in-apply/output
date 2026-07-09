@@ -1,0 +1,7 @@
+.field {
+	@apply field-group input select btn;
+}
+
+.promo {
+	@apply card;
+}

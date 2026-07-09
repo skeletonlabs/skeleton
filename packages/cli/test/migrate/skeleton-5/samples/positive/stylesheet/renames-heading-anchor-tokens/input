@@ -1,0 +1,8 @@
+[data-theme='example'] {
+	--heading-font-family: Georgia, serif;
+	--heading-font-color: var(--color-surface-950);
+	--heading-font-color-dark: var(--color-surface-50);
+	--heading-letter-spacing: 0.05em;
+	--anchor-text-decoration-active: none;
+	--anchor-text-decoration-focus: underline;
+}
