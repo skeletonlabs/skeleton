@@ -1,0 +1,4 @@
+<p class="font-typo-base text-typo-base-light">text</p>
+<h1 class="font-typo-heading text-typo-heading-dark">title</h1>
+<a class="text-typo-anchor tracking-typo-anchor" href="/">link</a>
+<div class="bg-root-bg-light">bg</div>

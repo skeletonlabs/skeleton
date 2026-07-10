@@ -1,0 +1,3 @@
+.prose {
+	@apply base-font-family base-line-height base-font-color-dark;
+}
