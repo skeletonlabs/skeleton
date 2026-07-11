@@ -1,3 +1,4 @@
+import { transformJsx } from '../../../src/commands/migrate/migrations/skeleton-5/transformers/transform-jsx.js';
 import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-5/transformers/transform-package.json.js';
 import { transformStylesheet } from '../../../src/commands/migrate/migrations/skeleton-5/transformers/transform-stylesheet.js';
 import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-5/transformers/transform-svelte.js';
@@ -7,6 +8,7 @@ import { describe, expect, test } from 'vitest';
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
+	jsx: transformJsx,
 	stylesheet: transformStylesheet,
 	'package.json': transformPackageJson,
 };

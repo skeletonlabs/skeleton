@@ -2,6 +2,7 @@ import { cli } from '../../../../index.js';
 import type { FileMigration } from '../../../../utility/file-migration.js';
 import { installDependencies } from '../../../../utility/install-dependencies.js';
 import type { MigrateOptions } from '../../index.js';
+import { transformJsx } from './transformers/transform-jsx.js';
 import { transformPackageJson } from './transformers/transform-package.json.js';
 import { transformStylesheet } from './transformers/transform-stylesheet.js';
 import { transformSvelte } from './transformers/transform-svelte.js';
@@ -17,7 +18,7 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd }),
+		paths: await glob('package.json', { cwd, absolute: true }),
 	};
 
 	// Validate file existence
@@ -64,10 +65,11 @@ export default async function (options: MigrateOptions) {
 
 	// Migrate source files
 	const sourceFiles = await glob(
-		sourceFolders.map((folder) => `${folder}**/*.{svelte,css,pcss,postcss}`),
+		sourceFolders.map((folder) => `${folder}**/*.{svelte,css,pcss,postcss,jsx,tsx,js,mjs,cjs}`),
 		{
 			cwd: cwd,
 			ignore: ['node_modules'],
+			absolute: true,
 		},
 	);
 	const sourceFilesSpinner = spinner();
@@ -89,6 +91,17 @@ export default async function (options: MigrateOptions) {
 				migrations.push({
 					path: path,
 					content: transformedStylesheet.code,
+				});
+				break;
+			case '.jsx':
+			case '.tsx':
+			case '.js':
+			case '.mjs':
+			case '.cjs':
+				const transformedJsx = transformJsx(content);
+				migrations.push({
+					path: path,
+					content: transformedJsx.code,
 				});
 				break;
 		}
