@@ -12,6 +12,7 @@ describe('detectManualClasses', () => {
 		expect(ids(detectManualClasses('code'))).toEqual(['code']);
 		expect(ids(detectManualClasses('base-font-weight heading-font-style'))).toEqual(['font-style', 'font-weight']);
 		expect(ids(detectManualClasses('anchor-text-decoration-hover'))).toEqual(['anchor-text-decoration']);
+		expect(ids(detectManualClasses('heading-font-size heading-line-height'))).toEqual(['heading-sizing', 'heading-sizing']);
 	});
 
 	test('strips Tailwind variant prefixes before matching', () => {

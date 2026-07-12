@@ -18,6 +18,11 @@ const MANUAL_CLASS_RULES: { pattern: RegExp; id: string; hint: string }[] = [
 		hint: 'was removed in v5 with no replacement class — style the element manually.',
 	},
 	{
+		pattern: /^heading-(font-size|line-height)$/,
+		id: 'heading-sizing',
+		hint: 'was removed in v5 — size headings with `text-*` / `leading-*` utilities instead.',
+	},
+	{
 		pattern: /^(base|heading|anchor)-font-weight$/,
 		id: 'font-weight',
 		hint: 'has no v5 utility — set the weight with a `font-*` utility or the matching theme token.',
