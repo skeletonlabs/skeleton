@@ -3,7 +3,7 @@
  * Applied to declarations *and* `var()` references, so both sides of the theme move together.
  */
 export const TOKEN_MAPPINGS: Record<string, string> = {
-	// Typography - Base
+	// Typography Base
 	'--base-font-family': '--typo-base--font-family',
 	'--base-font-size': '--typo-base--font-size',
 	'--base-font-color': '--typo-base--color-light',
@@ -12,14 +12,14 @@ export const TOKEN_MAPPINGS: Record<string, string> = {
 	'--base-font-weight': '--typo-base--font-weight',
 	'--base-font-style': '--typo-base--font-style',
 	'--base-letter-spacing': '--typo-base--letter-spacing',
-	// Typography - Heading
+	// Typography Heading
 	'--heading-font-family': '--typo-heading--font-family',
 	'--heading-font-color': '--typo-heading--color-light',
 	'--heading-font-color-dark': '--typo-heading--color-dark',
 	'--heading-font-weight': '--typo-heading--font-weight',
 	'--heading-font-style': '--typo-heading--font-style',
 	'--heading-letter-spacing': '--typo-heading--letter-spacing',
-	// Typography - Anchor
+	// Typography Anchor
 	'--anchor-font-family': '--typo-anchor--font-family',
 	'--anchor-font-size': '--typo-anchor--font-size',
 	'--anchor-font-color': '--typo-anchor--color-light',
@@ -28,7 +28,7 @@ export const TOKEN_MAPPINGS: Record<string, string> = {
 	'--anchor-font-weight': '--typo-anchor--font-weight',
 	'--anchor-font-style': '--typo-anchor--font-style',
 	'--anchor-letter-spacing': '--typo-anchor--letter-spacing',
-	// Typography - Anchor decoration (flat token -> `-line` suffix + `--state--` infix)
+	// Typography Anchor decoration
 	'--anchor-text-decoration': '--typo-anchor--text-decoration-line',
 	'--anchor-text-decoration-hover': '--typo-anchor--hover--text-decoration-line',
 	'--anchor-text-decoration-active': '--typo-anchor--active--text-decoration-line',
@@ -42,7 +42,66 @@ export const TOKEN_MAPPINGS: Record<string, string> = {
  * v4 theme tokens removed in v5. Their declarations are dropped entirely.
  */
 export const REMOVED_TOKENS: string[] = [
-	'--default-divide-width', // `divide` now derives from `--default-border-width`
-	'--heading-font-size', // derived from the typographic scale
-	'--heading-line-height', // derived from the typographic scale
+	'--default-divide-width',
+	'--heading-font-size',
+	'--heading-line-height',
 ];
+
+/**
+ * Tokens that are new in v5 and should be added to a theme's token block.
+ * They are inert until set, so the migration inserts safe, appearance-preserving defaults
+ * (`inherit` unless a concrete default is required). Only appended when absent, so re-runs and
+ * partially-migrated themes stay stable.
+ */
+export const ADDED_TOKENS: Record<string, string> = {
+	// Typography extended properties
+	'--typo-base--font-stretch': 'inherit',
+	'--typo-base--font-kerning': 'inherit',
+	'--typo-base--text-shadow': 'inherit',
+	'--typo-base--word-spacing': 'inherit',
+	'--typo-base--hyphens': 'inherit',
+	'--typo-base--text-transform': 'inherit',
+	'--typo-heading--font-stretch': 'inherit',
+	'--typo-heading--font-kerning': 'inherit',
+	'--typo-heading--text-shadow': 'inherit',
+	'--typo-heading--word-spacing': 'inherit',
+	'--typo-heading--hyphens': 'inherit',
+	'--typo-heading--text-transform': 'inherit',
+	'--typo-anchor--font-stretch': 'inherit',
+	'--typo-anchor--font-kerning': 'inherit',
+	'--typo-anchor--text-shadow': 'inherit',
+	'--typo-anchor--word-spacing': 'inherit',
+	'--typo-anchor--hyphens': 'inherit',
+	'--typo-anchor--text-transform': 'inherit',
+	// Anchor decoration sub-properties
+	'--typo-anchor--text-decoration-color': 'inherit',
+	'--typo-anchor--text-decoration-style': 'inherit',
+	'--typo-anchor--text-decoration-thickness': 'inherit',
+	'--typo-anchor--text-underline-offset': 'inherit',
+	'--typo-anchor--text-underline-position': 'inherit',
+	'--typo-anchor--hover--text-decoration-color': 'inherit',
+	'--typo-anchor--hover--text-decoration-style': 'inherit',
+	'--typo-anchor--hover--text-decoration-thickness': 'inherit',
+	'--typo-anchor--hover--text-underline-offset': 'inherit',
+	'--typo-anchor--hover--text-underline-position': 'inherit',
+	'--typo-anchor--active--text-decoration-color': 'inherit',
+	'--typo-anchor--active--text-decoration-style': 'inherit',
+	'--typo-anchor--active--text-decoration-thickness': 'inherit',
+	'--typo-anchor--active--text-underline-offset': 'inherit',
+	'--typo-anchor--active--text-underline-position': 'inherit',
+	'--typo-anchor--focus--text-decoration-color': 'inherit',
+	'--typo-anchor--focus--text-decoration-style': 'inherit',
+	'--typo-anchor--focus--text-decoration-thickness': 'inherit',
+	'--typo-anchor--focus--text-underline-offset': 'inherit',
+	'--typo-anchor--focus--text-underline-position': 'inherit',
+	// Edges
+	'--default-outline-width': '1px', // never `0px` (accessibility)
+	// Corner shape — `initial` keeps existing (square) corners; themes opt into `squircle` etc.
+	'--corner-shape-base': 'initial',
+	'--corner-shape-container': 'initial',
+	// Brand colors (default to the primary ramp, matching the v5 theme generator)
+	'--color-brand-light': 'var(--color-primary-500)',
+	'--color-brand-contrast-light': 'var(--color-primary-contrast-500)',
+	'--color-brand-dark': 'var(--color-primary-500)',
+	'--color-brand-contrast-dark': 'var(--color-primary-contrast-500)',
+};

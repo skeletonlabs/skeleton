@@ -6,9 +6,10 @@ import { transformJsx } from './transformers/transform-jsx.js';
 import { transformPackageJson } from './transformers/transform-package.json.js';
 import { transformStylesheet } from './transformers/transform-stylesheet.js';
 import { transformSvelte } from './transformers/transform-svelte.js';
+import { dedupeManualSteps, type ManualStep } from './utility/manual-steps.js';
 import { isCancel, log, multiselect, spinner } from '@clack/prompts';
 import { readFile, writeFile } from 'fs/promises';
-import { extname } from 'path';
+import { extname, relative } from 'path';
 import { glob } from 'tinyglobby';
 
 export default async function (options: MigrateOptions) {
@@ -72,6 +73,14 @@ export default async function (options: MigrateOptions) {
 			absolute: true,
 		},
 	);
+	// v4 usages that can't be migrated automatically, collected per file to report at the end.
+	const manualSteps: { path: string; steps: ManualStep[] }[] = [];
+	const recordManual = (path: string, steps: ManualStep[]) => {
+		if (steps.length > 0) {
+			manualSteps.push({ path, steps });
+		}
+	};
+
 	const sourceFilesSpinner = spinner();
 	sourceFilesSpinner.start(`Migrating source files...`);
 	for (const path of sourceFiles) {
@@ -83,6 +92,7 @@ export default async function (options: MigrateOptions) {
 					path: path,
 					content: transformedSvelte.code,
 				});
+				recordManual(path, transformedSvelte.meta.manual);
 				break;
 			case '.css':
 			case '.pcss':
@@ -92,6 +102,7 @@ export default async function (options: MigrateOptions) {
 					path: path,
 					content: transformedStylesheet.code,
 				});
+				recordManual(path, transformedStylesheet.meta.manual);
 				break;
 			case '.jsx':
 			case '.tsx':
@@ -103,6 +114,7 @@ export default async function (options: MigrateOptions) {
 					path: path,
 					content: transformedJsx.code,
 				});
+				recordManual(path, transformedJsx.meta.manual);
 				break;
 		}
 		sourceFilesSpinner.message(`Migrated source file: ${path}!`);
@@ -118,6 +130,18 @@ export default async function (options: MigrateOptions) {
 	} catch (error) {
 		writeSpinner.error(`Failed to apply migrations: ${error instanceof Error ? error.message.replace('\n', ' ') : 'Unknown error'}`);
 		cli.error('Migration canceled');
+	}
+
+	// Report anything that couldn't be migrated automatically (reported before the install step so
+	// it is still shown if installation fails).
+	if (manualSteps.length > 0) {
+		const report = manualSteps
+			.map(({ path, steps }) => {
+				const lines = dedupeManualSteps(steps).map((step) => `  • \`${step.match}\` ${step.hint}`);
+				return [relative(cwd, path), ...lines].join('\n');
+			})
+			.join('\n\n');
+		log.warn(`Some v4 usages need manual migration:\n\n${report}`);
 	}
 
 	// Install dependencies

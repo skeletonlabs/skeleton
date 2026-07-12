@@ -1,4 +1,5 @@
 import { hasRange } from '../../../../../utility/svelte/has-range.js';
+import type { ManualStep } from '../utility/manual-steps.js';
 import { transformClasses } from './transform-classes.js';
 import { transformStylesheet } from './transform-stylesheet.js';
 import { log } from '@clack/prompts';
@@ -7,19 +8,30 @@ import { parse } from 'svelte/compiler';
 import type { AST } from 'svelte/compiler';
 import { walk } from 'zimmerframe';
 
-function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
+function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null): ManualStep[] {
 	if (!css) {
-		return;
+		return [];
 	}
 	try {
-		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
+		// A component `<style>` overrides tokens rather than defining a whole theme, so don't inject
+		// the v5 "added" tokens here — that's reserved for standalone theme stylesheets.
+		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end), { addMissingTokens: false });
 		s.overwrite(css.content.start, css.content.end, transformed.code);
+		return transformed.meta.manual;
 	} catch (error) {
 		log.warn(`Failed to transform CSS in Svelte component, skipping: ${error instanceof Error ? error.message : 'Unknown error'}`);
+		return [];
 	}
 }
 
-function transformFragment(s: MagicString, fragment: AST.Fragment) {
+// Renames are applied to every string literal / text node, but manual-step detection is scoped to
+// real class contexts so ordinary prose (e.g. the word "code") is never mistaken for a class.
+function isInClassAttribute(path: readonly AST.SvelteNode[]): boolean {
+	return path.some((node) => node.type === 'Attribute' && (node as AST.Attribute).name === 'class');
+}
+
+function transformFragment(s: MagicString, fragment: AST.Fragment): ManualStep[] {
+	const manual: ManualStep[] = [];
 	walk(
 		fragment as AST.SvelteNode,
 		{},
@@ -27,13 +39,21 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
 				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
-					s.update(node.start, node.end, transformClasses(node.raw).code);
+					const result = transformClasses(node.raw);
+					s.update(node.start, node.end, result.code);
+					if (isInClassAttribute(ctx.path)) {
+						manual.push(...result.meta.manual);
+					}
 				}
 				ctx.next();
 			},
 			Text(node, ctx) {
 				if (node.data !== '' && hasRange(node)) {
-					s.update(node.start, node.end, transformClasses(node.data).code);
+					const result = transformClasses(node.data);
+					s.update(node.start, node.end, result.code);
+					if (isInClassAttribute(ctx.path)) {
+						manual.push(...result.meta.manual);
+					}
 				}
 				ctx.next();
 			},
@@ -42,7 +62,9 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 					!(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) &&
 					hasRange(node)
 				) {
-					const transformed = transformClasses(node.name).code.trim();
+					const result = transformClasses(node.name);
+					manual.push(...result.meta.manual);
+					const transformed = result.code.trim();
 					if (transformed === '') {
 						// The class was removed in v5 (e.g. `card-hover`). Blanking the name would
 						// leave invalid `class:={...}` syntax, so drop the whole directive instead
@@ -58,6 +80,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 			},
 		},
 	);
+	return manual;
 }
 
 function transformSvelte(code: string) {
@@ -65,10 +88,10 @@ function transformSvelte(code: string) {
 	const root = parse(code, {
 		modern: true,
 	});
-	transformFragment(s, root.fragment);
-	transformCss(s, root.css);
+	const manual = [...transformFragment(s, root.fragment), ...transformCss(s, root.css)];
 	return {
 		code: s.toString(),
+		meta: { manual },
 	};
 }
 

@@ -11,7 +11,11 @@
  * - `code`, removed in v5 with no drop-in replacement class.
  * - `*-font-weight`, `*-font-style`, `anchor-text-decoration*` typography classes: v5 exposes no
  *   generated utility for these, so there is nothing to rename them to.
+ *
+ * These are detected via `detectManualClasses` and reported to the user as manual steps.
  */
+import { detectManualClasses } from '../utility/manual-steps.js';
+
 const CLASS_MAPPINGS = [
 	// Form groups
 	{
@@ -119,6 +123,10 @@ const CLASS_MAPPINGS = [
 function transformClasses(code: string) {
 	return {
 		code: CLASS_MAPPINGS.reduce((result, { find, replace }) => result.replace(find, replace), code),
+		meta: {
+			// Classes with no safe 1:1 rename are left in place; surface them as manual steps.
+			manual: detectManualClasses(code),
+		},
 	};
 }
 

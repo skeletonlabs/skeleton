@@ -1,3 +1,4 @@
+import type { ManualStep } from '../utility/manual-steps.js';
 import { transformClasses } from './transform-classes.js';
 import { log } from '@clack/prompts';
 import { nanoid } from 'nanoid';
@@ -12,19 +13,21 @@ const project = new Project({
 	skipLoadingLibFiles: true,
 });
 
-function transformLiteral(node: Node) {
+function transformLiteral(node: Node, manual: ManualStep[]) {
 	if (!Node.isStringLiteral(node) && !Node.isNoSubstitutionTemplateLiteral(node)) {
 		return;
 	}
 	const value = node.getLiteralValue();
-	const next = transformClasses(value).code;
+	const result = transformClasses(value);
+	manual.push(...result.meta.manual);
 	// Only rewrite when a class actually changed, so untouched attributes stay byte-identical.
-	if (next !== value) {
-		node.setLiteralValue(next);
+	if (result.code !== value) {
+		node.setLiteralValue(result.code);
 	}
 }
 
 function transformJsx(code: string) {
+	const manual: ManualStep[] = [];
 	try {
 		const file = project.createSourceFile(`${nanoid()}.tsx`, code);
 		file.forEachDescendant((node) => {
@@ -39,19 +42,21 @@ function transformJsx(code: string) {
 			}
 			if (Node.isStringLiteral(initializer)) {
 				// className="..."
-				transformLiteral(initializer);
+				transformLiteral(initializer, manual);
 			} else if (Node.isJsxExpression(initializer)) {
 				// className={...} — cover clsx('...'), ternaries, template literals, etc.
-				initializer.forEachDescendant(transformLiteral);
+				initializer.forEachDescendant((node) => transformLiteral(node, manual));
 			}
 		});
 		return {
 			code: file.getFullText(),
+			meta: { manual },
 		};
 	} catch (error) {
 		log.warn(`Failed to parse JSX, skipping transformation: ${error instanceof Error ? error.message : 'Unknown error'}`);
 		return {
 			code: code,
+			meta: { manual },
 		};
 	}
 }
