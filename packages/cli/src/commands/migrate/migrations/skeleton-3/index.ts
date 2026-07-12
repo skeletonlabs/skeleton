@@ -24,15 +24,15 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd }),
+		paths: await glob('package.json', { cwd, absolute: true }),
 	};
 	const appHtml = {
 		name: 'src/app.html',
-		paths: await glob('src/app.html', { cwd }),
+		paths: await glob('src/app.html', { cwd, absolute: true }),
 	};
 	const appCss = {
 		name: 'src/app.css',
-		paths: await glob('src/app.css', { cwd }),
+		paths: await glob('src/app.css', { cwd, absolute: true }),
 	};
 
 	// Validate file existence
@@ -117,6 +117,7 @@ export default async function (options: MigrateOptions) {
 			sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 			{
 				cwd: cwd,
+				absolute: true,
 				ignore: ['node_modules', 'src/app.css'],
 			},
 		);

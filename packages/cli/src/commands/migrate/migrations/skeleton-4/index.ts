@@ -18,7 +18,7 @@ export default async function (options: MigrateOptions) {
 	// Find all required files
 	const packageJson = {
 		name: 'package.json',
-		paths: await glob('package.json', { cwd }),
+		paths: await glob('package.json', { cwd, absolute: true }),
 	};
 
 	// Validate file existence
@@ -68,6 +68,7 @@ export default async function (options: MigrateOptions) {
 		sourceFolders.map((folder) => `${folder}**/*.{svelte,js,mjs,ts,mts,css,pcss,postcss}`),
 		{
 			cwd: cwd,
+			absolute: true,
 			ignore: ['node_modules'],
 		},
 	);

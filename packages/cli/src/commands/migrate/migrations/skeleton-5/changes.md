@@ -1,6 +1,7 @@
 Concise reference for changes to the Skeleton Core API between v4 and v5. Intended as source material for a migration skill/guide.
 
 Columns follow v5 documentation conventions:
+
 - **v4 Token** — the CSS custom property in a v4 theme file (e.g. `--base-font-family`)
 - **v4 Class** — the Tailwind utility class generated from that token in v4 (e.g. `base-font-family`)
 - **v5 Skeleton Token** — the CSS custom property in a v5 theme file (e.g. `--typo-base--font-family`)
@@ -11,11 +12,11 @@ Columns follow v5 documentation conventions:
 
 ## Animations (new in v5)
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| — | — | `--animate-progress-linear-indeterminate-horizontal` | `--animate-progress-linear-indeterminate-horizontal` | `animate-progress-linear-indeterminate-horizontal` |
-| — | — | `--animate-progress-linear-indeterminate-vertical` | `--animate-progress-linear-indeterminate-vertical` | `animate-progress-linear-indeterminate-vertical` |
-| — | — | `--animate-progress-circular-indeterminate` | `--animate-progress-circular-indeterminate` | `animate-progress-circular-indeterminate` |
+| v4 Token | v4 Class | v5 Skeleton Token                                    | v5 Tailwind Property                                 | v5 Class                                           |
+| -------- | -------- | ---------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------- |
+| —        | —        | `--animate-progress-linear-indeterminate-horizontal` | `--animate-progress-linear-indeterminate-horizontal` | `animate-progress-linear-indeterminate-horizontal` |
+| —        | —        | `--animate-progress-linear-indeterminate-vertical`   | `--animate-progress-linear-indeterminate-vertical`   | `animate-progress-linear-indeterminate-vertical`   |
+| —        | —        | `--animate-progress-circular-indeterminate`          | `--animate-progress-circular-indeterminate`          | `animate-progress-circular-indeterminate`          |
 
 ---
 
@@ -23,30 +24,30 @@ Columns follow v5 documentation conventions:
 
 ### Standard
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--color-[color]-[shade]` | `[property]-[color]-[shade]` | `--color-[color]-[shade]` | `--color-[color]-[shade]` | `[property]-[color]-[shade]` |
+| v4 Token                           | v4 Class                              | v5 Skeleton Token                  | v5 Tailwind Property               | v5 Class                              |
+| ---------------------------------- | ------------------------------------- | ---------------------------------- | ---------------------------------- | ------------------------------------- |
+| `--color-[color]-[shade]`          | `[property]-[color]-[shade]`          | `--color-[color]-[shade]`          | `--color-[color]-[shade]`          | `[property]-[color]-[shade]`          |
 | `--color-[color]-contrast-[shade]` | `[property]-[color]-contrast-[shade]` | `--color-[color]-contrast-[shade]` | `--color-[color]-contrast-[shade]` | `[property]-[color]-contrast-[shade]` |
-| `--body-background-color` | `body-background-color` | `--color-root-bg-light` | `--color-root-bg-light` | `[property]-root-bg-light` |
-| `--body-background-color-dark` | `body-background-color-dark` | `--color-root-bg-dark` | `--color-root-bg-dark` | `[property]-root-bg-dark` |
-| — | — | `--color-[color]-contrast-light` | `--color-[color]-contrast-light` | `[property]-[color]-contrast-light` |
-| — | — | `--color-[color]-contrast-dark` | `--color-[color]-contrast-dark` | `[property]-[color]-contrast-dark` |
+| `--body-background-color`          | `body-background-color`               | `--color-root-bg-light`            | `--color-root-bg-light`            | `[property]-root-bg-light`            |
+| `--body-background-color-dark`     | `body-background-color-dark`          | `--color-root-bg-dark`             | `--color-root-bg-dark`             | `[property]-root-bg-dark`             |
+| —                                  | —                                     | `--color-[color]-contrast-light`   | `--color-[color]-contrast-light`   | `[property]-[color]-contrast-light`   |
+| —                                  | —                                     | `--color-[color]-contrast-dark`    | `--color-[color]-contrast-dark`    | `[property]-[color]-contrast-dark`    |
 
 ### Brand (new in v5)
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| — | — | `--color-brand-light` | `--color-brand-light` | `[property]-brand-light` |
-| — | — | `--color-brand-contrast-light` | `--color-brand-contrast-light` | `[property]-brand-contrast-light` |
-| — | — | `--color-brand-dark` | `--color-brand-dark` | `[property]-brand-dark` |
-| — | — | `--color-brand-contrast-dark` | `--color-brand-contrast-dark` | `[property]-brand-contrast-dark` |
+| v4 Token | v4 Class | v5 Skeleton Token              | v5 Tailwind Property           | v5 Class                          |
+| -------- | -------- | ------------------------------ | ------------------------------ | --------------------------------- |
+| —        | —        | `--color-brand-light`          | `--color-brand-light`          | `[property]-brand-light`          |
+| —        | —        | `--color-brand-contrast-light` | `--color-brand-contrast-light` | `[property]-brand-contrast-light` |
+| —        | —        | `--color-brand-dark`           | `--color-brand-dark`           | `[property]-brand-dark`           |
+| —        | —        | `--color-brand-contrast-dark`  | `--color-brand-contrast-dark`  | `[property]-brand-contrast-dark`  |
 
 ### Color Pairings
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--color-[color]-[shade]-[shade]` | `[property]-[color]-[shade]-[shade]` | `--color-[color]-[shade]-[shade]` | `--color-[color]-[shade]-[shade]` | `[property]-[color]-[shade]-[shade]` |
-| — | — | `--color-[color]-contrast-[shade]-[shade]` | `--color-[color]-contrast-[shade]-[shade]` | `[property]-[color]-contrast-[shade]-[shade]` |
+| v4 Token                          | v4 Class                             | v5 Skeleton Token                          | v5 Tailwind Property                       | v5 Class                                      |
+| --------------------------------- | ------------------------------------ | ------------------------------------------ | ------------------------------------------ | --------------------------------------------- |
+| `--color-[color]-[shade]-[shade]` | `[property]-[color]-[shade]-[shade]` | `--color-[color]-[shade]-[shade]`          | `--color-[color]-[shade]-[shade]`          | `[property]-[color]-[shade]-[shade]`          |
+| —                                 | —                                    | `--color-[color]-contrast-[shade]-[shade]` | `--color-[color]-contrast-[shade]-[shade]` | `[property]-[color]-contrast-[shade]-[shade]` |
 
 > NOTE: Shade 500 does not include a pairing in either version.
 
@@ -54,27 +55,27 @@ Columns follow v5 documentation conventions:
 
 ## Edges
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class | Notes |
-| --- | --- | --- | --- | --- | --- |
-| `--default-border-width` | `border` | `--default-border-width` | `--default-border-width` | `border` | Also controls `divide` in v5 |
-| `--default-ring-width` | `ring` | `--default-ring-width` | `--default-ring-width` | `ring` | Unchanged |
-| `--default-divide-width` | `divide` | — | — | — | Removed; use `--default-border-width` |
-| — | — | `--default-outline-width` | `--default-outline-width` | `outline` | New; never set to `0px` (a11y) |
+| v4 Token                 | v4 Class | v5 Skeleton Token         | v5 Tailwind Property      | v5 Class  | Notes                                 |
+| ------------------------ | -------- | ------------------------- | ------------------------- | --------- | ------------------------------------- |
+| `--default-border-width` | `border` | `--default-border-width`  | `--default-border-width`  | `border`  | Also controls `divide` in v5          |
+| `--default-ring-width`   | `ring`   | `--default-ring-width`    | `--default-ring-width`    | `ring`    | Unchanged                             |
+| `--default-divide-width` | `divide` | —                         | —                         | —         | Removed; use `--default-border-width` |
+| —                        | —        | `--default-outline-width` | `--default-outline-width` | `outline` | New; never set to `0px` (a11y)        |
 
 ### Border Radius
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--radius-base` | `rounded-base` | `--radius-base` | `--radius-base` | `rounded-base` |
+| v4 Token             | v4 Class            | v5 Skeleton Token    | v5 Tailwind Property | v5 Class            |
+| -------------------- | ------------------- | -------------------- | -------------------- | ------------------- |
+| `--radius-base`      | `rounded-base`      | `--radius-base`      | `--radius-base`      | `rounded-base`      |
 | `--radius-container` | `rounded-container` | `--radius-container` | `--radius-container` | `rounded-container` |
 
 ### Corner Shape (new in v5)
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| — | — | `--corner-shape-base` | — | `corner-shape-base` |
-| — | — | `--corner-shape-container` | — | `corner-shape-container` |
-| — | — | — | — | `corner-shape-*` |
+| v4 Token | v4 Class | v5 Skeleton Token          | v5 Tailwind Property | v5 Class                 |
+| -------- | -------- | -------------------------- | -------------------- | ------------------------ |
+| —        | —        | `--corner-shape-base`      | —                    | `corner-shape-base`      |
+| —        | —        | `--corner-shape-container` | —                    | `corner-shape-container` |
+| —        | —        | —                          | —                    | `corner-shape-*`         |
 
 > Limited browser support; verify progressive fallbacks.
 
@@ -84,29 +85,29 @@ Columns follow v5 documentation conventions:
 
 Tailwind-only scale; no Skeleton theme tokens required. Used with `size-*`, `w-*`, `h-*`.
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| — | — | — | `--spacing-elem-xs` | `[property]-elem-xs` |
-| — | — | — | `--spacing-elem-sm` | `[property]-elem-sm` |
-| — | — | — | `--spacing-elem-base` | `[property]-elem-base` |
-| — | — | — | `--spacing-elem-lg` | `[property]-elem-lg` |
-| — | — | — | `--spacing-elem-xl` | `[property]-elem-xl` |
-| — | — | — | `--spacing-elem-2xl` | `[property]-elem-2xl` |
-| — | — | — | `--spacing-elem-3xl` | `[property]-elem-3xl` |
-| — | — | — | `--spacing-elem-4xl` | `[property]-elem-4xl` |
-| — | — | — | `--spacing-elem-5xl` | `[property]-elem-5xl` |
-| — | — | — | `--spacing-elem-6xl` | `[property]-elem-6xl` |
-| — | — | — | `--spacing-elem-7xl` | `[property]-elem-7xl` |
-| — | — | — | `--spacing-elem-8xl` | `[property]-elem-8xl` |
-| — | — | — | `--spacing-elem-9xl` | `[property]-elem-9xl` |
+| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property  | v5 Class               |
+| -------- | -------- | ----------------- | --------------------- | ---------------------- |
+| —        | —        | —                 | `--spacing-elem-xs`   | `[property]-elem-xs`   |
+| —        | —        | —                 | `--spacing-elem-sm`   | `[property]-elem-sm`   |
+| —        | —        | —                 | `--spacing-elem-base` | `[property]-elem-base` |
+| —        | —        | —                 | `--spacing-elem-lg`   | `[property]-elem-lg`   |
+| —        | —        | —                 | `--spacing-elem-xl`   | `[property]-elem-xl`   |
+| —        | —        | —                 | `--spacing-elem-2xl`  | `[property]-elem-2xl`  |
+| —        | —        | —                 | `--spacing-elem-3xl`  | `[property]-elem-3xl`  |
+| —        | —        | —                 | `--spacing-elem-4xl`  | `[property]-elem-4xl`  |
+| —        | —        | —                 | `--spacing-elem-5xl`  | `[property]-elem-5xl`  |
+| —        | —        | —                 | `--spacing-elem-6xl`  | `[property]-elem-6xl`  |
+| —        | —        | —                 | `--spacing-elem-7xl`  | `[property]-elem-7xl`  |
+| —        | —        | —                 | `--spacing-elem-8xl`  | `[property]-elem-8xl`  |
+| —        | —        | —                 | `--spacing-elem-9xl`  | `[property]-elem-9xl`  |
 
 ---
 
 ## Spacing
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--spacing` | (various) | `--spacing` | `--spacing` | (various) |
+| v4 Token    | v4 Class  | v5 Skeleton Token | v5 Tailwind Property | v5 Class  |
+| ----------- | --------- | ----------------- | -------------------- | --------- |
+| `--spacing` | (various) | `--spacing`       | `--spacing`          | (various) |
 
 ---
 
@@ -115,98 +116,98 @@ Tailwind-only scale; no Skeleton theme tokens required. Used with `size-*`, `w-*
 Token naming scheme changed from `--{role}-{property}` to `--typo-{role}--{property}`. `--text-scaling` is now explicitly exposed.
 
 | v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| — | — | `--text-scaling` | — | — |
+| -------- | -------- | ----------------- | -------------------- | -------- |
+| —        | —        | `--text-scaling`  | —                    | —        |
 
 ### Base
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--base-font-family` | `base-font-family` | `--typo-base--font-family` | `--font-typo-base` | `font-typo-base` |
-| `--base-font-size` | `base-font-size` | `--typo-base--font-size` | `--text-typo-base` | `text-typo-base` |
-| `--base-font-color` | `base-font-color` | `--typo-base--color-light` | `--color-typo-base-light` | `[property]-typo-base-light` |
-| `--base-font-color-dark` | `base-font-color-dark` | `--typo-base--color-dark` | `--color-typo-base-dark` | `[property]-typo-base-dark` |
-| `--base-line-height` | `base-line-height` | `--typo-base--line-height` | `--leading-typo-base` | `leading-typo-base` |
-| `--base-font-weight` | `base-font-weight` | `--typo-base--font-weight` | — | — |
-| `--base-font-style` | `base-font-style` | `--typo-base--font-style` | — | — |
-| `--base-letter-spacing` | `base-letter-spacing` | `--typo-base--letter-spacing` | `--tracking-typo-base` | `tracking-typo-base` |
-| — | — | `--typo-base--font-stretch` | — | — |
-| — | — | `--typo-base--font-kerning` | — | — |
-| — | — | `--typo-base--text-shadow` | `--text-shadow-typo-base` | `text-shadow-typo-base` |
-| — | — | `--typo-base--word-spacing` | — | — |
-| — | — | `--typo-base--hyphens` | — | — |
-| — | — | `--typo-base--text-transform` | — | — |
+| v4 Token                 | v4 Class               | v5 Skeleton Token             | v5 Tailwind Property      | v5 Class                     |
+| ------------------------ | ---------------------- | ----------------------------- | ------------------------- | ---------------------------- |
+| `--base-font-family`     | `base-font-family`     | `--typo-base--font-family`    | `--font-typo-base`        | `font-typo-base`             |
+| `--base-font-size`       | `base-font-size`       | `--typo-base--font-size`      | `--text-typo-base`        | `text-typo-base`             |
+| `--base-font-color`      | `base-font-color`      | `--typo-base--color-light`    | `--color-typo-base-light` | `[property]-typo-base-light` |
+| `--base-font-color-dark` | `base-font-color-dark` | `--typo-base--color-dark`     | `--color-typo-base-dark`  | `[property]-typo-base-dark`  |
+| `--base-line-height`     | `base-line-height`     | `--typo-base--line-height`    | `--leading-typo-base`     | `leading-typo-base`          |
+| `--base-font-weight`     | `base-font-weight`     | `--typo-base--font-weight`    | —                         | —                            |
+| `--base-font-style`      | `base-font-style`      | `--typo-base--font-style`     | —                         | —                            |
+| `--base-letter-spacing`  | `base-letter-spacing`  | `--typo-base--letter-spacing` | `--tracking-typo-base`    | `tracking-typo-base`         |
+| —                        | —                      | `--typo-base--font-stretch`   | —                         | —                            |
+| —                        | —                      | `--typo-base--font-kerning`   | —                         | —                            |
+| —                        | —                      | `--typo-base--text-shadow`    | `--text-shadow-typo-base` | `text-shadow-typo-base`      |
+| —                        | —                      | `--typo-base--word-spacing`   | —                         | —                            |
+| —                        | —                      | `--typo-base--hyphens`        | —                         | —                            |
+| —                        | —                      | `--typo-base--text-transform` | —                         | —                            |
 
 ### Heading
 
 > `--heading-font-size` and `--heading-line-height` are removed in v5 — heading sizes are derived from the typographic scale.
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--heading-font-family` | `heading-font-family` | `--typo-heading--font-family` | `--font-typo-heading` | `font-typo-heading` |
-| `--heading-font-color` | `heading-font-color` | `--typo-heading--color-light` | `--color-typo-heading-light` | `[property]-typo-heading-light` |
-| `--heading-font-color-dark` | `heading-font-color-dark` | `--typo-heading--color-dark` | `--color-typo-heading-dark` | `[property]-typo-heading-dark` |
-| `--heading-font-weight` | `heading-font-weight` | `--typo-heading--font-weight` | — | — |
-| `--heading-font-style` | `heading-font-style` | `--typo-heading--font-style` | — | — |
-| `--heading-letter-spacing` | `heading-letter-spacing` | `--typo-heading--letter-spacing` | `--tracking-typo-heading` | `tracking-typo-heading` |
-| `--heading-font-size` | `heading-font-size` | — | — | — |
-| `--heading-line-height` | `heading-line-height` | — | — | — |
-| — | — | `--typo-heading--font-stretch` | — | — |
-| — | — | `--typo-heading--font-kerning` | — | — |
-| — | — | `--typo-heading--text-shadow` | `--text-shadow-typo-heading` | `text-shadow-typo-heading` |
-| — | — | `--typo-heading--word-spacing` | — | — |
-| — | — | `--typo-heading--hyphens` | — | — |
-| — | — | `--typo-heading--text-transform` | — | — |
+| v4 Token                    | v4 Class                  | v5 Skeleton Token                | v5 Tailwind Property         | v5 Class                        |
+| --------------------------- | ------------------------- | -------------------------------- | ---------------------------- | ------------------------------- |
+| `--heading-font-family`     | `heading-font-family`     | `--typo-heading--font-family`    | `--font-typo-heading`        | `font-typo-heading`             |
+| `--heading-font-color`      | `heading-font-color`      | `--typo-heading--color-light`    | `--color-typo-heading-light` | `[property]-typo-heading-light` |
+| `--heading-font-color-dark` | `heading-font-color-dark` | `--typo-heading--color-dark`     | `--color-typo-heading-dark`  | `[property]-typo-heading-dark`  |
+| `--heading-font-weight`     | `heading-font-weight`     | `--typo-heading--font-weight`    | —                            | —                               |
+| `--heading-font-style`      | `heading-font-style`      | `--typo-heading--font-style`     | —                            | —                               |
+| `--heading-letter-spacing`  | `heading-letter-spacing`  | `--typo-heading--letter-spacing` | `--tracking-typo-heading`    | `tracking-typo-heading`         |
+| `--heading-font-size`       | `heading-font-size`       | —                                | —                            | —                               |
+| `--heading-line-height`     | `heading-line-height`     | —                                | —                            | —                               |
+| —                           | —                         | `--typo-heading--font-stretch`   | —                            | —                               |
+| —                           | —                         | `--typo-heading--font-kerning`   | —                            | —                               |
+| —                           | —                         | `--typo-heading--text-shadow`    | `--text-shadow-typo-heading` | `text-shadow-typo-heading`      |
+| —                           | —                         | `--typo-heading--word-spacing`   | —                            | —                               |
+| —                           | —                         | `--typo-heading--hyphens`        | —                            | —                               |
+| —                           | —                         | `--typo-heading--text-transform` | —                            | —                               |
 
 ### Anchor
 
-| v4 Token | v4 Class | v5 Skeleton Token | v5 Tailwind Property | v5 Class |
-| --- | --- | --- | --- | --- |
-| `--anchor-font-family` | `anchor-font-family` | `--typo-anchor--font-family` | `--font-typo-anchor` | `font-typo-anchor` |
-| `--anchor-font-size` | `anchor-font-size` | `--typo-anchor--font-size` | `--text-typo-anchor` | `text-typo-anchor` |
-| `--anchor-font-color` | `anchor-font-color` | `--typo-anchor--color-light` | `--color-typo-anchor-light` | `[property]-typo-anchor-light` |
-| `--anchor-font-color-dark` | `anchor-font-color-dark` | `--typo-anchor--color-dark` | `--color-typo-anchor-dark` | `[property]-typo-anchor-dark` |
-| `--anchor-line-height` | `anchor-line-height` | `--typo-anchor--line-height` | `--leading-typo-anchor` | `leading-typo-anchor` |
-| `--anchor-font-weight` | `anchor-font-weight` | `--typo-anchor--font-weight` | — | — |
-| `--anchor-font-style` | `anchor-font-style` | `--typo-anchor--font-style` | — | — |
-| `--anchor-letter-spacing` | `anchor-letter-spacing` | `--typo-anchor--letter-spacing` | `--tracking-typo-anchor` | `tracking-typo-anchor` |
-| — | — | `--typo-anchor--font-stretch` | — | — |
-| — | — | `--typo-anchor--font-kerning` | — | — |
-| — | — | `--typo-anchor--text-shadow` | `--text-shadow-typo-anchor` | `text-shadow-typo-anchor` |
-| — | — | `--typo-anchor--word-spacing` | — | — |
-| — | — | `--typo-anchor--hyphens` | — | — |
-| — | — | `--typo-anchor--text-transform` | — | — |
+| v4 Token                   | v4 Class                 | v5 Skeleton Token               | v5 Tailwind Property        | v5 Class                       |
+| -------------------------- | ------------------------ | ------------------------------- | --------------------------- | ------------------------------ |
+| `--anchor-font-family`     | `anchor-font-family`     | `--typo-anchor--font-family`    | `--font-typo-anchor`        | `font-typo-anchor`             |
+| `--anchor-font-size`       | `anchor-font-size`       | `--typo-anchor--font-size`      | `--text-typo-anchor`        | `text-typo-anchor`             |
+| `--anchor-font-color`      | `anchor-font-color`      | `--typo-anchor--color-light`    | `--color-typo-anchor-light` | `[property]-typo-anchor-light` |
+| `--anchor-font-color-dark` | `anchor-font-color-dark` | `--typo-anchor--color-dark`     | `--color-typo-anchor-dark`  | `[property]-typo-anchor-dark`  |
+| `--anchor-line-height`     | `anchor-line-height`     | `--typo-anchor--line-height`    | `--leading-typo-anchor`     | `leading-typo-anchor`          |
+| `--anchor-font-weight`     | `anchor-font-weight`     | `--typo-anchor--font-weight`    | —                           | —                              |
+| `--anchor-font-style`      | `anchor-font-style`      | `--typo-anchor--font-style`     | —                           | —                              |
+| `--anchor-letter-spacing`  | `anchor-letter-spacing`  | `--typo-anchor--letter-spacing` | `--tracking-typo-anchor`    | `tracking-typo-anchor`         |
+| —                          | —                        | `--typo-anchor--font-stretch`   | —                           | —                              |
+| —                          | —                        | `--typo-anchor--font-kerning`   | —                           | —                              |
+| —                          | —                        | `--typo-anchor--text-shadow`    | `--text-shadow-typo-anchor` | `text-shadow-typo-anchor`      |
+| —                          | —                        | `--typo-anchor--word-spacing`   | —                           | —                              |
+| —                          | —                        | `--typo-anchor--hyphens`        | —                           | —                              |
+| —                          | —                        | `--typo-anchor--text-transform` | —                           | —                              |
 
 #### Anchor Decoration
 
 Decoration model changed from 4 flat tokens (v4) to 24 granular tokens across 4 states × 6 properties (v5). None of the v5 anchor decoration tokens generate Tailwind classes directly.
 
-| v4 Token | v4 Class | v5 Skeleton Token |
-| --- | --- | --- |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-decoration-line` |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-decoration-color` |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-decoration-style` |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-decoration-thickness` |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-underline-offset` |
-| `--anchor-text-decoration` | `anchor-text-decoration` | `--typo-anchor--text-underline-position` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-decoration-line` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-decoration-color` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-decoration-style` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-decoration-thickness` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-underline-offset` |
-| `--anchor-text-decoration-hover` | `anchor-text-decoration-hover` | `--typo-anchor--hover--text-underline-position` |
-| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-line` |
-| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-color` |
-| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-style` |
+| v4 Token                          | v4 Class                        | v5 Skeleton Token                                  |
+| --------------------------------- | ------------------------------- | -------------------------------------------------- |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-decoration-line`              |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-decoration-color`             |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-decoration-style`             |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-decoration-thickness`         |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-underline-offset`             |
+| `--anchor-text-decoration`        | `anchor-text-decoration`        | `--typo-anchor--text-underline-position`           |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-line`       |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-color`      |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-style`      |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-thickness`  |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-underline-offset`      |
+| `--anchor-text-decoration-hover`  | `anchor-text-decoration-hover`  | `--typo-anchor--hover--text-underline-position`    |
+| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-line`      |
+| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-color`     |
+| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-style`     |
 | `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-thickness` |
-| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-underline-offset` |
-| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-underline-position` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-decoration-line` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-decoration-color` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-decoration-style` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-decoration-thickness` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-underline-offset` |
-| `--anchor-text-decoration-focus` | `anchor-text-decoration-focus` | `--typo-anchor--focus--text-underline-position` |
+| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-underline-offset`     |
+| `--anchor-text-decoration-active` | `anchor-text-decoration-active` | `--typo-anchor--active--text-underline-position`   |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-line`       |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-color`      |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-style`      |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-thickness`  |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-underline-offset`      |
+| `--anchor-text-decoration-focus`  | `anchor-text-decoration-focus`  | `--typo-anchor--focus--text-underline-position`    |
 
 ---
 
@@ -220,15 +221,14 @@ Now a first-class `@utility` entry. Was listed under a separate "Optional" secti
 
 ## Removed in v5
 
-| v4 Token | v4 Class | Notes |
-| --- | --- | --- |
-| `--default-divide-width` | `divide` | Removed; `divide` now uses `--default-border-width` |
-| `--body-background-color` | `body-background-color` | Replaced by `--color-root-bg-light` |
-| `--body-background-color-dark` | `body-background-color-dark` | Replaced by `--color-root-bg-dark` |
-| `--heading-font-size` | `heading-font-size` | Derived from typographic scale; no direct token |
-| `--heading-line-height` | `heading-line-height` | Derived from typographic scale; no direct token |
-| — | `theme-[name]:` | `@variant` theme utilities removed from Core API |
-
+| v4 Token                       | v4 Class                     | Notes                                               |
+| ------------------------------ | ---------------------------- | --------------------------------------------------- |
+| `--default-divide-width`       | `divide`                     | Removed; `divide` now uses `--default-border-width` |
+| `--body-background-color`      | `body-background-color`      | Replaced by `--color-root-bg-light`                 |
+| `--body-background-color-dark` | `body-background-color-dark` | Replaced by `--color-root-bg-dark`                  |
+| `--heading-font-size`          | `heading-font-size`          | Derived from typographic scale; no direct token     |
+| `--heading-line-height`        | `heading-line-height`        | Derived from typographic scale; no direct token     |
+| —                              | `theme-[name]:`              | `@variant` theme utilities removed from Core API    |
 
 Reference for migrating a Skeleton **theme CSS file** from v4 to v5.
 

@@ -42,8 +42,17 @@ function transformFragment(s: MagicString, fragment: AST.Fragment) {
 					!(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) &&
 					hasRange(node)
 				) {
-					const adjustedStart = node.start + 'class:'.length;
-					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
+					const transformed = transformClasses(node.name).code.trim();
+					if (transformed === '') {
+						// The class was removed in v5 (e.g. `card-hover`). Blanking the name would
+						// leave invalid `class:={...}` syntax, so drop the whole directive instead
+						// (plus one leading space so we don't leave a dangling gap).
+						const start = s.original[node.start - 1] === ' ' ? node.start - 1 : node.start;
+						s.remove(start, node.end);
+					} else {
+						const adjustedStart = node.start + 'class:'.length;
+						s.update(adjustedStart, adjustedStart + node.name.length, transformed);
+					}
 				}
 				ctx.next();
 			},
