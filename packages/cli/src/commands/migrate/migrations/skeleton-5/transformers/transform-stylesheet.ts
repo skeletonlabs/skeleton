@@ -7,18 +7,12 @@ import type { Rule } from 'postcss';
 
 function renameTokens(content: string) {
 	return Object.entries(TOKEN_MAPPINGS).reduce((result, [from, to]) => {
-		// The `(?![-\w])` right-boundary stops a token from matching inside a longer variant
-		// (e.g. `--base-font-color` inside `--base-font-color-dark`), so map order is irrelevant.
+		// The `(?![-\w])` right-boundary prevents matching inside longer token names
 		return result.replace(new RegExp(`${from}(?![-\\w])`, 'g'), to);
 	}, content);
 }
 
-/**
- * Appends the v5-only tokens to a theme's token block. A block qualifies if it already declares a
- * typography token (`--typo-*`), which reliably marks a Skeleton theme's `:root` / `[data-theme]`
- * rule and excludes unrelated `:root` overrides in app stylesheets. Only missing keys are added, so
- * re-runs and already-v5 themes are left untouched.
- */
+// Append the new v5 tokens to theme blocks (identified by an existing `--typo-*` token)
 function addTokens(rule: Rule) {
 	const existing = new Set<string>();
 	let isThemeBlock = false;
@@ -41,12 +35,8 @@ function addTokens(rule: Rule) {
 }
 
 export function transformStylesheet(content: string, options: { addMissingTokens?: boolean } = {}) {
-	// The "add" step is a theme-*file* migration concern, so it defaults on for standalone
-	// stylesheets but is disabled for Svelte `<style>` blocks (which typically override a few
-	// tokens rather than define a whole theme — see transform-svelte.ts).
 	const { addMissingTokens = true } = options;
 	const manual: ManualStep[] = [];
-	// Renames are pure string replacements and don't require parseable CSS, so apply them first.
 	const renamed = renameTokens(content);
 	try {
 		const ast = parse(renamed);
@@ -63,7 +53,7 @@ export function transformStylesheet(content: string, options: { addMissingTokens
 			atRule.params = code;
 			manual.push(...meta.manual);
 		});
-		// `@variant theme-[name]` was removed from the Core API; flag it for manual handling.
+		// `@variant theme-[name]` was removed in v5, flag it as a manual step
 		ast.walkAtRules('variant', (atRule) => {
 			if (/^theme-[\w-]+/.test(atRule.params)) {
 				manual.push({ ...THEME_VARIANT_STEP, match: `@variant ${atRule.params}` });

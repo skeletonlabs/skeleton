@@ -1,21 +1,6 @@
-/**
- * v4 -> v5 utility class renames.
- *
- * Only 1:1 swaps that are safe to apply mechanically live here, verified against the real
- * `@skeletonlabs/skeleton@4.15.2` -> v5 utility delta.
- *
- * Deliberately NOT handled (require structural changes or have no v5 class equivalent — leave
- * these as manual steps / surface them in a report):
- * - `ig-cell` -> `label label-text`, which also needs switching the element to a `<label for>`.
- * - `@variant theme-[name]`, an at-rule / variant removal rather than a class.
- * - `code`, removed in v5 with no drop-in replacement class.
- * - `*-font-weight`, `*-font-style`, `anchor-text-decoration*` typography classes: v5 exposes no
- *   generated utility for these, so there is nothing to rename them to.
- *
- * These are detected via `detectManualClasses` and reported to the user as manual steps.
- */
 import { detectManualClasses } from '../utility/manual-steps.js';
 
+// v4 -> v5 class renames; classes without a 1:1 v5 equivalent are reported as manual steps instead
 const CLASS_MAPPINGS = [
 	// Form groups
 	{
@@ -34,14 +19,12 @@ const CLASS_MAPPINGS = [
 		find: /\big-btn\b/g,
 		replace: 'btn',
 	},
-	// Cards — `card` now auto-applies hover styles to `<a>`/`<button>`, so the modifier is dropped.
+	// Cards (`card` now applies hover styles automatically)
 	{
 		find: /\s*\bcard-hover\b/g,
 		replace: '',
 	},
-	// Typography utilities — v4 `core.css` exposed one class per theme token; v5 replaces them with
-	// Tailwind-generated utilities. The `(?![-\w])` right-boundary keeps a class from matching inside
-	// a longer variant (e.g. `base-font-color` inside `base-font-color-dark`).
+	// Typography — the `(?![-\w])` right-boundary prevents matching inside longer class names
 	// Base
 	{
 		find: /\bbase-font-family(?![-\w])/g,
@@ -124,7 +107,6 @@ function transformClasses(code: string) {
 	return {
 		code: CLASS_MAPPINGS.reduce((result, { find, replace }) => result.replace(find, replace), code),
 		meta: {
-			// Classes with no safe 1:1 rename are left in place; surface them as manual steps.
 			manual: detectManualClasses(code),
 		},
 	};

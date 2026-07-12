@@ -13,8 +13,7 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null): ManualSte
 		return [];
 	}
 	try {
-		// A component `<style>` overrides tokens rather than defining a whole theme, so don't inject
-		// the v5 "added" tokens here — that's reserved for standalone theme stylesheets.
+		// Component `<style>` blocks override tokens rather than define themes, so skip the add step
 		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end), { addMissingTokens: false });
 		s.overwrite(css.content.start, css.content.end, transformed.code);
 		return transformed.meta.manual;
@@ -24,8 +23,7 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null): ManualSte
 	}
 }
 
-// Renames are applied to every string literal / text node, but manual-step detection is scoped to
-// real class contexts so ordinary prose (e.g. the word "code") is never mistaken for a class.
+// Manual-step detection is scoped to class attributes so ordinary prose is never flagged
 function isInClassAttribute(path: readonly AST.SvelteNode[]): boolean {
 	return path.some((node) => node.type === 'Attribute' && (node as AST.Attribute).name === 'class');
 }
@@ -66,9 +64,7 @@ function transformFragment(s: MagicString, fragment: AST.Fragment): ManualStep[]
 					manual.push(...result.meta.manual);
 					const transformed = result.code.trim();
 					if (transformed === '') {
-						// The class was removed in v5 (e.g. `card-hover`). Blanking the name would
-						// leave invalid `class:={...}` syntax, so drop the whole directive instead
-						// (plus one leading space so we don't leave a dangling gap).
+						// The class was removed in v5, drop the whole directive to avoid invalid `class:={...}`
 						const start = s.original[node.start - 1] === ' ' ? node.start - 1 : node.start;
 						s.remove(start, node.end);
 					} else {

@@ -1,21 +1,11 @@
-/**
- * v4 usages that cannot be migrated automatically — either they need a structural change or have
- * no v5 equivalent. The transformers detect these and the CLI surfaces them as manual steps so a
- * user is never left with a silently half-migrated file.
- */
+// v4 usages that cannot be migrated automatically, reported to the user as manual steps
 export interface ManualStep {
-	/** Canonical id, used to de-duplicate repeated occurrences. */
 	id: string;
-	/** The actual token / at-rule found in the source. */
 	match: string;
-	/** What the user should do by hand. */
 	hint: string;
 }
 
-/**
- * Class tokens that have no safe 1:1 v5 rename. Kept in sync with the "Deliberately NOT handled"
- * note in `transformers/transform-classes.ts`.
- */
+// Classes with no 1:1 v5 rename
 const MANUAL_CLASS_RULES: { pattern: RegExp; id: string; hint: string }[] = [
 	{
 		pattern: /^ig-cell$/,
@@ -44,17 +34,12 @@ const MANUAL_CLASS_RULES: { pattern: RegExp; id: string; hint: string }[] = [
 	},
 ];
 
-/** The `theme-[name]:` variant was removed from the Core API and must be handled by hand. */
 export const THEME_VARIANT_STEP: Omit<ManualStep, 'match'> = {
 	id: 'variant-theme',
 	hint: 'the `theme-[name]` variant was removed from the Core API — scope theme styles another way.',
 };
 
-/**
- * Scans a whitespace-separated class string (a `class`/`className` value or `@apply` params) for
- * tokens that require manual migration. Tailwind variant prefixes (`hover:`, `md:`, …) are stripped
- * before matching so `hover:ig-cell` is still detected.
- */
+// Scan a class string for classes that require manual migration, stripping variant prefixes first
 export function detectManualClasses(code: string): ManualStep[] {
 	const steps: ManualStep[] = [];
 	for (const token of code.split(/\s+/)) {
@@ -63,7 +48,6 @@ export function detectManualClasses(code: string): ManualStep[] {
 		}
 		const segments = token.split(':');
 		const base = segments.pop()!;
-		// Any leading `theme-[name]:` variant was removed from the Core API.
 		for (const variant of segments) {
 			if (/^theme-[\w-]+$/.test(variant)) {
 				steps.push({ ...THEME_VARIANT_STEP, match: `${variant}:` });
@@ -78,7 +62,6 @@ export function detectManualClasses(code: string): ManualStep[] {
 	return steps;
 }
 
-/** Collapses repeated occurrences of the same manual step (by id + match). */
 export function dedupeManualSteps(steps: ManualStep[]): ManualStep[] {
 	const seen = new Set<string>();
 	return steps.filter((step) => {

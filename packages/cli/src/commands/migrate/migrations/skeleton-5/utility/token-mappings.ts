@@ -1,7 +1,4 @@
-/**
- * v4 -> v5 theme token (CSS custom property) renames.
- * Applied to declarations *and* `var()` references, so both sides of the theme move together.
- */
+// v4 -> v5 theme token renames, applied to declarations and `var()` references
 export const TOKEN_MAPPINGS: Record<string, string> = {
 	// Typography Base
 	'--base-font-family': '--typo-base--font-family',
@@ -38,21 +35,14 @@ export const TOKEN_MAPPINGS: Record<string, string> = {
 	'--body-background-color-dark': '--color-root-bg-dark',
 };
 
-/**
- * v4 theme tokens removed in v5. Their declarations are dropped entirely.
- */
+// v4 theme tokens removed in v5
 export const REMOVED_TOKENS: string[] = [
 	'--default-divide-width',
 	'--heading-font-size',
 	'--heading-line-height',
 ];
 
-/**
- * Tokens that are new in v5 and should be added to a theme's token block.
- * They are inert until set, so the migration inserts safe, appearance-preserving defaults
- * (`inherit` unless a concrete default is required). Only appended when absent, so re-runs and
- * partially-migrated themes stay stable.
- */
+// Tokens new in v5, appended to theme blocks with appearance-preserving defaults
 export const ADDED_TOKENS: Record<string, string> = {
 	// Typography extended properties
 	'--typo-base--font-stretch': 'inherit',
@@ -95,11 +85,11 @@ export const ADDED_TOKENS: Record<string, string> = {
 	'--typo-anchor--focus--text-underline-offset': 'inherit',
 	'--typo-anchor--focus--text-underline-position': 'inherit',
 	// Edges
-	'--default-outline-width': '1px', // never `0px` (accessibility)
-	// Corner shape — `initial` keeps existing (square) corners; themes opt into `squircle` etc.
+	'--default-outline-width': '1px',
+	// Corner shape
 	'--corner-shape-base': 'initial',
 	'--corner-shape-container': 'initial',
-	// Brand colors (default to the primary ramp, matching the v5 theme generator)
+	// Brand colors
 	'--color-brand-light': 'var(--color-primary-500)',
 	'--color-brand-contrast-light': 'var(--color-primary-contrast-500)',
 	'--color-brand-dark': 'var(--color-primary-500)',

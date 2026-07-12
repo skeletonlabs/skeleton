@@ -73,7 +73,7 @@ export default async function (options: MigrateOptions) {
 			absolute: true,
 		},
 	);
-	// v4 usages that can't be migrated automatically, collected per file to report at the end.
+	// Collect v4 usages that can't be migrated automatically
 	const manualSteps: { path: string; steps: ManualStep[] }[] = [];
 	const recordManual = (path: string, steps: ManualStep[]) => {
 		if (steps.length > 0) {
@@ -132,8 +132,7 @@ export default async function (options: MigrateOptions) {
 		cli.error('Migration canceled');
 	}
 
-	// Report anything that couldn't be migrated automatically (reported before the install step so
-	// it is still shown if installation fails).
+	// Report anything that couldn't be migrated automatically
 	if (manualSteps.length > 0) {
 		const report = manualSteps
 			.map(({ path, steps }) => {
