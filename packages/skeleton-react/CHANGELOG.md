@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 5.0.0-next.12
+
+### Patch Changes
+
+- task: bump `zag` to `1.42.0` ([#4515](https://github.com/skeletonlabs/skeleton/pull/4515))
+
+- Updated dependencies []:
+  - @skeletonlabs/skeleton-common@5.0.0-next.12
+
 ## 5.0.0-next.11
 
 ### Patch Changes

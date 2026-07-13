@@ -1,5 +1,11 @@
 # skeleton
 
+## 5.0.0-next.12
+
+### Minor Changes
+
+- feature: Added Skeleton 5 migration script ([#4508](https://github.com/skeletonlabs/skeleton/pull/4508))
+
 ## 5.0.0-next.11
 
 ## 5.0.0-next.10
