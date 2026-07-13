@@ -1,4 +1,4 @@
-<script module>
+<script lang="ts" module>
 	const presets = [
 		'',
 		'bg-surface-50-950',

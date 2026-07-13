@@ -20,16 +20,7 @@ import typogramScreenshot002 from '$lib/assets/images/community/typogram/screens
 import typogramScreenshot003 from '$lib/assets/images/community/typogram/screenshot-003.webp';
 
 export type CommunityCategory =
-	| 'accessibility'
-	| 'animation'
-	| 'branding'
-	| 'code'
-	| 'design'
-	| 'icons'
-	| 'plugins'
-	| 'templates'
-	| 'tooling'
-	| 'typography';
+	'accessibility' | 'animation' | 'branding' | 'code' | 'design' | 'icons' | 'plugins' | 'templates' | 'tooling' | 'typography';
 
 export interface CommunityLink {
 	label: string;

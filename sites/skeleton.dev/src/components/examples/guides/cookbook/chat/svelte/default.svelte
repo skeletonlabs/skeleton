@@ -187,8 +187,7 @@
 						id="prompt"
 						placeholder="Write a message..."
 						rows="1"
-						onkeydown={onPromptKeydown}
-					></textarea>
+						onkeydown={onPromptKeydown}></textarea>
 					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" onclick={addMessage}>
 						<SendIcon />
 					</button>
