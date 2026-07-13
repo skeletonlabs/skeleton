@@ -4,11 +4,12 @@ description: Provides locale context to components for controlling reading direc
 stability: beta
 ---
 
+import ApiReference from '@/components/ui/api-reference.astro';
+import Framework from '@/components/ui/framework.astro';
+
 <Framework id="react">
 
 ```tsx
-import Framework from './src/components/ui/framework.astro';
-import ApiReference from './src/components/ui/api-reference.astro';
 import { LocaleProvider } from '@skeletonlabs/skeleton-react';
 
 export default function App() {
