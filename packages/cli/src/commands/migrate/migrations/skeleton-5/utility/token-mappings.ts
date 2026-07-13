@@ -36,11 +36,7 @@ export const TOKEN_MAPPINGS: Record<string, string> = {
 };
 
 // v4 theme tokens removed in v5
-export const REMOVED_TOKENS: string[] = [
-	'--default-divide-width',
-	'--heading-font-size',
-	'--heading-line-height',
-];
+export const REMOVED_TOKENS: string[] = ['--default-divide-width', '--heading-font-size', '--heading-line-height'];
 
 // Tokens new in v5, appended to theme blocks with appearance-preserving defaults
 export const ADDED_TOKENS: Record<string, string> = {
