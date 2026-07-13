@@ -246,9 +246,6 @@ catalogs:
     astro:
       specifier: 7.0.7
       version: 7.0.7
-    astro-auto-import:
-      specifier: 0.5.1
-      version: 0.5.1
     astro-pagefind:
       specifier: 2.0.1
       version: 2.0.1
@@ -1144,9 +1141,6 @@ importers:
       astro:
         specifier: 'catalog:'
         version: 7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3)
-      astro-auto-import:
-        specifier: 'catalog:'
-        version: 0.5.1(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3))
       astro-pagefind:
         specifier: 'catalog:'
         version: 2.0.1(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3))
@@ -4594,12 +4588,6 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
-
-  astro-auto-import@0.5.1:
-    resolution: {integrity: sha512-7YZKVA7LE5nLkopOM+KIHqnh6g2CfHrysj2JUXNBrC3FppHH42RSNBM7mgsEgaq2lgHVDt7hsDQIA0JKTwIN8A==}
-    engines: {node: '>=20.0.0'}
-    peerDependencies:
-      astro: ^5.0.0-beta || ^6.0.0-alpha
 
   astro-pagefind@2.0.1:
     resolution: {integrity: sha512-zhMTctuVuKrYH1C0Xl+p8mhexEuxVrqfT8paQOAbKZFtgUIWAMtR2nCeU11ti4Rfeit16LhiCxZFwjOqYoiaNQ==}
@@ -10609,11 +10597,6 @@ snapshots:
   assertion-error@2.0.1: {}
 
   astring@1.9.0: {}
-
-  astro-auto-import@0.5.1(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3)):
-    dependencies:
-      acorn: 8.16.0
-      astro: 7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3)
 
   astro-pagefind@2.0.1(astro@7.0.7(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@25.9.5)(@vercel/functions@3.4.3)(jiti@2.7.0)(yaml@2.8.3)):
     dependencies:
