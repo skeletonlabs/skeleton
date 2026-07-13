@@ -4,6 +4,10 @@ description: Guidelines for contributing to the Skeleton documentation website.
 order: 20
 ---
 
+import ApiReference from '@/components/ui/api-reference.astro';
+import Framework from '@/components/ui/framework.astro';
+import Preview from '@/components/ui/preview.svelte';
+
 import Code from '@/components/ui/code.svelte';
 
 ## Astro
@@ -20,7 +24,6 @@ The Skeleton documentation website is maintained using the Astro framework.
 
 Review the full list of integrations in `astro.config.ts`.
 
-- [AutoImport](https://github.com/delucis/astro-auto-import)
 - [Svelte](https://docs.astro.build/en/guides/integrations-guide/svelte/)
 - [React](https://docs.astro.build/en/guides/integrations-guide/react/)
 - [MDX](https://docs.astro.build/en/guides/markdown-content/)
@@ -122,15 +125,6 @@ The `src/pages` directory contains all pages and routes for the documentation we
 ### src/assets
 
 The `src/assets` directory contains all assets for the documentation website, including images and SVGs.
-
-## Global Components
-
-A suite of global components are automatically imported within MDX pages via [astro-auto-importer](https://github.com/delucis/astro-auto-import/tree/main/packages/astro-auto-import). These components are configure via `astro.config.mjs` > `AutoImport()` in the project root.
-
-- `<Framework>` - Allows for implementing content specific for one framework.
-- `<ApiReference>` - Displays the table of API reference data per component.
-- `<Preview>` - Shows a live preview of a Skeleton feature.
-- `<Alert>` - Display a very simple alert message.
 
 ## Iconography
 

@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
-import autoImport from 'astro-auto-import';
 import pagefind from 'astro-pagefind';
 import { defineConfig, envField } from 'astro/config';
 import { execSync } from 'node:child_process';
@@ -21,24 +20,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: false,
 	},
-	integrations: [
-		react(),
-		svelte(),
-		autoImport({
-			imports: [
-				{
-					'./src/components/ui/framework.astro': [['default', 'Framework']],
-					'./src/components/ui/api-reference.astro': [['default', 'ApiReference']],
-					'./src/components/ui/preview.svelte': [['default', 'Preview']],
-					'./src/components/ui/alert.astro': [['default', 'Alert']],
-				},
-			],
-		}),
-		mdx(),
-		partytown(),
-		sitemap(),
-		pagefind(),
-	],
+	integrations: [react(), svelte(), mdx(), partytown(), sitemap(), pagefind()],
 	env: {
 		schema: {
 			GIT_BRANCH: envField.string({

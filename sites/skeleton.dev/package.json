@@ -6,6 +6,7 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check",
+		"sync-mdx-imports": "node ./scripts/sync-mdx-imports.ts",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
 		"postinstall": "astro sync"
 	},
@@ -41,7 +42,6 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"astro": "catalog:",
-		"astro-auto-import": "catalog:",
 		"astro-pagefind": "catalog:",
 		"astro-seo": "catalog:",
 		"fuse.js": "catalog:",

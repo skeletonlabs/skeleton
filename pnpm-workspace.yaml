@@ -83,7 +83,6 @@ catalog:
   '@zag-js/tooltip': 1.42.0
   '@zag-js/tree-view': 1.42.0
   astro: 7.0.7
-  astro-auto-import: 0.5.1
   astro-pagefind: 2.0.1
   astro-seo: 1.1.0
   better-auth: 1.6.23
