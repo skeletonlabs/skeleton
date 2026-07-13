@@ -1,0 +1,365 @@
+---
+title: Migrate from v4
+description: Learn how to migrate from Skeleton v4 to the latest v5 release.
+summary: Skeleton v5 represents a notable update to the core API and theme layer. This improves and expands your theme's design tokens, introduces new Tailwind Components such as Disclosures, provides size options for buttons and form fields, establishes the new brand color properties, and more.
+order: 8888
+---
+
+## Prerequisites
+
+For older versions of Skeleton, please complete the following guides below before you proceed.
+
+| Path             | Guide                                                                         |
+| ---------------- | ----------------------------------------------------------------------------- |
+| Version v2 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v2) |
+| Version v3 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v3) |
+
+We recommend you handle all migration changes on a dedicated feature branch, allowing you to easily revert if needed.
+
+```bash
+git checkout -b migration
+```
+
+Make sure you've accounted for the following:
+
+- Your app is running the latest release of Skeleton v4.x (`4.15.2`)
+- All critical dependencies have been updated (optional but recommended)
+- Your app is in a fully functional state before you proceed
+
+For `svelte`, the minimum peer dependency has been raised from `^5.29.0` to `^5.40.0`. React remains unchanged.
+
+```bash
+npm install svelte@latest
+```
+
+---
+
+## Themes
+
+### Preset Themes
+
+Preset themes will automatically update with all changes. No action is required on your part.
+
+### Custom Themes
+
+We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure any new or updated settings, while fine tuning the overall design.
+
+<figure class="linker bg-noise">
+	<a class="btn preset-filled" href="https://themes.skeleton.dev/themes/import" target="_blank" rel="noopener noreferrer">
+		Auto-Convert Themes &rarr;
+	</a>
+</figure>
+
+> TIP: custom fonts will not be imported. You can, however, implement these via the **Typography** controls.
+
+### Design Tokens
+
+Please refer to the [Core API](/docs/[framework]/get-started/core-api#base) documentation for a complete token reference. Refer to the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a complete theme reference. We'll now cover all notable changes below.
+
+#### Renamed
+
+The following token keys have changed, each value remains the same.
+
+**Base Typography**
+
+| v4 Token                 | v5 Token                      |
+| ------------------------ | ----------------------------- |
+| `--base-font-family`     | `--typo-base--font-family`    |
+| `--base-font-size`       | `--typo-base--font-size`      |
+| `--base-font-color`      | `--typo-base--color-light`    |
+| `--base-font-color-dark` | `--typo-base--color-dark`     |
+| `--base-line-height`     | `--typo-base--line-height`    |
+| `--base-font-weight`     | `--typo-base--font-weight`    |
+| `--base-font-style`      | `--typo-base--font-style`     |
+| `--base-letter-spacing`  | `--typo-base--letter-spacing` |
+
+**Heading Typography**
+
+| v4 Token                    | v5 Token                         |
+| --------------------------- | -------------------------------- |
+| `--heading-font-family`     | `--typo-heading--font-family`    |
+| `--heading-font-color`      | `--typo-heading--color-light`    |
+| `--heading-font-color-dark` | `--typo-heading--color-dark`     |
+| `--heading-font-weight`     | `--typo-heading--font-weight`    |
+| `--heading-font-style`      | `--typo-heading--font-style`     |
+| `--heading-letter-spacing`  | `--typo-heading--letter-spacing` |
+
+**Anchor Typography**
+
+| v4 Token                   | v5 Token                        |
+| -------------------------- | ------------------------------- |
+| `--anchor-font-family`     | `--typo-anchor--font-family`    |
+| `--anchor-font-size`       | `--typo-anchor--font-size`      |
+| `--anchor-font-color`      | `--typo-anchor--color-light`    |
+| `--anchor-font-color-dark` | `--typo-anchor--color-dark`     |
+| `--anchor-line-height`     | `--typo-anchor--line-height`    |
+| `--anchor-font-weight`     | `--typo-anchor--font-weight`    |
+| `--anchor-font-style`      | `--typo-anchor--font-style`     |
+| `--anchor-letter-spacing`  | `--typo-anchor--letter-spacing` |
+
+**Anchor Decoration**
+
+| v4 Token                          | v5 Token                                      |
+| --------------------------------- | --------------------------------------------- |
+| `--anchor-text-decoration`        | `--typo-anchor--text-decoration-line`         |
+| `--anchor-text-decoration-hover`  | `--typo-anchor--hover--text-decoration-line`  |
+| `--anchor-text-decoration-active` | `--typo-anchor--active--text-decoration-line` |
+| `--anchor-text-decoration-focus`  | `--typo-anchor--focus--text-decoration-line`  |
+
+**Root Background**
+
+| v4 Token                       | v5 Token                |
+| ------------------------------ | ----------------------- |
+| `--body-background-color`      | `--color-root-bg-light` |
+| `--body-background-color-dark` | `--color-root-bg-dark`  |
+
+#### Added
+
+The following tokens expand the capabilities of your themes. Recommended default values have been provided.
+
+**Typography**
+
+| Token                         | Default |
+| ----------------------------- | ------- |
+| `--typo-base--font-stretch`   | inherit |
+| `--typo-base--font-kerning`   | inherit |
+| `--typo-base--text-shadow`    | inherit |
+| `--typo-base--word-spacing`   | inherit |
+| `--typo-base--hyphens`        | inherit |
+| `--typo-base--text-transform` | inherit |
+
+| Token                            | Default |
+| -------------------------------- | ------- |
+| `--typo-heading--font-stretch`   | inherit |
+| `--typo-heading--font-kerning`   | inherit |
+| `--typo-heading--text-shadow`    | inherit |
+| `--typo-heading--word-spacing`   | inherit |
+| `--typo-heading--hyphens`        | inherit |
+| `--typo-heading--text-transform` | inherit |
+
+| Token                           | Default |
+| ------------------------------- | ------- |
+| `--typo-anchor--font-stretch`   | inherit |
+| `--typo-anchor--font-kerning`   | inherit |
+| `--typo-anchor--text-shadow`    | inherit |
+| `--typo-anchor--word-spacing`   | inherit |
+| `--typo-anchor--hyphens`        | inherit |
+| `--typo-anchor--text-transform` | inherit |
+
+**Anchor Decorations**
+
+| Token                                      | Default |
+| ------------------------------------------ | ------- |
+| `--typo-anchor--text-decoration-color`     | inherit |
+| `--typo-anchor--text-decoration-style`     | inherit |
+| `--typo-anchor--text-decoration-thickness` | inherit |
+| `--typo-anchor--text-underline-offset`     | inherit |
+| `--typo-anchor--text-underline-position`   | inherit |
+
+| Token                                             | Default |
+| ------------------------------------------------- | ------- |
+| `--typo-anchor--hover--text-decoration-color`     | inherit |
+| `--typo-anchor--hover--text-decoration-style`     | inherit |
+| `--typo-anchor--hover--text-decoration-thickness` | inherit |
+| `--typo-anchor--hover--text-underline-offset`     | inherit |
+| `--typo-anchor--hover--text-underline-position`   | inherit |
+
+| Token                                              | Default |
+| -------------------------------------------------- | ------- |
+| `--typo-anchor--active--text-decoration-color`     | inherit |
+| `--typo-anchor--active--text-decoration-style`     | inherit |
+| `--typo-anchor--active--text-decoration-thickness` | inherit |
+| `--typo-anchor--active--text-underline-offset`     | inherit |
+| `--typo-anchor--active--text-underline-position`   | inherit |
+
+| Token                                             | Default |
+| ------------------------------------------------- | ------- |
+| `--typo-anchor--focus--text-decoration-color`     | inherit |
+| `--typo-anchor--focus--text-decoration-style`     | inherit |
+| `--typo-anchor--focus--text-decoration-thickness` | inherit |
+| `--typo-anchor--focus--text-underline-offset`     | inherit |
+| `--typo-anchor--focus--text-underline-position`   | inherit |
+
+**Edges**
+
+| Key                       | Default |
+| ------------------------- | ------- |
+| `--default-outline-width` | 1px     |
+
+**Corner Shapes**
+
+| Key                        | Default |
+| -------------------------- | ------- |
+| `--corner-shape-base`      | initial |
+| `--corner-shape-container` | initial |
+
+**Colors**
+
+| Key                            | Default                           |
+| ------------------------------ | --------------------------------- |
+| `--color-brand-light`          | var(--color-primary-500)          |
+| `--color-brand-contrast-light` | var(--color-primary-contrast-500) |
+| `--color-brand-dark`           | var(--color-primary-500)          |
+| `--color-brand-contrast-dark`  | var(--color-primary-contrast-500) |
+
+#### Removed
+
+| Key                      | Notes                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| `--default-divide-width` | This is a bugfix; the value is derived from `--default-border-width`                            |
+| `--heading-font-size`    | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+| `--heading-line-height`  | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
+
+---
+
+## Utility Classes
+
+Several utility classes have been replaced or removed. Relevant replacements are noted below.
+
+| v4 Class                | v5 Replacement                                             | Docs                                                             |
+| ----------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
+| `card-hover`            | The `card` utility auto-applies styles to `<a>`/`<button>` | [View](/docs/[framework]/tailwind-components/cards#hover)        |
+| `input-group`           | Replaced with the `field-group` feature                    | [View](/docs/[framework]/tailwind-components/forms#field-groups) |
+| `ig-cell`               | `label label-text`; use a semantic `<label>`               | --                                                               |
+| `ig-input`              | `input`                                                    | --                                                               |
+| `ig-select`             | `select`                                                   | --                                                               |
+| `ig-btn`                | `btn`                                                      | --                                                               |
+| `@variant theme-[name]` | Permanently removed                                        | [View](/docs/svelte/design/themes#target-themes)                 |
+
+### Migrate Field Groups
+
+Input Groups have now been replaced with the intuitive [Field Groups](/docs/[framework]/tailwind-components/forms#field-groups) feature.
+
+```html
+<!-- v4 -->
+<div class="input-group grid-cols-[auto_1fr_auto]">
+	<div class="ig-cell preset-tonal">https://</div>
+	<input class="ig-input" type="text" />
+</div>
+
+<!-- v5 -->
+<div class="field-group grid-cols-[auto_1fr_auto]">
+	<label class="label label-text preset-tonal" for="url">https://</label>
+	<input class="input" type="text" id="url" />
+</div>
+```
+
+---
+
+## Brand Color
+
+A new `--color-brand-*` token provides a default accent color for a number of Skeleton features. Refer to the new [Core API](/docs/svelte/get-started/core-api#brand) and updated [Colors](/docs/svelte/design/colors#brand-color) documentation for details.
+
+- New presets have been added, including: `preset-filled-brand`, `preset-tonal-brand`, `preset-outlined-brand`.
+- Brand color is now the default for: checkboxes, radios, circular progress, steps, switches, tabs, and accordions.
+- Most Skeleton preset themes default to `primary-500`, which should result in little to no visual changes out of the box.
+- The `nouveau` theme is the only exception; it sets a different brand color between light and dark mode.
+
+This can be customized for any preset Skeleton theme (eg: Cerberus) using [this pattern](/docs/svelte/design/themes#modify-properties) in your global stylesheet.
+
+```css
+[data-theme='cerberus'] {
+	--color-brand-light: var(--color-secondary-500);
+	--color-brand-contrast-light: var(--color-secondary-contrast-500);
+	--color-brand-dark: var(--color-secondary-500);
+	--color-brand-contrast-dark: var(--color-secondary-contrast-500);
+}
+```
+
+---
+
+## Element Sizing
+
+A new universal scaling system has been introduced for keeping element sizes uniform, using the new `--spacing-elem-{size}` token. Use this with `w-*`, `h-*`, `size-*`, `m-*`, `p-*` and more, paired with `xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl`. Refer to [Element Sizes](/docs/[framework]/get-started/core-api#element-sizes) for details.
+
+```html
+<!-- SVG icon sized to match the "lg" element scale -->
+<svg class="size-elem-lg">...</svg>
+
+<!-- Width/height set independently -->
+<div class="w-elem-base h-elem-base">...</div>
+
+<!-- Padding/margin using the same scale -->
+<div class="p-elem-sm m-elem-xl">...</div>
+```
+
+### Icons
+
+Refer to [Icon Sizes](/docs/svelte/design/iconography#sizes) for more explicit examples and details. Note that icons used within Tailwind Components such as buttons, badges, chips, and field groups are sized **automatically**. Adding an explicit sizing utility is redundant.
+
+### Buttons
+
+Button sizes have been greatly expanded when using the `btn-{size}` utility. Refer to [Button Sizes](/docs/svelte/tailwind-components/buttons#sizes) for details.
+
+| v4 Class   | v5 Class   |
+| ---------- | ---------- |
+| --         | `btn-xs`   |
+| `btn-sm`   | `btn-sm`   |
+| `btn-base` | `btn-base` |
+| `btn-lg`   | `btn-lg`   |
+| --         | `btn-xl`   |
+| --         | `btn-2xl`  |
+| --         | `btn-3xl`  |
+| --         | `btn-4xl`  |
+| --         | `btn-5xl`  |
+| --         | `btn-6xl`  |
+| --         | `btn-7xl`  |
+| --         | `btn-8xl`  |
+| --         | `btn-9xl`  |
+
+### Form Fields
+
+Form fields honor the same scale via new `field-{size}` utility. Refer to [Field Sizes](/docs/[framework]/tailwind-components/forms#field-sizes) for details.
+
+---
+
+## Additional Features
+
+The following features are new additions. These are not breaking changes and are included for completeness.
+
+### Design System
+
+| Feature    | Docs                                                              | Description                                                                |
+| ---------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Typography | [View](/docs/[framework]/design/typography#native-element-styles) | Expanded native element styles: `abbr`, `cite`, `q`, `sub`, `sup`, `time`. |
+
+### Tailwind Utilities
+
+| Feature      | Docs                                                       | Description                                                                             |
+| ------------ | ---------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Mask         | [View](/docs/[framework]/tailwind-utilities/masks)         | Clip elements to a variety of decorative shapes using CSS mask-image.                   |
+| Corner Shape | [View](/docs/[framework]/tailwind-utilities/corner-shapes) | Specifies the shape of a box's corners, within the area specified by its border-radius. |
+
+### Tailwind Components
+
+| Feature          | Docs                                                      | Description                                                                         |
+| ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Dialog           | [View](/docs/[framework]/tailwind-components/dialogs)     | Display modal popups using the native HTML dialog element.                          |
+| Disclosure       | [View](/docs/[framework]/tailwind-components/disclosures) | Toggle the visibility of collapsible content using the native HTML details element. |
+| Forms and Inputs | [View](/docs/[framework]/tailwind-components/forms#meter) | A new `meter` component has been added.                                             |
+
+### Framework Components
+
+| Feature         | Docs                                                           | Description                                                                     |
+| --------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Marquee         | [View](/docs/[framework]/framework-components/marquee)         | Auto-scrolls content like logos, announcements, or featured items.              |
+| QR Code         | [View](/docs/[framework]/framework-components/qr-code)         | Render scannable QR codes with a frame, overlay, pattern, and download trigger. |
+| Locale Provider | [View](/docs/[framework]/framework-components/locale-provider) | Provides locale context to components for controlling reading direction.        |
+
+---
+
+## Migration Complete
+
+If you've completed all steps above, then your app is now fully migrated. Run your local dev server to confirm.
+
+```bash
+npm run dev
+```
+
+> TIP: remember to merge all changes into your primary branch!
+
+---
+
+## Support and Feedback
+
+Need help or support? Contact the Skeleton team using either [Discord](https://discord.gg/EXqV7W8MtY) or [GitHub](https://github.com/skeletonlabs/skeleton/discussions). We're here to help!

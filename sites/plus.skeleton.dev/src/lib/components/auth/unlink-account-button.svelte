@@ -1,9 +1,9 @@
 <script lang="ts" module>
 	import type { UnlinkAccountSchema } from '$lib/schemas/auth/unlink-account-schema';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import * as v from 'valibot';
+	import type { InferInput } from 'valibot';
 
-	export interface Props extends v.InferInput<typeof UnlinkAccountSchema>, HTMLButtonAttributes {}
+	export interface Props extends InferInput<typeof UnlinkAccountSchema>, HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">

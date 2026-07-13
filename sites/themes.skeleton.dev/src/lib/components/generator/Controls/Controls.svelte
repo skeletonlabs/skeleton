@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { globals } from '$lib/state/generator.svelte';
 	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
+	import ControlsBrand from './ControlsBrand.svelte';
 	import ControlsColors from './ControlsColors.svelte';
 	import ControlsCore from './ControlsCore.svelte';
 	import ControlsEdges from './ControlsEdges.svelte';
@@ -12,15 +13,23 @@
 	import LayersIcon from '@lucide/svelte/icons/layers';
 	import PaletteIcon from '@lucide/svelte/icons/palette';
 	import ScalingIcon from '@lucide/svelte/icons/scaling';
+	import SparklesIcon from '@lucide/svelte/icons/sparkles';
 	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
 	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
 
+	let view = $derived(globals.panel);
 	const items = [
 		{
 			value: 'colors',
 			icon: PaletteIcon,
 			label: 'Color Palette',
 			component: ControlsColors,
+		},
+		{
+			value: 'brand',
+			icon: SparklesIcon,
+			label: 'Brand',
+			component: ControlsBrand,
 		},
 		{
 			value: 'backgrounds',
@@ -49,16 +58,11 @@
 	];
 </script>
 
-<section class="relative h-screen bg-surface-100-900 pb-96 overflow-y-auto">
+<section class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto">
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>
-		<SegmentedControl
-			name="display"
-			defaultValue={globals.panel}
-			onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)}
-			class="w-full"
-		>
+		<SegmentedControl name="display" value={view} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} class="w-full">
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
 				<SegmentedControl.Item value="preview" class="w-full">
@@ -106,6 +110,6 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<p class="text-xs opacity-50">When ready, tap the <strong>Code</strong> button to obtain your theme.</p>
+		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = 'code')}>Export Theme</button>
 	</footer>
 </section>

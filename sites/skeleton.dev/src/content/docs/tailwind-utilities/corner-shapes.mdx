@@ -17,7 +17,7 @@ import SidesRaw from '@/components/examples/tailwind-utilities/corner-shapes/sid
 import Theme from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro';
 import ThemeRaw from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro?raw';
 
-Base on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) CSS property. Pair `corner-shape-*` with a `rounded-*` utility on the same element.
+Based on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) CSS property. Pair `corner-shape-*` with a `rounded-*` utility on the same element.
 
 <Preview files={{ 'app.astro': DefaultRaw }} client:visible>
 	<Default />
@@ -48,7 +48,7 @@ Currently available in a limited set of browsers. Follow progressive enhancement
 
 ## Individual Sides
 
-Target a single physical side; each covers its two adjacent corners.
+Target each side and the adjacent corners, including: top, left, bottom, right.
 
 <Preview files={{ 'app.astro': SidesRaw }} client:visible>
 	<Sides />
@@ -63,7 +63,7 @@ Target a single physical side; each covers its two adjacent corners.
 
 ## Individual Corners
 
-Target a single physical corner.
+Target a particular corner of an element.
 
 <Preview files={{ 'app.astro': CornersRaw }} client:visible>
 	<Corners />
@@ -78,7 +78,7 @@ Target a single physical corner.
 
 ## Logical Properties
 
-Target sides and corners that flow with the document's writing direction. These flip automatically in right-to-left layouts.
+Target sides and corners that flow with the document's writing direction. Sets automatically basedon LTR/RTL mode.
 
 <Preview files={{ 'app.astro': LogicalRaw }} client:visible>
 	<Logical />
@@ -95,7 +95,7 @@ Target sides and corners that flow with the document's writing direction. These 
 
 ## Theme Variables
 
-Two utilities consume theme tokens, allowing the active theme to drive the corner shape across your interface.
+Canned variable default values defined via theme properties.
 
 <Preview files={{ 'app.astro': ThemeRaw }} client:visible>
 	<Theme />
@@ -106,7 +106,7 @@ Two utilities consume theme tokens, allowing the active theme to drive the corne
 | `corner-shape-base`      | `var(--corner-shape-base)`      | Target small elements like buttons |
 | `corner-shape-container` | `var(--corner-shape-container)` | Target large elements like cards   |
 
-## Using a Custom Value
+## Arbitrary Syntax
 
 Use the `corner-shape-[<value>]` syntax to set the corner shape based on a completely custom value.
 
@@ -124,13 +124,9 @@ For CSS variables, you can also use the `corner-shape-(<custom-property>)` synta
 </div>
 ```
 
-This is just a shorthand for `corner-shape-[var(<custom-property>)]` that adds the `var()` function for you automatically.
-
-The same `[<value>]` and `(<custom-property>)` patterns work for every side, corner, and logical variant — for example `corner-shape-tl-[bevel]` or `corner-shape-s-(--my-corner-shape)`.
-
 ## Global Theming
 
-To apply a corner shape across a family of elements, target the class in your global stylesheet and pair it with a matching radius scale. Note this pattern works with any class or element that uses `border-radius`.
+To apply a corner shape across a family of elements, target the class in your global stylesheet and pair it with a matching radius scale. This pattern is valid for any class or element has a `border-radius` applied.
 
 ```css
 .btn,

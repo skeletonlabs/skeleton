@@ -1,7 +1,7 @@
 ---
 title: Colors
 description: The Skeleton color system.
-summary: Skeleton provides guardrails and utilities to help you craft your custom color system. This includes a number of colors, shades, and contrast values that work together seamlessly. Providing a visually appealing and accessible palette for each theme.
+summary: Skeleton provides guardrails and utilities to help you craft your custom color system. This includes a number of colors, shades, and contrast values that work together seamlessly, providing a visually appealing and accessible palette for each theme.
 references:
   source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/theme.css'
 order: 10
@@ -74,19 +74,19 @@ Provides a condensed syntax for dual-tone color values, evenly balanced to swap 
 
 ### How Pairings Work
 
-Color Pairing are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function. This means instead of writing the standard light/dark syntax with Tailwind utilities:
+Color Pairings are enabled through the use of the CSS [light-dark](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) function. This means instead of writing the standard light/dark syntax with Tailwind utilities:
 
 ```html
 <div class="text-primary-300 dark:text-primary-700">...</div>
 ```
 
-You can instead use a much more condensed syntax:
+Skeleton provides utility classes that condense this into a single class:
 
 ```html
 <div class="text-primary-300-700">...</div>
 ```
 
-This will then be implemented into your CSS bundle as follows:
+When implemented in your CSS bundle, this will be generated as follows:
 
 ```css
 .text-primary-300-700 {
@@ -94,16 +94,16 @@ This will then be implemented into your CSS bundle as follows:
 }
 ```
 
-Plus, as a benefit to using the CSS `light-dark()` function, this also enables use of Tailwind's [Color Scheme](https://tailwindcss.com/docs/color-scheme) utilities. Learn more about [using Color Scheme](/docs/guides/mode#color-scheme).
+The use of the CSS `light-dark()` function enables use of [Tailwind's Color Scheme](https://tailwindcss.com/docs/color-scheme) utilities. Refer to [Color Scheme](/docs/guides/mode#color-scheme) to learn how to use this within your Skeleton application.
 
 ### When to Use Pairings
 
-Color Parings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp, but invert the order when switching from light to dark mode.
+Color Pairings are useful for generating a hierarchy of visual layers, ranging from foreground to background elements. Each reuse the same color ramp, but invert the order when switching from light to dark mode.
 
 <PairingsStack />
 
-- We can use shade `950` for light mode and `50` from dark mode to represent our body text color.
-- Then use shade `50` from light mode and `950` from dark mode to represent our app background.
+- We can use shade `950` for light mode and `50` for dark mode to represent our body text color.
+- Then use shade `50` for light mode and `950` for dark mode to represent our app background.
 - Use the static `500` shade for key branding elements, such as buttons or banners.
 - Then reserve multiple layers between for elements such as cards, inputs, and more.
 
@@ -111,7 +111,7 @@ Color Parings are useful for generating a hierarchy of visual layers, ranging fr
 
 ## Brand Color
 
-A variable accent color for your design system. Use this as the default when styling elements and components.
+A variable accent color for your design system. Use this as the default color value when styling elements and components.
 
 > TIP: The **Nouveau** theme makes use of variable brand color for light and dark modes.
 
@@ -121,12 +121,12 @@ A variable accent color for your design system. Use this as the default when sty
 
 ### Benefits
 
-- Brand can use any colors from your palette (ex: primary/secondary/tertiary)
+- Brand utilizes any color from your theme palette (ex: primary/secondary/tertiary).
 - Brand supports the use of custom colors.
-- Brand can use any shade from 50-950; not just limited to shade 500.
+- Brand can use any shade from 50-950; it is not limited to shade 500.
 - Brand color/shade can be tailored for light and dark mode independently.
 - Brand includes a contrast color for foreground elements.
-- Brand supports all standard presets, ex: `preset-filled-brand`.
+- Brand supports all standard [presets](/docs/svelte/tailwind-utilities/presets) (`preset-filled-brand`, `preset-outlined-brand`, `preset-tonal-brand`)
 
 ---
 
@@ -138,6 +138,8 @@ All available Skeleton Colors and Color Pairings support Tailwind's color transp
 <div class="bg-primary-500/25">Primary Color @ 25% transparency</div>
 <div class="bg-surface-50-950/60">Surface Pairing 50/950 @ 60% transparency</div>
 ```
+
+---
 
 ## Core API
 

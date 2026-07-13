@@ -16,7 +16,7 @@ jobs:
     name: Format
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
@@ -31,7 +31,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
@@ -46,7 +46,7 @@ jobs:
     name: Check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
@@ -61,7 +61,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
           token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}

@@ -193,34 +193,102 @@ export interface SettingsTypography {
 	// Scale Factor
 	'--text-scaling': string;
 	// Base
-	'--base-font-color': string;
-	'--base-font-color-dark': string;
-	'--base-font-family': string;
-	'--base-font-size': string;
-	'--base-line-height': string;
-	'--base-font-weight': string;
-	'--base-font-style': string;
-	'--base-letter-spacing': string;
+	'--typo-base--font-family': string;
+	'--typo-base--font-size': string;
+	'--typo-base--color-light': string;
+	'--typo-base--color-dark': string;
+	'--typo-base--line-height': string;
+	'--typo-base--font-weight': string;
+	'--typo-base--font-style': string;
+	'--typo-base--letter-spacing': string;
+	'--typo-base--font-stretch': string;
+	'--typo-base--font-kerning': string;
+	'--typo-base--text-shadow': string;
+	'--typo-base--word-spacing': string;
+	'--typo-base--hyphens': string;
+	'--typo-base--text-transform': string;
 	// Headings
-	'--heading-font-color': string;
-	'--heading-font-color-dark': string;
-	'--heading-font-family': string;
-	'--heading-font-weight': string;
-	'--heading-font-style': string;
-	'--heading-letter-spacing': string;
+	'--typo-heading--font-family': string;
+	'--typo-heading--color-light': string;
+	'--typo-heading--color-dark': string;
+	'--typo-heading--font-weight': string;
+	'--typo-heading--font-style': string;
+	'--typo-heading--letter-spacing': string;
+	'--typo-heading--font-stretch': string;
+	'--typo-heading--font-kerning': string;
+	'--typo-heading--text-shadow': string;
+	'--typo-heading--word-spacing': string;
+	'--typo-heading--hyphens': string;
+	'--typo-heading--text-transform': string;
 	// Anchors
-	'--anchor-font-color': string;
-	'--anchor-font-color-dark': string;
-	'--anchor-font-family': string;
-	'--anchor-font-size': string;
-	'--anchor-line-height': string;
-	'--anchor-font-weight': string;
-	'--anchor-font-style': string;
-	'--anchor-letter-spacing': string;
-	'--anchor-text-decoration': string;
-	'--anchor-text-decoration-hover': string;
-	'--anchor-text-decoration-active': string;
-	'--anchor-text-decoration-focus': string;
+	'--typo-anchor--font-family': string;
+	'--typo-anchor--font-size': string;
+	'--typo-anchor--color-light': string;
+	'--typo-anchor--color-dark': string;
+	'--typo-anchor--line-height': string;
+	'--typo-anchor--font-weight': string;
+	'--typo-anchor--font-style': string;
+	'--typo-anchor--letter-spacing': string;
+	'--typo-anchor--font-stretch': string;
+	'--typo-anchor--font-kerning': string;
+	'--typo-anchor--text-shadow': string;
+	'--typo-anchor--word-spacing': string;
+	'--typo-anchor--hyphens': string;
+	'--typo-anchor--text-transform': string;
+	// Anchors — Decoration (default state)
+	'--typo-anchor--text-decoration-line': string;
+	'--typo-anchor--text-decoration-color': string;
+	'--typo-anchor--text-decoration-style': string;
+	'--typo-anchor--text-decoration-thickness': string;
+	'--typo-anchor--text-underline-offset': string;
+	'--typo-anchor--text-underline-position': string;
+	// Anchors — Decoration (hover state)
+	'--typo-anchor--hover--text-decoration-line': string;
+	'--typo-anchor--hover--text-decoration-color': string;
+	'--typo-anchor--hover--text-decoration-style': string;
+	'--typo-anchor--hover--text-decoration-thickness': string;
+	'--typo-anchor--hover--text-underline-offset': string;
+	'--typo-anchor--hover--text-underline-position': string;
+	// Anchors — Decoration (active state)
+	'--typo-anchor--active--text-decoration-line': string;
+	'--typo-anchor--active--text-decoration-color': string;
+	'--typo-anchor--active--text-decoration-style': string;
+	'--typo-anchor--active--text-decoration-thickness': string;
+	'--typo-anchor--active--text-underline-offset': string;
+	'--typo-anchor--active--text-underline-position': string;
+	// Anchors — Decoration (focus state)
+	'--typo-anchor--focus--text-decoration-line': string;
+	'--typo-anchor--focus--text-decoration-color': string;
+	'--typo-anchor--focus--text-decoration-style': string;
+	'--typo-anchor--focus--text-decoration-thickness': string;
+	'--typo-anchor--focus--text-underline-offset': string;
+	'--typo-anchor--focus--text-underline-position': string;
+	// Custom Fonts (empty string until a slot resolves)
+	'--font-custom-1': string;
+	'--font-custom-2': string;
+}
+
+export interface CustomFontVariant {
+	weight: string;
+	style: string;
+	woff2: string;
+}
+
+export interface CustomFont {
+	id: string;
+	family: string;
+	category: string;
+	variable: boolean;
+	isVariableOnly: boolean;
+	defSubset: string;
+	unicodeRange: string;
+	styles: string[];
+	variants: CustomFontVariant[]; // empty when isVariableOnly === true
+}
+
+export interface SettingsCustomFonts {
+	font1: CustomFont | null;
+	font2: CustomFont | null;
 }
 
 export interface SettingsSpacing {
@@ -231,6 +299,18 @@ export interface SettingsEdges {
 	'--radius-base': string; // rem
 	'--radius-container': string; // rem
 	'--default-border-width': string; // px
-	'--default-divide-width': string; // px
 	'--default-ring-width': string; // px
+	'--default-outline-width': string; // px
+}
+
+export interface SettingsCorners {
+	'--corner-shape-base': string;
+	'--corner-shape-container': string;
+}
+
+export interface SettingsBrand {
+	'--color-brand-light': string;
+	'--color-brand-contrast-light': string;
+	'--color-brand-dark': string;
+	'--color-brand-contrast-dark': string;
 }

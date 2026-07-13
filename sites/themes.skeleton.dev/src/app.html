@@ -1,7 +1,23 @@
 <!doctype html>
-<html lang="en" data-theme="" class="dark">
+<html lang="en" data-theme="generated" class="dark">
 	<head>
 		<meta charset="utf-8" />
+		<!-- Anti-FOUC: applies the persisted theme/mode before first paint. Lives here (not in a -->
+		<!-- component's <svelte:head>) since it must run exactly once per real page load, not on -->
+		<!-- every client-side navigation that remounts a component (e.g. AppHeader in both the -->
+		<!-- (app) and (generator) route groups) — a `const`/`let` re-declared in that case throws. -->
+		<script>
+			(function () {
+				var FALLBACK_THEME = 'cerberus';
+				var storedTheme = localStorage.getItem('theme');
+				document.documentElement.setAttribute('data-theme', storedTheme ?? FALLBACK_THEME);
+
+				var FALLBACK_MODE = 'light';
+				var storedMode = localStorage.getItem('mode');
+				var preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.setAttribute('data-mode', storedMode ?? preferredMode ?? FALLBACK_MODE);
+			})();
+		</script>
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%

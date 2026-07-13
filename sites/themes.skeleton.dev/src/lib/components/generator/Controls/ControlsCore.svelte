@@ -3,5 +3,8 @@
 </script>
 
 <div class="p-5">
-	<input class="input" type="text" placeholder="Name your theme..." bind:value={settingsCore.name} />
+	<div class="field-group grid-cols-[auto_1fr]">
+		<label class="label label-text preset-tonal" for="theme-name">Name</label>
+		<input class="input" type="text" id="theme-name" placeholder="Enter theme name..." bind:value={settingsCore.name} />
+	</div>
 </div>
