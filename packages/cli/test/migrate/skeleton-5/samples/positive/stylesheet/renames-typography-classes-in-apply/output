@@ -1,0 +1,3 @@
+.prose {
+	@apply font-typo-base leading-typo-base text-typo-base-dark;
+}

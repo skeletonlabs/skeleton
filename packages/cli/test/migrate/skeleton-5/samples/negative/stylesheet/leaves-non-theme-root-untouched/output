@@ -1,0 +1,4 @@
+:root {
+	--my-custom-var: 10px;
+	--default-border-width: 1px;
+}

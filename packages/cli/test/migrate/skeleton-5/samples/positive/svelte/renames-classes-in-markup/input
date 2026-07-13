@@ -1,0 +1,6 @@
+<div class="input-group grid-cols-[auto_1fr_auto]">
+	<input class="ig-input" type="text" />
+	<select class="ig-select"></select>
+	<button class="ig-btn">Go</button>
+</div>
+<a class="card card-hover" href="/">Card</a>

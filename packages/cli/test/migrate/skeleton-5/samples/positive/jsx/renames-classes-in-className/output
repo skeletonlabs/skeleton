@@ -1,0 +1,11 @@
+export function Field({ active }) {
+	return (
+		<div className="field-group grid-cols-[auto_1fr_auto]">
+			<input className="input" />
+			<select className="select" />
+			<button className={clsx('btn', active && 'font-typo-base')}>Go</button>
+			<p className="text-typo-heading-dark">hi</p>
+			<a className="card" href="/">Card</a>
+		</div>
+	);
+}

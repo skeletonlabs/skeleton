@@ -1,0 +1,4 @@
+<p class="base-font-family base-font-color">text</p>
+<h1 class="heading-font-family heading-font-color-dark">title</h1>
+<a class="anchor-font-size anchor-letter-spacing" href="/">link</a>
+<div class="body-background-color">bg</div>

@@ -1,0 +1,9 @@
+export function Safe() {
+	const label = 'input-group';
+	return (
+		<div className="card flex gap-4" title="input-group">
+			<input className="input preset-outlined" />
+			<span>{label}</span>
+		</div>
+	);
+}

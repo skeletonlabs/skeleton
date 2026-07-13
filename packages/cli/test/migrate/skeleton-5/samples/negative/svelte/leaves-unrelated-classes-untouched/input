@@ -1,0 +1,4 @@
+<div class="card flex gap-4">
+	<input class="input preset-outlined" type="text" />
+	<button class="btn preset-filled">Go</button>
+</div>
