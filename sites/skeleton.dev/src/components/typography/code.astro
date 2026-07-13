@@ -1,15 +1,16 @@
 ---
 import { unescape } from 'html-escaper';
-import Code_ from '@/components/ui/code.svelte';
+import Code from '@/components/ui/code.svelte';
 ---
 
 {
 	Astro.props.className ? (
 		<div class="mb-2">
-			<Code_ code={unescape(await Astro.slots.render('default'))} lang={Astro.props.className.split('-').pop()} client:visible />
+			<Code code={unescape(await Astro.slots.render('default'))} lang={Astro.props.className.split('-').pop()} client:visible />
 		</div>
 	) : (
-		// prettier-ignore
-		<code class="code"><slot /></code>
+		<code class="code">
+			<slot />
+		</code>
 	)
 }
