@@ -20,13 +20,18 @@ import { resolvePath } from '@/modules/resolve-path';
 
 <RootLayout>
 	<Header />
+	<!-- Announcements -->
+	<a href="https://github.com/skeletonlabs/skeleton/discussions" target="_blank" class="block text-sm p-2 preset-filled-primary-200-800">
+		<p class="text-center">🎉 <strong>Skeleton v5</strong> is now avialable &rarr;</p>
+	</a>
+	<!-- -- / -- -->
 	<main>
 		<div class="gradient-homepage-one">
 			<section class="container mx-auto flex justify-center p-10 pt-20 pb-5">
-				<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-20">
+				<div class="grid grid-cols-1 xl:grid-cols-[256px_800px] gap-10">
 					<div class="flex justify-center items-center">
 						<div class="relative size-48 md:size-64 aspect-square">
-							<SkeletonBig class="absolute top-0 left-0 z-2 size-full aspect-square drop-shadow-md fill-current" />
+							<SkeletonBig class="absolute top-0 left-0 z-2 size-full aspect-square drop-shadow-md fill-white" />
 							<div
 								class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl spin-360"
 							>
@@ -34,21 +39,16 @@ import { resolvePath } from '@/modules/resolve-path';
 						</div>
 					</div>
 					<div class="self-center space-y-4">
+						<!-- --- / --- -->
 						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">The adaptive design system for Tailwind CSS.</h1>
-						<p class="xl:text-balance">
-							Skeleton uses <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> as the foundation for building adaptive
-							design systems. Including turnkey components for your favorite web frameworks.
+						<p class="xl:max-w-2xl">
+							Skeleton uses <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> and serves as a foundation for adapting
+							to your applications design systems. Featuring turnkey components for your favorite web frameworks.
 						</p>
 						<nav class="flex gap-4">
-							<a href={resolvePath(Astro.params, '/docs/[framework]/get-started/installation')} class="btn preset-filled">
+							<a href={resolvePath(Astro.params, '/docs/[framework]/get-started/installation')} class="btn btn-xl preset-filled">
 								<span>Get Started</span>
 								<ChevronRightIcon class="size-4" />
-							</a>
-							<a
-								href={resolvePath(Astro.params, '/docs/[framework]/get-started/introduction')}
-								class="btn preset-outlined-surface-800-200 hover:preset-tonal"
-							>
-								<span>Learn More</span>
 							</a>
 						</nav>
 					</div>
@@ -92,15 +92,15 @@ import { resolvePath } from '@/modules/resolve-path';
 	.gradient-homepage-one {
 		background-size: cover;
 		background-image:
-			radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
-			radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
-			radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+			radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 40%),
+			radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-tertiary-500) 18%, transparent) 0px, transparent 40%),
+			radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 50%);
 	}
 
 	.gradient-homepage-two {
 		background-size: cover;
 		background-image:
 			radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
-			radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 35%);
+			radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-tertiary-500) 5%, transparent) 0px, transparent 35%);
 	}
 </style>

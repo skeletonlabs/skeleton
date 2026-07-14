@@ -2,6 +2,7 @@ import catpuccin from '@skeletonlabs/skeleton/themes/catppuccin?inline';
 import cerberus from '@skeletonlabs/skeleton/themes/cerberus?inline';
 import concord from '@skeletonlabs/skeleton/themes/concord?inline';
 import crimson from '@skeletonlabs/skeleton/themes/crimson?inline';
+import dracula from '@skeletonlabs/skeleton/themes/dracula?inline';
 import fennec from '@skeletonlabs/skeleton/themes/fennec?inline';
 import hamlindigo from '@skeletonlabs/skeleton/themes/hamlindigo?inline';
 import legacy from '@skeletonlabs/skeleton/themes/legacy?inline';
@@ -14,6 +15,7 @@ import pine from '@skeletonlabs/skeleton/themes/pine?inline';
 import reign from '@skeletonlabs/skeleton/themes/reign?inline';
 import rocket from '@skeletonlabs/skeleton/themes/rocket?inline';
 import rose from '@skeletonlabs/skeleton/themes/rose?inline';
+import rosepine from '@skeletonlabs/skeleton/themes/rosepine?inline';
 import sahara from '@skeletonlabs/skeleton/themes/sahara?inline';
 import seafoam from '@skeletonlabs/skeleton/themes/seafoam?inline';
 import terminus from '@skeletonlabs/skeleton/themes/terminus?inline';
@@ -41,6 +43,11 @@ export const themes = [
 		name: 'crimson',
 		css: crimson,
 		emoji: '🔴',
+	},
+	{
+		name: 'dracula',
+		css: dracula,
+		emoji: '🧛',
 	},
 	{
 		name: 'fennec',
@@ -100,6 +107,11 @@ export const themes = [
 	{
 		name: 'rose',
 		css: rose,
+		emoji: '🪷',
+	},
+	{
+		name: 'rosepine',
+		css: rosepine,
 		emoji: '🌷',
 	},
 	{
