@@ -1,7 +1,7 @@
 /* https://github.com/dracula */
 
 [data-theme='dracula'] {
-	--text-scaling: 1.0;
+	--text-scaling: 1;
 	--typo-base--font-family: 'DM Sans', sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: oklch(0 0 0 / 1);
