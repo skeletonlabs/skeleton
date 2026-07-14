@@ -6,7 +6,7 @@ export default function SkeletonOgImage(feature: string) {
 				width: '100%',
 				backgroundColor: '#111111',
 				backgroundImage:
-					'radial-gradient(at 0% 0%, hsla(165,70%,61%,0.40) 0px, transparent 50%), radial-gradient(at 32% 40%, hsla(212,94%,48%,0.12) 0px, transparent 50%);',
+					'radial-gradient(at 0% 0%, hsla(166, 72%, 61%, 0.50) 0%, hsla(213, 94%, 48%, 0.40) 25%, hsla(326, 40%, 18%, 0.18) 50%, hsl(0, 0%, 7%) 80%);',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'flex-start',
