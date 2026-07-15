@@ -9,7 +9,7 @@ import Framework from '@/components/ui/framework.astro';
 
 ## Prerequisites
 
-For older versions of Skeleton, please complete the following guides below before you proceed.
+For older versions of Skeleton, please complete the following guides before you proceed.
 
 | Path             | Guide                                                                                  |
 | ---------------- | -------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ To begin, use the Skeleton CLI migration to automate many of the most tedious mi
 npx skeleton@latest migrate skeleton-5
 ```
 
-It is highly recommend you read through the entire migration guide to verify all changes are to your preference. And of course ensure you (or your LLM) take into account the remaining items not handled by the CLI migration. Please review the reference below.
+It is highly recommended that you read through the entire migration guide to verify all changes are to your preference. And of course, ensure you (or your LLM) take into account the remaining items not handled by the CLI migration. Please review the reference below.
 
 | CLI Migrations   | Manual Migrations                                                                                      |
 | ---------------- | ------------------------------------------------------------------------------------------------------ |
@@ -56,7 +56,7 @@ It is highly recommend you read through the entire migration guide to verify all
 
 ## Update NPM Packages
 
-Use your package manager of choice to update the core and component packages Skeleton.
+Use your package manager of choice to update the Skeleton core and component packages.
 
 <Framework id="react">
 
@@ -265,7 +265,7 @@ Several utility classes have been replaced or removed. Relevant replacements are
 | `card-hover`            | `card` now auto-applies these styles to `<a>`/`<button>` | [View](/docs/[framework]/tailwind-components/cards#hover) |
 | `@variant theme-[name]` | Permanently removed                                      | [View](/docs/svelte/design/themes#target-themes)          |
 
-The Input Group feature has now been replaced with [Field Group](/docs/[framework]/tailwind-components/forms#field-groups). This is functionally similar, but much more intuative to implement and use. This also encourages the use of a semantic HTML `<label>` element.
+The Input Group feature has now been replaced with [Field Group](/docs/[framework]/tailwind-components/forms#field-groups). This is functionally similar, but much more intuitive to implement and use. This also encourages the use of a semantic HTML `<label>` element.
 
 | v4 Class      | v5 Replacement                               |
 | ------------- | -------------------------------------------- |
@@ -340,7 +340,7 @@ Refer to [Icon Sizes](/docs/svelte/design/iconography#sizes) for more explicit e
 <ArrowUpRightIcon class="size-elem-lg" />
 ```
 
-When wrapped in a button, badge, chip, or disclosure the icon size is now handled automatically. If you have manually specified a size in the past, consider removing this to allow the inherit sizing to take effect.
+When wrapped in a button, badge, chip, or disclosure the icon size is now handled automatically. If you have manually specified a size in the past, consider removing this to allow the inherited sizing to take effect.
 
 ```html
 <!-- ❌ Not Recommended -->
