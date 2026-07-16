@@ -5,14 +5,16 @@ summary: Skeleton v5 represents a notable update to the core API and theme layer
 order: 8888
 ---
 
+import Framework from '@/components/ui/framework.astro';
+
 ## Prerequisites
 
-For older versions of Skeleton, please complete the following guides below before you proceed.
+For older versions of Skeleton, please complete the following guides before you proceed.
 
-| Path             | Guide                                                                         |
-| ---------------- | ----------------------------------------------------------------------------- |
-| Version v2 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v2) |
-| Version v3 to v4 | [View Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v3) |
+| Path             | Guide                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| Version v2 to v4 | [View Archived Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v2) |
+| Version v3 to v4 | [View Archived Guide](https://v4.skeleton.dev/docs/svelte/get-started/migrate-from-v3) |
 
 We recommend you handle all migration changes on a dedicated feature branch, allowing you to easily revert if needed.
 
@@ -34,15 +36,55 @@ npm install svelte@latest
 
 ---
 
+## Automated Migration
+
+To begin, use the Skeleton CLI migration to automate many of the most tedious migration steps, such as renaming utility classes.
+
+```bash
+npx skeleton@latest migrate skeleton-5
+```
+
+It is highly recommended that you read through the entire migration guide to verify all changes are to your preference. And of course ensure you (or your LLM) account for the remaining items not handled by the CLI migration, noted below.
+
+| CLI Migrations   | Manual Migrations                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------------ |
+| Package versions | Svelte peer dependency bump                                                                |
+| Design tokens    | Markup changes for [Field Group](/docs/[framework]/tailwind-components/forms#field-groups) |
+| Utility classes  |                                                                                            |
+
+---
+
+## Update NPM Packages
+
+Use your package manager of choice to update the Skeleton core and component packages.
+
+<Framework id="react">
+
+```bash
+npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-react
+```
+
+</Framework>
+
+<Framework id="svelte">
+
+```bash
+npm i -D @skeletonlabs/skeleton @skeletonlabs/skeleton-svelte
+```
+
+</Framework>
+
+---
+
 ## Themes
 
 ### Preset Themes
 
-Preset themes will automatically update with all changes. No action is required on your part.
+Preset themes will automatically update with all changes. No action is required on your part. You can optionally choose to use the new `dracula` or `rosepine` themes introduced as part of the v5 update.
 
 ### Custom Themes
 
-We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure any new or updated settings, while fine tuning the overall design.
+We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure all new or updated settings, while fine tuning the overall design.
 
 <figure class="linker bg-noise">
 	<a class="btn preset-filled" href="https://themes.skeleton.dev/themes/import" target="_blank" rel="noopener noreferrer">
@@ -50,15 +92,15 @@ We recommend importing custom themes into the Theme Generator to automatically c
 	</a>
 </figure>
 
-> TIP: custom fonts will not be imported. You can, however, implement these via the **Typography** controls.
+> TIP: custom fonts are stripped during import. You can, however, implement these via the **Typography** controls.
 
 ### Design Tokens
 
-Please refer to the [Core API](/docs/[framework]/get-started/core-api#base) documentation for a complete token reference. Refer to the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a complete theme reference. We'll now cover all notable changes below.
+Please refer to the [Core API](/docs/[framework]/get-started/core-api#base) documentation for a complete token reference. Refer to the [Cerberus](https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes/cerberus.css) theme for a complete theme reference.
 
 #### Renamed
 
-The following token keys have changed, each value remains the same.
+The following token keys have changed, while the respective value remains the same.
 
 **Base Typography**
 
@@ -115,7 +157,7 @@ The following token keys have changed, each value remains the same.
 
 #### Added
 
-The following tokens expand the capabilities of your themes. Recommended default values have been provided.
+The following tokens expand the capabilities of your themes. Safe default values have been provided.
 
 **Typography**
 
@@ -204,9 +246,11 @@ The following tokens expand the capabilities of your themes. Recommended default
 
 #### Removed
 
+The following tokens are no longer supported and have been removed.
+
 | Key                      | Notes                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------- |
-| `--default-divide-width` | This is a bugfix; the value is derived from `--default-border-width`                            |
+| `--default-divide-width` | This is a bugfix; value is derived from `--default-border-width`                                |
 | `--heading-font-size`    | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
 | `--heading-line-height`  | Now derived from the [typographic scale](/docs/[framework]/design/typography#typographic-scale) |
 
@@ -216,19 +260,20 @@ The following tokens expand the capabilities of your themes. Recommended default
 
 Several utility classes have been replaced or removed. Relevant replacements are noted below.
 
-| v4 Class                | v5 Replacement                                             | Docs                                                             |
-| ----------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------- |
-| `card-hover`            | The `card` utility auto-applies styles to `<a>`/`<button>` | [View](/docs/[framework]/tailwind-components/cards#hover)        |
-| `input-group`           | Replaced with the `field-group` feature                    | [View](/docs/[framework]/tailwind-components/forms#field-groups) |
-| `ig-cell`               | `label label-text`; use a semantic `<label>`               | --                                                               |
-| `ig-input`              | `input`                                                    | --                                                               |
-| `ig-select`             | `select`                                                   | --                                                               |
-| `ig-btn`                | `btn`                                                      | --                                                               |
-| `@variant theme-[name]` | Permanently removed                                        | [View](/docs/svelte/design/themes#target-themes)                 |
+| v4 Class                | v5 Replacement                                           | Docs                                                      |
+| ----------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| `card-hover`            | `card` now auto-applies these styles to `<a>`/`<button>` | [View](/docs/[framework]/tailwind-components/cards#hover) |
+| `@variant theme-[name]` | Permanently removed                                      | [View](/docs/svelte/design/themes#target-themes)          |
 
-### Migrate Field Groups
+The Input Group feature has now been replaced with [Field Group](/docs/[framework]/tailwind-components/forms#field-groups). This is functionally similar, but much more intuitive to implement and use. This also encourages the use of a semantic HTML `<label>` element.
 
-Input Groups have now been replaced with the intuitive [Field Groups](/docs/[framework]/tailwind-components/forms#field-groups) feature.
+| v4 Class      | v5 Replacement                               |
+| ------------- | -------------------------------------------- |
+| `input-group` | `field-group`                                |
+| `ig-cell`     | `label label-text`; using `<label>`/`<span>` |
+| `ig-input`    | `input`                                      |
+| `ig-select`   | `select`                                     |
+| `ig-btn`      | `btn`                                        |
 
 ```html
 <!-- v4 -->
@@ -248,14 +293,14 @@ Input Groups have now been replaced with the intuitive [Field Groups](/docs/[fra
 
 ## Brand Color
 
-A new `--color-brand-*` token provides a default accent color for a number of Skeleton features. Refer to the new [Core API](/docs/svelte/get-started/core-api#brand) and updated [Colors](/docs/svelte/design/colors#brand-color) documentation for details.
+A new `--color-brand-*` token provides a dedicated accent color for your design system. It is treated as the default for several Skeleton features. Refer to the new [Core API](/docs/svelte/get-started/core-api#brand) and updated [Colors](/docs/svelte/design/colors#brand-color) documentation for details.
 
 - New presets have been added, including: `preset-filled-brand`, `preset-tonal-brand`, `preset-outlined-brand`.
 - Brand color is now the default for: checkboxes, radios, circular progress, steps, switches, tabs, and accordions.
 - Most Skeleton preset themes default to `primary-500`, which should result in little to no visual changes out of the box.
-- The `nouveau` theme is the only exception; it sets a different brand color between light and dark mode.
+- The `nouveau` theme is the only exception; it offers a different brand color between light and dark mode.
 
-This can be customized for any preset Skeleton theme (eg: Cerberus) using [this pattern](/docs/svelte/design/themes#modify-properties) in your global stylesheet.
+This can be customized for any preset Skeleton theme using [this pattern](/docs/svelte/design/themes#modify-properties) in your global stylesheet.
 
 ```css
 [data-theme='cerberus'] {
@@ -285,7 +330,31 @@ A new universal scaling system has been introduced for keeping element sizes uni
 
 ### Icons
 
-Refer to [Icon Sizes](/docs/svelte/design/iconography#sizes) for more explicit examples and details. Note that icons used within Tailwind Components such as buttons, badges, chips, and field groups are sized **automatically**. Adding an explicit sizing utility is redundant.
+Refer to [Icon Sizes](/docs/svelte/design/iconography#sizes) for more explicit examples and details.
+
+```html
+<!-- v4 -->
+<ArrowUpRightIcon size="{16}" />
+
+<!-- v5 -->
+<ArrowUpRightIcon class="size-elem-lg" />
+```
+
+When wrapped in a button, badge, chip, or disclosure the icon size is now handled automatically. If you have manually specified a size in the past, consider removing this to allow the inherited sizing to take effect.
+
+```html
+<!-- ❌ Not Recommended -->
+<button type="button" class="btn preset-filled">
+	<span>Button</span>
+	<ArrowUpRightIcon class="size-elem-lg" />
+</button>
+
+<!-- ✅ Recommended -->
+<button type="button" class="btn preset-filled">
+	<span>Button</span>
+	<ArrowUpRightIcon />
+</button>
+```
 
 ### Buttons
 
@@ -315,7 +384,7 @@ Form fields honor the same scale via new `field-{size}` utility. Refer to [Field
 
 ## Additional Features
 
-The following features are new additions. These are not breaking changes and are included for completeness.
+The following are optional and newly introduced features now available as part of the v5 update.
 
 ### Design System
 
@@ -356,7 +425,7 @@ If you've completed all steps above, then your app is now fully migrated. Run yo
 npm run dev
 ```
 
-> TIP: remember to merge all changes into your primary branch!
+> TIP: don't forget to merge all changes into your primary branch!
 
 ---
 
