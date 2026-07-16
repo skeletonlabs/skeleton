@@ -11,6 +11,7 @@
 @import '@skeletonlabs/skeleton/themes/cerberus';
 @import '@skeletonlabs/skeleton/themes/concord';
 @import '@skeletonlabs/skeleton/themes/crimson';
+@import '@skeletonlabs/skeleton/themes/dracula';
 @import '@skeletonlabs/skeleton/themes/fennec';
 @import '@skeletonlabs/skeleton/themes/hamlindigo';
 @import '@skeletonlabs/skeleton/themes/legacy';
@@ -23,6 +24,7 @@
 @import '@skeletonlabs/skeleton/themes/reign';
 @import '@skeletonlabs/skeleton/themes/rocket';
 @import '@skeletonlabs/skeleton/themes/rose';
+@import '@skeletonlabs/skeleton/themes/rosepine';
 @import '@skeletonlabs/skeleton/themes/sahara';
 @import '@skeletonlabs/skeleton/themes/seafoam';
 @import '@skeletonlabs/skeleton/themes/terminus';
@@ -75,6 +77,7 @@ html {
 [data-theme='catppuccin'],
 [data-theme='cerberus'],
 [data-theme='crimson'],
+[data-theme='dracula'],
 [data-theme='fennec'],
 [data-theme='hamlindigo'],
 [data-theme='legacy'],
@@ -85,6 +88,7 @@ html {
 [data-theme='nosh'],
 [data-theme='pine'],
 [data-theme='rose'],
+[data-theme='rosepine'],
 [data-theme='sahara'],
 [data-theme='seafoam'],
 [data-theme='vintage'],
@@ -92,8 +96,8 @@ html {
 	& body {
 		background-attachment: fixed;
 		background-image:
-			radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
-			radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-success-500) 5%, transparent) 0px, transparent 30%);
+			radial-gradient(at 0% 25%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 50%),
+			radial-gradient(at 15% 06%, color-mix(in oklab, var(--color-tertiary-500) 5%, transparent) 0px, transparent 50%);
 	}
 }
 

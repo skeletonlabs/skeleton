@@ -48,6 +48,15 @@ export const themes: MarqueeTheme[] = [
 		surface950: 'oklch(16.69% 0.02 275.16deg)',
 	},
 	{
+		name: 'Dracula',
+		emoji: '🧛',
+		primary500: 'oklch(74.03% 0.15 302.13deg)',
+		secondary500: 'oklch(75% 0.18 346.86deg)',
+		tertiary500: 'oklch(88.11% 0.09 212.62deg)',
+		surface50: 'oklch(97.89% 0.01 267.41deg)',
+		surface950: 'oklch(29.18% 0.02 277deg)',
+	},
+	{
 		name: 'Fennec',
 		emoji: '🦊',
 		primary500: 'oklch(65.88% 0.21 38.25deg)',
@@ -148,12 +157,21 @@ export const themes: MarqueeTheme[] = [
 	},
 	{
 		name: 'Rose',
-		emoji: '🌷',
+		emoji: '🪷',
 		primary500: 'oklch(69.89% 0.13 348.12deg)',
 		secondary500: 'oklch(46.75% 0.22 272.16deg)',
 		tertiary500: 'oklch(78.41% 0.08 291.85deg)',
 		surface50: 'oklch(96.76% 0.01 318.08deg)',
 		surface950: 'oklch(25.82% 0.01 304.87deg)',
+	},
+	{
+		name: 'Rosé Pine',
+		emoji: '🌷',
+		primary500: 'oklch(53.06% 0.08 227.38deg)',
+		secondary500: 'oklch(78.02% 0.09 305.36deg)',
+		tertiary500: 'oklch(83.96% 0.05 21.29deg)',
+		surface50: 'oklch(96.94% 0.01 72.66deg)',
+		surface950: 'oklch(21.02% 0.03 289.74deg)',
 	},
 	{
 		name: 'Sahara',

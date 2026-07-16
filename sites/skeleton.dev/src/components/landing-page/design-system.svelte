@@ -57,7 +57,7 @@
 	<!-- Text -->
 	<div class="space-y-8">
 		<h2 class="h2">Design System</h2>
-		<nav class="grid grid-cols-2 gap-4">
+		<nav class="grid grid-cols-2 gap-3">
 			{#each Object.entries(steps) as [key, step] (key)}
 				<button
 					type="button"
