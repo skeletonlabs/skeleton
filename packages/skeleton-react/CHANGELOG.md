@@ -1,5 +1,30 @@
 # @skeletonlabs/skeleton-react
 
+## 5.0.0
+
+### Major Changes
+
+- task: enter pre release ([#4352](https://github.com/skeletonlabs/skeleton/pull/4352))
+
+### Minor Changes
+
+- feature: `QrCode` component ([#4394](https://github.com/skeletonlabs/skeleton/pull/4394))
+
+- feature: `LocaleProvider` component ([#4479](https://github.com/skeletonlabs/skeleton/pull/4479))
+
+- feature: Added marquee component ([#4456](https://github.com/skeletonlabs/skeleton/pull/4456))
+
+### Patch Changes
+
+- task: bump `zag` to `1.41.0` ([#4480](https://github.com/skeletonlabs/skeleton/pull/4480))
+
+- task: bump `zag` to `1.42.0` ([#4515](https://github.com/skeletonlabs/skeleton/pull/4515))
+
+- task: bump `zag` to `1.41.2` ([#4492](https://github.com/skeletonlabs/skeleton/pull/4492))
+
+- Updated dependencies [[`851579f`](https://github.com/skeletonlabs/skeleton/commit/851579fcc9d57c4aa9a45ff45963aa8f961f229f), [`3daa14a`](https://github.com/skeletonlabs/skeleton/commit/3daa14a8581f5ba922a1d46e7a0b2dc7773fe0cd), [`960cd5a`](https://github.com/skeletonlabs/skeleton/commit/960cd5acc8179da46fcf03bd6a0c24c8c8332155), [`b70d164`](https://github.com/skeletonlabs/skeleton/commit/b70d16484d97e184ebaad1921913e14781b72207), [`dde2b1a`](https://github.com/skeletonlabs/skeleton/commit/dde2b1a44657749de57be8d40ebe7bb2f2377763), [`3207d74`](https://github.com/skeletonlabs/skeleton/commit/3207d74beea3a7eac3705448d2d15743db96a140)]:
+  - @skeletonlabs/skeleton-common@5.0.0
+
 ## 5.0.0-next.12
 
 ### Patch Changes

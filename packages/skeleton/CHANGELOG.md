@@ -1,5 +1,31 @@
 # @skeletonlabs/skeleton
 
+## 5.0.0
+
+### Major Changes
+
+- task: remove `card-hover` utility ([#4417](https://github.com/skeletonlabs/skeleton/pull/4417))
+
+- feature: Updated themes to new v5 format ([#4353](https://github.com/skeletonlabs/skeleton/pull/4353))
+
+- feature: Notable structural and design improvements for Tailwind and Framework components. Introducing variable sizing. Adds the meter component. ([#4380](https://github.com/skeletonlabs/skeleton/pull/4380))
+
+- task: enter pre release ([#4352](https://github.com/skeletonlabs/skeleton/pull/4352))
+
+### Minor Changes
+
+- feature: Added Dialog, Disclosure, and Mask Tailwind components, expanded Typography utilities (abbr, cite, q, sub, sup, time) ([#4389](https://github.com/skeletonlabs/skeleton/pull/4389))
+
+- task: refined global styles, redistributed placeholder color to Tailwind components ([#4370](https://github.com/skeletonlabs/skeleton/pull/4370))
+
+- bugfix: remove `cursor: pointer` from buttons ([#4367](https://github.com/skeletonlabs/skeleton/pull/4367))
+
+- task: Optimizations to the core global and theme properties ([#4396](https://github.com/skeletonlabs/skeleton/pull/4396))
+
+- task: Add Corner Shape utility and apply brand color defaults across components, typography, and links. ([#4408](https://github.com/skeletonlabs/skeleton/pull/4408))
+
+- feature: Expanded button (`btn`, `btn-icon`) and form field (`field-*`) size utilities to cover the full Tailwind type scale (`xs` through `9xl`). Removed `btn-icon-fab` in favor of the new sizes — use `btn-icon-3xl` (with `rounded-full` for circular) for an equivalent. ([#4390](https://github.com/skeletonlabs/skeleton/pull/4390))
+
 ## 5.0.0-next.12
 
 ## 5.0.0-next.11
