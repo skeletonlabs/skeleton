@@ -1,5 +1,23 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.0
+
+### Major Changes
+
+- feature: Notable structural and design improvements for Tailwind and Framework components. Introducing variable sizing. Adds the meter component. ([#4380](https://github.com/skeletonlabs/skeleton/pull/4380))
+
+- task: enter pre release ([#4352](https://github.com/skeletonlabs/skeleton/pull/4352))
+
+### Minor Changes
+
+- feature: `QrCode` component ([#4394](https://github.com/skeletonlabs/skeleton/pull/4394))
+
+- bugfix: remove `cursor: pointer` from buttons ([#4367](https://github.com/skeletonlabs/skeleton/pull/4367))
+
+- feature: Added marquee component ([#4456](https://github.com/skeletonlabs/skeleton/pull/4456))
+
+- task: Add Corner Shape utility and apply brand color defaults across components, typography, and links. ([#4408](https://github.com/skeletonlabs/skeleton/pull/4408))
+
 ## 5.0.0-next.12
 
 ## 5.0.0-next.11

@@ -1,5 +1,19 @@
 # skeleton
 
+## 5.0.0
+
+### Major Changes
+
+- task: enter pre release ([#4352](https://github.com/skeletonlabs/skeleton/pull/4352))
+
+### Minor Changes
+
+- feature: Added Skeleton 5 migration script ([#4508](https://github.com/skeletonlabs/skeleton/pull/4508))
+
+### Patch Changes
+
+- deps: update @clack/prompts ([#4363](https://github.com/skeletonlabs/skeleton/pull/4363))
+
 ## 5.0.0-next.12
 
 ### Minor Changes
