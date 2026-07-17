@@ -1,5 +1,5 @@
 {
-	"mode": "pre",
+	"mode": "exit",
 	"tag": "next",
 	"initialVersions": {
 		"skeleton": "4.15.2",
