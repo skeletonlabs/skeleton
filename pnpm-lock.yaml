@@ -33,9 +33,6 @@ catalogs:
     '@clack/prompts':
       specifier: 1.7.0
       version: 1.7.0
-    '@comark/svelte':
-      specifier: ^0.5.1
-      version: 0.5.1
     '@faker-js/faker':
       specifier: 10.5.0
       version: 10.5.0
@@ -267,9 +264,6 @@ catalogs:
     colorette:
       specifier: 2.0.20
       version: 2.0.20
-    comark:
-      specifier: ^0.5.1
-      version: 0.5.1
     commander:
       specifier: 15.0.0
       version: 15.0.0
