@@ -98,6 +98,19 @@
 	--animate-progress-linear-indeterminate-vertical: progress-linear-indeterminate-vertical 1.5s ease-in-out infinite;
 	--animate-progress-circular-indeterminate: progress-circular-indeterminate 1.5s linear infinite;
 
+	/* Canned Animations */
+	/* Curated micro-animations for common UI interactions. */
+	--animate-pop-in: skeleton-pop-in 0.4s ease-out both;
+	--animate-fade-in: skeleton-fade-in 0.4s ease-out both;
+	--animate-slide-in-up: skeleton-slide-in-up 0.4s ease-out both;
+	--animate-slide-in-down: skeleton-slide-in-down 0.4s ease-out both;
+	--animate-slide-in-left: skeleton-slide-in-left 0.4s ease-out both;
+	--animate-slide-in-right: skeleton-slide-in-right 0.4s ease-out both;
+	--animate-zoom-in: skeleton-zoom-in 0.4s ease-out both;
+	--animate-shake: skeleton-shake 0.5s ease-in-out;
+	--animate-wiggle: skeleton-wiggle 0.6s ease-in-out infinite;
+	--animate-pulse-soft: skeleton-pulse-soft 2s ease-in-out infinite;
+
 	/* Primary */
 	--color-primary-50: oklch(0.985 0 0);
 	--color-primary-100: oklch(0.97 0 0);
