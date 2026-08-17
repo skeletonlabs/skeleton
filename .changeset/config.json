@@ -3,7 +3,7 @@
 	"changelog": ["@svitejs/changesets-changelog-github-compact", { "repo": "skeletonlabs/skeleton" }],
 	"commit": false,
 	"fixed": [["**"]],
-	"prettier": false,
+	"format": false,
 	"linked": [],
 	"access": "public",
 	"baseBranch": "main",
