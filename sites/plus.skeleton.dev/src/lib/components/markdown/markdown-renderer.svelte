@@ -1,13 +1,27 @@
 <script lang="ts" module>
+	import { createMarkdownParser } from '@comark/svelte/parse';
+
 	export interface Props {
 		content: string;
 	}
+
+	const parse = createMarkdownParser({
+		plugins: [
+			alert(),
+			taskList(),
+			emoji(),
+			highlight({
+				themes: { light: githubLight, dark: githubDark },
+				registerDefaultThemes: false,
+				preStyles: true,
+			}),
+		],
+	});
 </script>
 
 <script lang="ts">
 	import * as components from './overrides/index';
-	import { ComarkRenderer } from '@comark/svelte';
-	import { parse } from '@comark/svelte/parse';
+	import { MarkdownDocument } from '@comark/svelte';
 	import githubDark from '@shikijs/themes/github-dark';
 	import githubLight from '@shikijs/themes/github-light';
 	import alert from 'comark/plugins/alert';
@@ -17,20 +31,7 @@
 
 	const { content }: Props = $props();
 
-	const tree = $derived(
-		await parse(content, {
-			plugins: [
-				alert(),
-				taskList(),
-				emoji(),
-				highlight({
-					themes: { light: githubLight, dark: githubDark },
-					registerDefaultThemes: false,
-					preStyles: true,
-				}),
-			],
-		}),
-	);
+	const document = $derived(await parse(content));
 </script>
 
-<ComarkRenderer {tree} {components} class="space-y-8" />
+<MarkdownDocument value={document} {components} class="space-y-8" />
