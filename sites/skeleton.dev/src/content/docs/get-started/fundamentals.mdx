@@ -289,6 +289,7 @@ Using the extensible markup pattern, you may implement custom animations. We sho
 Skeleton components maintain a uniform pattern for handling data flow in and out. We lean into the Zag convention for this, which handles this explicitly with a prop for data in and event handler for data out. As opposed to two-way binding (such as `bind:` in Svelte). You can see this in practice below for the Switch component.
 
 <Framework id="react">
+
 ```tsx
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { useState } from 'react';
@@ -296,29 +297,30 @@ import { useState } from 'react';
 export default function Default() {
 	const [checked, setChecked] = useState(false);
 
-    return (
-    	<Switch checked={checked} onCheckedChange={(e) => setChecked(e.checked)}>
-    		<Switch.Control>
-    			<Switch.Thumb />
-    		</Switch.Control>
-    		<Switch.Label>Label</Switch.Label>
-    		<Switch.HiddenInput />
-    	</Switch>
-    );
-
+	return (
+		<Switch checked={checked} onCheckedChange={(e) => setChecked(e.checked)}>
+			<Switch.Control>
+				<Switch.Thumb />
+			</Switch.Control>
+			<Switch.Label>Label</Switch.Label>
+			<Switch.HiddenInput />
+		</Switch>
+	);
 }
+```
 
-````
 </Framework>
+
 <Framework id="svelte">
-{/* prettier-ignore */}
+
 ```svelte
 <script lang="ts">
 	import { Switch } from '@skeletonlabs/skeleton-svelte';
+
 	let checked = $state(false);
 </script>
 
-<Switch checked={checked} onCheckedChange={(e) => (checked = e.checked)}>
+<Switch {checked} onCheckedChange={(e) => (checked = e.checked)}>
 	<Switch.Control>
 		<Switch.Thumb />
 	</Switch.Control>
@@ -399,5 +401,3 @@ export default function TooltipExample() {
 ### Learn More
 
 For a comprehensive guide to how Skeleton implements components, refer to our [contribution guidelines](/docs/[framework]/resources/contribute/components).
-
-````
