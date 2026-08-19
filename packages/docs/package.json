@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/docs",
-	"version": "5.0.0",
+	"version": "5.0.1",
 	"description": "Documentation generator for various Skeleton packages",
 	"repository": {
 		"type": "git",
