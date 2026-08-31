@@ -109,7 +109,7 @@ catalog:
   octokit: 5.0.5
   oxc-resolver: 11.24.2
   oxlint: 1.78.0
-  oxlint-tsgolint: 0.25.0
+  oxlint-tsgolint: 7.0.2001
   package-manager-detector: 1.8.0
   playwright: 1.62.1
   postcss: 8.5.26
