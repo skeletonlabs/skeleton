@@ -30,7 +30,7 @@ jobs:
         run: pnpm install
       - name: Create Release Pull Request or Publish
         id: changesets
-        uses: changesets/action@v2.1.0
+        uses: changesets/action@v2.1.1
         with:
           pr-title: 'task: release'
           version-script: pnpm changeset:version
