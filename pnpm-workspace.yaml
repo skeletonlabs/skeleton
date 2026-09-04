@@ -5,20 +5,20 @@ packages:
 
 catalog:
   '@astrojs/check': 0.9.10
-  '@astrojs/mdx': 7.0.5
+  '@astrojs/mdx': 7.0.8
   '@astrojs/partytown': 2.1.7
-  '@astrojs/react': 6.0.2
-  '@astrojs/sitemap': 3.7.3
+  '@astrojs/react': 6.0.5
+  '@astrojs/sitemap': 3.7.4
   '@astrojs/svelte': 9.0.1
-  '@astrojs/vercel': 11.0.5
-  '@changesets/cli': 3.0.0
+  '@astrojs/vercel': 11.0.9
+  '@changesets/cli': 3.0.1
   '@clack/prompts': 1.7.0
-  '@faker-js/faker': 10.5.0
+  '@faker-js/faker': 10.6.0
   '@floating-ui/dom': 1.8.0
-  '@iconify-json/simple-icons': 1.2.93
-  '@internationalized/date': 3.12.3
-  '@lucide/astro': 1.31.0
-  '@lucide/svelte': 1.31.0
+  '@iconify-json/simple-icons': 1.2.94
+  '@internationalized/date': 3.12.4
+  '@lucide/astro': 1.39.0
+  '@lucide/svelte': 1.39.0
   '@neondatabase/serverless': 1.1.0
   '@playwright/test': 1.62.1
   '@prettier/plugin-oxc': 0.2.2
@@ -38,9 +38,9 @@ catalog:
   '@svitejs/changesets-changelog-github-compact': 1.2.0
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.3.3
-  '@tanstack/react-router': 1.170.27
-  '@tanstack/react-start': 1.168.44
-  '@tanstack/router-cli': 1.167.28
+  '@tanstack/react-router': 1.170.32
+  '@tanstack/react-start': 1.168.49
+  '@tanstack/router-cli': 1.167.33
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
   '@types/estree': 1.0.9
@@ -48,44 +48,44 @@ catalog:
   '@types/mdast': 4.0.4
   '@types/node': 25.9.5
   '@types/react': 19.2.18
-  '@types/react-dom': 19.2.4
+  '@types/react-dom': 19.2.5
   '@types/semver': 7.8.0
-  '@vitejs/plugin-react': 6.0.5
-  '@vitest/browser-playwright': 4.1.10
-  '@zag-js/accordion': 1.43.0
-  '@zag-js/avatar': 1.43.0
-  '@zag-js/carousel': 1.43.0
-  '@zag-js/marquee': 1.43.0
-  '@zag-js/collapsible': 1.43.0
-  '@zag-js/collection': 1.43.0
-  '@zag-js/combobox': 1.43.0
-  '@zag-js/date-picker': 1.43.0
-  '@zag-js/dialog': 1.43.0
-  '@zag-js/file-upload': 1.43.0
-  '@zag-js/floating-panel': 1.43.0
-  '@zag-js/listbox': 1.43.0
-  '@zag-js/menu': 1.43.0
-  '@zag-js/pagination': 1.43.0
-  '@zag-js/popover': 1.43.0
-  '@zag-js/progress': 1.43.0
-  '@zag-js/qr-code': 1.43.0
-  '@zag-js/radio-group': 1.43.0
-  '@zag-js/rating-group': 1.43.0
-  '@zag-js/react': 1.43.0
-  '@zag-js/slider': 1.43.0
-  '@zag-js/steps': 1.43.0
-  '@zag-js/svelte': 1.43.0
-  '@zag-js/switch': 1.43.0
-  '@zag-js/tabs': 1.43.0
-  '@zag-js/tags-input': 1.43.0
-  '@zag-js/toast': 1.43.0
-  '@zag-js/toggle-group': 1.43.0
-  '@zag-js/tooltip': 1.43.0
-  '@zag-js/tree-view': 1.43.0
-  astro: 7.2.2
+  '@vitejs/plugin-react': 6.1.1
+  '@vitest/browser-playwright': 4.1.11
+  '@zag-js/accordion': 1.43.3
+  '@zag-js/avatar': 1.43.3
+  '@zag-js/carousel': 1.43.3
+  '@zag-js/marquee': 1.43.3
+  '@zag-js/collapsible': 1.43.3
+  '@zag-js/collection': 1.43.3
+  '@zag-js/combobox': 1.43.3
+  '@zag-js/date-picker': 1.43.3
+  '@zag-js/dialog': 1.43.3
+  '@zag-js/file-upload': 1.43.3
+  '@zag-js/floating-panel': 1.43.3
+  '@zag-js/listbox': 1.43.3
+  '@zag-js/menu': 1.43.3
+  '@zag-js/pagination': 1.43.3
+  '@zag-js/popover': 1.43.3
+  '@zag-js/progress': 1.43.3
+  '@zag-js/qr-code': 1.43.3
+  '@zag-js/radio-group': 1.43.3
+  '@zag-js/rating-group': 1.43.3
+  '@zag-js/react': 1.43.3
+  '@zag-js/slider': 1.43.3
+  '@zag-js/steps': 1.43.3
+  '@zag-js/svelte': 1.43.3
+  '@zag-js/switch': 1.43.3
+  '@zag-js/tabs': 1.43.3
+  '@zag-js/tags-input': 1.43.3
+  '@zag-js/toast': 1.43.3
+  '@zag-js/toggle-group': 1.43.3
+  '@zag-js/tooltip': 1.43.3
+  '@zag-js/tree-view': 1.43.3
+  astro: 7.2.10
   astro-pagefind: 2.0.1
-  astro-seo: 1.1.0
-  better-auth: 1.6.28
+  astro-seo: 1.2.0
+  better-auth: 1.7.2
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
@@ -97,18 +97,18 @@ catalog:
   html-escaper: 3.0.3
   latest-version: 9.0.0
   lightningcss: 1.33.0
-  lucide-react: 1.31.0
-  magic-string: 1.2.0
+  lucide-react: 1.39.0
+  magic-string: 1.2.3
   mdast-util-from-markdown: 2.0.3
   mdast-util-gfm: 3.1.0
   mdast-util-mdx: 3.0.0
   mdast-util-to-markdown: 2.1.2
   micromark-extension-mdxjs: 3.0.0
   nanoid: 6.0.1
-  node-html-parser: 9.0.1
+  node-html-parser: 9.0.2
   octokit: 5.0.5
   oxc-resolver: 11.24.2
-  oxlint: 1.78.0
+  oxlint: 1.81.0
   oxlint-tsgolint: 0.25.0
   package-manager-detector: 1.8.0
   playwright: 1.62.1
@@ -119,28 +119,28 @@ catalog:
   prettier-plugin-svelte: 4.1.1
   react: 19.2.8
   react-dom: 19.2.8
-  satori: 0.29.0
+  satori: 0.33.4
   semver: 7.8.5
-  sharp: 0.35.3
+  sharp: 0.35.4
   shiki: 4.4.3
-  svelte: 5.56.9
+  svelte: 5.57.0
   svelte-check: 4.7.6
   tailwindcss: 4.3.3
   tinyglobby: 0.2.17
   ts-morph: 28.0.0
   tsdown: 0.22.14
-  type-fest: 5.8.0
+  type-fest: 5.9.0
   typescript: 6.0.3
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
   valibot: 1.4.2
-  vite: 8.2.1
-  vitest: 4.1.10
+  vite: 8.2.2
+  vitest: 4.1.11
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.2.1
-  zimmerframe: 1.1.4
+  zimmerframe: 1.1.5
   neverthrow: 8.2.0
-  '@zag-js/i18n-utils': 1.43.0
+  '@zag-js/i18n-utils': 1.43.3
 
 catalogMode: strict
 
