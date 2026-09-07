@@ -137,7 +137,7 @@ catalog:
   vite: 8.2.1
   vitest: 4.1.10
   vitest-browser-react: 2.2.0
-  vitest-browser-svelte: 2.2.1
+  vitest-browser-svelte: 3.1.0
   zimmerframe: 1.1.4
   neverthrow: 8.2.0
   '@zag-js/i18n-utils': 1.43.0
