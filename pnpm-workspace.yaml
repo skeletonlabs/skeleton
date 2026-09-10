@@ -82,7 +82,7 @@ catalog:
   '@zag-js/toggle-group': 1.43.0
   '@zag-js/tooltip': 1.43.0
   '@zag-js/tree-view': 1.43.0
-  astro: 7.2.2
+  astro: 7.2.8
   astro-pagefind: 2.0.1
   astro-seo: 1.1.0
   better-auth: 1.6.28
@@ -152,6 +152,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: astro@7.2.8
+  - astro@7.2.8
 
 allowBuilds:
   '@parcel/watcher': true
