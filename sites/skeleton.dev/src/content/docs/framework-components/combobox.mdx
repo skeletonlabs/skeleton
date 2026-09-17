@@ -19,6 +19,8 @@ import DisabledItemReact from '@/components/examples/framework-components/combob
 import DisabledItemReactRaw from '@/components/examples/framework-components/combobox/react/disabled-item?raw';
 import GroupReact from '@/components/examples/framework-components/combobox/react/group';
 import GroupReactRaw from '@/components/examples/framework-components/combobox/react/group?raw';
+import InputChipReact from '@/components/examples/framework-components/combobox/react/input-chip';
+import InputChipReactRaw from '@/components/examples/framework-components/combobox/react/input-chip?raw';
 import MultipleReact from '@/components/examples/framework-components/combobox/react/multiple';
 import MultipleReactRaw from '@/components/examples/framework-components/combobox/react/multiple?raw';
 import AutoHighlightSvelte from '@/components/examples/framework-components/combobox/svelte/auto-highlight.svelte';
@@ -33,6 +35,8 @@ import DisabledItemSvelte from '@/components/examples/framework-components/combo
 import DisabledItemSvelteRaw from '@/components/examples/framework-components/combobox/svelte/disabled-item.svelte?raw';
 import GroupSvelte from '@/components/examples/framework-components/combobox/svelte/group.svelte';
 import GroupSvelteRaw from '@/components/examples/framework-components/combobox/svelte/group.svelte?raw';
+import InputChipSvelte from '@/components/examples/framework-components/combobox/svelte/input-chip.svelte';
+import InputChipSvelteRaw from '@/components/examples/framework-components/combobox/svelte/input-chip.svelte?raw';
 import MultipleSvelte from '@/components/examples/framework-components/combobox/svelte/multiple.svelte';
 import MultipleSvelteRaw from '@/components/examples/framework-components/combobox/svelte/multiple.svelte?raw';
 
@@ -89,6 +93,21 @@ To maintain filtering functionality and improve clarity for users, we recommend 
 <Framework id="svelte">
 	<Preview framework="svelte" files={{ 'app.svelte': MultipleSvelteRaw }} client:visible>
 		<MultipleSvelte client:visible />
+	</Preview>
+</Framework>
+
+## Input Chip
+
+Combine the multi-select Combobox with the [chip](/docs/tailwind-components/chips) utility to render each selected value as a dismissable chip. Clicking a chip removes that value from the selection.
+
+<Framework id="react">
+	<Preview framework="react" files={{ 'app.tsx': InputChipReactRaw }} client:visible>
+		<InputChipReact client:visible />
+	</Preview>
+</Framework>
+<Framework id="svelte">
+	<Preview framework="svelte" files={{ 'app.svelte': InputChipSvelteRaw }} client:visible>
+		<InputChipSvelte client:visible />
 	</Preview>
 </Framework>
 
