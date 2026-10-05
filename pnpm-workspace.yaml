@@ -130,7 +130,7 @@ catalog:
   ts-morph: 28.0.0
   tsdown: 0.22.14
   type-fest: 5.8.0
-  typescript: 6.0.3
+  typescript: 7.0.2
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
   valibot: 1.4.2
