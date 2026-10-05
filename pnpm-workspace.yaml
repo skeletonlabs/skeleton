@@ -121,7 +121,7 @@ catalog:
   react-dom: 19.2.8
   satori: 0.29.0
   semver: 7.8.5
-  sharp: 0.35.3
+  sharp: 0.35.4
   shiki: 4.4.3
   svelte: 5.56.9
   svelte-check: 4.7.6
@@ -152,6 +152,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: sharp@0.35.4
+  - sharp@0.35.4
 
 allowBuilds:
   '@parcel/watcher': true
