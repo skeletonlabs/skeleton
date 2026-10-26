@@ -39,7 +39,7 @@ catalog:
   '@tailwindcss/forms': 0.5.11
   '@tailwindcss/vite': 4.3.3
   '@tanstack/react-router': 1.170.27
-  '@tanstack/react-start': 1.168.44
+  '@tanstack/react-start': 1.168.60
   '@tanstack/router-cli': 1.167.28
   '@trivago/prettier-plugin-sort-imports': 6.0.2
   '@types/chroma-js': 3.1.2
@@ -152,6 +152,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: @tanstack/react-start@1.168.60
+  - "@tanstack/react-start@1.168.60"
 
 allowBuilds:
   '@parcel/watcher': true
