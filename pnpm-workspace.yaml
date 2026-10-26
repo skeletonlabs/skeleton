@@ -135,7 +135,7 @@ catalog:
   unplugin-icons: 23.0.1
   valibot: 1.4.2
   vite: 8.2.1
-  vitest: 4.1.10
+  vitest: 4.1.11
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.2.1
   zimmerframe: 1.1.4
@@ -152,6 +152,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
+  # Renovate security update: vitest@4.1.11
+  - vitest@4.1.11
 
 allowBuilds:
   '@parcel/watcher': true
