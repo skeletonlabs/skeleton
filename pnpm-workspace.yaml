@@ -121,7 +121,7 @@ catalog:
   react-dom: 19.2.8
   satori: 0.33.5
   semver: 7.8.5
-  sharp: 0.35.3
+  sharp: 0.35.5
   shiki: 4.4.3
   svelte: 5.56.9
   svelte-check: 4.7.6
@@ -158,6 +158,8 @@ minimumReleaseAgeExclude:
   - vite@8.2.4
   # Renovate security update: astro@7.3.3
   - astro@7.3.3
+  # Renovate security update: sharp@0.35.5
+  - sharp@0.35.5
 
 allowBuilds:
   '@parcel/watcher': true
