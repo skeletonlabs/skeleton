@@ -42,6 +42,7 @@
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"lightningcss": "catalog:",
+		"lucide-react": "catalog:",
 		"neverthrow": "catalog:",
 		"playwright": "catalog:",
 		"postgres": "catalog:",
