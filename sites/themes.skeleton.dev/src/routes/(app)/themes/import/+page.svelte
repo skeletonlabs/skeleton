@@ -1,13 +1,13 @@
 <script lang="ts">
 	// Themes
+	import { themes } from '#lib/constants/themes.ts';
+	import { importThemeV2 } from '#lib/utils/importer/import-theme-v2.ts';
+	// Utils
+	import { importThemeV3 } from '#lib/utils/importer/import-theme-v3.ts';
+	import { importThemeV5, parseThemeProperties } from '#lib/utils/importer/import-theme-v5.ts';
+	import { isV5Format } from '#lib/utils/importer/migrate-legacy-keys.ts';
 	import { goto } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import { themes } from '$lib/constants/themes';
-	import { importThemeV2 } from '$lib/utils/importer/import-theme-v2';
-	// Utils
-	import { importThemeV3 } from '$lib/utils/importer/import-theme-v3';
-	import { importThemeV5, parseThemeProperties } from '$lib/utils/importer/import-theme-v5';
-	import { isV5Format } from '$lib/utils/importer/migrate-legacy-keys';
 	import FileUpIcon from '@lucide/svelte/icons/file-up';
 	import { FileUpload, type FileUploadRootProps } from '@skeletonlabs/skeleton-svelte';
 
@@ -35,7 +35,7 @@
 		// Run template import
 		importThemeCss(fileCss, fileName);
 		// Redirect to Generator page
-		goto(resolve('/themes/create'));
+		goto(resolve('themes/create'));
 	}
 
 	const onFileChange: FileUploadRootProps['onFileChange'] = async (event) => {
@@ -73,9 +73,9 @@
 	</FileUpload>
 	<!-- Text -->
 	<div class="flex justify-center gap-4">
-		<span class="opacity-10">&mdash;</span>
+		<span class="opacity-10">—</span>
 		<span class="opacity-60">or select a template</span>
-		<span class="opacity-10">&mdash;</span>
+		<span class="opacity-10">—</span>
 	</div>
 	<!-- Templates -->
 	<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">

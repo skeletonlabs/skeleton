@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Components (common)
-	import CodeBlock from '$lib/components/common/CodeBlock/CodeBlock.svelte';
-	import { globals, settingsCustomFonts } from '$lib/state/generator.svelte';
+	import CodeBlock from '#lib/components/common/CodeBlock/CodeBlock.svelte';
+	import { globals, settingsCustomFonts } from '#lib/state/generator.svelte.ts';
 	// Utils
-	import { generateFontImports, generateFontInstallCommand } from '$lib/utils/generator/generate-font-install';
-	import { generateTheme } from '$lib/utils/generator/generate-theme';
+	import { generateFontImports, generateFontInstallCommand } from '#lib/utils/generator/generate-font-install.ts';
+	import { generateTheme } from '#lib/utils/generator/generate-theme.ts';
 	// Components (generator)
 	import PreviewComponents from './PreviewComponents.svelte';
 	import PreviewPalette from './PreviewPalette.svelte';

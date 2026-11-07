@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as constants from '$lib/constants/generator';
-	import { globals } from '$lib/state/generator.svelte';
+	import * as constants from '#lib/constants/generator.ts';
+	import { globals } from '#lib/state/generator.svelte.ts';
 	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import CalendarIcon from '@lucide/svelte/icons/calendar';

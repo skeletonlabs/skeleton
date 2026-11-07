@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/generator';
+	import * as constants from '#lib/constants/generator.ts';
 	// State
-	import { settingsBrand } from '$lib/state/generator.svelte';
+	import { settingsBrand } from '#lib/state/generator.svelte.ts';
 
 	/** Parses a `var(--color-{name}-{shade})` reference back into its parts. */
 	function parseColorRef(value: string) {

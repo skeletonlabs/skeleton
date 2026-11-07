@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { globals } from '$lib/state/generator.svelte';
+	import { globals } from '#lib/state/generator.svelte.ts';
 	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
 	import ControlsBrand from './ControlsBrand.svelte';
 	import ControlsColors from './ControlsColors.svelte';

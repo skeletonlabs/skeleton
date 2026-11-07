@@ -1,10 +1,10 @@
 <script lang="ts">
 	// Constants
 	// Components
-	import Edges from '$lib/components/generator/Edges/Edges.svelte';
-	import * as constants from '$lib/constants/generator';
+	import Edges from '#lib/components/generator/Edges/Edges.svelte';
+	import * as constants from '#lib/constants/generator.ts';
 	// State
-	import { settingsCorners, settingsEdges } from '$lib/state/generator.svelte';
+	import { settingsCorners, settingsEdges } from '#lib/state/generator.svelte.ts';
 
 	// The 'inherit' corner shape has no distinct visual, so it's excluded from the preview grid.
 	const cornerShapeOptions = constants.cornerShapes.filter((shape) => shape !== 'inherit');

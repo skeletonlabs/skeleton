@@ -1,11 +1,11 @@
 <script lang="ts">
 	// Components (generator)
-	import Logo from '$lib/components/common/Logo/Logo.svelte';
-	import Controls from '$lib/components/generator/Controls/Controls.svelte';
-	import Preview from '$lib/components/generator/Preview/Preview.svelte';
+	import Logo from '#lib/components/common/Logo/Logo.svelte';
+	import Controls from '#lib/components/generator/Controls/Controls.svelte';
+	import Preview from '#lib/components/generator/Preview/Preview.svelte';
 	// Utils
-	import { generatePreviewCss } from '$lib/utils/generator/generate-css';
-	import { generateFontFaces } from '$lib/utils/generator/generate-font-faces';
+	import { generatePreviewCss } from '#lib/utils/generator/generate-css.ts';
+	import { generateFontFaces } from '#lib/utils/generator/generate-font-faces.ts';
 </script>
 
 <!-- Live Preview CSS -->

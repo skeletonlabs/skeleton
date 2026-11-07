@@ -1,9 +1,9 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/generator';
+	import * as constants from '#lib/constants/generator.ts';
 	// State
-	import { settingsColors } from '$lib/state/generator.svelte';
-	import { getColorKey } from '$lib/utils/generator/colors';
+	import { settingsColors } from '#lib/state/generator.svelte.ts';
+	import { getColorKey } from '#lib/utils/generator/colors.ts';
 	import chroma from 'chroma-js';
 	import { untrack } from 'svelte';
 

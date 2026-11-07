@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Components (common)
-	import AppHeader from '$lib/components/common/AppHeader/AppHeader.svelte';
+	import AppHeader from '#lib/components/common/AppHeader/AppHeader.svelte';
 
 	let { children } = $props();
 </script>

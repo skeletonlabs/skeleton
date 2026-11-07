@@ -1,7 +1,7 @@
 <script lang="ts">
-	import * as constants from '$lib/constants/generator';
-	import { globals, settingsColors } from '$lib/state/generator.svelte';
-	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '$lib/utils/generator/colors';
+	import * as constants from '#lib/constants/generator.ts';
+	import { globals, settingsColors } from '#lib/state/generator.svelte.ts';
+	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '#lib/utils/generator/colors.ts';
 	import ControlsColorsContrast from './ControlsColorsContrast.svelte';
 	import DicesIcon from '@lucide/svelte/icons/dices';
 	import EraserIcon from '@lucide/svelte/icons/eraser';

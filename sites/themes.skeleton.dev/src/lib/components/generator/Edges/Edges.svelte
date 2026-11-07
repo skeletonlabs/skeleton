@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Edge from '$lib/components/generator/Edges/EdgeOption.svelte';
+	import Edge from '#lib/components/generator/Edges/EdgeOption.svelte';
 
 	interface EdgesProps {
 		mode?: 'radius' | 'thickness' | 'corner';
