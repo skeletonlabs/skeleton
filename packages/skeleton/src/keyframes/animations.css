@@ -1,0 +1,131 @@
+/* Components: Keyframe - Canned Animations */
+/* A curated set of reusable micro-animations for common UI interactions. */
+/* NOTE: keyframes are prefixed with `skeleton-` to avoid naming collisions. */
+
+/* Entry: Pop In */
+@keyframes skeleton-pop-in {
+	0% {
+		opacity: 0;
+		scale: 0.8;
+	}
+	60% {
+		opacity: 1;
+		scale: 1.05;
+	}
+	100% {
+		opacity: 1;
+		scale: 1;
+	}
+}
+
+/* Entry: Fade In */
+@keyframes skeleton-fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/* Entry: Slide In Up */
+@keyframes skeleton-slide-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Entry: Slide In Down */
+@keyframes skeleton-slide-in-down {
+	from {
+		opacity: 0;
+		transform: translateY(-12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Entry: Slide In Left */
+@keyframes skeleton-slide-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Entry: Slide In Right */
+@keyframes skeleton-slide-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Entry: Zoom In */
+@keyframes skeleton-zoom-in {
+	from {
+		opacity: 0;
+		scale: 0.8;
+	}
+	to {
+		opacity: 1;
+		scale: 1;
+	}
+}
+
+/* Attention: Shake */
+@keyframes skeleton-shake {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	20% {
+		transform: translateX(-6px);
+	}
+	40% {
+		transform: translateX(6px);
+	}
+	60% {
+		transform: translateX(-4px);
+	}
+	80% {
+		transform: translateX(4px);
+	}
+}
+
+/* Attention: Wiggle */
+@keyframes skeleton-wiggle {
+	0%,
+	100% {
+		transform: rotate(-3deg);
+	}
+	50% {
+		transform: rotate(3deg);
+	}
+}
+
+/* Attention: Soft Pulse */
+@keyframes skeleton-pulse-soft {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
+}

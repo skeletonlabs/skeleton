@@ -1,0 +1,72 @@
+---
+title: Animations
+description: A curated set of canned micro-animations for common UI interactions, including entry and attention effects.
+references:
+  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/keyframes/animations.css'
+stability: alpha
+---
+
+import Preview from '@/components/ui/preview.svelte';
+
+import Default from '@/components/examples/tailwind-utilities/animations/default.astro';
+import DefaultRaw from '@/components/examples/tailwind-utilities/animations/default.astro?raw';
+
+Skeleton provides a set of canned CSS animations, exposed as Tailwind `animate-*` utilities. Apply them with a single class — no custom keyframes required.
+
+<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+	<Default />
+</Preview>
+
+## Entry Animations
+
+Animate an element into view. Use these to reveal content when it mounts, or pair with a conditional render for list transitions.
+
+| Class                    | Description                                |
+| ------------------------ | ------------------------------------------ |
+| `animate-pop-in`         | Scales up from 80% with a subtle overshoot |
+| `animate-fade-in`        | Fades in from fully transparent            |
+| `animate-zoom-in`        | Scales up from 80% while fading in         |
+| `animate-slide-in-up`    | Slides up 12px while fading in             |
+| `animate-slide-in-down`  | Slides down 12px while fading in           |
+| `animate-slide-in-left`  | Slides left 12px while fading in           |
+| `animate-slide-in-right` | Slides right 12px while fading in          |
+
+## Attention Animations
+
+Draw attention to an element, or signal interaction feedback such as a validation error.
+
+| Class                | Description                                |
+| -------------------- | ------------------------------------------ |
+| `animate-shake`      | Shakes horizontally. Great for form errors |
+| `animate-wiggle`     | Gently rotates back and forth, looping     |
+| `animate-pulse-soft` | Softly fades opacity in and out, looping   |
+
+## Usage
+
+Entry animations use a `both` fill mode, so elements start at their initial keyframe state (hidden) before animating. Attention animations that loop run indefinitely.
+
+```html
+<div class="animate-pop-in">
+	<!-- content -->
+</div>
+```
+
+Entry animations run once on mount. To replay them, re-mount the element or re-trigger the animation:
+
+```html
+<div class="animate-shake motion-reduce:animate-none">
+	<!-- content -->
+</div>
+```
+
+Use the `motion-reduce` variant to disable animations for users who prefer reduced motion.
+
+## Customizing
+
+Canned animations are defined as theme variables, so you can override the duration, easing, or iteration count per project, or use them as a base for your own keyframes.
+
+```css
+@theme {
+	--animate-pop-in: skeleton-pop-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+```
