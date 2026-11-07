@@ -115,7 +115,7 @@
 	<AppBar class="container mx-auto bg-transparent">
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 			<AppBar.Lead>
-				<a href={resolve('/')} class="flex items-center gap-4 self-start" aria-label="Homepage" title="Homepage">
+				<a href={resolve('/(app)')} class="flex items-center gap-4 self-start" aria-label="Homepage" title="Homepage">
 					<Skeleton class="size-elem-3xl" />
 				</a>
 			</AppBar.Lead>
