@@ -1,9 +1,9 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/generator';
+	import * as constants from '#lib/constants/generator.ts';
 	// State
-	import { settingsCustomFonts, settingsTypography } from '$lib/state/generator.svelte';
-	import { customFontOptionValue, fetchFontsourceFont, parseFontsourceId } from '$lib/utils/generator/fonts';
+	import { settingsCustomFonts, settingsTypography } from '#lib/state/generator.svelte.ts';
+	import { customFontOptionValue, fetchFontsourceFont, parseFontsourceId } from '#lib/utils/generator/fonts.ts';
 	import { Tabs } from '@skeletonlabs/skeleton-svelte';
 	import chroma from 'chroma-js';
 

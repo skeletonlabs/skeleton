@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { LinkAccountSchema } from '$lib/schemas/auth/link-account-schema';
+	import type { LinkAccountSchema } from '#lib/schemas/auth/link-account-schema.ts';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { InferInput } from 'valibot';
 
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { linkAccount } from '$lib/remote/auth/link-account.remote';
+	import { linkAccount } from '#lib/remote/auth/link-account.remote.ts';
 
 	const { children, providerId, callbackURL, ...attributes }: Props = $props();
 </script>

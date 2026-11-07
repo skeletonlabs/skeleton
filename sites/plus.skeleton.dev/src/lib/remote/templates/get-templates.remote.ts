@@ -6,19 +6,19 @@
 
 import { getRequestEvent, query } from '$app/server';
 
-import personaCard from '$lib/assets/images/templates/persona/card.webp';
-import personaHero from '$lib/assets/images/templates/persona/hero.webp';
-import personaScreenshot001 from '$lib/assets/images/templates/persona/screenshot-001.webp';
-import personaScreenshot002 from '$lib/assets/images/templates/persona/screenshot-002.webp';
-import personaScreenshot003 from '$lib/assets/images/templates/persona/screenshot-003.webp';
-import personaScreenshot004 from '$lib/assets/images/templates/persona/screenshot-004.webp';
+import personaCard from '#lib/assets/images/templates/persona/card.webp';
+import personaHero from '#lib/assets/images/templates/persona/hero.webp';
+import personaScreenshot001 from '#lib/assets/images/templates/persona/screenshot-001.webp';
+import personaScreenshot002 from '#lib/assets/images/templates/persona/screenshot-002.webp';
+import personaScreenshot003 from '#lib/assets/images/templates/persona/screenshot-003.webp';
+import personaScreenshot004 from '#lib/assets/images/templates/persona/screenshot-004.webp';
 
-import stardustCard from '$lib/assets/images/templates/stardust/card.webp';
-import stardustHero from '$lib/assets/images/templates/stardust/hero.webp';
-import stardustScreenshot001 from '$lib/assets/images/templates/stardust/screenshot-001.webp';
-import stardustScreenshot002 from '$lib/assets/images/templates/stardust/screenshot-002.webp';
-import stardustScreenshot003 from '$lib/assets/images/templates/stardust/screenshot-003.webp';
-import stardustScreenshot004 from '$lib/assets/images/templates/stardust/screenshot-004.webp';
+import stardustCard from '#lib/assets/images/templates/stardust/card.webp';
+import stardustHero from '#lib/assets/images/templates/stardust/hero.webp';
+import stardustScreenshot001 from '#lib/assets/images/templates/stardust/screenshot-001.webp';
+import stardustScreenshot002 from '#lib/assets/images/templates/stardust/screenshot-002.webp';
+import stardustScreenshot003 from '#lib/assets/images/templates/stardust/screenshot-003.webp';
+import stardustScreenshot004 from '#lib/assets/images/templates/stardust/screenshot-004.webp';
 
 export interface TemplateImage {
 	src: string;

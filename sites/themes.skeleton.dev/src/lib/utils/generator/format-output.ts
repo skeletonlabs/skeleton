@@ -9,7 +9,7 @@ import type {
 	SettingsEdges,
 	SettingsSpacing,
 	SettingsTypography,
-} from '$lib/state/types';
+} from '#lib/state/types.ts';
 import chroma from 'chroma-js';
 
 /** UTIL: Format from JS Object to CSS properties format. Omits empty-string values (e.g. unset custom fonts). */

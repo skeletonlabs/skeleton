@@ -1,6 +1,6 @@
 // Utility: Fontsource
 // Parses/fetches custom fonts from the Fontsource API for the theme generator.
-import type { CustomFont, CustomFontVariant } from '$lib/state/types';
+import type { CustomFont, CustomFontVariant } from '#lib/state/types.ts';
 
 interface FontsourceApiVariantsUrl {
 	woff2: string;

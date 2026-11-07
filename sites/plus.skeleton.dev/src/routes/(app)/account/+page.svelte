@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { supportedOAuthProviders } from '$lib/auth/supported-oauth-providers';
-	import LinkAccountButton from '$lib/components/auth/link-account-button.svelte';
-	import UnlinkAccountButton from '$lib/components/auth/unlink-account-button.svelte';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getAccounts } from '$lib/remote/auth/get-accounts.remote';
+	import { supportedOAuthProviders } from '#lib/auth/supported-oauth-providers.ts';
+	import LinkAccountButton from '#lib/components/auth/link-account-button.svelte';
+	import UnlinkAccountButton from '#lib/components/auth/unlink-account-button.svelte';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getAccounts } from '#lib/remote/auth/get-accounts.remote.ts';
 
 	const accounts = $derived(await getAccounts());
 </script>

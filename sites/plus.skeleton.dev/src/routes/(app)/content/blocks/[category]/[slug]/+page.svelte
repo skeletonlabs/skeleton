@@ -1,9 +1,9 @@
 <script lang="ts">
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import Preview from '#lib/components/utlity/preview.svelte';
+	import { getBlock, getFrameworks } from '#lib/remote/blocks/get-blocks.remote.ts';
+	import { svelteModules } from '#lib/remote/blocks/svelte-modules.ts';
 	import { page } from '$app/state';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import Preview from '$lib/components/utlity/preview.svelte';
-	import { getBlock, getFrameworks } from '$lib/remote/blocks/get-blocks.remote';
-	import { svelteModules } from '$lib/remote/blocks/svelte-modules';
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';

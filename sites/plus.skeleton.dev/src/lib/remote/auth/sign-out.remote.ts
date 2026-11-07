@@ -1,6 +1,6 @@
 import { form, getRequestEvent } from '$app/server';
 import { error } from '@sveltejs/kit';
-import { auth } from '$lib/server/auth/auth';
+import { auth } from '#lib/server/auth/auth.ts';
 import { ResultAsync } from 'neverthrow';
 
 export const signOut = form('unchecked', async () => {

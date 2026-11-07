@@ -1,9 +1,9 @@
 <script lang="ts">
-	import DecorStripes from '$lib/components/layout/decor-stripes.svelte';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTemplate } from '$lib/remote/templates/get-templates.remote';
-	import { frameworkIconMap } from '$lib/remote/templates/template-icons';
-	import { plusState } from '$lib/state/plus.svelte';
+	import DecorStripes from '#lib/components/layout/decor-stripes.svelte';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getTemplate } from '#lib/remote/templates/get-templates.remote.ts';
+	import { frameworkIconMap } from '#lib/remote/templates/template-icons.ts';
+	import { plusState } from '#lib/state/plus.svelte.ts';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import DownloadIcon from '@lucide/svelte/icons/download';

@@ -28,25 +28,106 @@ export interface Route {
 /** Common Routes */
 export const routes = {
 	account: [
-		{ href: resolve('/account'), label: 'Profile', icon: UserIcon, enabled: true },
-		{ href: resolve('/account/team'), label: 'Team', icon: UsersIcon, enabled: true },
-		{ href: resolve('/account/billing'), label: 'Billing', icon: CreditCardIcon, enabled: true },
-		{ href: resolve('/account/notifications'), label: 'Notifications', icon: BellIcon, enabled: true },
-		{ href: resolve('/account/api'), label: 'API & CLI', icon: CodeIcon, enabled: true },
+		{
+			href: resolve('account'),
+			label: 'Profile',
+			icon: UserIcon,
+			enabled: true,
+		},
+
+		{
+			href: resolve('account/team'),
+			label: 'Team',
+			icon: UsersIcon,
+			enabled: true,
+		},
+
+		{
+			href: resolve('account/billing'),
+			label: 'Billing',
+			icon: CreditCardIcon,
+			enabled: true,
+		},
+
+		{
+			href: resolve('account/notifications'),
+			label: 'Notifications',
+			icon: BellIcon,
+			enabled: true,
+		},
+
+		{
+			href: resolve('account/api'),
+			label: 'API & CLI',
+			icon: CodeIcon,
+			enabled: true,
+		},
 	],
 	content: [
-		{ label: 'Themes', href: resolve('/content/themes'), icon: PaletteIcon, enabled: false },
-		{ label: 'Blocks', href: resolve('/content/blocks'), icon: BlocksIcon, enabled: true },
-		{ label: 'Templates', href: resolve('/content/templates'), icon: LayoutTemplateIcon, enabled: true },
-		{ label: 'Tutorials', href: resolve('/content/tutorials'), icon: GraduationCapIcon, enabled: true },
+		{
+			label: 'Themes',
+			href: resolve('content/themes'),
+			icon: PaletteIcon,
+			enabled: false,
+		},
+
+		{
+			label: 'Blocks',
+			href: resolve('content/blocks'),
+			icon: BlocksIcon,
+			enabled: true,
+		},
+
+		{
+			label: 'Templates',
+			href: resolve('content/templates'),
+			icon: LayoutTemplateIcon,
+			enabled: true,
+		},
+
+		{
+			label: 'Tutorials',
+			href: resolve('content/tutorials'),
+			icon: GraduationCapIcon,
+			enabled: true,
+		},
+
 		// { label: 'UI Kit', href: resolve('/content/ui-kit'), icon: LayersIcon, enabled: true },
-		{ label: 'UI Kit', href: resolve('/content/community/etesie'), icon: LayersIcon, enabled: true } /* temporary */,
-		{ label: 'Community', href: resolve('/content/community'), icon: UsersIcon, enabled: true },
+		{
+			label: 'UI Kit',
+			href: resolve('content/community/etesie'),
+			icon: LayersIcon,
+			enabled: true,
+		} /* temporary */,
+
+		{
+			label: 'Community',
+			href: resolve('content/community'),
+			icon: UsersIcon,
+			enabled: true,
+		},
 	],
 	design: [
-		{ label: 'Theme Studio', href: resolve('/content/design/themes'), icon: PaintbrushIcon, enabled: true },
-		{ label: 'Preset Studio', href: resolve('/content/design/presets'), icon: SqareRoundCornerIcon, enabled: true },
-		{ label: 'Mesh Studio', href: resolve('/content/design/mesh'), icon: Grid3x3Icon, enabled: false },
+		{
+			label: 'Theme Studio',
+			href: resolve('content/design/themes'),
+			icon: PaintbrushIcon,
+			enabled: true,
+		},
+
+		{
+			label: 'Preset Studio',
+			href: resolve('content/design/presets'),
+			icon: SqareRoundCornerIcon,
+			enabled: true,
+		},
+
+		{
+			label: 'Mesh Studio',
+			href: resolve('content/design/mesh'),
+			icon: Grid3x3Icon,
+			enabled: false,
+		},
 	],
 	legal: [
 		{ label: 'License', href: 'https://github.com/skeletonlabs/skeleton?tab=MIT-1-ov-file', icon: ScaleIcon, enabled: true },

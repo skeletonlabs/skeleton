@@ -1,7 +1,7 @@
 <script lang="ts">
-	import DecorCorners from '$lib/components/layout/decor-corners.svelte';
-	import DecorStripes from '$lib/components/layout/decor-stripes.svelte';
-	import ThemesMarquee from '$lib/components/marquee/themes-marquee.svelte';
+	import DecorCorners from '#lib/components/layout/decor-corners.svelte';
+	import DecorStripes from '#lib/components/layout/decor-stripes.svelte';
+	import ThemesMarquee from '#lib/components/marquee/themes-marquee.svelte';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import BlocksIcon from '@lucide/svelte/icons/blocks';

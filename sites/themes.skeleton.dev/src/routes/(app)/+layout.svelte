@@ -1,7 +1,7 @@
 <script lang="ts">
 	// Components (common)
-	import AppFooter from '$lib/components/common/AppFooter/AppFooter.svelte';
-	import AppHeader from '$lib/components/common/AppHeader/AppHeader.svelte';
+	import AppFooter from '#lib/components/common/AppFooter/AppFooter.svelte';
+	import AppHeader from '#lib/components/common/AppHeader/AppHeader.svelte';
 
 	let { children } = $props();
 </script>

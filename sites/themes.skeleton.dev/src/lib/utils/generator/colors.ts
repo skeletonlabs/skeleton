@@ -1,6 +1,6 @@
 // Color Utilities
-import * as constants from '$lib/constants/generator';
-import { settingsColors } from '$lib/state/generator.svelte';
+import * as constants from '#lib/constants/generator.ts';
+import { settingsColors } from '#lib/state/generator.svelte.ts';
 import chroma from 'chroma-js';
 
 // Common ---

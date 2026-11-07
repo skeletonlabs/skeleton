@@ -1,6 +1,6 @@
 <script lang="ts">
-	import * as constants from '$lib/constants/generator';
-	import { globals } from '$lib/state/generator.svelte';
+	import * as constants from '#lib/constants/generator.ts';
+	import { globals } from '#lib/state/generator.svelte.ts';
 	import SparklesIcons from '@lucide/svelte/icons/sparkles';
 	import SwatchBook from '@lucide/svelte/icons/swatch-book';
 

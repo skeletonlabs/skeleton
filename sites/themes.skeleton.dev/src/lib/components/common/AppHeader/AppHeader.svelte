@@ -1,7 +1,7 @@
 <script lang="ts">
+	import LightSwitch from '#lib/components/common/LightSwitch/LightSwitch.svelte';
+	import Logo from '#lib/components/common/Logo/Logo.svelte';
 	import { resolve } from '$app/paths';
-	import LightSwitch from '$lib/components/common/LightSwitch/LightSwitch.svelte';
-	import Logo from '$lib/components/common/Logo/Logo.svelte';
 	import { AppBar } from '@skeletonlabs/skeleton-svelte';
 </script>
 
@@ -13,8 +13,9 @@
 			</a>
 		</AppBar.Lead>
 		<AppBar.Headline class="flex opacity-60">
-			<a href={resolve('/themes/create')} class="btn hover:preset-tonal">Create</a>
-			<a href={resolve('/themes/import')} class="btn hover:preset-tonal">Import</a>
+			<a href={resolve('themes/create')} class="btn hover:preset-tonal">Create</a>
+
+			<a href={resolve('themes/import')} class="btn hover:preset-tonal">Import</a>
 		</AppBar.Headline>
 		<AppBar.Trail class="flex items-center gap-4">
 			<LightSwitch />

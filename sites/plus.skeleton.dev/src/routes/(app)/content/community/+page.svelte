@@ -1,6 +1,6 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getCommunityProjects } from '$lib/remote/community/get-projects.remote';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getCommunityProjects } from '#lib/remote/community/get-projects.remote.ts';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 
 	const projects = $derived(await getCommunityProjects());

@@ -1,7 +1,7 @@
 <script lang="ts">
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getTutorialChapters } from '#lib/remote/tutorials/get-tutorials.remote.ts';
 	import { page } from '$app/state';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTutorialChapters } from '$lib/remote/tutorials/get-tutorials.remote';
 	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
 	import BookOpenIcon from '@lucide/svelte/icons/book-open';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
