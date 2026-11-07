@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { SignInSchema } from '$lib/schemas/auth/sign-in-schema';
+	import type { SignInSchema } from '#lib/schemas/auth/sign-in-schema.ts';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { InferInput } from 'valibot';
 
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { signIn } from '$lib/remote/auth/sign-in.remote';
+	import { signIn } from '#lib/remote/auth/sign-in.remote.ts';
 
 	const { children, providerId, ...attributes }: Props = $props();
 </script>

@@ -165,7 +165,7 @@ minimumReleaseAgeExclude:
   # Renovate security update: better-auth@1.7.7
   - better-auth@1.7.7
   # Renovate security update: @sveltejs/kit@3.0.0
-  - "@sveltejs/kit@3.0.0"
+  - '@sveltejs/kit@3.0.0'
 
 allowBuilds:
   '@parcel/watcher': true

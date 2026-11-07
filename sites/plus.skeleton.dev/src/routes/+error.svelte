@@ -1,8 +1,8 @@
 <script lang="ts">
+	import Skeleton from '#lib/components/branding/skeleton.svelte';
+	import Footer from '#lib/components/layout/footer.svelte';
+	import Header from '#lib/components/layout/header.svelte';
 	import { page } from '$app/state';
-	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import Footer from '$lib/components/layout/footer.svelte';
-	import Header from '$lib/components/layout/header.svelte';
 	import HomeIcon from '@lucide/svelte/icons/home';
 	import RefreshCwIcon from '@lucide/svelte/icons/refresh-cw';
 </script>

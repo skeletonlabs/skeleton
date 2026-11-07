@@ -7,17 +7,17 @@
 
 import { getRequestEvent, query } from '$app/server';
 
-import etesieCard from '$lib/assets/images/community/etesie/card.webp';
-import etesieHero from '$lib/assets/images/community/etesie/hero.webp';
-import etesieScreenshot001 from '$lib/assets/images/community/etesie/screenshot-001.webp';
-import etesieScreenshot002 from '$lib/assets/images/community/etesie/screenshot-002.webp';
-import etesieScreenshot003 from '$lib/assets/images/community/etesie/screenshot-003.webp';
+import etesieCard from '#lib/assets/images/community/etesie/card.webp';
+import etesieHero from '#lib/assets/images/community/etesie/hero.webp';
+import etesieScreenshot001 from '#lib/assets/images/community/etesie/screenshot-001.webp';
+import etesieScreenshot002 from '#lib/assets/images/community/etesie/screenshot-002.webp';
+import etesieScreenshot003 from '#lib/assets/images/community/etesie/screenshot-003.webp';
 
-import typogramCard from '$lib/assets/images/community/typogram/card.webp';
-import typogramHero from '$lib/assets/images/community/typogram/hero.webp';
-import typogramScreenshot001 from '$lib/assets/images/community/typogram/screenshot-001.webp';
-import typogramScreenshot002 from '$lib/assets/images/community/typogram/screenshot-002.webp';
-import typogramScreenshot003 from '$lib/assets/images/community/typogram/screenshot-003.webp';
+import typogramCard from '#lib/assets/images/community/typogram/card.webp';
+import typogramHero from '#lib/assets/images/community/typogram/hero.webp';
+import typogramScreenshot001 from '#lib/assets/images/community/typogram/screenshot-001.webp';
+import typogramScreenshot002 from '#lib/assets/images/community/typogram/screenshot-002.webp';
+import typogramScreenshot003 from '#lib/assets/images/community/typogram/screenshot-003.webp';
 
 export type CommunityCategory =
 	'accessibility' | 'animation' | 'branding' | 'code' | 'design' | 'icons' | 'plugins' | 'templates' | 'tooling' | 'typography';

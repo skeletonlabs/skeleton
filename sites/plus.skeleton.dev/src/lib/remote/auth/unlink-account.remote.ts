@@ -1,7 +1,7 @@
 import { form, getRequestEvent } from '$app/server';
 import { error } from '@sveltejs/kit';
-import { auth } from '$lib/server/auth/auth';
-import { UnlinkAccountSchema } from '$lib/schemas/auth/unlink-account-schema';
+import { auth } from '#lib/server/auth/auth.ts';
+import { UnlinkAccountSchema } from '#lib/schemas/auth/unlink-account-schema.ts';
 import { ResultAsync } from 'neverthrow';
 import { getAccounts } from './get-accounts.remote';
 

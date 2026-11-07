@@ -1,7 +1,7 @@
 <script lang="ts">
+	import Skeleton from '#lib/components/branding/skeleton.svelte';
+	import { routes, type Route } from '#lib/navigation/routes.ts';
 	import { resolve } from '$app/paths';
-	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { routes, type Route } from '$lib/navigation/routes';
 	import DecorCorners from './decor-corners.svelte';
 	import DecorStripes from './decor-stripes.svelte';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';

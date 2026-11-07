@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { dialogDrawerRight } from '$lib/components/modal-styles';
-	import { iconMap } from '$lib/remote/blocks/block-icons';
-	import { getBlocks, type BlockGroup } from '$lib/remote/blocks/get-blocks.remote';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { dialogDrawerRight } from '#lib/components/modal-styles.ts';
+	import { iconMap } from '#lib/remote/blocks/block-icons.ts';
+	import { getBlocks, type BlockGroup } from '#lib/remote/blocks/get-blocks.remote.ts';
 	import LockIcon from '@lucide/svelte/icons/lock';
 	import SearchIcon from '@lucide/svelte/icons/search';
 	import XIcon from '@lucide/svelte/icons/x';
