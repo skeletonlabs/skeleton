@@ -134,7 +134,7 @@ catalog:
   unist-util-visit: 5.1.0
   unplugin-icons: 23.0.1
   valibot: 1.4.2
-  vite: 8.2.1
+  vite: 8.2.4
   vitest: 4.1.10
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.2.1
@@ -154,6 +154,8 @@ minimumReleaseAgeExclude:
   - '@zag-js/*'
   # Renovate security update: satori@0.33.5
   - satori@0.33.5
+  # Renovate security update: vite@8.2.4
+  - vite@8.2.4
 
 allowBuilds:
   '@parcel/watcher': true
