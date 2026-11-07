@@ -424,18 +424,16 @@ const colors = [
 ---
 
 <div class="grid w-full grid-cols-2 lg:grid-cols-7">
-	{
-		colors.map((color) => (
-			<div class="space-y-4 text-center">
-				<small class="block opacity-60">{color.name}</small>
-				<div class="grid grid-rows-11">
-					{color.ramp.map((shade) => (
-						<div class={`${shade.base} flex items-center justify-center py-2`}>
-							<strong class:list={[shade.contrast, { underline: shade.value === 500 }, 'text-sm']}>{shade.value}</strong>
-						</div>
-					))}
-				</div>
+	{colors.map((color) => (
+		<div class="space-y-4 text-center">
+			<small class="block opacity-60">{color.name}</small>
+			<div class="grid grid-rows-11">
+				{color.ramp.map((shade) => (
+					<div class={`${shade.base} flex items-center justify-center py-2`}>
+						<strong class:list={[shade.contrast, { underline: shade.value === 500 }, 'text-sm']}>{shade.value}</strong>
+					</div>
+				))}
 			</div>
-		))
-	}
+		</div>
+	))}
 </div>

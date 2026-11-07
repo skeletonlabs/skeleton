@@ -10,7 +10,7 @@ catalog:
   '@astrojs/react': 6.0.2
   '@astrojs/sitemap': 3.7.3
   '@astrojs/svelte': 9.0.1
-  '@astrojs/vercel': 11.0.5
+  '@astrojs/vercel': 11.0.18
   '@changesets/cli': 3.0.0
   '@clack/prompts': 1.7.0
   '@faker-js/faker': 10.5.0

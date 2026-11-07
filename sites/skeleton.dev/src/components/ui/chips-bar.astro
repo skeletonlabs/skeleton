@@ -78,15 +78,13 @@ const references = [
 ].filter((reference): reference is { label: string; url: URL; icon: typeof CodeIcon } => Boolean(reference.url));
 ---
 
-{
-	references.length > 0 && (
-		<nav class="flex flex-wrap gap-2 overflow-x-auto">
-			{references.map((reference) => (
-				<a class="chip preset-tonal" href={resolvePath(Astro.params, reference.url.toString())} target="_blank" rel="noopener noreferrer">
-					<reference.icon class="size-4" />
-					<span>{reference.label}</span>
-				</a>
-			))}
-		</nav>
-	)
-}
+{references.length > 0 && (
+	<nav class="flex flex-wrap gap-2 overflow-x-auto">
+		{references.map((reference) => (
+			<a class="chip preset-tonal" href={resolvePath(Astro.params, reference.url.toString())} target="_blank" rel="noopener noreferrer">
+				<reference.icon class="size-4" />
+				<span>{reference.label}</span>
+			</a>
+		))}
+	</nav>
+)}

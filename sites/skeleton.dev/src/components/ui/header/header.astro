@@ -50,9 +50,7 @@ const socialLinks = [
 ];
 ---
 
-<header
-	class="z-50 sticky top-0 border-b border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg h-(--header-height) flex items-center"
->
+<header class="z-50 sticky top-0 border-b border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg h-(--header-height) flex items-center">
 	<div class="container mx-auto px-4 flex items-center justify-between gap-2">
 		<!-- Drawer -->
 		<div class="xl:hidden">
@@ -66,23 +64,19 @@ const socialLinks = [
 		</a>
 		<!-- Navigation -->
 		<nav class="hidden xl:flex items-center gap-1">
-			{
-				links.map((link) => (
-					<a class="btn hover:preset-tonal" href={link.href}>
-						{link.title}
-					</a>
-				))
-			}
+			{links.map((link) => (
+				<a class="btn hover:preset-tonal" href={link.href}>
+					{link.title}
+				</a>
+			))}
 			<PlusPicker client:visible />
 		</nav>
 		<!-- Search -->
-		{
-			import.meta.env.PROD && (
-				<nav>
-					<SearchTrigger {activeFramework} client:visible />
-				</nav>
-			)
-		}
+		{import.meta.env.PROD && (
+			<nav>
+				<SearchTrigger {activeFramework} client:visible />
+			</nav>
+		)}
 		<!-- Pickers -->
 		<nav class="flex justify-center items-center ml-auto gap-1">
 			{Astro.params.framework && <FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />}
@@ -97,16 +91,14 @@ const socialLinks = [
 		<span class="vr h-5 hidden xl:inline"></span>
 		<!-- Social -->
 		<nav class="hidden xl:flex justify-center items-center">
-			{
-				socialLinks.map((link) => {
-					const BrandIcon = link.icon;
-					return (
-						<a href={link.href} target="_blank" class="btn py-2 hover:preset-tonal" title={link.title} aria-label={link.title}>
-							<BrandIcon />
-						</a>
-					);
-				})
-			}
+			{socialLinks.map((link) => {
+				const BrandIcon = link.icon;
+				return (
+					<a href={link.href} target="_blank" class="btn py-2 hover:preset-tonal" title={link.title} aria-label={link.title}>
+						<BrandIcon />
+					</a>
+				);
+			})}
 		</nav>
 	</div>
 </header>

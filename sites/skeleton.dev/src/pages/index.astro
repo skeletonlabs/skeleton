@@ -26,7 +26,9 @@ import { resolvePath } from '@/modules/resolve-path';
 		target="_blank"
 		class="block text-sm p-2 preset-filled-primary-200-800"
 	>
-		<p class="text-center">🎉 <strong>Skeleton v5</strong> is now available &rarr;</p>
+		<p class="text-center">
+			🎉 <strong>Skeleton v5</strong> is now available &rarr;
+		</p>
 	</a>
 	<!-- -- / -- -->
 	<main>
@@ -36,18 +38,19 @@ import { resolvePath } from '@/modules/resolve-path';
 					<div class="flex justify-center items-center">
 						<div class="relative size-48 md:size-64 aspect-square">
 							<SkeletonBig class="absolute top-0 left-0 z-2 size-full aspect-square drop-shadow-md fill-white" />
-							<div
-								class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl spin-360"
-							>
-							</div>
+							<div class="absolute top-0 left-0 size-full aspect-square rounded-full bg-conic from-success-500 to-primary-500 blur-3xl spin-360"></div>
 						</div>
 					</div>
 					<div class="self-center space-y-4">
 						<!-- --- / --- -->
 						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">The adaptive design system for Tailwind CSS.</h1>
 						<p class="xl:max-w-2xl">
-							Skeleton uses <a class="underline" href="https://tailwindcss.com/" target="_blank">Tailwind</a> and serves as a foundation for adapting
-							to your applications design systems. Featuring turnkey components for your favorite web frameworks.
+							Skeleton uses{' '}
+							<a class="underline" href="https://tailwindcss.com/" target="_blank">
+								Tailwind
+							</a>{' '}
+							and serves as a foundation for adapting to your applications design systems. Featuring turnkey components for your favorite
+							web frameworks.
 						</p>
 						<nav class="flex gap-4">
 							<a href={resolvePath(Astro.params, '/docs/[framework]/get-started/installation')} class="btn btn-xl preset-filled">

@@ -49,14 +49,12 @@ const { Content, headings } = await render(doc);
 			<p class="text-lg opacity-60">{doc.data.description}</p>
 		</header>
 		<!-- Stability Warning -->
-		{
-			doc.data.stability !== 'stable' && (
-				<Alert type="warning">
-					This feature is currently marked as {doc.data.stability}. Take caution when using for production. It may receive breaking changes
-					before its stable release.
-				</Alert>
-			)
-		}
+		{doc.data.stability !== 'stable' && (
+			<Alert type="warning">
+				This feature is currently marked as {doc.data.stability}. Take caution when using for production. It may receive breaking changes
+				before its stable release.
+			</Alert>
+		)}
 		<!-- Chips -->
 		<ChipsBar {doc} />
 		<!-- Content -->
@@ -64,18 +62,16 @@ const { Content, headings } = await render(doc);
 			<!-- Summary -->
 			<p class="text-lg">{doc.data.summary}</p>
 			<!-- Key Features -->
-			{
-				doc.data.features && (
-					<>
-						<p class="font-bold">Key Features</p>
-						<ul class="list-inside list-disc space-y-2">
-							{doc.data.features.map((listItem) => (
-								<li>{listItem}</li>
-							))}
-						</ul>
-					</>
-				)
-			}
+			{doc.data.features && (
+				<>
+					<p class="font-bold">Key Features</p>
+					<ul class="list-inside list-disc space-y-2">
+						{doc.data.features.map((listItem) => (
+							<li>{listItem}</li>
+						))}
+					</ul>
+				</>
+			)}
 			<!-- Content -->
 			<Content components={components} Astro={Astro} />
 			<!-- Inner Page Navigation -->
@@ -95,9 +91,7 @@ const { Content, headings } = await render(doc);
 		<Footer class="p-4 xl:px-0" />
 	</main>
 	<!-- Sidebar (Right) - Table of Contents -->
-	<aside
-		class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10 overflow-y-auto hide-scrollbar-track"
-	>
+	<aside class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10 overflow-y-auto hide-scrollbar-track">
 		<Advertisement />
 		<TableOfContents {headings} client:visible />
 	</aside>
