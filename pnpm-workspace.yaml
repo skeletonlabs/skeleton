@@ -128,7 +128,7 @@ catalog:
   ts-morph: 28.0.0
   tsdown: 0.23.5
   type-fest: 5.10.0
-  typescript: 6.0.3
+  typescript: 7.0.2
   unist-util-visit: 5.2.0
   unplugin-icons: 24.0.0
   valibot: 1.5.0
