@@ -36,20 +36,18 @@ const crumbs = await Promise.all(
 ---
 
 <ol class="flex flex-wrap gap-2 text-xs">
-	{
-		crumbs.map((crumb, i) => (
-			<>
-				<li class="capitalize" class:list={{ 'opacity-60': i === crumbs.length - 1 }}>
-					{crumb.href ? (
-						<a href={crumb.href} class="hover:underline">
-							{crumb.label}
-						</a>
-					) : (
-						crumb.label
-					)}
-				</li>
-				{i < crumbs.length - 1 && <li class="opacity-60">›</li>}
-			</>
-		))
-	}
+	{crumbs.map((crumb, i) => (
+		<>
+			<li class="capitalize" class:list={{ 'opacity-60': i === crumbs.length - 1 }}>
+				{crumb.href ? (
+					<a href={crumb.href} class="hover:underline">
+						{crumb.label}
+					</a>
+				) : (
+					crumb.label
+				)}
+			</li>
+			{i < crumbs.length - 1 && <li class="opacity-60">›</li>}
+		</>
+	))}
 </ol>

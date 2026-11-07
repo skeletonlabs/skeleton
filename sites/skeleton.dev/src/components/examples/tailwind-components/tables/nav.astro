@@ -17,20 +17,18 @@ const tableData = [
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
-			{
-				tableData.map((row) => (
-					<tr>
-						<td>{row.first}</td>
-						<td>{row.last}</td>
-						<td>{row.email}</td>
-						<td class="text-right">
-							<a class="btn btn-xs preset-tonal" href="#">
-								View &rarr;
-							</a>
-						</td>
-					</tr>
-				))
-			}
+			{tableData.map((row) => (
+				<tr>
+					<td>{row.first}</td>
+					<td>{row.last}</td>
+					<td>{row.email}</td>
+					<td class="text-right">
+						<a class="btn btn-xs preset-tonal" href="#">
+							View &rarr;
+						</a>
+					</td>
+				</tr>
+			))}
 		</tbody>
 	</table>
 </div>

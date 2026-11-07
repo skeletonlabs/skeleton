@@ -33,31 +33,30 @@ const projects = (await getCollection('showcase-projects'))
 			<p class="xl:text-balance">Check out the showcase of amazing projects built by the Skeleton community.</p>
 		</section>
 		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			{
-				projects.map((project) => {
-					return (
-						<a href={project.data.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
-							<Image
-								src={project.images.light}
-								alt={`Thumbnail of ${project.data.name}`}
-								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow block dark:hidden"
-							/>
-							<Image
-								src={project.images.dark}
-								alt={`Thumbnail of ${project.data.name}`}
-								class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow hidden dark:block"
-							/>
-							<strong>{project.data.name}</strong>
-							<p class="text-xs opacity-60">{project.data.description}</p>
-						</a>
-					);
-				})
-			}
+			{projects.map((project) => {
+				return (
+					<a href={project.data.url} target="_blank" class="card hover:preset-tonal p-2 space-y-2 cursor-pointer">
+						<Image
+							src={project.images.light}
+							alt={`Thumbnail of ${project.data.name}`}
+							class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow block dark:hidden"
+						/>
+						<Image
+							src={project.images.dark}
+							alt={`Thumbnail of ${project.data.name}`}
+							class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow hidden dark:block"
+						/>
+						<strong>{project.data.name}</strong>
+						<p class="text-xs opacity-60">{project.data.description}</p>
+					</a>
+				);
+			})}
 		</section>
 		<section class="text-center space-y-4">
 			<p>Have an interesting project you wish to share? Submit it here.</p>
-			<a href="https://github.com/skeletonlabs/skeleton/discussions/3912" target="_blank" class="btn btn-lg preset-filled">Submit Project</a
-			>
+			<a href="https://github.com/skeletonlabs/skeleton/discussions/3912" target="_blank" class="btn btn-lg preset-filled">
+				Submit Project
+			</a>
 		</section>
 	</main>
 	<Footer />
