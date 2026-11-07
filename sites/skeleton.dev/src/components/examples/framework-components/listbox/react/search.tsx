@@ -13,6 +13,7 @@ const data = [
 export default function Search() {
 	const [query, setQuery] = useState('');
 
+	// oxlint-disable-next-line react/preserve-manual-memoization
 	const collection = useMemo(() => {
 		const items = data.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()));
 		return useListCollection({ items });

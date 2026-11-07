@@ -2,7 +2,7 @@
 
 import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
 import { createFileRoute } from '@tanstack/react-router';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 export const Route = createFileRoute('/components/toast/')({
 	component: Page,
@@ -12,11 +12,7 @@ function Page() {
 	const [overlap, setOverlap] = useState(false);
 	const [duration, setDuration] = useState<number>(Infinity);
 
-	const [toaster] = useState(createToaster({ overlap }));
-
-	useEffect(() => {
-		toaster.attrs.overlap = overlap;
-	}, [toaster.attrs.overlap, overlap]);
+	const toaster = useMemo(() => createToaster({ overlap }), [overlap]);
 
 	return (
 		<>

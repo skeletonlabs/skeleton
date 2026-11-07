@@ -1,8 +1,9 @@
 import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-react';
+import { useState, useMemo } from 'react';
 
 export default function MinMax() {
-	const currentDate = new Date();
-	const currentYear = currentDate.getFullYear();
+	const [currentDate] = useState(() => new Date());
+	const currentYear = useMemo(() => currentDate.getFullYear(), [currentDate]);
 
 	return (
 		<DatePicker min={parseDate(`${currentYear}-01-01`)} max={parseDate(`${currentYear}-12-31`)}>
