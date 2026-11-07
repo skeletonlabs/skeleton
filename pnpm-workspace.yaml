@@ -85,7 +85,7 @@ catalog:
   astro: 7.4.5
   astro-pagefind: 2.0.1
   astro-seo: 1.2.0
-  better-auth: 1.6.28
+  better-auth: 1.7.7
   chroma-js: 3.2.0
   clean-package: 2.2.0
   colorette: 2.0.20
@@ -162,6 +162,8 @@ minimumReleaseAgeExclude:
   - sharp@0.35.5
   # Renovate security update: vitest@4.1.11
   - vitest@4.1.11
+  # Renovate security update: better-auth@1.7.7
+  - better-auth@1.7.7
 
 allowBuilds:
   '@parcel/watcher': true
