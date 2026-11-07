@@ -135,7 +135,7 @@ catalog:
   unplugin-icons: 24.0.0
   valibot: 1.4.2
   vite: 8.2.4
-  vitest: 4.1.10
+  vitest: 4.1.11
   vitest-browser-react: 2.2.0
   vitest-browser-svelte: 2.2.1
   zimmerframe: 1.1.4
@@ -160,6 +160,8 @@ minimumReleaseAgeExclude:
   - astro@7.3.3
   # Renovate security update: sharp@0.35.5
   - sharp@0.35.5
+  # Renovate security update: vitest@4.1.11
+  - vitest@4.1.11
 
 allowBuilds:
   '@parcel/watcher': true
