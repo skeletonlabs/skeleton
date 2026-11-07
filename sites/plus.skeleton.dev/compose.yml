@@ -2,7 +2,7 @@ name: plus-skeleton-dev
 
 services:
   postgres:
-    image: postgres:17
+    image: postgres:18
     restart: unless-stopped
     ports:
       - 5432:5432
