@@ -1,5 +1,12 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`09da50e`](https://github.com/skeletonlabs/skeleton/commit/09da50ef00378c94c808c501446b26fc699781f7)]:
+    - @skeletonlabs/skeleton-common@5.0.3
+
 ## 5.0.2
 
 ### Patch Changes
