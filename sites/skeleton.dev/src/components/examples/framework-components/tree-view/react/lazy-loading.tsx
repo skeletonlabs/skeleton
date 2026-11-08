@@ -37,29 +37,29 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 	return (
 		<TreeView.NodeProvider value={props}>
 			{props.node.children || props.node.childrenCount ? (
-				<TreeView.Branch>
-					<TreeView.BranchControl>
-						<TreeView.BranchIndicator className="data-loading:hidden" />
-						<TreeView.BranchIndicator className="hidden data-loading:inline animate-spin">
+				<TreeView.Node>
+					<TreeView.NodeExpandTrigger>
+						<TreeView.NodeIndicator className="data-loading:hidden" />
+						<TreeView.NodeIndicator className="hidden data-loading:inline animate-spin">
 							<LoaderIcon className="size-4" />
-						</TreeView.BranchIndicator>
-						<TreeView.BranchText>
+						</TreeView.NodeIndicator>
+						<TreeView.NodeText>
 							<FolderIcon className="size-4" />
 							{props.node.name}
-						</TreeView.BranchText>
-					</TreeView.BranchControl>
-					<TreeView.BranchContent>
-						<TreeView.BranchIndentGuide />
+						</TreeView.NodeText>
+					</TreeView.NodeExpandTrigger>
+					<TreeView.NodeGroupContent>
+						<TreeView.IndentGuide />
 						{props.node.children?.map((childNode, childIndex) => (
 							<TreeNode key={childNode.id} node={childNode} indexPath={[...props.indexPath, childIndex]} />
 						))}
-					</TreeView.BranchContent>
-				</TreeView.Branch>
+					</TreeView.NodeGroupContent>
+				</TreeView.Node>
 			) : (
-				<TreeView.Item>
+				<TreeView.Node>
 					<FileIcon className="size-4" />
 					{props.node.name}
-				</TreeView.Item>
+				</TreeView.Node>
 			)}
 		</TreeView.NodeProvider>
 	);

@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface TreeViewBranchContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface TreeViewNodeGroupContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -10,7 +10,7 @@
 	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: TreeViewBranchContentProps = $props();
+	const props: TreeViewNodeGroupContentProps = $props();
 
 	const treeView = TreeViewRootContext.consume();
 	const nodeProps = TreeViewNodeContext.consume();

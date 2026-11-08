@@ -5,9 +5,9 @@ import { TreeViewRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface TreeViewBranchIndentGuideProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface TreeViewIndentGuideProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function BranchIndentGuide(props: TreeViewBranchIndentGuideProps) {
+export default function IndentGuide(props: TreeViewIndentGuideProps) {
 	const treeView = use(TreeViewRootContext);
 	const nodeProps = use(TreeViewNodeContext);
 

@@ -114,18 +114,18 @@ export default function Anatomy() {
 		<TreeView>
 			<TreeView.Label />
 			<TreeView.Tree>
-				<TreeView.Branch>
-					<TreeView.BranchControl>
-						<TreeView.BranchTrigger />
-						<TreeView.BranchIndicator />
-						<TreeView.BranchText />
-					</TreeView.BranchControl>
-					<TreeView.BranchContent>
-						<TreeView.Item>
-							<TreeView.ItemText />
-						</TreeView.Item>
-					</TreeView.BranchContent>
-				</TreeView.Branch>
+				<TreeView.Node>
+					<TreeView.NodeExpandTrigger>
+						<TreeView.NodeExpandTrigger />
+						<TreeView.NodeIndicator />
+						<TreeView.NodeText />
+					</TreeView.NodeExpandTrigger>
+					<TreeView.NodeGroupContent>
+						<TreeView.Node>
+							<TreeView.NodeText />
+						</TreeView.Node>
+					</TreeView.NodeGroupContent>
+				</TreeView.Node>
 			</TreeView.Tree>
 		</TreeView>
 	);
@@ -143,18 +143,18 @@ export default function Anatomy() {
 <TreeView>
 	<TreeView.Label />
 	<TreeView.Tree>
-		<TreeView.Branch>
-			<TreeView.BranchControl>
-				<TreeView.BranchTrigger />
-				<TreeView.BranchIndicator />
-				<TreeView.BranchText />
-			</TreeView.BranchControl>
-			<TreeView.BranchContent>
-				<TreeView.Item>
-					<TreeView.ItemText />
-				</TreeView.Item>
-			</TreeView.BranchContent>
-		</TreeView.Branch>
+		<TreeView.Node>
+			<TreeView.NodeExpandTrigger>
+				<TreeView.NodeExpandTrigger />
+				<TreeView.NodeIndicator />
+				<TreeView.NodeText />
+			</TreeView.NodeExpandTrigger>
+			<TreeView.NodeGroupContent>
+				<TreeView.Node>
+					<TreeView.NodeText />
+				</TreeView.Node>
+			</TreeView.NodeGroupContent>
+		</TreeView.Node>
 	</TreeView.Tree>
 </TreeView>
 ```

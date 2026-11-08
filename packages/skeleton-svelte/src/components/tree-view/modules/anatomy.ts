@@ -1,10 +1,9 @@
-import BranchContent from '../anatomy/branch-content.svelte';
-import BranchControl from '../anatomy/branch-control.svelte';
-import BranchIndentGuide from '../anatomy/branch-indent-guide.svelte';
-import BranchIndicator from '../anatomy/branch-indicator.svelte';
-import BranchText from '../anatomy/branch-text.svelte';
-import Branch from '../anatomy/branch.svelte';
-import Item from '../anatomy/item.svelte';
+import NodeGroupContent from '../anatomy/node-group-content.svelte';
+import NodeExpandTrigger from '../anatomy/node-expand-trigger.svelte';
+import IndentGuide from '../anatomy/indent-guide.svelte';
+import NodeIndicator from '../anatomy/node-indicator.svelte';
+import NodeText from '../anatomy/node-text.svelte';
+import Node from '../anatomy/node.svelte';
 import Label from '../anatomy/label.svelte';
 import NodeContext from '../anatomy/node-context.svelte';
 import NodeProvider from '../anatomy/node-provider.svelte';
@@ -19,13 +18,12 @@ export const TreeView: typeof Root & {
 	Tree: typeof Tree;
 	Label: typeof Label;
 	NodeProvider: typeof NodeProvider;
-	Branch: typeof Branch;
-	BranchControl: typeof BranchControl;
-	BranchText: typeof BranchText;
-	BranchIndicator: typeof BranchIndicator;
-	BranchContent: typeof BranchContent;
-	BranchIndentGuide: typeof BranchIndentGuide;
-	Item: typeof Item;
+	Node: typeof Node;
+	NodeExpandTrigger: typeof NodeExpandTrigger;
+	NodeText: typeof NodeText;
+	NodeIndicator: typeof NodeIndicator;
+	NodeGroupContent: typeof NodeGroupContent;
+	IndentGuide: typeof IndentGuide;
 } = Object.assign(Root, {
 	Provider: RootProvider,
 	Context: RootContext,
@@ -33,11 +31,10 @@ export const TreeView: typeof Root & {
 	Label: Label,
 	NodeProvider: NodeProvider,
 	NodeContext: NodeContext,
-	Branch: Branch,
-	BranchControl: BranchControl,
-	BranchText: BranchText,
-	BranchIndicator: BranchIndicator,
-	BranchContent: BranchContent,
-	BranchIndentGuide: BranchIndentGuide,
-	Item: Item,
+	Node: Node,
+	NodeExpandTrigger: NodeExpandTrigger,
+	NodeText: NodeText,
+	NodeIndicator: NodeIndicator,
+	NodeGroupContent: NodeGroupContent,
+	IndentGuide: IndentGuide,
 });

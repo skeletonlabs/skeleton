@@ -1,10 +1,9 @@
-import BranchContent from '../anatomy/branch-content.jsx';
-import BranchControl from '../anatomy/branch-control.jsx';
-import BranchIndentGuide from '../anatomy/branch-indent-guide.jsx';
-import BranchIndicator from '../anatomy/branch-indicator.jsx';
-import BranchText from '../anatomy/branch-text.jsx';
-import Branch from '../anatomy/branch.jsx';
-import Item from '../anatomy/item.jsx';
+import NodeGroupContent from '../anatomy/node-group-content.jsx';
+import NodeExpandTrigger from '../anatomy/node-expand-trigger.jsx';
+import IndentGuide from '../anatomy/indent-guide.jsx';
+import NodeIndicator from '../anatomy/node-indicator.jsx';
+import NodeText from '../anatomy/node-text.jsx';
+import Node from '../anatomy/node.jsx';
 import Label from '../anatomy/label.jsx';
 import NodeContext from '../anatomy/node-context.jsx';
 import NodeProvider from '../anatomy/node-provider.jsx';
@@ -20,11 +19,10 @@ export const TreeView = Object.assign(Root, {
 	Label: Label,
 	NodeProvider: NodeProvider,
 	NodeContext: NodeContext,
-	Branch: Branch,
-	BranchControl: BranchControl,
-	BranchText: BranchText,
-	BranchIndicator: BranchIndicator,
-	BranchContent: BranchContent,
-	BranchIndentGuide: BranchIndentGuide,
-	Item: Item,
+	Node: Node,
+	NodeExpandTrigger: NodeExpandTrigger,
+	NodeText: NodeText,
+	NodeIndicator: NodeIndicator,
+	NodeGroupContent: NodeGroupContent,
+	IndentGuide: IndentGuide,
 });

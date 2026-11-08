@@ -2,20 +2,21 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface CarouselPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface PaginationPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
-	import { CarouselRootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: CarouselPrevTriggerProps = $props();
+	const props: PaginationPrevTriggerProps = $props();
 
-	const carousel = CarouselRootContext.consume();
+	const pagination = PaginationRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(carousel().getPrevTriggerProps(), rest));
+	const triggerProps = $derived(pagination().getPrevTriggerProps());
+	const attributes = $derived(mergeProps(triggerProps, rest));
 </script>
 
 {#if element}

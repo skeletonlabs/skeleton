@@ -25,45 +25,45 @@ describe('TreeView', () => {
 		});
 	});
 
-	describe('Branch', () => {
+	describe('Node', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('branch')).toBeInTheDocument();
+			await expect.element(page.getByTestId('node')).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchControl', () => {
+	describe('NodeExpandTrigger', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('branch-control')).toBeInTheDocument();
+			await expect.element(page.getByTestId('node-expand-trigger')).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchIndentGuide', () => {
+	describe('IndentGuide', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('branch-indent-guide')).toBeInTheDocument();
+			await expect.element(page.getByTestId('indent-guide')).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchIndicator', () => {
+	describe('NodeIndicator', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('branch-indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId('node-indicator')).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchText', () => {
+	describe('NodeText', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('branch-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId('node-text')).toBeInTheDocument();
 		});
 	});
 
-	describe('Item', () => {
+	describe('Node (leaf)', () => {
 		it('renders', async () => {
 			await render(TreeView);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId('leaf-node')).toBeInTheDocument();
 		});
 	});
 });

@@ -5,9 +5,9 @@ import { TreeViewRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface TreeViewBranchProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface TreeViewNodeProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
-export default function Branch(props: TreeViewBranchProps) {
+export default function Node(props: TreeViewNodeProps) {
 	const treeView = use(TreeViewRootContext);
 	const nodeProps = use(TreeViewNodeContext);
 

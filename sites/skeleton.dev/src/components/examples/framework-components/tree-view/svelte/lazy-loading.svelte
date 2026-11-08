@@ -79,29 +79,29 @@
 {#snippet treeNode(node: Node, indexPath: number[])}
 	<TreeView.NodeProvider value={{ node, indexPath }}>
 		{#if node.children || node.childrenCount}
-			<TreeView.Branch>
-				<TreeView.BranchControl>
-					<TreeView.BranchIndicator class="data-loading:hidden" />
-					<TreeView.BranchIndicator class="hidden data-loading:inline animate-spin">
+			<TreeView.Node>
+				<TreeView.NodeExpandTrigger>
+					<TreeView.NodeIndicator class="data-loading:hidden" />
+					<TreeView.NodeIndicator class="hidden data-loading:inline animate-spin">
 						<LoaderIcon class="size-4" />
-					</TreeView.BranchIndicator>
-					<TreeView.BranchText>
+					</TreeView.NodeIndicator>
+					<TreeView.NodeText>
 						<FolderIcon class="size-4" />
 						{node.name}
-					</TreeView.BranchText>
-				</TreeView.BranchControl>
-				<TreeView.BranchContent>
-					<TreeView.BranchIndentGuide />
+					</TreeView.NodeText>
+				</TreeView.NodeExpandTrigger>
+				<TreeView.NodeGroupContent>
+					<TreeView.IndentGuide />
 					{#each node.children ?? [] as childNode, childIndex (childNode)}
 						{@render treeNode(childNode, [...indexPath, childIndex])}
 					{/each}
-				</TreeView.BranchContent>
-			</TreeView.Branch>
+				</TreeView.NodeGroupContent>
+			</TreeView.Node>
 		{:else}
-			<TreeView.Item>
+			<TreeView.Node>
 				<FileIcon class="size-4" />
 				{node.name}
-			</TreeView.Item>
+			</TreeView.Node>
 		{/if}
 	</TreeView.NodeProvider>
 {/snippet}

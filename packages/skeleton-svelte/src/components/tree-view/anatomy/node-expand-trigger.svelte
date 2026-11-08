@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface TreeViewBranchControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface TreeViewNodeExpandTriggerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 </script>
 
 <script lang="ts">
@@ -10,7 +10,7 @@
 	import { TreeViewRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: TreeViewBranchControlProps = $props();
+	const props: TreeViewNodeExpandTriggerProps = $props();
 
 	const treeView = TreeViewRootContext.consume();
 	const nodeProps = TreeViewNodeContext.consume();

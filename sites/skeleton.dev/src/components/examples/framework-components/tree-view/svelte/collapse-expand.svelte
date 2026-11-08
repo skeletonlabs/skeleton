@@ -66,26 +66,26 @@
 {#snippet treeNode(node: Node, indexPath: number[])}
 	<TreeView.NodeProvider value={{ node, indexPath }}>
 		{#if node.children}
-			<TreeView.Branch>
-				<TreeView.BranchControl>
-					<TreeView.BranchIndicator />
-					<TreeView.BranchText>
+			<TreeView.Node>
+				<TreeView.NodeExpandTrigger>
+					<TreeView.NodeIndicator />
+					<TreeView.NodeText>
 						<FolderIcon class="size-4" />
 						{node.name}
-					</TreeView.BranchText>
-				</TreeView.BranchControl>
-				<TreeView.BranchContent>
-					<TreeView.BranchIndentGuide />
+					</TreeView.NodeText>
+				</TreeView.NodeExpandTrigger>
+				<TreeView.NodeGroupContent>
+					<TreeView.IndentGuide />
 					{#each node.children as childNode, childIndex (childNode)}
 						{@render treeNode(childNode, [...indexPath, childIndex])}
 					{/each}
-				</TreeView.BranchContent>
-			</TreeView.Branch>
+				</TreeView.NodeGroupContent>
+			</TreeView.Node>
 		{:else}
-			<TreeView.Item>
+			<TreeView.Node>
 				<FileIcon class="size-4" />
 				{node.name}
-			</TreeView.Item>
+			</TreeView.Node>
 		{/if}
 	</TreeView.NodeProvider>
 {/snippet}

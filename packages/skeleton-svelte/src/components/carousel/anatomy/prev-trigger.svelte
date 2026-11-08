@@ -2,20 +2,21 @@
 	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
 	import type { PropsWithElement } from '../../../internal/props-with-element.js';
 
-	export interface StepsPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
+	export interface CarouselPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
 </script>
 
 <script lang="ts">
-	import { StepsRootContext } from '../modules/root-context.js';
+	import { CarouselRootContext } from '../modules/root-context.js';
 	import { mergeProps } from '@zag-js/svelte';
 
-	const props: StepsPrevTriggerProps = $props();
+	const props: CarouselPrevTriggerProps = $props();
 
-	const steps = StepsRootContext.consume();
+	const carousel = CarouselRootContext.consume();
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(steps().getPrevTriggerProps(), rest));
+	const triggerProps = $derived(carousel().getPrevTriggerProps());
+	const attributes = $derived(mergeProps(triggerProps, rest));
 </script>
 
 {#if element}
