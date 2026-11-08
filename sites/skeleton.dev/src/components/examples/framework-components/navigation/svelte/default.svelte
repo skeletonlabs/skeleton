@@ -1,20 +1,20 @@
 <script lang="ts">
-	import BikeIcon from '@lucide/svelte/icons/bike';
-	import BookIcon from '@lucide/svelte/icons/book';
-	import HouseIcon from '@lucide/svelte/icons/house';
-	import TreePalmIcon from '@lucide/svelte/icons/tree-palm';
-	import { Navigation } from '@skeletonlabs/skeleton-svelte';
+	import BikeIcon from "@lucide/svelte/icons/bike";
+	import BookIcon from "@lucide/svelte/icons/book";
+	import HouseIcon from "@lucide/svelte/icons/house";
+	import TreePalmIcon from "@lucide/svelte/icons/tree-palm";
+	import { Navigation } from "@skeletonlabs/skeleton-svelte";
 
 	const links = [
-		{ label: 'Home', href: '/#', icon: HouseIcon },
-		{ label: 'Entertainment', href: '/#', icon: BookIcon },
-		{ label: 'Recreation', href: '/#', icon: BikeIcon },
-		{ label: 'Relaxation', href: '/#', icon: TreePalmIcon },
+		{ label: "Home", href: "/#", icon: HouseIcon },
+		{ label: "Entertainment", href: "/#", icon: BookIcon },
+		{ label: "Recreation", href: "/#", icon: BikeIcon },
+		{ label: "Relaxation", href: "/#", icon: TreePalmIcon },
 	];
 </script>
 
-<div class="w-[375px] h-[200px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-	<div class="flex justify-center items-center">
+<div class="border-surface-200-800 grid h-[200px] w-[375px] grid-rows-[1fr_auto] border">
+	<div class="flex items-center justify-center">
 		<p class="opacity-60">...</p>
 	</div>
 	<!-- --- -->

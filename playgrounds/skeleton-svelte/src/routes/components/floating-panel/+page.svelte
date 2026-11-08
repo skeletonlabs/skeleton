@@ -1,9 +1,9 @@
 <script>
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <FloatingPanel>
@@ -31,7 +31,10 @@
 					</FloatingPanel.Header>
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
-					<p>This is a floating panel that can be dragged, resized, minimized, and maximized.</p>
+					<p>
+						This is a floating panel that can be dragged, resized, minimized, and
+						maximized.
+					</p>
 					<p>Try dragging from the header or resizing from the bottom-right corner.</p>
 					<FloatingPanel.ResizeTrigger axis="se" />
 				</FloatingPanel.Body>

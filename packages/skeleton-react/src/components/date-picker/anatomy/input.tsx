@@ -1,11 +1,12 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { DatePickerRootContext } from '../modules/root-context.js';
-import { splitInputProps, type InputProps } from '@zag-js/date-picker';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { DatePickerRootContext } from "../modules/root-context.js";
+import { splitInputProps, type InputProps } from "@zag-js/date-picker";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface DatePickerInputProps extends InputProps, PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface DatePickerInputProps
+	extends InputProps, PropsWithElement<"input">, Omit<HTMLAttributes<"input">, "children"> {}
 
 export default function Input(props: DatePickerInputProps) {
 	const datePicker = use(DatePickerRootContext);

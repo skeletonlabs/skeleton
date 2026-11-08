@@ -1,8 +1,8 @@
-import { readFileSync } from 'node:fs';
-import { extname } from 'node:path';
-import { parse } from 'svelte/compiler';
-import { Node, Project, SourceFile, Symbol, Type, ts } from 'ts-morph';
-import type { Interface, JSDoc, Property, TypeKind } from './types.ts';
+import { readFileSync } from "node:fs";
+import { extname } from "node:path";
+import { parse } from "svelte/compiler";
+import { Node, Project, SourceFile, Symbol, Type, ts } from "ts-morph";
+import type { Interface, JSDoc, Property, TypeKind } from "./types.ts";
 
 const project = new Project({ useInMemoryFileSystem: true, skipAddingFilesFromTsConfig: true });
 
@@ -11,7 +11,10 @@ export function createProjectForConfig(tsConfigFilePath: string): Project {
 }
 
 function isFunctionType(type: Type): boolean {
-	return type.getCallSignatures().length > 0 || type.getUnionTypes().some((t) => t.getCallSignatures().length > 0);
+	return (
+		type.getCallSignatures().length > 0 ||
+		type.getUnionTypes().some((t) => t.getCallSignatures().length > 0)
+	);
 }
 
 function isArrayType(type: Type): boolean {
@@ -24,10 +27,10 @@ function isObjectType(type: Type): boolean {
 
 function getTypeKind(symbol: Symbol, sourceFile: SourceFile): TypeKind {
 	const type = symbol.getTypeAtLocation(sourceFile);
-	if (isFunctionType(type)) return 'function';
-	if (isArrayType(type)) return 'array';
-	if (isObjectType(type)) return 'object';
-	return 'primitive';
+	if (isFunctionType(type)) return "function";
+	if (isArrayType(type)) return "array";
+	if (isObjectType(type)) return "object";
+	return "primitive";
 }
 
 function getDocumentation(symbol: Symbol): JSDoc {
@@ -41,7 +44,9 @@ function getDocumentation(symbol: Symbol): JSDoc {
 
 	return {
 		description: jsDoc.getDescription().trim(),
-		tags: jsDoc.getTags().map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null })),
+		tags: jsDoc
+			.getTags()
+			.map((tag) => ({ name: tag.getTagName(), value: tag.getCommentText() ?? null })),
 	};
 }
 
@@ -77,11 +82,11 @@ export function getInterface(name: string, sourceFile: SourceFile): Interface | 
 
 export function createSourceFile(path: string, project: Project): SourceFile {
 	switch (extname(path)) {
-		case '.svelte': {
-			const content = readFileSync(path, 'utf-8');
+		case ".svelte": {
+			const content = readFileSync(path, "utf-8");
 			const ast = parse(content, { modern: true });
 			const moduleContent = content.slice(ast.module?.start ?? 0, ast.module?.end ?? 0);
-			const virtualPath = path.replace('.svelte', '.ts');
+			const virtualPath = path.replace(".svelte", ".ts");
 			const existing = project.getSourceFile(virtualPath);
 			if (existing) {
 				existing.replaceWithText(moduleContent);
@@ -89,7 +94,7 @@ export function createSourceFile(path: string, project: Project): SourceFile {
 			}
 			return project.createSourceFile(virtualPath, moduleContent);
 		}
-		case '.tsx': {
+		case ".tsx": {
 			const existing = project.getSourceFile(path);
 			if (existing) return existing;
 			return project.addSourceFileAtPath(path);

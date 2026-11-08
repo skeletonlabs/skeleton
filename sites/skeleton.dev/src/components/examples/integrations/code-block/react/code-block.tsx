@@ -1,15 +1,20 @@
-import { createHighlighterCore } from 'shiki/core';
-import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+import { createHighlighterCore } from "shiki/core";
+import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 
 const highlighter = await createHighlighterCore({
-	langs: [import('@shikijs/langs/bash'), import('@shikijs/langs/css'), import('@shikijs/langs/html'), import('@shikijs/langs/javascript')],
-	themes: [import('@shikijs/themes/github-dark')],
+	langs: [
+		import("@shikijs/langs/bash"),
+		import("@shikijs/langs/css"),
+		import("@shikijs/langs/html"),
+		import("@shikijs/langs/javascript"),
+	],
+	themes: [import("@shikijs/themes/github-dark")],
 	engine: createJavaScriptRegexEngine(),
 });
 
 interface CodeBlockProps {
 	code: Parameters<typeof highlighter.codeToHtml>[0];
-	lang?: Parameters<typeof highlighter.codeToHtml>[1]['lang'];
+	lang?: Parameters<typeof highlighter.codeToHtml>[1]["lang"];
 	// Base Style Props
 	base?: string;
 	background?: string;
@@ -24,21 +29,21 @@ interface CodeBlockProps {
 
 export default function CodeBlock({
 	code,
-	lang = 'txt',
+	lang = "txt",
 	// Base Style Props
-	base = 'overflow-hidden',
-	background = 'bg-neutral-950',
-	rounded = 'rounded-container',
-	shadow = '',
-	classes = '',
+	base = "overflow-hidden",
+	background = "bg-neutral-950",
+	rounded = "rounded-container",
+	shadow = "",
+	classes = "",
 	// Pre Style Props
-	preBase = '',
-	prePadding = '',
-	preClasses = '',
+	preBase = "",
+	prePadding = "",
+	preClasses = "",
 }: CodeBlockProps) {
 	const html = highlighter.codeToHtml(code, {
 		lang,
-		theme: 'github-dark',
+		theme: "github-dark",
 	});
 	return (
 		<div

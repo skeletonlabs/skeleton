@@ -1,13 +1,13 @@
-import { Portal } from '@skeletonlabs/skeleton-react';
-import { SkullIcon } from 'lucide-react';
-import { useState } from 'react';
+import { Portal } from "@skeletonlabs/skeleton-react";
+import { SkullIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function Default() {
 	const [disabled, setDisabled] = useState(true);
 	const [target, setTarget] = useState<HTMLDivElement | null>(null);
 
-	const cardClasses = 'card preset-outlined-surface-300-700 size-24 grid place-items-center p-4';
-	const buttonClasses = 'col-span-2 btn preset-filled';
+	const cardClasses = "card preset-outlined-surface-300-700 size-24 grid place-items-center p-4";
+	const buttonClasses = "col-span-2 btn preset-filled";
 
 	return (
 		<div className="grid grid-cols-2 gap-4">
@@ -25,7 +25,7 @@ export default function Default() {
 
 			{/* Trigger */}
 			<button className={buttonClasses} onClick={() => setDisabled(!disabled)}>
-				{disabled ? 'Enable' : 'Disable'}
+				{disabled ? "Enable" : "Disable"}
 			</button>
 		</div>
 	);

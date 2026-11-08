@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { TagsInput } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { TagsInput } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/tags-input/')({
+export const Route = createFileRoute("/components/tags-input/")({
 	component: Page,
 });
 

@@ -1,10 +1,12 @@
 <script lang="ts">
-	import TriangleAlertIcon from '@lucide/svelte/icons/triangle-alert';
+	import TriangleAlertIcon from "@lucide/svelte/icons/triangle-alert";
 </script>
 
 <div class="w-full space-y-8">
 	<!-- Success -->
-	<div class="card preset-outlined-success-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]">
+	<div
+		class="card preset-outlined-success-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]"
+	>
 		<div>
 			<p class="font-bold">Success</p>
 			<p class="text-xs opacity-60">The task has been completed successfully.</p>
@@ -14,7 +16,9 @@
 		</div>
 	</div>
 	<!-- Warning -->
-	<div class="card preset-outlined-warning-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[auto_1fr_auto]">
+	<div
+		class="card preset-outlined-warning-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[auto_1fr_auto]"
+	>
 		<TriangleAlertIcon />
 		<div>
 			<p class="font-bold">Warning</p>
@@ -25,7 +29,9 @@
 		</div>
 	</div>
 	<!-- Error -->
-	<div class="card preset-outlined-error-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[auto_1fr_auto]">
+	<div
+		class="card preset-outlined-error-500 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[auto_1fr_auto]"
+	>
 		<TriangleAlertIcon />
 		<div>
 			<p class="font-bold">Error</p>

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import BoldIcon from '@lucide/svelte/icons/bold';
-	import CodeIcon from '@lucide/svelte/icons/code';
-	import Heading1Icon from '@lucide/svelte/icons/heading-1';
-	import Heading2Icon from '@lucide/svelte/icons/heading-2';
-	import Heading3Icon from '@lucide/svelte/icons/heading-3';
-	import ItalicIcon from '@lucide/svelte/icons/italic';
-	import LinkIcon from '@lucide/svelte/icons/link';
-	import MessageCircleIcon from '@lucide/svelte/icons/message-circle';
-	import PencilIcon from '@lucide/svelte/icons/pencil';
-	import StrikethroughIcon from '@lucide/svelte/icons/strikethrough';
-	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import BoldIcon from "@lucide/svelte/icons/bold";
+	import CodeIcon from "@lucide/svelte/icons/code";
+	import Heading1Icon from "@lucide/svelte/icons/heading-1";
+	import Heading2Icon from "@lucide/svelte/icons/heading-2";
+	import Heading3Icon from "@lucide/svelte/icons/heading-3";
+	import ItalicIcon from "@lucide/svelte/icons/italic";
+	import LinkIcon from "@lucide/svelte/icons/link";
+	import MessageCircleIcon from "@lucide/svelte/icons/message-circle";
+	import PencilIcon from "@lucide/svelte/icons/pencil";
+	import StrikethroughIcon from "@lucide/svelte/icons/strikethrough";
+	import { ToggleGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="space-y-10">
@@ -17,7 +17,7 @@
 		<h2 class="h2">App Bar</h2>
 	</header>
 	<section class="space-y-4">
-		<ToggleGroup defaultValue={['center']} multiple>
+		<ToggleGroup defaultValue={["center"]} multiple>
 			<ToggleGroup.Item value="left">
 				<BoldIcon class="size-4" />
 			</ToggleGroup.Item>
@@ -33,7 +33,7 @@
 		<h3 class="h3">Normalized</h3>
 		<div class="grid grid-cols-[auto_auto_1fr] items-center gap-4">
 			<button type="button" class="btn preset-filled-primary-500">Button</button>
-			<ToggleGroup defaultValue={['center']} multiple>
+			<ToggleGroup defaultValue={["center"]} multiple>
 				<ToggleGroup.Item value="left">
 					<BoldIcon class="size-4" />
 				</ToggleGroup.Item>
@@ -49,7 +49,7 @@
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Toolbar</h3>
-		<div class="inline-flex gap-2 preset-outlined-surface-200-800 p-2 rounded-base">
+		<div class="preset-outlined-surface-200-800 rounded-base inline-flex gap-2 p-2">
 			<ToggleGroup multiple>
 				<ToggleGroup.Item value="left">
 					<BoldIcon class="size-4" />

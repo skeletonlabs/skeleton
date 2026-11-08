@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 export default function Result() {
 	const dialogRef = useRef<HTMLDialogElement>(null);
-	const [result, setResult] = useState<string>('—');
+	const [result, setResult] = useState<string>("—");
 
 	useEffect(() => {
 		const dialog = dialogRef.current;
 		if (!dialog) return;
 		function onClose() {
-			setResult(dialog!.returnValue || '(dismissed)');
+			setResult(dialog!.returnValue || "(dismissed)");
 		}
-		dialog.addEventListener('close', onClose);
-		return () => dialog.removeEventListener('close', onClose);
+		dialog.addEventListener("close", onClose);
+		return () => dialog.removeEventListener("close", onClose);
 	}, []);
 
 	function showModal() {
@@ -26,7 +26,10 @@ export default function Result() {
 					<h2 className="h3">Confirm action</h2>
 				</header>
 				<article>
-					<p>Submitting either button closes the dialog and exposes its value via the dialog's returnValue.</p>
+					<p>
+						Submitting either button closes the dialog and exposes its value via the
+						dialog's returnValue.
+					</p>
 				</article>
 				<footer className="flex justify-end gap-2">
 					<form method="dialog" className="flex gap-2">

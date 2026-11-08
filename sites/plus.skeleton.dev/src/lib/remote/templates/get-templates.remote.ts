@@ -4,21 +4,21 @@
  * for the listing and detail pages.
  */
 
-import { getRequestEvent, query } from '$app/server';
+import { getRequestEvent, query } from "$app/server";
 
-import personaCard from '#lib/assets/images/templates/persona/card.webp';
-import personaHero from '#lib/assets/images/templates/persona/hero.webp';
-import personaScreenshot001 from '#lib/assets/images/templates/persona/screenshot-001.webp';
-import personaScreenshot002 from '#lib/assets/images/templates/persona/screenshot-002.webp';
-import personaScreenshot003 from '#lib/assets/images/templates/persona/screenshot-003.webp';
-import personaScreenshot004 from '#lib/assets/images/templates/persona/screenshot-004.webp';
+import personaCard from "#lib/assets/images/templates/persona/card.webp";
+import personaHero from "#lib/assets/images/templates/persona/hero.webp";
+import personaScreenshot001 from "#lib/assets/images/templates/persona/screenshot-001.webp";
+import personaScreenshot002 from "#lib/assets/images/templates/persona/screenshot-002.webp";
+import personaScreenshot003 from "#lib/assets/images/templates/persona/screenshot-003.webp";
+import personaScreenshot004 from "#lib/assets/images/templates/persona/screenshot-004.webp";
 
-import stardustCard from '#lib/assets/images/templates/stardust/card.webp';
-import stardustHero from '#lib/assets/images/templates/stardust/hero.webp';
-import stardustScreenshot001 from '#lib/assets/images/templates/stardust/screenshot-001.webp';
-import stardustScreenshot002 from '#lib/assets/images/templates/stardust/screenshot-002.webp';
-import stardustScreenshot003 from '#lib/assets/images/templates/stardust/screenshot-003.webp';
-import stardustScreenshot004 from '#lib/assets/images/templates/stardust/screenshot-004.webp';
+import stardustCard from "#lib/assets/images/templates/stardust/card.webp";
+import stardustHero from "#lib/assets/images/templates/stardust/hero.webp";
+import stardustScreenshot001 from "#lib/assets/images/templates/stardust/screenshot-001.webp";
+import stardustScreenshot002 from "#lib/assets/images/templates/stardust/screenshot-002.webp";
+import stardustScreenshot003 from "#lib/assets/images/templates/stardust/screenshot-003.webp";
+import stardustScreenshot004 from "#lib/assets/images/templates/stardust/screenshot-004.webp";
 
 export interface TemplateImage {
 	src: string;
@@ -50,52 +50,62 @@ export interface Template {
 // const placeholder = (size: string) => `https://placehold.co/${size}/1f1f1f/666666/webp?font=raleway`;
 
 const placeholderDescription =
-	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 const templates: Template[] = [
 	// Free: Portfolio Site
 	{
-		slug: 'persona',
-		name: 'Persona',
-		category: 'Portfolio',
-		tagline: 'A personal portfolio website for promoting yourself.',
+		slug: "persona",
+		name: "Persona",
+		category: "Portfolio",
+		tagline: "A personal portfolio website for promoting yourself.",
 		description: placeholderDescription,
 		isPremium: false,
-		previewUrl: 'https://skeleton-template-portfolio.vercel.app/',
+		previewUrl: "https://skeleton-template-portfolio.vercel.app/",
 		images: {
-			card: { src: personaCard, alt: 'Persona template screenshot' },
-			hero: { src: personaHero, alt: 'Persona homepage hero' },
+			card: { src: personaCard, alt: "Persona template screenshot" },
+			hero: { src: personaHero, alt: "Persona homepage hero" },
 			screenshots: [
-				{ src: personaScreenshot001, alt: 'Persona about page' },
-				{ src: personaScreenshot002, alt: 'Persona projects index' },
-				{ src: personaScreenshot003, alt: 'Persona project detail page' },
-				{ src: personaScreenshot004, alt: 'Persona design project page' },
+				{ src: personaScreenshot001, alt: "Persona about page" },
+				{ src: personaScreenshot002, alt: "Persona projects index" },
+				{ src: personaScreenshot003, alt: "Persona project detail page" },
+				{ src: personaScreenshot004, alt: "Persona design project page" },
 			],
 		},
 		downloads: [
-			{ key: 'svelte', label: 'SvelteKit', href: 'https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/portfolio' },
+			{
+				key: "svelte",
+				label: "SvelteKit",
+				href: "https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/portfolio",
+			},
 		],
 	},
 	// Free: Blog Site
 	{
-		slug: 'stardust',
-		name: 'Stardust',
-		category: 'Blog',
-		tagline: 'An personal blog template powered by markdown.',
+		slug: "stardust",
+		name: "Stardust",
+		category: "Blog",
+		tagline: "An personal blog template powered by markdown.",
 		description: placeholderDescription,
 		isPremium: false,
-		previewUrl: 'https://skeleton-template-blog.vercel.app/',
+		previewUrl: "https://skeleton-template-blog.vercel.app/",
 		images: {
-			card: { src: stardustCard, alt: 'Stardust template screenshot' },
-			hero: { src: stardustHero, alt: 'Stardust homepage hero' },
+			card: { src: stardustCard, alt: "Stardust template screenshot" },
+			hero: { src: stardustHero, alt: "Stardust homepage hero" },
 			screenshots: [
-				{ src: stardustScreenshot001, alt: 'Stardust about page' },
-				{ src: stardustScreenshot002, alt: 'Stardust blog index' },
-				{ src: stardustScreenshot003, alt: 'Stardust blog post' },
-				{ src: stardustScreenshot004, alt: 'Stardust blog post' },
+				{ src: stardustScreenshot001, alt: "Stardust about page" },
+				{ src: stardustScreenshot002, alt: "Stardust blog index" },
+				{ src: stardustScreenshot003, alt: "Stardust blog post" },
+				{ src: stardustScreenshot004, alt: "Stardust blog post" },
 			],
 		},
-		downloads: [{ key: 'astro', label: 'Astro', href: 'https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/blog' }],
+		downloads: [
+			{
+				key: "astro",
+				label: "Astro",
+				href: "https://github.com/skeletonlabs/skeleton-templates/tree/main/templates/blog",
+			},
+		],
 	},
 	// Premium: Placeholder
 	// {

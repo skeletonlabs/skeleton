@@ -1,5 +1,5 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { GripVerticalIcon, MinimizeIcon, XIcon, MinusIcon, MaximizeIcon } from 'lucide-react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { GripVerticalIcon, MinimizeIcon, XIcon, MinusIcon, MaximizeIcon } from "lucide-react";
 
 export default function Default() {
 	return (
@@ -32,8 +32,9 @@ export default function Default() {
 						</FloatingPanel.DragTrigger>
 						<FloatingPanel.Body>
 							<p>
-								This is a floating panel that can be dragged, resized, minimized, and maximized. Try dragging from the header or resizing
-								from the bottom-right corner.
+								This is a floating panel that can be dragged, resized, minimized,
+								and maximized. Try dragging from the header or resizing from the
+								bottom-right corner.
 							</p>
 						</FloatingPanel.Body>
 						<FloatingPanel.ResizeTrigger axis="se" />

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import BoldIcon from '@lucide/svelte/icons/bold';
-	import ItalicIcon from '@lucide/svelte/icons/italic';
-	import UnderlineIcon from '@lucide/svelte/icons/underline';
-	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import BoldIcon from "@lucide/svelte/icons/bold";
+	import ItalicIcon from "@lucide/svelte/icons/italic";
+	import UnderlineIcon from "@lucide/svelte/icons/underline";
+	import { ToggleGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="flex flex-col items-center gap-4">
 	<p>Horizontal</p>
-	<ToggleGroup defaultValue={['bold']} multiple orientation="horizontal">
+	<ToggleGroup defaultValue={["bold"]} multiple orientation="horizontal">
 		<ToggleGroup.Item value="bold">
 			<BoldIcon class="size-4" />
 		</ToggleGroup.Item>
@@ -20,7 +20,7 @@
 	</ToggleGroup>
 
 	<p>Vertical</p>
-	<ToggleGroup defaultValue={['bold']} multiple orientation="vertical" class="flex-col">
+	<ToggleGroup defaultValue={["bold"]} multiple orientation="vertical" class="flex-col">
 		<ToggleGroup.Item value="bold">
 			<BoldIcon class="size-4" />
 		</ToggleGroup.Item>

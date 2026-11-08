@@ -1,10 +1,10 @@
-import { getCollection } from '@/modules/content';
-import { getMarkdownFromDoc } from '@/modules/llms/get-markdown-from-doc';
-import type { APIRoute } from 'astro';
+import { getCollection } from "@/modules/content";
+import { getMarkdownFromDoc } from "@/modules/llms/get-markdown-from-doc";
+import type { APIRoute } from "astro";
 
 export async function getStaticPaths() {
-	const frameworks = await getCollection('frameworks');
-	const docs = await getCollection('docs');
+	const frameworks = await getCollection("frameworks");
+	const docs = await getCollection("docs");
 	return frameworks.flatMap((framework) =>
 		docs.map((doc) => ({
 			params: {
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 export const GET: APIRoute = async (context) => {
 	return new Response(getMarkdownFromDoc(context.props.doc, [context.props.framework]), {
 		headers: {
-			'Content-Type': 'text/plain',
+			"Content-Type": "text/plain",
 		},
 	});
 };

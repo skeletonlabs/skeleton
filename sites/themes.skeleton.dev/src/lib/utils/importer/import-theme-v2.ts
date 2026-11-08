@@ -1,9 +1,9 @@
 // Import v2 Theme File
 // Read v2 theme file contents, updates local generator state.
-import * as constants from '#lib/constants/generator.ts';
-import { settingsColors, settingsCore } from '#lib/state/generator.svelte.ts';
-import { genColorRamp } from '#lib/utils/generator/colors.ts';
-import chroma from 'chroma-js';
+import * as constants from "#lib/constants/generator.ts";
+import { settingsColors, settingsCore } from "#lib/state/generator.svelte.ts";
+import { genColorRamp } from "#lib/utils/generator/colors.ts";
+import chroma from "chroma-js";
 
 export async function importThemeV2(fileText: string, fileName: string) {
 	// Create array for each line
@@ -14,28 +14,28 @@ export async function importThemeV2(fileText: string, fileName: string) {
 	let linesFormatted: string[];
 	// Filter to only supported properties
 	linesFormatted = lines.filter((line) => {
-		if (line.includes('--color')) {
+		if (line.includes("--color")) {
 			return line;
 		}
 		// TODO: expand this...
 		// if (line.includes('--theme-rounded')) return line;
 	});
 	// Removing trailing comments
-	linesFormatted = linesFormatted.map((line) => line.split(' //')[0]);
+	linesFormatted = linesFormatted.map((line) => line.split(" //")[0]);
 	// Format Lines
 	linesFormatted = linesFormatted.map((line) => {
 		line = line.trim();
-		line = line.replaceAll(`',`, ''); // final comma (single quote)
-		line = line.replaceAll(`",`, ''); // final comma (double quote)
-		line = line.replaceAll(`'`, ''); // open/close (single quotes)
-		line = line.replaceAll(`"`, ''); // open/close (double quote)
+		line = line.replaceAll(`',`, ""); // final comma (single quote)
+		line = line.replaceAll(`",`, ""); // final comma (double quote)
+		line = line.replaceAll(`'`, ""); // open/close (single quotes)
+		line = line.replaceAll(`"`, ""); // open/close (double quote)
 		return line;
 	});
 
 	// Create key/value object
 	const properties: Record<string, string> = {};
 	linesFormatted.forEach((line) => {
-		const [key, value] = line.split(': ');
+		const [key, value] = line.split(": ");
 		properties[key] = value;
 	});
 
@@ -44,9 +44,9 @@ export async function importThemeV2(fileText: string, fileName: string) {
 		// Generate from 50/500/900
 		const scale = chroma
 			.scale([
-				chroma(`rgb(${properties[`--color-${colorName}-50`].split(' ').join(',')})`),
-				chroma(`rgb(${properties[`--color-${colorName}-500`].split(' ').join(',')})`),
-				chroma(`rgb(${properties[`--color-${colorName}-900`].split(' ').join(',')})`),
+				chroma(`rgb(${properties[`--color-${colorName}-50`].split(" ").join(",")})`),
+				chroma(`rgb(${properties[`--color-${colorName}-500`].split(" ").join(",")})`),
+				chroma(`rgb(${properties[`--color-${colorName}-900`].split(" ").join(",")})`),
 			])
 			.colors(11);
 		// Update Properties
@@ -60,7 +60,7 @@ export async function importThemeV2(fileText: string, fileName: string) {
 
 	// Set Generator State
 	if (fileName) {
-		settingsCore.name = fileName.split('.')[0];
+		settingsCore.name = fileName.split(".")[0];
 	} // before .js|.ts
 	// Colors
 	for (const key of Object.keys(properties) as (keyof typeof settingsColors)[]) {

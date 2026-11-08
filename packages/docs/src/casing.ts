@@ -3,7 +3,7 @@ function capitalize(str: string): string {
 }
 
 export function kebabToPascal(str: string): string {
-	return str.split('-').map(capitalize).join('');
+	return str.split("-").map(capitalize).join("");
 }
 
 export function kebabToCamel(str: string): string {

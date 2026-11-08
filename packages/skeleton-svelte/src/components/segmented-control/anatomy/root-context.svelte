@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useSegmentedControl } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useSegmentedControl } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface SegmentedControlRootContextProps {
 		children: Snippet<[ReturnType<typeof useSegmentedControl>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { SegmentedControlRootContext } from '../modules/root-context.js';
+	import { SegmentedControlRootContext } from "../modules/root-context.js";
 
 	const props: SegmentedControlRootContextProps = $props();
 

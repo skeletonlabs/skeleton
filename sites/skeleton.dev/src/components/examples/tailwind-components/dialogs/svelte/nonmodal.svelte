@@ -16,7 +16,7 @@
 	<dialog
 		bind:this={dialogRef}
 		closedby="any"
-		class="dialog preset-filled-surface-100-900 animate-dialog [--dialog-top:auto] [--dialog-left:50%] [--dialog-translate:-50%_0] bottom-full mb-2 whitespace-nowrap"
+		class="dialog preset-filled-surface-100-900 animate-dialog bottom-full mb-2 whitespace-nowrap [--dialog-left:50%] [--dialog-top:auto] [--dialog-translate:-50%_0]"
 	>
 		<p>This acts as a tooltip.</p>
 	</dialog>

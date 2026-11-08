@@ -1,8 +1,8 @@
 /* https://github.com/dracula */
 
-[data-theme='dracula'] {
+[data-theme="dracula"] {
 	--text-scaling: 1;
-	--typo-base--font-family: 'DM Sans', sans-serif;
+	--typo-base--font-family: "DM Sans", sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: oklch(0 0 0 / 1);
 	--typo-base--color-dark: oklch(1 0 0 / 1);
@@ -16,7 +16,7 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: 'DM Sans', sans-serif;
+	--typo-heading--font-family: "DM Sans", sans-serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: normal;

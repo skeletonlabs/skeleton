@@ -1,11 +1,12 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { MenuItemContext } from '../modules/item-context.js';
-import { MenuRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { MenuItemContext } from "../modules/item-context.js";
+import { MenuRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface MenuItemIndicatorProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface MenuItemIndicatorProps
+	extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 
 export default function ItemIndicator(props: MenuItemIndicatorProps) {
 	const menu = use(MenuRootContext);

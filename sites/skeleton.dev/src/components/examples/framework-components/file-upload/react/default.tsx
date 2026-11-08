@@ -1,5 +1,5 @@
-import { FileUpload } from '@skeletonlabs/skeleton-react';
-import { FileIcon } from 'lucide-react';
+import { FileUpload } from "@skeletonlabs/skeleton-react";
+import { FileIcon } from "lucide-react";
 
 export default function Default() {
 	return (

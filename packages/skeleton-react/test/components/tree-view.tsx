@@ -1,14 +1,14 @@
-import { TreeView, createTreeViewCollection } from '../../src/index.js';
+import { TreeView, createTreeViewCollection } from "../../src/index.js";
 
 export default function Test() {
 	const collection = createTreeViewCollection({
-		rootNode: '',
+		rootNode: "",
 	});
 	return (
 		<TreeView collection={collection} data-testid="root">
 			<TreeView.Label data-testid="label" />
 			<TreeView.Tree data-testid="tree">
-				<TreeView.NodeProvider value={{ node: '', indexPath: [] }}>
+				<TreeView.NodeProvider value={{ node: "", indexPath: [] }}>
 					<TreeView.Branch data-testid="branch">
 						<TreeView.BranchControl data-testid="branch-control">
 							<TreeView.BranchIndentGuide data-testid="branch-indent-guide" />

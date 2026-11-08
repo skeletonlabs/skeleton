@@ -1,38 +1,38 @@
 <script lang="ts">
-	import PageHeader from '#lib/components/layout/page-header.svelte';
-	import { EllipsisVerticalIcon, PlusIcon } from '@lucide/svelte';
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { EllipsisVerticalIcon, PlusIcon } from "@lucide/svelte";
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 
 	const teamMembers = [
 		{
-			firstName: 'Ada',
-			lastName: 'Lovelace',
-			email: 'ada@skeleton.dev',
-			image: 'https://i.pravatar.cc/150?img=1',
+			firstName: "Ada",
+			lastName: "Lovelace",
+			email: "ada@skeleton.dev",
+			image: "https://i.pravatar.cc/150?img=1",
 		},
 		{
-			firstName: 'Alan',
-			lastName: 'Turing',
-			email: 'alan@skeleton.dev',
-			image: 'https://i.pravatar.cc/150?img=12',
+			firstName: "Alan",
+			lastName: "Turing",
+			email: "alan@skeleton.dev",
+			image: "https://i.pravatar.cc/150?img=12",
 		},
 		{
-			firstName: 'Grace',
-			lastName: 'Hopper',
-			email: 'grace@skeleton.dev',
-			image: 'https://i.pravatar.cc/150?img=5',
+			firstName: "Grace",
+			lastName: "Hopper",
+			email: "grace@skeleton.dev",
+			image: "https://i.pravatar.cc/150?img=5",
 		},
 		{
-			firstName: 'Linus',
-			lastName: 'Torvalds',
-			email: 'linus@skeleton.dev',
-			image: 'https://i.pravatar.cc/150?img=15',
+			firstName: "Linus",
+			lastName: "Torvalds",
+			email: "linus@skeleton.dev",
+			image: "https://i.pravatar.cc/150?img=15",
 		},
 		{
-			firstName: 'Margaret',
-			lastName: 'Hamilton',
-			email: 'margaret@skeleton.dev',
-			image: 'https://i.pravatar.cc/150?img=9',
+			firstName: "Margaret",
+			lastName: "Hamilton",
+			email: "margaret@skeleton.dev",
+			image: "https://i.pravatar.cc/150?img=9",
 		},
 	];
 </script>
@@ -72,7 +72,11 @@
 							<td>{lastName}</td>
 							<td>{email}</td>
 							<td class="text-right">
-								<button type="button" class="btn-icon hover:preset-tonal" aria-label="Member actions">
+								<button
+									type="button"
+									class="btn-icon hover:preset-tonal"
+									aria-label="Member actions"
+								>
 									<EllipsisVerticalIcon />
 								</button>
 							</td>

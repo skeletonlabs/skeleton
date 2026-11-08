@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Tabs } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Tabs } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/tabs/')({
+export const Route = createFileRoute("/components/tabs/")({
 	component: Page,
 });
 

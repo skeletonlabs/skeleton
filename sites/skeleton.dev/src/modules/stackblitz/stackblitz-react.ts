@@ -1,4 +1,4 @@
-import sdk from '@stackblitz/sdk';
+import sdk from "@stackblitz/sdk";
 
 const appCss = `
 @import "tailwindcss";
@@ -36,29 +36,29 @@ const indexHtml = `
 
 const packageJson = JSON.stringify(
 	{
-		name: 'skeleton-react',
+		name: "skeleton-react",
 		scripts: {
-			dev: 'vite',
+			dev: "vite",
 		},
 		dependencies: {
-			react: '^19',
-			'react-dom': '^19',
+			react: "^19",
+			"react-dom": "^19",
 		},
 		devDependencies: {
-			'@faker-js/faker': '^10',
-			'@skeletonlabs/skeleton': '^4',
-			'@skeletonlabs/skeleton-react': '^4',
-			'@tailwindcss/vite': '^4',
-			'@types/node': '^24',
-			'@types/react': '^19',
-			'@types/react-dom': '^19',
-			'@vitejs/plugin-react': '^5',
-			'lucide-react': '^0',
-			tailwindcss: '^4',
-			typescript: '^5',
-			vite: '^7',
+			"@faker-js/faker": "^10",
+			"@skeletonlabs/skeleton": "^4",
+			"@skeletonlabs/skeleton-react": "^4",
+			"@tailwindcss/vite": "^4",
+			"@types/node": "^24",
+			"@types/react": "^19",
+			"@types/react-dom": "^19",
+			"@vitejs/plugin-react": "^5",
+			"lucide-react": "^0",
+			tailwindcss: "^4",
+			typescript: "^5",
+			vite: "^7",
 		},
-		type: 'module',
+		type: "module",
 	},
 	null,
 	2,
@@ -67,20 +67,20 @@ const packageJson = JSON.stringify(
 const tsconfigJson = JSON.stringify(
 	{
 		compilerOptions: {
-			target: 'ES2022',
+			target: "ES2022",
 			useDefineForClassFields: true,
-			lib: ['ES2022', 'DOM', 'DOM.Iterable'],
-			module: 'ESNext',
-			types: ['vite/client'],
+			lib: ["ES2022", "DOM", "DOM.Iterable"],
+			module: "ESNext",
+			types: ["vite/client"],
 			skipLibCheck: true,
-			moduleResolution: 'bundler',
+			moduleResolution: "bundler",
 			allowImportingTsExtensions: true,
 			verbatimModuleSyntax: true,
-			moduleDetection: 'force',
+			moduleDetection: "force",
 			noEmit: true,
-			jsx: 'react-jsx',
+			jsx: "react-jsx",
 		},
-		include: ['src'],
+		include: ["src"],
 	},
 	null,
 	2,
@@ -97,20 +97,22 @@ export default defineConfig({
 `.trim();
 
 export function openReactStackblitzProject(files: Record<string, string>) {
-	const srcFiles = Object.fromEntries(Object.entries(files).map(([key, value]) => [`src/${key}`, value]));
+	const srcFiles = Object.fromEntries(
+		Object.entries(files).map(([key, value]) => [`src/${key}`, value]),
+	);
 
 	sdk.openProject(
 		{
-			title: 'Skeleton React',
-			template: 'node',
+			title: "Skeleton React",
+			template: "node",
 			files: {
-				'src/app.css': appCss,
-				'src/main.tsx': mainTsx,
+				"src/app.css": appCss,
+				"src/main.tsx": mainTsx,
 				...srcFiles,
-				'index.html': indexHtml,
-				'package.json': packageJson,
-				'tsconfig.json': tsconfigJson,
-				'vite.config.ts': viteConfigTs,
+				"index.html": indexHtml,
+				"package.json": packageJson,
+				"tsconfig.json": tsconfigJson,
+				"vite.config.ts": viteConfigTs,
 			},
 		},
 		{

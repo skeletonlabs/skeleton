@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { ItemProps } from '@zag-js/carousel';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { ItemProps } from "@zag-js/carousel";
 
-	export interface CarouselItemProps extends ItemProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface CarouselItemProps
+		extends ItemProps, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { CarouselRootContext } from '../modules/root-context.js';
-	import { splitItemProps } from '@zag-js/carousel';
-	import { mergeProps } from '@zag-js/svelte';
+	import { CarouselRootContext } from "../modules/root-context.js";
+	import { splitItemProps } from "@zag-js/carousel";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: CarouselItemProps = $props();
 

@@ -1,5 +1,5 @@
-[data-scope='app-bar'] {
-	&[data-part='root'] {
+[data-scope="app-bar"] {
+	&[data-part="root"] {
 		width: 100%;
 		background: var(--color-surface-100-900);
 		padding: --spacing(4);
@@ -8,14 +8,14 @@
 		gap: --spacing(4);
 	}
 
-	&[data-part='toolbar'] {
+	&[data-part="toolbar"] {
 		display: grid;
 		align-items: center;
 		justify-content: space-between;
 		gap: --spacing(4);
 	}
 
-	&[data-part='trail'] {
+	&[data-part="trail"] {
 		display: flex;
 		gap: --spacing(2);
 	}

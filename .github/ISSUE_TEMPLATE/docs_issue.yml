@@ -3,11 +3,11 @@ description: Use this to report a typo or incorrect information.
 labels: [documentation]
 type: Task
 body:
-  - type: input
-    id: link
-    attributes:
-      label: Link to the Page
-  - type: textarea
-    id: quote
-    attributes:
-      label: Describe this issue. Screenshots are encouraged.
+    - type: input
+      id: link
+      attributes:
+          label: Link to the Page
+    - type: textarea
+      id: quote
+      attributes:
+          label: Describe this issue. Screenshots are encouraged.

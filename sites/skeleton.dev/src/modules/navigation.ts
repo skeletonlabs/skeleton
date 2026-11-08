@@ -1,17 +1,17 @@
-import { getCollection } from '@/modules/content';
-import type { CollectionEntry } from 'astro:content';
+import { getCollection } from "@/modules/content";
+import type { CollectionEntry } from "astro:content";
 
 export interface Section {
 	label: string;
-	docs: CollectionEntry<'docs'>[];
+	docs: CollectionEntry<"docs">[];
 }
 
 async function getSection(prefix: string) {
-	return await getCollection('docs', (doc) => {
+	return await getCollection("docs", (doc) => {
 		if (!doc.id.startsWith(prefix)) {
 			return false;
 		}
-		if (doc.id.split('/').length > 2) {
+		if (doc.id.split("/").length > 2) {
 			return false;
 		}
 		return true;
@@ -20,35 +20,35 @@ async function getSection(prefix: string) {
 
 export const commonSections: Section[] = [
 	{
-		label: 'Get Started',
-		docs: await getSection('get-started/'),
+		label: "Get Started",
+		docs: await getSection("get-started/"),
 	},
 	{
-		label: 'Guides',
-		docs: await getSection('guides/'),
+		label: "Guides",
+		docs: await getSection("guides/"),
 	},
 	{
-		label: 'Design System',
-		docs: await getSection('design/'),
+		label: "Design System",
+		docs: await getSection("design/"),
 	},
 	{
-		label: 'Tailwind Utilities',
-		docs: await getSection('tailwind-utilities/'),
+		label: "Tailwind Utilities",
+		docs: await getSection("tailwind-utilities/"),
 	},
 	{
-		label: 'Tailwind Components',
-		docs: await getSection('tailwind-components/'),
+		label: "Tailwind Components",
+		docs: await getSection("tailwind-components/"),
 	},
 	{
-		label: 'Framework Components',
-		docs: await getSection('framework-components/'),
+		label: "Framework Components",
+		docs: await getSection("framework-components/"),
 	},
 	{
-		label: 'Integrations',
-		docs: await getSection('integrations/'),
+		label: "Integrations",
+		docs: await getSection("integrations/"),
 	},
 	{
-		label: 'Resources',
-		docs: await getSection('resources/'),
+		label: "Resources",
+		docs: await getSection("resources/"),
 	},
 ];

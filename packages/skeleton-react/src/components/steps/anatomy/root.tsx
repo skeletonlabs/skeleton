@@ -1,12 +1,13 @@
-import { useSteps } from '../modules/provider.js';
-import { StepsRootContext } from '../modules/root-context.js';
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { mergeProps } from '@zag-js/react';
-import type { Props } from '@zag-js/steps';
-import { splitProps } from '@zag-js/steps';
+import { useSteps } from "../modules/provider.js";
+import { StepsRootContext } from "../modules/root-context.js";
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { mergeProps } from "@zag-js/react";
+import type { Props } from "@zag-js/steps";
+import { splitProps } from "@zag-js/steps";
 
-export interface StepsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface StepsRootProps
+	extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 
 export default function SliderRoot(props: StepsRootProps) {
 	const [stepsProps, componentProps] = splitProps(props);

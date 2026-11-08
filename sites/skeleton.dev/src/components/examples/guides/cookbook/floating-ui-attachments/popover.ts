@@ -1,15 +1,15 @@
-import { computePosition, autoUpdate, flip, offset, type Placement } from '@floating-ui/dom';
-import { createAttachmentKey } from 'svelte/attachments';
+import { computePosition, autoUpdate, flip, offset, type Placement } from "@floating-ui/dom";
+import { createAttachmentKey } from "svelte/attachments";
 
 interface PopoverOptions {
-	interaction?: 'click' | 'hover';
+	interaction?: "click" | "hover";
 	placement?: Placement;
 }
 
 export class Popover {
 	private options: PopoverOptions = {
-		interaction: 'click',
-		placement: 'bottom-start',
+		interaction: "click",
+		placement: "bottom-start",
 	};
 	private open = $state(false);
 	private referenceElement: HTMLElement | undefined = $state();
@@ -33,20 +33,20 @@ export class Popover {
 			onmouseout: () => {},
 		};
 		// If click interaction
-		if (this.options.interaction === 'click') {
-			attrs['onclick'] = () => {
+		if (this.options.interaction === "click") {
+			attrs["onclick"] = () => {
 				this.open = !this.open;
 			};
 		}
 		// If hover interaction
-		if (this.options.interaction === 'hover') {
-			attrs['onclick'] = () => {
+		if (this.options.interaction === "hover") {
+			attrs["onclick"] = () => {
 				this.open = !this.open;
 			};
-			attrs['onmouseover'] = () => {
+			attrs["onmouseover"] = () => {
 				this.open = true;
 			};
-			attrs['onmouseout'] = () => {
+			attrs["onmouseout"] = () => {
 				this.open = false;
 			};
 		}

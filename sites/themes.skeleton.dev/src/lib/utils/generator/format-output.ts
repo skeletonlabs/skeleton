@@ -9,14 +9,14 @@ import type {
 	SettingsEdges,
 	SettingsSpacing,
 	SettingsTypography,
-} from '#lib/state/types.ts';
-import chroma from 'chroma-js';
+} from "#lib/state/types.ts";
+import chroma from "chroma-js";
 
 /** UTIL: Format from JS Object to CSS properties format. Omits empty-string values (e.g. unset custom fonts). */
 function objectToCssProperties(obj: Record<string, string>) {
-	let css = '';
+	let css = "";
 	Object.entries(obj).forEach(([key, value]) => {
-		if (value === '') return;
+		if (value === "") return;
 		css += `\t${key}: ${value};\n`;
 	});
 	return `\t${css.trim()}`;
@@ -27,10 +27,10 @@ function objectToCssProperties(obj: Record<string, string>) {
 export function formatCore(core: SettingsCore) {
 	const _core = JSON.parse(JSON.stringify(core));
 	// Strip all special characters from theme name
-	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, '');
+	_core.name = core.name.trim().replace(/[^a-zA-Z]/g, "");
 	// Fallback to `theme` when theme name is empty
-	if (_core.name === '') {
-		_core.name = 'theme';
+	if (_core.name === "") {
+		_core.name = "theme";
 	}
 	return _core;
 }
@@ -46,14 +46,14 @@ export function formatTypography(typography: SettingsTypography) {
 export function formatTypographyForTheme(typography: SettingsTypography) {
 	const _typography = JSON.parse(JSON.stringify(typography));
 	const customFonts: Record<string, string> = {
-		'var(--font-custom-1)': _typography['--font-custom-1'],
-		'var(--font-custom-2)': _typography['--font-custom-2'],
+		"var(--font-custom-1)": _typography["--font-custom-1"],
+		"var(--font-custom-2)": _typography["--font-custom-2"],
 	};
 	Object.keys(_typography).forEach((key) => {
 		if (_typography[key] in customFonts) _typography[key] = customFonts[_typography[key]];
 	});
-	delete _typography['--font-custom-1'];
-	delete _typography['--font-custom-2'];
+	delete _typography["--font-custom-1"];
+	delete _typography["--font-custom-2"];
 	return objectToCssProperties(_typography);
 }
 
@@ -85,8 +85,8 @@ export function formatBrand(brand: SettingsBrand) {
 export function formatColors(colors: SettingsColors) {
 	const _colors = JSON.parse(JSON.stringify(colors));
 	Object.keys(_colors).forEach((key) => {
-		if (_colors[key].includes('#')) {
-			_colors[key] = chroma(_colors[key]).css('oklch');
+		if (_colors[key].includes("#")) {
+			_colors[key] = chroma(_colors[key]).css("oklch");
 		}
 	});
 	return objectToCssProperties(_colors);

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
 
 	const generatedArray = Array.from({ length: 6 });
 
@@ -33,17 +33,26 @@
 
 <div class="w-full">
 	<!-- Carousel -->
-	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<div class="card grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
 		<!-- Button: Left -->
-		<button type="button" class="btn-icon preset-filled" onclick={carouselLeft} title="Previous slide" aria-label="Previous slide">
+		<button
+			type="button"
+			class="btn-icon preset-filled"
+			onclick={carouselLeft}
+			title="Previous slide"
+			aria-label="Previous slide"
+		>
 			<ArrowLeftIcon size={16} />
 		</button>
 		<!-- Full Images -->
-		<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+		<div
+			bind:this={elemCarousel}
+			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+		>
 			<!-- Loop X many times. -->
 			{#each generatedArray as _, i}
 				<img
-					class="snap-center w-[1024px] rounded-container"
+					class="rounded-container w-[1024px] snap-center"
 					src={`https://picsum.photos/seed/${i + 1}/1024/768`}
 					alt={`full-${i}`}
 					loading="lazy"
@@ -51,12 +60,18 @@
 			{/each}
 		</div>
 		<!-- Button: Right -->
-		<button type="button" class="btn-icon preset-filled" onclick={carouselRight} title="Next slide" aria-label="Next slide">
+		<button
+			type="button"
+			class="btn-icon preset-filled"
+			onclick={carouselRight}
+			title="Next slide"
+			aria-label="Next slide"
+		>
 			<ArrowRightIcon size={16} />
 		</button>
 	</div>
 	<!-- Thumbnails -->
-	<div class="card p-4 grid grid-cols-6 gap-4">
+	<div class="card grid grid-cols-6 gap-4 p-4">
 		<!-- Loop X many times. -->
 		{#each generatedArray as _, i}
 			<button type="button" onclick={() => carouselThumbnail(i)}>

@@ -1,7 +1,7 @@
-import type { useAvatar } from '../modules/provider.js';
-import { AvatarRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useAvatar } from "../modules/provider.js";
+import { AvatarRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface AvatarRootContextProps {
 	children: (avatar: ReturnType<typeof useAvatar>) => ReactNode;

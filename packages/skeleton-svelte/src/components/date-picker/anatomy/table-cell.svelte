@@ -1,19 +1,22 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Union } from '../../../internal/union.js';
-	import type { DayTableCellProps, TableCellProps } from '@zag-js/date-picker';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Union } from "../../../internal/union.js";
+	import type { DayTableCellProps, TableCellProps } from "@zag-js/date-picker";
 
 	export interface DatePickerTableCellProps
-		extends Union<TableCellProps, DayTableCellProps>, PropsWithElement<'td'>, HTMLAttributes<'td'> {}
+		extends
+			Union<TableCellProps, DayTableCellProps>,
+			PropsWithElement<"td">,
+			HTMLAttributes<"td"> {}
 </script>
 
 <script lang="ts">
-	import { DatePickerRootContext } from '../modules/root-context.js';
-	import { DatePickerTableCellContext } from '../modules/table-cell-context.js';
-	import { DatePickerViewContext } from '../modules/view-context.js';
-	import { splitTableCellProps } from '@zag-js/date-picker';
-	import { mergeProps } from '@zag-js/svelte';
+	import { DatePickerRootContext } from "../modules/root-context.js";
+	import { DatePickerTableCellContext } from "../modules/table-cell-context.js";
+	import { DatePickerViewContext } from "../modules/view-context.js";
+	import { splitTableCellProps } from "@zag-js/date-picker";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: DatePickerTableCellProps = $props();
 

@@ -1,8 +1,8 @@
-import { Slider } from '@skeletonlabs/skeleton-react';
+import { Slider } from "@skeletonlabs/skeleton-react";
 
 export default function Color() {
 	return (
-		<div className="space-y-8 w-full">
+		<div className="w-full space-y-8">
 			<Slider defaultValue={[50]}>
 				<Slider.Control>
 					<Slider.Track className="bg-primary-50-950">

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+	import type { PropsWithChildren } from "../../../internal/props-with-children.js";
 
 	export interface PortalRootProps extends Required<PropsWithChildren> {
 		/**
@@ -18,13 +18,17 @@
 </script>
 
 <script lang="ts">
-	import { getAllContexts, mount, unmount } from 'svelte';
+	import { getAllContexts, mount, unmount } from "svelte";
 
 	const props: PortalRootProps = $props();
 
 	const context = getAllContexts();
 
-	const { children, disabled = false, target = typeof window === 'undefined' ? undefined : document.body } = $derived(props);
+	const {
+		children,
+		disabled = false,
+		target = typeof window === "undefined" ? undefined : document.body,
+	} = $derived(props);
 
 	$effect(() => {
 		if (disabled || !target) {

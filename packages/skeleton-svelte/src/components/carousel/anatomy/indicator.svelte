@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { IndicatorProps } from '@zag-js/carousel';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { IndicatorProps } from "@zag-js/carousel";
 
-	export interface CarouselIndicatorProps extends IndicatorProps, PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface CarouselIndicatorProps
+		extends IndicatorProps, PropsWithElement<"button">, HTMLAttributes<"button"> {}
 </script>
 
 <script lang="ts">
-	import { CarouselRootContext } from '../modules/root-context.js';
-	import { splitIndicatorProps } from '@zag-js/carousel';
-	import { mergeProps } from '@zag-js/svelte';
+	import { CarouselRootContext } from "../modules/root-context.js";
+	import { splitIndicatorProps } from "@zag-js/carousel";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: CarouselIndicatorProps = $props();
 

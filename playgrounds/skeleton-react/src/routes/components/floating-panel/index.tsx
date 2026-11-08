@@ -1,8 +1,8 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { MaximizeIcon, MinimizeIcon, MinusIcon, XIcon } from 'lucide-react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { MaximizeIcon, MinimizeIcon, MinusIcon, XIcon } from "lucide-react";
 
-export const Route = createFileRoute('/components/floating-panel/')({
+export const Route = createFileRoute("/components/floating-panel/")({
 	component: RouteComponent,
 });
 
@@ -33,8 +33,14 @@ function RouteComponent() {
 							</FloatingPanel.Header>
 						</FloatingPanel.DragTrigger>
 						<FloatingPanel.Body>
-							<p>This is a floating panel that can be dragged, resized, minimized, and maximized.</p>
-							<p>Try dragging from the header or resizing from the bottom-right corner.</p>
+							<p>
+								This is a floating panel that can be dragged, resized, minimized,
+								and maximized.
+							</p>
+							<p>
+								Try dragging from the header or resizing from the bottom-right
+								corner.
+							</p>
 							<FloatingPanel.ResizeTrigger axis="se" />
 						</FloatingPanel.Body>
 					</FloatingPanel.Content>

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { FileUpload } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { CircleXIcon } from 'lucide-react';
+import { FileUpload } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { CircleXIcon } from "lucide-react";
 
-export const Route = createFileRoute('/components/file-upload/')({
+export const Route = createFileRoute("/components/file-upload/")({
 	component: Page,
 });
 

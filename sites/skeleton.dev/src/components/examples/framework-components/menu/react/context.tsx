@@ -1,9 +1,11 @@
-import { Menu, Portal } from '@skeletonlabs/skeleton-react';
+import { Menu, Portal } from "@skeletonlabs/skeleton-react";
 
 export default function Context() {
 	return (
 		<Menu>
-			<Menu.ContextTrigger className="card border border-dashed border-surface-200-800 p-8">Right-click here</Menu.ContextTrigger>
+			<Menu.ContextTrigger className="card border-surface-200-800 border border-dashed p-8">
+				Right-click here
+			</Menu.ContextTrigger>
 			<Portal>
 				<Menu.Positioner>
 					<Menu.Content>

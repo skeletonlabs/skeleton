@@ -1,10 +1,10 @@
 <script>
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <FloatingPanel maxSize={{ width: 900, height: 600 }} minSize={{ width: 300, height: 200 }}>
@@ -35,8 +35,14 @@
 					</FloatingPanel.Header>
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
-					<p>This panel has size constraints applied: minimum 300x200 pixels and maximum 900x600 pixels.</p>
-					<p>Try resizing from the bottom-right corner - the panel will respect these boundaries.</p>
+					<p>
+						This panel has size constraints applied: minimum 300x200 pixels and maximum
+						900x600 pixels.
+					</p>
+					<p>
+						Try resizing from the bottom-right corner - the panel will respect these
+						boundaries.
+					</p>
 				</FloatingPanel.Body>
 				<FloatingPanel.ResizeTrigger axis="se" />
 			</FloatingPanel.Content>

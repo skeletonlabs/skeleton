@@ -2,6 +2,11 @@
 	"name": "@skeletonlabs/plus.skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -54,10 +59,5 @@
 		"unplugin-icons": "catalog:",
 		"valibot": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module",
-	"imports": {
-		"#lib": "./src/lib/index.js",
-		"#lib/*": "./src/lib/*"
 	}
 }

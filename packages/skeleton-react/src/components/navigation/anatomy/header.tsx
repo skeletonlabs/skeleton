@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { NavigationRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { NavigationRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface NavigationHeaderProps extends PropsWithElement<'header'>, HTMLAttributes<'header'> {}
+export interface NavigationHeaderProps
+	extends PropsWithElement<"header">, HTMLAttributes<"header"> {}
 
 export default function NavigationHeader(props: NavigationHeaderProps) {
 	const { element, children, ...rest } = props;
@@ -13,9 +14,9 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'header',
-			'data-layout': navigation.layout,
+			"data-scope": "navigation",
+			"data-part": "header",
+			"data-layout": navigation.layout,
 		},
 		rest,
 	);

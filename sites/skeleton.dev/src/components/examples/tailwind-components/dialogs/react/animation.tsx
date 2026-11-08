@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export default function Animation() {
 	const dialogRef = useRef<HTMLDialogElement>(null);

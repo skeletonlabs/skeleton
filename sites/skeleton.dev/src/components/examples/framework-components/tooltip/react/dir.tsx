@@ -1,4 +1,4 @@
-import { Portal, Tooltip } from '@skeletonlabs/skeleton-react';
+import { Portal, Tooltip } from "@skeletonlabs/skeleton-react";
 
 export default function Dir() {
 	return (
@@ -6,7 +6,9 @@ export default function Dir() {
 			<Tooltip.Trigger>Hover</Tooltip.Trigger>
 			<Portal>
 				<Tooltip.Positioner>
-					<Tooltip.Content className="card bg-surface-100-900 p-2  shadow-xl">Hello Skeleton</Tooltip.Content>
+					<Tooltip.Content className="card bg-surface-100-900 p-2 shadow-xl">
+						Hello Skeleton
+					</Tooltip.Content>
 				</Tooltip.Positioner>
 			</Portal>
 		</Tooltip>

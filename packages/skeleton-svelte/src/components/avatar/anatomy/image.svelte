@@ -1,13 +1,13 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface AvatarImageProps extends PropsWithElement<'img'>, HTMLAttributes<'img'> {}
+	export interface AvatarImageProps extends PropsWithElement<"img">, HTMLAttributes<"img"> {}
 </script>
 
 <script lang="ts">
-	import { AvatarRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { AvatarRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: AvatarImageProps = $props();
 

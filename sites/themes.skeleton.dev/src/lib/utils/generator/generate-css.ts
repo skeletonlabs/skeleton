@@ -9,7 +9,7 @@ import {
 	settingsEdges,
 	settingsSpacing,
 	settingsTypography,
-} from '#lib/state/generator.svelte.ts';
+} from "#lib/state/generator.svelte.ts";
 import {
 	formageEdges,
 	formatBackgrounds,
@@ -18,7 +18,7 @@ import {
 	formatCorners,
 	formatSpacing,
 	formatTypography,
-} from '#lib/utils/generator/format-output.ts';
+} from "#lib/utils/generator/format-output.ts";
 
 export function generatePreviewCss() {
 	const themeCss = `

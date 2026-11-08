@@ -1,16 +1,16 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useSlider } from '../modules/provider.js';
-import { SliderRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { splitProps } from '@zag-js/slider';
-import type { Props } from '@zag-js/slider';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useSlider } from "../modules/provider.js";
+import { SliderRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { splitProps } from "@zag-js/slider";
+import type { Props } from "@zag-js/slider";
 
 export interface SliderRootProps
 	extends
-		Omit<Props, 'id'>,
-		PropsWithElement<'div'>,
-		HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue' | 'aria-label' | 'aria-labelledby'> {}
+		Omit<Props, "id">,
+		PropsWithElement<"div">,
+		HTMLAttributes<"div", "id" | "dir" | "defaultValue" | "aria-label" | "aria-labelledby"> {}
 
 export default function SliderRoot(props: SliderRootProps) {
 	const [sliderProps, componentProps] = splitProps(props);

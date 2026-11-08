@@ -1,6 +1,6 @@
-import { TreeViewNodeContext } from '../modules/node-context.js';
-import type { NodeProps } from '@zag-js/tree-view';
-import type { PropsWithChildren } from 'react';
+import { TreeViewNodeContext } from "../modules/node-context.js";
+import type { NodeProps } from "@zag-js/tree-view";
+import type { PropsWithChildren } from "react";
 
 export interface TreeViewNodeProviderProps extends PropsWithChildren {
 	value: NodeProps;
@@ -9,5 +9,7 @@ export interface TreeViewNodeProviderProps extends PropsWithChildren {
 export default function NodeProvider(props: TreeViewNodeProviderProps) {
 	const { children, value: nodeProps } = props;
 
-	return <TreeViewNodeContext.Provider value={nodeProps}>{children}</TreeViewNodeContext.Provider>;
+	return (
+		<TreeViewNodeContext.Provider value={nodeProps}>{children}</TreeViewNodeContext.Provider>
+	);
 }

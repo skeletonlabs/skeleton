@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { Listbox, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import { Listbox, useListCollection } from "@skeletonlabs/skeleton-svelte";
 
 	const data = [
-		{ label: 'Apple', value: 'apple' },
-		{ label: 'Banana', value: 'banana' },
-		{ label: 'Orange', value: 'orange' },
-		{ label: 'Carrot', value: 'carrot' },
-		{ label: 'Broccoli', value: 'broccoli' },
-		{ label: 'Spinach', value: 'spinach' },
+		{ label: "Apple", value: "apple" },
+		{ label: "Banana", value: "banana" },
+		{ label: "Orange", value: "orange" },
+		{ label: "Carrot", value: "carrot" },
+		{ label: "Broccoli", value: "broccoli" },
+		{ label: "Spinach", value: "spinach" },
 	];
 
-	let query = $state('');
+	let query = $state("");
 
 	const collection = $derived(
 		useListCollection({
@@ -23,7 +23,11 @@
 
 <Listbox class="w-full max-w-md" {collection}>
 	<Listbox.Label>Search for Food</Listbox.Label>
-	<Listbox.Input placeholder="Type to search..." value={query} oninput={(e) => (query = e.currentTarget.value)} />
+	<Listbox.Input
+		placeholder="Type to search..."
+		value={query}
+		oninput={(e) => (query = e.currentTarget.value)}
+	/>
 	<Listbox.Content>
 		{#each collection.items as item (item.value)}
 			<Listbox.Item {item}>

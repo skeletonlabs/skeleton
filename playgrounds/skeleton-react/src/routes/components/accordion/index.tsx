@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Accordion } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Accordion } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/accordion/')({
+export const Route = createFileRoute("/components/accordion/")({
 	component: Page,
 });
 

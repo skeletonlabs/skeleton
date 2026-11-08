@@ -6,7 +6,7 @@
 
 - task: bump `zag` to `1.43.0` ([#4543](https://github.com/skeletonlabs/skeleton/pull/4543))
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.1
+    - @skeletonlabs/skeleton-common@5.0.1
 
 ## 5.0.0
 
@@ -31,7 +31,7 @@
 - task: bump `zag` to `1.41.2` ([#4492](https://github.com/skeletonlabs/skeleton/pull/4492))
 
 - Updated dependencies [[`851579f`](https://github.com/skeletonlabs/skeleton/commit/851579fcc9d57c4aa9a45ff45963aa8f961f229f), [`3daa14a`](https://github.com/skeletonlabs/skeleton/commit/3daa14a8581f5ba922a1d46e7a0b2dc7773fe0cd), [`960cd5a`](https://github.com/skeletonlabs/skeleton/commit/960cd5acc8179da46fcf03bd6a0c24c8c8332155), [`b70d164`](https://github.com/skeletonlabs/skeleton/commit/b70d16484d97e184ebaad1921913e14781b72207), [`dde2b1a`](https://github.com/skeletonlabs/skeleton/commit/dde2b1a44657749de57be8d40ebe7bb2f2377763), [`3207d74`](https://github.com/skeletonlabs/skeleton/commit/3207d74beea3a7eac3705448d2d15743db96a140)]:
-  - @skeletonlabs/skeleton-common@5.0.0
+    - @skeletonlabs/skeleton-common@5.0.0
 
 ## 5.0.0-next.12
 
@@ -40,7 +40,7 @@
 - task: bump `zag` to `1.42.0` ([#4515](https://github.com/skeletonlabs/skeleton/pull/4515))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.12
+    - @skeletonlabs/skeleton-common@5.0.0-next.12
 
 ## 5.0.0-next.11
 
@@ -49,7 +49,7 @@
 - task: bump `zag` to `1.41.2` ([#4492](https://github.com/skeletonlabs/skeleton/pull/4492))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.11
+    - @skeletonlabs/skeleton-common@5.0.0-next.11
 
 ## 5.0.0-next.10
 
@@ -66,70 +66,70 @@
 - task: bump `zag` to `1.41.0` ([#4480](https://github.com/skeletonlabs/skeleton/pull/4480))
 
 - Updated dependencies [[`851579f`](https://github.com/skeletonlabs/skeleton/commit/851579fcc9d57c4aa9a45ff45963aa8f961f229f), [`960cd5a`](https://github.com/skeletonlabs/skeleton/commit/960cd5acc8179da46fcf03bd6a0c24c8c8332155)]:
-  - @skeletonlabs/skeleton-common@5.0.0-next.10
+    - @skeletonlabs/skeleton-common@5.0.0-next.10
 
 ## 5.0.0-next.9
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.9
+    - @skeletonlabs/skeleton-common@5.0.0-next.9
 
 ## 5.0.0-next.8
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.8
+    - @skeletonlabs/skeleton-common@5.0.0-next.8
 
 ## 5.0.0-next.7
 
 ### Patch Changes
 
 - Updated dependencies [[`b70d164`](https://github.com/skeletonlabs/skeleton/commit/b70d16484d97e184ebaad1921913e14781b72207)]:
-  - @skeletonlabs/skeleton-common@5.0.0-next.7
+    - @skeletonlabs/skeleton-common@5.0.0-next.7
 
 ## 5.0.0-next.6
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.6
+    - @skeletonlabs/skeleton-common@5.0.0-next.6
 
 ## 5.0.0-next.5
 
 ### Patch Changes
 
 - Updated dependencies [[`dde2b1a`](https://github.com/skeletonlabs/skeleton/commit/dde2b1a44657749de57be8d40ebe7bb2f2377763)]:
-  - @skeletonlabs/skeleton-common@5.0.0-next.5
+    - @skeletonlabs/skeleton-common@5.0.0-next.5
 
 ## 5.0.0-next.4
 
 ### Patch Changes
 
 - Updated dependencies [[`3daa14a`](https://github.com/skeletonlabs/skeleton/commit/3daa14a8581f5ba922a1d46e7a0b2dc7773fe0cd)]:
-  - @skeletonlabs/skeleton-common@5.0.0-next.4
+    - @skeletonlabs/skeleton-common@5.0.0-next.4
 
 ## 5.0.0-next.3
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.3
+    - @skeletonlabs/skeleton-common@5.0.0-next.3
 
 ## 5.0.0-next.2
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.2
+    - @skeletonlabs/skeleton-common@5.0.0-next.2
 
 ## 5.0.0-next.1
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.1
+    - @skeletonlabs/skeleton-common@5.0.0-next.1
 
 ## 5.0.0-next.0
 
@@ -140,7 +140,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@5.0.0-next.0
+    - @skeletonlabs/skeleton-common@5.0.0-next.0
 
 ## 4.15.2
 
@@ -149,14 +149,14 @@
 - task: bump zag ([#4348](https://github.com/skeletonlabs/skeleton/pull/4348))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.15.2
+    - @skeletonlabs/skeleton-common@4.15.2
 
 ## 4.15.1
 
 ### Patch Changes
 
 - Updated dependencies [[`31618a3`](https://github.com/skeletonlabs/skeleton/commit/31618a3947c0d04d3757b77b93a4e96fc59751a5)]:
-  - @skeletonlabs/skeleton-common@4.15.1
+    - @skeletonlabs/skeleton-common@4.15.1
 
 ## 4.15.0
 
@@ -167,7 +167,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.15.0
+    - @skeletonlabs/skeleton-common@4.15.0
 
 ## 4.14.0
 
@@ -178,7 +178,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.14.0
+    - @skeletonlabs/skeleton-common@4.14.0
 
 ## 4.13.0
 
@@ -189,14 +189,14 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.13.0
+    - @skeletonlabs/skeleton-common@4.13.0
 
 ## 4.12.1
 
 ### Patch Changes
 
 - Updated dependencies [[`4ec9097`](https://github.com/skeletonlabs/skeleton/commit/4ec9097cbfd621b2848a883e41aa9ea3e14dd62f)]:
-  - @skeletonlabs/skeleton-common@4.12.1
+    - @skeletonlabs/skeleton-common@4.12.1
 
 ## 4.12.0
 
@@ -207,7 +207,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.12.0
+    - @skeletonlabs/skeleton-common@4.12.0
 
 ## 4.11.0
 
@@ -218,7 +218,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.11.0
+    - @skeletonlabs/skeleton-common@4.11.0
 
 ## 4.10.0
 
@@ -229,7 +229,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`ca2398a`](https://github.com/skeletonlabs/skeleton/commit/ca2398ae3799e3898a2b9d31d37cfaabc695e269)]:
-  - @skeletonlabs/skeleton-common@4.10.0
+    - @skeletonlabs/skeleton-common@4.10.0
 
 ## 4.9.0
 
@@ -242,7 +242,7 @@
 - task: bump zag ([#4232](https://github.com/skeletonlabs/skeleton/pull/4232))
 
 - Updated dependencies [[`02c9bd1`](https://github.com/skeletonlabs/skeleton/commit/02c9bd1b6b9520583212b3e2db1e79ce495f3672)]:
-  - @skeletonlabs/skeleton-common@4.9.0
+    - @skeletonlabs/skeleton-common@4.9.0
 
 ## 4.8.0
 
@@ -253,14 +253,14 @@
 ### Patch Changes
 
 - Updated dependencies [[`d63335c`](https://github.com/skeletonlabs/skeleton/commit/d63335c199a9c187d1561a3ca9d1f75008fdeb6d)]:
-  - @skeletonlabs/skeleton-common@4.8.0
+    - @skeletonlabs/skeleton-common@4.8.0
 
 ## 4.7.4
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.7.4
+    - @skeletonlabs/skeleton-common@4.7.4
 
 ## 4.7.3
 
@@ -269,14 +269,14 @@
 - task: bump zag ([#4215](https://github.com/skeletonlabs/skeleton/pull/4215))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.7.3
+    - @skeletonlabs/skeleton-common@4.7.3
 
 ## 4.7.2
 
 ### Patch Changes
 
 - Updated dependencies [[`9d32222`](https://github.com/skeletonlabs/skeleton/commit/9d322225dd0158589351fab2a0d5def1f63d5323)]:
-  - @skeletonlabs/skeleton-common@4.7.2
+    - @skeletonlabs/skeleton-common@4.7.2
 
 ## 4.7.1
 
@@ -285,7 +285,7 @@
 - task: bump zag ([#4180](https://github.com/skeletonlabs/skeleton/pull/4180))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.7.1
+    - @skeletonlabs/skeleton-common@4.7.1
 
 ## 4.7.0
 
@@ -296,14 +296,14 @@
 ### Patch Changes
 
 - Updated dependencies [[`86b7505`](https://github.com/skeletonlabs/skeleton/commit/86b7505e788ca59e52f5ee8b814d4de1dc2932ff)]:
-  - @skeletonlabs/skeleton-common@4.7.0
+    - @skeletonlabs/skeleton-common@4.7.0
 
 ## 4.6.1
 
 ### Patch Changes
 
 - Updated dependencies [[`3dc3205`](https://github.com/skeletonlabs/skeleton/commit/3dc32052450fecba376d466c4a72f682acbee323)]:
-  - @skeletonlabs/skeleton-common@4.6.1
+    - @skeletonlabs/skeleton-common@4.6.1
 
 ## 4.6.0
 
@@ -316,7 +316,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`e582ac2`](https://github.com/skeletonlabs/skeleton/commit/e582ac214fb5b0456b59da41666d8cd8bcae3489), [`e69b1b7`](https://github.com/skeletonlabs/skeleton/commit/e69b1b752da8feaff11d6573d6f3c10dc89db5b8)]:
-  - @skeletonlabs/skeleton-common@4.6.0
+    - @skeletonlabs/skeleton-common@4.6.0
 
 ## 4.5.3
 
@@ -325,7 +325,7 @@
 - task: Convert CSS variables from `style` expressions to `tailwind` classes ([#4162](https://github.com/skeletonlabs/skeleton/pull/4162))
 
 - Updated dependencies [[`bcfd2cd`](https://github.com/skeletonlabs/skeleton/commit/bcfd2cd54832c744f565861bccb81b34b3e45206)]:
-  - @skeletonlabs/skeleton-common@4.5.3
+    - @skeletonlabs/skeleton-common@4.5.3
 
 ## 4.5.2
 
@@ -334,7 +334,7 @@
 - bugfix: Add missing `Popover.Anchor` ([#4158](https://github.com/skeletonlabs/skeleton/pull/4158))
 
 - Updated dependencies [[`e8dc070`](https://github.com/skeletonlabs/skeleton/commit/e8dc070e1ea01afba12cdaa113491ba985d3fe41)]:
-  - @skeletonlabs/skeleton-common@4.5.2
+    - @skeletonlabs/skeleton-common@4.5.2
 
 ## 4.5.1
 
@@ -345,7 +345,7 @@
 - bugfix: Add documented, but missing, `Combobox.ClearTrigger` ([#4147](https://github.com/skeletonlabs/skeleton/pull/4147))
 
 - Updated dependencies [[`0cbcb64`](https://github.com/skeletonlabs/skeleton/commit/0cbcb646f74d617599ed1e23be11a42b85e6854b)]:
-  - @skeletonlabs/skeleton-common@4.5.1
+    - @skeletonlabs/skeleton-common@4.5.1
 
 ## 4.5.0
 
@@ -358,7 +358,7 @@
 - task: bump zag ([#4126](https://github.com/skeletonlabs/skeleton/pull/4126))
 
 - Updated dependencies [[`a085b38`](https://github.com/skeletonlabs/skeleton/commit/a085b382a9970a08d049f23e4dcb8c11f3eb4126)]:
-  - @skeletonlabs/skeleton-common@4.5.0
+    - @skeletonlabs/skeleton-common@4.5.0
 
 ## 4.4.1
 
@@ -367,7 +367,7 @@
 - bugfix: `Toast` width collapsing on smaller screens when `position` is not centered ([#4116](https://github.com/skeletonlabs/skeleton/pull/4116))
 
 - Updated dependencies [[`7d5845c`](https://github.com/skeletonlabs/skeleton/commit/7d5845c926cea4b28192b33e2f7ce18c422507cd)]:
-  - @skeletonlabs/skeleton-common@4.4.1
+    - @skeletonlabs/skeleton-common@4.4.1
 
 ## 4.4.0
 
@@ -380,28 +380,28 @@
 - chore: bump zag ([#4106](https://github.com/skeletonlabs/skeleton/pull/4106))
 
 - Updated dependencies [[`44d62ac`](https://github.com/skeletonlabs/skeleton/commit/44d62ace9f4b59477873765a294f271f898f3465)]:
-  - @skeletonlabs/skeleton-common@4.4.0
+    - @skeletonlabs/skeleton-common@4.4.0
 
 ## 4.3.4
 
 ### Patch Changes
 
 - Updated dependencies [[`605d673`](https://github.com/skeletonlabs/skeleton/commit/605d67314f55bb961903f92c64c947cffb710e94)]:
-  - @skeletonlabs/skeleton-common@4.3.4
+    - @skeletonlabs/skeleton-common@4.3.4
 
 ## 4.3.3
 
 ### Patch Changes
 
 - Updated dependencies [[`e58fba2`](https://github.com/skeletonlabs/skeleton/commit/e58fba20952fc099fe6f0d408e95b4ecda5fceda)]:
-  - @skeletonlabs/skeleton-common@4.3.3
+    - @skeletonlabs/skeleton-common@4.3.3
 
 ## 4.3.2
 
 ### Patch Changes
 
 - Updated dependencies [[`94c16ae`](https://github.com/skeletonlabs/skeleton/commit/94c16ae59b51c6c0b6de9a24546c02d5437ee154)]:
-  - @skeletonlabs/skeleton-common@4.3.2
+    - @skeletonlabs/skeleton-common@4.3.2
 
 ## 4.3.1
 
@@ -410,7 +410,7 @@
 - chore: bump zag ([#4070](https://github.com/skeletonlabs/skeleton/pull/4070))
 
 - Updated dependencies [[`c205f85`](https://github.com/skeletonlabs/skeleton/commit/c205f85cd605c598e78d42dac04ff4d5225dfd5e)]:
-  - @skeletonlabs/skeleton-common@4.3.1
+    - @skeletonlabs/skeleton-common@4.3.1
 
 ## 4.3.0
 
@@ -421,14 +421,14 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.3.0
+    - @skeletonlabs/skeleton-common@4.3.0
 
 ## 4.2.4
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.2.4
+    - @skeletonlabs/skeleton-common@4.2.4
 
 ## 4.2.3
 
@@ -437,7 +437,7 @@
 - chore: bump zag ([#4048](https://github.com/skeletonlabs/skeleton/pull/4048))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.2.3
+    - @skeletonlabs/skeleton-common@4.2.3
 
 ## 4.2.2
 
@@ -446,7 +446,7 @@
 - fix: support generics in TreeView ([#4040](https://github.com/skeletonlabs/skeleton/pull/4040))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.2.2
+    - @skeletonlabs/skeleton-common@4.2.2
 
 ## 4.2.1
 
@@ -455,7 +455,7 @@
 - Update dependencies to add the peerDependency `@internationalized/date` required by `@zag-js/date-utils` ([#4037](https://github.com/skeletonlabs/skeleton/pull/4037))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.2.1
+    - @skeletonlabs/skeleton-common@4.2.1
 
 ## 4.2.0
 
@@ -466,7 +466,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`48f0f7d`](https://github.com/skeletonlabs/skeleton/commit/48f0f7d0662c982966d17f62736fb8b66c08a291)]:
-  - @skeletonlabs/skeleton-common@4.2.0
+    - @skeletonlabs/skeleton-common@4.2.0
 
 ## 4.1.5
 
@@ -475,7 +475,7 @@
 - fix: widen compatbility with `nodenext` ([#4026](https://github.com/skeletonlabs/skeleton/pull/4026))
 
 - Updated dependencies [[`fd6b74a`](https://github.com/skeletonlabs/skeleton/commit/fd6b74a3ecb81c26206b0a490a9dec17cbe51893)]:
-  - @skeletonlabs/skeleton-common@4.1.5
+    - @skeletonlabs/skeleton-common@4.1.5
 
 ## 4.1.4
 
@@ -484,7 +484,7 @@
 - fix: toast incorrectly placed `ghost` elements ([#4020](https://github.com/skeletonlabs/skeleton/pull/4020))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.1.4
+    - @skeletonlabs/skeleton-common@4.1.4
 
 ## 4.1.3
 
@@ -493,14 +493,14 @@
 - fix: set `view` to `day` by default ([#4005](https://github.com/skeletonlabs/skeleton/pull/4005))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.1.3
+    - @skeletonlabs/skeleton-common@4.1.3
 
 ## 4.1.2
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.1.2
+    - @skeletonlabs/skeleton-common@4.1.2
 
 ## 4.1.1
 
@@ -511,7 +511,7 @@
 - fix: DatePicker not respecting optional `viewProps` ([#4001](https://github.com/skeletonlabs/skeleton/pull/4001))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.1.1
+    - @skeletonlabs/skeleton-common@4.1.1
 
 ## 4.1.0
 
@@ -522,14 +522,14 @@
 ### Patch Changes
 
 - Updated dependencies [[`f5e61dd`](https://github.com/skeletonlabs/skeleton/commit/f5e61dd59aa9a4c461c129ae026add755ba7fe74)]:
-  - @skeletonlabs/skeleton-common@4.1.0
+    - @skeletonlabs/skeleton-common@4.1.0
 
 ## 4.0.2
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.2
+    - @skeletonlabs/skeleton-common@4.0.2
 
 ## 4.0.1
 
@@ -538,7 +538,7 @@
 - chore: bump zag ([#3923](https://github.com/skeletonlabs/skeleton/pull/3923))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.1
+    - @skeletonlabs/skeleton-common@4.0.1
 
 ## 4.0.0
 
@@ -617,14 +617,14 @@
 - chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
 
 - Updated dependencies [[`997c17f`](https://github.com/skeletonlabs/skeleton/commit/997c17ff6dd29328753f9381154e80853792ec3e), [`890c826`](https://github.com/skeletonlabs/skeleton/commit/890c8260f4d561a99e07440cfce3ef7a9b88e0ed), [`69cf72e`](https://github.com/skeletonlabs/skeleton/commit/69cf72efdad48e3087852e63d7143628de1d7428), [`dff68d8`](https://github.com/skeletonlabs/skeleton/commit/dff68d8f824ddb1aef820e75ab3bdebe06546e07), [`f272f42`](https://github.com/skeletonlabs/skeleton/commit/f272f42ae2a92648d275618089a5c41aaf4efe13), [`a9c651a`](https://github.com/skeletonlabs/skeleton/commit/a9c651adac035dc4613f0118bca05f0cfb0b22b5), [`09bf2b2`](https://github.com/skeletonlabs/skeleton/commit/09bf2b20dbbfed53af7c31281da21cc5790d87c9), [`5dcc4bb`](https://github.com/skeletonlabs/skeleton/commit/5dcc4bb6ce3d7de181956932521b5fec10a581f2), [`19bd792`](https://github.com/skeletonlabs/skeleton/commit/19bd79224a599cc05df7122b9279d88736c8e4c4), [`3776570`](https://github.com/skeletonlabs/skeleton/commit/3776570c21d060a653bdde8a164e95e8aecdbaab), [`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304), [`770431d`](https://github.com/skeletonlabs/skeleton/commit/770431da15a354c66ef69cc0df5049e893147e2f), [`5d517a8`](https://github.com/skeletonlabs/skeleton/commit/5d517a840ac27bea4d5fd2fd2b150abf779075b0), [`b599260`](https://github.com/skeletonlabs/skeleton/commit/b599260c41276aa88ca0c71d6ec3c77c281d0bcc), [`247fe15`](https://github.com/skeletonlabs/skeleton/commit/247fe154b55ec86b37b12b10771ba0403b488053), [`fc27770`](https://github.com/skeletonlabs/skeleton/commit/fc27770b37fc2b224444b220020c2141f9fe2da0), [`c4df8e6`](https://github.com/skeletonlabs/skeleton/commit/c4df8e6de82253838f5812af7cce586dd4076477), [`3c28f1a`](https://github.com/skeletonlabs/skeleton/commit/3c28f1a37cc559e2ba33d69301a0154e30750ca0), [`24526af`](https://github.com/skeletonlabs/skeleton/commit/24526affc00c70b08af0ba1299c82ba64ec9d58a), [`aa6392e`](https://github.com/skeletonlabs/skeleton/commit/aa6392efb829ea01b1466b5c6a623adf05f96f4e), [`e6ab4f7`](https://github.com/skeletonlabs/skeleton/commit/e6ab4f78a4e1aa9132c05da04d5a89b1a7dacece), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`6972031`](https://github.com/skeletonlabs/skeleton/commit/69720310c6510eaf430f9bacda2b456dae8993ff), [`1d8a151`](https://github.com/skeletonlabs/skeleton/commit/1d8a15137c79c293674fd70794f69a2fe6cd18a4), [`d65abd7`](https://github.com/skeletonlabs/skeleton/commit/d65abd7c5bd9e694aeeaa3b54310971e63e8de50), [`6e68a49`](https://github.com/skeletonlabs/skeleton/commit/6e68a493da7aaf9b416b0e3c5d4b2570cf0039c4), [`91c9bb5`](https://github.com/skeletonlabs/skeleton/commit/91c9bb5908c6c132f7b0bdeff928adf88094e952), [`867170c`](https://github.com/skeletonlabs/skeleton/commit/867170cc7f5aa8def2ebf4d9569bbde42492d133), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`f818b24`](https://github.com/skeletonlabs/skeleton/commit/f818b2478f9ee0b5f64f119fd69d1a27a58c1d07), [`e8f4bb0`](https://github.com/skeletonlabs/skeleton/commit/e8f4bb05f6d3cf29de778e58c2a27d941d02128c)]:
-  - @skeletonlabs/skeleton-common@4.0.0
+    - @skeletonlabs/skeleton-common@4.0.0
 
 ## 4.0.0-next.33
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.33
+    - @skeletonlabs/skeleton-common@4.0.0-next.33
 
 ## 4.0.0-next.32
 
@@ -635,7 +635,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`e8f4bb0`](https://github.com/skeletonlabs/skeleton/commit/e8f4bb05f6d3cf29de778e58c2a27d941d02128c)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.32
+    - @skeletonlabs/skeleton-common@4.0.0-next.32
 
 ## 4.0.0-next.31
 
@@ -644,7 +644,7 @@
 - fix: exclude .map files from being published ([`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304))
 
 - Updated dependencies [[`d718291`](https://github.com/skeletonlabs/skeleton/commit/d718291b0b00b4ac4b906313bf04f209bfd45304)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.31
+    - @skeletonlabs/skeleton-common@4.0.0-next.31
 
 ## 4.0.0-next.30
 
@@ -653,14 +653,14 @@
 - chore: bump zag ([#3888](https://github.com/skeletonlabs/skeleton/pull/3888))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.30
+    - @skeletonlabs/skeleton-common@4.0.0-next.30
 
 ## 4.0.0-next.29
 
 ### Patch Changes
 
 - Updated dependencies [[`b599260`](https://github.com/skeletonlabs/skeleton/commit/b599260c41276aa88ca0c71d6ec3c77c281d0bcc)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.29
+    - @skeletonlabs/skeleton-common@4.0.0-next.29
 
 ## 4.0.0-next.28
 
@@ -671,14 +671,14 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.28
+    - @skeletonlabs/skeleton-common@4.0.0-next.28
 
 ## 4.0.0-next.27
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.27
+    - @skeletonlabs/skeleton-common@4.0.0-next.27
 
 ## 4.0.0-next.26
 
@@ -687,7 +687,7 @@
 - fix: add missing exports ([#3874](https://github.com/skeletonlabs/skeleton/pull/3874))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.26
+    - @skeletonlabs/skeleton-common@4.0.0-next.26
 
 ## 4.0.0-next.25
 
@@ -698,21 +698,21 @@
 ### Patch Changes
 
 - Updated dependencies [[`e6ab4f7`](https://github.com/skeletonlabs/skeleton/commit/e6ab4f78a4e1aa9132c05da04d5a89b1a7dacece)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.25
+    - @skeletonlabs/skeleton-common@4.0.0-next.25
 
 ## 4.0.0-next.24
 
 ### Patch Changes
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@4.0.0-next.24
+    - @skeletonlabs/skeleton-common@4.0.0-next.24
 
 ## 4.0.0-next.23
 
 ### Patch Changes
 
 - Updated dependencies [[`6972031`](https://github.com/skeletonlabs/skeleton/commit/69720310c6510eaf430f9bacda2b456dae8993ff)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.23
+    - @skeletonlabs/skeleton-common@4.0.0-next.23
 
 ## 4.0.0-next.22
 
@@ -721,7 +721,7 @@
 - chore: version sync ([#3852](https://github.com/skeletonlabs/skeleton/pull/3852))
 
 - Updated dependencies [[`f818b24`](https://github.com/skeletonlabs/skeleton/commit/f818b2478f9ee0b5f64f119fd69d1a27a58c1d07)]:
-  - @skeletonlabs/skeleton-common@4.0.0-next.22
+    - @skeletonlabs/skeleton-common@4.0.0-next.22
 
 ## 2.0.0-next.20
 
@@ -734,7 +734,7 @@
 - chore: remove Accordion.ItemHeading in favor of having users provide a <h3> themselves ([#3850](https://github.com/skeletonlabs/skeleton/pull/3850))
 
 - Updated dependencies [[`5dcc4bb`](https://github.com/skeletonlabs/skeleton/commit/5dcc4bb6ce3d7de181956932521b5fec10a581f2), [`867170c`](https://github.com/skeletonlabs/skeleton/commit/867170cc7f5aa8def2ebf4d9569bbde42492d133)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.16
+    - @skeletonlabs/skeleton-common@1.0.0-next.16
 
 ## 2.0.0-next.19
 
@@ -751,7 +751,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`3c28f1a`](https://github.com/skeletonlabs/skeleton/commit/3c28f1a37cc559e2ba33d69301a0154e30750ca0), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1), [`5cb5756`](https://github.com/skeletonlabs/skeleton/commit/5cb575691e63c99b260b0a907efe9553b53fe6e1)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.15
+    - @skeletonlabs/skeleton-common@1.0.0-next.15
 
 ## 2.0.0-next.17
 
@@ -762,7 +762,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`c4df8e6`](https://github.com/skeletonlabs/skeleton/commit/c4df8e6de82253838f5812af7cce586dd4076477)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.14
+    - @skeletonlabs/skeleton-common@1.0.0-next.14
 
 ## 2.0.0-next.16
 
@@ -771,7 +771,7 @@
 - chore: Add missing `Label` and `Control` components to `SegmentedControl` ([#3817](https://github.com/skeletonlabs/skeleton/pull/3817))
 
 - Updated dependencies [[`69cf72e`](https://github.com/skeletonlabs/skeleton/commit/69cf72efdad48e3087852e63d7143628de1d7428)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.13
+    - @skeletonlabs/skeleton-common@1.0.0-next.13
 
 ## 2.0.0-next.15
 
@@ -782,7 +782,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`91c9bb5`](https://github.com/skeletonlabs/skeleton/commit/91c9bb5908c6c132f7b0bdeff928adf88094e952)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.12
+    - @skeletonlabs/skeleton-common@1.0.0-next.12
 
 ## 2.0.0-next.14
 
@@ -797,7 +797,7 @@
 - chore: update readme ([#3805](https://github.com/skeletonlabs/skeleton/pull/3805))
 
 - Updated dependencies []:
-  - @skeletonlabs/skeleton-common@1.0.0-next.11
+    - @skeletonlabs/skeleton-common@1.0.0-next.11
 
 ## 2.0.0-next.12
 
@@ -816,7 +816,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`09bf2b2`](https://github.com/skeletonlabs/skeleton/commit/09bf2b20dbbfed53af7c31281da21cc5790d87c9), [`fc27770`](https://github.com/skeletonlabs/skeleton/commit/fc27770b37fc2b224444b220020c2141f9fe2da0)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.11
+    - @skeletonlabs/skeleton-common@1.0.0-next.11
 
 ## 2.0.0-next.10
 
@@ -825,7 +825,7 @@
 - chore: trusted publishing ([#3792](https://github.com/skeletonlabs/skeleton/pull/3792))
 
 - Updated dependencies [[`6e68a49`](https://github.com/skeletonlabs/skeleton/commit/6e68a493da7aaf9b416b0e3c5d4b2570cf0039c4)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.10
+    - @skeletonlabs/skeleton-common@1.0.0-next.10
 
 ## 2.0.0-next.9
 
@@ -836,7 +836,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`24526af`](https://github.com/skeletonlabs/skeleton/commit/24526affc00c70b08af0ba1299c82ba64ec9d58a)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.9
+    - @skeletonlabs/skeleton-common@1.0.0-next.9
 
 ## 2.0.0-next.8
 
@@ -847,7 +847,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`aa6392e`](https://github.com/skeletonlabs/skeleton/commit/aa6392efb829ea01b1466b5c6a623adf05f96f4e)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.8
+    - @skeletonlabs/skeleton-common@1.0.0-next.8
 
 ## 2.0.0-next.7
 
@@ -858,7 +858,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`890c826`](https://github.com/skeletonlabs/skeleton/commit/890c8260f4d561a99e07440cfce3ef7a9b88e0ed)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.7
+    - @skeletonlabs/skeleton-common@1.0.0-next.7
 
 ## 2.0.0-next.6
 
@@ -873,7 +873,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`997c17f`](https://github.com/skeletonlabs/skeleton/commit/997c17ff6dd29328753f9381154e80853792ec3e), [`19bd792`](https://github.com/skeletonlabs/skeleton/commit/19bd79224a599cc05df7122b9279d88736c8e4c4), [`247fe15`](https://github.com/skeletonlabs/skeleton/commit/247fe154b55ec86b37b12b10771ba0403b488053)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.6
+    - @skeletonlabs/skeleton-common@1.0.0-next.6
 
 ## 2.0.0-next.5
 
@@ -884,7 +884,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`1d8a151`](https://github.com/skeletonlabs/skeleton/commit/1d8a15137c79c293674fd70794f69a2fe6cd18a4)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.5
+    - @skeletonlabs/skeleton-common@1.0.0-next.5
 
 ## 2.0.0-next.4
 
@@ -897,7 +897,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`dff68d8`](https://github.com/skeletonlabs/skeleton/commit/dff68d8f824ddb1aef820e75ab3bdebe06546e07), [`3776570`](https://github.com/skeletonlabs/skeleton/commit/3776570c21d060a653bdde8a164e95e8aecdbaab)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.4
+    - @skeletonlabs/skeleton-common@1.0.0-next.4
 
 ## 2.0.0-next.3
 
@@ -908,7 +908,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`a9c651a`](https://github.com/skeletonlabs/skeleton/commit/a9c651adac035dc4613f0118bca05f0cfb0b22b5)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.3
+    - @skeletonlabs/skeleton-common@1.0.0-next.3
 
 ## 2.0.0-next.2
 
@@ -921,7 +921,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`f272f42`](https://github.com/skeletonlabs/skeleton/commit/f272f42ae2a92648d275618089a5c41aaf4efe13), [`5d517a8`](https://github.com/skeletonlabs/skeleton/commit/5d517a840ac27bea4d5fd2fd2b150abf779075b0)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.2
+    - @skeletonlabs/skeleton-common@1.0.0-next.2
 
 ## 2.0.0-next.1
 
@@ -932,7 +932,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`770431d`](https://github.com/skeletonlabs/skeleton/commit/770431da15a354c66ef69cc0df5049e893147e2f)]:
-  - @skeletonlabs/skeleton-common@1.0.0-next.1
+    - @skeletonlabs/skeleton-common@1.0.0-next.1
 
 ## 1.5.0-next.0
 
@@ -943,7 +943,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`d65abd7`](https://github.com/skeletonlabs/skeleton/commit/d65abd7c5bd9e694aeeaa3b54310971e63e8de50)]:
-  - @skeletonlabs/skeleton-common@0.0.1-next.0
+    - @skeletonlabs/skeleton-common@0.0.1-next.0
 
 ## 1.4.0
 
@@ -1007,10 +1007,10 @@
 
 - Feature: Added the Switch component. ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
-- - chore: Svelte Accordion and Nav components now use dot notation syntax ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
-  - Tab components overhauled to bring consistency between Svelte and React implementations
-  - Tabs.Item component removed
-  - Tabs.Panels (plural) component added
+-   - chore: Svelte Accordion and Nav components now use dot notation syntax ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
+    - Tab components overhauled to bring consistency between Svelte and React implementations
+    - Tabs.Item component removed
+    - Tabs.Panels (plural) component added
 
 - feature: Added the Navigation Rail, Bar, and Tile components ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
@@ -1097,7 +1097,7 @@
 - chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3367](https://github.com/skeletonlabs/skeleton/pull/3367))
 
 - Updated dependencies [[`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00), [`fafffd7`](https://github.com/skeletonlabs/skeleton/commit/fafffd7bfd58554218ea823fe7b585e092a56c00)]:
-  - @skeletonlabs/skeleton@3.0.0
+    - @skeletonlabs/skeleton@3.0.0
 
 ## 1.0.0-next.17
 
@@ -1114,7 +1114,7 @@
 - chore: Added `@skeletonlabs/skeleton` as a peer-dependency ([#3351](https://github.com/skeletonlabs/skeleton/pull/3351))
 
 - Updated dependencies [[`73a4e9f`](https://github.com/skeletonlabs/skeleton/commit/73a4e9f69b47f5684162adcaada6d460a5b73ca7), [`f427d83`](https://github.com/skeletonlabs/skeleton/commit/f427d83302826a238c43439fc67be4837d76b846), [`3af054d`](https://github.com/skeletonlabs/skeleton/commit/3af054dfb9f88b28694c2bf7630a3a40449a844c)]:
-  - @skeletonlabs/skeleton@3.0.0-next.13
+    - @skeletonlabs/skeleton@3.0.0-next.13
 
 ## 1.0.0-next.16
 
@@ -1236,10 +1236,10 @@
 
 ### Minor Changes
 
-- - chore: Svelte Accordion and Nav components now use dot notation syntax ([#2748](https://github.com/skeletonlabs/skeleton/pull/2748))
-  - Tab components overhauled to bring consistency between Svelte and React implementations
-  - Tabs.Item component removed
-  - Tabs.Panels (plural) component added
+-   - chore: Svelte Accordion and Nav components now use dot notation syntax ([#2748](https://github.com/skeletonlabs/skeleton/pull/2748))
+    - Tab components overhauled to bring consistency between Svelte and React implementations
+    - Tabs.Item component removed
+    - Tabs.Panels (plural) component added
 
 - chore: Migrated Nav, Segment Control, and Switch component APIs to match new conventions ([#2758](https://github.com/skeletonlabs/skeleton/pull/2758))
 

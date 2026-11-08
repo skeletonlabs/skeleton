@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { useSegmentedControl } from '../modules/provider.svelte';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { useSegmentedControl } from "../modules/provider.svelte";
 
-	export interface SegmentedControlRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface SegmentedControlRootProviderProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {
 		value: ReturnType<typeof useSegmentedControl>;
 	}
 </script>
 
 <script lang="ts">
-	import { SegmentedControlRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { SegmentedControlRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: SegmentedControlRootProviderProps = $props();
 

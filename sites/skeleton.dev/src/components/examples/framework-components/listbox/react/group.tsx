@@ -1,12 +1,12 @@
-import { Listbox, useListCollection } from '@skeletonlabs/skeleton-react';
+import { Listbox, useListCollection } from "@skeletonlabs/skeleton-react";
 
 const data = [
-	{ label: 'Apple', value: 'apple', type: 'Fruits' },
-	{ label: 'Banana', value: 'banana', type: 'Fruits' },
-	{ label: 'Orange', value: 'orange', type: 'Fruits' },
-	{ label: 'Carrot', value: 'carrot', type: 'Vegetables' },
-	{ label: 'Broccoli', value: 'broccoli', type: 'Vegetables' },
-	{ label: 'Spinach', value: 'spinach', type: 'Vegetables' },
+	{ label: "Apple", value: "apple", type: "Fruits" },
+	{ label: "Banana", value: "banana", type: "Fruits" },
+	{ label: "Orange", value: "orange", type: "Fruits" },
+	{ label: "Carrot", value: "carrot", type: "Vegetables" },
+	{ label: "Broccoli", value: "broccoli", type: "Vegetables" },
+	{ label: "Spinach", value: "spinach", type: "Vegetables" },
 ];
 
 export default function Group() {

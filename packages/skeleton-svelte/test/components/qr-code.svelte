@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { QrCode } from '../../src/index.js';
+	import { QrCode } from "../../src/index.js";
 </script>
 
 <QrCode value="" data-testid="root">

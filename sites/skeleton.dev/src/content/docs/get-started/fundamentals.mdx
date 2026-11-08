@@ -5,9 +5,9 @@ summary: Skeleton is comprised of three pillars - the design system, our extensi
 order: 20
 ---
 
-import Framework from '@/components/ui/framework.astro';
+import Framework from "@/components/ui/framework.astro";
 
-import NavigationGrid from '@/components/ui/navigation-grid.astro';
+import NavigationGrid from "@/components/ui/navigation-grid.astro";
 
 ---
 
@@ -15,7 +15,7 @@ import NavigationGrid from '@/components/ui/navigation-grid.astro';
 
 Explore each pillar of the Skeleton design system. Provided via the Skeleton core.
 
-<NavigationGrid filter={(doc) => doc.id.includes('design/')} class="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes("design/")} class="md:grid-cols-2" />
 
 ---
 
@@ -23,7 +23,7 @@ Explore each pillar of the Skeleton design system. Provided via the Skeleton cor
 
 Tailwind components that act as primitives for creating complex interfaces. Provided via the Skeleton core.
 
-<NavigationGrid filter={(doc) => doc.id.includes('tailwind-components/')} class="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes("tailwind-components/")} class="md:grid-cols-2" />
 
 ---
 
@@ -65,7 +65,7 @@ You may import components per each Skeleton framework as follows.
 <Framework id="react">
 
 ```ts
-import { Avatar } from '@skeletonlabs/skeleton-react';
+import { Avatar } from "@skeletonlabs/skeleton-react";
 ```
 
 </Framework>
@@ -73,7 +73,7 @@ import { Avatar } from '@skeletonlabs/skeleton-react';
 <Framework id="svelte">
 
 ```ts
-import { Avatar } from '@skeletonlabs/skeleton-svelte';
+import { Avatar } from "@skeletonlabs/skeleton-svelte";
 ```
 
 </Framework>
@@ -171,7 +171,9 @@ export default function () {
 		<Accordion>
 			<Accordion.Item value="item-1">
 				<h3>
-					<Accordion.ItemTrigger element={(attributes) => <button {...attributes}>My Own Button</button>} />
+					<Accordion.ItemTrigger
+						element={(attributes) => <button {...attributes}>My Own Button</button>}
+					/>
 				</h3>
 				<Accordion.ItemContent>Content for Item 1</Accordion.ItemContent>
 			</Accordion.Item>
@@ -208,13 +210,13 @@ export default function () {
 Using the extensible markup pattern, you may implement custom animations. We showcase this below with [Motion](https://motion.dev/), but you could also use framework agnostic solutions such as [Anime.js](https://animejs.com/) or [Animate.css](https://animate.style/).
 
 ```tsx
-import { Accordion } from '@skeletonlabs/skeleton-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { Accordion } from "@skeletonlabs/skeleton-react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function CustomAnimation() {
 	return (
 		<Accordion>
-			{['1', '2', '3'].map((item) => (
+			{["1", "2", "3"].map((item) => (
 				<Accordion.Item key={item} value={item}>
 					<h3>
 						<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>
@@ -226,7 +228,7 @@ export default function CustomAnimation() {
 									<motion.div
 										className="overflow-hidden"
 										initial={{ height: 0, opacity: 0 }}
-										animate={{ height: 'auto', opacity: 1 }}
+										animate={{ height: "auto", opacity: 1 }}
 										exit={{ height: 0, opacity: 0 }}
 									>
 										<div {...attributes}>Content for item {item}</div>
@@ -255,12 +257,12 @@ Using the extensible markup pattern, you may implement custom animations. We sho
 
 ```svelte
 <script lang="ts">
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
-	import { slide } from 'svelte/transition';
+	import { Accordion } from "@skeletonlabs/skeleton-svelte";
+	import { slide } from "svelte/transition";
 </script>
 
 <Accordion>
-	{#each ['1', '2', '3'] as item (item)}
+	{#each ["1", "2", "3"] as item (item)}
 		<Accordion.Item value="item-{item}">
 			<h3>
 				<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>
@@ -291,8 +293,8 @@ Skeleton components maintain a uniform pattern for handling data flow in and out
 <Framework id="react">
 
 ```tsx
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 export default function Default() {
 	const [checked, setChecked] = useState(false);
@@ -315,7 +317,7 @@ export default function Default() {
 
 ```svelte
 <script lang="ts">
-	import { Switch } from '@skeletonlabs/skeleton-svelte';
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 
 	let checked = $state(false);
 </script>
@@ -346,7 +348,7 @@ Most Skeleton components also support the Provider Pattern. This utilizes a prov
 <Framework id="react">
 
 ```tsx
-import { Portal, Tooltip, useTooltip } from '@skeletonlabs/skeleton-react';
+import { Portal, Tooltip, useTooltip } from "@skeletonlabs/skeleton-react";
 
 export default function TooltipExample() {
 	const tooltip = useTooltip();
@@ -376,7 +378,7 @@ export default function TooltipExample() {
 
 ```svelte
 <script lang="ts">
-	import { Portal, Tooltip, useTooltip } from '@skeletonlabs/skeleton-svelte';
+	import { Portal, Tooltip, useTooltip } from "@skeletonlabs/skeleton-svelte";
 
 	const id = $props.id();
 	const tooltip = useTooltip({ id });

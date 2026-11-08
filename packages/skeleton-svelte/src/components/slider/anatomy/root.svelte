@@ -1,17 +1,20 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/slider';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/slider";
 
 	export interface SliderRootProps
-		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'aria-label' | 'aria-labelledby'> {}
+		extends
+			Omit<Props, "id">,
+			PropsWithElement<"div">,
+			HTMLAttributes<"div", "id" | "dir" | "aria-label" | "aria-labelledby"> {}
 </script>
 
 <script lang="ts">
-	import { useSlider } from '../modules/provider.svelte';
-	import { SliderRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/slider';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useSlider } from "../modules/provider.svelte";
+	import { SliderRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/slider";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: SliderRootProps = $props();
 

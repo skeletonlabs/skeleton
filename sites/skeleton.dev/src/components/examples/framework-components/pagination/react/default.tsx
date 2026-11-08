@@ -1,7 +1,7 @@
-import { users } from './data';
-import { Pagination } from '@skeletonlabs/skeleton-react';
-import { ArrowRightIcon, ArrowLeftIcon } from 'lucide-react';
-import { useState } from 'react';
+import { users } from "./data";
+import { Pagination } from "@skeletonlabs/skeleton-react";
+import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
+import { useState } from "react";
 
 const PAGE_SIZE = 5;
 
@@ -13,7 +13,7 @@ export default function Default() {
 	const paginatedUsers = users.slice(start, end);
 
 	return (
-		<div className="grid gap-4 w-full place-items-center">
+		<div className="grid w-full place-items-center gap-4">
 			<table className="table table-auto">
 				<thead>
 					<tr>
@@ -34,14 +34,19 @@ export default function Default() {
 					))}
 				</tbody>
 			</table>
-			<Pagination count={users.length} pageSize={PAGE_SIZE} page={page} onPageChange={(event) => setPage(event.page)}>
+			<Pagination
+				count={users.length}
+				pageSize={PAGE_SIZE}
+				page={page}
+				onPageChange={(event) => setPage(event.page)}
+			>
 				<Pagination.PrevTrigger>
 					<ArrowLeftIcon className="size-4" />
 				</Pagination.PrevTrigger>
 				<Pagination.Context>
 					{(pagination) =>
 						pagination.pages.map((page, index) =>
-							page.type === 'page' ? (
+							page.type === "page" ? (
 								<Pagination.Item key={index} {...page}>
 									{page.value}
 								</Pagination.Item>

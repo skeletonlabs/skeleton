@@ -1,17 +1,17 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '#lib/constants/generator.ts';
+	import * as constants from "#lib/constants/generator.ts";
 	// State
-	import { settingsBrand } from '#lib/state/generator.svelte.ts';
+	import { settingsBrand } from "#lib/state/generator.svelte.ts";
 
 	/** Parses a `var(--color-{name}-{shade})` reference back into its parts. */
 	function parseColorRef(value: string) {
 		const match = value.match(/^var\(--color-([a-z]+)-(\d+)\)$/);
-		return match ? { name: match[1], shade: match[2] } : { name: 'primary', shade: '500' };
+		return match ? { name: match[1], shade: match[2] } : { name: "primary", shade: "500" };
 	}
 
-	const initialLight = parseColorRef(settingsBrand['--color-brand-light']);
-	const initialDark = parseColorRef(settingsBrand['--color-brand-dark']);
+	const initialLight = parseColorRef(settingsBrand["--color-brand-light"]);
+	const initialDark = parseColorRef(settingsBrand["--color-brand-dark"]);
 
 	let lightColorName: string = $state(initialLight.name);
 	let lightShade: string = $state(initialLight.shade);
@@ -21,13 +21,15 @@
 	// Brand isn't its own ramp — it's a reference into an existing palette color/shade.
 	// Contrast is derived automatically from that same reference, not user-editable.
 	$effect(() => {
-		settingsBrand['--color-brand-light'] = `var(--color-${lightColorName}-${lightShade})`;
-		settingsBrand['--color-brand-contrast-light'] = `var(--color-${lightColorName}-contrast-${lightShade})`;
+		settingsBrand["--color-brand-light"] = `var(--color-${lightColorName}-${lightShade})`;
+		settingsBrand["--color-brand-contrast-light"] =
+			`var(--color-${lightColorName}-contrast-${lightShade})`;
 	});
 
 	$effect(() => {
-		settingsBrand['--color-brand-dark'] = `var(--color-${darkColorName}-${darkShade})`;
-		settingsBrand['--color-brand-contrast-dark'] = `var(--color-${darkColorName}-contrast-${darkShade})`;
+		settingsBrand["--color-brand-dark"] = `var(--color-${darkColorName}-${darkShade})`;
+		settingsBrand["--color-brand-contrast-dark"] =
+			`var(--color-${darkColorName}-contrast-${darkShade})`;
 	});
 </script>
 
@@ -36,7 +38,10 @@
 	<div class="grid grid-cols-2 gap-4">
 		<label class="label space-y-2">
 			<span class="label-text">Light Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-light']}></div>
+			<div
+				class="border-surface-200-800 rounded-base h-4 w-full border"
+				style:background={settingsBrand["--color-brand-light"]}
+			></div>
 			<select class="select" bind:value={lightColorName}>
 				{#each constants.colorNames as colorName}
 					<option value={colorName}>{colorName}</option>
@@ -50,7 +55,10 @@
 		</label>
 		<label class="label space-y-2">
 			<span class="label-text">Dark Mode</span>
-			<div class="w-full h-4 border border-surface-200-800 rounded-base" style:background={settingsBrand['--color-brand-dark']}></div>
+			<div
+				class="border-surface-200-800 rounded-base h-4 w-full border"
+				style:background={settingsBrand["--color-brand-dark"]}
+			></div>
 			<select class="select" bind:value={darkColorName}>
 				{#each constants.colorNames as colorName}
 					<option value={colorName}>{colorName}</option>

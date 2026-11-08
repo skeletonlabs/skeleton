@@ -1,5 +1,5 @@
 <script lang="ts">
-	let value = $state('Hello Skeleton');
+	let value = $state("Hello Skeleton");
 
 	async function handleCopy() {
 		await navigator.clipboard.writeText(value);
