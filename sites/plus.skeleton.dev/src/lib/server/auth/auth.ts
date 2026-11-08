@@ -45,12 +45,12 @@ export const auth = betterAuth({
 	],
 	socialProviders: {
 		github: {
-			clientId: GITHUB_CLIENT_ID!,
-			clientSecret: GITHUB_CLIENT_SECRET!,
+			clientId: GITHUB_CLIENT_ID,
+			clientSecret: GITHUB_CLIENT_SECRET,
 		},
 		discord: {
-			clientId: DISCORD_CLIENT_ID!,
-			clientSecret: DISCORD_CLIENT_SECRET!,
+			clientId: DISCORD_CLIENT_ID,
+			clientSecret: DISCORD_CLIENT_SECRET,
 		},
 	} satisfies Record<Exclude<SupportedOAuthProvider["id"], "local">, unknown>,
 });
