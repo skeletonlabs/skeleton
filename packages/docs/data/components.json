@@ -10,7 +10,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (value: string) => string; itemContent: (value: string) => string; itemTrigger: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -410,7 +410,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; image: string; fallback: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -535,7 +535,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (index: number) => string; itemGroup: string; nextTrigger: string; prevTrigger: string; indicatorGroup: string; indicator: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -1050,7 +1050,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; content: string; trigger: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -1280,7 +1280,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; control: string; input: string; content: string; trigger: string; clearTrigger: string; item: (id: string, index?: number | undefined) => string; positioner: string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -1704,6 +1704,16 @@
 								}
 							},
 							{
+								"name": "loading",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the results are being loaded (e.g. fetched from a server).\n\nWhile loading, the listbox is marked with `aria-busy`, the loading message is\nannounced instead of the result count, and \"no results\" is never announced.",
+									"tags": []
+								}
+							},
+							{
 								"name": "dir",
 								"type": "\"ltr\" | \"rtl\" | undefined",
 								"typeKind": "primitive",
@@ -2060,7 +2070,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: (index: number) => string; table: (id: string) => string; tableHeader: (id: string) => string; tableBody: (id: string) => string; tableRow: (id: string) => string; ... 11 more ...; positioner: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -3000,7 +3010,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); positioner: string; backdrop: string; content: string; closeTrigger: string; title: string; description: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -3055,11 +3065,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => MaybeElement) | undefined",
+								"type": "(() => false | MaybeElement) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "Element to receive focus when the dialog is opened",
+									"description": "Element to receive focus when the dialog is opened.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -3093,7 +3103,7 @@
 									"tags": [
 										{
 											"name": "default",
-											"value": "true"
+											"value": "`true` for modal dialogs, `false` for non-modal dialogs"
 										}
 									]
 								}
@@ -3455,7 +3465,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; dropzone: string; hiddenInput: string; trigger: string; label: string; item: (id: string) => string; itemName: (id: string) => string; itemSizeText: (id: string) => string; itemPreview: (id: string) => string; itemDeleteTrigger: (id: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -3970,7 +3980,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string; positioner: string; content: string; title: string; header: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -4175,11 +4185,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => HTMLElement | null) | undefined",
+								"type": "(() => false | HTMLElement | null) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "Element to receive focus when the panel is opened.\nBy default, the first focusable element in the content is focused.",
+									"description": "Element to receive focus when the panel is opened. Defaults to the panel content.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -4590,7 +4600,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; content: string; label: string; item: (id: string | number) => string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -5050,7 +5060,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; viewport: string; content: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -5435,7 +5445,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); contextTrigger: string | ((value?: string | undefined) => string); content: string; groupLabel: (id: string) => string; group: (id: string) => string; positioner: string; arrow: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -6325,7 +6335,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; ellipsis: (index: number) => string; firstTrigger: string; prevTrigger: string; nextTrigger: string; lastTrigger: string; item: (page: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -6705,7 +6715,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ anchor: string; trigger: string | ((value?: string | undefined) => string); content: string; title: string; description: string; closeTrigger: string; positioner: string; arrow: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -6760,11 +6770,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => HTMLElement | null) | undefined",
+								"type": "(() => false | HTMLElement | null) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "The element to focus on when the popover is opened.",
+									"description": "The element to focus on when the popover is opened.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -7235,7 +7245,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; track: string; label: string; circle: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -7579,7 +7589,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; frame: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -7794,7 +7804,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; hiddenInput: string; control: string; item: (id: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -8139,7 +8149,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; indicator: string; item: (value: string) => string; itemLabel: (value: string) => string; itemControl: (value: string) => string; itemHiddenInput: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -8454,7 +8464,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; thumb: (index: number) => string; hiddenInput: (index: number) => string; control: string; track: string; range: string; label: string; valueText: string; marker: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -8633,6 +8643,21 @@
 										{
 											"name": "default",
 											"value": "1"
+										}
+									]
+								}
+							},
+							{
+								"name": "largeStep",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The step value of the slider when the `Shift` key is held, or the\n`PageUp`/`PageDown` keys are used.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "10 * step"
 										}
 									]
 								}
@@ -9324,7 +9349,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; hiddenInput: string; control: string; label: string; thumb: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -9594,7 +9619,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; trigger: (value: string) => string; list: string; content: (value: string) => string; indicator: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -9904,7 +9929,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; input: string; hiddenInput: string; clearBtn: string; label: string; control: string; item: (opts: ItemProps) => string; itemDeleteTrigger: (opts: ItemProps) => string; itemInput: (opts: ItemProps) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -10678,7 +10703,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -10928,7 +10953,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); content: string; arrow: string; positioner: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -11283,21 +11308,6 @@
 				"name": "tree-view",
 				"types": [
 					{
-						"name": "TreeViewNodeContextProps",
-						"props": [
-							{
-								"name": "children",
-								"type": "(treeView: NodeProps) => ReactNode",
-								"typeKind": "function",
-								"optional": false,
-								"JSDoc": {
-									"description": null,
-									"tags": []
-								}
-							}
-						]
-					},
-					{
 						"name": "TreeViewRootProps",
 						"props": [
 							{
@@ -11322,7 +11332,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; tree: string; label: string; node: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -11723,6 +11733,21 @@
 						]
 					},
 					{
+						"name": "TreeViewNodeContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "(treeView: NodeProps) => ReactNode",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
+									"tags": []
+								}
+							}
+						]
+					},
+					{
 						"name": "TreeViewBranchProps",
 						"props": [
 							{
@@ -11842,7 +11867,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (value: string) => string; itemContent: (value: string) => string; itemTrigger: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -12202,7 +12227,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; image: string; fallback: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -12327,7 +12352,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (index: number) => string; itemGroup: string; nextTrigger: string; prevTrigger: string; indicatorGroup: string; indicator: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -12842,7 +12867,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; content: string; trigger: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -13072,7 +13097,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; control: string; input: string; content: string; trigger: string; clearTrigger: string; item: (id: string, index?: number | undefined) => string; positioner: string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -13496,6 +13521,16 @@
 								}
 							},
 							{
+								"name": "loading",
+								"type": "boolean | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "Whether the results are being loaded (e.g. fetched from a server).\n\nWhile loading, the listbox is marked with `aria-busy`, the loading message is\nannounced instead of the result count, and \"no results\" is never announced.",
+									"tags": []
+								}
+							},
+							{
 								"name": "dir",
 								"type": "\"ltr\" | \"rtl\" | undefined",
 								"typeKind": "primitive",
@@ -13852,7 +13887,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: (index: number) => string; table: (id: string) => string; tableHeader: (id: string) => string; tableBody: (id: string) => string; tableRow: (id: string) => string; ... 11 more ...; positioner: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -14782,7 +14817,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); positioner: string; backdrop: string; content: string; closeTrigger: string; title: string; description: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -14837,11 +14872,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => MaybeElement) | undefined",
+								"type": "(() => false | MaybeElement) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "Element to receive focus when the dialog is opened",
+									"description": "Element to receive focus when the dialog is opened.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -14875,7 +14910,7 @@
 									"tags": [
 										{
 											"name": "default",
-											"value": "true"
+											"value": "`true` for modal dialogs, `false` for non-modal dialogs"
 										}
 									]
 								}
@@ -15247,7 +15282,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; dropzone: string; hiddenInput: string; trigger: string; label: string; item: (id: string) => string; itemName: (id: string) => string; itemSizeText: (id: string) => string; itemPreview: (id: string) => string; itemDeleteTrigger: (id: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -15762,7 +15797,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string; positioner: string; content: string; title: string; header: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -15967,11 +16002,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => HTMLElement | null) | undefined",
+								"type": "(() => false | HTMLElement | null) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "Element to receive focus when the panel is opened.\nBy default, the first focusable element in the content is focused.",
+									"description": "Element to receive focus when the panel is opened. Defaults to the panel content.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -16392,7 +16427,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; content: string; label: string; item: (id: string | number) => string; itemGroup: (id: string | number) => string; itemGroupLabel: (id: string | number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -16842,7 +16877,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; viewport: string; content: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -17187,7 +17222,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); contextTrigger: string | ((value?: string | undefined) => string); content: string; groupLabel: (id: string) => string; group: (id: string) => string; positioner: string; arrow: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -18037,7 +18072,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; ellipsis: (index: number) => string; firstTrigger: string; prevTrigger: string; nextTrigger: string; lastTrigger: string; item: (page: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -18407,7 +18442,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ anchor: string; trigger: string | ((value?: string | undefined) => string); content: string; title: string; description: string; closeTrigger: string; positioner: string; arrow: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -18462,11 +18497,11 @@
 							},
 							{
 								"name": "initialFocusEl",
-								"type": "(() => HTMLElement | null) | undefined",
+								"type": "(() => false | HTMLElement | null) | undefined",
 								"typeKind": "function",
 								"optional": true,
 								"JSDoc": {
-									"description": "The element to focus on when the popover is opened.",
+									"description": "The element to focus on when the popover is opened.\nReturn `false` to skip moving focus, or `null` to use the default.",
 									"tags": []
 								}
 							},
@@ -18927,7 +18962,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; track: string; label: string; circle: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -19271,7 +19306,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; frame: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -19486,7 +19521,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; hiddenInput: string; control: string; item: (id: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -19831,7 +19866,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; label: string; indicator: string; item: (value: string) => string; itemLabel: (value: string) => string; itemControl: (value: string) => string; itemHiddenInput: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -20146,7 +20181,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; thumb: (index: number) => string; hiddenInput: (index: number) => string; control: string; track: string; range: string; label: string; valueText: string; marker: (index: number) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -20325,6 +20360,21 @@
 										{
 											"name": "default",
 											"value": "1"
+										}
+									]
+								}
+							},
+							{
+								"name": "largeStep",
+								"type": "number | undefined",
+								"typeKind": "primitive",
+								"optional": true,
+								"JSDoc": {
+									"description": "The step value of the slider when the `Shift` key is held, or the\n`PageUp`/`PageDown` keys are used.",
+									"tags": [
+										{
+											"name": "default",
+											"value": "10 * step"
 										}
 									]
 								}
@@ -21016,7 +21066,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; hiddenInput: string; control: string; label: string; thumb: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -21286,7 +21336,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; trigger: (value: string) => string; list: string; content: (value: string) => string; indicator: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -21596,7 +21646,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; input: string; hiddenInput: string; clearBtn: string; label: string; control: string; item: (opts: ItemProps) => string; itemDeleteTrigger: (opts: ItemProps) => string; itemInput: (opts: ItemProps) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -22360,7 +22410,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; item: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -22600,7 +22650,7 @@
 						"props": [
 							{
 								"name": "ids",
-								"type": "Partial<{ trigger: string | ((value?: string | undefined) => string); content: string; arrow: string; positioner: string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -22965,21 +23015,6 @@
 				"name": "tree-view",
 				"types": [
 					{
-						"name": "TreeViewNodeContextProps",
-						"props": [
-							{
-								"name": "children",
-								"type": "Snippet<[() => NodeProps]>",
-								"typeKind": "function",
-								"optional": false,
-								"JSDoc": {
-									"description": null,
-									"tags": []
-								}
-							}
-						]
-					},
-					{
 						"name": "TreeViewRootProps",
 						"props": [
 							{
@@ -23004,7 +23039,7 @@
 							},
 							{
 								"name": "ids",
-								"type": "Partial<{ root: string; tree: string; label: string; node: (value: string) => string; }> | undefined",
+								"type": "ElementIds | undefined",
 								"typeKind": "object",
 								"optional": true,
 								"JSDoc": {
@@ -23399,6 +23434,21 @@
 								"optional": true,
 								"JSDoc": {
 									"description": "The default slot content to be rendered within the component.",
+									"tags": []
+								}
+							}
+						]
+					},
+					{
+						"name": "TreeViewNodeContextProps",
+						"props": [
+							{
+								"name": "children",
+								"type": "Snippet<[() => NodeProps]>",
+								"typeKind": "function",
+								"optional": false,
+								"JSDoc": {
+									"description": null,
 									"tags": []
 								}
 							}
