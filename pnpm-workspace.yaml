@@ -154,3 +154,13 @@ allowBuilds:
     sharp: true
 
 savePrefix: ""
+
+permissions:
+  '@tanstack/react-router':
+    skills: true
+  '@tanstack/react-start':
+    skills: true
+  comark:
+    skills: true
+  drizzle-kit:
+    skills: true
