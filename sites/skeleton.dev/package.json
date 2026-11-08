@@ -7,7 +7,6 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check",
-		"sync-mdx-imports": "node ./scripts/sync-mdx-imports.ts",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
 		"postinstall": "astro sync"
 	},
