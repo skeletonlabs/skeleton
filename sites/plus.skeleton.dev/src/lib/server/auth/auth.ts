@@ -2,7 +2,6 @@ import { dev } from "$app/env";
 import { getRequestEvent } from "$app/server";
 
 import {
-	VERCEL_PROJECT_PRODUCTION_URL,
 	GITHUB_CLIENT_ID,
 	GITHUB_CLIENT_SECRET,
 	DISCORD_CLIENT_ID,
@@ -16,11 +15,10 @@ import { betterAuth } from "better-auth/minimal";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { genericOAuth } from "better-auth/plugins";
 import { sveltekitCookies } from "better-auth/svelte-kit";
+import { getBaseUrl } from "../vercel/get-base-url";
 
 export const auth = betterAuth({
-	baseURL: import.meta.env.DEV
-		? "http://localhost:5173"
-		: `https://${VERCEL_PROJECT_PRODUCTION_URL}`,
+	baseURL: getBaseUrl(),
 	database: drizzleAdapter(database, { provider: "pg", schema }),
 	plugins: [
 		...(dev
