@@ -23,6 +23,7 @@ export const auth = betterAuth({
 			"*.vercel.app",
 			"plus.skeleton.dev",
 		],
+		protocol: import.meta.env.DEV ? "http" : "https",
 	},
 	database: drizzleAdapter(database, { provider: "pg", schema }),
 	plugins: [
