@@ -16,6 +16,5 @@
 			"files": ["*.svelte"],
 			"language": "svelte"
 		}
-	],
-	"ignorePatterns": [".changeset/*.md", "pnpm-lock.yaml"]
+	]
 }
