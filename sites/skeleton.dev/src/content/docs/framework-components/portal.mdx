@@ -2,26 +2,26 @@
 title: Portal
 description: Renders children into a DOM node that exists outside the DOM hierarchy.
 references:
-  zag: false
-  styles: false
+    zag: false
+    styles: false
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/framework-components/portal/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/portal/react/default?raw';
-import DefaultSvelte from '@/components/examples/framework-components/portal/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/portal/svelte/default.svelte?raw';
+import DefaultReact from "@/components/examples/framework-components/portal/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/portal/react/default?raw";
+import DefaultSvelte from "@/components/examples/framework-components/portal/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/portal/svelte/default.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -37,7 +37,7 @@ Here's an overview of how the Portal component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Portal } from '@skeletonlabs/skeleton-react';
+import { Portal } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return <Portal>{/* Content */}</Portal>;
@@ -49,7 +49,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Portal>

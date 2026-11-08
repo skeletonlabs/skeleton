@@ -3,10 +3,10 @@
 </script>
 
 <script>
-	import { users } from './data';
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-	import { Pagination } from '@skeletonlabs/skeleton-svelte';
+	import { users } from "./data";
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
+	import { Pagination } from "@skeletonlabs/skeleton-svelte";
 
 	let page = $state(1);
 
@@ -37,14 +37,19 @@
 		</tbody>
 	</table>
 
-	<Pagination count={users.length} pageSize={PAGE_SIZE} {page} onPageChange={(event) => (page = event.page)}>
+	<Pagination
+		count={users.length}
+		pageSize={PAGE_SIZE}
+		{page}
+		onPageChange={(event) => (page = event.page)}
+	>
 		<Pagination.PrevTrigger>
 			<ArrowLeftIcon class="size-4" />
 		</Pagination.PrevTrigger>
 		<Pagination.Context>
 			{#snippet children(pagination)}
 				{#each pagination().pages as page, index (page)}
-					{#if page.type === 'page'}
+					{#if page.type === "page"}
 						<Pagination.Item {...page}>
 							{page.value}
 						</Pagination.Item>

@@ -1,21 +1,21 @@
-import { cli } from '../../../../index.js';
-import type { FileMigration } from '../../../../utility/file-migration.js';
-import { installDependencies } from '../../../../utility/install-dependencies.js';
-import type { MigrateOptions } from '../../index.js';
-import { transformAppCss } from './transformers/transform-app.css.js';
-import { transformAppHtml } from './transformers/transform-app.html.js';
-import { transformModule } from './transformers/transform-module.js';
-import { transformPackageJson } from './transformers/transform-package.json.js';
-import { transformStylesheet } from './transformers/transform-stylesheet.js';
-import { transformSvelte } from './transformers/transform-svelte.js';
-import { FALLBACK_THEME } from './utility/constants.js';
-import { THEME_MAPPINGS } from './utility/theme-mappings.js';
-import type { Theme } from './utility/types.js';
-import { isCancel, log, multiselect, spinner } from '@clack/prompts';
-import getLatestVersion from 'latest-version';
-import { readFile, writeFile } from 'node:fs/promises';
-import { extname } from 'node:path';
-import { glob } from 'tinyglobby';
+import { cli } from "../../../../index.js";
+import type { FileMigration } from "../../../../utility/file-migration.js";
+import { installDependencies } from "../../../../utility/install-dependencies.js";
+import type { MigrateOptions } from "../../index.js";
+import { transformAppCss } from "./transformers/transform-app.css.js";
+import { transformAppHtml } from "./transformers/transform-app.html.js";
+import { transformModule } from "./transformers/transform-module.js";
+import { transformPackageJson } from "./transformers/transform-package.json.js";
+import { transformStylesheet } from "./transformers/transform-stylesheet.js";
+import { transformSvelte } from "./transformers/transform-svelte.js";
+import { FALLBACK_THEME } from "./utility/constants.js";
+import { THEME_MAPPINGS } from "./utility/theme-mappings.js";
+import type { Theme } from "./utility/types.js";
+import { isCancel, log, multiselect, spinner } from "@clack/prompts";
+import getLatestVersion from "latest-version";
+import { readFile, writeFile } from "node:fs/promises";
+import { extname } from "node:path";
+import { glob } from "tinyglobby";
 
 export default async function (options: MigrateOptions) {
 	const cwd = options.cwd ?? process.cwd();
@@ -23,16 +23,16 @@ export default async function (options: MigrateOptions) {
 
 	// Find all required files
 	const packageJson = {
-		name: 'package.json',
-		paths: await glob('package.json', { cwd, absolute: true }),
+		name: "package.json",
+		paths: await glob("package.json", { cwd, absolute: true }),
 	};
 	const appHtml = {
-		name: 'src/app.html',
-		paths: await glob('src/app.html', { cwd, absolute: true }),
+		name: "src/app.html",
+		paths: await glob("src/app.html", { cwd, absolute: true }),
 	};
 	const appCss = {
-		name: 'src/app.css',
-		paths: await glob('src/app.css', { cwd, absolute: true }),
+		name: "src/app.css",
+		paths: await glob("src/app.css", { cwd, absolute: true }),
 	};
 
 	// Validate file existence
@@ -41,24 +41,26 @@ export default async function (options: MigrateOptions) {
 			cli.error(`"${file.name}" not found in directory "${cwd}".`);
 		}
 		if (file.paths.length > 1) {
-			cli.error(`Multiple "${file.name}" entries found in directory: "${cwd}", please ensure there is only one`);
+			cli.error(
+				`Multiple "${file.name}" entries found in directory: "${cwd}", please ensure there is only one`,
+			);
 		}
 	}
 
 	// Get source folders
-	const availableSourceFolders = await glob('*', {
+	const availableSourceFolders = await glob("*", {
 		cwd: cwd,
 		onlyDirectories: true,
-		ignore: ['node_modules'],
+		ignore: ["node_modules"],
 	});
 	const sourceFolders = await multiselect({
-		message: 'What folders make use of Skeleton? (classes, imports, etc.)',
+		message: "What folders make use of Skeleton? (classes, imports, etc.)",
 		options: availableSourceFolders.map((folder) => ({ label: folder, value: folder })),
 		initialValues: availableSourceFolders,
 	});
 
 	if (isCancel(sourceFolders)) {
-		cli.error('Migration canceled, nothing written to disk');
+		cli.error("Migration canceled, nothing written to disk");
 		return;
 	}
 
@@ -66,15 +68,25 @@ export default async function (options: MigrateOptions) {
 	const packageSpinner = spinner();
 	packageSpinner.start(`Migrating ${packageJson.name}...`);
 	try {
-		const packageJsonCode = await readFile(packageJson.paths.at(0)!, 'utf-8');
-		const skeletonVersion = await getLatestVersion('@skeletonlabs/skeleton', { version: '>=3.0.0-0 <4.0.0' });
-		const skeletonSvelteVersion = await getLatestVersion('@skeletonlabs/skeleton-svelte', { version: '>=1.0.0-0 <2.0.0' });
-		const transformedPackageJson = transformPackageJson(packageJsonCode, skeletonVersion, skeletonSvelteVersion);
+		const packageJsonCode = await readFile(packageJson.paths.at(0)!, "utf-8");
+		const skeletonVersion = await getLatestVersion("@skeletonlabs/skeleton", {
+			version: ">=3.0.0-0 <4.0.0",
+		});
+		const skeletonSvelteVersion = await getLatestVersion("@skeletonlabs/skeleton-svelte", {
+			version: ">=1.0.0-0 <2.0.0",
+		});
+		const transformedPackageJson = transformPackageJson(
+			packageJsonCode,
+			skeletonVersion,
+			skeletonSvelteVersion,
+		);
 		migrations.push({ path: packageJson.paths.at(0)!, content: transformedPackageJson.code });
 		packageSpinner.stop(`Successfully migrated ${packageJson.name}!`);
 	} catch (error) {
-		packageSpinner.error(`Failed to migrate ${packageJson.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-		cli.error('Migration canceled, nothing written to disk');
+		packageSpinner.error(
+			`Failed to migrate ${packageJson.name}: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+		cli.error("Migration canceled, nothing written to disk");
 	}
 
 	// Migrate app.html
@@ -82,9 +94,12 @@ export default async function (options: MigrateOptions) {
 	const appHtmlSpinner = spinner();
 	appHtmlSpinner.start(`Migrating ${appHtml.name}...`);
 	try {
-		const appHtmlCode = await readFile(appHtml.paths.at(0)!, 'utf-8');
+		const appHtmlCode = await readFile(appHtml.paths.at(0)!, "utf-8");
 		const transformedAppHtml = transformAppHtml(appHtmlCode);
-		if (transformedAppHtml.meta.theme && Object.hasOwn(THEME_MAPPINGS, transformedAppHtml.meta.theme.value)) {
+		if (
+			transformedAppHtml.meta.theme &&
+			Object.hasOwn(THEME_MAPPINGS, transformedAppHtml.meta.theme.value)
+		) {
 			theme = THEME_MAPPINGS[transformedAppHtml.meta.theme.value];
 		} else if (transformedAppHtml.meta.theme) {
 			theme = transformedAppHtml.meta.theme;
@@ -94,21 +109,25 @@ export default async function (options: MigrateOptions) {
 		migrations.push({ path: appHtml.paths.at(0)!, content: transformedAppHtml.code });
 		appHtmlSpinner.stop(`Successfully migrated ${appHtml.name}!`);
 	} catch (error) {
-		appHtmlSpinner.error(`Failed to migrate ${appHtml.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-		cli.error('Migration canceled, nothing written to disk');
+		appHtmlSpinner.error(
+			`Failed to migrate ${appHtml.name}: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+		cli.error("Migration canceled, nothing written to disk");
 	}
 
 	// Migrate app.css
 	const appCssSpinner = spinner();
 	appCssSpinner.start(`Migrating ${appCss.name}...`);
 	try {
-		const appCssCode = await readFile(appCss.paths.at(0)!, 'utf-8');
+		const appCssCode = await readFile(appCss.paths.at(0)!, "utf-8");
 		const transformedAppCss = transformAppCss(appCssCode, theme ?? FALLBACK_THEME);
 		migrations.push({ path: appCss.paths.at(0)!, content: transformedAppCss.code });
 		appCssSpinner.stop(`Successfully migrated ${appCss.name}!`);
 	} catch (error) {
-		appCssSpinner.error(`Failed to migrate ${appCss.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-		cli.error('Migration canceled, nothing written to disk');
+		appCssSpinner.error(
+			`Failed to migrate ${appCss.name}: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+		cli.error("Migration canceled, nothing written to disk");
 	}
 
 	// Migrate source files
@@ -118,7 +137,7 @@ export default async function (options: MigrateOptions) {
 			{
 				cwd: cwd,
 				absolute: true,
-				ignore: ['node_modules', 'src/app.css'],
+				ignore: ["node_modules", "src/app.css"],
 			},
 		);
 		const sourceFilesSpinner = spinner();
@@ -127,24 +146,24 @@ export default async function (options: MigrateOptions) {
 			sourceFilesSpinner.message(`Migrating ${sourceFile}...`);
 			const extension = extname(sourceFile);
 			try {
-				const code = await readFile(sourceFile, 'utf-8');
+				const code = await readFile(sourceFile, "utf-8");
 				switch (extension) {
-					case '.svelte': {
+					case ".svelte": {
 						const transformedSvelte = transformSvelte(code);
 						migrations.push({ path: sourceFile, content: transformedSvelte.code });
 						break;
 					}
-					case '.js':
-					case '.mjs':
-					case '.ts':
-					case '.mts': {
+					case ".js":
+					case ".mjs":
+					case ".ts":
+					case ".mts": {
 						const transformedModule = transformModule(code);
 						migrations.push({ path: sourceFile, content: transformedModule.code });
 						break;
 					}
-					case '.css':
-					case '.pcss':
-					case '.postcss': {
+					case ".css":
+					case ".pcss":
+					case ".postcss": {
 						const transformedStyleSheet = transformStylesheet(code);
 						migrations.push({ path: sourceFile, content: transformedStyleSheet.code });
 						break;
@@ -152,8 +171,10 @@ export default async function (options: MigrateOptions) {
 				}
 				sourceFilesSpinner.message(`Successfully migrated ${sourceFile}!`);
 			} catch (error) {
-				sourceFilesSpinner.error(`Failed to migrate ${sourceFile}: ${error instanceof Error ? error.message : 'Unknown error'}`);
-				cli.error('Migration canceled, nothing written to disk');
+				sourceFilesSpinner.error(
+					`Failed to migrate ${sourceFile}: ${error instanceof Error ? error.message : "Unknown error"}`,
+				);
+				cli.error("Migration canceled, nothing written to disk");
 			}
 		}
 		sourceFilesSpinner.stop(`Successfully migrated ${sourceFiles.length} source files!`);
@@ -161,26 +182,30 @@ export default async function (options: MigrateOptions) {
 
 	// Write all migrations to disk
 	const writeSpinner = spinner();
-	writeSpinner.start('Applying all migrations...');
+	writeSpinner.start("Applying all migrations...");
 	try {
 		await Promise.all(migrations.map(({ path, content }) => writeFile(path, content)));
-		writeSpinner.stop('Successfully applied all migrations!');
+		writeSpinner.stop("Successfully applied all migrations!");
 	} catch (error) {
-		writeSpinner.error(`Failed to apply migrations: ${error instanceof Error ? error.message.replace('\n', ' ') : 'Unknown error'}`);
-		cli.error('Migration canceled');
+		writeSpinner.error(
+			`Failed to apply migrations: ${error instanceof Error ? error.message.replace("\n", " ") : "Unknown error"}`,
+		);
+		cli.error("Migration canceled");
 	}
 
 	// Install dependencies
 	const installDependenciesSpinner = spinner();
-	installDependenciesSpinner.start('Installing dependencies...');
+	installDependenciesSpinner.start("Installing dependencies...");
 	try {
 		await installDependencies(cwd);
-		installDependenciesSpinner.stop('Successfully installed dependencies!');
+		installDependenciesSpinner.stop("Successfully installed dependencies!");
 	} catch (error) {
-		installDependenciesSpinner.error(`Failed to install dependencies: ${error instanceof Error ? error.message : 'Unknown error'}`);
-		cli.error('Migration canceled');
+		installDependenciesSpinner.error(
+			`Failed to install dependencies: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
+		cli.error("Migration canceled");
 		return;
 	}
 
-	log.info('Migration complete! Visit https://skeleton.dev for more information.');
+	log.info("Migration complete! Visit https://skeleton.dev for more information.");
 }

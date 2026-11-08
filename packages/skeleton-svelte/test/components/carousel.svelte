@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Carousel } from '../../src/index.js';
+	import { Carousel } from "../../src/index.js";
 </script>
 
 <Carousel slideCount={3} data-testid="root">

@@ -1,16 +1,17 @@
-import StarEmpty from '../../../internal/components/star-empty.jsx';
-import StarFull from '../../../internal/components/star-full.jsx';
-import StarHalf from '../../../internal/components/star-half.jsx';
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { RatingGroupRootContext } from '../modules/root-context.js';
-import { splitItemProps } from '@zag-js/rating-group';
-import type { ItemProps } from '@zag-js/rating-group';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import StarEmpty from "../../../internal/components/star-empty.jsx";
+import StarFull from "../../../internal/components/star-full.jsx";
+import StarHalf from "../../../internal/components/star-half.jsx";
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { RatingGroupRootContext } from "../modules/root-context.js";
+import { splitItemProps } from "@zag-js/rating-group";
+import type { ItemProps } from "@zag-js/rating-group";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
+import type { ReactNode } from "react";
 
-export interface RatingGroupItemProps extends ItemProps, PropsWithElement<'span'>, HTMLAttributes<'span', 'id' | 'dir'> {
+export interface RatingGroupItemProps
+	extends ItemProps, PropsWithElement<"span">, HTMLAttributes<"span", "id" | "dir"> {
 	/**
 	 * The content to render when the item is in the empty state.
 	 *
@@ -35,7 +36,14 @@ export default function Item(props: RatingGroupItemProps) {
 	const ratingGroup = use(RatingGroupRootContext);
 
 	const [itemProps, componentProps] = splitItemProps(props);
-	const { element, children, empty = <StarEmpty />, half = <StarHalf />, full = <StarFull />, ...rest } = componentProps;
+	const {
+		element,
+		children,
+		empty = <StarEmpty />,
+		half = <StarHalf />,
+		full = <StarFull />,
+		...rest
+	} = componentProps;
 
 	const itemState = ratingGroup.getItemState(itemProps);
 
@@ -44,6 +52,8 @@ export default function Item(props: RatingGroupItemProps) {
 	return element ? (
 		element(attributes)
 	) : (
-		<div {...attributes}>{children ? children : !itemState.highlighted ? empty : itemState.half ? half : full}</div>
+		<div {...attributes}>
+			{children ? children : !itemState.highlighted ? empty : itemState.half ? half : full}
+		</div>
 	);
 }

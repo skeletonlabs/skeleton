@@ -1,6 +1,6 @@
-import type { useDatePicker } from '../modules/provider.js';
-import { DatePickerRootContext as RootContext_ } from '../modules/root-context.js';
-import { type ReactNode, use } from 'react';
+import type { useDatePicker } from "../modules/provider.js";
+import { DatePickerRootContext as RootContext_ } from "../modules/root-context.js";
+import { type ReactNode, use } from "react";
 
 export interface DatePickerRootContextProps {
 	children: (datePicker: ReturnType<typeof useDatePicker>) => ReactNode;

@@ -1,8 +1,8 @@
-import { TagsInput, useTagsInput } from '@skeletonlabs/skeleton-react';
+import { TagsInput, useTagsInput } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	const tagsInput = useTagsInput({
-		defaultValue: ['Vanilla', 'Chocolate', 'Strawberry'],
+		defaultValue: ["Vanilla", "Chocolate", "Strawberry"],
 	});
 
 	return (

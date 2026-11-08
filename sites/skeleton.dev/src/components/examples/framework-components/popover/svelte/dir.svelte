@@ -1,5 +1,5 @@
 <script>
-	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Popover, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Popover dir="rtl">

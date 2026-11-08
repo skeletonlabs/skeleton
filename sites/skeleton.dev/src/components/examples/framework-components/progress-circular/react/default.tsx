@@ -1,5 +1,5 @@
-import { Progress, Slider } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { Progress, Slider } from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 export default function Default() {
 	const [value, setValue] = useState(50);
@@ -17,7 +17,12 @@ export default function Default() {
 			</Progress>
 
 			{/* Control */}
-			<Slider className="w-full" value={[value]} onValueChange={(e) => setValue(e.value[0])} step={10}>
+			<Slider
+				className="w-full"
+				value={[value]}
+				onValueChange={(e) => setValue(e.value[0])}
+				step={10}
+			>
 				<Slider.Control>
 					<Slider.Track>
 						<Slider.Range className="bg-transparent" />

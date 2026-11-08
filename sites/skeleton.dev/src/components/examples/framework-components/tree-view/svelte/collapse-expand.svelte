@@ -1,7 +1,7 @@
 <script lang="ts">
-	import FileIcon from '@lucide/svelte/icons/file';
-	import FolderIcon from '@lucide/svelte/icons/folder';
-	import { TreeView, createTreeViewCollection, useTreeView } from '@skeletonlabs/skeleton-svelte';
+	import FileIcon from "@lucide/svelte/icons/file";
+	import FolderIcon from "@lucide/svelte/icons/folder";
+	import { TreeView, createTreeViewCollection, useTreeView } from "@skeletonlabs/skeleton-svelte";
 
 	interface Node {
 		id: string;
@@ -13,28 +13,28 @@
 		nodeToValue: (node) => node.id,
 		nodeToString: (node) => node.name,
 		rootNode: {
-			id: 'root',
-			name: '',
+			id: "root",
+			name: "",
 			children: [
 				{
-					id: 'node_modules',
-					name: 'node_modules',
+					id: "node_modules",
+					name: "node_modules",
 					children: [
 						{
-							id: 'node_modules/@skeletonlabs',
-							name: '@skeletonlabs',
+							id: "node_modules/@skeletonlabs",
+							name: "@skeletonlabs",
 							children: [
 								{
-									id: 'node_modules/@skeletonlabs/skeleton',
-									name: 'skeleton',
+									id: "node_modules/@skeletonlabs/skeleton",
+									name: "skeleton",
 								},
 							],
 						},
 					],
 				},
 				{
-					id: 'package.json',
-					name: 'package.json',
+					id: "package.json",
+					name: "package.json",
 				},
 			],
 		},

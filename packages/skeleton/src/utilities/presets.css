@@ -336,12 +336,20 @@
 /* Tonal --- */
 
 @utility preset-tonal {
-	background-color: color-mix(in oklab, light-dark(var(--color-surface-950), var(--color-surface-50)) 10%, transparent);
+	background-color: color-mix(
+		in oklab,
+		light-dark(var(--color-surface-950), var(--color-surface-50)) 10%,
+		transparent
+	);
 	color: var(--color-surface-950-50);
 }
 
 @utility preset-tonal-brand {
-	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%, transparent);
+	background-color: color-mix(
+		in oklab,
+		light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%,
+		transparent
+	);
 	color: var(--color-surface-950-50);
 }
 

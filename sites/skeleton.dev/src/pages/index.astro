@@ -1,21 +1,21 @@
 ---
 // @ts-nocheck - https://github.com/withastro/astro/issues/15023
 
-import ChevronRightIcon from '@lucide/astro/icons/chevron-right';
-import Footer from '@/components/ui/footer.astro';
-import Header from '@/components/ui/header/header.astro';
-import RootLayout from '@/components/layouts/root-layout.astro';
-import SkeletonBig from '@/assets/branding/skeleton-big.svg';
-import ComponentGrid from '@/components/landing-page/component-grid.svelte';
-import LiveDemos from '@/components/landing-page/live-demos.astro';
-import DesignSystem from '@/components/landing-page/design-system.svelte';
-import TailwindAndFrameworkComponents from '@/components/landing-page/tailwind-and-framework-components.svelte';
-import AdditionalFeatures from '@/components/landing-page/additional-features.astro';
-import OpenSource from '@/components/landing-page/open-source.astro';
-import Metrics from '@/components/landing-page/metrics.astro';
-import Sponsors from '@/components/landing-page/sponsors.astro';
-import BuildWithSkeletonToday from '@/components/landing-page/build-with-skeleton-today.astro';
-import { resolvePath } from '@/modules/resolve-path';
+import ChevronRightIcon from "@lucide/astro/icons/chevron-right";
+import Footer from "@/components/ui/footer.astro";
+import Header from "@/components/ui/header/header.astro";
+import RootLayout from "@/components/layouts/root-layout.astro";
+import SkeletonBig from "@/assets/branding/skeleton-big.svg";
+import ComponentGrid from "@/components/landing-page/component-grid.svelte";
+import LiveDemos from "@/components/landing-page/live-demos.astro";
+import DesignSystem from "@/components/landing-page/design-system.svelte";
+import TailwindAndFrameworkComponents from "@/components/landing-page/tailwind-and-framework-components.svelte";
+import AdditionalFeatures from "@/components/landing-page/additional-features.astro";
+import OpenSource from "@/components/landing-page/open-source.astro";
+import Metrics from "@/components/landing-page/metrics.astro";
+import Sponsors from "@/components/landing-page/sponsors.astro";
+import BuildWithSkeletonToday from "@/components/landing-page/build-with-skeleton-today.astro";
+import { resolvePath } from "@/modules/resolve-path";
 ---
 
 <RootLayout>
@@ -43,17 +43,25 @@ import { resolvePath } from '@/modules/resolve-path';
 					</div>
 					<div class="self-center space-y-4">
 						<!-- --- / --- -->
-						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">The adaptive design system for Tailwind CSS.</h1>
+						<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
+							The adaptive design system for Tailwind CSS.
+						</h1>
 						<p class="xl:max-w-2xl">
-							Skeleton uses{' '}
+							Skeleton uses{" "}
 							<a class="underline" href="https://tailwindcss.com/" target="_blank">
 								Tailwind
-							</a>{' '}
-							and serves as a foundation for adapting to your applications design systems. Featuring turnkey components for your favorite
-							web frameworks.
+							</a>{" "}
+							and serves as a foundation for adapting to your applications design
+							systems. Featuring turnkey components for your favorite web frameworks.
 						</p>
 						<nav class="flex gap-4">
-							<a href={resolvePath(Astro.params, '/docs/[framework]/get-started/installation')} class="btn btn-xl preset-filled">
+							<a
+								href={resolvePath(
+									Astro.params,
+									"/docs/[framework]/get-started/installation",
+								)}
+								class="btn btn-xl preset-filled"
+							>
 								<span>Get Started</span>
 								<ChevronRightIcon class="size-4" />
 							</a>
@@ -99,15 +107,35 @@ import { resolvePath } from '@/modules/resolve-path';
 	.gradient-homepage-one {
 		background-size: cover;
 		background-image:
-			radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 40%),
-			radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-tertiary-500) 18%, transparent) 0px, transparent 40%),
-			radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 50%);
+			radial-gradient(
+				at 24% 25%,
+				color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px,
+				transparent 40%
+			),
+			radial-gradient(
+				at 35% 13%,
+				color-mix(in oklab, var(--color-tertiary-500) 18%, transparent) 0px,
+				transparent 40%
+			),
+			radial-gradient(
+				at 100% 64%,
+				color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px,
+				transparent 50%
+			);
 	}
 
 	.gradient-homepage-two {
 		background-size: cover;
 		background-image:
-			radial-gradient(at 25% 40%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 35%),
-			radial-gradient(at 100% 58%, color-mix(in oklab, var(--color-tertiary-500) 5%, transparent) 0px, transparent 35%);
+			radial-gradient(
+				at 25% 40%,
+				color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px,
+				transparent 35%
+			),
+			radial-gradient(
+				at 100% 58%,
+				color-mix(in oklab, var(--color-tertiary-500) 5%, transparent) 0px,
+				transparent 35%
+			);
 	}
 </style>

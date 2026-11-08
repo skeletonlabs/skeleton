@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Dialog role="alertdialog">

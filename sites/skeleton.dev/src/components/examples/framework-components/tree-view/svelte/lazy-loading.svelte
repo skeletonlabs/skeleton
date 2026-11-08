@@ -1,8 +1,12 @@
 <script lang="ts">
-	import FileIcon from '@lucide/svelte/icons/file';
-	import FolderIcon from '@lucide/svelte/icons/folder';
-	import LoaderIcon from '@lucide/svelte/icons/loader';
-	import { TreeView, createTreeViewCollection, type TreeViewRootProps } from '@skeletonlabs/skeleton-svelte';
+	import FileIcon from "@lucide/svelte/icons/file";
+	import FolderIcon from "@lucide/svelte/icons/folder";
+	import LoaderIcon from "@lucide/svelte/icons/loader";
+	import {
+		TreeView,
+		createTreeViewCollection,
+		type TreeViewRootProps,
+	} from "@skeletonlabs/skeleton-svelte";
 
 	interface Node {
 		id: string;
@@ -14,23 +18,23 @@
 	const response: Record<string, Node[]> = {
 		node_modules: [
 			{
-				id: 'node_modules/@skeletonlabs',
-				name: '@skeletonlabs',
+				id: "node_modules/@skeletonlabs",
+				name: "@skeletonlabs",
 				childrenCount: 3,
 			},
 		],
-		'node_modules/@skeletonlabs': [
+		"node_modules/@skeletonlabs": [
 			{
-				id: 'node_modules/@skeletonlabs/skeleton',
-				name: 'skeleton',
+				id: "node_modules/@skeletonlabs/skeleton",
+				name: "skeleton",
 			},
 			{
-				id: 'node_modules/@skeletonlabs/skeleton-react',
-				name: 'skeleton-react',
+				id: "node_modules/@skeletonlabs/skeleton-react",
+				name: "skeleton-react",
 			},
 			{
-				id: 'node_modules/@skeletonlabs/skeleton-svelte',
-				name: 'skeleton-svelte',
+				id: "node_modules/@skeletonlabs/skeleton-svelte",
+				name: "skeleton-svelte",
 			},
 		],
 	};
@@ -40,29 +44,29 @@
 			nodeToValue: (node) => node.id,
 			nodeToString: (node) => node.name,
 			rootNode: {
-				id: 'root',
-				name: '',
+				id: "root",
+				name: "",
 				children: [
 					{
-						id: 'node_modules',
-						name: 'node_modules',
+						id: "node_modules",
+						name: "node_modules",
 						childrenCount: 1,
 					},
 					{
-						id: 'package.json',
-						name: 'package.json',
+						id: "package.json",
+						name: "package.json",
 					},
 				],
 			},
 		}),
 	);
 
-	const loadChildren: TreeViewRootProps['loadChildren'] = async (details) => {
+	const loadChildren: TreeViewRootProps["loadChildren"] = async (details) => {
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 		return response[details.node.id] || [];
 	};
 
-	const onLoadChildrenComplete: TreeViewRootProps['onLoadChildrenComplete'] = (details) => {
+	const onLoadChildrenComplete: TreeViewRootProps["onLoadChildrenComplete"] = (details) => {
 		collection = details.collection;
 	};
 </script>

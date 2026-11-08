@@ -1,7 +1,7 @@
-import { QrCode } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { QrCode } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/qr-code/')({
+export const Route = createFileRoute("/components/qr-code/")({
 	component: Page,
 });
 

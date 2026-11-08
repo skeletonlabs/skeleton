@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { usePagination } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { usePagination } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface PaginationRootContextProps {
 		children: Snippet<[ReturnType<typeof usePagination>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { PaginationRootContext } from '../modules/root-context.js';
+	import { PaginationRootContext } from "../modules/root-context.js";
 
 	const props: PaginationRootContextProps = $props();
 

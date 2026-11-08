@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import SkullIcon from "@lucide/svelte/icons/skull";
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	const toaster = createToaster();
 </script>
@@ -13,8 +13,8 @@
 	class="btn preset-filled"
 	onclick={() =>
 		toaster.info({
-			title: 'Title',
-			description: 'This is a description.',
+			title: "Title",
+			description: "This is a description.",
 			meta: {
 				icon: skull,
 			},

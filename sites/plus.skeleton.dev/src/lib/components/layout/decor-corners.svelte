@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PlusIcon from '@lucide/svelte/icons/plus';
-	import type { Snippet } from 'svelte';
+	import PlusIcon from "@lucide/svelte/icons/plus";
+	import type { Snippet } from "svelte";
 
-	type Corner = 'tl' | 'tr' | 'bl' | 'br';
+	type Corner = "tl" | "tr" | "bl" | "br";
 
 	interface Props {
 		corners?: Corner[];
@@ -13,10 +13,10 @@
 	let { corners = [], class: classList, children }: Props = $props();
 
 	const cornerClasses: Record<Corner, string> = {
-		tl: 'top-0 left-0 translate-x-[-50%] translate-y-[-50%]',
-		tr: 'top-0 right-0 translate-x-[50%] translate-y-[-50%]',
-		bl: 'bottom-0 left-0 translate-x-[-50%] translate-y-[50%]',
-		br: 'bottom-0 right-0 translate-x-[50%] translate-y-[50%]',
+		tl: "top-0 left-0 translate-x-[-50%] translate-y-[-50%]",
+		tr: "top-0 right-0 translate-x-[50%] translate-y-[-50%]",
+		bl: "bottom-0 left-0 translate-x-[-50%] translate-y-[50%]",
+		br: "bottom-0 right-0 translate-x-[50%] translate-y-[50%]",
 	};
 </script>
 

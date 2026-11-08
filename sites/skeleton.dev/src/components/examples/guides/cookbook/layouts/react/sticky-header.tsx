@@ -5,7 +5,9 @@ export default function StickyHeader() {
 		// <div class="h-screen grid grid-rows-[auto_1fr_auto]">
 		<div className="w-full h-[320px] overflow-y-auto relative">
 			{/* Header */}
-			<header className="sticky top-0 z-10 bg-primary-500/80 backdrop-blur-sm p-4">(header)</header>
+			<header className="sticky top-0 z-10 bg-primary-500/80 backdrop-blur-sm p-4">
+				(header)
+			</header>
 			{/* Main */}
 			<main className="preset-filled-secondary-500 p-4 space-y-4">
 				<p className="preset-filled-warning-500 p-4">Paragraph 1</p>

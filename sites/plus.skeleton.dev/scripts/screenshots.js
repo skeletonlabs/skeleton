@@ -22,14 +22,14 @@
  *   - homepageUrl should target the project/template homepage hero
  */
 
-import { chromium } from 'playwright';
-import sharp from 'sharp';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { chromium } from "playwright";
+import sharp from "sharp";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ASSETS = path.join(__dirname, '../src/lib/assets/images');
+const ASSETS = path.join(__dirname, "../src/lib/assets/images");
 
 // Capture viewport (matches the largest output — hero — so we never upscale).
 const VIEWPORT = { width: 1920, height: 1080 };
@@ -42,53 +42,59 @@ const HERO = { width: 1920, height: 1080, quality: 92 };
 
 const showcases = {
 	community: {
-		label: 'community',
-		outDir: path.join(ASSETS, 'community'),
+		label: "community",
+		outDir: path.join(ASSETS, "community"),
 		screenshotSize: { width: 960, height: 540, quality: 85 },
 		entries: [
 			{
-				slug: 'etesie',
-				homepageUrl: 'https://etesie.dev',
+				slug: "etesie",
+				homepageUrl: "https://etesie.dev",
 				screenshots: [
-					{ url: 'https://etesie.dev/themes/browse' },
-					{ url: 'https://etesie.dev/docs/auth/overview/introduction' },
-					{ url: 'https://etesie.dev/figma' },
+					{ url: "https://etesie.dev/themes/browse" },
+					{ url: "https://etesie.dev/docs/auth/overview/introduction" },
+					{ url: "https://etesie.dev/figma" },
 				],
 			},
 			{
-				slug: 'typogram',
-				homepageUrl: 'https://typogram.co',
+				slug: "typogram",
+				homepageUrl: "https://typogram.co",
 				screenshots: [
-					{ url: 'https://typogram.co/studio/landing.html' },
-					{ url: 'https://typogram.co/brand-guidelines.html?brandName=Radiant%20Waves%20Reiki' },
-					{ url: 'https://typogram.co/font-discovery/' },
+					{ url: "https://typogram.co/studio/landing.html" },
+					{
+						url: "https://typogram.co/brand-guidelines.html?brandName=Radiant%20Waves%20Reiki",
+					},
+					{ url: "https://typogram.co/font-discovery/" },
 				],
 			},
 		],
 	},
 	template: {
-		label: 'templates',
-		outDir: path.join(ASSETS, 'templates'),
+		label: "templates",
+		outDir: path.join(ASSETS, "templates"),
 		screenshotSize: { width: 426, height: 240, quality: 85 },
 		entries: [
 			{
-				slug: 'persona',
-				homepageUrl: 'https://skeleton-template-portfolio.vercel.app/',
+				slug: "persona",
+				homepageUrl: "https://skeleton-template-portfolio.vercel.app/",
 				screenshots: [
-					{ url: 'https://skeleton-template-portfolio.vercel.app/about' },
-					{ url: 'https://skeleton-template-portfolio.vercel.app/projects' },
-					{ url: 'https://skeleton-template-portfolio.vercel.app/projects/development/project-1' },
-					{ url: 'https://skeleton-template-portfolio.vercel.app/projects/design/project-6' },
+					{ url: "https://skeleton-template-portfolio.vercel.app/about" },
+					{ url: "https://skeleton-template-portfolio.vercel.app/projects" },
+					{
+						url: "https://skeleton-template-portfolio.vercel.app/projects/development/project-1",
+					},
+					{
+						url: "https://skeleton-template-portfolio.vercel.app/projects/design/project-6",
+					},
 				],
 			},
 			{
-				slug: 'stardust',
-				homepageUrl: 'https://skeleton-template-blog.vercel.app/',
+				slug: "stardust",
+				homepageUrl: "https://skeleton-template-blog.vercel.app/",
 				screenshots: [
-					{ url: 'https://skeleton-template-blog.vercel.app/about' },
-					{ url: 'https://skeleton-template-blog.vercel.app/blog' },
-					{ url: 'https://skeleton-template-blog.vercel.app/blog/second-post/' },
-					{ url: 'https://skeleton-template-blog.vercel.app/blog/third-post/' },
+					{ url: "https://skeleton-template-blog.vercel.app/about" },
+					{ url: "https://skeleton-template-blog.vercel.app/blog" },
+					{ url: "https://skeleton-template-blog.vercel.app/blog/second-post/" },
+					{ url: "https://skeleton-template-blog.vercel.app/blog/third-post/" },
 				],
 			},
 		],
@@ -120,13 +126,13 @@ async function hideScrollbars(page) {
 // Opens a page, waits for it to settle, then returns a raw screenshot buffer at VIEWPORT.
 async function capturePage(browser, { url, scrollY = 0 }) {
 	const ctx = await browser.newContext({
-		colorScheme: 'dark',
+		colorScheme: "dark",
 		viewport: VIEWPORT,
 		deviceScaleFactor: 1,
 	});
 	const page = await ctx.newPage();
 
-	await page.goto(url, { waitUntil: 'load', timeout: 45000 });
+	await page.goto(url, { waitUntil: "load", timeout: 45000 });
 	await page.waitForTimeout(2000);
 	await hideScrollbars(page);
 	await dismissOverlays(page);
@@ -144,7 +150,10 @@ async function capturePage(browser, { url, scrollY = 0 }) {
 
 // Writes a buffer to disk resized to the given output spec.
 async function writeImage(buffer, { width, height, quality }, file) {
-	await sharp(buffer).resize(width, height, { fit: 'cover', position: 'top' }).webp({ quality }).toFile(file);
+	await sharp(buffer)
+		.resize(width, height, { fit: "cover", position: "top" })
+		.webp({ quality })
+		.toFile(file);
 }
 
 // Pipeline ---
@@ -158,10 +167,10 @@ async function captureEntry(browser, entry, showcase) {
 	console.log(`  homepage -> ${entry.homepageUrl}`);
 	try {
 		const buffer = await capturePage(browser, { url: entry.homepageUrl });
-		await writeImage(buffer, HERO, path.join(dest, 'hero.webp'));
-		console.log('    saved hero.webp');
-		await writeImage(buffer, CARD, path.join(dest, 'card.webp'));
-		console.log('    saved card.webp');
+		await writeImage(buffer, HERO, path.join(dest, "hero.webp"));
+		console.log("    saved hero.webp");
+		await writeImage(buffer, CARD, path.join(dest, "card.webp"));
+		console.log("    saved card.webp");
 	} catch (e) {
 		console.error(`    FAILED homepage: ${e.message}`);
 	}
@@ -169,7 +178,7 @@ async function captureEntry(browser, entry, showcase) {
 	// Screenshots.
 	for (let i = 0; i < entry.screenshots.length; i++) {
 		const { url, scrollY } = entry.screenshots[i];
-		const file = `screenshot-${String(i + 1).padStart(3, '0')}.webp`;
+		const file = `screenshot-${String(i + 1).padStart(3, "0")}.webp`;
 		console.log(`  ${file} -> ${url}`);
 		try {
 			const buffer = await capturePage(browser, { url, scrollY });
@@ -200,10 +209,10 @@ function printSummary(showcase) {
 function selectShowcases(argv) {
 	const flags = argv.slice(2);
 	if (flags.length === 0) return [showcases.community, showcases.template];
-	if (flags.length === 1 && flags[0] === '--community') return [showcases.community];
-	if (flags.length === 1 && flags[0] === '--template') return [showcases.template];
+	if (flags.length === 1 && flags[0] === "--community") return [showcases.community];
+	if (flags.length === 1 && flags[0] === "--template") return [showcases.template];
 
-	console.error('Usage: pnpm screenshots [--community | --template]');
+	console.error("Usage: pnpm screenshots [--community | --template]");
 	process.exit(1);
 }
 
@@ -211,7 +220,7 @@ const selected = selectShowcases(process.argv);
 
 // --hide-scrollbars suppresses scrollbars at the browser level; hideScrollbars()
 // also injects CSS as a fallback for sites that render their own scrollbar styles.
-const browser = await chromium.launch({ args: ['--hide-scrollbars'] });
+const browser = await chromium.launch({ args: ["--hide-scrollbars"] });
 
 for (const showcase of selected) {
 	for (const entry of showcase.entries) {

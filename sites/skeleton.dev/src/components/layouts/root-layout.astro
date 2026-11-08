@@ -1,10 +1,10 @@
 ---
-import '@/app.css';
-import { SEO } from 'astro-seo';
-import favicon from '@/assets/favicon.png';
-import { ClientRouter } from 'astro:transitions';
-import ThemeLoader from '@/components/ui/theme-loader.astro';
-import ModeLoader from '@/components/ui/mode-loader.astro';
+import "@/app.css";
+import { SEO } from "astro-seo";
+import favicon from "@/assets/favicon.png";
+import { ClientRouter } from "astro:transitions";
+import ThemeLoader from "@/components/ui/theme-loader.astro";
+import ModeLoader from "@/components/ui/mode-loader.astro";
 
 interface Props {
 	title?: string;
@@ -13,12 +13,12 @@ interface Props {
 }
 
 const {
-	title = 'Skeleton',
-	description = 'Skeleton uses Tailwind as the foundation for building adaptive design systems. Including turnkey components for your favorite web frameworks.',
+	title = "Skeleton",
+	description = "Skeleton uses Tailwind as the foundation for building adaptive design systems. Including turnkey components for your favorite web frameworks.",
 	classList,
 } = Astro.props;
 
-const titleWithSkeletonSuffix = title === 'Skeleton' ? title : `${title} · Skeleton`;
+const titleWithSkeletonSuffix = title === "Skeleton" ? title : `${title} · Skeleton`;
 
 const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 ---
@@ -34,7 +34,7 @@ const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 			openGraph={{
 				basic: {
 					title: titleWithSkeletonSuffix,
-					type: 'website',
+					type: "website",
 					url: Astro.site,
 					image: skeletonImage.toString(),
 				},
@@ -47,8 +47,8 @@ const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 					alt: titleWithSkeletonSuffix,
 				},
 				optional: {
-					locale: 'en_US',
-					siteName: 'Skeleton',
+					locale: "en_US",
+					siteName: "Skeleton",
 					description: description,
 				},
 			}}
@@ -57,34 +57,34 @@ const skeletonImage = new URL(`/api/og-image?feature=${title}`, Astro.site);
 				description: description,
 				image: skeletonImage.toString(),
 				imageAlt: titleWithSkeletonSuffix,
-				card: 'summary_large_image',
+				card: "summary_large_image",
 				site: Astro.site?.toString(),
 			}}
 			extend={{
 				meta: [
 					{
-						name: 'viewport',
-						content: 'width=device-width, initial-scale=1',
+						name: "viewport",
+						content: "width=device-width, initial-scale=1",
 					},
 					{
-						name: 'keywords',
+						name: "keywords",
 						content:
-							'design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, a11y, accessibility, typescript, javascript, css, open source, adaptive, theme',
+							"design system, tailwind, tailwind css, web, ui, components, svelte, sveltekit, react, next.js, vue, nuxt, solid, solidstart, astro, vite, reactive, a11y, accessibility, typescript, javascript, css, open source, adaptive, theme",
 					},
 					{
-						name: 'generator',
+						name: "generator",
 						content: Astro.generator,
 					},
 				],
 				link: [
 					{
-						rel: 'icon',
+						rel: "icon",
 						type: `image/${favicon.format}`,
 						href: favicon.src,
 					},
 					{
-						rel: 'sitemap',
-						href: '/sitemap-index.xml',
+						rel: "sitemap",
+						href: "/sitemap-index.xml",
 					},
 				],
 			}}

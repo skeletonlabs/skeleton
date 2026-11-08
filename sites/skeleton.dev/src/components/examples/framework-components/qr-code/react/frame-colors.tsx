@@ -1,4 +1,4 @@
-import { QrCode } from '@skeletonlabs/skeleton-react';
+import { QrCode } from "@skeletonlabs/skeleton-react";
 
 export default function FrameColors() {
 	return (

@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from './html-attributes.js';
-import type { Snippet } from 'svelte';
-import type { SvelteHTMLElements } from 'svelte/elements';
+import type { HTMLAttributes } from "./html-attributes.js";
+import type { Snippet } from "svelte";
+import type { SvelteHTMLElements } from "svelte/elements";
 
 interface PropsWithElement<T extends keyof SvelteHTMLElements> {
 	/**

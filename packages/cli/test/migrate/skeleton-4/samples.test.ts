@@ -1,16 +1,16 @@
-import { transformModule } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-module.js';
-import { transformPackageJson } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-package.json.js';
-import { transformStylesheet } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-stylesheet.js';
-import { transformSvelte } from '../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-svelte.js';
-import { readFile } from 'node:fs/promises';
-import { fileURLToPath, resolve } from 'node:url';
-import { describe, expect, test } from 'vitest';
+import { transformModule } from "../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-module.js";
+import { transformPackageJson } from "../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-package.json.js";
+import { transformStylesheet } from "../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-stylesheet.js";
+import { transformSvelte } from "../../../src/commands/migrate/migrations/skeleton-4/transformers/transform-svelte.js";
+import { readFile } from "node:fs/promises";
+import { fileURLToPath, resolve } from "node:url";
+import { describe, expect, test } from "vitest";
 
 const TRANSFORMER_MAP = {
 	svelte: transformSvelte,
 	module: transformModule,
 	stylesheet: transformStylesheet,
-	'package.json': transformPackageJson,
+	"package.json": transformPackageJson,
 };
 
 function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
@@ -18,41 +18,58 @@ function getResult(code: string, transformer: keyof typeof TRANSFORMER_MAP) {
 }
 
 function clean(code: string) {
-	return code.trim().replace(/\r\n|\r|\n/g, '\n');
+	return code.trim().replace(/\r\n|\r|\n/g, "\n");
 }
 
-const samples = import.meta.glob('./samples/**/*', {
-	query: '?raw',
+const samples = import.meta.glob("./samples/**/*", {
+	query: "?raw",
 });
 
 const testCases = Object.keys(samples).reduce(
 	(acc, path) => {
-		const pathParts = path.split('/');
+		const pathParts = path.split("/");
 		const transformer = pathParts[2];
 		const testName = pathParts[3];
 		const fileType = pathParts[4];
-		if (!transformer || !testName || !fileType || !(transformer in TRANSFORMER_MAP) || !['input', 'output'].includes(fileType)) {
+		if (
+			!transformer ||
+			!testName ||
+			!fileType ||
+			!(transformer in TRANSFORMER_MAP) ||
+			!["input", "output"].includes(fileType)
+		) {
 			return acc;
 		}
 		acc[transformer] = acc[transformer] || {};
-		acc[transformer][testName] = acc[transformer][testName] || { input: '', output: '' };
-		acc[transformer][testName][fileType as 'input' | 'output'] = path;
+		acc[transformer][testName] = acc[transformer][testName] || { input: "", output: "" };
+		acc[transformer][testName][fileType as "input" | "output"] = path;
 		return acc;
 	},
 	{} as Record<string, Record<string, { input: string; output: string }>>,
 );
 
-describe('samples', () => {
+describe("samples", () => {
 	for (const [transformerName, tests] of Object.entries(testCases)) {
 		describe(transformerName, () => {
-			for (const [testName, { input: inputPath, output: outputPath }] of Object.entries(tests)) {
+			for (const [testName, { input: inputPath, output: outputPath }] of Object.entries(
+				tests,
+			)) {
 				if (!inputPath || !outputPath) {
 					continue;
 				}
 				test(testName, async () => {
-					const input = await readFile(resolve(fileURLToPath(import.meta.url), inputPath), 'utf-8');
-					const actual = getResult(input, transformerName as keyof typeof TRANSFORMER_MAP);
-					const expected = await readFile(resolve(fileURLToPath(import.meta.url), outputPath), 'utf-8');
+					const input = await readFile(
+						resolve(fileURLToPath(import.meta.url), inputPath),
+						"utf-8",
+					);
+					const actual = getResult(
+						input,
+						transformerName as keyof typeof TRANSFORMER_MAP,
+					);
+					const expected = await readFile(
+						resolve(fileURLToPath(import.meta.url), outputPath),
+						"utf-8",
+					);
 					expect(clean(actual)).toBe(clean(expected));
 				});
 			}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Slider } from '@skeletonlabs/skeleton-svelte';
+	import { Slider } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="space-y-8">

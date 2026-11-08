@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ArrowUpDownIcon from '@lucide/svelte/icons/arrow-up-down';
-	import { Collapsible } from '@skeletonlabs/skeleton-svelte';
+	import ArrowUpDownIcon from "@lucide/svelte/icons/arrow-up-down";
+	import { Collapsible } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Collapsible class="items-start card preset-filled-surface-100-900 p-4 w-56 mx-auto">

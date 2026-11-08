@@ -1,147 +1,147 @@
-import catpuccin from '@skeletonlabs/skeleton/themes/catppuccin?inline';
-import cerberus from '@skeletonlabs/skeleton/themes/cerberus?inline';
-import concord from '@skeletonlabs/skeleton/themes/concord?inline';
-import crimson from '@skeletonlabs/skeleton/themes/crimson?inline';
-import dracula from '@skeletonlabs/skeleton/themes/dracula?inline';
-import fennec from '@skeletonlabs/skeleton/themes/fennec?inline';
-import hamlindigo from '@skeletonlabs/skeleton/themes/hamlindigo?inline';
-import legacy from '@skeletonlabs/skeleton/themes/legacy?inline';
-import mint from '@skeletonlabs/skeleton/themes/mint?inline';
-import modern from '@skeletonlabs/skeleton/themes/modern?inline';
-import mona from '@skeletonlabs/skeleton/themes/mona?inline';
-import nosh from '@skeletonlabs/skeleton/themes/nosh?inline';
-import nouveau from '@skeletonlabs/skeleton/themes/nouveau?inline';
-import pine from '@skeletonlabs/skeleton/themes/pine?inline';
-import reign from '@skeletonlabs/skeleton/themes/reign?inline';
-import rocket from '@skeletonlabs/skeleton/themes/rocket?inline';
-import rose from '@skeletonlabs/skeleton/themes/rose?inline';
-import rosepine from '@skeletonlabs/skeleton/themes/rosepine?inline';
-import sahara from '@skeletonlabs/skeleton/themes/sahara?inline';
-import seafoam from '@skeletonlabs/skeleton/themes/seafoam?inline';
-import terminus from '@skeletonlabs/skeleton/themes/terminus?inline';
-import vintage from '@skeletonlabs/skeleton/themes/vintage?inline';
-import vox from '@skeletonlabs/skeleton/themes/vox?inline';
-import wintry from '@skeletonlabs/skeleton/themes/wintry?inline';
+import catpuccin from "@skeletonlabs/skeleton/themes/catppuccin?inline";
+import cerberus from "@skeletonlabs/skeleton/themes/cerberus?inline";
+import concord from "@skeletonlabs/skeleton/themes/concord?inline";
+import crimson from "@skeletonlabs/skeleton/themes/crimson?inline";
+import dracula from "@skeletonlabs/skeleton/themes/dracula?inline";
+import fennec from "@skeletonlabs/skeleton/themes/fennec?inline";
+import hamlindigo from "@skeletonlabs/skeleton/themes/hamlindigo?inline";
+import legacy from "@skeletonlabs/skeleton/themes/legacy?inline";
+import mint from "@skeletonlabs/skeleton/themes/mint?inline";
+import modern from "@skeletonlabs/skeleton/themes/modern?inline";
+import mona from "@skeletonlabs/skeleton/themes/mona?inline";
+import nosh from "@skeletonlabs/skeleton/themes/nosh?inline";
+import nouveau from "@skeletonlabs/skeleton/themes/nouveau?inline";
+import pine from "@skeletonlabs/skeleton/themes/pine?inline";
+import reign from "@skeletonlabs/skeleton/themes/reign?inline";
+import rocket from "@skeletonlabs/skeleton/themes/rocket?inline";
+import rose from "@skeletonlabs/skeleton/themes/rose?inline";
+import rosepine from "@skeletonlabs/skeleton/themes/rosepine?inline";
+import sahara from "@skeletonlabs/skeleton/themes/sahara?inline";
+import seafoam from "@skeletonlabs/skeleton/themes/seafoam?inline";
+import terminus from "@skeletonlabs/skeleton/themes/terminus?inline";
+import vintage from "@skeletonlabs/skeleton/themes/vintage?inline";
+import vox from "@skeletonlabs/skeleton/themes/vox?inline";
+import wintry from "@skeletonlabs/skeleton/themes/wintry?inline";
 
 export const themes = [
 	{
-		name: 'catppuccin',
+		name: "catppuccin",
 		css: catpuccin,
-		emoji: '🐈',
+		emoji: "🐈",
 	},
 	{
-		name: 'cerberus',
+		name: "cerberus",
 		css: cerberus,
-		emoji: '🐺',
+		emoji: "🐺",
 	},
 	{
-		name: 'concord',
+		name: "concord",
 		css: concord,
-		emoji: '🤖',
+		emoji: "🤖",
 	},
 	{
-		name: 'crimson',
+		name: "crimson",
 		css: crimson,
-		emoji: '🔴',
+		emoji: "🔴",
 	},
 	{
-		name: 'dracula',
+		name: "dracula",
 		css: dracula,
-		emoji: '🧛',
+		emoji: "🧛",
 	},
 	{
-		name: 'fennec',
+		name: "fennec",
 		css: fennec,
-		emoji: '🦊',
+		emoji: "🦊",
 	},
 	{
-		name: 'hamlindigo',
+		name: "hamlindigo",
 		css: hamlindigo,
-		emoji: '👔',
+		emoji: "👔",
 	},
 	{
-		name: 'legacy',
+		name: "legacy",
 		css: legacy,
-		emoji: '💀',
+		emoji: "💀",
 	},
 	{
-		name: 'mint',
+		name: "mint",
 		css: mint,
-		emoji: '🍃',
+		emoji: "🍃",
 	},
 	{
-		name: 'modern',
+		name: "modern",
 		css: modern,
-		emoji: '🌸',
+		emoji: "🌸",
 	},
 	{
-		name: 'mona',
+		name: "mona",
 		css: mona,
-		emoji: '🐙',
+		emoji: "🐙",
 	},
 	{
-		name: 'nosh',
+		name: "nosh",
 		css: nosh,
-		emoji: '🥙',
+		emoji: "🥙",
 	},
 	{
-		name: 'nouveau',
+		name: "nouveau",
 		css: nouveau,
-		emoji: '👑',
+		emoji: "👑",
 	},
 	{
-		name: 'pine',
+		name: "pine",
 		css: pine,
-		emoji: '🌲',
+		emoji: "🌲",
 	},
 	{
-		name: 'reign',
+		name: "reign",
 		css: reign,
-		emoji: '📒',
+		emoji: "📒",
 	},
 	{
-		name: 'rocket',
+		name: "rocket",
 		css: rocket,
-		emoji: '🚀',
+		emoji: "🚀",
 	},
 	{
-		name: 'rose',
+		name: "rose",
 		css: rose,
-		emoji: '🪷',
+		emoji: "🪷",
 	},
 	{
-		name: 'rosepine',
+		name: "rosepine",
 		css: rosepine,
-		emoji: '🌷',
+		emoji: "🌷",
 	},
 	{
-		name: 'sahara',
+		name: "sahara",
 		css: sahara,
-		emoji: '🏜️',
+		emoji: "🏜️",
 	},
 	{
-		name: 'seafoam',
+		name: "seafoam",
 		css: seafoam,
-		emoji: '🧜‍♀️',
+		emoji: "🧜‍♀️",
 	},
 	{
-		name: 'terminus',
+		name: "terminus",
 		css: terminus,
-		emoji: '🌑',
+		emoji: "🌑",
 	},
 	{
-		name: 'vintage',
+		name: "vintage",
 		css: vintage,
-		emoji: '📺',
+		emoji: "📺",
 	},
 	{
-		name: 'vox',
+		name: "vox",
 		css: vox,
-		emoji: '👾',
+		emoji: "👾",
 	},
 	{
-		name: 'wintry',
+		name: "wintry",
 		css: wintry,
-		emoji: '🌨️',
+		emoji: "🌨️",
 	},
 ] as const;

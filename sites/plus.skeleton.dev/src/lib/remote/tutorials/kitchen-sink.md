@@ -3,8 +3,8 @@ title: Kitchen Sink
 author: Chris Simmons
 date: 2026-5-28
 tags:
-  - markdown
-  - documentation
+    - markdown
+    - documentation
 ---
 
 A comprehensive test document covering CommonMark and GitHub Flavored Markdown features.
@@ -37,13 +37,13 @@ You can also use **bold**, _italic_, and **_combined_** styles.
 
 [Inline link](https://skeleton.dev)
 
-[Link with title](https://skeleton.dev 'Skeleton UI')
+[Link with title](https://skeleton.dev "Skeleton UI")
 
 [Reference link][skeleton]
 
 [skeleton]: https://skeleton.dev
 
-![Alt text for an image](https://placehold.co/400x200/png 'Optional title')
+![Alt text for an image](https://placehold.co/400x200/png "Optional title")
 
 ---
 
@@ -53,17 +53,17 @@ You can also use **bold**, _italic_, and **_combined_** styles.
 
 - Item one
 - Item two
-  - Nested item A
-  - Nested item B
-    - Deeply nested
+    - Nested item A
+    - Nested item B
+        - Deeply nested
 - Item three
 
 ### Ordered
 
 1. First item
 2. Second item
-   1. Nested ordered
-   2. Nested ordered
+    1. Nested ordered
+    2. Nested ordered
 3. Third item
 
 ### Task List (GFM)
@@ -185,7 +185,7 @@ pnpm dev
 | Feature  | Status     | Link                                             |
 | -------- | ---------- | ------------------------------------------------ |
 | **Bold** | _Italic_   | [Skeleton](https://skeleton.dev)                 |
-| `Code`   | ~~Strike~~ | ![img](https://placehold.co/80x20/png 'example') |
+| `Code`   | ~~Strike~~ | ![img](https://placehold.co/80x20/png "example") |
 
 ---
 

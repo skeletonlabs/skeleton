@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Progress, Slider } from '@skeletonlabs/skeleton-svelte';
+	import { Progress, Slider } from "@skeletonlabs/skeleton-svelte";
 
 	let value = $state(50);
 </script>

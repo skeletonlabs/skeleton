@@ -1,7 +1,7 @@
-import type { useAccordion } from '../modules/provider.js';
-import { AccordionRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useAccordion } from "../modules/provider.js";
+import { AccordionRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface AccordionRootContextProps {
 	children: (accordion: ReturnType<typeof useAccordion>) => ReactNode;

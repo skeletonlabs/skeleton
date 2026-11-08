@@ -1,6 +1,6 @@
 <script lang="ts">
-	import favicon from '@/assets/favicon.png';
-	import { QrCode } from '@skeletonlabs/skeleton-svelte';
+	import favicon from "@/assets/favicon.png";
+	import { QrCode } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <QrCode value="https://skeleton.dev">

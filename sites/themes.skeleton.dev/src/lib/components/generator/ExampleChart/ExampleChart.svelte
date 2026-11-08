@@ -13,7 +13,13 @@
 >
 	<!-- Bottom Line -->
 	<g data-z-index="2" aria-hidden="true">
-		<path fill="none" class="stroke-surface-950-50 opacity-10" stroke-width="1" data-z-index="7" d="M 44 444.5 L 502 444.5"></path>
+		<path
+			fill="none"
+			class="stroke-surface-950-50 opacity-10"
+			stroke-width="1"
+			data-z-index="7"
+			d="M 44 444.5 L 502 444.5"
+		></path>
 	</g>
 	<!-- Bar Values -->
 	<g data-z-index="3" aria-hidden="false">
@@ -26,12 +32,72 @@
 			role="region"
 			tabindex="-1"
 		>
-			<rect x="20" y="220" width="14" height="179" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
-			<rect x="96" y="112" width="14" height="287" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
-			<rect x="173" y="228" width="14" height="171" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
-			<rect x="249" y="176" width="14" height="223" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
-			<rect x="325" y="339" width="14" height="60" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
-			<rect x="402" y="65" width="14" height="334" fill="var({preset})" opacity="1" tabindex="-1" role="img" style="outline: none;"></rect>
+			<rect
+				x="20"
+				y="220"
+				width="14"
+				height="179"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
+			<rect
+				x="96"
+				y="112"
+				width="14"
+				height="287"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
+			<rect
+				x="173"
+				y="228"
+				width="14"
+				height="171"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
+			<rect
+				x="249"
+				y="176"
+				width="14"
+				height="223"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
+			<rect
+				x="325"
+				y="339"
+				width="14"
+				height="60"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
+			<rect
+				x="402"
+				y="65"
+				width="14"
+				height="334"
+				fill="var({preset})"
+				opacity="1"
+				tabindex="-1"
+				role="img"
+				style="outline: none;"
+			></rect>
 		</g>
 		<g
 			data-z-index="0.1"

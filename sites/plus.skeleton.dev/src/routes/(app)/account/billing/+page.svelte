@@ -1,27 +1,42 @@
 <script lang="ts">
-	import PageHeader from '#lib/components/layout/page-header.svelte';
-	import { resolve } from '$app/paths';
-	import { ArrowDownIcon } from '@lucide/svelte';
-	import VisaIcon from 'virtual:icons/simple-icons/visa';
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { resolve } from "$app/paths";
+	import { ArrowDownIcon } from "@lucide/svelte";
+	import VisaIcon from "virtual:icons/simple-icons/visa";
 
 	const currentPlan = {
-		tier: 'Individual',
-		badge: 'PLUS',
-		summary: 'Lifetime access · purchased Jan 14, 2026 · $XX USD',
+		tier: "Individual",
+		badge: "PLUS",
+		summary: "Lifetime access · purchased Jan 14, 2026 · $XX USD",
 	};
 
 	const paymentMethod = {
-		brand: 'Visa',
+		brand: "Visa",
 		Icon: VisaIcon,
-		last4: '4242',
-		expiry: '09/29',
+		last4: "4242",
+		expiry: "09/29",
 	};
 
 	const purchases = [
-		{ date: 'Jan 14, 2026', description: 'Plus - Individual', amount: '$XX.XX', status: 'PAID' },
-		{ date: 'Aug 02, 2025', description: 'Theme Pack - Cosmic', amount: '$XX.XX', status: 'PAID' },
-		{ date: 'Mar 21, 2025', description: 'UI Kit Add-on', amount: '$XX.XX', status: 'PAID' },
-		{ date: 'Nov 10, 2024', description: 'Tempalte - Portfolio', amount: '$XX.XX', status: 'PAID' },
+		{
+			date: "Jan 14, 2026",
+			description: "Plus - Individual",
+			amount: "$XX.XX",
+			status: "PAID",
+		},
+		{
+			date: "Aug 02, 2025",
+			description: "Theme Pack - Cosmic",
+			amount: "$XX.XX",
+			status: "PAID",
+		},
+		{ date: "Mar 21, 2025", description: "UI Kit Add-on", amount: "$XX.XX", status: "PAID" },
+		{
+			date: "Nov 10, 2024",
+			description: "Tempalte - Portfolio",
+			amount: "$XX.XX",
+			status: "PAID",
+		},
 	];
 </script>
 
@@ -52,7 +67,8 @@
 							<p class="text-xs opacity-60">Exp {paymentMethod.expiry}</p>
 						</div>
 					</div>
-					<button type="button" class="btn preset-outlined-surface-200-800">Update</button>
+					<button type="button" class="btn preset-outlined-surface-200-800">Update</button
+					>
 				</div>
 				<hr class="hr" />
 				<div class="flex justify-between items-center gap-4">
@@ -61,7 +77,9 @@
 						<p class="opacity-60">No tax info on file</p>
 					</div>
 
-					<a href={resolve('account/billing')} class="btn preset-outlined-surface-200-800">Add</a>
+					<a href={resolve("account/billing")} class="btn preset-outlined-surface-200-800"
+						>Add</a
+					>
 				</div>
 			</section>
 		</div>
@@ -70,7 +88,9 @@
 		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
 			<div class="flex items-center justify-between gap-4">
 				<h2 class="h3">Purchases</h2>
-				<button type="button" class="btn preset-outlined-surface-200-800">Download all</button>
+				<button type="button" class="btn preset-outlined-surface-200-800"
+					>Download all</button
+				>
 			</div>
 			<div class="table-wrap">
 				<table class="table caption-bottom">
@@ -91,7 +111,10 @@
 								<td class="font-bold">{amount}</td>
 								<td><span class="text-xs opacity-60">{status}</span></td>
 								<td class="text-right">
-									<button type="button" class="btn preset-outlined-surface-200-800">
+									<button
+										type="button"
+										class="btn preset-outlined-surface-200-800"
+									>
 										<ArrowDownIcon class="size-elem-sm" />
 										<span>Receipt</span>
 									</button>

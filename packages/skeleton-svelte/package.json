@@ -2,18 +2,18 @@
 	"name": "@skeletonlabs/skeleton-svelte",
 	"version": "5.0.1",
 	"description": "The Svelte package for Skeleton.",
+	"license": "MIT",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/skeleton-svelte"
 	},
-	"scripts": {
-		"build": "svelte-package --input src --output dist",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore"
-	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"sideEffects": false,
 	"exports": {
 		".": {
 			"types": "./src/index.ts",
@@ -22,10 +22,12 @@
 			"style": "./src/index.css"
 		}
 	},
-	"files": [
-		"dist"
-	],
-	"sideEffects": false,
+	"scripts": {
+		"build": "svelte-package --input src --output dist",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
+	},
 	"dependencies": {
 		"@internationalized/date": "catalog:",
 		"@skeletonlabs/skeleton-common": "workspace:*",
@@ -60,9 +62,6 @@
 		"@zag-js/tooltip": "catalog:",
 		"@zag-js/tree-view": "catalog:"
 	},
-	"peerDependencies": {
-		"svelte": "^5.40.0"
-	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@sveltejs/kit": "catalog:",
@@ -76,8 +75,9 @@
 		"vite": "catalog:",
 		"vitest-browser-svelte": "catalog:"
 	},
-	"license": "MIT",
-	"type": "module",
+	"peerDependencies": {
+		"svelte": "^5.40.0"
+	},
 	"clean-package": {
 		"remove": [
 			"scripts",

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SendIcon from '@lucide/svelte/icons/send';
-	import { onMount } from 'svelte';
+	import SendIcon from "@lucide/svelte/icons/send";
+	import { onMount } from "svelte";
 
 	// Types
 	interface Person {
@@ -20,16 +20,16 @@
 
 	let elemChat: HTMLElement;
 	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.';
+		"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.";
 
 	// Navigation List
 	const people: Person[] = [
-		{ id: 0, avatar: 14, name: 'Michael' },
-		{ id: 1, avatar: 40, name: 'Janet' },
-		{ id: 2, avatar: 31, name: 'Susan' },
-		{ id: 3, avatar: 56, name: 'Joey' },
-		{ id: 4, avatar: 24, name: 'Lara' },
-		{ id: 5, avatar: 9, name: 'Melissa' },
+		{ id: 0, avatar: 14, name: "Michael" },
+		{ id: 1, avatar: 40, name: "Janet" },
+		{ id: 2, avatar: 31, name: "Susan" },
+		{ id: 3, avatar: 56, name: "Joey" },
+		{ id: 4, avatar: 24, name: "Lara" },
+		{ id: 5, avatar: 9, name: "Melissa" },
 	];
 	let currentPersonId: number = people[0].id;
 
@@ -39,47 +39,51 @@
 			id: 0,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:30pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:30pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 1,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:45pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:45pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 2,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:50pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:50pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 3,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:52pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:52pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 	];
-	let currentMessage = '';
+	let currentMessage = "";
 
-	function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth') {
+	function scrollChatBottom(behavior?: "auto" | "instant" | "smooth") {
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
 
 	function getCurrentTimestamp(): string {
-		return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+		return new Date().toLocaleString("en-US", {
+			hour: "numeric",
+			minute: "numeric",
+			hour12: true,
+		});
 	}
 
 	function addMessage() {
@@ -87,22 +91,22 @@
 			id: messageFeed.length,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
+			name: "Jane",
 			timestamp: `Today @ ${getCurrentTimestamp()}`,
 			message: currentMessage,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		};
 		// Update the message feed
 		messageFeed = [...messageFeed, newMessage];
 		// Clear prompt
-		currentMessage = '';
+		currentMessage = "";
 		// Smooth scroll to bottom
 		// Timeout prevents race condition
-		setTimeout(() => scrollChatBottom('smooth'), 0);
+		setTimeout(() => scrollChatBottom("smooth"), 0);
 	}
 
 	function onPromptKeydown(event: KeyboardEvent) {
-		if (['Enter'].includes(event.code)) {
+		if (["Enter"].includes(event.code)) {
 			event.preventDefault();
 			addMessage();
 		}
@@ -129,7 +133,8 @@
 					{#each people as person (person.id)}
 						<button
 							type="button"
-							class="card p-2 w-full flex items-center space-x-4 {person.id === currentPersonId
+							class="card p-2 w-full flex items-center space-x-4 {person.id ===
+							currentPersonId
 								? 'preset-filled-primary-500'
 								: 'bg-surface-hover-token'}"
 							onclick={() => (currentPersonId = person.id)}
@@ -177,7 +182,9 @@
 			</section>
 			<!-- Prompt -->
 			<section class="border-t-[1px] border-surface-200-800 p-4">
-				<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
+				<div
+					class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token"
+				>
 					<button class="input-group-cell preset-tonal">+</button>
 					<textarea
 						value={currentMessage}
@@ -188,7 +195,12 @@
 						placeholder="Write a message..."
 						rows="1"
 						onkeydown={onPromptKeydown}></textarea>
-					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" onclick={addMessage}>
+					<button
+						class="input-group-cell {currentMessage
+							? 'preset-filled-primary-500'
+							: 'preset-tonal'}"
+						onclick={addMessage}
+					>
 						<SendIcon />
 					</button>
 				</div>

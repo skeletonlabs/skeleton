@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import DecorCorners from './decor-corners.svelte';
-	import DecorStripes from './decor-stripes.svelte';
-	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
-	import type { Snippet } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import { page } from "$app/state";
+	import DecorCorners from "./decor-corners.svelte";
+	import DecorStripes from "./decor-stripes.svelte";
+	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
+	import type { Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 
 	interface Props extends HTMLAttributes<HTMLElement> {
 		title?: string;
@@ -16,17 +16,17 @@
 	const { title, lead, description, trail, class: classes, ...rest }: Props = $props();
 
 	function formatLabel(segment: string): string {
-		return segment.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+		return segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 	}
 
 	// Exclude leading paths such as `/content`
-	const crumbExclusions = ['content'];
+	const crumbExclusions = ["content"];
 
 	const crumbs = $derived.by(() => {
-		const segments = page.url.pathname.split('/').filter((s) => s);
+		const segments = page.url.pathname.split("/").filter((s) => s);
 		const withHrefs = segments.map((segment, i) => ({
 			segment,
-			href: '/' + segments.slice(0, i + 1).join('/'),
+			href: "/" + segments.slice(0, i + 1).join("/"),
 		}));
 		const visible = withHrefs.filter(({ segment }) => !crumbExclusions.includes(segment));
 		return visible.map(({ segment, href }, i) => ({
@@ -39,8 +39,10 @@
 	const currentLabel = $derived(crumbs.findLast((c) => c.current)?.label);
 </script>
 
-<DecorCorners corners={['bl', 'br']}>
-	<header class="container-cell border-b border-surface-200-800 flex flex-col lg:flex-row lg:items-center gap-4 {classes}">
+<DecorCorners corners={["bl", "br"]}>
+	<header
+		class="container-cell border-b border-surface-200-800 flex flex-col lg:flex-row lg:items-center gap-4 {classes}"
+	>
 		<!-- Lead -->
 		{#if lead}
 			<div>{@render lead()}</div>
@@ -61,7 +63,9 @@
 								{#if crumb.current}
 									<span aria-current="page">{crumb.label}</span>
 								{:else}
-									<a class="opacity-60 hover:underline" href={crumb.href}>{crumb.label}</a>
+									<a class="opacity-60 hover:underline" href={crumb.href}
+										>{crumb.label}</a
+									>
 								{/if}
 							</li>
 						{/each}

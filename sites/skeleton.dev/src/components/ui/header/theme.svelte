@@ -1,31 +1,31 @@
 <script lang="ts">
-	import { themes } from '@/modules/themes';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import LaptopMinimalCheckIcon from '@lucide/svelte/icons/laptop-minimal-check';
-	import MoonIcon from '@lucide/svelte/icons/moon';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import SunIcon from '@lucide/svelte/icons/sun';
-	import { Popover, Portal, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { themes } from "@/modules/themes";
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import LaptopMinimalCheckIcon from "@lucide/svelte/icons/laptop-minimal-check";
+	import MoonIcon from "@lucide/svelte/icons/moon";
+	import PaletteIcon from "@lucide/svelte/icons/palette";
+	import SunIcon from "@lucide/svelte/icons/sun";
+	import { Popover, Portal, SegmentedControl } from "@skeletonlabs/skeleton-svelte";
 
 	let activeMode: string | undefined = $state();
 	let activeTheme: string | undefined = $state();
 
 	function setActiveMode(mode: string) {
 		activeMode = mode;
-		localStorage.setItem('mode', mode);
-		document.documentElement.setAttribute('data-mode', mode);
+		localStorage.setItem("mode", mode);
+		document.documentElement.setAttribute("data-mode", mode);
 	}
 
 	async function setActiveTheme(theme: string) {
 		activeTheme = theme;
-		localStorage.setItem('theme', theme);
-		document.documentElement.setAttribute('data-theme', theme);
+		localStorage.setItem("theme", theme);
+		document.documentElement.setAttribute("data-theme", theme);
 	}
 
 	$effect(() => {
-		activeMode = localStorage.getItem('mode') || 'system';
-		activeTheme = localStorage.getItem('theme') || 'skeleton';
+		activeMode = localStorage.getItem("mode") || "system";
+		activeTheme = localStorage.getItem("theme") || "skeleton";
 	});
 </script>
 
@@ -88,9 +88,15 @@
 								<span>{theme.emoji}</span>
 								<h3 class="text-sm capitalize font-bold text-left">{theme.name}</h3>
 								<div class="flex justify-center items-center -space-x-1.5">
-									<div class="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
-									<div class="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
-									<div class="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
+									<div
+										class="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full"
+									></div>
+									<div
+										class="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full"
+									></div>
+									<div
+										class="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full"
+									></div>
 								</div>
 							</button>
 						{/each}
@@ -98,7 +104,11 @@
 				</div>
 				<!-- Create a Theme -->
 				<div class="card bg-primary-500 flex justify-center items-center py-4 mx-auto">
-					<a href="https://themes.skeleton.dev/" target="_blank" class="btn preset-filled">
+					<a
+						href="https://themes.skeleton.dev/"
+						target="_blank"
+						class="btn preset-filled"
+					>
 						<span>Create a Theme</span>
 						<ArrowUpRightIcon class="size-4" />
 					</a>

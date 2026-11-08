@@ -1,4 +1,4 @@
-import { FloatingPanel } from '../../src/index.js';
+import { FloatingPanel } from "../../src/index.js";
 
 export default function Test() {
 	return (
@@ -10,8 +10,14 @@ export default function Test() {
 						<FloatingPanel.DragTrigger data-testid="drag-trigger" />
 						<FloatingPanel.Title data-testid="title" />
 						<FloatingPanel.Control data-testid="control">
-							<FloatingPanel.StageTrigger data-testid="stage-trigger-minimized" stage="minimized" />
-							<FloatingPanel.StageTrigger data-testid="stage-trigger-maximized" stage="maximized" />
+							<FloatingPanel.StageTrigger
+								data-testid="stage-trigger-minimized"
+								stage="minimized"
+							/>
+							<FloatingPanel.StageTrigger
+								data-testid="stage-trigger-maximized"
+								stage="maximized"
+							/>
 							<FloatingPanel.CloseTrigger data-testid="close-trigger" />
 						</FloatingPanel.Control>
 					</FloatingPanel.Header>

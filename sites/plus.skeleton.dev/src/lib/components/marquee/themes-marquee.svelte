@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { themes } from './themes.js';
-	import { Marquee } from '@skeletonlabs/skeleton-svelte';
+	import { themes } from "./themes.js";
+	import { Marquee } from "@skeletonlabs/skeleton-svelte";
 
 	function shuffle<T>(arr: T[]): T[] {
 		const result = [...arr];
@@ -32,9 +32,18 @@
 										<span>{theme.emoji}</span>
 										<span class="text-sm font-medium">{theme.name}</span>
 										<div class="flex gap-1">
-											<span class="size-3 rounded-full" style="background-color: {theme.primary500};"></span>
-											<span class="size-3 rounded-full" style="background-color: {theme.secondary500};"></span>
-											<span class="size-3 rounded-full" style="background-color: {theme.tertiary500};"></span>
+											<span
+												class="size-3 rounded-full"
+												style="background-color: {theme.primary500};"
+											></span>
+											<span
+												class="size-3 rounded-full"
+												style="background-color: {theme.secondary500};"
+											></span>
+											<span
+												class="size-3 rounded-full"
+												style="background-color: {theme.tertiary500};"
+											></span>
 										</div>
 									</div>
 								{/each}

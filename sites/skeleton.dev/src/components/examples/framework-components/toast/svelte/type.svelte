@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	const toaster = createToaster();
 </script>
@@ -9,8 +9,8 @@
 		class="btn preset-filled"
 		onclick={() =>
 			toaster.info({
-				title: 'Info',
-				description: 'This is an info toast.',
+				title: "Info",
+				description: "This is an info toast.",
 			})}
 	>
 		Info
@@ -19,8 +19,8 @@
 		class="btn preset-filled-success-500"
 		onclick={() =>
 			toaster.success({
-				title: 'Success',
-				description: 'This is a success toast.',
+				title: "Success",
+				description: "This is a success toast.",
 			})}
 	>
 		Success
@@ -29,8 +29,8 @@
 		class="btn preset-filled-warning-500"
 		onclick={() =>
 			toaster.warning({
-				title: 'Warning',
-				description: 'This is a warning toast.',
+				title: "Warning",
+				description: "This is a warning toast.",
 			})}
 	>
 		Warning
@@ -39,8 +39,8 @@
 		class="btn preset-filled-error-500"
 		onclick={() =>
 			toaster.error({
-				title: 'Error',
-				description: 'This is an error toast.',
+				title: "Error",
+				description: "This is an error toast.",
 			})}
 	>
 		Error

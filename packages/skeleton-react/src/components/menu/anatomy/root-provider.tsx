@@ -1,7 +1,7 @@
-import type { useMenu } from '../modules/provider.js';
-import { MenuRootContext } from '../modules/root-context.js';
-import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
-import { use, useEffect, type PropsWithChildren } from 'react';
+import type { useMenu } from "../modules/provider.js";
+import { MenuRootContext } from "../modules/root-context.js";
+import { MenuTriggerItemContext } from "../modules/trigger-item-context.js";
+import { use, useEffect, type PropsWithChildren } from "react";
 
 export interface MenuRootProviderProps extends PropsWithChildren {
 	value: ReturnType<typeof useMenu>;
@@ -23,7 +23,9 @@ export default function RootProvider(props: MenuRootProviderProps) {
 
 	return (
 		<MenuRootContext.Provider value={menu}>
-			<MenuTriggerItemContext.Provider value={parentMenu?.getTriggerItemProps(menu)}>{children}</MenuTriggerItemContext.Provider>
+			<MenuTriggerItemContext.Provider value={parentMenu?.getTriggerItemProps(menu)}>
+				{children}
+			</MenuTriggerItemContext.Provider>
 		</MenuRootContext.Provider>
 	);
 }

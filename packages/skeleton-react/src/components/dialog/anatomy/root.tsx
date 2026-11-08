@@ -1,9 +1,9 @@
-import { useDialog } from '../modules/provider.js';
-import { DialogRootContext } from '../modules/root-context.js';
-import { type Props, splitProps } from '@zag-js/dialog';
-import { type PropsWithChildren } from 'react';
+import { useDialog } from "../modules/provider.js";
+import { DialogRootContext } from "../modules/root-context.js";
+import { type Props, splitProps } from "@zag-js/dialog";
+import { type PropsWithChildren } from "react";
 
-export interface DialogRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
+export interface DialogRootProps extends PropsWithChildren, Omit<Props, "id"> {}
 
 export default function Root(props: DialogRootProps) {
 	const [dialogProps, componentProps] = splitProps(props);

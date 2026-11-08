@@ -1,56 +1,57 @@
 <script lang="ts" module>
-	import SkeletonFigmaUIKit from '@/assets/landing-page/skeleton-figma-ui-kit.png';
+	import SkeletonFigmaUIKit from "@/assets/landing-page/skeleton-figma-ui-kit.png";
 
-	const spacing = ['w-4', 'w-8', 'w-16', 'w-24', 'w-32', 'w-48', 'w-56', 'w-64', 'w-72'] as const;
+	const spacing = ["w-4", "w-8", "w-16", "w-24", "w-32", "w-48", "w-56", "w-64", "w-72"] as const;
 
 	const steps = {
 		themes: {
-			label: 'Themes',
+			label: "Themes",
 			description:
-				'Themes are empowered by CSS custom properties, enabling simple integration into Tailwind. Register multiple themes and easily switch on demand.',
+				"Themes are empowered by CSS custom properties, enabling simple integration into Tailwind. Register multiple themes and easily switch on demand.",
 		},
 		colors: {
-			label: 'Colors',
+			label: "Colors",
 			description:
-				'Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.',
+				"Manage your color palette with support for contrast tones. Make use of Color Pairings for balancing dark mode. As well as Presets to apply canned styles to elements and components.",
 		},
 		presets: {
-			label: 'Presets',
+			label: "Presets",
 			description:
-				'Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.',
+				"Presets are utility classes combining Tailwind and Skeleton primitives. Style buttons, badges, cards, and more. Mix and match to create any look or feel.",
 		},
 		typography: {
-			label: 'Typography',
+			label: "Typography",
 			description:
-				'Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.',
+				"Skeleton provides an array of opt-in utility classes for typographic elements. Includes primitives for generating semantic typography. Adjust theme settings to set the perfect typographic scale.",
 		},
 		spacing: {
-			label: 'Spacing',
-			description: 'Use the new Tailwind spacing system to dynamically scaling using a single theme-specified scale factor.',
+			label: "Spacing",
+			description:
+				"Use the new Tailwind spacing system to dynamically scaling using a single theme-specified scale factor.",
 		},
 		iconography: {
-			label: 'Iconography',
+			label: "Iconography",
 			description:
 				"Skeleton takes an agnostic approach to icons, allowing you to bring your own icon library or mix and match to fulfill your project's aesthetic.",
 		},
 		figma: {
-			label: 'The Figma UI Kit',
+			label: "The Figma UI Kit",
 			description:
-				'This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.',
+				"This premium kit allows you preview and mock all available interface elements, including dark mode support. Comes with a Figma plugin to import theme colors automatically.",
 		},
 	} as const;
 </script>
 
 <script lang="ts">
-	import BookmarkIcon from '@lucide/svelte/icons/bookmark';
-	import HeartIcon from '@lucide/svelte/icons/heart';
-	import TriangleIcon from '@lucide/svelte/icons/triangle';
-	import UserRoundIcon from '@lucide/svelte/icons/user-round';
+	import BookmarkIcon from "@lucide/svelte/icons/bookmark";
+	import HeartIcon from "@lucide/svelte/icons/heart";
+	import TriangleIcon from "@lucide/svelte/icons/triangle";
+	import UserRoundIcon from "@lucide/svelte/icons/user-round";
 
-	let activeStep = $state<(typeof steps)[keyof typeof steps]>(steps['themes']);
+	let activeStep = $state<(typeof steps)[keyof typeof steps]>(steps["themes"]);
 
-	const btnActive = 'btn preset-filled';
-	const btnInactive = 'btn preset-outlined-surface-800-200 hover:preset-tonal';
+	const btnActive = "btn preset-filled";
+	const btnInactive = "btn preset-outlined-surface-800-200 hover:preset-tonal";
 </script>
 
 <div class="grid grid-cols-1 xl:grid-cols-[0.75fr_2fr] gap-10">
@@ -62,9 +63,12 @@
 				<button
 					type="button"
 					onclick={() => (activeStep = steps[key as keyof typeof steps])}
-					class={{ 'col-span-2': key === 'figma', [activeStep.label === step.label ? btnActive : btnInactive]: true }}
+					class={{
+						"col-span-2": key === "figma",
+						[activeStep.label === step.label ? btnActive : btnInactive]: true,
+					}}
 				>
-					{#if key === 'figma'}
+					{#if key === "figma"}
 						<svg
 							class="size-4"
 							xmlns="http://www.w3.org/2000/svg"
@@ -90,16 +94,23 @@
 		</nav>
 		<div class="space-y-4">
 			<p class="opacity-60">{activeStep.description}</p>
-			{#if activeStep.label === 'The Figma UI Kit'}
-				<a href="https://www.etesie.dev/figma" target="_blank" rel="noopener noreferrer" class="btn preset-tonal w-full">
+			{#if activeStep.label === "The Figma UI Kit"}
+				<a
+					href="https://www.etesie.dev/figma"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn preset-tonal w-full"
+				>
 					Learn More &rarr;
 				</a>
 			{/if}
 		</div>
 	</div>
 
-	<div class="card bg-noise preset-filled-primary-500 aspect-video flex justify-center items-center overflow-hidden shadow-xl">
-		{#if activeStep.label === 'The Figma UI Kit'}
+	<div
+		class="card bg-noise preset-filled-primary-500 aspect-video flex justify-center items-center overflow-hidden shadow-xl"
+	>
+		{#if activeStep.label === "The Figma UI Kit"}
 			<img
 				src={SkeletonFigmaUIKit.src}
 				width={SkeletonFigmaUIKit.width}
@@ -109,9 +120,10 @@
 			/>
 		{/if}
 
-		{#if activeStep.label === 'Themes'}
+		{#if activeStep.label === "Themes"}
 			<div class="w-full pt-10 pl-10">
-				<pre class="pre box-border overflow-hidden w-full aspect-video mt-4 ml-4 xl:mt-10 xl:ml-10">
+				<pre
+					class="pre box-border overflow-hidden w-full aspect-video mt-4 ml-4 xl:mt-10 xl:ml-10">
 <code
 						>{`[data-theme='cerberus'] {
     --spacing: 0.25rem;
@@ -145,10 +157,14 @@
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'Colors'}
+		{#if activeStep.label === "Colors"}
 			<div class="grid grid-cols-3 gap-5 md:gap-10">
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"></div>
+				<div
+					class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"
+				></div>
+				<div
+					class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"
+				></div>
 				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
 				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
 				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
@@ -156,22 +172,30 @@
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'Presets'}
+		{#if activeStep.label === "Presets"}
 			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-4 xl:gap-10">
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn preset-tonal hover:preset-filled hover:brightness-100">Tonal</button>
+					<button
+						type="button"
+						class="btn preset-tonal hover:preset-filled hover:brightness-100"
+						>Tonal</button
+					>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn preset-outlined hover:brightness-100">Outlined</button>
+					<button type="button" class="btn preset-outlined hover:brightness-100"
+						>Outlined</button
+					>
 				</div>
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled shadow-xl">Elevated</button>
 				</div>
 				<div class="flex flex-col items-center">
-					<button type="button" class="btn hover:preset-filled hover:brightness-100">Ghost</button>
+					<button type="button" class="btn hover:preset-filled hover:brightness-100"
+						>Ghost</button
+					>
 				</div>
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn hover:preset-filled hover:brightness-100">
@@ -181,14 +205,14 @@
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'Typography'}
+		{#if activeStep.label === "Typography"}
 			<div class="text-center space-y-4">
 				<h1 class="heading-font-family text-6xl md:text-9xl leading-none font-bold">Aa</h1>
 				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'Spacing'}
+		{#if activeStep.label === "Spacing"}
 			<div class="scale-75 md:scale-150 flex flex-col items-start gap-1">
 				{#each spacing as rowHeight}
 					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
@@ -199,7 +223,7 @@
 			</div>
 		{/if}
 
-		{#if activeStep.label === 'Iconography'}
+		{#if activeStep.label === "Iconography"}
 			<div class="flex gap-5 md:gap-10">
 				<HeartIcon class="size-16 md:size-24" />
 				<UserRoundIcon class="size-16 md:size-24" />

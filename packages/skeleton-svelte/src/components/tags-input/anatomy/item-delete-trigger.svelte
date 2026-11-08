@@ -1,14 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface TagsInputItemDeleteTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface TagsInputItemDeleteTriggerProps
+		extends PropsWithElement<"button">, HTMLAttributes<"button"> {}
 </script>
 
 <script lang="ts">
-	import { TagsInputItemContext } from '../modules/item-context.js';
-	import { TagsInputRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { TagsInputItemContext } from "../modules/item-context.js";
+	import { TagsInputRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: TagsInputItemDeleteTriggerProps = $props();
 
@@ -17,7 +18,9 @@
 
 	const { element, children = times, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(tagsInput().getItemDeleteTriggerProps(itemProps()), rest));
+	const attributes = $derived(
+		mergeProps(tagsInput().getItemDeleteTriggerProps(itemProps()), rest),
+	);
 </script>
 
 {#snippet times()}

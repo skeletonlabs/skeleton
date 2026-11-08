@@ -1,15 +1,15 @@
 ---
-import InfoIcon from '@lucide/astro/icons/info';
-import TriangleExclamationPointIcon from '@lucide/astro/icons/triangle-exclamation-point';
+import InfoIcon from "@lucide/astro/icons/info";
+import TriangleExclamationPointIcon from "@lucide/astro/icons/triangle-exclamation-point";
 
 interface Props {
-	type: 'info' | 'warning';
+	type: "info" | "warning";
 }
 
 const { type } = Astro.props;
 ---
 
-{type === 'info' && (
+{type === "info" && (
 	<div class={`card preset-outlined p-4 flex items-center gap-4`}>
 		<InfoIcon />
 		<div>
@@ -21,7 +21,7 @@ const { type } = Astro.props;
 	</div>
 )}
 
-{type === 'warning' && (
+{type === "warning" && (
 	<div class="card preset-outlined-warning-500 p-4 flex items-center gap-4">
 		<TriangleExclamationPointIcon />
 		<div>

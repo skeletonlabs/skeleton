@@ -1,4 +1,4 @@
-import { Popover, Portal } from '@skeletonlabs/skeleton-react';
+import { Popover, Portal } from "@skeletonlabs/skeleton-react";
 
 export default function Arrow() {
 	return (
@@ -7,7 +7,9 @@ export default function Arrow() {
 			<Portal>
 				<Popover.Positioner>
 					<Popover.Content className="card max-w-md p-4 bg-surface-100-900 shadow-xl">
-						<Popover.Description>This example will have a small arrow.</Popover.Description>
+						<Popover.Description>
+							This example will have a small arrow.
+						</Popover.Description>
 						<Popover.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
 							<Popover.ArrowTip />
 						</Popover.Arrow>

@@ -1,12 +1,13 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface SegmentedControlControlProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface SegmentedControlControlProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: SegmentedControlControlProps = $props();
 
@@ -15,8 +16,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'radio-group',
-				'data-part': 'control',
+				"data-scope": "radio-group",
+				"data-part": "control",
 			},
 			rest,
 		),

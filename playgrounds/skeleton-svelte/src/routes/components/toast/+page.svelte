@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	let overlap = $state(false);
 	let duration: number = $state(Infinity);
@@ -8,10 +8,10 @@
 
 	const createToast = () => {
 		toaster.info({
-			title: 'Toast',
-			description: 'This is a toast message.',
+			title: "Toast",
+			description: "This is a toast message.",
 			duration,
-			action: { label: 'Undo', onClick: () => toaster.success({ title: 'Undone' }) },
+			action: { label: "Undo", onClick: () => toaster.success({ title: "Undone" }) },
 		});
 	};
 </script>

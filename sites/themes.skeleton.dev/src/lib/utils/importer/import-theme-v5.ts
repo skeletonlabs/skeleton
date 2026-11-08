@@ -1,6 +1,6 @@
 // Import v5 Theme File
 // Read a current-format (v5) theme file, updates local generator state.
-import * as constants from '#lib/constants/generator.ts';
+import * as constants from "#lib/constants/generator.ts";
 import {
 	settingsBackgrounds,
 	settingsBrand,
@@ -10,9 +10,9 @@ import {
 	settingsEdges,
 	settingsSpacing,
 	settingsTypography,
-} from '#lib/state/generator.svelte.ts';
-import { genColorRamp } from '#lib/utils/generator/colors.ts';
-import chroma from 'chroma-js';
+} from "#lib/state/generator.svelte.ts";
+import { genColorRamp } from "#lib/utils/generator/colors.ts";
+import chroma from "chroma-js";
 
 /** Parses a theme file into a flat `Record<key, value>` of CSS custom properties. */
 export function parseThemeProperties(fileText: string) {
@@ -23,20 +23,20 @@ export function parseThemeProperties(fileText: string) {
 	// Line Formatting ---
 	let linesFormatted: string[];
 	// Filter to only supported properties
-	linesFormatted = lines.filter((line) => line.includes('--'));
+	linesFormatted = lines.filter((line) => line.includes("--"));
 	// Removing trailing comments
-	linesFormatted = linesFormatted.map((line) => line.split('/*')[0]);
+	linesFormatted = linesFormatted.map((line) => line.split("/*")[0]);
 	// Format Lines
 	linesFormatted = linesFormatted.map((line) => {
 		line = line.trim();
-		line = line.replaceAll(`;`, ''); // semi-colon
+		line = line.replaceAll(`;`, ""); // semi-colon
 		return line;
 	});
 
 	// Create key/value object
 	const properties: Record<string, string> = {};
 	linesFormatted.forEach((line) => {
-		const [key, value] = line.split(': ');
+		const [key, value] = line.split(": ");
 		properties[key] = value;
 	});
 
@@ -45,10 +45,10 @@ export function parseThemeProperties(fileText: string) {
 	// `--typo-base--color-light` also contain "--color" but aren't part of the color ramp.
 	Object.entries(properties).forEach((property) => {
 		const [key, value] = property;
-		if (!key.startsWith('--color-')) {
+		if (!key.startsWith("--color-")) {
 			return;
 		}
-		if (value.includes('var') || !chroma.valid(value)) {
+		if (value.includes("var") || !chroma.valid(value)) {
 			return;
 		}
 		properties[key] = chroma(value).hex();
@@ -90,7 +90,7 @@ export async function importThemeV5(fileText: string, fileName: string) {
 
 	// Set Generator State ---
 	if (fileName) {
-		settingsCore.name = fileName.split('.')[0];
+		settingsCore.name = fileName.split(".")[0];
 	} // before .css
 	applyThemeProperties(properties);
 

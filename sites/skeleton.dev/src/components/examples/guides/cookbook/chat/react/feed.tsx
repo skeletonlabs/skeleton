@@ -4,19 +4,19 @@ export default function Feed() {
 			id: 0,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:30pm',
-			message: 'Some message text.',
-			color: 'variant-soft-primary',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:30pm",
+			message: "Some message text.",
+			color: "variant-soft-primary",
 		},
 		{
 			id: 1,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:45pm',
-			message: 'Some message text.',
-			color: 'variant-soft-primary',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:45pm",
+			message: "Some message text.",
+			color: "variant-soft-primary",
 		},
 	];
 
@@ -25,7 +25,7 @@ export default function Feed() {
 			{/* Loop through the messageFeed array */}
 			{messageFeed.map((bubble) => {
 				// Determine if host/guest role
-				const role = bubble.host === true ? 'host' : 'guest';
+				const role = bubble.host === true ? "host" : "guest";
 				// Render the bubble template
 				return (
 					<pre key={bubble.id} className="pre">

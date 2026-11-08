@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { QrCode } from '@skeletonlabs/skeleton-svelte';
+	import { QrCode } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <QrCode value="https://skeleton.dev">

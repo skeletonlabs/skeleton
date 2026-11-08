@@ -1,9 +1,9 @@
-import { Steps } from '@skeletonlabs/skeleton-react';
+import { Steps } from "@skeletonlabs/skeleton-react";
 
 const steps = [
-	{ title: 'First', content: 'First do this.' },
-	{ title: 'Then', content: 'Then do that.' },
-	{ title: 'Finally', content: 'Almost done...' },
+	{ title: "First", content: "First do this." },
+	{ title: "Then", content: "Then do that." },
+	{ title: "Finally", content: "Almost done..." },
 ];
 
 export default function Default() {
@@ -21,11 +21,18 @@ export default function Default() {
 			</Steps.List>
 			<div className="flex flex-col grow gap-4">
 				{steps.map((item, index) => (
-					<Steps.Content key={index} index={index} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow">
+					<Steps.Content
+						key={index}
+						index={index}
+						className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+					>
 						{item.content}
 					</Steps.Content>
 				))}
-				<Steps.Content index={steps.length} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow">
+				<Steps.Content
+					index={steps.length}
+					className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+				>
 					All done!
 				</Steps.Content>
 				<div className="flex justify-between items-center gap-2">

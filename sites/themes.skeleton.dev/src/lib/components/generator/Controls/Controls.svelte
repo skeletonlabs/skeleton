@@ -1,68 +1,75 @@
 <script lang="ts">
-	import { globals } from '#lib/state/generator.svelte.ts';
-	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
-	import ControlsBrand from './ControlsBrand.svelte';
-	import ControlsColors from './ControlsColors.svelte';
-	import ControlsCore from './ControlsCore.svelte';
-	import ControlsEdges from './ControlsEdges.svelte';
-	import ControlsSpacing from './ControlsSpacing.svelte';
-	import ControlsTypography from './ControlsTypography.svelte';
-	import ALargeSmallIcon from '@lucide/svelte/icons/a-large-small';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
-	import LayersIcon from '@lucide/svelte/icons/layers';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import ScalingIcon from '@lucide/svelte/icons/scaling';
-	import SparklesIcon from '@lucide/svelte/icons/sparkles';
-	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
-	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { globals } from "#lib/state/generator.svelte.ts";
+	import ControlsBackgrounds from "./ControlsBackgrounds.svelte";
+	import ControlsBrand from "./ControlsBrand.svelte";
+	import ControlsColors from "./ControlsColors.svelte";
+	import ControlsCore from "./ControlsCore.svelte";
+	import ControlsEdges from "./ControlsEdges.svelte";
+	import ControlsSpacing from "./ControlsSpacing.svelte";
+	import ControlsTypography from "./ControlsTypography.svelte";
+	import ALargeSmallIcon from "@lucide/svelte/icons/a-large-small";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import ChevronUpIcon from "@lucide/svelte/icons/chevron-up";
+	import LayersIcon from "@lucide/svelte/icons/layers";
+	import PaletteIcon from "@lucide/svelte/icons/palette";
+	import ScalingIcon from "@lucide/svelte/icons/scaling";
+	import SparklesIcon from "@lucide/svelte/icons/sparkles";
+	import SquareDashedIcon from "@lucide/svelte/icons/square-dashed";
+	import { Accordion, SegmentedControl } from "@skeletonlabs/skeleton-svelte";
 
 	let view = $derived(globals.panel);
 	const items = [
 		{
-			value: 'colors',
+			value: "colors",
 			Icon: PaletteIcon,
-			label: 'Color Palette',
+			label: "Color Palette",
 			Component: ControlsColors,
 		},
 		{
-			value: 'brand',
+			value: "brand",
 			Icon: SparklesIcon,
-			label: 'Brand',
+			label: "Brand",
 			Component: ControlsBrand,
 		},
 		{
-			value: 'backgrounds',
+			value: "backgrounds",
 			Icon: LayersIcon,
-			label: 'Backgrounds',
+			label: "Backgrounds",
 			Component: ControlsBackgrounds,
 		},
 		{
-			value: 'spacing',
+			value: "spacing",
 			Icon: ScalingIcon,
-			label: 'Spacing',
+			label: "Spacing",
 			Component: ControlsSpacing,
 		},
 		{
-			value: 'edges',
+			value: "edges",
 			Icon: SquareDashedIcon,
-			label: 'Edges',
+			label: "Edges",
 			Component: ControlsEdges,
 		},
 		{
-			value: 'typography',
+			value: "typography",
 			Icon: ALargeSmallIcon,
-			label: 'Typography',
+			label: "Typography",
 			Component: ControlsTypography,
 		},
 	];
 </script>
 
-<section class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto">
+<section
+	class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto"
+>
 	<header
 		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
 	>
-		<SegmentedControl name="display" value={view} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} class="w-full">
+		<SegmentedControl
+			name="display"
+			value={view}
+			onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)}
+			class="w-full"
+		>
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
 				<SegmentedControl.Item value="preview" class="w-full">
@@ -83,7 +90,9 @@
 				<hr class="hr" />
 				<Accordion.Item value={item.value} class="p-0">
 					<h4 class="h4">
-						<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none">
+						<Accordion.ItemTrigger
+							class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none"
+						>
 							<span class="btn-icon preset-tonal">
 								<item.Icon class="size-5" />
 							</span>
@@ -110,6 +119,8 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = 'code')}>Export Theme</button>
+		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = "code")}
+			>Export Theme</button
+		>
 	</footer>
 </section>

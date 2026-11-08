@@ -1,5 +1,5 @@
-import { Collapsible } from '@skeletonlabs/skeleton-react';
-import { ArrowUpDownIcon } from 'lucide-react';
+import { Collapsible } from "@skeletonlabs/skeleton-react";
+import { ArrowUpDownIcon } from "lucide-react";
 
 export default function Default() {
 	return (

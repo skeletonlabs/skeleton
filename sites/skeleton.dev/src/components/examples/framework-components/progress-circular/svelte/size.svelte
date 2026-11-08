@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Progress } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="flex gap-4 justify-evenly items-center w-full">

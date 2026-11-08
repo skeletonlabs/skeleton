@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { SegmentedControl } from "@skeletonlabs/skeleton-svelte";
 
-	let value = $state<string | null>('music');
+	let value = $state<string | null>("music");
 </script>
 
 <div class="flex flex-col items-center gap-4">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	const toaster = createToaster({
 		overlap: true,
@@ -10,8 +10,8 @@
 	class="btn preset-filled"
 	onclick={() =>
 		toaster.info({
-			title: 'Title',
-			description: 'This is a description.',
+			title: "Title",
+			description: "This is a description.",
 		})}
 >
 	Toast

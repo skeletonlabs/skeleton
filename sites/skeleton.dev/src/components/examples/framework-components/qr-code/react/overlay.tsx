@@ -1,5 +1,5 @@
-import { QrCode } from '@skeletonlabs/skeleton-react';
-import favicon from '@/assets/favicon.png';
+import { QrCode } from "@skeletonlabs/skeleton-react";
+import favicon from "@/assets/favicon.png";
 
 export default function OverlayDemo() {
 	return (

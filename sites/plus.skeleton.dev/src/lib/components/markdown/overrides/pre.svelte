@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from "svelte/elements";
 
 	export interface Props extends HTMLAttributes<HTMLPreElement> {
 		filename?: string;
@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-	import CopyIcon from '@lucide/svelte/icons/copy';
-	import ThumbsUpIcon from '@lucide/svelte/icons/thumbs-up';
+	import CopyIcon from "@lucide/svelte/icons/copy";
+	import ThumbsUpIcon from "@lucide/svelte/icons/thumbs-up";
 
 	const { children, filename, highlights, language, ...rest }: Props = $props();
 
@@ -36,7 +36,10 @@
 	{#if filename || language}
 		<header class="pb-2 flex justify-between items-center">
 			<span class="text-xs opacity-50">{filename ?? language}</span>
-			<button class="btn-icon btn-icon-sm preset-outlined-surface-200-800 hover:preset-tonal" onclick={copyCode}>
+			<button
+				class="btn-icon btn-icon-sm preset-outlined-surface-200-800 hover:preset-tonal"
+				onclick={copyCode}
+			>
 				{#if copied}
 					<ThumbsUpIcon />
 				{:else}

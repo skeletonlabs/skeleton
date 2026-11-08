@@ -1,26 +1,26 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from "svelte/elements";
 
 	const alerts = {
 		note: {
-			title: 'Note',
-			classes: 'preset-tonal border-surface-950-50',
+			title: "Note",
+			classes: "preset-tonal border-surface-950-50",
 		},
 		tip: {
-			title: 'Tip',
-			classes: 'preset-tonal-primary border-primary-500',
+			title: "Tip",
+			classes: "preset-tonal-primary border-primary-500",
 		},
 		important: {
-			title: 'Important',
-			classes: 'preset-tonal-success border-success-500',
+			title: "Important",
+			classes: "preset-tonal-success border-success-500",
 		},
 		warning: {
-			title: 'Warning',
-			classes: 'preset-tonal-warning border-warning-500',
+			title: "Warning",
+			classes: "preset-tonal-warning border-warning-500",
 		},
 		caution: {
-			title: 'Caution',
-			classes: 'preset-tonal-error border-error-500',
+			title: "Caution",
+			classes: "preset-tonal-error border-error-500",
 		},
 	} as const;
 

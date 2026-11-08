@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { ItemProps } from '@zag-js/listbox';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { ItemProps } from "@zag-js/listbox";
 
-	export interface ListboxItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
+	export interface ListboxItemProps
+		extends ItemProps, PropsWithElement<"li">, HTMLAttributes<"li"> {}
 </script>
 
 <script lang="ts">
-	import { ListboxItemContext } from '../modules/item-context.js';
-	import { ListboxRootContext } from '../modules/root-context.js';
-	import { splitItemProps } from '@zag-js/listbox';
-	import { mergeProps } from '@zag-js/svelte';
+	import { ListboxItemContext } from "../modules/item-context.js";
+	import { ListboxRootContext } from "../modules/root-context.js";
+	import { splitItemProps } from "@zag-js/listbox";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ListboxItemProps = $props();
 

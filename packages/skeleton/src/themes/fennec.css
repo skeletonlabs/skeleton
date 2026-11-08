@@ -1,7 +1,9 @@
-[data-theme='fennec'] {
+[data-theme="fennec"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+	--typo-base--font-family:
+		Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow",
+		sans-serif-condensed, sans-serif;
 	--typo-base--font-size: 20px;
 	--typo-base--color-light: oklch(0 0 0 / 1);
 	--typo-base--color-dark: oklch(1 0 0 / 1);
@@ -16,7 +18,8 @@
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
 	--typo-heading--font-family:
-		Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+		Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow",
+		sans-serif-condensed, sans-serif;
 	--typo-heading--color-light: oklch(0 0 0 / 1);
 	--typo-heading--color-dark: var(--color-secondary-50);
 	--typo-heading--font-weight: normal;

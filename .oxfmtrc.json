@@ -1,0 +1,21 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"useTabs": true,
+	"tabWidth": 4,
+	"sortPackageJson": true,
+	"svelte": {},
+	"astro": {},
+	"sortTailwindcss": true,
+	"embeddedLanguageFormatting": "auto",
+	"associations": [
+		{
+			"files": ["*.astro"],
+			"language": "astro"
+		},
+		{
+			"files": ["*.svelte"],
+			"language": "svelte"
+		}
+	],
+	"ignorePatterns": [".changeset/*.md", "pnpm-lock.yaml"]
+}

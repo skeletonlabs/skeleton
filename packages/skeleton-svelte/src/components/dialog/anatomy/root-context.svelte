@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useDialog } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useDialog } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface DialogRootContextProps {
 		children: Snippet<[ReturnType<typeof useDialog>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { DialogRootContext } from '../modules/root-context.js';
+	import { DialogRootContext } from "../modules/root-context.js";
 
 	const props: DialogRootContextProps = $props();
 

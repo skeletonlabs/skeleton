@@ -1,8 +1,8 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../html-attributes.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import type { HTMLAttributes } from "../html-attributes.js";
+	import { mergeProps } from "@zag-js/svelte";
 
-	export type StarEmptyProps = HTMLAttributes<'svg', 'children'>;
+	export type StarEmptyProps = HTMLAttributes<"svg", "children">;
 </script>
 
 <script lang="ts">
@@ -13,13 +13,13 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				xmlns: 'http://www.w3.org/2000/svg',
-				viewBox: '0 0 24 24',
-				height: '24',
-				width: '24',
-				fill: 'none',
-				stroke: 'currentColor',
-				'stroke-width': '1.5',
+				xmlns: "http://www.w3.org/2000/svg",
+				viewBox: "0 0 24 24",
+				height: "24",
+				width: "24",
+				fill: "none",
+				stroke: "currentColor",
+				"stroke-width": "1.5",
 			},
 			rest,
 		),

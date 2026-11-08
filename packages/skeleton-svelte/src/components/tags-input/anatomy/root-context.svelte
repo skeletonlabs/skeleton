@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useTagsInput } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useTagsInput } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface TagsInputRootContextProps {
 		children: Snippet<[ReturnType<typeof useTagsInput>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { TagsInputRootContext } from '../modules/root-context.js';
+	import { TagsInputRootContext } from "../modules/root-context.js";
 
 	const props: TagsInputRootContextProps = $props();
 

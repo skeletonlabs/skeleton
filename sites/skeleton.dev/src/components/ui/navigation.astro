@@ -1,7 +1,7 @@
 ---
-import { resolvePath } from '@/modules/resolve-path';
-import { commonSections, type Section } from '@/modules/navigation';
-import { removeTrailingSlash } from '@/modules/normalize-path';
+import { resolvePath } from "@/modules/resolve-path";
+import { commonSections, type Section } from "@/modules/navigation";
+import { removeTrailingSlash } from "@/modules/normalize-path";
 
 interface Props {
 	sections?: Section[];
@@ -13,7 +13,9 @@ const { sections = commonSections } = Astro.props;
 <div class="text-sm grid gap-10">
 	{sections.map(async (section) => (
 		<nav class="flex flex-col gap-2">
-			<span class="text-[12px] font-bold ml-2 text-surface-600-400 uppercase">{section.label}</span>
+			<span class="text-[12px] font-bold ml-2 text-surface-600-400 uppercase">
+				{section.label}
+			</span>
 			<ul class="flex flex-col gap-1">
 				{section.docs.map((doc) => (
 					<li>
@@ -22,12 +24,17 @@ const { sections = commonSections } = Astro.props;
 							title={doc.data.title}
 							class="btn hover:preset-tonal aria-[current=page]:preset-tonal flex justify-between items-center px-2"
 							aria-current={
-								removeTrailingSlash(Astro.url.pathname) === resolvePath(Astro.params, `/docs/[framework]/${doc.id}`) ? 'page' : 'false'
+								removeTrailingSlash(Astro.url.pathname) ===
+								resolvePath(Astro.params, `/docs/[framework]/${doc.id}`)
+									? "page"
+									: "false"
 							}
 						>
 							<span class="text-sm">{doc.data.title}</span>
-							{doc.data.stability !== 'stable' && (
-								<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">{doc.data.stability}</span>
+							{doc.data.stability !== "stable" && (
+								<span class="no-underline preset-tonal-primary text-xs px-1 capitalize rounded">
+									{doc.data.stability}
+								</span>
 							)}
 						</a>
 					</li>

@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { CheckIcon } from 'lucide-react';
+import { useState } from "react";
+import { CheckIcon } from "lucide-react";
 
 export default function Filter() {
-	const colors = ['red', 'green', 'blue'];
+	const colors = ["red", "green", "blue"];
 	const [color, setColor] = useState(colors[0]);
 
 	return (
@@ -13,7 +13,7 @@ export default function Filter() {
 				{colors.map((c) => (
 					<button
 						key={c}
-						className={`chip capitalize preset-outlined-surface-400-600 ${color === c ? 'preset-tonal-primary' : ''}`}
+						className={`chip capitalize preset-outlined-surface-400-600 ${color === c ? "preset-tonal-primary" : ""}`}
 						onClick={() => setColor(c)}
 					>
 						{color === c && <CheckIcon size={14} />}

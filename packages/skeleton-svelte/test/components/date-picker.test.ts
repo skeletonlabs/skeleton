@@ -1,162 +1,162 @@
-import DatePicker from './date-picker.svelte';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
-import { page } from 'vitest/browser';
+import DatePicker from "./date-picker.svelte";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-svelte";
+import { page } from "vitest/browser";
 
-describe('DatePicker', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("DatePicker", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Control', () => {
-		it('renders', async () => {
+	describe("Control", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("control")).toBeInTheDocument();
 		});
 	});
 
-	describe('Input', () => {
-		it('renders', async () => {
+	describe("Input", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('input')).toBeInTheDocument();
+			await expect.element(page.getByTestId("input")).toBeInTheDocument();
 		});
 	});
 
-	describe('Trigger', () => {
-		it('renders', async () => {
+	describe("Trigger", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Positioner', () => {
-		it('renders', async () => {
+	describe("Positioner", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
+			await expect.element(page.getByTestId("positioner")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 
-	describe('YearSelect', () => {
-		it('renders', async () => {
+	describe("YearSelect", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('year-select')).toBeInTheDocument();
+			await expect.element(page.getByTestId("year-select")).toBeInTheDocument();
 		});
 	});
 
-	describe('MonthSelect', () => {
-		it('renders', async () => {
+	describe("MonthSelect", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('month-select')).toBeInTheDocument();
+			await expect.element(page.getByTestId("month-select")).toBeInTheDocument();
 		});
 	});
 
-	describe('View', () => {
-		it('renders', async () => {
+	describe("View", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('view')).toBeInTheDocument();
+			await expect.element(page.getByTestId("view")).toBeInTheDocument();
 		});
 	});
 
-	describe('ViewControl', () => {
-		it('renders', async () => {
+	describe("ViewControl", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('view-control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("view-control")).toBeInTheDocument();
 		});
 	});
 
-	describe('PrevTrigger', () => {
-		it('renders', async () => {
+	describe("PrevTrigger", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('prev-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("prev-trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('ViewTrigger', () => {
-		it('renders', async () => {
+	describe("ViewTrigger", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('view-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("view-trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('RangeText', () => {
-		it('renders', async () => {
+	describe("RangeText", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('range-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("range-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('NextTrigger', () => {
-		it('renders', async () => {
+	describe("NextTrigger", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('next-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("next-trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Table', () => {
-		it('renders', async () => {
+	describe("Table", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table")).toBeInTheDocument();
 		});
 	});
 
-	describe('TableHead', () => {
-		it('renders', async () => {
+	describe("TableHead", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table-head')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table-head")).toBeInTheDocument();
 		});
 	});
 
-	describe('TableRow', () => {
-		it('renders', async () => {
+	describe("TableRow", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			for (const element of page.getByTestId('table-row').all()) {
+			for (const element of page.getByTestId("table-row").all()) {
 				await expect.element(element).toBeInTheDocument();
 			}
 		});
 	});
 
-	describe('TableHeader', () => {
-		it('renders', async () => {
+	describe("TableHeader", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table-header')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table-header")).toBeInTheDocument();
 		});
 	});
 
-	describe('TableBody', () => {
-		it('renders', async () => {
+	describe("TableBody", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table-body')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table-body")).toBeInTheDocument();
 		});
 	});
 
-	describe('TableCell', () => {
-		it('renders', async () => {
+	describe("TableCell", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table-cell')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table-cell")).toBeInTheDocument();
 		});
 	});
 
-	describe('TableCellTrigger', () => {
-		it('renders', async () => {
+	describe("TableCellTrigger", () => {
+		it("renders", async () => {
 			await render(DatePicker);
-			await expect.element(page.getByTestId('table-cell-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("table-cell-trigger")).toBeInTheDocument();
 		});
 	});
 });

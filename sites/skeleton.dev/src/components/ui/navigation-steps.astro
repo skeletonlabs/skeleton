@@ -1,12 +1,12 @@
 ---
-import { resolvePath } from '@/modules/resolve-path';
-import ArrowLeftIcon from '@lucide/astro/icons/arrow-left';
-import ArrowRightIcon from '@lucide/astro/icons/arrow-right';
-import type { CollectionEntry } from 'astro:content';
+import { resolvePath } from "@/modules/resolve-path";
+import ArrowLeftIcon from "@lucide/astro/icons/arrow-left";
+import ArrowRightIcon from "@lucide/astro/icons/arrow-right";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-	previousDoc?: CollectionEntry<'docs'>;
-	nextDoc?: CollectionEntry<'docs'>;
+	previousDoc?: CollectionEntry<"docs">;
+	nextDoc?: CollectionEntry<"docs">;
 }
 
 const { previousDoc, nextDoc } = Astro.props;

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import PageHeader from '#lib/components/layout/page-header.svelte';
-	import { getTemplates } from '#lib/remote/templates/get-templates.remote.ts';
-	import { plusState } from '#lib/state/plus.svelte.ts';
-	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import LockIcon from '@lucide/svelte/icons/lock';
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { getTemplates } from "#lib/remote/templates/get-templates.remote.ts";
+	import { plusState } from "#lib/state/plus.svelte.ts";
+	import ArrowRight from "@lucide/svelte/icons/arrow-right";
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import LockIcon from "@lucide/svelte/icons/lock";
 
 	const templates = $derived(await getTemplates());
 </script>
@@ -36,7 +36,9 @@
 					/>
 				</a>
 				<!-- Footer -->
-				<footer class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+				<footer
+					class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+				>
 					<!-- Title + Category -->
 					<a href="/content/templates/{template.slug}" class="space-y-0.5">
 						<div class="flex items-center gap-2">
@@ -60,12 +62,20 @@
 							<ArrowUpRightIcon />
 						</a>
 						{#if locked}
-							<a href="/overview/pricing" class="btn preset-filled" aria-label="Unlock {template.name} with Plus">
+							<a
+								href="/overview/pricing"
+								class="btn preset-filled"
+								aria-label="Unlock {template.name} with Plus"
+							>
 								<LockIcon />
 								<span>Unlock with Plus</span>
 							</a>
 						{:else}
-							<a href="/content/templates/{template.slug}" class="btn preset-filled" aria-label="Download {template.name}">
+							<a
+								href="/content/templates/{template.slug}"
+								class="btn preset-filled"
+								aria-label="Download {template.name}"
+							>
 								<span>View</span>
 								<ArrowRight />
 							</a>

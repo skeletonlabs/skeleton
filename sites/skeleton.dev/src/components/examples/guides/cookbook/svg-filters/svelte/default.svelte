@@ -10,8 +10,16 @@
 		/>
 		<span class="badge preset-tonal">#Apollo</span>
 		<svg id="svg-filter-apollo" class="absolute -left-full w-0 h-0">
-			<filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-				<feColorMatrix values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0" result="final" in="SourceGraphic"
+			<filter
+				id="Apollo"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
+				<feColorMatrix
+					values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0"
+					result="final"
+					in="SourceGraphic"
 				></feColorMatrix>
 			</filter>
 		</svg>
@@ -28,7 +36,12 @@
 		/>
 		<span class="badge preset-tonal">#BlueNight</span>
 		<svg id="svg-filter-bluenight" class="filter absolute -left-full w-0 h-0">
-			<filter id="BlueNight" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter
+				id="BlueNight"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
 				<feColorMatrix
 					type="matrix"
 					values="1.000 0.000 0.000 0.000 0.000
@@ -51,7 +64,12 @@
 		/>
 		<span class="badge preset-tonal">#Emerald</span>
 		<svg id="svg-filter-emerald" class="filter absolute -left-full w-0 h-0">
-			<filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter
+				id="Emerald"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
 				<feColorMatrix
 					type="matrix"
 					in="SourceGraphic"
@@ -64,7 +82,8 @@
 					<feFuncB type="table" tableValues="0.49 0.53"></feFuncB>
 					<feFuncA type="table" tableValues="0 1"></feFuncA>
 				</feComponentTransfer>
-				<feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"></feBlend>
+				<feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"
+				></feBlend>
 			</filter>
 		</svg>
 	</div>
@@ -125,10 +144,36 @@
 				primitiveUnits="userSpaceOnUse"
 				color-interpolation-filters="linearRGB"
 			>
-				<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix1"
+				<feColorMatrix
+					type="saturate"
+					values="0"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="SourceGraphic"
+					result="colormatrix1"
 				></feColorMatrix>
-				<feBlend mode="lighten" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="colormatrix1" result="blend"></feBlend>
-				<feBlend mode="multiply" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="diffuseLighting" result="blend1"></feBlend>
+				<feBlend
+					mode="lighten"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="colormatrix1"
+					in2="colormatrix1"
+					result="blend"
+				></feBlend>
+				<feBlend
+					mode="multiply"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="colormatrix1"
+					in2="diffuseLighting"
+					result="blend1"
+				></feBlend>
 			</filter>
 		</svg>
 	</div>
@@ -154,12 +199,55 @@
 				primitiveUnits="userSpaceOnUse"
 				color-interpolation-filters="linearRGB"
 			>
-				<feColorMatrix type="saturate" values="0" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix2"
+				<feColorMatrix
+					type="saturate"
+					values="0"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="SourceGraphic"
+					result="colormatrix2"
 				></feColorMatrix>
-				<feBlend mode="saturation" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="colormatrix2" result="blend2"></feBlend>
-				<feBlend mode="screen" x="0%" y="0%" width="100%" height="100%" in="colormatrix2" in2="blend2" result="blend3"></feBlend>
-				<feColorMatrix type="luminanceToAlpha" x="0%" y="0%" width="100%" height="100%" in="blend3" result="colormatrix3"></feColorMatrix>
-				<feBlend mode="exclusion" x="0%" y="0%" width="100%" height="100%" in="blend3" in2="colormatrix3" result="blend5"></feBlend>
+				<feBlend
+					mode="saturation"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="SourceGraphic"
+					in2="colormatrix2"
+					result="blend2"
+				></feBlend>
+				<feBlend
+					mode="screen"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="colormatrix2"
+					in2="blend2"
+					result="blend3"
+				></feBlend>
+				<feColorMatrix
+					type="luminanceToAlpha"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="blend3"
+					result="colormatrix3"
+				></feColorMatrix>
+				<feBlend
+					mode="exclusion"
+					x="0%"
+					y="0%"
+					width="100%"
+					height="100%"
+					in="blend3"
+					in2="colormatrix3"
+					result="blend5"
+				></feBlend>
 			</filter>
 		</svg>
 	</div>
@@ -175,7 +263,12 @@
 		/>
 		<span class="badge preset-tonal">#Rustic</span>
 		<svg id="svg-filter-rustic" class="filter absolute -left-full w-0 h-0">
-			<filter id="Rustic" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter
+				id="Rustic"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
 				<feColorMatrix
 					type="matrix"
 					in="SourceGraphic"
@@ -200,7 +293,12 @@
 		/>
 		<span class="badge preset-tonal">#Summer84</span>
 		<svg id="svg-filter-summer84" class="filter absolute -left-full w-0 h-0">
-			<filter id="Summer84" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter
+				id="Summer84"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
 				<feColorMatrix
 					type="matrix"
 					values="1.300 0.200 0.000 0.000 0.000
@@ -223,7 +321,12 @@
 		/>
 		<span class="badge preset-tonal">#XPro</span>
 		<svg id="svg-filter-xpro" class="filter absolute -left-full w-0 h-0">
-			<filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<filter
+				id="XPro"
+				filterUnits="objectBoundingBox"
+				primitiveUnits="userSpaceOnUse"
+				color-interpolation-filters="sRGB"
+			>
 				<feColorMatrix
 					type="matrix"
 					values="1.70 -0.20 0.00 0.00 0.00

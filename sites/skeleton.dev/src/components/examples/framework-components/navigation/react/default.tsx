@@ -1,15 +1,15 @@
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { BookIcon } from 'lucide-react';
-import { HouseIcon } from 'lucide-react';
-import { PopcornIcon } from 'lucide-react';
-import { TvIcon } from 'lucide-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import { BookIcon } from "lucide-react";
+import { HouseIcon } from "lucide-react";
+import { PopcornIcon } from "lucide-react";
+import { TvIcon } from "lucide-react";
 
 export default function Default() {
 	const links = [
-		{ label: 'Home', href: '/#', icon: HouseIcon },
-		{ label: 'Books', href: '/#', icon: BookIcon },
-		{ label: 'Movies', href: '/#', icon: PopcornIcon },
-		{ label: 'Television', href: '/#', icon: TvIcon },
+		{ label: "Home", href: "/#", icon: HouseIcon },
+		{ label: "Books", href: "/#", icon: BookIcon },
+		{ label: "Movies", href: "/#", icon: PopcornIcon },
+		{ label: "Television", href: "/#", icon: TvIcon },
 	];
 
 	return (

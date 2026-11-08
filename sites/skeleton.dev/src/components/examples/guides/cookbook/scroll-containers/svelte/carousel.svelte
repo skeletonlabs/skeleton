@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
 
 	const generatedArray = Array.from({ length: 6 });
 
@@ -35,11 +35,20 @@
 	<!-- Carousel -->
 	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 		<!-- Button: Left -->
-		<button type="button" class="btn-icon preset-filled" onclick={carouselLeft} title="Previous slide" aria-label="Previous slide">
+		<button
+			type="button"
+			class="btn-icon preset-filled"
+			onclick={carouselLeft}
+			title="Previous slide"
+			aria-label="Previous slide"
+		>
 			<ArrowLeftIcon size={16} />
 		</button>
 		<!-- Full Images -->
-		<div bind:this={elemCarousel} class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+		<div
+			bind:this={elemCarousel}
+			class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+		>
 			<!-- Loop X many times. -->
 			{#each generatedArray as _, i}
 				<img
@@ -51,7 +60,13 @@
 			{/each}
 		</div>
 		<!-- Button: Right -->
-		<button type="button" class="btn-icon preset-filled" onclick={carouselRight} title="Next slide" aria-label="Next slide">
+		<button
+			type="button"
+			class="btn-icon preset-filled"
+			onclick={carouselRight}
+			title="Next slide"
+			aria-label="Next slide"
+		>
 			<ArrowRightIcon size={16} />
 		</button>
 	</div>

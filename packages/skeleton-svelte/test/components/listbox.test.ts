@@ -1,69 +1,69 @@
-import Listbox from './listbox.svelte';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
-import { page } from 'vitest/browser';
+import Listbox from "./listbox.svelte";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-svelte";
+import { page } from "vitest/browser";
 
-describe('Listbox', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Listbox", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Input', () => {
-		it('renders', async () => {
+	describe("Input", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('input')).toBeInTheDocument();
+			await expect.element(page.getByTestId("input")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemGroup', () => {
-		it('renders', async () => {
+	describe("ItemGroup", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-group")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemGroupLabel', () => {
-		it('renders', async () => {
+	describe("ItemGroupLabel", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('item-group-label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-group-label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Item', () => {
-		it('renders', async () => {
+	describe("Item", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemText', () => {
-		it('renders', async () => {
+	describe("ItemText", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('item-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemIndicator', () => {
-		it('renders', async () => {
+	describe("ItemIndicator", () => {
+		it("renders", async () => {
 			await render(Listbox);
-			await expect.element(page.getByTestId('item-indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-indicator")).toBeInTheDocument();
 		});
 	});
 });

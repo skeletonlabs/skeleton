@@ -1,9 +1,11 @@
 <script lang="ts">
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Menu>
-	<Menu.ContextTrigger class="card border border-dashed border-surface-200-800 p-8">Right-click here</Menu.ContextTrigger>
+	<Menu.ContextTrigger class="card border border-dashed border-surface-200-800 p-8"
+		>Right-click here</Menu.ContextTrigger
+	>
 	<Portal>
 		<Menu.Positioner>
 			<Menu.Content>

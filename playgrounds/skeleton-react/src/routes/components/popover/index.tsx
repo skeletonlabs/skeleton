@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Popover, Portal } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Popover, Portal } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/popover/')({
+export const Route = createFileRoute("/components/popover/")({
 	component: Page,
 });
 

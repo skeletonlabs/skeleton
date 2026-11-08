@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Steps } from '@skeletonlabs/skeleton-svelte';
+	import { Steps } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Steps defaultStep={0} count={3} orientation="vertical" class="w-ful h-48">

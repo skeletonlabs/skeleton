@@ -3,11 +3,11 @@ title: Themes
 description: The Skeleton theme system.
 summary: Skeleton themes utilize CSS custom properties to define core settings for your design system. A number of preset themes are offered out of the box. As well as access to a powerful theme generator to create your own. Enable one or more and quickly switch on-demand.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes'
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/themes"
 order: 1
 ---
 
-import ThemeList from '@/components/ui/theme-list.astro';
+import ThemeList from "@/components/ui/theme-list.astro";
 
 ## How Themes Work
 
@@ -21,7 +21,7 @@ Skeleton ships with an an array of hand curated themes. Tap the themes below to 
 
 ```css
 /* @import '@skeletonlabs/skeleton'; */
-@import '@skeletonlabs/skeleton/themes/{theme-name}';
+@import "@skeletonlabs/skeleton/themes/{theme-name}";
 ```
 
 > Make sure to replace `{theme-name}` with your desired theme names. Set all lower-case, such as `cerberus`.
@@ -51,14 +51,14 @@ You may register any number of themes by including multiple imports to your glob
 /* @import '@skeletonlabs/skeleton'; */
 
 /* Register Preset Themes */
-@import '@skeletonlabs/skeleton/themes/cerberus';
-@import '@skeletonlabs/skeleton/themes/mona';
-@import '@skeletonlabs/skeleton/themes/vox';
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton/themes/mona";
+@import "@skeletonlabs/skeleton/themes/vox";
 
 /* Register a Custom Themes */
 /* Make sure to resolve the relative path. */
 /* Note the .css extension is optional. */
-@import '../{my-theme-name}';
+@import "../{my-theme-name}";
 ```
 
 ## Activate a Theme
@@ -82,7 +82,7 @@ You may define the active theme using the `data-theme` attribute on your `<html>
 You can modify any preset theme's [CSS custom properties](/docs/[framework]/get-started/core-api) on demand using the following technique. Simply add this to your global stylesheet. For custom themes, modify each property directly in the theme file.
 
 ```css
-[data-theme='cerberus'] {
+[data-theme="cerberus"] {
 	--spacing: 0.22rem;
 	--radius-container: 0.375rem;
 	--typo-heading--font-weight: bolder;
@@ -95,14 +95,14 @@ If your application supports multiple themes, you may isolate selection using th
 
 ```css title="app.css"
 /** Target only Cerberus .h1 elements. */
-[data-theme='cerberus'] .h1 {
+[data-theme="cerberus"] .h1 {
 	color: red;
 	@variant dark {
 		color: green;
 	}
 }
 /** Target only Mona .h1 elements. */
-[data-theme='mona'] .h1 {
+[data-theme="mona"] .h1 {
 	color: blue;
 	@variant dark {
 		color: yellow;
@@ -115,7 +115,7 @@ If your application supports multiple themes, you may isolate selection using th
 Your app's light and dark mode background color values can be adjusted using the following [theme properties](/docs/[framework]/get-started/core-api#colors).
 
 ```css
-[data-theme='cerberus'] {
+[data-theme="cerberus"] {
 	--color-root-bg-light: pink;
 	--color-root-bg-dark: green;
 }
@@ -124,11 +124,23 @@ Your app's light and dark mode background color values can be adjusted using the
 Background images are supported, including mesh gradients. The following example is shown using theme-specific colors.
 
 ```css
-[data-theme='cerberus'] body {
+[data-theme="cerberus"] body {
 	background-image:
-		radial-gradient(at 24% 25%, color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px, transparent 30%),
-		radial-gradient(at 35% 13%, color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px, transparent 30%),
-		radial-gradient(at 100% 64%, color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px, transparent 40%);
+		radial-gradient(
+			at 24% 25%,
+			color-mix(in oklab, var(--color-primary-500) 30%, transparent) 0px,
+			transparent 30%
+		),
+		radial-gradient(
+			at 35% 13%,
+			color-mix(in oklab, var(--color-success-500) 18%, transparent) 0px,
+			transparent 30%
+		),
+		radial-gradient(
+			at 100% 64%,
+			color-mix(in oklab, var(--color-error-500) 3%, transparent) 0px,
+			transparent 40%
+		);
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -163,16 +175,16 @@ npm install @fontsource/open-sans
 Then import each font at the top of your global stylesheet, but below your Tailwind configuration.
 
 ```css
-@import '@fontsource/open-sans';
+@import "@fontsource/open-sans";
 ```
 
 Finally, use the following [theme properties](/docs/[framework]/get-started/core-api#base-1) to set each respective font-family property. Note that for custom themes, these settings are can be defined directly within each respective theme file.
 
 ```css
-[data-theme='cerberus'] {
-	--typo-heading--font-family: 'Open Sans', sans-serif;
-	--typo-base--font-family: 'Open Sans', sans-serif;
-	--typo-anchor--font-family: 'inherit';
+[data-theme="cerberus"] {
+	--typo-heading--font-family: "Open Sans", sans-serif;
+	--typo-base--font-family: "Open Sans", sans-serif;
+	--typo-anchor--font-family: "inherit";
 }
 ```
 

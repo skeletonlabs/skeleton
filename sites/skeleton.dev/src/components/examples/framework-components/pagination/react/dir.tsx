@@ -1,7 +1,7 @@
-import { users } from './data';
-import { Pagination } from '@skeletonlabs/skeleton-react';
-import { ArrowRightIcon, ArrowLeftIcon } from 'lucide-react';
-import { useState } from 'react';
+import { users } from "./data";
+import { Pagination } from "@skeletonlabs/skeleton-react";
+import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
+import { useState } from "react";
 
 const PAGE_SIZE = 5;
 
@@ -34,14 +34,20 @@ export default function Dir() {
 					))}
 				</tbody>
 			</table>
-			<Pagination count={users.length} pageSize={PAGE_SIZE} page={page} onPageChange={(event) => setPage(event.page)} dir="rtl">
+			<Pagination
+				count={users.length}
+				pageSize={PAGE_SIZE}
+				page={page}
+				onPageChange={(event) => setPage(event.page)}
+				dir="rtl"
+			>
 				<Pagination.PrevTrigger>
 					<ArrowRightIcon className="size-4" />
 				</Pagination.PrevTrigger>
 				<Pagination.Context>
 					{(pagination) =>
 						pagination.pages.map((page, index) =>
-							page.type === 'page' ? (
+							page.type === "page" ? (
 								<Pagination.Item key={index} {...page}>
 									{page.value}
 								</Pagination.Item>

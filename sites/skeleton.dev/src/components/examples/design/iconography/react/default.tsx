@@ -24,7 +24,7 @@ import {
 	ZapIcon,
 	GhostIcon,
 	SwordsIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function Iconography() {
 	return (

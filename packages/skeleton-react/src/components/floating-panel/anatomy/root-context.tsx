@@ -1,6 +1,6 @@
-import type { useFloatingPanel } from '../modules/provider.js';
-import { FloatingPanelRootContext as RootContext_ } from '../modules/root-context.js';
-import { type ReactNode, use } from 'react';
+import type { useFloatingPanel } from "../modules/provider.js";
+import { FloatingPanelRootContext as RootContext_ } from "../modules/root-context.js";
+import { type ReactNode, use } from "react";
 
 export interface FloatingPanelRootContextProps {
 	children: (floatingPanel: ReturnType<typeof useFloatingPanel>) => ReactNode;

@@ -5,7 +5,7 @@ summary: Skeleton v5 represents a notable update to the core API and theme layer
 order: 8888
 ---
 
-import Framework from '@/components/ui/framework.astro';
+import Framework from "@/components/ui/framework.astro";
 
 ## Prerequisites
 
@@ -87,7 +87,12 @@ Preset themes will automatically update with all changes. No action is required 
 We recommend importing custom themes into the Theme Generator to automatically convert to the new format. This will also allow you to configure all new or updated settings, while fine tuning the overall design.
 
 <figure class="linker bg-noise">
-	<a class="btn preset-filled" href="https://themes.skeleton.dev/themes/import" target="_blank" rel="noopener noreferrer">
+	<a
+		class="btn preset-filled"
+		href="https://themes.skeleton.dev/themes/import"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
 		Auto-Convert Themes &rarr;
 	</a>
 </figure>
@@ -303,7 +308,7 @@ A new `--color-brand-*` token provides a dedicated accent color for your design 
 This can be customized for any preset Skeleton theme using [this pattern](/docs/svelte/design/themes#modify-properties) in your global stylesheet.
 
 ```css
-[data-theme='cerberus'] {
+[data-theme="cerberus"] {
 	--color-brand-light: var(--color-secondary-500);
 	--color-brand-contrast-light: var(--color-secondary-contrast-500);
 	--color-brand-dark: var(--color-secondary-500);

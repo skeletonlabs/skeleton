@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Avatar } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Avatar } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/avatar/')({
+export const Route = createFileRoute("/components/avatar/")({
 	component: Page,
 });
 

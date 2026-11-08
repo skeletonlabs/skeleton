@@ -1,5 +1,5 @@
 <script lang="ts">
-	import XIcon from '@lucide/svelte/icons/x';
+	import XIcon from "@lucide/svelte/icons/x";
 </script>
 
 <div class="card preset-filled-surface-100-900 w-full max-w-md p-4">

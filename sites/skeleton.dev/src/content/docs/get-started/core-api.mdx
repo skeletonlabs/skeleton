@@ -3,12 +3,12 @@ title: Core API
 description: Learn about the specific features Skeleton introduces to Tailwind.
 summary: The heart of Skeleton is the framework agnostic core package. This adapts and extends Tailwind to introduce Skeleton's global styles, color system, typography, and more. Each section below details available theme properties and utility classes.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src'
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src"
 order: 30
 ---
 
-import NavigationGrid from '@/components/ui/navigation-grid.astro';
-import { resolvePath } from '@/modules/resolve-path';
+import NavigationGrid from "@/components/ui/navigation-grid.astro";
+import { resolvePath } from "@/modules/resolve-path";
 
 ## Introduction
 
@@ -263,7 +263,11 @@ Controls the style of anchor links.
 Implements Skeleton's Tailwind-specific components and utilities.
 
 <figure class="linker bg-noise">
-	<a href="https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities" target="_blank" class="btn preset-filled">
+	<a
+		href="https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities"
+		target="_blank"
+		class="btn preset-filled"
+	>
 		View Utilities
 	</a>
 </figure>
@@ -276,14 +280,14 @@ Provides a reusable set of canned [Preset](/docs/[framework]/tailwind-utilities/
 
 Allows you to style semantic HTML elements with utility classes.
 
-<NavigationGrid filter={(doc) => doc.id.includes('tailwind-components/')} class="md:grid-cols-2" />
+<NavigationGrid filter={(doc) => doc.id.includes("tailwind-components/")} class="md:grid-cols-2" />
 
 ## Themes
 
 Provides a curated set of handcrafted themes for Skeleton.
 
 <figure class="linker bg-noise">
-	<a href={resolvePath(props.Astro, '/docs/[framework]/design/themes')} class="btn preset-filled">
+	<a href={resolvePath(props.Astro, "/docs/[framework]/design/themes")} class="btn preset-filled">
 		Browse Themes
 	</a>
 </figure>

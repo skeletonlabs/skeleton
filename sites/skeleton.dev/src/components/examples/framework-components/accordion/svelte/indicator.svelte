@@ -1,11 +1,11 @@
 <script lang="ts">
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import PlusIcon from '@lucide/svelte/icons/plus';
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import PlusIcon from "@lucide/svelte/icons/plus";
+	import { Accordion } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Accordion>
-	{#each ['1', '2', '3'] as item (item)}
+	{#each ["1", "2", "3"] as item (item)}
 		<Accordion.Item value={item}>
 			<h3>
 				<Accordion.ItemTrigger class="flex justify-between items-center">

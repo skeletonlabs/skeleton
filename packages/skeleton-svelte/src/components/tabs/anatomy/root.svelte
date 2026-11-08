@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/tabs';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/tabs";
 
-	export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface TabsRootProps
+		extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 </script>
 
 <script lang="ts">
-	import { useTabs } from '../modules/provider.svelte';
-	import { TabsRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
-	import { splitProps } from '@zag-js/tabs';
+	import { useTabs } from "../modules/provider.svelte";
+	import { TabsRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
+	import { splitProps } from "@zag-js/tabs";
 
 	const props: TabsRootProps = $props();
 	const [tabsProps, componentProps] = $derived(splitProps(props));

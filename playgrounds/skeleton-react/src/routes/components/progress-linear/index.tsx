@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { Progress } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
+import { Progress } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
-export const Route = createFileRoute('/components/progress-linear/')({
+export const Route = createFileRoute("/components/progress-linear/")({
 	component: Page,
 });
 
@@ -61,7 +61,11 @@ function Page() {
 			<section className="space-y-4">
 				<h3 className="h3">Orientation</h3>
 				<div className="flex flex-row items-start gap-4">
-					<Progress orientation="vertical" value={value} onValueChange={(e) => setValue(e.value)}>
+					<Progress
+						orientation="vertical"
+						value={value}
+						onValueChange={(e) => setValue(e.value)}
+					>
 						<Progress.Label>
 							<Progress.ValueText />
 						</Progress.Label>

@@ -1,5 +1,5 @@
-import { LocaleProviderRootContext } from '../modules/root-context.js';
-import { type ContextType, type ReactNode, use } from 'react';
+import { LocaleProviderRootContext } from "../modules/root-context.js";
+import { type ContextType, type ReactNode, use } from "react";
 
 export interface LocaleProviderRootContextProps {
 	children: (locale: ContextType<typeof LocaleProviderRootContext>) => ReactNode;

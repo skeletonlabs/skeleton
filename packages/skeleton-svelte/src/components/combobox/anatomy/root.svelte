@@ -1,17 +1,20 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/combobox';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/combobox";
 
 	export interface ComboboxRootProps
-		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
+		extends
+			Omit<Props, "id">,
+			PropsWithElement<"div">,
+			HTMLAttributes<"div", "id" | "dir" | "placeholder"> {}
 </script>
 
 <script lang="ts">
-	import { useCombobox } from '../modules/provider.svelte';
-	import { ComboboxRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/combobox';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useCombobox } from "../modules/provider.svelte";
+	import { ComboboxRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/combobox";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ComboboxRootProps = $props();
 	const [comboboxProps, componentProps] = $derived(splitProps(props));

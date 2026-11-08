@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useMarquee } from '../modules/provider.svelte.js';
-	import type { Snippet } from 'svelte';
+	import type { useMarquee } from "../modules/provider.svelte.js";
+	import type { Snippet } from "svelte";
 
 	export interface MarqueeRootContextProps {
 		children: Snippet<[ReturnType<typeof useMarquee>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { MarqueeRootContext } from '../modules/root-context.js';
+	import { MarqueeRootContext } from "../modules/root-context.js";
 
 	const props: MarqueeRootContextProps = $props();
 

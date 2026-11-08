@@ -1,6 +1,8 @@
 <div class="w-full">
 	<!-- Scroll Container -->
-	<div class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10">
+	<div
+		class="snap-x scroll-px-4 snap-mandatory scroll-smooth flex gap-4 overflow-x-auto px-4 py-10"
+	>
 		<!-- Generate a array of 8 items; loop through each item -->
 		{#each Array.from({ length: 8 }) as _, i}
 			<!-- Each scrollable card element -->

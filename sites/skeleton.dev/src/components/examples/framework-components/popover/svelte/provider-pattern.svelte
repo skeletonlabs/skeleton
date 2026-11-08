@@ -1,5 +1,5 @@
 <script>
-	import { Popover, Portal, usePopover } from '@skeletonlabs/skeleton-svelte';
+	import { Popover, Portal, usePopover } from "@skeletonlabs/skeleton-svelte";
 
 	const id = $props.id();
 	const popover = usePopover({
@@ -23,7 +23,10 @@
 		<Portal>
 			<Popover.Positioner>
 				<Popover.Content class="card max-w-sm p-4 bg-surface-100-900 shadow-xl space-y-2">
-					<Popover.Description>This popover will appear, stay open for three seconds, then close on it's own.</Popover.Description>
+					<Popover.Description
+						>This popover will appear, stay open for three seconds, then close on it's
+						own.</Popover.Description
+					>
 				</Popover.Content>
 			</Popover.Positioner>
 		</Portal>

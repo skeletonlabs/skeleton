@@ -1,4 +1,4 @@
-import { XIcon } from 'lucide-react';
+import { XIcon } from "lucide-react";
 
 export default function Input() {
 	return (

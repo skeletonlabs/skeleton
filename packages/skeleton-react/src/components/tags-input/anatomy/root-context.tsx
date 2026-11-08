@@ -1,6 +1,6 @@
-import type { useTagsInput } from '../modules/provider.js';
-import { TagsInputRootContext as RootContext_ } from '../modules/root-context.js';
-import { type ReactNode, use } from 'react';
+import type { useTagsInput } from "../modules/provider.js";
+import { TagsInputRootContext as RootContext_ } from "../modules/root-context.js";
+import { type ReactNode, use } from "react";
 
 export interface TagsInputRootContextProps {
 	children: (tagsInput: ReturnType<typeof useTagsInput>) => ReactNode;

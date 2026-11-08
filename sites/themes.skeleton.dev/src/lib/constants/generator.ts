@@ -2,128 +2,136 @@
 
 // Colors ---
 
-export const colorNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'error', 'surface'] as const;
+export const colorNames = [
+	"primary",
+	"secondary",
+	"tertiary",
+	"success",
+	"warning",
+	"error",
+	"surface",
+] as const;
 export const colorShades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 
 // Preview Presets ---
 
 export const previewPresets: Record<string, Record<string, string>> = {
 	primary: {
-		prop: '--color-primary-500',
-		filled: 'preset-filled-primary-500',
-		tonal: 'preset-tonal-primary',
-		outlined: 'preset-outlined-primary-500',
-		border: 'border-primary-500 dark:border-primary-500',
-		ring: 'ring-primary-500 dark:ring-primary-500',
-		outline: 'outline-primary-500',
-		input: 'focus:ring-primary-500 focus:dark:ring-primary-500',
-		anchor: 'text-primary-500 dark:text-primary-500',
-		hover: 'hover:preset-tonal-primary',
-		gradient: 'to-primary-500',
-		contrast: 'text-primary-contrast-500 dark:text-primary-contrast-500',
+		prop: "--color-primary-500",
+		filled: "preset-filled-primary-500",
+		tonal: "preset-tonal-primary",
+		outlined: "preset-outlined-primary-500",
+		border: "border-primary-500 dark:border-primary-500",
+		ring: "ring-primary-500 dark:ring-primary-500",
+		outline: "outline-primary-500",
+		input: "focus:ring-primary-500 focus:dark:ring-primary-500",
+		anchor: "text-primary-500 dark:text-primary-500",
+		hover: "hover:preset-tonal-primary",
+		gradient: "to-primary-500",
+		contrast: "text-primary-contrast-500 dark:text-primary-contrast-500",
 	},
 	secondary: {
-		prop: '--color-secondary-500',
-		filled: 'preset-filled-secondary-500',
-		tonal: 'preset-tonal-secondary',
-		outlined: 'preset-outlined-secondary-500',
-		border: 'border-secondary-500 dark:border-secondary-500',
-		ring: 'ring-secondary-500 dark:ring-secondary-500',
-		outline: 'outline-secondary-500',
-		input: 'focus:ring-secondary-500 focus:dark:ring-secondary-500',
-		anchor: 'text-secondary-500 dark:text-secondary-500',
-		hover: 'hover:preset-tonal-secondary',
-		gradient: 'to-secondary-500',
-		contrast: 'text-secondary-contrast-500 dark:text-secondary-contrast-500',
+		prop: "--color-secondary-500",
+		filled: "preset-filled-secondary-500",
+		tonal: "preset-tonal-secondary",
+		outlined: "preset-outlined-secondary-500",
+		border: "border-secondary-500 dark:border-secondary-500",
+		ring: "ring-secondary-500 dark:ring-secondary-500",
+		outline: "outline-secondary-500",
+		input: "focus:ring-secondary-500 focus:dark:ring-secondary-500",
+		anchor: "text-secondary-500 dark:text-secondary-500",
+		hover: "hover:preset-tonal-secondary",
+		gradient: "to-secondary-500",
+		contrast: "text-secondary-contrast-500 dark:text-secondary-contrast-500",
 	},
 	tertiary: {
-		prop: '--color-tertiary-500',
-		filled: 'preset-filled-tertiary-500',
-		tonal: 'preset-tonal-tertiary',
-		outlined: 'preset-outlined-tertiary-500',
-		border: 'border-tertiary-500 dark:border-tertiary-500',
-		ring: 'ring-tertiary-500 dark:ring-tertiary-500',
-		outline: 'outline-tertiary-500',
-		input: 'focus:ring-tertiary-500 focus:dark:ring-tertiary-500',
-		anchor: 'text-tertiary-500 dark:text-tertiary-500',
-		hover: 'hover:preset-tonal-tertiary',
-		gradient: 'to-tertiary-500',
-		contrast: 'text-tertiary-contrast-500 dark:text-tertiary-contrast-500',
+		prop: "--color-tertiary-500",
+		filled: "preset-filled-tertiary-500",
+		tonal: "preset-tonal-tertiary",
+		outlined: "preset-outlined-tertiary-500",
+		border: "border-tertiary-500 dark:border-tertiary-500",
+		ring: "ring-tertiary-500 dark:ring-tertiary-500",
+		outline: "outline-tertiary-500",
+		input: "focus:ring-tertiary-500 focus:dark:ring-tertiary-500",
+		anchor: "text-tertiary-500 dark:text-tertiary-500",
+		hover: "hover:preset-tonal-tertiary",
+		gradient: "to-tertiary-500",
+		contrast: "text-tertiary-contrast-500 dark:text-tertiary-contrast-500",
 	},
 	success: {
-		prop: '--color-success-500',
-		filled: 'preset-filled-success-500',
-		tonal: 'preset-tonal-success',
-		outlined: 'preset-outlined-success-500',
-		border: 'border-success-500 dark:border-success-500',
-		ring: 'ring-success-500 dark:ring-success-500',
-		outline: 'outline-success-500',
-		input: 'focus:ring-success-500 focus:dark:ring-success-500',
-		anchor: 'text-success-500 dark:text-success-500',
-		hover: 'hover:preset-tonal-success',
-		gradient: 'to-success-500',
-		contrast: 'text-success-contrast-500 dark:text-success-contrast-500',
+		prop: "--color-success-500",
+		filled: "preset-filled-success-500",
+		tonal: "preset-tonal-success",
+		outlined: "preset-outlined-success-500",
+		border: "border-success-500 dark:border-success-500",
+		ring: "ring-success-500 dark:ring-success-500",
+		outline: "outline-success-500",
+		input: "focus:ring-success-500 focus:dark:ring-success-500",
+		anchor: "text-success-500 dark:text-success-500",
+		hover: "hover:preset-tonal-success",
+		gradient: "to-success-500",
+		contrast: "text-success-contrast-500 dark:text-success-contrast-500",
 	},
 	warning: {
-		prop: '--color-warning-500',
-		filled: 'preset-filled-warning-500',
-		tonal: 'preset-tonal-warning',
-		outlined: 'preset-outlined-warning-500',
-		border: 'border-warning-500 dark:border-warning-500',
-		ring: 'ring-warning-500 dark:ring-warning-500',
-		outline: 'outline-warning-500',
-		input: 'focus:ring-warning-500 focus:dark:ring-warning-500',
-		anchor: 'text-warning-500 dark:text-warning-500',
-		hover: 'hover:preset-tonal-warning',
-		gradient: 'to-warning-500',
-		contrast: 'text-warning-contrast-500 dark:text-warning-contrast-500',
+		prop: "--color-warning-500",
+		filled: "preset-filled-warning-500",
+		tonal: "preset-tonal-warning",
+		outlined: "preset-outlined-warning-500",
+		border: "border-warning-500 dark:border-warning-500",
+		ring: "ring-warning-500 dark:ring-warning-500",
+		outline: "outline-warning-500",
+		input: "focus:ring-warning-500 focus:dark:ring-warning-500",
+		anchor: "text-warning-500 dark:text-warning-500",
+		hover: "hover:preset-tonal-warning",
+		gradient: "to-warning-500",
+		contrast: "text-warning-contrast-500 dark:text-warning-contrast-500",
 	},
 	error: {
-		prop: '--color-error-500',
-		filled: 'preset-filled-error-500',
-		tonal: 'preset-tonal-error',
-		outlined: 'preset-outlined-error-500',
-		border: 'border-error-500 dark:border-error-500',
-		ring: 'ring-error-500 dark:ring-error-500',
-		outline: 'outline-error-500',
-		input: 'focus:ring-error-500 focus:dark:ring-error-500',
-		anchor: 'text-error-500 dark:text-error-500',
-		hover: 'hover:preset-tonal-error',
-		gradient: 'to-error-500',
-		contrast: 'text-error-contrast-500 dark:text-error-contrast-500',
+		prop: "--color-error-500",
+		filled: "preset-filled-error-500",
+		tonal: "preset-tonal-error",
+		outlined: "preset-outlined-error-500",
+		border: "border-error-500 dark:border-error-500",
+		ring: "ring-error-500 dark:ring-error-500",
+		outline: "outline-error-500",
+		input: "focus:ring-error-500 focus:dark:ring-error-500",
+		anchor: "text-error-500 dark:text-error-500",
+		hover: "hover:preset-tonal-error",
+		gradient: "to-error-500",
+		contrast: "text-error-contrast-500 dark:text-error-contrast-500",
 	},
 	surface: {
-		prop: '--color-surface-500',
-		filled: 'preset-filled-surface-500',
-		tonal: 'bg-surface-500/10 bg-surface-500/10',
-		outlined: 'preset-outlined-surface-500',
-		border: 'border-surface-500 dark:border-surface-500',
-		ring: 'ring-surface-500 dark:ring-surface-500',
-		outline: 'outline-surface-500',
-		input: 'focus:border-surface-500 focus:dark:ring-surface-500',
-		anchor: 'text-surface-500 dark:text-surface-500',
-		hover: 'hover:preset-tonal-surface',
-		gradient: 'to-surface-500',
-		contrast: 'text-surface-contrast-500 dark:text-surface-contrast-500',
+		prop: "--color-surface-500",
+		filled: "preset-filled-surface-500",
+		tonal: "bg-surface-500/10 bg-surface-500/10",
+		outlined: "preset-outlined-surface-500",
+		border: "border-surface-500 dark:border-surface-500",
+		ring: "ring-surface-500 dark:ring-surface-500",
+		outline: "outline-surface-500",
+		input: "focus:border-surface-500 focus:dark:ring-surface-500",
+		anchor: "text-surface-500 dark:text-surface-500",
+		hover: "hover:preset-tonal-surface",
+		gradient: "to-surface-500",
+		contrast: "text-surface-contrast-500 dark:text-surface-contrast-500",
 	},
 };
 
 // Typography ---
 
 export const typographicScales = [
-	{ value: '1.0', label: 'Base' },
-	{ value: '1.067', label: 'Minor Second' },
-	{ value: '1.125', label: 'Major Second' },
-	{ value: '1.2', label: 'Minor Third' },
-	{ value: '1.25', label: 'Major Third' },
-	{ value: '1.333', label: 'Perfect Fourth' },
-	{ value: '1.414', label: 'Augmented Fourth' },
-	{ value: '1.5', label: 'Perfect Fifth' },
-	{ value: '1.618', label: 'Golden Ratio' },
+	{ value: "1.0", label: "Base" },
+	{ value: "1.067", label: "Minor Second" },
+	{ value: "1.125", label: "Major Second" },
+	{ value: "1.2", label: "Minor Third" },
+	{ value: "1.25", label: "Major Third" },
+	{ value: "1.333", label: "Perfect Fourth" },
+	{ value: "1.414", label: "Augmented Fourth" },
+	{ value: "1.5", label: "Perfect Fifth" },
+	{ value: "1.618", label: "Golden Ratio" },
 ] as const;
 
 export const fontFamilies: string[] = [
-	'inherit',
+	"inherit",
 	// Source: https://github.com/system-fonts/modern-font-stacks
 	// NOTE: remove quotes for consistent template imports
 	`system-ui, sans-serif`,
@@ -144,83 +152,99 @@ export const fontFamilies: string[] = [
 ] as const;
 
 export const fontSizes = [
-	'inherit',
-	'12px', // '0.75rem',
-	'14px', // '0.875rem',
-	'16px', // '1rem',
-	'18px', // '1.125rem',
-	'20px', // '1.25rem',
-	'24px', // '1.5rem'
+	"inherit",
+	"12px", // '0.75rem',
+	"14px", // '0.875rem',
+	"16px", // '1rem',
+	"18px", // '1.125rem',
+	"20px", // '1.25rem',
+	"24px", // '1.5rem'
 ] as const;
 
 export const lineHeights = [
-	'inherit',
-	'16px', // '1rem',
-	'20px', // '1.25rem',
-	'24px', // '1.5rem',
-	'28px', // '1.75rem',
-	'32px', // '2rem',
-	'36px', // '2.25rem,
+	"inherit",
+	"16px", // '1rem',
+	"20px", // '1.25rem',
+	"24px", // '1.5rem',
+	"28px", // '1.75rem',
+	"32px", // '2rem',
+	"36px", // '2.25rem,
 ] as const;
 
 export const fontWeights = [
-	'inherit',
-	'normal',
-	'bold',
-	'lighter',
-	'bolder',
-	'100',
-	'200',
-	'300',
-	'400',
-	'500',
-	'600',
-	'700',
-	'800',
-	'900',
+	"inherit",
+	"normal",
+	"bold",
+	"lighter",
+	"bolder",
+	"100",
+	"200",
+	"300",
+	"400",
+	"500",
+	"600",
+	"700",
+	"800",
+	"900",
 ] as const;
 
-export const fontStyles = ['inherit', 'normal', 'italic'];
-export const letterSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.01em'];
-export const wordSpacings = ['inherit', '-0.05em', '-0.025em', '0em', '0.025em', '0.05em', '0.1em'];
-export const textDecorations = ['none', 'underline', 'overline', 'line-through'];
+export const fontStyles = ["inherit", "normal", "italic"];
+export const letterSpacings = [
+	"inherit",
+	"-0.05em",
+	"-0.025em",
+	"0em",
+	"0.025em",
+	"0.05em",
+	"0.01em",
+];
+export const wordSpacings = ["inherit", "-0.05em", "-0.025em", "0em", "0.025em", "0.05em", "0.1em"];
+export const textDecorations = ["none", "underline", "overline", "line-through"];
 
 // Typography — Extended (v5) ---
 
 export const fontStretches = [
-	'inherit',
-	'normal',
-	'ultra-condensed',
-	'extra-condensed',
-	'condensed',
-	'semi-condensed',
-	'semi-expanded',
-	'expanded',
-	'extra-expanded',
-	'ultra-expanded',
+	"inherit",
+	"normal",
+	"ultra-condensed",
+	"extra-condensed",
+	"condensed",
+	"semi-condensed",
+	"semi-expanded",
+	"expanded",
+	"extra-expanded",
+	"ultra-expanded",
 ] as const;
 
-export const fontKernings = ['inherit', 'auto', 'normal', 'none'] as const;
+export const fontKernings = ["inherit", "auto", "normal", "none"] as const;
 
-export const hyphensOptions = ['inherit', 'none', 'manual', 'auto'] as const;
+export const hyphensOptions = ["inherit", "none", "manual", "auto"] as const;
 
-export const textTransforms = ['inherit', 'none', 'capitalize', 'uppercase', 'lowercase'] as const;
+export const textTransforms = ["inherit", "none", "capitalize", "uppercase", "lowercase"] as const;
 
 export const textShadows = [
-	'inherit',
-	'none',
-	'1px 1px 2px rgba(0, 0, 0, 0.3)',
-	'0 1px 3px rgba(0, 0, 0, 0.4)',
-	'0 0 8px rgba(0, 0, 0, 0.5)',
+	"inherit",
+	"none",
+	"1px 1px 2px rgba(0, 0, 0, 0.3)",
+	"0 1px 3px rgba(0, 0, 0, 0.4)",
+	"0 0 8px rgba(0, 0, 0, 0.5)",
 ] as const;
 
 // Anchor Decoration — Sub-properties (v5) ---
 
-export const decorationStyles = ['inherit', 'solid', 'double', 'dotted', 'dashed', 'wavy'] as const;
-export const decorationThicknesses = ['inherit', 'auto', 'from-font', '1px', '2px', '3px'] as const;
-export const underlineOffsets = ['inherit', 'auto', '1px', '2px', '4px'] as const;
-export const underlinePositions = ['inherit', 'auto', 'under', 'from-font'] as const;
+export const decorationStyles = ["inherit", "solid", "double", "dotted", "dashed", "wavy"] as const;
+export const decorationThicknesses = ["inherit", "auto", "from-font", "1px", "2px", "3px"] as const;
+export const underlineOffsets = ["inherit", "auto", "1px", "2px", "4px"] as const;
+export const underlinePositions = ["inherit", "auto", "under", "from-font"] as const;
 
 // Corner Shape (v5) ---
 
-export const cornerShapes = ['inherit', 'round', 'bevel', 'notch', 'scoop', 'squircle', 'straight'] as const;
+export const cornerShapes = [
+	"inherit",
+	"round",
+	"bevel",
+	"notch",
+	"scoop",
+	"squircle",
+	"straight",
+] as const;

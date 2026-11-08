@@ -1,9 +1,9 @@
-import { TagsInput } from '@skeletonlabs/skeleton-react';
-import { CircleXIcon } from 'lucide-react';
+import { TagsInput } from "@skeletonlabs/skeleton-react";
+import { CircleXIcon } from "lucide-react";
 
 export default function Default() {
 	return (
-		<TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']}>
+		<TagsInput defaultValue={["Vanilla", "Chocolate", "Strawberry"]}>
 			<TagsInput.Control>
 				<TagsInput.Context>
 					{(tagsInput) =>

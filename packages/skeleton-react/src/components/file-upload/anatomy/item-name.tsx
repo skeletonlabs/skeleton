@@ -1,11 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { FileUploadItemContext } from '../modules/item-context.js';
-import { FileUploadRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { FileUploadItemContext } from "../modules/item-context.js";
+import { FileUploadRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface FileUploadItemNameProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface FileUploadItemNameProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function ItemName(props: FileUploadItemNameProps) {
 	const fileUpload = use(FileUploadRootContext);

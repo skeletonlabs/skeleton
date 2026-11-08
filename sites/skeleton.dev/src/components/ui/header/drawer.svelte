@@ -1,7 +1,7 @@
 <script lang="ts">
-	import MenuIcon from '@lucide/svelte/icons/menu';
-	import { Dialog, Portal } from '@skeletonlabs/skeleton-svelte';
-	import type { Snippet } from 'svelte';
+	import MenuIcon from "@lucide/svelte/icons/menu";
+	import { Dialog, Portal } from "@skeletonlabs/skeleton-svelte";
+	import type { Snippet } from "svelte";
 
 	interface Props {
 		children: Snippet;
@@ -24,7 +24,9 @@
 			>
 				<header class="flex justify-between items-center gap-4">
 					<Dialog.Title class="text-2xl font-bold">Skeleton</Dialog.Title>
-					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full">&times</Dialog.CloseTrigger>
+					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal rounded-full"
+						>&times</Dialog.CloseTrigger
+					>
 				</header>
 				<hr class="hr" />
 				<div class="overflow-y-auto">

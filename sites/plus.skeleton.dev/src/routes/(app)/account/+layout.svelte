@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { routes } from '#lib/navigation/routes.ts';
-	import { getUser } from '#lib/remote/auth/get-user.remote.ts';
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import { routes } from "#lib/navigation/routes.ts";
+	import { getUser } from "#lib/remote/auth/get-user.remote.ts";
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 
 	const { children } = $props();
 

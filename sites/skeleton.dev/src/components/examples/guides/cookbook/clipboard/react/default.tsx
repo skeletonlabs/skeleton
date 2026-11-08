@@ -1,6 +1,6 @@
 export default function Default() {
 	async function handleCopy() {
-		const data = 'Hello World!';
+		const data = "Hello World!";
 		await navigator.clipboard.writeText(data);
 		alert(`Copied "${data}" to clipboard!`);
 	}

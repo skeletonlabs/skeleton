@@ -1,4 +1,4 @@
-import { Slider } from '@skeletonlabs/skeleton-react';
+import { Slider } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	return (

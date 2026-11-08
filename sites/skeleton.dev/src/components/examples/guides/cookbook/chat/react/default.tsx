@@ -1,5 +1,5 @@
-import { SendIcon } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { SendIcon } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 // Types
 interface Person {
@@ -20,16 +20,16 @@ interface MessageFeed {
 export default function Default() {
 	const elemChatRef = useRef<HTMLElement>(null);
 	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.';
+		"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.";
 
 	// Navigation List
 	const people: Person[] = [
-		{ id: 0, avatar: 14, name: 'Michael' },
-		{ id: 1, avatar: 40, name: 'Janet' },
-		{ id: 2, avatar: 31, name: 'Susan' },
-		{ id: 3, avatar: 56, name: 'Joey' },
-		{ id: 4, avatar: 24, name: 'Lara' },
-		{ id: 5, avatar: 9, name: 'Melissa' },
+		{ id: 0, avatar: 14, name: "Michael" },
+		{ id: 1, avatar: 40, name: "Janet" },
+		{ id: 2, avatar: 31, name: "Susan" },
+		{ id: 3, avatar: 56, name: "Joey" },
+		{ id: 4, avatar: 24, name: "Lara" },
+		{ id: 5, avatar: 9, name: "Melissa" },
 	];
 	const [currentPersonId, setCurrentPersonId] = useState<number>(people[0].id);
 
@@ -39,49 +39,53 @@ export default function Default() {
 			id: 0,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:30pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:30pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 1,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:45pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:45pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 2,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:50pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:50pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 3,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:52pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:52pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 	]);
-	const [currentMessage, setCurrentMessage] = useState('');
+	const [currentMessage, setCurrentMessage] = useState("");
 
-	function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth') {
+	function scrollChatBottom(behavior?: "auto" | "instant" | "smooth") {
 		if (elemChatRef.current) {
 			elemChatRef.current.scrollTo({ top: elemChatRef.current.scrollHeight, behavior });
 		}
 	}
 
 	function getCurrentTimestamp(): string {
-		return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+		return new Date().toLocaleString("en-US", {
+			hour: "numeric",
+			minute: "numeric",
+			hour12: true,
+		});
 	}
 
 	function addMessage() {
@@ -89,22 +93,22 @@ export default function Default() {
 			id: messageFeed.length,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
+			name: "Jane",
 			timestamp: `Today @ ${getCurrentTimestamp()}`,
 			message: currentMessage,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		};
 		// Update the message feed
 		setMessageFeed([...messageFeed, newMessage]);
 		// Clear prompt
-		setCurrentMessage('');
+		setCurrentMessage("");
 		// Smooth scroll to bottom
 		// Timeout prevents race condition
-		setTimeout(() => scrollChatBottom('smooth'), 0);
+		setTimeout(() => scrollChatBottom("smooth"), 0);
 	}
 
 	function onPromptKeydown(event: React.KeyboardEvent) {
-		if (['Enter'].includes(event.code)) {
+		if (["Enter"].includes(event.code)) {
 			event.preventDefault();
 			addMessage();
 		}
@@ -132,7 +136,7 @@ export default function Default() {
 								<button
 									key={person.id}
 									type="button"
-									className={`card p-2 w-full flex items-center space-x-4 ${person.id === currentPersonId ? 'preset-filled-primary-500' : 'bg-surface-hover-token'}`}
+									className={`card p-2 w-full flex items-center space-x-4 ${person.id === currentPersonId ? "preset-filled-primary-500" : "bg-surface-hover-token"}`}
 									onClick={() => setCurrentPersonId(person.id)}
 								>
 									{/* <Avatar src="https://i.pravatar.cc/?img={person.avatar}" name={person.name} size="size-8" /> */}
@@ -147,7 +151,10 @@ export default function Default() {
 				{/* Chat */}
 				<div className="grid grid-rows-[1fr_auto]">
 					{/* Conversation */}
-					<section ref={elemChatRef} className="max-h-[500px] p-4 overflow-y-auto space-y-4">
+					<section
+						ref={elemChatRef}
+						className="max-h-[500px] p-4 overflow-y-auto space-y-4"
+					>
 						{messageFeed.map((bubble) =>
 							bubble.host === true ? (
 								<div key={bubble.id} className="grid grid-cols-[auto_1fr] gap-2">
@@ -162,7 +169,9 @@ export default function Default() {
 								</div>
 							) : (
 								<div key={bubble.id} className="grid grid-cols-[1fr_auto] gap-2">
-									<div className={`card p-4 rounded-tr-none space-y-2 ${bubble.color}`}>
+									<div
+										className={`card p-4 rounded-tr-none space-y-2 ${bubble.color}`}
+									>
 										<header className="flex justify-between items-center">
 											<p className="font-bold">{bubble.name}</p>
 											<small className="opacity-50">{bubble.timestamp}</small>
@@ -188,7 +197,10 @@ export default function Default() {
 								rows={1}
 								onKeyDown={onPromptKeydown}
 							></textarea>
-							<button className={`input-group-cell ${currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}`} onClick={addMessage}>
+							<button
+								className={`input-group-cell ${currentMessage ? "preset-filled-primary-500" : "preset-tonal"}`}
+								onClick={addMessage}
+							>
 								<SendIcon />
 							</button>
 						</div>

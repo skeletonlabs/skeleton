@@ -1,4 +1,4 @@
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function CustomValueText() {
 	return (
@@ -8,7 +8,9 @@ export default function CustomValueText() {
 				<Progress.CircleRange />
 			</Progress.Circle>
 			<Progress.ValueText>
-				<Progress.Context>{(progress) => `${progress.value} of ${progress.max}`}</Progress.Context>
+				<Progress.Context>
+					{(progress) => `${progress.value} of ${progress.max}`}
+				</Progress.Context>
 			</Progress.ValueText>
 		</Progress>
 	);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FloatingPanel } from '../../src/index.js';
+	import { FloatingPanel } from "../../src/index.js";
 </script>
 
 <FloatingPanel defaultOpen>
@@ -10,8 +10,14 @@
 				<FloatingPanel.DragTrigger data-testid="drag-trigger" />
 				<FloatingPanel.Title data-testid="title" />
 				<FloatingPanel.Control data-testid="control">
-					<FloatingPanel.StageTrigger data-testid="stage-trigger-minimized" stage="minimized" />
-					<FloatingPanel.StageTrigger data-testid="stage-trigger-maximized" stage="maximized" />
+					<FloatingPanel.StageTrigger
+						data-testid="stage-trigger-minimized"
+						stage="minimized"
+					/>
+					<FloatingPanel.StageTrigger
+						data-testid="stage-trigger-maximized"
+						stage="maximized"
+					/>
 					<FloatingPanel.CloseTrigger data-testid="close-trigger" />
 				</FloatingPanel.Control>
 			</FloatingPanel.Header>

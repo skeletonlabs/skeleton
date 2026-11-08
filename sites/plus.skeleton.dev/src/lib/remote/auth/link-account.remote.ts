@@ -1,8 +1,8 @@
-import { form, getRequestEvent } from '$app/server';
-import { error, redirect } from '@sveltejs/kit';
-import { auth } from '#lib/server/auth/auth.ts';
-import { LinkAccountSchema } from '#lib/schemas/auth/link-account-schema.ts';
-import { ResultAsync } from 'neverthrow';
+import { form, getRequestEvent } from "$app/server";
+import { error, redirect } from "@sveltejs/kit";
+import { auth } from "#lib/server/auth/auth.ts";
+import { LinkAccountSchema } from "#lib/schemas/auth/link-account-schema.ts";
+import { ResultAsync } from "neverthrow";
 
 export const linkAccount = form(LinkAccountSchema, async (data) => {
 	const event = getRequestEvent();
@@ -15,7 +15,7 @@ export const linkAccount = form(LinkAccountSchema, async (data) => {
 				callbackURL: data.callbackURL,
 			},
 		}),
-		(e) => new Error('Failed to link account', { cause: e }),
+		(e) => new Error("Failed to link account", { cause: e }),
 	);
 
 	if (linkAccountResult.isErr()) {

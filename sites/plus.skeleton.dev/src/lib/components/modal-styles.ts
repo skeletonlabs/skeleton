@@ -4,10 +4,10 @@
 
 const dialogDrawerCommon = {
 	backdrop:
-		'fixed inset-0 z-50 bg-surface-50-950/50 transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100',
-	positioner: 'fixed inset-0 z-50 flex',
+		"fixed inset-0 z-50 bg-surface-50-950/50 transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100",
+	positioner: "fixed inset-0 z-50 flex",
 	content:
-		'h-screen card bg-surface-50-950/75 backdrop-blur-lg border-surface-200-800 w-sm shadow-xl transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100 data-[state=open]:translate-x-0',
+		"h-screen card bg-surface-50-950/75 backdrop-blur-lg border-surface-200-800 w-sm shadow-xl transition transition-discrete opacity-0 starting:data-[state=open]:opacity-0 data-[state=open]:opacity-100 data-[state=open]:translate-x-0",
 };
 
 /** Drawer: Left Aligned */

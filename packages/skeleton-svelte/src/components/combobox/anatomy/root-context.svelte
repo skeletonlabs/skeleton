@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useCombobox } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useCombobox } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface ComboboxRootContextProps {
 		children: Snippet<[ReturnType<typeof useCombobox>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context.js';
+	import { ComboboxRootContext } from "../modules/root-context.js";
 
 	const props: ComboboxRootContextProps = $props();
 

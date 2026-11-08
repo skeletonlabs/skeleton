@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Progress } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Progress } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/progress-circular/')({
+export const Route = createFileRoute("/components/progress-circular/")({
 	component: Page,
 });
 

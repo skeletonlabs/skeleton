@@ -1,7 +1,7 @@
-import { users } from './data';
-import { Pagination } from '@skeletonlabs/skeleton-react';
-import { ArrowRightIcon, ArrowLeftIcon } from 'lucide-react';
-import { useState } from 'react';
+import { users } from "./data";
+import { Pagination } from "@skeletonlabs/skeleton-react";
+import { ArrowRightIcon, ArrowLeftIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function Default() {
 	const [page, setPage] = useState(1);
@@ -36,21 +36,30 @@ export default function Default() {
 			<div className="flex justify-between items-center gap-4 w-full">
 				<label className="label">
 					<span className="sr-only">Page Size</span>
-					<select className="select w-fit" value={String(pageSize)} onChange={(e) => setPageSize(Number(e.currentTarget.value))}>
+					<select
+						className="select w-fit"
+						value={String(pageSize)}
+						onChange={(e) => setPageSize(Number(e.currentTarget.value))}
+					>
 						<option value="5">5</option>
 						<option value="10">10</option>
 						<option value="20">20</option>
 					</select>
 				</label>
 
-				<Pagination count={users.length} pageSize={pageSize} page={page} onPageChange={(event) => setPage(event.page)}>
+				<Pagination
+					count={users.length}
+					pageSize={pageSize}
+					page={page}
+					onPageChange={(event) => setPage(event.page)}
+				>
 					<Pagination.PrevTrigger>
 						<ArrowLeftIcon className="size-4" />
 					</Pagination.PrevTrigger>
 					<Pagination.Context>
 						{(pagination) =>
 							pagination.pages.map((page, index) =>
-								page.type === 'page' ? (
+								page.type === "page" ? (
 									<Pagination.Item key={index} {...page}>
 										{page.value}
 									</Pagination.Item>

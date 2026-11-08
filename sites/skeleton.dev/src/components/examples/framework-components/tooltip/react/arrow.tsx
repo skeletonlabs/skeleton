@@ -1,4 +1,4 @@
-import { Portal, Tooltip } from '@skeletonlabs/skeleton-react';
+import { Portal, Tooltip } from "@skeletonlabs/skeleton-react";
 
 export default function Arrow() {
 	return (

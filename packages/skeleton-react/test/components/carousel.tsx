@@ -1,4 +1,4 @@
-import { Carousel } from '../../src/index.js';
+import { Carousel } from "../../src/index.js";
 
 export default function Test() {
 	return (

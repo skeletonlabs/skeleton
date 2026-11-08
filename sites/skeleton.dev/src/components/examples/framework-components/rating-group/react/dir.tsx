@@ -1,4 +1,4 @@
-import { RatingGroup } from '@skeletonlabs/skeleton-react';
+import { RatingGroup } from "@skeletonlabs/skeleton-react";
 
 export default function Dir() {
 	return (
@@ -6,7 +6,11 @@ export default function Dir() {
 			<RatingGroup.Label>Label</RatingGroup.Label>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
-					{(ratingGroup) => ratingGroup.items.map((index) => <RatingGroup.Item key={index} index={index} />)}
+					{(ratingGroup) =>
+						ratingGroup.items.map((index) => (
+							<RatingGroup.Item key={index} index={index} />
+						))
+					}
 				</RatingGroup.Context>
 			</RatingGroup.Control>
 			<RatingGroup.HiddenInput />

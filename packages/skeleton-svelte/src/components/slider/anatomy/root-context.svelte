@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useSlider } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useSlider } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface SliderRootContextProps {
 		children: Snippet<[ReturnType<typeof useSlider>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { SliderRootContext } from '../modules/root-context.js';
+	import { SliderRootContext } from "../modules/root-context.js";
 
 	const props: SliderRootContextProps = $props();
 

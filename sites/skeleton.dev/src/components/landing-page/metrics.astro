@@ -1,8 +1,8 @@
 ---
 const metrics = [
-	{ value: '300k+', label: 'Total Monthly Downloads' },
-	{ value: '6k+', label: 'GitHub Stars' },
-	{ value: '2k+', label: 'Discord Members' },
+	{ value: "300k+", label: "Total Monthly Downloads" },
+	{ value: "6k+", label: "GitHub Stars" },
+	{ value: "2k+", label: "Discord Members" },
 ] as const;
 ---
 
@@ -11,7 +11,9 @@ const metrics = [
 		<>
 			<div class="flex md:justify-center">
 				<div>
-					<h2 class="heading-font-family text-6xl xl:text-8xl font-bold">{metric.value}</h2>
+					<h2 class="heading-font-family text-6xl xl:text-8xl font-bold">
+						{metric.value}
+					</h2>
 					<p class="text-sx opacity-60">{metric.label}</p>
 				</div>
 			</div>

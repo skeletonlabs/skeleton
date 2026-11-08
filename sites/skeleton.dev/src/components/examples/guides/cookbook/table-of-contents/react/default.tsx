@@ -9,27 +9,27 @@ interface PageHeadings {
 
 /** The generated list of page headings, slugs, and depth. */
 const headings: PageHeadings[] = [
-	{ text: 'Real World Example', slug: 'real-world-example', depth: 1 },
-	{ text: 'Semantic Markup', slug: 'semantic-markup', depth: 1 },
-	{ text: 'Utilities', slug: 'utilities', depth: 1 },
-	{ text: 'Grid', slug: 'grid', depth: 2 },
-	{ text: 'Alignment', slug: 'alignment', depth: 2 },
-	{ text: 'Responsive Design', slug: 'responsive-design', depth: 2 },
-	{ text: 'In Conclusion', slug: 'in-conclusion', depth: 1 },
+	{ text: "Real World Example", slug: "real-world-example", depth: 1 },
+	{ text: "Semantic Markup", slug: "semantic-markup", depth: 1 },
+	{ text: "Utilities", slug: "utilities", depth: 1 },
+	{ text: "Grid", slug: "grid", depth: 2 },
+	{ text: "Alignment", slug: "alignment", depth: 2 },
+	{ text: "Responsive Design", slug: "responsive-design", depth: 2 },
+	{ text: "In Conclusion", slug: "in-conclusion", depth: 1 },
 ];
 
 const indentations = {
-	0: 'pl-0',
-	1: 'pl-2',
-	2: 'pl-4',
-	3: 'pl-6',
-	4: 'pl-8',
-	5: 'pl-10',
+	0: "pl-0",
+	1: "pl-2",
+	2: "pl-4",
+	3: "pl-6",
+	4: "pl-8",
+	5: "pl-10",
 } as const;
 
 /** Provide a padding-left class based on the depth. */
 function setIndentationClass(depth: number) {
-	return indentations[depth as keyof typeof indentations] ?? 'pl-0';
+	return indentations[depth as keyof typeof indentations] ?? "pl-0";
 }
 
 export default function Default() {
@@ -51,7 +51,10 @@ export default function Default() {
 					{headings.map((heading: PageHeadings) => (
 						<li key={heading.slug}>
 							{/* Apply a indentation class based on the depth. */}
-							<a href={`#${heading.slug}`} className={`anchor block ${setIndentationClass(heading.depth)}`}>
+							<a
+								href={`#${heading.slug}`}
+								className={`anchor block ${setIndentationClass(heading.depth)}`}
+							>
 								{heading.text}
 							</a>
 						</li>

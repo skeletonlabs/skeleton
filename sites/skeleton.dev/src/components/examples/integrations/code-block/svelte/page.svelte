@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CodeBlock from './code-block.svelte';
+	import CodeBlock from "./code-block.svelte";
 </script>
 
 <div class="p-10 space-y-4">

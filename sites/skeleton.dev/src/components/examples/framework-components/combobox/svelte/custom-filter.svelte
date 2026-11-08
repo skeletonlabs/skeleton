@@ -1,18 +1,23 @@
 <script lang="ts">
-	import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
-	import Fuse from 'fuse.js';
+	import {
+		Combobox,
+		Portal,
+		type ComboboxRootProps,
+		useListCollection,
+	} from "@skeletonlabs/skeleton-svelte";
+	import Fuse from "fuse.js";
 
 	const data = [
-		{ label: 'Apple', value: 'apple' },
-		{ label: 'Banana', value: 'banana' },
-		{ label: 'Orange', value: 'orange' },
-		{ label: 'Carrot', value: 'carrot' },
-		{ label: 'Broccoli', value: 'broccoli' },
-		{ label: 'Spinach', value: 'spinach' },
+		{ label: "Apple", value: "apple" },
+		{ label: "Banana", value: "banana" },
+		{ label: "Orange", value: "orange" },
+		{ label: "Carrot", value: "carrot" },
+		{ label: "Broccoli", value: "broccoli" },
+		{ label: "Spinach", value: "spinach" },
 	];
 
 	const fuse = new Fuse(data, {
-		keys: ['label', 'value'],
+		keys: ["label", "value"],
 		threshold: 0.3,
 	});
 
@@ -30,7 +35,7 @@
 		items = data;
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
+	const onInputValueChange: ComboboxRootProps["onInputValueChange"] = (event) => {
 		const results = fuse.search(event.inputValue);
 		if (results.length > 0) {
 			items = results.map((result) => result.item);

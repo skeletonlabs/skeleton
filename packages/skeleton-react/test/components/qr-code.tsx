@@ -1,4 +1,4 @@
-import { QrCode } from '../../src/index.js';
+import { QrCode } from "../../src/index.js";
 
 export default function Test() {
 	return (
@@ -7,7 +7,11 @@ export default function Test() {
 				<QrCode.Pattern data-testid="pattern" />
 			</QrCode.Frame>
 			<QrCode.Overlay data-testid="overlay" />
-			<QrCode.DownloadTrigger data-testid="download-trigger" mimeType="image/png" fileName="skeleton-qr-code" />
+			<QrCode.DownloadTrigger
+				data-testid="download-trigger"
+				mimeType="image/png"
+				fileName="skeleton-qr-code"
+			/>
 		</QrCode>
 	);
 }

@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useMenu } from '../modules/provider.svelte.js';
-	import { untrack, type Snippet } from 'svelte';
+	import type { useMenu } from "../modules/provider.svelte.js";
+	import { untrack, type Snippet } from "svelte";
 
 	export interface MenuRootProviderProps {
 		value: ReturnType<typeof useMenu>;
@@ -9,8 +9,8 @@
 </script>
 
 <script lang="ts">
-	import { MenuRootContext } from '../modules/root-context.js';
-	import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
+	import { MenuRootContext } from "../modules/root-context.js";
+	import { MenuTriggerItemContext } from "../modules/trigger-item-context.js";
 
 	const props: MenuRootProviderProps = $props();
 

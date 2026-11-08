@@ -1,16 +1,21 @@
-import { Steps } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { Steps } from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 const steps = [
-	{ title: 'First', content: 'First do this.' },
-	{ title: 'Then', content: 'Then do that.' },
-	{ title: 'Finally', content: 'Almost done...' },
+	{ title: "First", content: "First do this." },
+	{ title: "Then", content: "Then do that." },
+	{ title: "Finally", content: "Almost done..." },
 ];
 
 export default function Default() {
 	const [step, setStep] = useState(0);
 	return (
-		<Steps step={step} onStepChange={(details) => setStep(details.step)} count={steps.length} className="w-full">
+		<Steps
+			step={step}
+			onStepChange={(details) => setStep(details.step)}
+			count={steps.length}
+			className="w-full"
+		>
 			<Steps.List>
 				{steps.map((item, index) => (
 					<Steps.Item key={index} index={index}>
@@ -22,11 +27,18 @@ export default function Default() {
 				))}
 			</Steps.List>
 			{steps.map((item, index) => (
-				<Steps.Content key={index} index={index} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
+				<Steps.Content
+					key={index}
+					index={index}
+					className="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
+				>
 					{item.content}
 				</Steps.Content>
 			))}
-			<Steps.Content index={steps.length} className="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
+			<Steps.Content
+				index={steps.length}
+				className="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
+			>
 				All done!
 			</Steps.Content>
 			<div className="flex justify-between items-center gap-2">

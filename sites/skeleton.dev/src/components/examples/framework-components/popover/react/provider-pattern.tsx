@@ -1,4 +1,4 @@
-import { Popover, Portal, usePopover } from '@skeletonlabs/skeleton-react';
+import { Popover, Portal, usePopover } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	const popover = usePopover({
@@ -22,7 +22,10 @@ export default function Default() {
 				<Portal>
 					<Popover.Positioner>
 						<Popover.Content className="card max-w-sm p-4 bg-surface-100-900 shadow-xl space-y-2">
-							<Popover.Description>This popover will appear, stay open for three seconds, then close on it's own.</Popover.Description>
+							<Popover.Description>
+								This popover will appear, stay open for three seconds, then close on
+								it's own.
+							</Popover.Description>
 						</Popover.Content>
 					</Popover.Positioner>
 				</Portal>

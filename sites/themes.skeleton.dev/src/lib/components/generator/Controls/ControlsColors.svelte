@@ -1,13 +1,18 @@
 <script lang="ts">
-	import * as constants from '#lib/constants/generator.ts';
-	import { globals, settingsColors } from '#lib/state/generator.svelte.ts';
-	import { genColorRamp, genRandomSeed, getColorKey, seedColor } from '#lib/utils/generator/colors.ts';
-	import ControlsColorsContrast from './ControlsColorsContrast.svelte';
-	import DicesIcon from '@lucide/svelte/icons/dices';
-	import EraserIcon from '@lucide/svelte/icons/eraser';
-	import PencilIcon from '@lucide/svelte/icons/pencil';
-	import SproutIcon from '@lucide/svelte/icons/sprout';
-	import { Tabs } from '@skeletonlabs/skeleton-svelte';
+	import * as constants from "#lib/constants/generator.ts";
+	import { globals, settingsColors } from "#lib/state/generator.svelte.ts";
+	import {
+		genColorRamp,
+		genRandomSeed,
+		getColorKey,
+		seedColor,
+	} from "#lib/utils/generator/colors.ts";
+	import ControlsColorsContrast from "./ControlsColorsContrast.svelte";
+	import DicesIcon from "@lucide/svelte/icons/dices";
+	import EraserIcon from "@lucide/svelte/icons/eraser";
+	import PencilIcon from "@lucide/svelte/icons/pencil";
+	import SproutIcon from "@lucide/svelte/icons/sprout";
+	import { Tabs } from "@skeletonlabs/skeleton-svelte";
 
 	interface ColorSelection {
 		label: string;
@@ -17,16 +22,55 @@
 	}
 
 	const colorSelection: ColorSelection[] = [
-		{ label: 'Primary', description: 'The primary brand color.', value: 'primary', class: 'preset-filled-primary-500' },
-		{ label: 'Secondary', description: 'A secondary accent color.', value: 'secondary', class: 'preset-filled-secondary-500' },
-		{ label: 'Tertiary', description: 'A tertiary accent color.', value: 'tertiary', class: 'preset-filled-tertiary-500' },
-		{ label: 'Success', description: 'Used for successful states.', value: 'success', class: 'preset-filled-success-500' },
-		{ label: 'Warning', description: 'Used for warning states.', value: 'warning', class: 'preset-filled-warning-500' },
-		{ label: 'Error', description: 'Used for error states.', value: 'error', class: 'preset-filled-error-500' },
-		{ label: 'Surface', description: 'The neutral surface tones.', value: 'surface', class: 'preset-filled-surface-500' },
+		{
+			label: "Primary",
+			description: "The primary brand color.",
+			value: "primary",
+			class: "preset-filled-primary-500",
+		},
+		{
+			label: "Secondary",
+			description: "A secondary accent color.",
+			value: "secondary",
+			class: "preset-filled-secondary-500",
+		},
+		{
+			label: "Tertiary",
+			description: "A tertiary accent color.",
+			value: "tertiary",
+			class: "preset-filled-tertiary-500",
+		},
+		{
+			label: "Success",
+			description: "Used for successful states.",
+			value: "success",
+			class: "preset-filled-success-500",
+		},
+		{
+			label: "Warning",
+			description: "Used for warning states.",
+			value: "warning",
+			class: "preset-filled-warning-500",
+		},
+		{
+			label: "Error",
+			description: "Used for error states.",
+			value: "error",
+			class: "preset-filled-error-500",
+		},
+		{
+			label: "Surface",
+			description: "The neutral surface tones.",
+			value: "surface",
+			class: "preset-filled-surface-500",
+		},
 	];
 	const shadesAll = constants.colorShades;
-	const shades3x = [constants.colorShades[0], 500, constants.colorShades[constants.colorShades.length - 1]]; // 50/500/950
+	const shades3x = [
+		constants.colorShades[0],
+		500,
+		constants.colorShades[constants.colorShades.length - 1],
+	]; // 50/500/950
 
 	// State
 	let showAllShades = $state(false);
@@ -35,15 +79,17 @@
 	function onClearPalette() {
 		if (
 			confirm(
-				'This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?',
+				"This will reset each color palette to neutral tones. This can be useful when starting a brand new theme. All current color changes will be lost, are you sure you wish to continue?",
 			)
 		) {
-			constants.colorNames.forEach((colorName) => seedColor(colorName, '#CCCCCC'));
+			constants.colorNames.forEach((colorName) => seedColor(colorName, "#CCCCCC"));
 		}
 	}
 
 	function promptColorSeed(colorName: string) {
-		const promptSeed = prompt(`Automatically generate a ${colorName} color palette from a hex color value that you provide.`);
+		const promptSeed = prompt(
+			`Automatically generate a ${colorName} color palette from a hex color value that you provide.`,
+		);
 		if (promptSeed) seedColor(colorName, promptSeed);
 	}
 
@@ -56,7 +102,11 @@
 
 <div class="space-y-4">
 	<p class="opacity-60">Define a palette per each available theme color.</p>
-	<button type="button" class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full" onclick={onClearPalette}>
+	<button
+		type="button"
+		class="btn preset-outlined-surface-200-800 hover:preset-tonal w-full"
+		onclick={onClearPalette}
+	>
 		<EraserIcon size={20} />
 		<span>Clear All Palettes</span>
 	</button>
@@ -64,7 +114,10 @@
 		<Tabs.List class="justify-between">
 			<Tabs.Indicator />
 			{#each colorSelection as color (color)}
-				<Tabs.Trigger value={color.value} class="aspect-square w-13 flex justify-center items-center {color.class}">
+				<Tabs.Trigger
+					value={color.value}
+					class="aspect-square w-13 flex justify-center items-center {color.class}"
+				>
 					<Tabs.Context>
 						{#snippet children(tabs)}
 							{#if tabs().value === color.value}
@@ -79,7 +132,9 @@
 		{#each colorSelection as color (color)}
 			<Tabs.Content value={color.value}>
 				{#if color.value === globals.activeColor}
-					{@const activeColorLabel = colorSelection.find((c) => c.value === globals.activeColor)?.label}
+					{@const activeColorLabel = colorSelection.find(
+						(c) => c.value === globals.activeColor,
+					)?.label}
 					<div class="space-y-4">
 						<div class="grid grid-cols-[1fr_auto_auto] items-center gap-2">
 							<h3 class="h5">{activeColorLabel}</h3>
@@ -102,18 +157,27 @@
 								<span>Random</span>
 							</button>
 						</div>
-						<Tabs value={showAllShades ? 'all-stops' : 'three-stops'} onValueChange={(e) => (showAllShades = e.value === 'all-stops')}>
+						<Tabs
+							value={showAllShades ? "all-stops" : "three-stops"}
+							onValueChange={(e) => (showAllShades = e.value === "all-stops")}
+						>
 							<Tabs.List>
 								<Tabs.Indicator />
-								<Tabs.Trigger value="three-stops" class="flex-1">Three Stops</Tabs.Trigger>
-								<Tabs.Trigger value="all-stops" class="flex-1">All Stops</Tabs.Trigger>
+								<Tabs.Trigger value="three-stops" class="flex-1"
+									>Three Stops</Tabs.Trigger
+								>
+								<Tabs.Trigger value="all-stops" class="flex-1"
+									>All Stops</Tabs.Trigger
+								>
 							</Tabs.List>
 						</Tabs>
 						<div>
 							{#if showAllShades}
 								<p class="opacity-60">All stops must be manually defined.</p>
 							{:else}
-								<p class="opacity-60">Stops automatically blend between 50/500/950.</p>
+								<p class="opacity-60">
+									Stops automatically blend between 50/500/950.
+								</p>
 							{/if}
 						</div>
 						<table class="table">
@@ -125,8 +189,13 @@
 											<input
 												type="text"
 												class="input"
-												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
-												onblur={() => genColorRamp(showAllShades, color.value)}
+												bind:value={
+													settingsColors[
+														getColorKey(color.value, shade.toString())
+													]
+												}
+												onblur={() =>
+													genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
 										<td class="w-[1%] whitespace-nowrap">
@@ -135,8 +204,13 @@
 											<input
 												class="input scale-85"
 												type="color"
-												bind:value={settingsColors[getColorKey(color.value, shade.toString())]}
-												oninput={() => genColorRamp(showAllShades, color.value)}
+												bind:value={
+													settingsColors[
+														getColorKey(color.value, shade.toString())
+													]
+												}
+												oninput={() =>
+													genColorRamp(showAllShades, color.value)}
 											/>
 										</td>
 									</tr>

@@ -1,14 +1,14 @@
 <script lang="ts">
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
 
 	// Source Data
 	const steps = [
-		{ label: 'Step 1', description: 'The description of step 1.' },
-		{ label: 'Step 2', description: 'The description of step 2.' },
-		{ label: 'Step 3', description: 'The description of step 3.' },
-		{ label: 'Step 4', description: 'The description of step 4.' },
-		{ label: 'Step 5', description: 'The description of step 5.' },
+		{ label: "Step 1", description: "The description of step 1." },
+		{ label: "Step 2", description: "The description of step 2." },
+		{ label: "Step 3", description: "The description of step 3." },
+		{ label: "Step 4", description: "The description of step 4." },
+		{ label: "Step 5", description: "The description of step 5." },
 	];
 
 	// Reactive
@@ -47,7 +47,9 @@
 				{#each steps as step, i (step)}
 					<!-- Numeral Button -->
 					<button
-						class="btn-icon btn-icon-sm rounded-full {isCurrentStep(i) ? 'preset-filled-primary-500' : 'preset-filled-surface-200-800'}"
+						class="btn-icon btn-icon-sm rounded-full {isCurrentStep(i)
+							? 'preset-filled-primary-500'
+							: 'preset-filled-surface-200-800'}"
 						onclick={() => setStep(i)}
 						title="Go to {step.label}"
 						aria-label="Go to {step.label}"
@@ -73,12 +75,22 @@
 		<!-- Navigation -->
 		<nav class="flex justify-between items-center gap-4">
 			<!-- Back Button -->
-			<button type="button" class="btn preset-tonal hover:preset-filled" onclick={prevStep} disabled={isFirstStep}>
+			<button
+				type="button"
+				class="btn preset-tonal hover:preset-filled"
+				onclick={prevStep}
+				disabled={isFirstStep}
+			>
 				<ArrowLeftIcon size={18} />
 				<span>Previous</span>
 			</button>
 			<!-- Next Button -->
-			<button type="button" class="btn preset-tonal hover:preset-filled" onclick={nextStep} disabled={isLastStep}>
+			<button
+				type="button"
+				class="btn preset-tonal hover:preset-filled"
+				onclick={nextStep}
+				disabled={isLastStep}
+			>
 				<span>Next</span>
 				<ArrowRightIcon size={18} />
 			</button>

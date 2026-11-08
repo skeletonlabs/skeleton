@@ -1,6 +1,6 @@
 <script>
-	import XIcon from '@lucide/svelte/icons/x';
-	import { Avatar, Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import XIcon from "@lucide/svelte/icons/x";
+	import { Avatar, Popover, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Popover>
@@ -18,20 +18,28 @@
 						</Avatar>
 						<div>
 							<Popover.Title class="text-lg font-bold">Skeleton Labs</Popover.Title>
-							<a href="https://bsky.app/profile/skeleton.dev" target="_blank" class="anchor">@skeletonlabs.dev</a>
+							<a
+								href="https://bsky.app/profile/skeleton.dev"
+								target="_blank"
+								class="anchor">@skeletonlabs.dev</a
+							>
 						</div>
 						<Popover.CloseTrigger class="btn-icon hover:preset-tonal self-start">
 							<XIcon class="size-4" />
 						</Popover.CloseTrigger>
 					</header>
-					<Popover.Description>Your friendly neighborhood open source maintainers. Creators of Skeleton.</Popover.Description>
+					<Popover.Description
+						>Your friendly neighborhood open source maintainers. Creators of Skeleton.</Popover.Description
+					>
 					<div class="flex gap-4">
 						<p class="text-sm">800 <span class="opacity-60">Followers</span></p>
 						<p class="text-sm">120 <span class="opacity-60">Following</span></p>
 						<p class="text-sm">100 <span class="opacity-60">Posts</span></p>
 					</div>
 				</div>
-				<Popover.Arrow class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
+				<Popover.Arrow
+					class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]"
+				>
 					<Popover.ArrowTip />
 				</Popover.Arrow>
 			</Popover.Content>

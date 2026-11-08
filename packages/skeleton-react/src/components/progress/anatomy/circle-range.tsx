@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ProgressRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { ProgressRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface ProgressCircleRangeProps extends PropsWithElement<'circle'>, HTMLAttributes<'circle', 'children'> {}
+export interface ProgressCircleRangeProps
+	extends PropsWithElement<"circle">, HTMLAttributes<"circle", "children"> {}
 
 export default function CircleRange(props: ProgressCircleRangeProps) {
 	const progress = use(ProgressRootContext);
@@ -14,7 +15,7 @@ export default function CircleRange(props: ProgressCircleRangeProps) {
 	const attributes = mergeProps(
 		progress.getCircleRangeProps(),
 		{
-			strokeLinecap: 'round',
+			strokeLinecap: "round",
 		},
 		rest,
 	);

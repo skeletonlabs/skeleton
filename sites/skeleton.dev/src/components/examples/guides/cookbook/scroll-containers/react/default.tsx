@@ -6,7 +6,10 @@ export default function Default() {
 				{/* Generate a array of 8 items; loop through each item */}
 				{Array.from({ length: 8 }).map((_, i) => (
 					// Each scrollable card element
-					<div key={i} className="snap-start shrink-0 card preset-filled py-20 w-40 md:w-80 text-center">
+					<div
+						key={i}
+						className="snap-start shrink-0 card preset-filled py-20 w-40 md:w-80 text-center"
+					>
 						<span>{i + 1}</span>
 					</div>
 				))}

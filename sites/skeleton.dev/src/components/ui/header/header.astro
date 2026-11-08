@@ -1,51 +1,51 @@
 ---
 // @ts-nocheck - https://github.com/withastro/astro/issues/15023
 
-import { getActiveFramework } from '@/modules/framework';
-import { getCollection } from '@/modules/content';
-import Skeleton from '@/assets/branding/skeleton.svg';
-import LogoGitHub from '@/assets/logos/github.svg';
-import LogoDiscord from '@/assets/logos/discord.svg';
-import LogoBluesky from '@/assets/logos/bluesky.svg';
-import DrawerTrigger from '@/components/ui/header/drawer.svelte';
-import SearchTrigger from '@/components/ui/header/search.svelte';
-import FrameworkPicker from '@/components/ui/header/framework.svelte';
-import VersionPicker from '@/components/ui/header/version.svelte';
-import ThemePicker from '@/components/ui/header/theme.svelte';
-import PlusPicker from '@/components/ui/header/plus.svelte';
-import SponsorPicker from '@/components/ui/header/sponsor.svelte';
-import Navigation from '../navigation.astro';
-import { resolvePath } from '@/modules/resolve-path';
+import { getActiveFramework } from "@/modules/framework";
+import { getCollection } from "@/modules/content";
+import Skeleton from "@/assets/branding/skeleton.svg";
+import LogoGitHub from "@/assets/logos/github.svg";
+import LogoDiscord from "@/assets/logos/discord.svg";
+import LogoBluesky from "@/assets/logos/bluesky.svg";
+import DrawerTrigger from "@/components/ui/header/drawer.svelte";
+import SearchTrigger from "@/components/ui/header/search.svelte";
+import FrameworkPicker from "@/components/ui/header/framework.svelte";
+import VersionPicker from "@/components/ui/header/version.svelte";
+import ThemePicker from "@/components/ui/header/theme.svelte";
+import PlusPicker from "@/components/ui/header/plus.svelte";
+import SponsorPicker from "@/components/ui/header/sponsor.svelte";
+import Navigation from "../navigation.astro";
+import { resolvePath } from "@/modules/resolve-path";
 
-const frameworks = await getCollection('frameworks');
+const frameworks = await getCollection("frameworks");
 const activeFramework = getActiveFramework(Astro.params);
 
 const links = [
 	{
-		href: resolvePath(Astro.params, '/docs/[framework]/get-started/introduction'),
-		title: 'Docs',
+		href: resolvePath(Astro.params, "/docs/[framework]/get-started/introduction"),
+		title: "Docs",
 	},
 	{
-		href: '/showcase',
-		title: 'Showcase',
+		href: "/showcase",
+		title: "Showcase",
 	},
 ];
 
 const socialLinks = [
 	{
-		href: 'https://github.com/skeletonlabs/skeleton',
+		href: "https://github.com/skeletonlabs/skeleton",
 		icon: LogoGitHub,
-		title: 'GitHub',
+		title: "GitHub",
 	},
 	{
-		href: 'https://discord.gg/EXqV7W8MtY',
+		href: "https://discord.gg/EXqV7W8MtY",
 		icon: LogoDiscord,
-		title: 'Discord',
+		title: "Discord",
 	},
 	{
-		href: 'https://bsky.app/profile/skeleton.dev',
+		href: "https://bsky.app/profile/skeleton.dev",
 		icon: LogoBluesky,
-		title: 'Bluesky',
+		title: "Bluesky",
 	},
 ];
 ---
@@ -79,7 +79,9 @@ const socialLinks = [
 		)}
 		<!-- Pickers -->
 		<nav class="flex justify-center items-center ml-auto gap-1">
-			{Astro.params.framework && <FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />}
+			{Astro.params.framework && (
+				<FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />
+			)}
 			<ThemePicker client:visible />
 			<VersionPicker client:visible />
 		</nav>
@@ -94,7 +96,13 @@ const socialLinks = [
 			{socialLinks.map((link) => {
 				const BrandIcon = link.icon;
 				return (
-					<a href={link.href} target="_blank" class="btn py-2 hover:preset-tonal" title={link.title} aria-label={link.title}>
+					<a
+						href={link.href}
+						target="_blank"
+						class="btn py-2 hover:preset-tonal"
+						title={link.title}
+						aria-label={link.title}
+					>
 						<BrandIcon />
 					</a>
 				);

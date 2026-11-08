@@ -1,13 +1,13 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface ProgressCircleProps extends PropsWithElement<'svg'>, HTMLAttributes<'svg'> {}
+	export interface ProgressCircleProps extends PropsWithElement<"svg">, HTMLAttributes<"svg"> {}
 </script>
 
 <script lang="ts">
-	import { ProgressRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { ProgressRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ProgressCircleProps = $props();
 

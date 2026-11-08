@@ -1,5 +1,5 @@
-[data-scope='switch'] {
-	&[data-part='root'] {
+[data-scope="switch"] {
+	&[data-part="root"] {
 		display: inline-flex;
 		gap: --spacing(2);
 		align-items: center;
@@ -16,7 +16,7 @@
 		}
 	}
 
-	&[data-part='control'] {
+	&[data-part="control"] {
 		height: --spacing(6);
 		width: --spacing(10);
 		padding: --spacing(0.5);
@@ -26,12 +26,12 @@
 
 		@apply preset-filled-surface-200-800;
 
-		&[data-state='checked'] {
+		&[data-state="checked"] {
 			@apply preset-filled-brand;
 		}
 	}
 
-	&[data-part='thumb'] {
+	&[data-part="thumb"] {
 		display: grid;
 		justify-content: center;
 		align-items: center;
@@ -43,16 +43,16 @@
 		fill: var(--color-surface-contrast-50);
 		transition: transform 100ms;
 
-		&[data-state='checked'] {
+		&[data-state="checked"] {
 			transform: translateX(--spacing(4));
 		}
 
-		[dir='rtl'] &[data-state='checked'] {
+		[dir="rtl"] &[data-state="checked"] {
 			transform: translateX(calc(-1 * --spacing(4)));
 		}
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 }

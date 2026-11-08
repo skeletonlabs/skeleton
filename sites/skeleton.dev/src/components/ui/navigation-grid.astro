@@ -1,15 +1,15 @@
 ---
-import { getCollection } from '@/modules/content';
-import { resolvePath } from '@/modules/resolve-path';
-import type { HTMLAttributes } from 'astro/types';
+import { getCollection } from "@/modules/content";
+import { resolvePath } from "@/modules/resolve-path";
+import type { HTMLAttributes } from "astro/types";
 
-interface Props extends Omit<HTMLAttributes<'nav'>, 'filter'> {
+interface Props extends Omit<HTMLAttributes<"nav">, "filter"> {
 	filter?: Parameters<typeof getCollection>[1];
 }
 
 const { filter, class: className, ...rest } = Astro.props;
 
-const docs = await getCollection('docs', filter);
+const docs = await getCollection("docs", filter);
 ---
 
 <nav class={`grid grid-cols-1 gap-4 ${className}`} {...rest}>

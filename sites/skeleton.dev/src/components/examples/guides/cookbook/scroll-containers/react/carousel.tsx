@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
+import { useRef } from "react";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 export default function Carousel() {
 	const generatedArray = Array.from({ length: 6 });
@@ -36,11 +36,20 @@ export default function Carousel() {
 			{/* Carousel */}
 			<div className="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
 				{/* Button: Left */}
-				<button type="button" className="btn-icon preset-filled" onClick={carouselLeft} title="Previous slide" aria-label="Previous slide">
+				<button
+					type="button"
+					className="btn-icon preset-filled"
+					onClick={carouselLeft}
+					title="Previous slide"
+					aria-label="Previous slide"
+				>
 					<ArrowLeftIcon size={16} />
 				</button>
 				{/* Full Images */}
-				<div ref={elemCarouselRef} className="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+				<div
+					ref={elemCarouselRef}
+					className="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+				>
 					{/* Loop X many times. */}
 					{generatedArray.map((_, i) => (
 						<img
@@ -53,7 +62,13 @@ export default function Carousel() {
 					))}
 				</div>
 				{/* Button: Right */}
-				<button type="button" className="btn-icon preset-filled" onClick={carouselRight} title="Next slide" aria-label="Next slide">
+				<button
+					type="button"
+					className="btn-icon preset-filled"
+					onClick={carouselRight}
+					title="Next slide"
+					aria-label="Next slide"
+				>
 					<ArrowRightIcon size={16} />
 				</button>
 			</div>

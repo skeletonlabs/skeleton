@@ -1,16 +1,16 @@
-[data-scope='slider'] {
-	&[data-part='root'] {
+[data-scope="slider"] {
+	&[data-part="root"] {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(2);
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 
-	&[data-part='control'] {
+	&[data-part="control"] {
 		display: flex;
 		align-items: center;
 
@@ -19,7 +19,7 @@
 		}
 	}
 
-	&[data-part='track'] {
+	&[data-part="track"] {
 		background: var(--color-surface-200-800);
 		border-radius: var(--radius-base);
 		height: --spacing(2);
@@ -27,12 +27,12 @@
 		flex: 1;
 	}
 
-	&[data-part='range'] {
+	&[data-part="range"] {
 		background: var(--color-surface-950-50);
 		height: 100%;
 	}
 
-	&[data-part='thumb'] {
+	&[data-part="thumb"] {
 		width: --spacing(5);
 		height: --spacing(5);
 		background: var(--color-surface-50-950);
@@ -45,7 +45,7 @@
 		}
 	}
 
-	&[data-part='marker'] {
+	&[data-part="marker"] {
 		font-size: var(--text-xs);
 		color: var(--color-surface-600-400);
 	}

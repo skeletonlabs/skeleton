@@ -1,5 +1,5 @@
-import { Avatar, Popover, Portal } from '@skeletonlabs/skeleton-react';
-import { XIcon } from 'lucide-react';
+import { Avatar, Popover, Portal } from "@skeletonlabs/skeleton-react";
+import { XIcon } from "lucide-react";
 
 export default function Default() {
 	return (
@@ -17,8 +17,15 @@ export default function Default() {
 									/>
 								</Avatar>
 								<div>
-									<Popover.Title className="text-lg font-bold">Skeleton Labs</Popover.Title>
-									<a href="https://bsky.app/profile/skeleton.dev" target="_blank" rel="noopener noreferrer" className="anchor">
+									<Popover.Title className="text-lg font-bold">
+										Skeleton Labs
+									</Popover.Title>
+									<a
+										href="https://bsky.app/profile/skeleton.dev"
+										target="_blank"
+										rel="noopener noreferrer"
+										className="anchor"
+									>
 										@skeletonlabs.dev
 									</a>
 								</div>
@@ -26,7 +33,10 @@ export default function Default() {
 									<XIcon className="size-4" />
 								</Popover.CloseTrigger>
 							</header>
-							<Popover.Description>Your friendly neighborhood open source maintainers. Creators of Skeleton.</Popover.Description>
+							<Popover.Description>
+								Your friendly neighborhood open source maintainers. Creators of
+								Skeleton.
+							</Popover.Description>
 							<div className="flex gap-4">
 								<p className="text-sm">
 									800 <span className="opacity-60">Followers</span>

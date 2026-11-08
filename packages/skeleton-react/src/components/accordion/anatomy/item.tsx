@@ -1,14 +1,15 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { AccordionItemContext } from '../modules/item-context.js';
-import { AccordionRootContext } from '../modules/root-context.js';
-import { splitItemProps } from '@zag-js/accordion';
-import type { ItemProps } from '@zag-js/accordion';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { AccordionItemContext } from "../modules/item-context.js";
+import { AccordionRootContext } from "../modules/root-context.js";
+import { splitItemProps } from "@zag-js/accordion";
+import type { ItemProps } from "@zag-js/accordion";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
+import type { PropsWithChildren } from "react";
 
-export interface AccordionItemProps extends ItemProps, PropsWithChildren, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface AccordionItemProps
+	extends ItemProps, PropsWithChildren, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function Item(props: AccordionItemProps) {
 	const accordion = use(AccordionRootContext);

@@ -1,12 +1,12 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ListboxItemContext } from '../modules/item-context.js';
-import { ListboxRootContext } from '../modules/root-context.js';
-import { type ItemProps, splitItemProps } from '@zag-js/listbox';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { ListboxItemContext } from "../modules/item-context.js";
+import { ListboxRootContext } from "../modules/root-context.js";
+import { type ItemProps, splitItemProps } from "@zag-js/listbox";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface ListboxItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
+export interface ListboxItemProps extends ItemProps, PropsWithElement<"li">, HTMLAttributes<"li"> {}
 
 export default function Item(props: ListboxItemProps) {
 	const listbox = use(ListboxRootContext);

@@ -3,29 +3,29 @@ title: Iconography
 description: Learn about the Skeleton iconography system.
 summary: Skeleton takes an agnostic approach to icons, allowing you to use any combination of SVGs, emoji, unicode, or dedicated icon libraries. Mix and match to fulfill your project's unique requirements.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/iconography.css'
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/iconography.css"
 order: 40
 ---
 
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/design/iconography/react/default';
-import DefaultReactRaw from '@/components/examples/design/iconography/react/default?raw';
-import Size from '@/components/examples/design/iconography/size.astro';
-import SizeRaw from '@/components/examples/design/iconography/size.astro?raw';
-import DefaultSvelte from '@/components/examples/design/iconography/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/design/iconography/svelte/default.svelte?raw';
+import DefaultReact from "@/components/examples/design/iconography/react/default";
+import DefaultReactRaw from "@/components/examples/design/iconography/react/default?raw";
+import Size from "@/components/examples/design/iconography/size.astro";
+import SizeRaw from "@/components/examples/design/iconography/size.astro?raw";
+import DefaultSvelte from "@/components/examples/design/iconography/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/design/iconography/svelte/default.svelte?raw";
 
 ## Lucide
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -34,14 +34,22 @@ While Skeleton is icon-agnostic, we recommend [Lucide](https://lucide.dev/) for 
 
 <Framework id="svelte">
 	<figure class="linker bg-noise">
-		<a href="https://lucide.dev/guide/packages/lucide-svelte" target="_blank" class="btn preset-filled">
+		<a
+			href="https://lucide.dev/guide/packages/lucide-svelte"
+			target="_blank"
+			class="btn preset-filled"
+		>
 			Install Lucide
 		</a>
 	</figure>
 </Framework>
 <Framework id="react">
 	<figure class="linker bg-noise">
-		<a href="https://lucide.dev/guide/packages/lucide-react" target="_blank" class="btn preset-filled">
+		<a
+			href="https://lucide.dev/guide/packages/lucide-react"
+			target="_blank"
+			class="btn preset-filled"
+		>
 			Install Lucide
 		</a>
 	</figure>
@@ -57,7 +65,7 @@ You can size icons and related elements using the following utility classes:
 
 > TIP: Tailwind Components (buttons, badges, chips, field sizes, etc) adjust icon size automatically for any SVG-based icons (such as Lucide). Explicitly setting the size is redundant.
 
-<Preview files={{ 'app.astro': SizeRaw }} client:visible>
+<Preview files={{ "app.astro": SizeRaw }} client:visible>
 	<Size />
 </Preview>
 

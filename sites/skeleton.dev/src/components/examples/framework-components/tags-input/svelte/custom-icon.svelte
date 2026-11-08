@@ -1,9 +1,9 @@
 <script lang="ts">
-	import CircleXIcon from '@lucide/svelte/icons/circle-x';
-	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+	import CircleXIcon from "@lucide/svelte/icons/circle-x";
+	import { TagsInput } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']}>
+<TagsInput defaultValue={["Vanilla", "Chocolate", "Strawberry"]}>
 	<TagsInput.Control>
 		<TagsInput.Context>
 			{#snippet children(tagsInput)}

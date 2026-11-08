@@ -1,10 +1,10 @@
-import { Accordion } from '@skeletonlabs/skeleton-react';
-import { MinusIcon, PlusIcon } from 'lucide-react';
+import { Accordion } from "@skeletonlabs/skeleton-react";
+import { MinusIcon, PlusIcon } from "lucide-react";
 
 export default function Indicator() {
 	return (
 		<Accordion>
-			{['1', '2', '3'].map((item) => (
+			{["1", "2", "3"].map((item) => (
 				<Accordion.Item key={item} value={item}>
 					<h3>
 						<Accordion.ItemTrigger className="flex justify-between items-center">

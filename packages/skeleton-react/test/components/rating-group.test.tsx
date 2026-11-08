@@ -1,41 +1,41 @@
-import RatingGroup from './rating-group.jsx';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { page } from 'vitest/browser';
+import RatingGroup from "./rating-group.jsx";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { page } from "vitest/browser";
 
-describe('RatingGroup', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("RatingGroup", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(<RatingGroup />);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(<RatingGroup />);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Control', () => {
-		it('renders', async () => {
+	describe("Control", () => {
+		it("renders", async () => {
 			await render(<RatingGroup />);
-			await expect.element(page.getByTestId('control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("control")).toBeInTheDocument();
 		});
 	});
 
-	describe('Items', () => {
-		it('renders', async () => {
+	describe("Items", () => {
+		it("renders", async () => {
 			await render(<RatingGroup />);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item")).toBeInTheDocument();
 		});
 	});
 
-	describe('HiddenInput', () => {
-		it('renders', async () => {
+	describe("HiddenInput", () => {
+		it("renders", async () => {
 			await render(<RatingGroup />);
-			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
+			await expect.element(page.getByTestId("hidden-input")).toBeInTheDocument();
 		});
 	});
 });

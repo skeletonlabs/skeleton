@@ -1,29 +1,37 @@
 <script lang="ts">
-	import { codeToHtml } from '@/modules/shiki.bundle';
-	import { stripShikiComments } from '@/modules/strip-shiki-comments';
-	import CheckIcon from '@lucide/svelte/icons/check';
-	import CopyIcon from '@lucide/svelte/icons/copy';
-	import { transformerNotationHighlight, transformerNotationWordHighlight, transformerNotationDiff } from '@shikijs/transformers';
+	import { codeToHtml } from "@/modules/shiki.bundle";
+	import { stripShikiComments } from "@/modules/strip-shiki-comments";
+	import CheckIcon from "@lucide/svelte/icons/check";
+	import CopyIcon from "@lucide/svelte/icons/copy";
+	import {
+		transformerNotationHighlight,
+		transformerNotationWordHighlight,
+		transformerNotationDiff,
+	} from "@shikijs/transformers";
 
 	interface Props {
 		code: Parameters<typeof codeToHtml>[0];
-		lang?: Parameters<typeof codeToHtml>[1]['lang'];
+		lang?: Parameters<typeof codeToHtml>[1]["lang"];
 	}
 
 	const props: Props = $props();
-	const { code, lang = 'txt' } = $derived(props);
+	const { code, lang = "txt" } = $derived(props);
 
 	const html = $derived(
 		await codeToHtml(code.trim(), {
 			lang,
 			themes: {
-				light: 'github-light',
-				dark: 'github-dark',
+				light: "github-light",
+				dark: "github-dark",
 			},
 			mergeSameStyleTokens: true,
 			mergeWhitespaces: true,
-			defaultColor: 'light-dark()',
-			transformers: [transformerNotationHighlight(), transformerNotationWordHighlight(), transformerNotationDiff()],
+			defaultColor: "light-dark()",
+			transformers: [
+				transformerNotationHighlight(),
+				transformerNotationWordHighlight(),
+				transformerNotationDiff(),
+			],
 		}),
 	);
 
@@ -42,7 +50,9 @@
 </script>
 
 <div class="relative ui-code" data-pagefind-ignore>
-	<header class="absolute select-none top-0 left-0 w-full h-10 px-5 text-xs flex justify-between items-center">
+	<header
+		class="absolute select-none top-0 left-0 w-full h-10 px-5 text-xs flex justify-between items-center"
+	>
 		<span class="opacity-50 font-mono">{lang}</span>
 		<button onclick={copyCode} class="flex items-center gap-2 h-full">
 			{#if hasCopied}
@@ -95,7 +105,7 @@
 						&::before {
 							position: absolute;
 							left: --spacing(1.5);
-							content: '+';
+							content: "+";
 							color: var(--color-green-500);
 						}
 
@@ -110,7 +120,7 @@
 						&::before {
 							position: absolute;
 							left: --spacing(1.5);
-							content: '-';
+							content: "-";
 							color: var(--color-red-500);
 						}
 

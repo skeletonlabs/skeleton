@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Portal, Tooltip } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Portal, Tooltip } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/tooltip/')({
+export const Route = createFileRoute("/components/tooltip/")({
 	component: Page,
 });
 

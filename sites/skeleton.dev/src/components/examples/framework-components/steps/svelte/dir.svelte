@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Steps } from '@skeletonlabs/skeleton-svelte';
+	import { Steps } from "@skeletonlabs/skeleton-svelte";
 
 	const steps = [
-		{ title: 'First', content: 'First do this.' },
-		{ title: 'Then', content: 'Then do that.' },
-		{ title: 'Finally', content: 'Almost done...' },
+		{ title: "First", content: "First do this." },
+		{ title: "Then", content: "Then do that." },
+		{ title: "Finally", content: "Almost done..." },
 	];
 </script>
 
@@ -23,11 +23,16 @@
 		{/each}
 	</Steps.List>
 	{#each steps as item, index}
-		<Steps.Content {index} class="card preset-filled-surface-100-900 p-4 flex justify-center items-center">
+		<Steps.Content
+			{index}
+			class="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
+		>
 			{item.content}
 		</Steps.Content>
 	{/each}
-	<Steps.Content index={steps.length} class="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
+	<Steps.Content
+		index={steps.length}
+		class="card preset-filled-surface-100-900 p-4 flex justify-center items-center"
 		>All done!</Steps.Content
 	>
 	<div class="flex justify-between items-center gap-2">

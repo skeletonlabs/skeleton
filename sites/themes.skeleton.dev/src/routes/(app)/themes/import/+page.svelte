@@ -1,17 +1,17 @@
 <script lang="ts">
 	// Themes
-	import { themes } from '#lib/constants/themes.ts';
-	import { importThemeV2 } from '#lib/utils/importer/import-theme-v2.ts';
+	import { themes } from "#lib/constants/themes.ts";
+	import { importThemeV2 } from "#lib/utils/importer/import-theme-v2.ts";
 	// Utils
-	import { importThemeV3 } from '#lib/utils/importer/import-theme-v3.ts';
-	import { importThemeV5, parseThemeProperties } from '#lib/utils/importer/import-theme-v5.ts';
-	import { isV5Format } from '#lib/utils/importer/migrate-legacy-keys.ts';
-	import { goto } from '$app/navigation';
-	import { resolve } from '$app/paths';
-	import FileUpIcon from '@lucide/svelte/icons/file-up';
-	import { FileUpload, type FileUploadRootProps } from '@skeletonlabs/skeleton-svelte';
+	import { importThemeV3 } from "#lib/utils/importer/import-theme-v3.ts";
+	import { importThemeV5, parseThemeProperties } from "#lib/utils/importer/import-theme-v5.ts";
+	import { isV5Format } from "#lib/utils/importer/migrate-legacy-keys.ts";
+	import { goto } from "$app/navigation";
+	import { resolve } from "$app/paths";
+	import FileUpIcon from "@lucide/svelte/icons/file-up";
+	import { FileUpload, type FileUploadRootProps } from "@skeletonlabs/skeleton-svelte";
 
-	const defaultThemeName = 'cerberus';
+	const defaultThemeName = "cerberus";
 
 	/** Routes a CSS theme file to the v5 importer directly, or through the legacy (v3) migration first. */
 	function importThemeCss(fileText: string, fileName: string) {
@@ -35,10 +35,10 @@
 		// Run template import
 		importThemeCss(fileCss, fileName);
 		// Redirect to Generator page
-		goto(resolve('themes/create'));
+		goto(resolve("themes/create"));
 	}
 
-	const onFileChange: FileUploadRootProps['onFileChange'] = async (event) => {
+	const onFileChange: FileUploadRootProps["onFileChange"] = async (event) => {
 		if (event.acceptedFiles.length <= 0) return;
 		// Reset to default theme
 		resetToDefaults();
@@ -46,7 +46,7 @@
 		const fileName = event.acceptedFiles[0].name;
 		const file = event.acceptedFiles[0];
 		const fileText = await file.text();
-		const isCssFormat = fileName.includes('.css');
+		const isCssFormat = fileName.includes(".css");
 
 		// Run Importer
 		if (isCssFormat) {
@@ -58,7 +58,7 @@
 		}
 
 		// Redirect to Generator page
-		goto('/themes/create');
+		goto("/themes/create");
 	};
 </script>
 
@@ -88,13 +88,27 @@
 				<span>{theme.emoji}</span>
 				<h3 class="h6 capitalize text-left">{theme.name}</h3>
 				<div class="flex justify-center items-center -space-x-1">
-					<div class="aspect-square w-5 bg-primary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-secondary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-tertiary-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-success-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-warning-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-error-500 border-[1px] border-black/10 rounded-full"></div>
-					<div class="aspect-square w-5 bg-surface-500 border-[1px] border-black/10 rounded-full"></div>
+					<div
+						class="aspect-square w-5 bg-primary-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-secondary-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-tertiary-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-success-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-warning-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-error-500 border-[1px] border-black/10 rounded-full"
+					></div>
+					<div
+						class="aspect-square w-5 bg-surface-500 border-[1px] border-black/10 rounded-full"
+					></div>
 				</div>
 			</button>
 		{/each}

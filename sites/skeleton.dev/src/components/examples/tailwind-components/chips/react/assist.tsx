@@ -1,4 +1,4 @@
-import { SunIcon, AlarmClockIcon, AppWindowIcon } from 'lucide-react';
+import { SunIcon, AlarmClockIcon, AppWindowIcon } from "lucide-react";
 
 export default function Assist() {
 	return (
@@ -7,7 +7,10 @@ export default function Assist() {
 				<h2 className="h6">Home Automation</h2>
 			</header>
 			<article className="space-y-4">
-				<p className="opacity-60">Control your smart home with a single tap. Choose one of the quick actions below to get started.</p>
+				<p className="opacity-60">
+					Control your smart home with a single tap. Choose one of the quick actions below
+					to get started.
+				</p>
 			</article>
 			<hr className="hr" />
 			<footer className="flex items-center justify-start gap-2 overflow-x-auto [scrollbar-width:none]">

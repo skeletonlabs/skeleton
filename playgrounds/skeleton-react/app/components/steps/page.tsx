@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Steps } from '@skeletonlabs/skeleton-react';
+import { Steps } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
 	return (

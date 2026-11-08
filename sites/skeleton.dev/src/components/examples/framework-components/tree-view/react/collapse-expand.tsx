@@ -1,5 +1,5 @@
-import { TreeView, createTreeViewCollection, useTreeView } from '@skeletonlabs/skeleton-react';
-import { FileIcon, FolderIcon } from 'lucide-react';
+import { TreeView, createTreeViewCollection, useTreeView } from "@skeletonlabs/skeleton-react";
+import { FileIcon, FolderIcon } from "lucide-react";
 
 interface Node {
 	id: string;
@@ -22,7 +22,11 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 					<TreeView.BranchContent>
 						<TreeView.BranchIndentGuide />
 						{props.node.children.map((childNode, childIndex) => (
-							<TreeNode key={childNode.id} node={childNode} indexPath={[...props.indexPath, childIndex]} />
+							<TreeNode
+								key={childNode.id}
+								node={childNode}
+								indexPath={[...props.indexPath, childIndex]}
+							/>
 						))}
 					</TreeView.BranchContent>
 				</TreeView.Branch>
@@ -41,28 +45,28 @@ export default function CollapseExpand() {
 		nodeToValue: (node) => node.id,
 		nodeToString: (node) => node.name,
 		rootNode: {
-			id: 'root',
-			name: '',
+			id: "root",
+			name: "",
 			children: [
 				{
-					id: 'node_modules',
-					name: 'node_modules',
+					id: "node_modules",
+					name: "node_modules",
 					children: [
 						{
-							id: 'node_modules/@skeletonlabs',
-							name: '@skeletonlabs',
+							id: "node_modules/@skeletonlabs",
+							name: "@skeletonlabs",
 							children: [
 								{
-									id: 'node_modules/@skeletonlabs/skeleton',
-									name: 'skeleton',
+									id: "node_modules/@skeletonlabs/skeleton",
+									name: "skeleton",
 								},
 							],
 						},
 					],
 				},
 				{
-					id: 'package.json',
-					name: 'package.json',
+					id: "package.json",
+					name: "package.json",
 				},
 			],
 		},

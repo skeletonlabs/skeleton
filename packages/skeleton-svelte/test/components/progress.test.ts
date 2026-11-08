@@ -1,62 +1,62 @@
-import Progress from './progress.svelte';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
-import { page } from 'vitest/browser';
+import Progress from "./progress.svelte";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-svelte";
+import { page } from "vitest/browser";
 
-describe('Progress', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Progress", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('ValueText', () => {
-		it('renders', async () => {
+	describe("ValueText", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('value-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("value-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('Track', () => {
-		it('renders', async () => {
+	describe("Track", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('track')).toBeInTheDocument();
+			await expect.element(page.getByTestId("track")).toBeInTheDocument();
 		});
 	});
 
-	describe('Range', () => {
-		it('renders', async () => {
+	describe("Range", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('range')).toBeInTheDocument();
+			await expect.element(page.getByTestId("range")).toBeInTheDocument();
 		});
 	});
 
-	describe('Circle', () => {
-		it('renders', async () => {
+	describe("Circle", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('circle')).toBeInTheDocument();
+			await expect.element(page.getByTestId("circle")).toBeInTheDocument();
 		});
 	});
 
-	describe('CircleTrack', () => {
-		it('renders', async () => {
+	describe("CircleTrack", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('circle-track')).toBeInTheDocument();
+			await expect.element(page.getByTestId("circle-track")).toBeInTheDocument();
 		});
 	});
 
-	describe('CircleRange', () => {
-		it('renders', async () => {
+	describe("CircleRange", () => {
+		it("renders", async () => {
 			await render(Progress);
-			await expect.element(page.getByTestId('circle-range')).toBeInTheDocument();
+			await expect.element(page.getByTestId("circle-range")).toBeInTheDocument();
 		});
 	});
 });

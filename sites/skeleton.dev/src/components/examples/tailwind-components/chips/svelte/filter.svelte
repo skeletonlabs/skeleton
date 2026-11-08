@@ -1,7 +1,7 @@
 <script lang="ts">
-	import CheckIcon from '@lucide/svelte/icons/check';
+	import CheckIcon from "@lucide/svelte/icons/check";
 
-	const colors = ['red', 'green', 'blue'];
+	const colors = ["red", "green", "blue"];
 	let color = $state(colors[0]);
 
 	function setColor(selectedColor: string) {
@@ -15,7 +15,7 @@
 		<!-- --- -->
 		{#each colors as c (c)}
 			<button
-				class={`chip capitalize preset-outlined-surface-400-600 ${color === c ? 'preset-tonal-primary' : ''}`}
+				class={`chip capitalize preset-outlined-surface-400-600 ${color === c ? "preset-tonal-primary" : ""}`}
 				onclick={() => setColor(c)}
 			>
 				{#if color === c}<CheckIcon size={14} />{/if}

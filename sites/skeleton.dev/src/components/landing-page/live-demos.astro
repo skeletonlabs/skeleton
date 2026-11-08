@@ -1,50 +1,50 @@
 ---
-import React from '@/assets/logos/react.svg';
-import Svelte from '@/assets/logos/svelte.svg';
-import Vue from '@/assets/logos/vue.svg';
-import Solid from '@/assets/logos/solid.svg';
-import Astro_ from '@/assets/logos/astro.svg'; // Astro is a reserved word
-import EllipsisIcon from '@lucide/astro/icons/ellipsis';
-import { resolvePath } from '@/modules/resolve-path';
+import React from "@/assets/logos/react.svg";
+import Svelte from "@/assets/logos/svelte.svg";
+import Vue from "@/assets/logos/vue.svg";
+import Solid from "@/assets/logos/solid.svg";
+import Astro_ from "@/assets/logos/astro.svg"; // Astro is a reserved word
+import EllipsisIcon from "@lucide/astro/icons/ellipsis";
+import { resolvePath } from "@/modules/resolve-path";
 
 const frameworks = [
 	{
-		name: 'React',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nextjs',
-		bgColor: '#00D8FF',
+		name: "React",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nextjs",
+		bgColor: "#00D8FF",
 		Icon: React,
 	},
 	{
-		name: 'Svelte',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/sveltekit',
-		bgColor: '#FF3E00',
+		name: "Svelte",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/sveltekit",
+		bgColor: "#FF3E00",
 		Icon: Svelte,
 	},
 	{
-		name: 'Vue',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nuxt',
-		bgColor: '#42B883',
+		name: "Vue",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nuxt",
+		bgColor: "#42B883",
 		Icon: Vue,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'Solid',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/solidstart',
-		bgColor: '#57A0FF',
+		name: "Solid",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/solidstart",
+		bgColor: "#57A0FF",
 		Icon: Solid,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'Astro',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/astro',
-		bgColor: '#761CBA',
+		name: "Astro",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/astro",
+		bgColor: "#761CBA",
 		Icon: Astro_,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'More',
-		href: resolvePath(Astro.params, '/docs/[framework]/get-started/installation'),
-		bgColor: 'var(--skeleton-preset-tonal-bg)',
+		name: "More",
+		href: resolvePath(Astro.params, "/docs/[framework]/get-started/installation"),
+		bgColor: "var(--skeleton-preset-tonal-bg)",
 		Icon: EllipsisIcon,
 	},
 ];
@@ -53,7 +53,9 @@ const frameworks = [
 <div class="card bg-noise preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
 	<div class="self-center space-y-1">
 		<h2 class="h2">Live Demos</h2>
-		<p class="xl:text-balance xl:max-w-96">Test drive Skeleton directly in your browser for supported frameworks.</p>
+		<p class="xl:text-balance xl:max-w-96">
+			Test drive Skeleton directly in your browser for supported frameworks.
+		</p>
 		<p class="pt-4 text-xs text-surface-600-400">
 			* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.
 		</p>
@@ -72,7 +74,12 @@ const frameworks = [
 					<framework.Icon class="size-10 fill-white!" />
 				</div>
 				<p class="font-bold text-xs">
-					{framework.name} {framework.note ? <span class="text-surface-700-300">{framework.note}</span> : ''}
+					{framework.name}{" "}
+					{framework.note ? (
+						<span class="text-surface-700-300">{framework.note}</span>
+					) : (
+						""
+					)}
 				</p>
 			</a>
 		))}

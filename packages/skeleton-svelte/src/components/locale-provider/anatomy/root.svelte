@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { PropsWithChildren } from '../../../internal/props-with-children.js';
+	import type { PropsWithChildren } from "../../../internal/props-with-children.js";
 
 	export interface LocaleProviderRootProps extends PropsWithChildren {
 		/**
@@ -11,8 +11,8 @@
 </script>
 
 <script lang="ts">
-	import { LocaleProviderRootContext } from '../modules/root-context.js';
-	import { isRTL } from '@zag-js/i18n-utils';
+	import { LocaleProviderRootContext } from "../modules/root-context.js";
+	import { isRTL } from "@zag-js/i18n-utils";
 
 	const props: LocaleProviderRootProps = $props();
 
@@ -20,7 +20,7 @@
 
 	LocaleProviderRootContext.provide(() => ({
 		locale: locale,
-		dir: isRTL(locale) ? 'rtl' : 'ltr',
+		dir: isRTL(locale) ? "rtl" : "ltr",
 	}));
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { HTMLAttributes } from "svelte/elements";
 
 	export interface Props extends HTMLAttributes<HTMLOListElement> {}
 </script>

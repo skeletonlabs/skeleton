@@ -3,42 +3,42 @@ title: Menu
 description: Accessible dropdown and context menus for actions and navigation.
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import ContextReact from '@/components/examples/framework-components/menu/react/context';
-import ContextReactRaw from '@/components/examples/framework-components/menu/react/context?raw';
-import DefaultReact from '@/components/examples/framework-components/menu/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/menu/react/default?raw';
-import DisabledReact from '@/components/examples/framework-components/menu/react/disabled';
-import DisabledReactRaw from '@/components/examples/framework-components/menu/react/disabled?raw';
-import GroupReact from '@/components/examples/framework-components/menu/react/group';
-import GroupReactRaw from '@/components/examples/framework-components/menu/react/group?raw';
-import NestedReact from '@/components/examples/framework-components/menu/react/nested';
-import NestedReactRaw from '@/components/examples/framework-components/menu/react/nested?raw';
-import OptionReact from '@/components/examples/framework-components/menu/react/option';
-import OptionReactRaw from '@/components/examples/framework-components/menu/react/option?raw';
-import ContextSvelte from '@/components/examples/framework-components/menu/svelte/context.svelte';
-import ContextSvelteRaw from '@/components/examples/framework-components/menu/svelte/context.svelte?raw';
-import DefaultSvelte from '@/components/examples/framework-components/menu/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/menu/svelte/default.svelte?raw';
-import DisabledSvelte from '@/components/examples/framework-components/menu/svelte/disabled.svelte';
-import DisabledSvelteRaw from '@/components/examples/framework-components/menu/svelte/disabled.svelte?raw';
-import GroupSvelte from '@/components/examples/framework-components/menu/svelte/group.svelte';
-import GroupSvelteRaw from '@/components/examples/framework-components/menu/svelte/group.svelte?raw';
-import NestedSvelte from '@/components/examples/framework-components/menu/svelte/nested.svelte';
-import NestedSvelteRaw from '@/components/examples/framework-components/menu/svelte/nested.svelte?raw';
-import OptionSvelte from '@/components/examples/framework-components/menu/svelte/option.svelte';
-import OptionSvelteRaw from '@/components/examples/framework-components/menu/svelte/option.svelte?raw';
+import ContextReact from "@/components/examples/framework-components/menu/react/context";
+import ContextReactRaw from "@/components/examples/framework-components/menu/react/context?raw";
+import DefaultReact from "@/components/examples/framework-components/menu/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/menu/react/default?raw";
+import DisabledReact from "@/components/examples/framework-components/menu/react/disabled";
+import DisabledReactRaw from "@/components/examples/framework-components/menu/react/disabled?raw";
+import GroupReact from "@/components/examples/framework-components/menu/react/group";
+import GroupReactRaw from "@/components/examples/framework-components/menu/react/group?raw";
+import NestedReact from "@/components/examples/framework-components/menu/react/nested";
+import NestedReactRaw from "@/components/examples/framework-components/menu/react/nested?raw";
+import OptionReact from "@/components/examples/framework-components/menu/react/option";
+import OptionReactRaw from "@/components/examples/framework-components/menu/react/option?raw";
+import ContextSvelte from "@/components/examples/framework-components/menu/svelte/context.svelte";
+import ContextSvelteRaw from "@/components/examples/framework-components/menu/svelte/context.svelte?raw";
+import DefaultSvelte from "@/components/examples/framework-components/menu/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/menu/svelte/default.svelte?raw";
+import DisabledSvelte from "@/components/examples/framework-components/menu/svelte/disabled.svelte";
+import DisabledSvelteRaw from "@/components/examples/framework-components/menu/svelte/disabled.svelte?raw";
+import GroupSvelte from "@/components/examples/framework-components/menu/svelte/group.svelte";
+import GroupSvelteRaw from "@/components/examples/framework-components/menu/svelte/group.svelte?raw";
+import NestedSvelte from "@/components/examples/framework-components/menu/svelte/nested.svelte";
+import NestedSvelteRaw from "@/components/examples/framework-components/menu/svelte/nested.svelte?raw";
+import OptionSvelte from "@/components/examples/framework-components/menu/svelte/option.svelte";
+import OptionSvelteRaw from "@/components/examples/framework-components/menu/svelte/option.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -48,12 +48,12 @@ import OptionSvelteRaw from '@/components/examples/framework-components/menu/sve
 Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical sections.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': GroupReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": GroupReactRaw }} client:visible>
 		<GroupReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': GroupSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": GroupSvelteRaw }} client:visible>
 		<GroupSvelte client:visible />
 	</Preview>
 </Framework>
@@ -63,12 +63,12 @@ Use `ItemGroup` and `ItemGroupLabel` to organize menu items into logical section
 Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ContextReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ContextReactRaw }} client:visible>
 		<ContextReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ContextSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ContextSvelteRaw }} client:visible>
 		<ContextSvelte client:visible />
 	</Preview>
 </Framework>
@@ -78,12 +78,12 @@ Use `ContextTrigger` instead of `Trigger` to open the menu on right-click.
 Use the `TriggerItem` component to create nested menus within a parent menu.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': NestedReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": NestedReactRaw }} client:visible>
 		<NestedReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': NestedSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": NestedSvelteRaw }} client:visible>
 		<NestedSvelte client:visible />
 	</Preview>
 </Framework>
@@ -93,12 +93,12 @@ Use the `TriggerItem` component to create nested menus within a parent menu.
 Use `OptionItem` to create menu items that can be toggled on or off with checkbox or radio group like behavior.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': OptionReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": OptionReactRaw }} client:visible>
 		<OptionReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': OptionSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": OptionSvelteRaw }} client:visible>
 		<OptionSvelte client:visible />
 	</Preview>
 </Framework>
@@ -108,12 +108,12 @@ Use `OptionItem` to create menu items that can be toggled on or off with checkbo
 Set the disabled prop to enable the disabled state.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DisabledReactRaw }} client:visible>
 		<DisabledReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.tsx': DisabledSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.tsx": DisabledSvelteRaw }} client:visible>
 		<DisabledSvelte client:visible />
 	</Preview>
 </Framework>
@@ -125,7 +125,7 @@ Here's an overview of how the Menu component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Menu } from '@skeletonlabs/skeleton-react';
+import { Menu } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -169,7 +169,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Menu } from '@skeletonlabs/skeleton-svelte';
+	import { Menu } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Menu>

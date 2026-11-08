@@ -1,24 +1,24 @@
 ---
-import { components } from '@/components/typography';
-import H1 from '@/components/typography/h1.astro';
-import Header from '@/components/ui/header/header.astro';
-import Footer from '@/components/ui/footer.astro';
-import Navigation from '@/components/ui/navigation.astro';
-import Alert from '@/components/ui/alert.astro';
-import TableOfContents from '@/components/ui/table-of-contents.svelte';
-import Advertisement from '@/components/ui/advertisement.astro';
-import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
-import { render, type CollectionEntry } from 'astro:content';
-import ChipsBar from '../ui/chips-bar.astro';
-import SquarePenIcon from '@lucide/astro/icons/square-pen';
-import LlmMenu from '@/components/ui/large-language-models.svelte';
-import NavigationSteps from '@/components/ui/navigation-steps.astro';
-import { GIT_BRANCH } from 'astro:env/server';
+import { components } from "@/components/typography";
+import H1 from "@/components/typography/h1.astro";
+import Header from "@/components/ui/header/header.astro";
+import Footer from "@/components/ui/footer.astro";
+import Navigation from "@/components/ui/navigation.astro";
+import Alert from "@/components/ui/alert.astro";
+import TableOfContents from "@/components/ui/table-of-contents.svelte";
+import Advertisement from "@/components/ui/advertisement.astro";
+import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
+import { render, type CollectionEntry } from "astro:content";
+import ChipsBar from "../ui/chips-bar.astro";
+import SquarePenIcon from "@lucide/astro/icons/square-pen";
+import LlmMenu from "@/components/ui/large-language-models.svelte";
+import NavigationSteps from "@/components/ui/navigation-steps.astro";
+import { GIT_BRANCH } from "astro:env/server";
 
 interface Props {
-	doc: CollectionEntry<'docs'>;
-	previousDoc?: CollectionEntry<'docs'>;
-	nextDoc?: CollectionEntry<'docs'>;
+	doc: CollectionEntry<"docs">;
+	previousDoc?: CollectionEntry<"docs">;
+	nextDoc?: CollectionEntry<"docs">;
 }
 
 const { doc, previousDoc, nextDoc } = Astro.props;
@@ -49,10 +49,10 @@ const { Content, headings } = await render(doc);
 			<p class="text-lg opacity-60">{doc.data.description}</p>
 		</header>
 		<!-- Stability Warning -->
-		{doc.data.stability !== 'stable' && (
+		{doc.data.stability !== "stable" && (
 			<Alert type="warning">
-				This feature is currently marked as {doc.data.stability}. Take caution when using for production. It may receive breaking changes
-				before its stable release.
+				This feature is currently marked as {doc.data.stability}. Take caution when using
+				for production. It may receive breaking changes before its stable release.
 			</Alert>
 		)}
 		<!-- Chips -->
@@ -99,12 +99,12 @@ const { Content, headings } = await render(doc);
 
 <script is:inline>
 	function restoreScrollPosition() {
-		const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
-		const navigation = document.querySelector('[data-navigation]');
+		const NAVIGATION_SCROLL_TOP_KEY = "navigation-scroll-top";
+		const navigation = document.querySelector("[data-navigation]");
 		if (!navigation) {
 			return;
 		}
-		navigation.addEventListener('scroll', () => {
+		navigation.addEventListener("scroll", () => {
 			sessionStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
 		});
 		const storedScrollTop = sessionStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
@@ -116,5 +116,5 @@ const { Content, headings } = await render(doc);
 
 	restoreScrollPosition();
 
-	document.addEventListener('astro:after-swap', restoreScrollPosition);
+	document.addEventListener("astro:after-swap", restoreScrollPosition);
 </script>

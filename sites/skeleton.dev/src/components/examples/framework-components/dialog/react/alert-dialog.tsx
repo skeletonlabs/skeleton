@@ -1,4 +1,4 @@
-import { Dialog, Portal } from '@skeletonlabs/skeleton-react';
+import { Dialog, Portal } from "@skeletonlabs/skeleton-react";
 
 export default function AlertDialog() {
 	return (
@@ -10,7 +10,9 @@ export default function AlertDialog() {
 					<Dialog.Content className="card preset-filled-error-500 w-md p-4 space-y-2 shadow-xl">
 						<Dialog.Title className="text-2xl font-bold">Alert</Dialog.Title>
 						<Dialog.Description>Something important has happened!</Dialog.Description>
-						<Dialog.CloseTrigger className="btn preset-tonal-error">Close</Dialog.CloseTrigger>
+						<Dialog.CloseTrigger className="btn preset-tonal-error">
+							Close
+						</Dialog.CloseTrigger>
 					</Dialog.Content>
 				</Dialog.Positioner>
 			</Portal>

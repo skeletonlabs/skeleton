@@ -1,15 +1,19 @@
-import { extname, join } from 'node:path';
-import { glob } from 'tinyglobby';
-import { createProjectForConfig, createSourceFile, getInterface } from './parser.ts';
-import { getPartOrder } from './anatomy.ts';
-import { kebabToPascal } from './casing.ts';
-import type { Component } from './types.ts';
+import { extname, join } from "node:path";
+import { glob } from "tinyglobby";
+import { createProjectForConfig, createSourceFile, getInterface } from "./parser.ts";
+import { getPartOrder } from "./anatomy.ts";
+import { kebabToPascal } from "./casing.ts";
+import type { Component } from "./types.ts";
 
-const MONOREPO_DIR = join(import.meta.dirname, '..', '..', '..');
-const packageDir = (name: string) => join(MONOREPO_DIR, 'packages', name);
+const MONOREPO_DIR = join(import.meta.dirname, "..", "..", "..");
+const packageDir = (name: string) => join(MONOREPO_DIR, "packages", name);
 
-async function processPart(componentName: string, partPath: string, project: ReturnType<typeof createProjectForConfig>) {
-	const partName = partPath.split('/').pop()?.replace(extname(partPath), '');
+async function processPart(
+	componentName: string,
+	partPath: string,
+	project: ReturnType<typeof createProjectForConfig>,
+) {
+	const partName = partPath.split("/").pop()?.replace(extname(partPath), "");
 	if (!partName) return;
 
 	const sourceFile = createSourceFile(partPath, project);
@@ -25,8 +29,8 @@ async function processPart(componentName: string, partPath: string, project: Ret
 
 export async function getFramework(frameworkName: string) {
 	const pkgDir = packageDir(`skeleton-${frameworkName}`);
-	const project = createProjectForConfig(join(pkgDir, 'tsconfig.json'));
-	const componentPaths = await glob('src/components/*', {
+	const project = createProjectForConfig(join(pkgDir, "tsconfig.json"));
+	const componentPaths = await glob("src/components/*", {
 		cwd: pkgDir,
 		onlyDirectories: true,
 		absolute: true,
@@ -43,10 +47,13 @@ interface GetComponentOptions {
 	onComponentLoaded?: (componentName: string) => void;
 }
 
-export async function getComponents(framework: Awaited<ReturnType<typeof getFramework>>, options: GetComponentOptions = {}) {
+export async function getComponents(
+	framework: Awaited<ReturnType<typeof getFramework>>,
+	options: GetComponentOptions = {},
+) {
 	return await Promise.all(
 		framework.componentPaths.map(async (componentPath) => {
-			const componentName = componentPath.split('/').filter(Boolean).pop();
+			const componentName = componentPath.split("/").filter(Boolean).pop();
 			if (!componentName) return;
 
 			const frameworkPkgDir = packageDir(`skeleton-${framework.name}`);
@@ -56,13 +63,17 @@ export async function getComponents(framework: Awaited<ReturnType<typeof getFram
 				Promise.resolve(getPartOrder(frameworkPkgDir, componentName)),
 			]);
 
-			const types = (await Promise.all(partPaths.map((partPath) => processPart(componentName, partPath, framework.project)))).filter(
-				Boolean,
-			) as Component['types'];
+			const types = (
+				await Promise.all(
+					partPaths.map((partPath) =>
+						processPart(componentName, partPath, framework.project),
+					),
+				)
+			).filter(Boolean) as Component["types"];
 
 			types.sort((a, b) => {
-				const aName = a.name.replace(/Props$/, '');
-				const bName = b.name.replace(/Props$/, '');
+				const aName = a.name.replace(/Props$/, "");
+				const bName = b.name.replace(/Props$/, "");
 				return partOrder.indexOf(aName) - partOrder.indexOf(bName);
 			});
 

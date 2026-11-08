@@ -8,11 +8,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="Apollo filter"
 					loading="lazy"
-					style={{ filter: 'url(#Apollo)' }}
+					style={{ filter: "url(#Apollo)" }}
 				/>
 				<span className="badge preset-tonal">#Apollo</span>
 				<svg id="svg-filter-apollo" className="absolute -left-full w-0 h-0">
-					<filter id="Apollo" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="Apollo"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							values="0.8 0.6 -0.4 0.1 0, 0 1.2 0.05 0 0, 0 -1 3 0.02 0, 0 0 0 50 0"
 							result="final"
@@ -29,11 +34,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="BlueNight filter"
 					loading="lazy"
-					style={{ filter: 'url(#BlueNight)' }}
+					style={{ filter: "url(#BlueNight)" }}
 				/>
 				<span className="badge preset-tonal">#BlueNight</span>
 				<svg id="svg-filter-bluenight" className="filter absolute -left-full w-0 h-0">
-					<filter id="BlueNight" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="BlueNight"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							type="matrix"
 							values="1.000 0.000 0.000 0.000 0.000
@@ -52,11 +62,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="Emerald filter"
 					loading="lazy"
-					style={{ filter: 'url(#Emerald)' }}
+					style={{ filter: "url(#Emerald)" }}
 				/>
 				<span className="badge preset-tonal">#Emerald</span>
 				<svg id="svg-filter-emerald" className="filter absolute -left-full w-0 h-0">
-					<filter id="Emerald" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="Emerald"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							type="matrix"
 							in="SourceGraphic"
@@ -69,7 +84,12 @@ export default function Default() {
 							<feFuncB type="table" tableValues="0.49 0.53"></feFuncB>
 							<feFuncA type="table" tableValues="0 1"></feFuncA>
 						</feComponentTransfer>
-						<feBlend mode="normal" in="componentTransfer" in2="SourceGraphic" result="blend"></feBlend>
+						<feBlend
+							mode="normal"
+							in="componentTransfer"
+							in2="SourceGraphic"
+							result="blend"
+						></feBlend>
 					</filter>
 				</svg>
 			</div>
@@ -81,7 +101,7 @@ export default function Default() {
 					className="rounded-container"
 					alt="GreenFall filter"
 					loading="lazy"
-					style={{ filter: 'url(#GreenFall)' }}
+					style={{ filter: "url(#GreenFall)" }}
 				/>
 				<span className="badge preset-tonal">#GreenFall</span>
 				<svg id="svg-filter-greenfall" className="filter absolute -left-full w-0 h-0">
@@ -116,7 +136,7 @@ export default function Default() {
 					className="rounded-container"
 					alt="Noir filter"
 					loading="lazy"
-					style={{ filter: 'url(#Noir)' }}
+					style={{ filter: "url(#Noir)" }}
 				/>
 				<span className="badge preset-tonal">#Noir</span>
 				<svg id="svg-filter-noir" className="filter absolute -left-full w-0 h-0">
@@ -140,7 +160,16 @@ export default function Default() {
 							in="SourceGraphic"
 							result="colormatrix1"
 						></feColorMatrix>
-						<feBlend mode="lighten" x="0%" y="0%" width="100%" height="100%" in="colormatrix1" in2="colormatrix1" result="blend"></feBlend>
+						<feBlend
+							mode="lighten"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="colormatrix1"
+							in2="colormatrix1"
+							result="blend"
+						></feBlend>
 						<feBlend
 							mode="multiply"
 							x="0%"
@@ -162,7 +191,7 @@ export default function Default() {
 					className="rounded-container"
 					alt="NoirLight filter"
 					loading="lazy"
-					style={{ filter: 'url(#NoirLight)' }}
+					style={{ filter: "url(#NoirLight)" }}
 				/>
 				<span className="badge preset-tonal">#NoirLight</span>
 				<svg id="svg-filter-noirlight" className="filter absolute -left-full w-0 h-0">
@@ -196,7 +225,16 @@ export default function Default() {
 							in2="colormatrix2"
 							result="blend2"
 						></feBlend>
-						<feBlend mode="screen" x="0%" y="0%" width="100%" height="100%" in="colormatrix2" in2="blend2" result="blend3"></feBlend>
+						<feBlend
+							mode="screen"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="colormatrix2"
+							in2="blend2"
+							result="blend3"
+						></feBlend>
 						<feColorMatrix
 							type="luminanceToAlpha"
 							x="0%"
@@ -206,7 +244,16 @@ export default function Default() {
 							in="blend3"
 							result="colormatrix3"
 						></feColorMatrix>
-						<feBlend mode="exclusion" x="0%" y="0%" width="100%" height="100%" in="blend3" in2="colormatrix3" result="blend5"></feBlend>
+						<feBlend
+							mode="exclusion"
+							x="0%"
+							y="0%"
+							width="100%"
+							height="100%"
+							in="blend3"
+							in2="colormatrix3"
+							result="blend5"
+						></feBlend>
 					</filter>
 				</svg>
 			</div>
@@ -218,11 +265,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="Rustic filter"
 					loading="lazy"
-					style={{ filter: 'url(#Rustic)' }}
+					style={{ filter: "url(#Rustic)" }}
 				/>
 				<span className="badge preset-tonal">#Rustic</span>
 				<svg id="svg-filter-rustic" className="filter absolute -left-full w-0 h-0">
-					<filter id="Rustic" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="Rustic"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							type="matrix"
 							in="SourceGraphic"
@@ -243,11 +295,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="Summer84 filter"
 					loading="lazy"
-					style={{ filter: 'url(#Summer84)' }}
+					style={{ filter: "url(#Summer84)" }}
 				/>
 				<span className="badge preset-tonal">#Summer84</span>
 				<svg id="svg-filter-summer84" className="filter absolute -left-full w-0 h-0">
-					<filter id="Summer84" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="Summer84"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							type="matrix"
 							values="1.300 0.200 0.000 0.000 0.000
@@ -266,11 +323,16 @@ export default function Default() {
 					className="rounded-container"
 					alt="XPro filter"
 					loading="lazy"
-					style={{ filter: 'url(#XPro)' }}
+					style={{ filter: "url(#XPro)" }}
 				/>
 				<span className="badge preset-tonal">#XPro</span>
 				<svg id="svg-filter-xpro" className="filter absolute -left-full w-0 h-0">
-					<filter id="XPro" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+					<filter
+						id="XPro"
+						filterUnits="objectBoundingBox"
+						primitiveUnits="userSpaceOnUse"
+						colorInterpolationFilters="sRGB"
+					>
 						<feColorMatrix
 							type="matrix"
 							values="1.70 -0.20 0.00 0.00 0.00
