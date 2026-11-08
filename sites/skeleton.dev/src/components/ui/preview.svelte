@@ -51,7 +51,7 @@
 			<ToggleGroup value={[viewMode]} onValueChange={(details) => (viewMode = details.value[0])} deselectable={false}>
 				<ToggleGroup.Item
 					value="preview"
-					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					class="data-pressed:preset-tonal text-surface-contrast-50-950"
 					title="Preview Feature"
 					aria-label="Preview Feature"
 				>
@@ -59,7 +59,7 @@
 				</ToggleGroup.Item>
 				<ToggleGroup.Item
 					value="code"
-					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					class="data-pressed:preset-tonal text-surface-contrast-50-950"
 					title="View Code"
 					aria-label="View Code"
 				>
@@ -92,7 +92,7 @@
 			>
 				<ToggleGroup.Item
 					value="rtl"
-					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					class="data-[pressed]:preset-tonal text-surface-contrast-50-950"
 					title="Toggle LTR/RTL Modes"
 					aria-label="Toggle LTR/RTL Modes"
 				>
@@ -112,7 +112,7 @@
 			>
 				<ToggleGroup.Item
 					value="customize"
-					class="data-[state=on]:preset-tonal text-surface-contrast-50-950"
+					class="data-[pressed]:preset-tonal text-surface-contrast-50-950"
 					title="Customize"
 					aria-label="Customize"
 				>
