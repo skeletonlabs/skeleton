@@ -1,7 +1,7 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTemplates } from '$lib/remote/templates/get-templates.remote';
-	import { plusState } from '$lib/state/plus.svelte';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getTemplates } from '#lib/remote/templates/get-templates.remote.ts';
+	import { plusState } from '#lib/state/plus.svelte.ts';
 	import ArrowRight from '@lucide/svelte/icons/arrow-right';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import LockIcon from '@lucide/svelte/icons/lock';

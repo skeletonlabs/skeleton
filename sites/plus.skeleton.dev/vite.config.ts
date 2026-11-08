@@ -1,3 +1,4 @@
+import vercel from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwind from '@tailwindcss/vite';
 import { defineConfig, type Plugin } from 'vite';
@@ -30,7 +31,14 @@ function ensureDockerContainersAreRunning(containers: string[]) {
 
 export default defineConfig({
 	plugins: [
-		sveltekit(),
+		sveltekit({
+			compilerOptions: {
+				runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true),
+				experimental: { async: true },
+			},
+			adapter: vercel(),
+			experimental: { remoteFunctions: true },
+		}),
 		tailwind(),
 		icons({ compiler: 'svelte' }),
 		ensureDockerContainersAreRunning(['plus-skeleton-dev-postgres-1', 'plus-skeleton-dev-oauth2-server-1']),

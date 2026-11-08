@@ -1,6 +1,6 @@
 <script lang="ts">
+	import type { codeToHtml } from '#lib/code-highlight/shiki.bundle.ts';
 	import { resolve } from '$app/paths';
-	import type { codeToHtml } from '$lib/code-highlight/shiki.bundle';
 	import Code from '../code/code.svelte';
 	import DecorStripes from '../layout/decor-stripes.svelte';
 	import CopyIcon from '@lucide/svelte/icons/copy';
@@ -82,6 +82,7 @@
 
 			{#if !locked}
 				<!-- View: Preview / Code -->
+
 				<SegmentedControl value={view} onValueChange={(details) => (view = (details.value as typeof view) ?? 'preview')}>
 					<SegmentedControl.Control class="p-1">
 						<SegmentedControl.Indicator />
@@ -113,10 +114,7 @@
 					{/if}
 				</button>
 			{:else}
-				<a href={resolve('/overview/pricing')} class="btn preset-tonal">
-					<LockIcon />
-					<span>Unlock Block</span>
-				</a>
+				<a href={resolve('overview/pricing')} class="btn preset-tonal"><LockIcon /> <span>Unlock Block</span></a>
 			{/if}
 		</div>
 	</header>
@@ -133,7 +131,6 @@
 			{@render children?.()}
 		</DecorStripes>
 	{:else}
-		<!-- Code -->
-		<Code {code} {lang} />
+		<!-- Code --> <Code {code} {lang} />
 	{/if}
 </div>

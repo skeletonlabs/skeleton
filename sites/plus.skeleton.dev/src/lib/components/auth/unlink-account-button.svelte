@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { UnlinkAccountSchema } from '$lib/schemas/auth/unlink-account-schema';
+	import type { UnlinkAccountSchema } from '#lib/schemas/auth/unlink-account-schema.ts';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { InferInput } from 'valibot';
 
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { unlinkAccount } from '$lib/remote/auth/unlink-account.remote';
+	import { unlinkAccount } from '#lib/remote/auth/unlink-account.remote.ts';
 
 	const { children, providerId, ...attributes }: Props = $props();
 </script>

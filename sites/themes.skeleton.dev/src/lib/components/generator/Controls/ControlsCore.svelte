@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { settingsCore } from '$lib/state/generator.svelte';
+	import { settingsCore } from '#lib/state/generator.svelte.ts';
 </script>
 
 <div class="p-5">

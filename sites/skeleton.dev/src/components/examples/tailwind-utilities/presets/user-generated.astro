@@ -22,16 +22,14 @@ const diagramCircle = 'preset-tonal w-8 aspect-square flex justify-center items-
 ---
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-	{
-		presets.map((preset, index) => (
-			<div class={cell}>
-				<button type="button" class={`btn ${preset.class}`}>
-					{preset.label}
-				</button>
-				<div class={diagramCircle}>{index + 1}</div>
-			</div>
-		))
-	}
+	{presets.map((preset, index) => (
+		<div class={cell}>
+			<button type="button" class={`btn ${preset.class}`}>
+				{preset.label}
+			</button>
+			<div class={diagramCircle}>{index + 1}</div>
+		</div>
+	))}
 </div>
 
 <style>

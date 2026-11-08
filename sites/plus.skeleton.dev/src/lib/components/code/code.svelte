@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { codeToHtml } from '$lib/code-highlight/shiki.bundle';
+	import { codeToHtml } from '#lib/code-highlight/shiki.bundle.ts';
 
 	const { code, lang }: Props = $props();
 

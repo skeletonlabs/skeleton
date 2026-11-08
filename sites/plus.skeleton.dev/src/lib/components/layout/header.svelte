@@ -1,11 +1,11 @@
 <script lang="ts">
+	import SignOutButton from '#lib/components/auth/sign-out-button.svelte';
+	import Skeleton from '#lib/components/branding/skeleton.svelte';
+	import { dialogDrawerLeft } from '#lib/components/modal-styles.ts';
+	import { routes } from '#lib/navigation/routes.ts';
+	import { getUser } from '#lib/remote/auth/get-user.remote.ts';
 	import { onNavigate } from '$app/navigation';
 	import { resolve } from '$app/paths';
-	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
-	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { dialogDrawerLeft } from '$lib/components/modal-styles';
-	import { routes } from '$lib/navigation/routes';
-	import { getUser } from '$lib/remote/auth/get-user.remote';
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
 	import LifeBuoyIcon from '@lucide/svelte/icons/life-buoy';
 	import LogOutIcon from '@lucide/svelte/icons/log-out';
@@ -18,7 +18,11 @@
 	const id = $props.id();
 	const drawer = useDialog({ id });
 
-	onNavigate(() => drawer().setOpen(false));
+	onNavigate(({ shallow, type }) => {
+		if (shallow && type === 'goto') return;
+
+		return drawer().setOpen(false);
+	});
 </script>
 
 {#snippet navigationMobile()}
@@ -111,7 +115,7 @@
 	<AppBar class="container mx-auto bg-transparent">
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 			<AppBar.Lead>
-				<a href={resolve('/')} class="flex items-center gap-4 self-start" aria-label="Homepage" title="Homepage">
+				<a href={resolve('/(app)')} class="flex items-center gap-4 self-start" aria-label="Homepage" title="Homepage">
 					<Skeleton class="size-elem-3xl" />
 				</a>
 			</AppBar.Lead>
@@ -182,8 +186,9 @@
 						</Portal>
 					</Menu>
 				{:else}
-					<a href={resolve('/auth/sign-in')} class="btn hover:preset-tonal">Sign In</a>
-					<a href={resolve('/overview/pricing')} class="btn preset-tonal">Get Full Access</a>
+					<a href={resolve('auth/sign-in')} class="btn hover:preset-tonal">Sign In</a>
+
+					<a href={resolve('overview/pricing')} class="btn preset-tonal">Get Full Access</a>
 				{/if}
 			</AppBar.Trail>
 		</AppBar.Toolbar>

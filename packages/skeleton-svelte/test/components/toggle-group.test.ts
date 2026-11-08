@@ -6,14 +6,14 @@ import { page } from 'vitest/browser';
 describe('ToggleGroup', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(ToggleGroup);
+			await render(ToggleGroup);
 			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Item', () => {
 		it('renders', async () => {
-			render(ToggleGroup);
+			await render(ToggleGroup);
 			await expect.element(page.getByTestId('item')).toBeInTheDocument();
 		});
 	});

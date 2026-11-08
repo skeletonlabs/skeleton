@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
 	import { CopyIcon, EllipsisVerticalIcon, EyeIcon, PlusIcon, RefreshCwIcon } from '@lucide/svelte';
 
 	const apiKeys = [

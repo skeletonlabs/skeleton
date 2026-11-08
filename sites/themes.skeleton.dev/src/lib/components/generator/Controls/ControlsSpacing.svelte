@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { settingsSpacing } from '$lib/state/generator.svelte';
+	import { settingsSpacing } from '#lib/state/generator.svelte.ts';
 
 	const options = [
 		{ label: 'Tight', size: '0.22rem' },

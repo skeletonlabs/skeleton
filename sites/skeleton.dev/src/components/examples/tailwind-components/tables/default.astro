@@ -12,16 +12,14 @@ const tableData = [
 	<!-- - -->
 	<table class="table caption-bottom">
 		<tbody class="[&>tr]:hover:preset-tonal-brand">
-			{
-				tableData.map((row) => (
-					<tr>
-						<td>{row.position}</td>
-						<td>{row.symbol}</td>
-						<td>{row.name}</td>
-						<td class="text-right">{row.atomic_no}</td>
-					</tr>
-				))
-			}
+			{tableData.map((row) => (
+				<tr>
+					<td>{row.position}</td>
+					<td>{row.symbol}</td>
+					<td>{row.name}</td>
+					<td class="text-right">{row.atomic_no}</td>
+				</tr>
+			))}
 		</tbody>
 	</table>
 	<!-- - -->

@@ -1,4 +1,4 @@
-import * as constants from '$lib/constants/generator';
+import * as constants from '#lib/constants/generator.ts';
 import type {
 	Globals,
 	SettingsBackgrounds,

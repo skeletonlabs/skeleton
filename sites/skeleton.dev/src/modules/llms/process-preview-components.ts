@@ -30,7 +30,7 @@ function getDefaultImports(root: Root) {
 
 const resolve = new ResolverFactory({
 	tsconfig: {
-		configFile: fileURLToPath(import.meta.resolve('../../../../tsconfig.json')),
+		configFile: fileURLToPath(import.meta.resolve('../../../../../tsconfig.json')),
 	},
 	extensions: ['.ts', '.tsx', '.js', '.jsx'],
 });

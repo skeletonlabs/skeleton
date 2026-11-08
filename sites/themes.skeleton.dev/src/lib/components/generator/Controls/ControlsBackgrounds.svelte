@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Constants
-	import * as constants from '$lib/constants/generator';
+	import * as constants from '#lib/constants/generator.ts';
 	// State
-	import { settingsBackgrounds } from '$lib/state/generator.svelte';
+	import { settingsBackgrounds } from '#lib/state/generator.svelte.ts';
 	import chroma from 'chroma-js';
 
 	const WHITE = 'oklch(1 0 0 / 1)';

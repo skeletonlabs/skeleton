@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
 	import { EllipsisVerticalIcon, PlusIcon } from '@lucide/svelte';
 	import { Avatar } from '@skeletonlabs/skeleton-svelte';
 

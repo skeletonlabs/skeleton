@@ -1,6 +1,6 @@
 <script lang="ts">
+	import PageHeader from '#lib/components/layout/page-header.svelte';
 	import { resolve } from '$app/paths';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
 	import { ArrowDownIcon } from '@lucide/svelte';
 	import VisaIcon from 'virtual:icons/simple-icons/visa';
 
@@ -26,7 +26,7 @@
 </script>
 
 <div>
-	<PageHeader title="Billing"></PageHeader>
+	<PageHeader title="Billing" />
 
 	<div class="container-page space-y-4">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -60,7 +60,8 @@
 						<p class="text-xs font-bold">Tax / VAT</p>
 						<p class="opacity-60">No tax info on file</p>
 					</div>
-					<a href={resolve('/account/billing')} class="btn preset-outlined-surface-200-800">Add</a>
+
+					<a href={resolve('account/billing')} class="btn preset-outlined-surface-200-800">Add</a>
 				</div>
 			</section>
 		</div>

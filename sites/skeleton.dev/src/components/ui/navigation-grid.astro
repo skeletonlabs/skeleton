@@ -13,15 +13,13 @@ const docs = await getCollection('docs', filter);
 ---
 
 <nav class={`grid grid-cols-1 gap-4 ${className}`} {...rest}>
-	{
-		docs.map((doc) => (
-			<a
-				href={resolvePath(Astro.params, `/docs/[framework]/${doc.id}`)}
-				class="card block bg-surface-50-950 border border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
-			>
-				<h3 class="h5">{doc.data.title}</h3>
-				<p class="opacity-60">{doc.data.description}</p>
-			</a>
-		))
-	}
+	{docs.map((doc) => (
+		<a
+			href={resolvePath(Astro.params, `/docs/[framework]/${doc.id}`)}
+			class="card block bg-surface-50-950 border border-surface-200-800 hover:preset-tonal space-y-2 p-4 md:p-8"
+		>
+			<h3 class="h5">{doc.data.title}</h3>
+			<p class="opacity-60">{doc.data.description}</p>
+		</a>
+	))}
 </nav>

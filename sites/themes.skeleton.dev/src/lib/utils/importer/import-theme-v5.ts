@@ -1,6 +1,6 @@
 // Import v5 Theme File
 // Read a current-format (v5) theme file, updates local generator state.
-import * as constants from '$lib/constants/generator';
+import * as constants from '#lib/constants/generator.ts';
 import {
 	settingsBackgrounds,
 	settingsBrand,
@@ -10,8 +10,8 @@ import {
 	settingsEdges,
 	settingsSpacing,
 	settingsTypography,
-} from '$lib/state/generator.svelte';
-import { genColorRamp } from '$lib/utils/generator/colors';
+} from '#lib/state/generator.svelte.ts';
+import { genColorRamp } from '#lib/utils/generator/colors.ts';
 import chroma from 'chroma-js';
 
 /** Parses a theme file into a flat `Record<key, value>` of CSS custom properties. */

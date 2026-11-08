@@ -2,21 +2,29 @@
 
 import { Switch } from '@skeletonlabs/skeleton-react';
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
+
+function subscribe(callback: () => void) {
+	window.addEventListener('storage', callback);
+	return () => window.removeEventListener('storage', callback);
+}
+
+function getSnapshot(): 'dark' | 'light' {
+	return localStorage.getItem('mode') === 'dark' ? 'dark' : 'light';
+}
+
+function getServerSnapshot(): 'dark' | 'light' {
+	return 'light';
+}
 
 export default function LightSwitch() {
-	const [mode, setMode] = useState<'dark' | 'light' | null>(null);
-
-	useEffect(() => {
-		const mode = localStorage.getItem('mode') || 'light';
-		setMode(mode === 'dark' ? 'dark' : 'light');
-	}, []);
+	const mode = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
 	const onCheckedChange = (event: { checked: boolean }) => {
 		const mode = event.checked ? 'dark' : 'light';
-		setMode(mode);
 		document.documentElement.setAttribute('data-mode', mode);
 		localStorage.setItem('mode', mode);
+		window.dispatchEvent(new StorageEvent('storage'));
 	};
 
 	return (

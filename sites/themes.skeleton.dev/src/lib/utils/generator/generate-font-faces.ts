@@ -1,7 +1,7 @@
 // Utility: Generate Font Faces
 // Generates @font-face CSS for custom Fontsource fonts, for live preview.
-import { settingsCustomFonts } from '$lib/state/generator.svelte';
-import type { CustomFont } from '$lib/state/types';
+import { settingsCustomFonts } from '#lib/state/generator.svelte.ts';
+import type { CustomFont } from '#lib/state/types.ts';
 
 function buildFontFaceBlock(font: CustomFont): string {
 	if (font.isVariableOnly) {

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getCommunityProject } from '$lib/remote/community/get-projects.remote';
+	import PageHeader from '#lib/components/layout/page-header.svelte';
+	import { getCommunityProject } from '#lib/remote/community/get-projects.remote.ts';
 	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
 	import BadgeCheckIcon from '@lucide/svelte/icons/badge-check';
 

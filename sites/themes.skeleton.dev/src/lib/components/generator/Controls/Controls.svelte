@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { globals } from '$lib/state/generator.svelte';
+	import { globals } from '#lib/state/generator.svelte.ts';
 	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
 	import ControlsBrand from './ControlsBrand.svelte';
 	import ControlsColors from './ControlsColors.svelte';
@@ -21,39 +21,39 @@
 	const items = [
 		{
 			value: 'colors',
-			icon: PaletteIcon,
+			Icon: PaletteIcon,
 			label: 'Color Palette',
-			component: ControlsColors,
+			Component: ControlsColors,
 		},
 		{
 			value: 'brand',
-			icon: SparklesIcon,
+			Icon: SparklesIcon,
 			label: 'Brand',
-			component: ControlsBrand,
+			Component: ControlsBrand,
 		},
 		{
 			value: 'backgrounds',
-			icon: LayersIcon,
+			Icon: LayersIcon,
 			label: 'Backgrounds',
-			component: ControlsBackgrounds,
+			Component: ControlsBackgrounds,
 		},
 		{
 			value: 'spacing',
-			icon: ScalingIcon,
+			Icon: ScalingIcon,
 			label: 'Spacing',
-			component: ControlsSpacing,
+			Component: ControlsSpacing,
 		},
 		{
 			value: 'edges',
-			icon: SquareDashedIcon,
+			Icon: SquareDashedIcon,
 			label: 'Edges',
-			component: ControlsEdges,
+			Component: ControlsEdges,
 		},
 		{
 			value: 'typography',
-			icon: ALargeSmallIcon,
+			Icon: ALargeSmallIcon,
 			label: 'Typography',
-			component: ControlsTypography,
+			Component: ControlsTypography,
 		},
 	];
 </script>
@@ -85,7 +85,7 @@
 					<h4 class="h4">
 						<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none">
 							<span class="btn-icon preset-tonal">
-								<svelte:component this={item.icon} class="size-5" />
+								<item.Icon class="size-5" />
 							</span>
 							{item.label}
 							<Accordion.ItemIndicator>
@@ -102,7 +102,7 @@
 						</Accordion.ItemTrigger>
 					</h4>
 					<Accordion.ItemContent class="p-5">
-						<svelte:component this={item.component} />
+						<item.Component />
 					</Accordion.ItemContent>
 				</Accordion.Item>
 			{/each}

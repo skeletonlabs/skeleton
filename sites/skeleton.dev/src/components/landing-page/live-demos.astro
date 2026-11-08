@@ -54,27 +54,27 @@ const frameworks = [
 	<div class="self-center space-y-1">
 		<h2 class="h2">Live Demos</h2>
 		<p class="xl:text-balance xl:max-w-96">Test drive Skeleton directly in your browser for supported frameworks.</p>
-		<p class="pt-4 text-xs text-surface-600-400">* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.</p>
+		<p class="pt-4 text-xs text-surface-600-400">
+			* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.
+		</p>
 	</div>
 	<div class="self-center grid grid-cols-2 md:grid-cols-6 gap-4">
-		{
-			frameworks.map((framework) => (
-				<a
-					href={framework.href}
-					target="_blank"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+		{frameworks.map((framework) => (
+			<a
+				href={framework.href}
+				target="_blank"
+				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+			>
+				<div
+					class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center"
+					style={`background-color: ${framework.bgColor}`}
 				>
-					<div
-						class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center"
-						style={`background-color: ${framework.bgColor}`}
-					>
-						<framework.Icon class="size-10 fill-white!" />
-					</div>
-					<p class="font-bold text-xs">
-						{framework.name} {framework.note ? <span class="text-surface-700-300">{framework.note}</span> : ''}
-					</p>
-				</a>
-			))
-		}
+					<framework.Icon class="size-10 fill-white!" />
+				</div>
+				<p class="font-bold text-xs">
+					{framework.name} {framework.note ? <span class="text-surface-700-300">{framework.note}</span> : ''}
+				</p>
+			</a>
+		))}
 	</div>
 </div>
