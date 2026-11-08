@@ -92,7 +92,7 @@
 			>
 				<ToggleGroup.Item
 					value="rtl"
-					class="data-[pressed]:preset-tonal text-surface-contrast-50-950"
+					class="data-pressed:preset-tonal text-surface-contrast-50-950"
 					title="Toggle LTR/RTL Modes"
 					aria-label="Toggle LTR/RTL Modes"
 				>
@@ -112,7 +112,7 @@
 			>
 				<ToggleGroup.Item
 					value="customize"
-					class="data-[pressed]:preset-tonal text-surface-contrast-50-950"
+					class="data-pressed:preset-tonal text-surface-contrast-50-950"
 					title="Customize"
 					aria-label="Customize"
 				>
