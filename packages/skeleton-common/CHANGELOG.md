@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Fix invalid navigation rail gap value by adding the rem unit. ([#4576](https://github.com/skeletonlabs/skeleton/pull/4576))
+- bugfix: invalid navigation rail gap value by adding the rem unit. ([#4576](https://github.com/skeletonlabs/skeleton/pull/4576))
 
 ## 5.0.2
 
