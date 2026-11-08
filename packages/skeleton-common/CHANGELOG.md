@@ -1,5 +1,11 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.4
+
+### Patch Changes
+
+- bugfix: QrCode not displaying correctly on Firefox ([#4595](https://github.com/skeletonlabs/skeleton/pull/4595))
+
 ## 5.0.3
 
 ### Patch Changes
