@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FileUpload } from '../../src/index.js';
+	import { FileUpload } from "../../src/index.js";
 </script>
 
 <FileUpload data-testid="root">
@@ -10,7 +10,10 @@
 	</FileUpload.Dropzone>
 	<FileUpload.ClearTrigger data-testid="clear-trigger" />
 	<FileUpload.ItemGroup data-testid="item-group">
-		<FileUpload.Item file={new File(['test'], 'test.txt', { type: 'text/plain' })} data-testid="item">
+		<FileUpload.Item
+			file={new File(["test"], "test.txt", { type: "text/plain" })}
+			data-testid="item"
+		>
 			<FileUpload.ItemName data-testid="item-name" />
 			<FileUpload.ItemSizeText data-testid="item-size-text" />
 			<FileUpload.ItemDeleteTrigger data-testid="item-delete-trigger" />

@@ -1,12 +1,13 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useCarousel } from '../modules/provider.js';
-import { CarouselRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { splitProps } from '@zag-js/carousel';
-import type { Props } from '@zag-js/carousel';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useCarousel } from "../modules/provider.js";
+import { CarouselRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { splitProps } from "@zag-js/carousel";
+import type { Props } from "@zag-js/carousel";
 
-export interface CarouselRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface CarouselRootProps
+	extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 
 export default function Root(props: CarouselRootProps) {
 	const [carouselProps, componentProps] = splitProps(props);

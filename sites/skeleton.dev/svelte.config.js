@@ -1,4 +1,4 @@
-import { vitePreprocess } from '@astrojs/svelte';
+import { vitePreprocess } from "@astrojs/svelte";
 
 /** @type {Parameters<import('@astrojs/svelte').default>[0]} */
 export default {

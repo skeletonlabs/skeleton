@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { routes } from '$lib/navigation/routes';
-	import { getUser } from '$lib/remote/auth/get-user.remote';
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import { routes } from "#lib/navigation/routes.ts";
+	import { getUser } from "#lib/remote/auth/get-user.remote.ts";
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 
 	const { children } = $props();
 
@@ -17,8 +17,8 @@
 				<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
 			</Avatar>
 			<div class="space-y-0.5">
-				<p class="font-bold truncate">{user.name}</p>
-				<p class="text-xs opacity-60 truncate">{user.email}</p>
+				<p class="truncate font-bold">{user.name}</p>
+				<p class="truncate text-xs opacity-60">{user.email}</p>
 				<p class="badge preset-filled-primary-500">Plus Activated</p>
 			</div>
 		</header>
@@ -28,7 +28,7 @@
 	<ul class="container-cell space-y-2">
 		{#each routes.account as { href, label, icon: Icon } (href)}
 			<li>
-				<a {href} class="flex items-center gap-2 btn justify-start hover:preset-tonal">
+				<a {href} class="btn hover:preset-tonal flex items-center justify-start gap-2">
 					{#if Icon}
 						<Icon class="size-elem-base opacity-60" />
 					{/if}
@@ -39,9 +39,9 @@
 	</ul>
 {/snippet}
 
-<div class="h-full grid grid-cols-1 lg:grid-cols-[auto_minmax(0,1fr)] items-stretch">
+<div class="grid h-full grid-cols-1 items-stretch lg:grid-cols-[auto_minmax(0,1fr)]">
 	<!-- Sidebar -->
-	<aside class="hidden lg:block w-60 bg-surface-50-950 border-r border-surface-200-800">
+	<aside class="bg-surface-50-950 border-surface-200-800 hidden w-60 border-r lg:block">
 		{@render sidebar()}
 	</aside>
 	<!-- Page Content -->

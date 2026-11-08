@@ -1,13 +1,17 @@
-import { ToggleGroup } from '@skeletonlabs/skeleton-react';
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react';
-import { useState } from 'react';
+import { ToggleGroup } from "@skeletonlabs/skeleton-react";
+import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function Controlled() {
-	const [value, setValue] = useState(['bold']);
+	const [value, setValue] = useState(["bold"]);
 
 	return (
 		<div className="flex flex-col items-center gap-4">
-			<ToggleGroup value={value} onValueChange={(details) => setValue(details.value)} multiple>
+			<ToggleGroup
+				value={value}
+				onValueChange={(details) => setValue(details.value)}
+				multiple
+			>
 				<ToggleGroup.Item value="bold">
 					<BoldIcon className="size-4" />
 				</ToggleGroup.Item>
@@ -21,7 +25,8 @@ export default function Controlled() {
 
 			{/* Message */}
 			<p>
-				<span className="opacity-60">You selected</span> <code className="code">{value.length > 0 ? value.join(', ') : 'none'}</code>
+				<span className="opacity-60">You selected</span>{" "}
+				<code className="code">{value.length > 0 ? value.join(", ") : "none"}</code>
 			</p>
 		</div>
 	);

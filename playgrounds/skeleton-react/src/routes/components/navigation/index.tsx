@@ -1,42 +1,42 @@
-'use client';
+"use client";
 
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { BikeIcon } from 'lucide-react';
-import { BookIcon } from 'lucide-react';
-import { HouseIcon } from 'lucide-react';
-import { MountainIcon } from 'lucide-react';
-import { PopcornIcon } from 'lucide-react';
-import { SailboatIcon } from 'lucide-react';
-import { SettingsIcon } from 'lucide-react';
-import { SkullIcon } from 'lucide-react';
-import { TvIcon } from 'lucide-react';
-import { WavesIcon } from 'lucide-react';
-import { ArrowLeftRightIcon } from 'lucide-react';
-import { useState } from 'react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { BikeIcon } from "lucide-react";
+import { BookIcon } from "lucide-react";
+import { HouseIcon } from "lucide-react";
+import { MountainIcon } from "lucide-react";
+import { PopcornIcon } from "lucide-react";
+import { SailboatIcon } from "lucide-react";
+import { SettingsIcon } from "lucide-react";
+import { SkullIcon } from "lucide-react";
+import { TvIcon } from "lucide-react";
+import { WavesIcon } from "lucide-react";
+import { ArrowLeftRightIcon } from "lucide-react";
+import { useState } from "react";
 
-export const Route = createFileRoute('/components/navigation/')({
+export const Route = createFileRoute("/components/navigation/")({
 	component: Page,
 });
 
 function Page() {
 	const links = [
-		{ label: 'Home', href: '#', icon: HouseIcon },
-		{ label: 'Books', href: '#', icon: BookIcon },
-		{ label: 'Movies', href: '#', icon: PopcornIcon },
-		{ label: 'Television', href: '#', icon: TvIcon },
+		{ label: "Home", href: "#", icon: HouseIcon },
+		{ label: "Books", href: "#", icon: BookIcon },
+		{ label: "Movies", href: "#", icon: PopcornIcon },
+		{ label: "Television", href: "#", icon: TvIcon },
 	];
 	const linksSidebar = {
 		entertainment: [
-			{ label: 'Books', href: '#', icon: BookIcon },
-			{ label: 'Movies', href: '#', icon: PopcornIcon },
-			{ label: 'Television', href: '#', icon: TvIcon },
+			{ label: "Books", href: "#", icon: BookIcon },
+			{ label: "Movies", href: "#", icon: PopcornIcon },
+			{ label: "Television", href: "#", icon: TvIcon },
 		],
 		recreation: [
-			{ label: 'Biking', href: '#', icon: BikeIcon },
-			{ label: 'Sailing', href: '#', icon: SailboatIcon },
-			{ label: 'Hiking', href: '#', icon: MountainIcon },
-			{ label: 'Swimming', href: '#', icon: WavesIcon },
+			{ label: "Biking", href: "#", icon: BikeIcon },
+			{ label: "Sailing", href: "#", icon: SailboatIcon },
+			{ label: "Hiking", href: "#", icon: MountainIcon },
+			{ label: "Swimming", href: "#", icon: WavesIcon },
 		],
 	};
 
@@ -53,8 +53,8 @@ function Page() {
 			</header>
 			<section className="space-y-4">
 				<h3 className="h3">Bar</h3>
-				<div className="w-[375px] h-[667px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-					<div className="flex justify-center items-center">
+				<div className="border-surface-200-800 grid h-[667px] w-[375px] grid-rows-[1fr_auto] border">
+					<div className="flex items-center justify-center">
 						<p>Contents</p>
 					</div>
 					<Navigation layout="bar">
@@ -64,7 +64,9 @@ function Page() {
 								return (
 									<Navigation.TriggerAnchor key={link.label} href={link.href}>
 										<Icon className="size-5" />
-										<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+										<Navigation.TriggerText>
+											{link.label}
+										</Navigation.TriggerText>
 									</Navigation.TriggerAnchor>
 								);
 							})}
@@ -75,10 +77,14 @@ function Page() {
 
 			<section className="space-y-4">
 				<h3 className="h3">Rail</h3>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] border">
 					<Navigation layout="rail">
 						<Navigation.Header>
-							<Navigation.TriggerAnchor href="/" title="View Homepage" aria-label="View Homepage">
+							<Navigation.TriggerAnchor
+								href="/"
+								title="View Homepage"
+								aria-label="View Homepage"
+							>
 								<SkullIcon className="size-8" />
 							</Navigation.TriggerAnchor>
 						</Navigation.Header>
@@ -89,19 +95,25 @@ function Page() {
 									return (
 										<Navigation.TriggerAnchor key={link.label} href={link.href}>
 											<Icon className="size-6" />
-											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+											<Navigation.TriggerText>
+												{link.label}
+											</Navigation.TriggerText>
 										</Navigation.TriggerAnchor>
 									);
 								})}
 							</Navigation.Menu>
 						</Navigation.Content>
 						<Navigation.Footer>
-							<Navigation.TriggerAnchor href="#" title="Settings" aria-label="Settings">
+							<Navigation.TriggerAnchor
+								href="#"
+								title="Settings"
+								aria-label="Settings"
+							>
 								<SettingsIcon className="size-6" />
 							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>
@@ -109,10 +121,13 @@ function Page() {
 
 			<section className="space-y-4">
 				<h3 className="h3">Sidebar</h3>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
 					<Navigation layout="sidebar" className="grid grid-rows-[auto_1fr_auto] gap-4">
 						<Navigation.Header>
-							<a href="https://www.skeleton.dev" className="btn-icon btn-icon-lg preset-filled-primary-500">
+							<a
+								href="https://www.skeleton.dev"
+								className="btn-icon btn-icon-lg preset-filled-primary-500"
+							>
 								<SkullIcon className="size-6" />
 							</a>
 						</Navigation.Header>
@@ -127,14 +142,22 @@ function Page() {
 							</Navigation.Group>
 							{Object.entries(linksSidebar).map(([category, links]) => (
 								<Navigation.Group key={category}>
-									<Navigation.Label className="capitalize pl-2">{category}</Navigation.Label>
+									<Navigation.Label className="pl-2 capitalize">
+										{category}
+									</Navigation.Label>
 									<Navigation.Menu>
 										{links.map((link) => {
 											const Icon = link.icon;
 											return (
-												<Navigation.TriggerAnchor key={link.label} title={link.label} aria-label={link.label}>
+												<Navigation.TriggerAnchor
+													key={link.label}
+													title={link.label}
+													aria-label={link.label}
+												>
 													<Icon className="size-4" />
-													<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+													<Navigation.TriggerText>
+														{link.label}
+													</Navigation.TriggerText>
 												</Navigation.TriggerAnchor>
 											);
 										})}
@@ -143,13 +166,17 @@ function Page() {
 							))}
 						</Navigation.Content>
 						<Navigation.Footer>
-							<Navigation.TriggerAnchor href="/" title="Settings" aria-label="Settings">
+							<Navigation.TriggerAnchor
+								href="/"
+								title="Settings"
+								aria-label="Settings"
+							>
 								<SettingsIcon className="size-4" />
 								<Navigation.TriggerText>Settings</Navigation.TriggerText>
 							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>
@@ -157,17 +184,24 @@ function Page() {
 
 			<section className="space-y-4">
 				<h3 className="h3">Toggle Layout</h3>
-				<pre className="pre">Layout: {JSON.stringify(layoutRail ? 'Rail' : 'Sidebar', null, 2)}</pre>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
-					<Navigation layout={layoutRail ? 'rail' : 'sidebar'} className={layoutRail ? '' : 'grid grid-rows-[1fr_auto] gap-4'}>
+				<pre className="pre">
+					Layout: {JSON.stringify(layoutRail ? "Rail" : "Sidebar", null, 2)}
+				</pre>
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
+					<Navigation
+						layout={layoutRail ? "rail" : "sidebar"}
+						className={layoutRail ? "" : "grid grid-rows-[1fr_auto] gap-4"}
+					>
 						<Navigation.Content>
 							<Navigation.Menu>
 								{links.map((link) => {
 									const Icon = link.icon;
 									return (
 										<Navigation.TriggerAnchor key={link.label}>
-											<Icon className={layoutRail ? 'size-6' : 'size-4'} />
-											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+											<Icon className={layoutRail ? "size-6" : "size-4"} />
+											<Navigation.TriggerText>
+												{link.label}
+											</Navigation.TriggerText>
 										</Navigation.TriggerAnchor>
 									);
 								})}
@@ -175,12 +209,12 @@ function Page() {
 						</Navigation.Content>
 						<Navigation.Footer>
 							<Navigation.Trigger onClick={toggleLayout}>
-								<ArrowLeftRightIcon className={layoutRail ? 'size-6' : 'size-4'} />
-								{!layoutRail ? <span>Resize</span> : ''}
+								<ArrowLeftRightIcon className={layoutRail ? "size-6" : "size-4"} />
+								{!layoutRail ? <span>Resize</span> : ""}
 							</Navigation.Trigger>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>

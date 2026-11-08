@@ -1,7 +1,8 @@
 {
 	"name": "@skeletonlabs/docs",
-	"version": "5.0.1",
+	"version": "5.0.2",
 	"description": "Documentation generator for various Skeleton packages",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
@@ -10,27 +11,26 @@
 	"files": [
 		"data"
 	],
+	"type": "module",
 	"sideEffects": false,
+	"exports": {
+		"./components.json": "./data/components.json"
+	},
 	"scripts": {
 		"generate": "node ./src/index.ts",
 		"check": "tsc",
 		"prepack": "clean-package",
 		"postpack": "clean-package restore"
 	},
-	"exports": {
-		"./components.json": "./data/components.json"
-	},
 	"devDependencies": {
+		"@clack/prompts": "catalog:",
 		"@types/node": "catalog:",
 		"clean-package": "catalog:",
 		"svelte": "catalog:",
 		"tinyglobby": "catalog:",
 		"ts-morph": "catalog:",
-		"typescript": "catalog:",
-		"@clack/prompts": "catalog:"
+		"typescript": "catalog:"
 	},
-	"license": "MIT",
-	"type": "module",
 	"clean-package": {
 		"remove": [
 			"scripts",

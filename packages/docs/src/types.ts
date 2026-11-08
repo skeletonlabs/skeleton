@@ -1,4 +1,4 @@
-export type TypeKind = 'function' | 'array' | 'object' | 'primitive';
+export type TypeKind = "function" | "array" | "object" | "primitive";
 
 export interface Property {
 	name: string;

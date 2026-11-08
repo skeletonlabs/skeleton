@@ -1,4 +1,4 @@
-import { DatePicker, parseDate } from '../../src/index.js';
+import { DatePicker, parseDate } from "../../src/index.js";
 
 export default function Test() {
 	return (
@@ -28,7 +28,10 @@ export default function Test() {
 							</DatePicker.TableHead>
 							<DatePicker.TableBody data-testid="table-body">
 								<DatePicker.TableRow data-testid="table-row">
-									<DatePicker.TableCell value={parseDate('1970-01-01')} data-testid="table-cell">
+									<DatePicker.TableCell
+										value={parseDate("1970-01-01")}
+										data-testid="table-cell"
+									>
 										<DatePicker.TableCellTrigger data-testid="table-cell-trigger" />
 									</DatePicker.TableCell>
 								</DatePicker.TableRow>

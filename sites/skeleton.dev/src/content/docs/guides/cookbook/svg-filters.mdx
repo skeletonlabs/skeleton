@@ -1,16 +1,16 @@
 ---
 title: SVG Filters
 description: Apply filter effects to elements and images.
-tags: ['native', 'effects']
+tags: ["native", "effects"]
 ---
 
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/guides/cookbook/svg-filters/react/default';
-import DefaultReactRaw from '@/components/examples/guides/cookbook/svg-filters/react/default.tsx?raw';
-import DefaultSvelte from '@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte?raw';
+import DefaultReact from "@/components/examples/guides/cookbook/svg-filters/react/default";
+import DefaultReactRaw from "@/components/examples/guides/cookbook/svg-filters/react/default.tsx?raw";
+import DefaultSvelte from "@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/guides/cookbook/svg-filters/svelte/default.svelte?raw";
 
 ## How It Works
 
@@ -26,7 +26,7 @@ Apply a filter to any element using the Filter style property and passing the un
 {
 	/* The Target Element */
 }
-<img style={{ filter: 'url(#Apollo)' }} />;
+<img style={{ filter: "url(#Apollo)" }} />;
 
 {
 	/* Via arbitrary Tailwind syntax */
@@ -61,12 +61,12 @@ Apply a filter to any element using the Filter style property and passing the un
 We've provided a curated collection of SVG Filters to choose from below.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>

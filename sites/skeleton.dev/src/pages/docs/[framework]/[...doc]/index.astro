@@ -1,11 +1,11 @@
 ---
-import RootLayout from '@/components/layouts/root-layout.astro';
-import DocsLayout from '@/components/layouts/docs-layout.astro';
-import { getCollection, getSiblingDoc } from '@/modules/content';
+import RootLayout from "@/components/layouts/root-layout.astro";
+import DocsLayout from "@/components/layouts/docs-layout.astro";
+import { getCollection, getSiblingDoc } from "@/modules/content";
 
 export async function getStaticPaths() {
-	const frameworks = await getCollection('frameworks');
-	const docs = await getCollection('docs');
+	const frameworks = await getCollection("frameworks");
+	const docs = await getCollection("docs");
 	return frameworks.flatMap((framework) =>
 		docs.map((doc) => ({
 			params: {
@@ -13,9 +13,9 @@ export async function getStaticPaths() {
 				doc: doc.id,
 			},
 			props: {
-				previousDoc: getSiblingDoc(doc, 'previous'),
+				previousDoc: getSiblingDoc(doc, "previous"),
 				doc,
-				nextDoc: getSiblingDoc(doc, 'next'),
+				nextDoc: getSiblingDoc(doc, "next"),
 			},
 		})),
 	);

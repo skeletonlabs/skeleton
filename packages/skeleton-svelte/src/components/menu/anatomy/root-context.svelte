@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useMenu } from '../modules/provider.svelte.js';
-	import type { Snippet } from 'svelte';
+	import type { useMenu } from "../modules/provider.svelte.js";
+	import type { Snippet } from "svelte";
 
 	export interface MenuRootContextProps {
 		children: Snippet<[ReturnType<typeof useMenu>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { MenuRootContext } from '../modules/root-context.js';
+	import { MenuRootContext } from "../modules/root-context.js";
 
 	const props: MenuRootContextProps = $props();
 

@@ -11,7 +11,11 @@
 </script>
 
 <!-- Dialog -->
-<dialog bind:this={dialogRef} closedby="any" class="dialog preset-filled-surface-100-900 animate-dialog">
+<dialog
+	bind:this={dialogRef}
+	closedby="any"
+	class="dialog preset-filled-surface-100-900 animate-dialog"
+>
 	<header>
 		<h2 class="h3">Click outside to close</h2>
 	</header>

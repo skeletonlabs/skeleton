@@ -1,16 +1,16 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface AppBarToolbarProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface AppBarToolbarProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function AppBarToolbar(props: AppBarToolbarProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'app-bar',
-			'data-part': 'toolbar',
+			"data-scope": "app-bar",
+			"data-part": "toolbar",
 		},
 		rest,
 	);

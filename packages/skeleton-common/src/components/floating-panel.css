@@ -1,5 +1,5 @@
-[data-scope='floating-panel'] {
-	&[data-part='content'] {
+[data-scope="floating-panel"] {
+	&[data-part="content"] {
 		overflow: hidden;
 		border: 1px solid var(--color-surface-300-700);
 		display: flex;
@@ -8,7 +8,7 @@
 		@apply card shadow-lg;
 	}
 
-	&[data-part='header'] {
+	&[data-part="header"] {
 		padding: --spacing(2) --spacing(4);
 		display: grid;
 		grid-template-columns: 1fr auto;
@@ -18,7 +18,7 @@
 		overflow-y: hidden;
 	}
 
-	&[data-part='title'] {
+	&[data-part="title"] {
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
@@ -26,12 +26,12 @@
 		white-space: nowrap;
 	}
 
-	&[data-part='control'] {
+	&[data-part="control"] {
 		display: flex;
 		gap: --spacing(1);
 	}
 
-	&[data-part='stage-trigger'] {
+	&[data-part="stage-trigger"] {
 		@apply btn-icon;
 
 		@variant hover {
@@ -39,7 +39,7 @@
 		}
 	}
 
-	&[data-part='close-trigger'] {
+	&[data-part="close-trigger"] {
 		@apply btn-icon;
 
 		@variant hover {
@@ -47,7 +47,7 @@
 		}
 	}
 
-	&[data-part='body'] {
+	&[data-part="body"] {
 		flex: 1;
 		min-height: 0;
 		background: var(--color-surface-100-900);
@@ -55,14 +55,14 @@
 		overflow-y: auto;
 	}
 
-	&[data-part='resize-trigger'] {
-		&[data-axis*='n'],
-		&[data-axis*='s'] {
+	&[data-part="resize-trigger"] {
+		&[data-axis*="n"],
+		&[data-axis*="s"] {
 			height: --spacing(2);
 		}
 
-		&[data-axis*='e'],
-		&[data-axis*='w'] {
+		&[data-axis*="e"],
+		&[data-axis*="w"] {
 			width: --spacing(2);
 		}
 	}

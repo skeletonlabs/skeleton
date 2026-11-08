@@ -40,17 +40,17 @@ Reference files:
 In the parent `.mdx`, import both the component and its raw source:
 
 ```mdx
-import Default from '@/components/examples/<category>/<slug>/default.astro';
-import DefaultRaw from '@/components/examples/<category>/<slug>/default.astro?raw';
+import Default from "@/components/examples/<category>/<slug>/default.astro";
+import DefaultRaw from "@/components/examples/<category>/<slug>/default.astro?raw";
 ```
 
 For framework-specific examples, append framework suffix to the import name:
 
 ```mdx
-import DefaultReact from '@/components/examples/<category>/<slug>/react/default';
-import DefaultReactRaw from '@/components/examples/<category>/<slug>/react/default?raw';
-import DefaultSvelte from '@/components/examples/<category>/<slug>/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/<category>/<slug>/svelte/default.svelte?raw';
+import DefaultReact from "@/components/examples/<category>/<slug>/react/default";
+import DefaultReactRaw from "@/components/examples/<category>/<slug>/react/default?raw";
+import DefaultSvelte from "@/components/examples/<category>/<slug>/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/<category>/<slug>/svelte/default.svelte?raw";
 ```
 
 ### `<Preview>` block
@@ -58,7 +58,7 @@ import DefaultSvelteRaw from '@/components/examples/<category>/<slug>/svelte/def
 Wraps the rendered example in a card with a code-toggle and (when `framework` is set) a Stackblitz button.
 
 ```mdx
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+<Preview files={{ "app.astro": DefaultRaw }} client:visible>
 	<Default />
 </Preview>
 ```
@@ -73,12 +73,12 @@ Only renders its children when the active framework switcher matches `id`. Use i
 
 ```mdx
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>

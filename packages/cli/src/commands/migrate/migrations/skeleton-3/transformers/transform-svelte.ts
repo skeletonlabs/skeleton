@@ -1,23 +1,23 @@
-import { hasRange } from '../../../../../utility/svelte/has-range.js';
-import { renameComponent } from '../../../../../utility/svelte/rename-component.js';
-import { EXPORT_MAPPINGS } from '../utility/export-mappings.js';
-import { transformClasses } from './transform-classes.js';
-import { transformModule } from './transform-module.js';
-import { transformStylesheet } from './transform-stylesheet.js';
-import { log } from '@clack/prompts';
-import MagicString from 'magic-string';
-import { parse } from 'svelte/compiler';
-import type { AST } from 'svelte/compiler';
-import { walk } from 'zimmerframe';
+import { hasRange } from "../../../../../utility/svelte/has-range.js";
+import { renameComponent } from "../../../../../utility/svelte/rename-component.js";
+import { EXPORT_MAPPINGS } from "../utility/export-mappings.js";
+import { transformClasses } from "./transform-classes.js";
+import { transformModule } from "./transform-module.js";
+import { transformStylesheet } from "./transform-stylesheet.js";
+import { log } from "@clack/prompts";
+import MagicString from "magic-string";
+import { parse } from "svelte/compiler";
+import type { AST } from "svelte/compiler";
+import { walk } from "zimmerframe";
 
 function transformScript(s: MagicString, script: AST.Script | null) {
 	if (
 		!script ||
 		!(
-			'start' in script.content &&
-			typeof script.content.start === 'number' &&
-			'end' in script.content &&
-			typeof script.content.end === 'number'
+			"start" in script.content &&
+			typeof script.content.start === "number" &&
+			"end" in script.content &&
+			typeof script.content.end === "number"
 		)
 	) {
 		return {
@@ -39,10 +39,14 @@ function transformCss(s: MagicString, css: AST.CSS.StyleSheet | null) {
 		return;
 	}
 	try {
-		const transformed = transformStylesheet(s.original.slice(css.content.start, css.content.end));
+		const transformed = transformStylesheet(
+			s.original.slice(css.content.start, css.content.end),
+		);
 		s.overwrite(css.content.start, css.content.end, transformed.code);
 	} catch (error) {
-		log.warn(`Failed to transform CSS in Svelte component, skipping: ${error instanceof Error ? error.message : 'Unknown error'}`);
+		log.warn(
+			`Failed to transform CSS in Svelte component, skipping: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
 	}
 }
 
@@ -53,31 +57,47 @@ function transformFragment(s: MagicString, fragment: AST.Fragment, skeletonImpor
 		{
 			Literal(node, ctx) {
 				const parent = ctx.path.at(-1);
-				if (typeof node.raw === 'string' && node.raw !== '' && !(parent && parent.type === 'ImportDeclaration') && hasRange(node)) {
+				if (
+					typeof node.raw === "string" &&
+					node.raw !== "" &&
+					!(parent && parent.type === "ImportDeclaration") &&
+					hasRange(node)
+				) {
 					s.update(node.start, node.end, transformClasses(node.raw).code);
 				}
 				ctx.next();
 			},
 			Text(node, ctx) {
-				if (node.data !== '' && hasRange(node)) {
+				if (node.data !== "" && hasRange(node)) {
 					s.update(node.start, node.end, transformClasses(node.data).code);
 				}
 				ctx.next();
 			},
 			ClassDirective(node, ctx) {
 				if (
-					!(node.expression.type === 'Identifier' && !('loc' in node.expression) && node.name === node.expression.name) &&
+					!(
+						node.expression.type === "Identifier" &&
+						!("loc" in node.expression) &&
+						node.name === node.expression.name
+					) &&
 					hasRange(node)
 				) {
-					const adjustedStart = node.start + 'class:'.length;
-					s.update(adjustedStart, adjustedStart + node.name.length, transformClasses(node.name).code);
+					const adjustedStart = node.start + "class:".length;
+					s.update(
+						adjustedStart,
+						adjustedStart + node.name.length,
+						transformClasses(node.name).code,
+					);
 				}
 				ctx.next();
 			},
 			Component(node, ctx) {
-				if (Object.hasOwn(EXPORT_MAPPINGS, node.name) && skeletonImports.includes(node.name)) {
+				if (
+					Object.hasOwn(EXPORT_MAPPINGS, node.name) &&
+					skeletonImports.includes(node.name)
+				) {
 					const exportMapping = EXPORT_MAPPINGS[node.name];
-					if (exportMapping?.identifier.type === 'renamed' && hasRange(node)) {
+					if (exportMapping?.identifier.type === "renamed" && hasRange(node)) {
 						renameComponent(s, node, exportMapping.identifier.value);
 					}
 				}

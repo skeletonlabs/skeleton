@@ -8,7 +8,7 @@
 
 <div class="w-full space-y-4">
 	<!-- Controls -->
-	<header class="flex flex-col items-center gap-4 max-w-96 mx-auto">
+	<header class="mx-auto flex max-w-96 flex-col items-center gap-4">
 		<div><code class="code">--text-scaling: {current}</code></div>
 		<input class="input" type="range" bind:value min="0" max={options.length - 1} />
 	</header>

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { openStackblitzProject } from '@/modules/stackblitz/stackblitz';
-	import type { CollectionEntry } from 'astro:content';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import { openStackblitzProject } from "@/modules/stackblitz/stackblitz";
+	import type { CollectionEntry } from "astro:content";
+	import type { HTMLButtonAttributes } from "svelte/elements";
 
 	interface Props extends HTMLButtonAttributes {
-		framework: CollectionEntry<'frameworks'>['id'];
+		framework: CollectionEntry<"frameworks">["id"];
 		files: Record<string, string>;
 	}
 

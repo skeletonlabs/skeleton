@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useListbox } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useListbox } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface ListboxRootContextProps {
 		children: Snippet<[ReturnType<typeof useListbox>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { ListboxRootContext } from '../modules/root-context.js';
+	import { ListboxRootContext } from "../modules/root-context.js";
 
 	const props: ListboxRootContextProps = $props();
 

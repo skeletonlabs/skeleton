@@ -22,7 +22,9 @@
 		<h2 id="alertdialog-title" class="h3">Discard changes?</h2>
 	</header>
 	<article>
-		<p id="alertdialog-description">You have unsaved changes that will be lost. This action cannot be undone.</p>
+		<p id="alertdialog-description">
+			You have unsaved changes that will be lost. This action cannot be undone.
+		</p>
 	</article>
 	<footer class="flex justify-end gap-2">
 		<button type="button" class="btn preset-tonal" onclick={closeModal}>Cancel</button>

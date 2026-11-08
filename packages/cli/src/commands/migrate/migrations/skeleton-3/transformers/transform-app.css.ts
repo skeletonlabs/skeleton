@@ -1,12 +1,12 @@
-import type { Theme } from '../utility/types.js';
-import { transformStylesheet } from './transform-stylesheet.js';
-import { atRule, comment, parse } from 'postcss';
-import type { AtRule, Node, Root } from 'postcss';
+import type { Theme } from "../utility/types.js";
+import { transformStylesheet } from "./transform-stylesheet.js";
+import { atRule, comment, parse } from "postcss";
+import type { AtRule, Node, Root } from "postcss";
 
 function getTailwindImport(root: Root) {
 	let tailwindImport: AtRule | undefined;
-	root.walkAtRules('import', (atRule) => {
-		if (atRule.params.includes('tailwindcss')) {
+	root.walkAtRules("import", (atRule) => {
+		if (atRule.params.includes("tailwindcss")) {
 			tailwindImport = atRule;
 		}
 	});
@@ -19,28 +19,30 @@ function transformAppCss(code: string, theme: Theme) {
 	const nodes: Node[] = [];
 	nodes.push(
 		atRule({
-			name: 'import',
+			name: "import",
 			params: '"@skeletonlabs/skeleton"',
 		}),
 	);
 	nodes.push(
 		atRule({
-			name: 'import',
+			name: "import",
 			params: '"@skeletonlabs/skeleton/optional/presets"',
 		}),
 	);
 	switch (theme.type) {
-		case 'preset': {
+		case "preset": {
 			nodes.push(
 				atRule({
-					name: 'import',
+					name: "import",
 					params: `"@skeletonlabs/skeleton/themes/${theme.value}"`,
 				}),
 			);
 			break;
 		}
-		case 'custom': {
-			nodes.push(comment({ text: `Add your theme import for your theme: "${theme.value}" here` }));
+		case "custom": {
+			nodes.push(
+				comment({ text: `Add your theme import for your theme: "${theme.value}" here` }),
+			);
 			break;
 		}
 	}

@@ -1,5 +1,9 @@
-import { SegmentedControl } from '@skeletonlabs/skeleton-react';
-import { AlignStartVerticalIcon, AlignCenterVerticalIcon, AlignEndVerticalIcon } from 'lucide-react';
+import { SegmentedControl } from "@skeletonlabs/skeleton-react";
+import {
+	AlignStartVerticalIcon,
+	AlignCenterVerticalIcon,
+	AlignEndVerticalIcon,
+} from "lucide-react";
 
 export default function Icons() {
 	return (

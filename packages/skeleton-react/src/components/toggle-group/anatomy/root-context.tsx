@@ -1,7 +1,7 @@
-import type { useToggleGroup } from '../modules/provider.js';
-import { ToggleGroupRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useToggleGroup } from "../modules/provider.js";
+import { ToggleGroupRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface ToggleGroupRootContextProps {
 	children: (togglegroup: ReturnType<typeof useToggleGroup>) => ReactNode;

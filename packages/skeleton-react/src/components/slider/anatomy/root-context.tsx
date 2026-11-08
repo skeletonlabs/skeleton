@@ -1,7 +1,7 @@
-import type { useSlider } from '../modules/provider.js';
-import { SliderRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useSlider } from "../modules/provider.js";
+import { SliderRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface SliderRootContextProps {
 	children: (slider: ReturnType<typeof useSlider>) => ReactNode;

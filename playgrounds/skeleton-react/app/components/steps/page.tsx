@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Steps } from '@skeletonlabs/skeleton-react';
+import { Steps } from "@skeletonlabs/skeleton-react";
 
 export default function Page() {
 	return (
@@ -29,7 +29,7 @@ export default function Page() {
 			<Steps.Content index={1}>Then do that.</Steps.Content>
 			<Steps.Content index={2}>Almost there...</Steps.Content>
 			<Steps.Content index={3}>All done!</Steps.Content>
-			<div className="flex justify-between items-center gap-2">
+			<div className="flex items-center justify-between gap-2">
 				<Steps.PrevTrigger className="btn preset-filled">Previous</Steps.PrevTrigger>
 				<Steps.NextTrigger className="btn preset-filled">Next</Steps.NextTrigger>
 			</div>

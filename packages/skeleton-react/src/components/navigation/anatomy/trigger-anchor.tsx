@@ -1,10 +1,10 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { NavigationRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { NavigationRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface NavigationTriggerAnchorProps extends PropsWithElement<'a'>, HTMLAttributes<'a'> {}
+export interface NavigationTriggerAnchorProps extends PropsWithElement<"a">, HTMLAttributes<"a"> {}
 
 export default function NavigationTriggerAnchor(props: NavigationTriggerAnchorProps) {
 	const { element, children, ...rest } = props;
@@ -13,9 +13,9 @@ export default function NavigationTriggerAnchor(props: NavigationTriggerAnchorPr
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'trigger-anchor',
-			'data-layout': navigation.layout,
+			"data-scope": "navigation",
+			"data-part": "trigger-anchor",
+			"data-layout": navigation.layout,
 		},
 		rest,
 	);

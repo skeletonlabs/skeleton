@@ -1,17 +1,20 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/date-picker';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/date-picker";
 
 	export interface DatePickerRootProps
-		extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {}
+		extends
+			Omit<Props, "id">,
+			PropsWithElement<"div">,
+			HTMLAttributes<"div", "id" | "dir" | "placeholder"> {}
 </script>
 
 <script lang="ts">
-	import { useDatePicker } from '../modules/provider.svelte';
-	import { DatePickerRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/date-picker';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useDatePicker } from "../modules/provider.svelte";
+	import { DatePickerRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/date-picker";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: DatePickerRootProps = $props();
 

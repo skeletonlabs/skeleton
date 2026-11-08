@@ -1,4 +1,4 @@
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function Orientation() {
 	return (

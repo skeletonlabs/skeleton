@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/steps';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/steps";
 
-	export interface StepsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface StepsRootProps
+		extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 </script>
 
 <script lang="ts">
-	import { useSteps } from '../modules/provider.svelte';
-	import { StepsRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/steps';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useSteps } from "../modules/provider.svelte";
+	import { StepsRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/steps";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: StepsRootProps = $props();
 

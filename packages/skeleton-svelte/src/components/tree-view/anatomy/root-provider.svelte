@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface TreeViewRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface TreeViewRootProviderProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {
 		value: ReturnType<typeof useTreeView>;
 	}
 </script>
 
 <script lang="ts">
-	import { useTreeView } from '../modules/provider.svelte';
-	import { TreeViewRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useTreeView } from "../modules/provider.svelte";
+	import { TreeViewRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: TreeViewRootProviderProps = $props();
 

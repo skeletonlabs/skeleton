@@ -1,32 +1,32 @@
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { BikeIcon } from 'lucide-react';
-import { BookIcon } from 'lucide-react';
-import { HouseIcon } from 'lucide-react';
-import { MountainIcon } from 'lucide-react';
-import { PopcornIcon } from 'lucide-react';
-import { SailboatIcon } from 'lucide-react';
-import { SettingsIcon } from 'lucide-react';
-import { SkullIcon } from 'lucide-react';
-import { TvIcon } from 'lucide-react';
-import { WavesIcon } from 'lucide-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import { BikeIcon } from "lucide-react";
+import { BookIcon } from "lucide-react";
+import { HouseIcon } from "lucide-react";
+import { MountainIcon } from "lucide-react";
+import { PopcornIcon } from "lucide-react";
+import { SailboatIcon } from "lucide-react";
+import { SettingsIcon } from "lucide-react";
+import { SkullIcon } from "lucide-react";
+import { TvIcon } from "lucide-react";
+import { WavesIcon } from "lucide-react";
 
 export default function Default() {
 	const linksSidebar = {
 		entertainment: [
-			{ label: 'Books', href: '/#', icon: BookIcon },
-			{ label: 'Movies', href: '/#', icon: PopcornIcon },
-			{ label: 'Television', href: '/#', icon: TvIcon },
+			{ label: "Books", href: "/#", icon: BookIcon },
+			{ label: "Movies", href: "/#", icon: PopcornIcon },
+			{ label: "Television", href: "/#", icon: TvIcon },
 		],
 		recreation: [
-			{ label: 'Biking', href: '/#', icon: BikeIcon },
-			{ label: 'Sailing', href: '/#', icon: SailboatIcon },
-			{ label: 'Hiking', href: '/#', icon: MountainIcon },
-			{ label: 'Swimming', href: '/#', icon: WavesIcon },
+			{ label: "Biking", href: "/#", icon: BikeIcon },
+			{ label: "Sailing", href: "/#", icon: SailboatIcon },
+			{ label: "Hiking", href: "/#", icon: MountainIcon },
+			{ label: "Swimming", href: "/#", icon: WavesIcon },
 		],
 	};
 
 	return (
-		<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
+		<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
 			<Navigation layout="sidebar" className="grid grid-rows-[auto_1fr_auto] gap-4">
 				<Navigation.Header>
 					<Navigation.TriggerAnchor href="https://www.skeleton.dev">
@@ -44,14 +44,22 @@ export default function Default() {
 					</Navigation.Group>
 					{Object.entries(linksSidebar).map(([category, links]) => (
 						<Navigation.Group key={category}>
-							<Navigation.Label className="capitalize pl-2">{category}</Navigation.Label>
+							<Navigation.Label className="pl-2 capitalize">
+								{category}
+							</Navigation.Label>
 							<Navigation.Menu>
 								{links.map((link) => {
 									const Icon = link.icon;
 									return (
-										<Navigation.TriggerAnchor key={link.label} title={link.label} aria-label={link.label}>
+										<Navigation.TriggerAnchor
+											key={link.label}
+											title={link.label}
+											aria-label={link.label}
+										>
 											<Icon className="size-4" />
-											<Navigation.TriggerText>{link.label}</Navigation.TriggerText>
+											<Navigation.TriggerText>
+												{link.label}
+											</Navigation.TriggerText>
 										</Navigation.TriggerAnchor>
 									);
 								})}
@@ -66,7 +74,7 @@ export default function Default() {
 					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
-			<div className="flex justify-center items-center">
+			<div className="flex items-center justify-center">
 				<p className="opacity-50">Contents</p>
 			</div>
 		</div>

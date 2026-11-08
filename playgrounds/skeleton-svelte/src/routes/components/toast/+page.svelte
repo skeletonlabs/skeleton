@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	let overlap = $state(false);
 	let duration: number = $state(Infinity);
@@ -8,10 +8,10 @@
 
 	const createToast = () => {
 		toaster.info({
-			title: 'Toast',
-			description: 'This is a toast message.',
+			title: "Toast",
+			description: "This is a toast message.",
 			duration,
-			action: { label: 'Undo', onClick: () => toaster.success({ title: 'Undone' }) },
+			action: { label: "Undo", onClick: () => toaster.success({ title: "Undone" }) },
 		});
 	};
 </script>
@@ -20,7 +20,7 @@
 
 <label class="label">
 	<span class="label-text">Options</span>
-	<div class="rounded-container border border-surface-200-800 p-2 flex flex-col gap-2">
+	<div class="rounded-container border-surface-200-800 flex flex-col gap-2 border p-2">
 		<label class="flex items-center space-x-2">
 			<input class="checkbox" type="checkbox" bind:checked={overlap} />
 			<span>Overlap</span>

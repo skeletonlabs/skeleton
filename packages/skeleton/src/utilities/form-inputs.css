@@ -20,8 +20,11 @@
 	border-width: 0;
 	--tw-ring-inset: inset;
 	--tw-ring-color: var(--color-surface-300-700);
-	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width) var(--tw-ring-color, currentColor);
-	box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+	--tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 var(--default-ring-width)
+		var(--tw-ring-color, currentColor);
+	box-shadow:
+		var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow),
+		var(--tw-ring-shadow), var(--tw-shadow);
 
 	/* Placeholder */
 	&::placeholder {
@@ -40,7 +43,7 @@
 
 	/* File Input --- */
 
-	&[type='file']::file-selector-button {
+	&[type="file"]::file-selector-button {
 		border-radius: var(--radius-base);
 		background-color: var(--color-surface-950-50);
 		color: var(--color-surface-50-950);
@@ -58,7 +61,7 @@
 	/* Range Input --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color */
 
-	&[type='range'] {
+	&[type="range"] {
 		accent-color: var(--color-surface-950-50);
 		box-shadow: none;
 		padding-inline: initial;
@@ -67,7 +70,7 @@
 	/* Color Picker Input --- */
 	/* https://stackoverflow.com/questions/11167281/webkit-css-to-control-the-box-around-the-color-in-an-inputtype-color */
 
-	&[type='color'] {
+	&[type="color"] {
 		border-radius: var(--radius-base);
 		width: --spacing(10);
 		height: --spacing(10);
@@ -77,17 +80,17 @@
 		-webkit-appearance: none;
 		appearance: none;
 	}
-	&[type='color']::-webkit-color-swatch-wrapper {
+	&[type="color"]::-webkit-color-swatch-wrapper {
 		padding: 0;
 	}
-	&[type='color']::-webkit-color-swatch {
+	&[type="color"]::-webkit-color-swatch {
 		border: none;
 		border-radius: var(--radius-base);
 	}
-	&[type='color']::-moz-color-swatch {
+	&[type="color"]::-moz-color-swatch {
 		border: none;
 	}
-	&[type='color']::-moz-color-swatch {
+	&[type="color"]::-moz-color-swatch {
 		border: none;
 	}
 }

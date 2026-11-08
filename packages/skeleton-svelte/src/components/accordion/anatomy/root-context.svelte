@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useAccordion } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useAccordion } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface AccordionRootContextProps {
 		children: Snippet<[ReturnType<typeof useAccordion>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { AccordionRootContext } from '../modules/root-context.js';
+	import { AccordionRootContext } from "../modules/root-context.js";
 
 	const props: AccordionRootContextProps = $props();
 

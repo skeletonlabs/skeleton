@@ -1,20 +1,20 @@
 <script lang="ts">
-	import { Listbox, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import { Listbox, useListCollection } from "@skeletonlabs/skeleton-svelte";
 
 	const data = [
-		{ label: 'Apple', value: 'apple' },
-		{ label: 'Banana', value: 'banana' },
-		{ label: 'Orange', value: 'orange' },
-		{ label: 'Carrot', value: 'carrot' },
-		{ label: 'Broccoli', value: 'broccoli' },
-		{ label: 'Spinach', value: 'spinach' },
+		{ label: "Apple", value: "apple" },
+		{ label: "Banana", value: "banana" },
+		{ label: "Orange", value: "orange" },
+		{ label: "Carrot", value: "carrot" },
+		{ label: "Broccoli", value: "broccoli" },
+		{ label: "Spinach", value: "spinach" },
 	];
 
 	const collection = useListCollection({
 		items: data,
 		itemToString: (item) => item.label,
 		itemToValue: (item) => item.value,
-		isItemDisabled: (item) => item.value === 'banana',
+		isItemDisabled: (item) => item.value === "banana",
 	});
 </script>
 

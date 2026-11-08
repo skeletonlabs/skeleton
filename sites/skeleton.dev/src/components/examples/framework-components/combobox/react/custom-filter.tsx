@@ -1,18 +1,23 @@
-import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
-import Fuse from 'fuse.js';
-import { useState } from 'react';
+import {
+	Combobox,
+	Portal,
+	type ComboboxRootProps,
+	useListCollection,
+} from "@skeletonlabs/skeleton-react";
+import Fuse from "fuse.js";
+import { useState } from "react";
 
 const data = [
-	{ label: 'Apple', value: 'apple' },
-	{ label: 'Banana', value: 'banana' },
-	{ label: 'Orange', value: 'orange' },
-	{ label: 'Carrot', value: 'carrot' },
-	{ label: 'Broccoli', value: 'broccoli' },
-	{ label: 'Spinach', value: 'spinach' },
+	{ label: "Apple", value: "apple" },
+	{ label: "Banana", value: "banana" },
+	{ label: "Orange", value: "orange" },
+	{ label: "Carrot", value: "carrot" },
+	{ label: "Broccoli", value: "broccoli" },
+	{ label: "Spinach", value: "spinach" },
 ];
 
 const fuse = new Fuse(data, {
-	keys: ['label', 'value'],
+	keys: ["label", "value"],
 	threshold: 0.3,
 });
 
@@ -29,7 +34,7 @@ export default function Default() {
 		setItems(data);
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
+	const onInputValueChange: ComboboxRootProps["onInputValueChange"] = (event) => {
 		const results = fuse.search(event.inputValue);
 		if (results.length > 0) {
 			setItems(results.map((result) => result.item));

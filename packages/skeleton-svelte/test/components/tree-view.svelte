@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { TreeView, createTreeViewCollection } from '../../src/index.js';
+	import { TreeView, createTreeViewCollection } from "../../src/index.js";
 
 	const collection = createTreeViewCollection({
-		rootNode: '',
+		rootNode: "",
 	});
 </script>
 
 <TreeView {collection} data-testid="root">
 	<TreeView.Label data-testid="label" />
 	<TreeView.Tree data-testid="tree">
-		<TreeView.NodeProvider value={{ node: '', indexPath: [] }}>
+		<TreeView.NodeProvider value={{ node: "", indexPath: [] }}>
 			<TreeView.Branch data-testid="branch">
 				<TreeView.BranchControl data-testid="branch-control">
 					<TreeView.BranchIndentGuide data-testid="branch-indent-guide" />

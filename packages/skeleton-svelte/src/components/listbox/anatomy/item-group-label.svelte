@@ -1,16 +1,19 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
 	export interface ListboxItemGroupLabelProps
-		extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+		extends
+			Omit<ItemGroupLabelProps, "htmlFor">,
+			PropsWithElement<"div">,
+			HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { ListboxItemGroupContext } from '../modules/item-group-context.js';
-	import { ListboxRootContext } from '../modules/root-context.js';
-	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/listbox';
-	import { mergeProps } from '@zag-js/svelte';
+	import { ListboxItemGroupContext } from "../modules/item-group-context.js";
+	import { ListboxRootContext } from "../modules/root-context.js";
+	import { type ItemGroupLabelProps, splitItemGroupLabelProps } from "@zag-js/listbox";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ListboxItemGroupLabelProps = $props();
 
@@ -25,7 +28,9 @@
 	);
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(listbox().getItemGroupLabelProps(itemGroupLabelProps), rest));
+	const attributes = $derived(
+		mergeProps(listbox().getItemGroupLabelProps(itemGroupLabelProps), rest),
+	);
 </script>
 
 {#if element}

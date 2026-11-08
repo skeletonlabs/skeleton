@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
+	import { RatingGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <RatingGroup count={5} dir="rtl">

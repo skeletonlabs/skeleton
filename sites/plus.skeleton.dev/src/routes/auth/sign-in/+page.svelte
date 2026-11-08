@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { supportedOAuthProviders } from '$lib/auth/supported-oauth-providers';
-	import SignInButton from '$lib/components/auth/sign-in-button.svelte';
+	import { supportedOAuthProviders } from "#lib/auth/supported-oauth-providers.ts";
+	import SignInButton from "#lib/components/auth/sign-in-button.svelte";
 </script>
 
 <div class="space-y-6 text-center">

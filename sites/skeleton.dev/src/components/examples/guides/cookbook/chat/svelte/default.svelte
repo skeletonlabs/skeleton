@@ -1,6 +1,6 @@
 <script lang="ts">
-	import SendIcon from '@lucide/svelte/icons/send';
-	import { onMount } from 'svelte';
+	import SendIcon from "@lucide/svelte/icons/send";
+	import { onMount } from "svelte";
 
 	// Types
 	interface Person {
@@ -20,16 +20,16 @@
 
 	let elemChat: HTMLElement;
 	const lorem =
-		'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.';
+		"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident blanditiis quidem dolorum ab similique. Voluptatibus quibusdam unde mollitia corrupti assumenda libero. Quibusdam culpa illum unde asperiores accusantium! Unde, cupiditate tenetur.";
 
 	// Navigation List
 	const people: Person[] = [
-		{ id: 0, avatar: 14, name: 'Michael' },
-		{ id: 1, avatar: 40, name: 'Janet' },
-		{ id: 2, avatar: 31, name: 'Susan' },
-		{ id: 3, avatar: 56, name: 'Joey' },
-		{ id: 4, avatar: 24, name: 'Lara' },
-		{ id: 5, avatar: 9, name: 'Melissa' },
+		{ id: 0, avatar: 14, name: "Michael" },
+		{ id: 1, avatar: 40, name: "Janet" },
+		{ id: 2, avatar: 31, name: "Susan" },
+		{ id: 3, avatar: 56, name: "Joey" },
+		{ id: 4, avatar: 24, name: "Lara" },
+		{ id: 5, avatar: 9, name: "Melissa" },
 	];
 	let currentPersonId: number = people[0].id;
 
@@ -39,47 +39,51 @@
 			id: 0,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:30pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:30pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 1,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:45pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:45pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 2,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
-			timestamp: 'Yesterday @ 2:50pm',
+			name: "Jane",
+			timestamp: "Yesterday @ 2:50pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 		{
 			id: 3,
 			host: false,
 			avatar: 14,
-			name: 'Michael',
-			timestamp: 'Yesterday @ 2:52pm',
+			name: "Michael",
+			timestamp: "Yesterday @ 2:52pm",
 			message: lorem,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		},
 	];
-	let currentMessage = '';
+	let currentMessage = "";
 
-	function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth') {
+	function scrollChatBottom(behavior?: "auto" | "instant" | "smooth") {
 		elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 	}
 
 	function getCurrentTimestamp(): string {
-		return new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+		return new Date().toLocaleString("en-US", {
+			hour: "numeric",
+			minute: "numeric",
+			hour12: true,
+		});
 	}
 
 	function addMessage() {
@@ -87,22 +91,22 @@
 			id: messageFeed.length,
 			host: true,
 			avatar: 48,
-			name: 'Jane',
+			name: "Jane",
 			timestamp: `Today @ ${getCurrentTimestamp()}`,
 			message: currentMessage,
-			color: 'preset-tonal-primary',
+			color: "preset-tonal-primary",
 		};
 		// Update the message feed
 		messageFeed = [...messageFeed, newMessage];
 		// Clear prompt
-		currentMessage = '';
+		currentMessage = "";
 		// Smooth scroll to bottom
 		// Timeout prevents race condition
-		setTimeout(() => scrollChatBottom('smooth'), 0);
+		setTimeout(() => scrollChatBottom("smooth"), 0);
 	}
 
 	function onPromptKeydown(event: KeyboardEvent) {
-		if (['Enter'].includes(event.code)) {
+		if (["Enter"].includes(event.code)) {
 			event.preventDefault();
 			addMessage();
 		}
@@ -115,21 +119,22 @@
 </script>
 
 <section class="card bg-surface-100-900 rounded-container overflow-hidden">
-	<div class="chat w-full h-full grid grid-cols-1 lg:grid-cols-[30%_1fr]">
+	<div class="chat grid h-full w-full grid-cols-1 lg:grid-cols-[30%_1fr]">
 		<!-- Navigation -->
-		<div class="hidden lg:grid grid-rows-[auto_1fr_auto] border-r-[1px] border-surface-200-800">
+		<div class="border-surface-200-800 hidden grid-rows-[auto_1fr_auto] border-r-[1px] lg:grid">
 			<!-- Header -->
-			<header class="border-b-[1px] border-surface-200-800 p-4">
+			<header class="border-surface-200-800 border-b-[1px] p-4">
 				<input class="input" type="search" placeholder="Search..." />
 			</header>
 			<!-- List -->
-			<div class="p-4 space-y-4 overflow-y-auto">
+			<div class="space-y-4 overflow-y-auto p-4">
 				<small class="opacity-50">Contacts</small>
 				<div class="flex flex-col space-y-1">
 					{#each people as person (person.id)}
 						<button
 							type="button"
-							class="card p-2 w-full flex items-center space-x-4 {person.id === currentPersonId
+							class="card flex w-full items-center space-x-4 p-2 {person.id ===
+							currentPersonId
 								? 'preset-filled-primary-500'
 								: 'bg-surface-hover-token'}"
 							onclick={() => (currentPersonId = person.id)}
@@ -148,13 +153,13 @@
 		<!-- Chat -->
 		<div class="grid grid-rows-[1fr_auto]">
 			<!-- Conversation -->
-			<section bind:this={elemChat} class="max-h-[500px] p-4 overflow-y-auto space-y-4">
+			<section bind:this={elemChat} class="max-h-[500px] space-y-4 overflow-y-auto p-4">
 				{#each messageFeed as bubble (bubble.id)}
 					{#if bubble.host === true}
 						<div class="grid grid-cols-[auto_1fr] gap-2">
 							<!-- <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> -->
-							<div class="card p-4 preset-tonal rounded-tl-none space-y-2">
-								<header class="flex justify-between items-center">
+							<div class="card preset-tonal space-y-2 rounded-tl-none p-4">
+								<header class="flex items-center justify-between">
 									<p class="font-bold">{bubble.name}</p>
 									<small class="opacity-50">{bubble.timestamp}</small>
 								</header>
@@ -163,8 +168,8 @@
 						</div>
 					{:else}
 						<div class="grid grid-cols-[1fr_auto] gap-2">
-							<div class="card p-4 rounded-tr-none space-y-2 {bubble.color}">
-								<header class="flex justify-between items-center">
+							<div class="card space-y-2 rounded-tr-none p-4 {bubble.color}">
+								<header class="flex items-center justify-between">
 									<p class="font-bold">{bubble.name}</p>
 									<small class="opacity-50">{bubble.timestamp}</small>
 								</header>
@@ -176,19 +181,26 @@
 				{/each}
 			</section>
 			<!-- Prompt -->
-			<section class="border-t-[1px] border-surface-200-800 p-4">
-				<div class="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
+			<section class="border-surface-200-800 border-t-[1px] p-4">
+				<div
+					class="input-group divide-surface-200-800 rounded-container-token grid-cols-[auto_1fr_auto] divide-x"
+				>
 					<button class="input-group-cell preset-tonal">+</button>
 					<textarea
 						value={currentMessage}
 						oninput={(e) => (currentMessage = e.currentTarget.value)}
-						class="bg-transparent border-0 ring-0"
+						class="border-0 bg-transparent ring-0"
 						name="prompt"
 						id="prompt"
 						placeholder="Write a message..."
 						rows="1"
 						onkeydown={onPromptKeydown}></textarea>
-					<button class="input-group-cell {currentMessage ? 'preset-filled-primary-500' : 'preset-tonal'}" onclick={addMessage}>
+					<button
+						class="input-group-cell {currentMessage
+							? 'preset-filled-primary-500'
+							: 'preset-tonal'}"
+						onclick={addMessage}
+					>
 						<SendIcon />
 					</button>
 				</div>

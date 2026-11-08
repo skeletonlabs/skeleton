@@ -1,20 +1,30 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import type { Union } from '../../../internal/union.js';
-import { DatePickerRootContext } from '../modules/root-context.js';
-import { DatePickerTableCellContext } from '../modules/table-cell-context.js';
-import { DatePickerViewContext } from '../modules/view-context.js';
-import { splitTableCellProps, type DayTableCellProps, type TableCellProps } from '@zag-js/date-picker';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import type { Union } from "../../../internal/union.js";
+import { DatePickerRootContext } from "../modules/root-context.js";
+import { DatePickerTableCellContext } from "../modules/table-cell-context.js";
+import { DatePickerViewContext } from "../modules/view-context.js";
+import {
+	splitTableCellProps,
+	type DayTableCellProps,
+	type TableCellProps,
+} from "@zag-js/date-picker";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface DatePickerTableCellProps extends Union<TableCellProps, DayTableCellProps>, PropsWithElement<'td'>, HTMLAttributes<'td'> {}
+export interface DatePickerTableCellProps
+	extends
+		Union<TableCellProps, DayTableCellProps>,
+		PropsWithElement<"td">,
+		HTMLAttributes<"td"> {}
 
 export default function TableCell(props: DatePickerTableCellProps) {
 	const datePicker = use(DatePickerRootContext);
 	const viewProps = use(DatePickerViewContext);
 
-	const [tableCellProps, componentProps] = splitTableCellProps(props as unknown as TableCellProps) as unknown as [
+	const [tableCellProps, componentProps] = splitTableCellProps(
+		props as unknown as TableCellProps,
+	) as unknown as [
 		Union<TableCellProps, DayTableCellProps>,
 		Omit<DatePickerTableCellProps, keyof Union<TableCellProps, DayTableCellProps>>,
 	];
@@ -22,12 +32,12 @@ export default function TableCell(props: DatePickerTableCellProps) {
 
 	function getTableCellProps(tableCellProps: TableCellProps) {
 		switch (viewProps.view) {
-			case 'day':
+			case "day":
 				// @ts-expect-error value is number filter
 				return datePicker.getDayTableCellProps(tableCellProps);
-			case 'month':
+			case "month":
 				return datePicker.getMonthTableCellProps(tableCellProps);
-			case 'year':
+			case "year":
 				return datePicker.getYearTableCellProps(tableCellProps);
 		}
 	}

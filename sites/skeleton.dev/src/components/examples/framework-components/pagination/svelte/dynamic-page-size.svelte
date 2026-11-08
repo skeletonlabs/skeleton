@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { users } from './data';
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-	import { Pagination } from '@skeletonlabs/skeleton-svelte';
+	import { users } from "./data";
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
+	import { Pagination } from "@skeletonlabs/skeleton-svelte";
 
 	let page = $state(1);
 	let pageSize = $state(5);
@@ -12,7 +12,7 @@
 	const paginatedUsers = $derived(users.slice(start, end));
 </script>
 
-<div class="grid gap-4 w-full place-items-center">
+<div class="grid w-full place-items-center gap-4">
 	<table class="table table-auto">
 		<thead>
 			<tr>
@@ -34,23 +34,32 @@
 		</tbody>
 	</table>
 
-	<div class="flex justify-between items-center gap-4 w-full">
+	<div class="flex w-full items-center justify-between gap-4">
 		<label class="label">
 			<span class="sr-only">Page Size</span>
-			<select class="select w-fit" value={String(pageSize)} onchange={(e) => (pageSize = Number(e.currentTarget.value))}>
+			<select
+				class="select w-fit"
+				value={String(pageSize)}
+				onchange={(e) => (pageSize = Number(e.currentTarget.value))}
+			>
 				<option value="5">5</option>
 				<option value="10">10</option>
 				<option value="20">20</option>
 			</select>
 		</label>
-		<Pagination count={users.length} {pageSize} {page} onPageChange={(event) => (page = event.page)}>
+		<Pagination
+			count={users.length}
+			{pageSize}
+			{page}
+			onPageChange={(event) => (page = event.page)}
+		>
 			<Pagination.PrevTrigger>
 				<ArrowLeftIcon class="size-4" />
 			</Pagination.PrevTrigger>
 			<Pagination.Context>
 				{#snippet children(pagination)}
 					{#each pagination().pages as page, index (page)}
-						{#if page.type === 'page'}
+						{#if page.type === "page"}
 							<Pagination.Item {...page}>
 								{page.value}
 							</Pagination.Item>

@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from "@skeletonlabs/skeleton-react";
 
 export default function Promise_() {
 	const toaster = createToaster();
@@ -23,15 +23,15 @@ export default function Promise_() {
 				onClick={() =>
 					toaster.promise(generatePositiveNumber(), {
 						loading: {
-							title: 'Loading...',
-							description: 'Please wait while generating your number',
+							title: "Loading...",
+							description: "Please wait while generating your number",
 						},
 						success: (number) => ({
-							title: 'Success',
+							title: "Success",
 							description: `Your number is ${number.toFixed(2)}`,
 						}),
 						error: (number) => ({
-							title: 'Error',
+							title: "Error",
 							description: `Your number is ${(number as number).toFixed(2)}`,
 						}),
 					})

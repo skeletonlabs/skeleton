@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Listbox, useListCollection } from '../../src/index.js';
+	import { Listbox, useListCollection } from "../../src/index.js";
 
 	const collection = $derived(
 		useListCollection({
-			items: [{ value: 'item', label: 'Item' }],
+			items: [{ value: "item", label: "Item" }],
 		}),
 	);
 </script>

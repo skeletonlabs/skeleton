@@ -1,12 +1,13 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ListboxItemGroupContext } from '../modules/item-group-context.js';
-import { ListboxRootContext } from '../modules/root-context.js';
-import { type ItemGroupLabelProps, splitItemGroupLabelProps } from '@zag-js/listbox';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { ListboxItemGroupContext } from "../modules/item-group-context.js";
+import { ListboxRootContext } from "../modules/root-context.js";
+import { type ItemGroupLabelProps, splitItemGroupLabelProps } from "@zag-js/listbox";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface ListboxItemGroupLabelProps extends Omit<ItemGroupLabelProps, 'htmlFor'>, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface ListboxItemGroupLabelProps
+	extends Omit<ItemGroupLabelProps, "htmlFor">, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function ItemGroupLabel(props: ListboxItemGroupLabelProps) {
 	const listbox = use(ListboxRootContext);

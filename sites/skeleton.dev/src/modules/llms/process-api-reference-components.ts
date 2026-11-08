@@ -1,52 +1,55 @@
-import type { Root, Table, TableCell, TableRow, Heading } from 'mdast';
-import { visit, SKIP } from 'unist-util-visit';
-import components from '@skeletonlabs/docs/components.json';
+import type { Root, Table, TableCell, TableRow, Heading } from "mdast";
+import { visit, SKIP } from "unist-util-visit";
+import components from "@skeletonlabs/docs/components.json";
 
 function kebabToPascal(str: string) {
 	return str
-		.split('-')
+		.split("-")
 		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-		.join('');
+		.join("");
 }
 
 function createCell(value: string): TableCell {
 	return {
-		type: 'tableCell',
-		children: [{ type: 'text', value }],
+		type: "tableCell",
+		children: [{ type: "text", value }],
 	};
 }
 
-function createTablesForComponent(component: (typeof components)[number]['components'][number]) {
+function createTablesForComponent(component: (typeof components)[number]["components"][number]) {
 	const nodes: (Heading | Table)[] = [];
 	for (const type of component.types) {
 		const heading =
 			type.name
-				.replace(kebabToPascal(component.name.split('/').at(-1) ?? ''), '')
-				.replace('Props', '')
-				.replace('Root', '')
-				.trim() || 'Root';
+				.replace(kebabToPascal(component.name.split("/").at(-1) ?? ""), "")
+				.replace("Props", "")
+				.replace("Root", "")
+				.trim() || "Root";
 		nodes.push({
-			type: 'heading',
+			type: "heading",
 			depth: 3,
-			children: [{ type: 'text', value: heading }],
+			children: [{ type: "text", value: heading }],
 		});
 		nodes.push({
-			type: 'table',
+			type: "table",
 			align: [],
 			children: [
 				{
-					type: 'tableRow',
-					children: ['Prop', 'Description', 'Type', 'Default'].map(createCell),
+					type: "tableRow",
+					children: ["Prop", "Description", "Type", "Default"].map(createCell),
 				},
 				...type.props.map(
 					(prop) =>
 						({
-							type: 'tableRow',
+							type: "tableRow",
 							children: [
-								createCell(prop.name ?? '-'),
-								createCell(prop.JSDoc.description ?? '-'),
+								createCell(prop.name ?? "-"),
+								createCell(prop.JSDoc.description ?? "-"),
 								createCell(prop.type),
-								createCell(prop.JSDoc?.tags?.find((tag) => tag.name === 'default')?.value ?? '-'),
+								createCell(
+									prop.JSDoc?.tags?.find((tag) => tag.name === "default")
+										?.value ?? "-",
+								),
 							],
 						}) satisfies TableRow,
 				),
@@ -57,18 +60,20 @@ function createTablesForComponent(component: (typeof components)[number]['compon
 }
 
 export function processApiReferenceComponents(root: Root) {
-	visit(root, 'mdxJsxFlowElement', (node, index, parent) => {
-		if (node.name !== 'ApiReference' || !parent || typeof index !== 'number') {
+	visit(root, "mdxJsxFlowElement", (node, index, parent) => {
+		if (node.name !== "ApiReference" || !parent || typeof index !== "number") {
 			return;
 		}
-		const idAttribute = node.attributes.find((attribute) => attribute.type === 'mdxJsxAttribute' && attribute.name === 'id');
+		const idAttribute = node.attributes.find(
+			(attribute) => attribute.type === "mdxJsxAttribute" && attribute.name === "id",
+		);
 		if (!idAttribute) {
 			return;
 		}
-		if (!idAttribute.value || typeof idAttribute.value !== 'string') {
+		if (!idAttribute.value || typeof idAttribute.value !== "string") {
 			return;
 		}
-		const [frameworkName, componentName] = idAttribute.value.split('/');
+		const [frameworkName, componentName] = idAttribute.value.split("/");
 		const framework = components.find((f) => f.framework === frameworkName);
 		if (!framework) {
 			return;

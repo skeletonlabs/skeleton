@@ -1,9 +1,9 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@tailwindcss/forms";
 
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/themes/cerberus';
-@import '@skeletonlabs/skeleton-svelte';
+@import "@skeletonlabs/skeleton";
+@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "@skeletonlabs/skeleton-svelte";
 
 /* NOTE: we're using OS preference; but keep this for debugging. */
 /* @custom-variant dark (&:where(.dark, .dark *)); */
@@ -12,8 +12,16 @@ html {
 	/* Background Gradient */
 	background-attachment: fixed;
 	background-image:
-		radial-gradient(at 80% 35%, color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px, transparent 30%),
-		radial-gradient(at 85% 6%, color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px, transparent 30%);
+		radial-gradient(
+			at 80% 35%,
+			color-mix(in oklab, var(--color-primary-500) 10%, transparent) 0px,
+			transparent 30%
+		),
+		radial-gradient(
+			at 85% 6%,
+			color-mix(in oklab, var(--color-success-500) 10%, transparent) 0px,
+			transparent 30%
+		);
 	scrollbar-gutter: stable;
 }
 

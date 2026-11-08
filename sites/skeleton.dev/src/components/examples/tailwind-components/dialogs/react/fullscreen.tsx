@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export default function Fullscreen() {
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -7,14 +7,14 @@ export default function Fullscreen() {
 		const dialog = dialogRef.current;
 		if (!dialog) return;
 		function onClose() {
-			document.body.style.overflow = '';
+			document.body.style.overflow = "";
 		}
-		dialog.addEventListener('close', onClose);
-		return () => dialog.removeEventListener('close', onClose);
+		dialog.addEventListener("close", onClose);
+		return () => dialog.removeEventListener("close", onClose);
 	}, []);
 
 	function showModal() {
-		document.body.style.overflow = 'hidden';
+		document.body.style.overflow = "hidden";
 		dialogRef.current?.showModal();
 	}
 
@@ -25,12 +25,18 @@ export default function Fullscreen() {
 	return (
 		<>
 			{/* Dialog */}
-			<dialog ref={dialogRef} className="dialog dialog-fullscreen preset-filled-surface-100-900 animate-dialog">
+			<dialog
+				ref={dialogRef}
+				className="dialog dialog-fullscreen preset-filled-surface-100-900 animate-dialog"
+			>
 				<header>
 					<h2 className="h3">Hello world!</h2>
 				</header>
 				<article>
-					<p>This dialog expands to fill the entire viewport and locks page scrolling while open.</p>
+					<p>
+						This dialog expands to fill the entire viewport and locks page scrolling
+						while open.
+					</p>
 				</article>
 				<footer className="flex justify-end">
 					<form method="dialog">

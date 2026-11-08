@@ -1,17 +1,24 @@
 ---
-import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
+import { CheckIcon, CircleDollarSignIcon, SearchIcon } from "lucide-react";
 ---
 
 <form class="w-full space-y-8">
 	<!-- Website -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
-		<label class="label label-text preset-tonal" for="url">https://</label>
+		<label class="label label-text preset-tonal" for="url">
+			https://
+		</label>
 		<input class="input" type="text" name="url" id="url" placeholder="www.example.com" />
 	</div>
 
 	<!-- Amount -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
-		<label class="label label-text preset-tonal-primary" for="amount" title="Money" aria-label="Money">
+		<label
+			class="label label-text preset-tonal-primary"
+			for="amount"
+			title="Money"
+			aria-label="Money"
+		>
 			<CircleDollarSignIcon size={16} />
 		</label>
 		<input class="input" type="text" name="amount" id="amount" placeholder="Amount" />
@@ -24,8 +31,16 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 
 	<!-- Username -->
 	<div class="field-group grid-cols-[auto_1fr_auto]">
-		<label class="label label-text preset-tonal-secondary" for="username">Username</label>
-		<input class="input" type="text" name="username" id="username" placeholder="Enter Username..." />
+		<label class="label label-text preset-tonal-secondary" for="username">
+			Username
+		</label>
+		<input
+			class="input"
+			type="text"
+			name="username"
+			id="username"
+			placeholder="Enter Username..."
+		/>
 		<button class="btn preset-filled" title="Username already in use.">
 			<CheckIcon size={16} />
 		</button>
@@ -37,7 +52,13 @@ import { CheckIcon, CircleDollarSignIcon, SearchIcon } from 'lucide-react';
 		<label class="label label-text preset-tonal-tertiary" for="search">
 			<SearchIcon size={16} />
 		</label>
-		<input class="input field-xl" type="search" name="search" id="search" placeholder="Search..." />
+		<input
+			class="input field-xl"
+			type="search"
+			name="search"
+			id="search"
+			placeholder="Search..."
+		/>
 		<button class="btn btn-xl preset-filled">Submit</button>
 	</div>
 </form>

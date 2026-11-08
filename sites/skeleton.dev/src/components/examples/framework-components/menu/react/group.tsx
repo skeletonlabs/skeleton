@@ -1,4 +1,4 @@
-import { Menu, Portal } from '@skeletonlabs/skeleton-react';
+import { Menu, Portal } from "@skeletonlabs/skeleton-react";
 
 export default function Group() {
 	return (

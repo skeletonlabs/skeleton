@@ -1,24 +1,26 @@
 <script lang="ts">
-	import { page } from '$app/state';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTutorialChapters } from '$lib/remote/tutorials/get-tutorials.remote';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-	import BookOpenIcon from '@lucide/svelte/icons/book-open';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import LockIcon from '@lucide/svelte/icons/lock';
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { getTutorialChapters } from "#lib/remote/tutorials/get-tutorials.remote.ts";
+	import { page } from "$app/state";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
+	import BookOpenIcon from "@lucide/svelte/icons/book-open";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import LockIcon from "@lucide/svelte/icons/lock";
+	import { Accordion } from "@skeletonlabs/skeleton-svelte";
 
-	let tier = $state(page.url.searchParams.get('tier') ?? 'free');
-	const locked = $derived(tier === 'premium');
-	let search = $state('');
+	let tier = $state(page.url.searchParams.get("tier") ?? "free");
+	const locked = $derived(tier === "premium");
+	let search = $state("");
 
 	const chapters = $derived(await getTutorialChapters());
-	const activeChapters = $derived(tier === 'free' ? chapters.free : chapters.premium);
+	const activeChapters = $derived(tier === "free" ? chapters.free : chapters.premium);
 	const filteredChapters = $derived(
 		activeChapters
 			.map((chapter) => ({
 				...chapter,
-				lessons: fuzzyMatch(search, chapter.title) ? chapter.lessons : chapter.lessons.filter((l) => fuzzyMatch(search, l.title)),
+				lessons: fuzzyMatch(search, chapter.title)
+					? chapter.lessons
+					: chapter.lessons.filter((l) => fuzzyMatch(search, l.title)),
 			}))
 			.filter((chapter) => fuzzyMatch(search, chapter.title) || chapter.lessons.length > 0),
 	);
@@ -77,12 +79,14 @@
 		<!-- Chapters List -->
 		<Accordion collapsible>
 			{#each filteredChapters as chapter (chapter.value)}
-				<Accordion.Item value={chapter.value} disabled={tier === 'premium'}>
+				<Accordion.Item value={chapter.value} disabled={tier === "premium"}>
 					<!-- Chapter Card -->
 					<Accordion.ItemTrigger
-						class="card bg-surface-50-950 border border-surface-200-800 p-4 grid grid-cols-[auto_1fr_auto] items-center gap-4"
+						class="card bg-surface-50-950 border-surface-200-800 grid grid-cols-[auto_1fr_auto] items-center gap-4 border p-4"
 					>
-						<figure class="h-full max-h-8 aspect-square preset-filled-primary-500 flex justify-center items-center rounded-container">
+						<figure
+							class="preset-filled-primary-500 rounded-container flex aspect-square h-full max-h-8 items-center justify-center"
+						>
 							<BookOpenIcon class="size-[50%]" />
 						</figure>
 						<h3 class="h5 md:h3">{chapter.title}</h3>
@@ -90,7 +94,9 @@
 							<span class="text-sm opacity-60">{chapter.lessons.length} Lessons</span>
 							{#if !locked}
 								<Accordion.ItemIndicator>
-									<ChevronDownIcon class="size-4 transition-transform group-data-[state=open]:rotate-180" />
+									<ChevronDownIcon
+										class="size-4 transition-transform group-data-[state=open]:rotate-180"
+									/>
 								</Accordion.ItemIndicator>
 							{/if}
 						</div>
@@ -100,7 +106,10 @@
 						<Accordion.ItemContent class="space-y-4">
 							{#each chapter.lessons as lesson, i}
 								{#if i > 0}<hr class="hr" />{/if}
-								<a href={lesson.href} class="flex justify-between items-center gap-4">
+								<a
+									href={lesson.href}
+									class="flex items-center justify-between gap-4"
+								>
 									<div>
 										<h4 class="h4">{lesson.title}</h4>
 										<p class="opacity-60">{lesson.description}</p>

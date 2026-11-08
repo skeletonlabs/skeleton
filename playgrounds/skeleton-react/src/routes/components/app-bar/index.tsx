@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { AppBar } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { CalendarIcon } from 'lucide-react';
-import { CircleUserIcon } from 'lucide-react';
-import { MenuIcon } from 'lucide-react';
-import { SearchIcon } from 'lucide-react';
+import { AppBar } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { CalendarIcon } from "lucide-react";
+import { CircleUserIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 
-export const Route = createFileRoute('/components/app-bar/')({
+export const Route = createFileRoute("/components/app-bar/")({
 	component: Page,
 });
 
@@ -21,7 +21,10 @@ function Page() {
 				<AppBar>
 					<AppBar.Toolbar className="grid-cols-[auto_1fr_auto]">
 						<AppBar.Lead>
-							<button type="button" className="btn-icon btn-icon-lg hover:preset-tonal">
+							<button
+								type="button"
+								className="btn-icon btn-icon-lg hover:preset-tonal"
+							>
 								<MenuIcon />
 							</button>
 						</AppBar.Lead>
@@ -47,7 +50,10 @@ function Page() {
 				<AppBar>
 					<AppBar.Toolbar className="grid-cols-[1fr_2fr_1fr]">
 						<AppBar.Lead>
-							<button type="button" className="btn-icon btn-icon-lg hover:preset-tonal">
+							<button
+								type="button"
+								className="btn-icon btn-icon-lg hover:preset-tonal"
+							>
 								<MenuIcon />
 							</button>
 						</AppBar.Lead>
@@ -73,7 +79,10 @@ function Page() {
 				<AppBar>
 					<AppBar.Toolbar className="grid-cols-[auto_auto]">
 						<AppBar.Lead>
-							<button type="button" className="btn-icon btn-icon-lg hover:preset-tonal">
+							<button
+								type="button"
+								className="btn-icon btn-icon-lg hover:preset-tonal"
+							>
 								<MenuIcon />
 							</button>
 						</AppBar.Lead>

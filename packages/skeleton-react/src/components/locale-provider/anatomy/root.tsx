@@ -1,6 +1,6 @@
-import type { PropsWithChildren } from 'react';
-import { LocaleProviderRootContext } from '../modules/root-context.js';
-import { isRTL } from '@zag-js/i18n-utils';
+import type { PropsWithChildren } from "react";
+import { LocaleProviderRootContext } from "../modules/root-context.js";
+import { isRTL } from "@zag-js/i18n-utils";
 
 export interface LocaleProviderRootProps extends PropsWithChildren {
 	/**
@@ -14,7 +14,7 @@ export default function Root(props: LocaleProviderRootProps) {
 	const { children, locale } = props;
 
 	return (
-		<LocaleProviderRootContext.Provider value={{ locale, dir: isRTL(locale) ? 'rtl' : 'ltr' }}>
+		<LocaleProviderRootContext.Provider value={{ locale, dir: isRTL(locale) ? "rtl" : "ltr" }}>
 			{children}
 		</LocaleProviderRootContext.Provider>
 	);

@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	const toaster = createToaster();
@@ -9,8 +9,8 @@ export default function Default() {
 				className="btn preset-filled"
 				onClick={() =>
 					toaster.info({
-						title: 'Title',
-						description: 'This is a description.',
+						title: "Title",
+						description: "This is a description.",
 					})
 				}
 			>

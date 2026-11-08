@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
+import { useRef } from "react";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 export default function Carousel() {
 	const generatedArray = Array.from({ length: 6 });
@@ -34,18 +34,27 @@ export default function Carousel() {
 	return (
 		<div className="w-full">
 			{/* Carousel */}
-			<div className="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+			<div className="card grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
 				{/* Button: Left */}
-				<button type="button" className="btn-icon preset-filled" onClick={carouselLeft} title="Previous slide" aria-label="Previous slide">
+				<button
+					type="button"
+					className="btn-icon preset-filled"
+					onClick={carouselLeft}
+					title="Previous slide"
+					aria-label="Previous slide"
+				>
 					<ArrowLeftIcon size={16} />
 				</button>
 				{/* Full Images */}
-				<div ref={elemCarouselRef} className="snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+				<div
+					ref={elemCarouselRef}
+					className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
+				>
 					{/* Loop X many times. */}
 					{generatedArray.map((_, i) => (
 						<img
 							key={i}
-							className="snap-center w-[1024px] rounded-container"
+							className="rounded-container w-[1024px] snap-center"
 							src={`https://picsum.photos/seed/${i + 1}/1024/768`}
 							alt={`full-${i}`}
 							loading="lazy"
@@ -53,12 +62,18 @@ export default function Carousel() {
 					))}
 				</div>
 				{/* Button: Right */}
-				<button type="button" className="btn-icon preset-filled" onClick={carouselRight} title="Next slide" aria-label="Next slide">
+				<button
+					type="button"
+					className="btn-icon preset-filled"
+					onClick={carouselRight}
+					title="Next slide"
+					aria-label="Next slide"
+				>
 					<ArrowRightIcon size={16} />
 				</button>
 			</div>
 			{/* Thumbnails */}
-			<div className="card p-4 grid grid-cols-6 gap-4">
+			<div className="card grid grid-cols-6 gap-4 p-4">
 				{/* Loop X many times. */}
 				{generatedArray.map((_, i) => (
 					<button key={i} type="button" onClick={() => carouselThumbnail(i)}>

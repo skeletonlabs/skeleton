@@ -1,12 +1,13 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useAvatar } from '../modules/provider.js';
-import { AvatarRootContext } from '../modules/root-context.js';
-import { splitProps } from '@zag-js/avatar';
-import type { Props } from '@zag-js/avatar';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useAvatar } from "../modules/provider.js";
+import { AvatarRootContext } from "../modules/root-context.js";
+import { splitProps } from "@zag-js/avatar";
+import type { Props } from "@zag-js/avatar";
+import { mergeProps } from "@zag-js/react";
 
-export interface AvatarRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+export interface AvatarRootProps
+	extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 
 export default function AvatarRoot(props: AvatarRootProps) {
 	const [avatarProps, componentProps] = splitProps(props);

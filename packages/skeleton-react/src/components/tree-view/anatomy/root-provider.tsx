@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import type { useTreeView } from '../modules/provider.js';
-import { TreeViewRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import type { useTreeView } from "../modules/provider.js";
+import { TreeViewRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface TreeViewRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
+export interface TreeViewRootProviderProps
+	extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {
 	value: ReturnType<typeof useTreeView>;
 }
 

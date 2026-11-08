@@ -80,7 +80,7 @@ avatar/
 
 ### Anatomy Folder
 
-The anatomy folder contains each component part inside a seperate file.
+The anatomy folder contains each component part inside a separate file.
 
 ### Component Part File
 
@@ -134,9 +134,9 @@ Note that you may need to extend or omit portions of the type to avoid conflicts
 The `anatomy.ts` file contains the exported anatomy, which enables the friendly dot notation syntax when consumed.
 
 ```ts
-import Fallback from '../anatomy/fallback';
-import Image from '../anatomy/image';
-import Root from '../anatomy/root';
+import Fallback from "../anatomy/fallback";
+import Image from "../anatomy/image";
+import Root from "../anatomy/root";
 
 export const Avatar = Object.assign(
 	Root, // <Avatar>
@@ -154,8 +154,8 @@ The `{part}-context.ts` file contains the exported context for each component pa
 For most components this will only be necessary for the root component, some components however may require context for their children well. Reference existing components for real world examples.
 
 ```ts
-import type { useAvatar } from './provider';
-import { createContext } from '../../../internal/create-context';
+import type { useAvatar } from "./provider";
+import { createContext } from "../../../internal/create-context";
 
 export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 ```
@@ -165,13 +165,13 @@ export const AvatarRootContext = createContext<ReturnType<typeof useAvatar>>();
 The index prepares all required component files for export.
 
 ```ts
-export { Avatar } from './modules/anatomy';
-export { useAvatar } from './modules/provider';
-export type { AvatarRootProps } from './anatomy/root';
-export type { AvatarRootProviderProps } from './anatomy/root-provider';
-export type { AvatarRootContextProps } from './anatomy/root-context';
-export type { AvatarImageProps } from './anatomy/image';
-export type { AvatarFallbackProps } from './anatomy/fallback';
+export { Avatar } from "./modules/anatomy";
+export { useAvatar } from "./modules/provider";
+export type { AvatarRootProps } from "./anatomy/root";
+export type { AvatarRootProviderProps } from "./anatomy/root-provider";
+export type { AvatarRootContextProps } from "./anatomy/root-context";
+export type { AvatarImageProps } from "./anatomy/image";
+export type { AvatarFallbackProps } from "./anatomy/fallback";
 ```
 
 ### Component Exports
@@ -179,8 +179,8 @@ export type { AvatarFallbackProps } from './anatomy/fallback';
 Finally, make sure to export the new component for each respective component's framework package. This is handled in `/packages/skeleton-{framework}/src/index.ts`.
 
 ```ts
-export * from './components/accordion/index';
-export * from './components/avatar/index';
+export * from "./components/accordion/index";
+export * from "./components/avatar/index";
 // ...
 ```
 
@@ -215,7 +215,7 @@ Note that Skeleton implements a [set convention for Context API](/docs/[framewor
 While each component will present a unique set of challenges, we recommend you reference other existing components to see how we've handled specific situations. But there are a few common conventions we'll detail below.
 
 - Try to stick as close to the Zag implementation DOM structure and naming as possible; don't get creative.
-- Use whitespace to seperate Zag versus Skeleton logic, including: props, attributes, and context definitions.
+- Use whitespace to separate Zag versus Skeleton logic, including: props, attributes, and context definitions.
 - Avoid hardcoded english text or icons. Consider pass-throughs using props, snippets, or sub-components.
 - Default to the named import pattern, such as `import { foo, bar, fizz } from 'whatever';` (Including Zag's imports)
 
@@ -248,8 +248,8 @@ packages/
 Here's an example of the Avatar styles found in `avatar.css`:
 
 ```css
-[data-scope='avatar'] {
-	&[data-part='root'] {
+[data-scope="avatar"] {
+	&[data-part="root"] {
 		isolation: isolate;
 		background: var(--color-surface-400-600);
 		width: --spacing(16);
@@ -258,12 +258,12 @@ Here's an example of the Avatar styles found in `avatar.css`:
 		overflow: hidden;
 	}
 
-	&[data-part='image'] {
+	&[data-part="image"] {
 		width: 100%;
 		object-fit: cover;
 	}
 
-	&[data-part='fallback'] {
+	&[data-part="fallback"] {
 		width: 100%;
 		height: 100%;
 		display: flex;

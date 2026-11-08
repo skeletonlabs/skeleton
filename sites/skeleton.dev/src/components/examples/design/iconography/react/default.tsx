@@ -24,11 +24,11 @@ import {
 	ZapIcon,
 	GhostIcon,
 	SwordsIcon,
-} from 'lucide-react';
+} from "lucide-react";
 
 export default function Iconography() {
 	return (
-		<div className="grid grid-cols-5 gap-4 place-items-center">
+		<div className="grid grid-cols-5 place-items-center gap-4">
 			<HeartIcon className="size-12" />
 			<UserRoundIcon className="size-12" />
 			<RocketIcon className="size-12" />

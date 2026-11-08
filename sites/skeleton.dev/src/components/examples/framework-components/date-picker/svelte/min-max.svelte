@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { DatePicker, parseDate, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { DatePicker, parseDate, Portal } from "@skeletonlabs/skeleton-svelte";
 
 	const currentDate = new Date();
 	const currentYear = currentDate.getFullYear();
@@ -28,7 +28,9 @@
 								<DatePicker.TableHead>
 									<DatePicker.TableRow>
 										{#each datePicker().weekDays as weekDay, id (id)}
-											<DatePicker.TableHeader>{weekDay.short}</DatePicker.TableHeader>
+											<DatePicker.TableHeader
+												>{weekDay.short}</DatePicker.TableHeader
+											>
 										{/each}
 									</DatePicker.TableRow>
 								</DatePicker.TableHead>
@@ -37,7 +39,9 @@
 										<DatePicker.TableRow>
 											{#each week as day, id (id)}
 												<DatePicker.TableCell value={day}>
-													<DatePicker.TableCellTrigger>{day.day}</DatePicker.TableCellTrigger>
+													<DatePicker.TableCellTrigger
+														>{day.day}</DatePicker.TableCellTrigger
+													>
 												</DatePicker.TableCell>
 											{/each}
 										</DatePicker.TableRow>
@@ -59,11 +63,13 @@
 							</DatePicker.ViewControl>
 							<DatePicker.Table>
 								<DatePicker.TableBody>
-									{#each datePicker().getMonthsGrid({ columns: 4, format: 'short' }) as months, id (id)}
+									{#each datePicker().getMonthsGrid( { columns: 4, format: "short" } ) as months, id (id)}
 										<DatePicker.TableRow>
 											{#each months as month, id (id)}
 												<DatePicker.TableCell value={month.value}>
-													<DatePicker.TableCellTrigger>{month.label}</DatePicker.TableCellTrigger>
+													<DatePicker.TableCellTrigger
+														>{month.label}</DatePicker.TableCellTrigger
+													>
 												</DatePicker.TableCell>
 											{/each}
 										</DatePicker.TableRow>
@@ -85,11 +91,13 @@
 							</DatePicker.ViewControl>
 							<DatePicker.Table>
 								<DatePicker.TableBody>
-									{#each datePicker().getYearsGrid({ columns: 4 }) as years, id (id)}
+									{#each datePicker().getYearsGrid( { columns: 4 } ) as years, id (id)}
 										<DatePicker.TableRow>
 											{#each years as year, id (id)}
 												<DatePicker.TableCell value={year.value}>
-													<DatePicker.TableCellTrigger>{year.label}</DatePicker.TableCellTrigger>
+													<DatePicker.TableCellTrigger
+														>{year.label}</DatePicker.TableCellTrigger
+													>
 												</DatePicker.TableCell>
 											{/each}
 										</DatePicker.TableRow>

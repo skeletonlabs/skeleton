@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { RatingGroup } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { RatingGroup } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/rating-group/')({
+export const Route = createFileRoute("/components/rating-group/")({
 	component: Page,
 });
 
@@ -13,7 +13,11 @@ function Page() {
 			<RatingGroup.Label>Label</RatingGroup.Label>
 			<RatingGroup.Control>
 				<RatingGroup.Context>
-					{(ratingGroup) => ratingGroup.items.map((index) => <RatingGroup.Item key={index} index={index} />)}
+					{(ratingGroup) =>
+						ratingGroup.items.map((index) => (
+							<RatingGroup.Item key={index} index={index} />
+						))
+					}
 				</RatingGroup.Context>
 			</RatingGroup.Control>
 			<RatingGroup.HiddenInput />

@@ -1,8 +1,8 @@
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function Size() {
 	return (
-		<div className="flex gap-4 justify-evenly items-center w-full">
+		<div className="flex w-full items-center justify-evenly gap-4">
 			<Progress value={75} className="w-fit">
 				<Progress.Circle className="[--size:--spacing(16)]">
 					<Progress.CircleTrack />

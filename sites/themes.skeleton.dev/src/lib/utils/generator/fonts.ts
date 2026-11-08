@@ -1,13 +1,16 @@
 // Utility: Fontsource
 // Parses/fetches custom fonts from the Fontsource API for the theme generator.
-import type { CustomFont, CustomFontVariant } from '$lib/state/types';
+import type { CustomFont, CustomFontVariant } from "#lib/state/types.ts";
 
 interface FontsourceApiVariantsUrl {
 	woff2: string;
 	woff: string;
 	ttf: string;
 }
-type FontsourceApiVariants = Record<string, Record<string, Record<string, { url: FontsourceApiVariantsUrl }>>>;
+type FontsourceApiVariants = Record<
+	string,
+	Record<string, Record<string, { url: FontsourceApiVariantsUrl }>>
+>;
 
 interface FontsourceApiResponse {
 	id: string;
@@ -28,11 +31,11 @@ interface FontsourceApiError {
 }
 
 const FONT_CATEGORY_FALLBACK: Record<string, string> = {
-	'sans-serif': 'sans-serif',
-	serif: 'serif',
-	monospace: 'monospace',
-	handwriting: 'cursive',
-	display: 'serif',
+	"sans-serif": "sans-serif",
+	serif: "serif",
+	monospace: "monospace",
+	handwriting: "cursive",
+	display: "serif",
 };
 
 /** Extracts a Fontsource font id from a full URL (`https://fontsource.org/fonts/poppins`, with an
@@ -40,9 +43,9 @@ const FONT_CATEGORY_FALLBACK: Record<string, string> = {
  input can't be resolved to a plausible font id. */
 export function parseFontsourceId(input: string): string {
 	const trimmed = input.trim();
-	if (!trimmed) throw new Error('Please enter a Fontsource URL or font name.');
+	if (!trimmed) throw new Error("Please enter a Fontsource URL or font name.");
 
-	const looksLikeUrl = /^https?:\/\//i.test(trimmed) || trimmed.includes('fontsource.org');
+	const looksLikeUrl = /^https?:\/\//i.test(trimmed) || trimmed.includes("fontsource.org");
 
 	let id: string;
 	if (looksLikeUrl) {
@@ -54,15 +57,17 @@ export function parseFontsourceId(input: string): string {
 			throw new Error("That doesn't look like a valid Fontsource URL.");
 		}
 		if (!/(^|\.)fontsource\.org$/i.test(url.hostname)) {
-			throw new Error('Please enter a URL from fontsource.org (ex: https://fontsource.org/fonts/poppins).');
+			throw new Error(
+				"Please enter a URL from fontsource.org (ex: https://fontsource.org/fonts/poppins).",
+			);
 		}
 		// Path is typically /fonts/{id}[/install|/cdn]; take the segment right after "fonts".
-		const segments = url.pathname.split('/').filter(Boolean);
-		const fontsIndex = segments.findIndex((segment) => segment.toLowerCase() === 'fonts');
-		id = (fontsIndex !== -1 ? segments[fontsIndex + 1] : segments[segments.length - 1]) ?? '';
-		if (!id) throw new Error('Could not find a font name in that URL.');
+		const segments = url.pathname.split("/").filter(Boolean);
+		const fontsIndex = segments.findIndex((segment) => segment.toLowerCase() === "fonts");
+		id = (fontsIndex !== -1 ? segments[fontsIndex + 1] : segments[segments.length - 1]) ?? "";
+		if (!id) throw new Error("Could not find a font name in that URL.");
 	} else {
-		id = trimmed.replace(/\s+/g, '-');
+		id = trimmed.replace(/\s+/g, "-");
 	}
 
 	id = id.toLowerCase();
@@ -78,7 +83,7 @@ export async function fetchFontsourceFont(id: string): Promise<CustomFont> {
 	try {
 		res = await fetch(`https://api.fontsource.org/v1/fonts/${id}`);
 	} catch {
-		throw new Error('Could not reach Fontsource. Check your connection and try again.');
+		throw new Error("Could not reach Fontsource. Check your connection and try again.");
 	}
 	if (!res.ok) {
 		const body: FontsourceApiError | null = await res.json().catch(() => null);
@@ -92,7 +97,8 @@ export async function fetchFontsourceFont(id: string): Promise<CustomFont> {
 	if (!isVariableOnly) {
 		for (const weight of data.weights) {
 			for (const style of data.styles) {
-				const woff2 = data.variants?.[String(weight)]?.[style]?.[data.defSubset]?.url?.woff2;
+				const woff2 =
+					data.variants?.[String(weight)]?.[style]?.[data.defSubset]?.url?.woff2;
 				if (woff2) variants.push({ weight: String(weight), style, woff2 });
 			}
 		}
@@ -105,7 +111,7 @@ export async function fetchFontsourceFont(id: string): Promise<CustomFont> {
 		variable: data.variable,
 		isVariableOnly,
 		defSubset: data.defSubset,
-		unicodeRange: data.unicodeRange?.[data.defSubset] ?? '',
+		unicodeRange: data.unicodeRange?.[data.defSubset] ?? "",
 		styles: data.styles,
 		variants,
 	};
@@ -113,6 +119,6 @@ export async function fetchFontsourceFont(id: string): Promise<CustomFont> {
 
 /** Composes the `font-family` CSS value for a resolved custom font, e.g. `'Poppins', sans-serif`. */
 export function customFontOptionValue(font: CustomFont): string {
-	const fallback = FONT_CATEGORY_FALLBACK[font.category] ?? 'sans-serif';
+	const fallback = FONT_CATEGORY_FALLBACK[font.category] ?? "sans-serif";
 	return `'${font.family}', ${fallback}`;
 }

@@ -1,8 +1,8 @@
-import { Progress } from '@skeletonlabs/skeleton-react';
+import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function Color() {
 	return (
-		<div className="flex gap-4 justify-evenly items-center w-full">
+		<div className="flex w-full items-center justify-evenly gap-4">
 			<Progress value={40} className="w-fit">
 				<Progress.Circle>
 					<Progress.CircleTrack className="stroke-primary-50-950" />

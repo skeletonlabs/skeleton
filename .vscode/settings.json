@@ -1,7 +1,7 @@
 {
-	"prettier.enable": true,
+	"editor.defaultFormatter": "oxc.oxc-vscode",
 	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSaveMode": "file",
 	"oxc.enable": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.oxc": "always"
@@ -21,5 +21,8 @@
 	},
 	"tailwindCSS.classFunctions": ["defineSkeletonClasses"],
 	"css.lint.unknownAtRules": "ignore",
-	"workbench.editor.languageDetection": false
+	"workbench.editor.languageDetection": false,
+	"[mdx]": {
+		"editor.defaultFormatter": "unifiedjs.vscode-mdx"
+	}
 }

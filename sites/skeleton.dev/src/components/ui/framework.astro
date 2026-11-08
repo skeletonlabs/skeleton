@@ -1,9 +1,9 @@
 ---
-import { getActiveFramework } from '@/modules/framework';
-import { type CollectionEntry } from 'astro:content';
+import { getActiveFramework } from "@/modules/framework";
+import { type CollectionEntry } from "astro:content";
 
 interface Props {
-	id: CollectionEntry<'frameworks'>['id'];
+	id: CollectionEntry<"frameworks">["id"];
 }
 
 const { id } = Astro.props;
@@ -11,6 +11,6 @@ const { id } = Astro.props;
 const framework = getActiveFramework(Astro.params);
 ---
 
-<div class={framework.id === id ? 'contents' : 'hidden'}>
+<div class={framework.id === id ? "contents" : "hidden"}>
 	<slot />
 </div>
