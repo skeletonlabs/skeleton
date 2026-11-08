@@ -1,14 +1,19 @@
 <script lang="ts">
-	import XIcon from '@lucide/svelte/icons/x';
-	import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import XIcon from "@lucide/svelte/icons/x";
+	import {
+		Combobox,
+		Portal,
+		type ComboboxRootProps,
+		useListCollection,
+	} from "@skeletonlabs/skeleton-svelte";
 
 	const data = [
-		{ label: 'Apple', value: 'apple' },
-		{ label: 'Banana', value: 'banana' },
-		{ label: 'Orange', value: 'orange' },
-		{ label: 'Carrot', value: 'carrot' },
-		{ label: 'Broccoli', value: 'broccoli' },
-		{ label: 'Spinach', value: 'spinach' },
+		{ label: "Apple", value: "apple" },
+		{ label: "Banana", value: "banana" },
+		{ label: "Orange", value: "orange" },
+		{ label: "Carrot", value: "carrot" },
+		{ label: "Broccoli", value: "broccoli" },
+		{ label: "Spinach", value: "spinach" },
 	];
 
 	let value: string[] = $state([]);
@@ -26,8 +31,10 @@
 		items = data;
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
+	const onInputValueChange: ComboboxRootProps["onInputValueChange"] = (event) => {
+		const filtered = data.filter((item) =>
+			item.value.toLowerCase().includes(event.inputValue.toLowerCase()),
+		);
 		if (filtered.length > 0) {
 			items = filtered;
 		} else {
@@ -35,7 +42,7 @@
 		}
 	};
 
-	const onValueChange: ComboboxRootProps['onValueChange'] = (event) => {
+	const onValueChange: ComboboxRootProps["onValueChange"] = (event) => {
 		value = event.value;
 	};
 
@@ -46,8 +53,16 @@
 	const labelFor = (v: string) => data.find((d) => d.value === v)?.label ?? v;
 </script>
 
-<div class="grid gap-2 w-full max-w-md">
-	<Combobox placeholder="Search..." {collection} {onOpenChange} {onInputValueChange} {value} {onValueChange} multiple>
+<div class="grid w-full max-w-md gap-2">
+	<Combobox
+		placeholder="Search..."
+		{collection}
+		{onOpenChange}
+		{onInputValueChange}
+		{value}
+		{onValueChange}
+		multiple
+	>
 		<Combobox.Control>
 			<Combobox.Input />
 			<Combobox.Trigger />
@@ -68,7 +83,12 @@
 	{#if value.length > 0}
 		<div class="flex flex-wrap gap-2">
 			{#each value as item (item)}
-				<button type="button" class="chip preset-filled" onclick={() => removeItem(item)} aria-label={`Remove ${labelFor(item)}`}>
+				<button
+					type="button"
+					class="chip preset-filled"
+					onclick={() => removeItem(item)}
+					aria-label={`Remove ${labelFor(item)}`}
+				>
 					<span>{labelFor(item)}</span>
 					<XIcon size={14} />
 				</button>

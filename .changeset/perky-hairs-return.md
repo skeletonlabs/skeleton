@@ -3,4 +3,3 @@
 ---
 
 Fix invalid navigation rail gap value by adding the rem unit.
-  
