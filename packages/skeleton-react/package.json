@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "5.0.1",
+	"version": "5.0.2",
 	"description": "The React package for Skeleton.",
 	"license": "MIT",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
