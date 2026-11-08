@@ -2,7 +2,6 @@ import { dev } from "$app/env";
 import { getRequestEvent } from "$app/server";
 
 import {
-	VERCEL_PROJECT_PRODUCTION_URL,
 	GITHUB_CLIENT_ID,
 	GITHUB_CLIENT_SECRET,
 	DISCORD_CLIENT_ID,
@@ -18,9 +17,14 @@ import { genericOAuth } from "better-auth/plugins";
 import { sveltekitCookies } from "better-auth/svelte-kit";
 
 export const auth = betterAuth({
-	baseURL: import.meta.env.DEV
-		? "http://localhost:5173"
-		: `https://${VERCEL_PROJECT_PRODUCTION_URL}`,
+	baseURL: {
+		allowedHosts: [
+			`localhost:${import.meta.env.VITE_PORT}`,
+			"*.vercel.app",
+			"plus.skeleton.dev",
+		],
+		protocol: import.meta.env.DEV ? "http" : "https",
+	},
 	database: drizzleAdapter(database, { provider: "pg", schema }),
 	plugins: [
 		...(dev
@@ -48,12 +52,12 @@ export const auth = betterAuth({
 	],
 	socialProviders: {
 		github: {
-			clientId: GITHUB_CLIENT_ID!,
-			clientSecret: GITHUB_CLIENT_SECRET!,
+			clientId: GITHUB_CLIENT_ID,
+			clientSecret: GITHUB_CLIENT_SECRET,
 		},
 		discord: {
-			clientId: DISCORD_CLIENT_ID!,
-			clientSecret: DISCORD_CLIENT_SECRET!,
+			clientId: DISCORD_CLIENT_ID,
+			clientSecret: DISCORD_CLIENT_SECRET,
 		},
 	} satisfies Record<Exclude<SupportedOAuthProvider["id"], "local">, unknown>,
 });
