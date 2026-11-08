@@ -1,5 +1,9 @@
 # @skeletonlabs/skeleton
 
+## 5.0.3
+
+No changes in this release.
+
 ## 5.0.2
 
 No changes in this release.
