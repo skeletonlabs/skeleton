@@ -6,7 +6,4 @@ export const variables = defineEnvVars({
 	GITHUB_CLIENT_SECRET: {},
 	DISCORD_CLIENT_ID: {},
 	DISCORD_CLIENT_SECRET: {},
-	VERCEL_ENV: {},
-	VERCEL_URL: {},
-	VERCEL_PROJECT_PRODUCTION_URL: {},
 });

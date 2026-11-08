@@ -15,10 +15,9 @@ import { betterAuth } from "better-auth/minimal";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { genericOAuth } from "better-auth/plugins";
 import { sveltekitCookies } from "better-auth/svelte-kit";
-import { getBaseUrl } from "../vercel/get-base-url";
 
 export const auth = betterAuth({
-	baseURL: getBaseUrl(),
+	baseURL: "https://plus.skeleton.dev/",
 	database: drizzleAdapter(database, { provider: "pg", schema }),
 	plugins: [
 		...(dev
