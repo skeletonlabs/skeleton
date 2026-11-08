@@ -1,28 +1,28 @@
 ---
 title: Logo Clouds
 description: Provides a grid for presenting a set of logos, brands, or sponsors.
-tags: ['blocks', 'branding']
+tags: ["blocks", "branding"]
 ---
 
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/guides/cookbook/logo-clouds/react/default';
-import DefaultReactRaw from '@/components/examples/guides/cookbook/logo-clouds/react/default.tsx?raw';
-import RowsReact from '@/components/examples/guides/cookbook/logo-clouds/react/rows';
-import RowsReactRaw from '@/components/examples/guides/cookbook/logo-clouds/react/rows.tsx?raw';
-import DefaultSvelte from '@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte?raw';
-import RowsSvelte from '@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte';
-import RowsSvelteRaw from '@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte?raw';
+import DefaultReact from "@/components/examples/guides/cookbook/logo-clouds/react/default";
+import DefaultReactRaw from "@/components/examples/guides/cookbook/logo-clouds/react/default.tsx?raw";
+import RowsReact from "@/components/examples/guides/cookbook/logo-clouds/react/rows";
+import RowsReactRaw from "@/components/examples/guides/cookbook/logo-clouds/react/rows.tsx?raw";
+import DefaultSvelte from "@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/guides/cookbook/logo-clouds/svelte/default.svelte?raw";
+import RowsSvelte from "@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte";
+import RowsSvelteRaw from "@/components/examples/guides/cookbook/logo-clouds/svelte/rows.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -30,12 +30,12 @@ import RowsSvelteRaw from '@/components/examples/guides/cookbook/logo-clouds/sve
 ## Rows
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': RowsReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": RowsReactRaw }} client:visible>
 		<RowsReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': RowsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": RowsSvelteRaw }} client:visible>
 		<RowsSvelte client:visible />
 	</Preview>
 </Framework>

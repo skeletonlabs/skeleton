@@ -1,8 +1,8 @@
-import { TagsInput, useTagsInput } from '@skeletonlabs/skeleton-react';
+import { TagsInput, useTagsInput } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	const tagsInput = useTagsInput({
-		defaultValue: ['Vanilla', 'Chocolate', 'Strawberry'],
+		defaultValue: ["Vanilla", "Chocolate", "Strawberry"],
 	});
 
 	return (
@@ -28,7 +28,7 @@ export default function Default() {
 			</TagsInput.Provider>
 
 			{/* Programmatic Controls */}
-			<div className="card preset-outlined-surface-200-800 flex justify-center items-center py-4">
+			<div className="card preset-outlined-surface-200-800 flex items-center justify-center py-4">
 				<button className="btn preset-filled" onClick={() => tagsInput.clearValue()}>
 					Clear Tags
 				</button>

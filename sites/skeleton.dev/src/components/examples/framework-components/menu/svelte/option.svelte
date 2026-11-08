@@ -1,21 +1,21 @@
 <script lang="ts">
-	import CheckIcon from '@lucide/svelte/icons/check';
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import CheckIcon from "@lucide/svelte/icons/check";
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
 
 	const sortOptions = [
-		{ value: 'newest', label: 'Newest' },
-		{ value: 'popular', label: 'Most Popular' },
-		{ value: 'rating', label: 'Highest Rated' },
+		{ value: "newest", label: "Newest" },
+		{ value: "popular", label: "Most Popular" },
+		{ value: "rating", label: "Highest Rated" },
 	];
 
 	const filterOptions = [
-		{ value: 'free-shipping', label: 'Free Shipping' },
-		{ value: 'in-stock', label: 'In Stock' },
-		{ value: 'on-sale', label: 'On Sale' },
+		{ value: "free-shipping", label: "Free Shipping" },
+		{ value: "in-stock", label: "In Stock" },
+		{ value: "on-sale", label: "On Sale" },
 	];
 
-	let sort = $state('newest');
-	let filters = $state<string[]>(['free-shipping', 'in-stock']);
+	let sort = $state("newest");
+	let filters = $state<string[]>(["free-shipping", "in-stock"]);
 </script>
 
 <Menu closeOnSelect={false}>
@@ -27,7 +27,7 @@
 					<Menu.OptionItem
 						type="radio"
 						checked={sort === item.value}
-						onCheckedChange={(checked) => (sort = checked ? item.value : '')}
+						onCheckedChange={(checked) => (sort = checked ? item.value : "")}
 						value={item.value}
 					>
 						<Menu.ItemText>{item.label}</Menu.ItemText>
@@ -41,7 +41,10 @@
 					<Menu.OptionItem
 						type="checkbox"
 						checked={filters.includes(item.value)}
-						onCheckedChange={(checked) => (filters = checked ? [...filters, item.value] : filters.filter((x) => x !== item.value))}
+						onCheckedChange={(checked) =>
+							(filters = checked
+								? [...filters, item.value]
+								: filters.filter((x) => x !== item.value))}
 						value={item.value}
 					>
 						<Menu.ItemText>{item.label}</Menu.ItemText>

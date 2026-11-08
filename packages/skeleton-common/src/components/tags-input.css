@@ -1,16 +1,16 @@
-[data-scope='tags-input'] {
-	&[data-part='root'] {
+[data-scope="tags-input"] {
+	&[data-part="root"] {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(2);
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 
-	&[data-part='control'] {
+	&[data-part="control"] {
 		@apply input;
 
 		display: flex;
@@ -18,7 +18,7 @@
 		gap: --spacing(1.5);
 	}
 
-	&[data-part='item-preview'] {
+	&[data-part="item-preview"] {
 		@apply btn btn-sm preset-filled;
 
 		&[data-highlighted] {
@@ -27,11 +27,11 @@
 		}
 	}
 
-	&[data-part='item-text'] {
+	&[data-part="item-text"] {
 		line-height: 1;
 	}
 
-	&[data-part='item-delete-trigger'] {
+	&[data-part="item-delete-trigger"] {
 		width: var(--text-xs);
 		height: var(--text-xs);
 		display: flex;
@@ -45,16 +45,16 @@
 		}
 	}
 
-	&[data-part='item-input'] {
+	&[data-part="item-input"] {
 		@apply input;
 	}
 
-	&[data-part='input'] {
+	&[data-part="input"] {
 		@apply input-ghost!;
 		width: auto !important;
 	}
 
-	&[data-part='clear-trigger'] {
+	&[data-part="clear-trigger"] {
 		@apply btn btn-sm preset-tonal;
 
 		width: fit-content;

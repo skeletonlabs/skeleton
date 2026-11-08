@@ -1,69 +1,69 @@
-import Steps from './steps.svelte';
-import { render } from 'vitest-browser-svelte';
-import { describe, expect, it } from 'vitest';
-import { page } from 'vitest/browser';
+import Steps from "./steps.svelte";
+import { render } from "vitest-browser-svelte";
+import { describe, expect, it } from "vitest";
+import { page } from "vitest/browser";
 
-describe('Steps', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Steps", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('List', () => {
-		it('renders', async () => {
+	describe("List", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('list')).toBeInTheDocument();
+			await expect.element(page.getByTestId("list")).toBeInTheDocument();
 		});
 	});
 
-	describe('Item', () => {
-		it('renders', async () => {
+	describe("Item", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item")).toBeInTheDocument();
 		});
 	});
 
-	describe('Trigger', () => {
-		it('renders', async () => {
+	describe("Trigger", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Indicator', () => {
-		it('renders', async () => {
+	describe("Indicator", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("indicator")).toBeInTheDocument();
 		});
 	});
 
-	describe('Separator', () => {
-		it('renders', async () => {
+	describe("Separator", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('separator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("separator")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 
-	describe('PrevTrigger', () => {
-		it('renders', async () => {
+	describe("PrevTrigger", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('prev-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("prev-trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('NextTrigger', () => {
-		it('renders', async () => {
+	describe("NextTrigger", () => {
+		it("renders", async () => {
 			await render(Steps);
-			await expect.element(page.getByTestId('next-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("next-trigger")).toBeInTheDocument();
 		});
 	});
 });

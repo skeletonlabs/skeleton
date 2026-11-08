@@ -1,11 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { TagsInputItemContext } from '../modules/item-context.js';
-import { TagsInputRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { TagsInputItemContext } from "../modules/item-context.js";
+import { TagsInputRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface TagsInputItemPreviewProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface TagsInputItemPreviewProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function ItemPreview(props: TagsInputItemPreviewProps) {
 	const tagsInput = use(TagsInputRootContext);

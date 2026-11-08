@@ -2,6 +2,11 @@
 	"name": "@skeletonlabs/playground-skeleton-svelte",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -22,10 +27,5 @@
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module",
-	"imports": {
-		"#lib": "./src/lib/index.js",
-		"#lib/*": "./src/lib/*"
 	}
 }

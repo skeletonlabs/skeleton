@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Pagination } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Pagination } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/pagination/')({
+export const Route = createFileRoute("/components/pagination/")({
 	component: Page,
 });
 
@@ -15,7 +15,7 @@ function Page() {
 			<Pagination.Context>
 				{(pagination) =>
 					pagination.pages.map((page, index) =>
-						page.type === 'page' ? (
+						page.type === "page" ? (
 							<Pagination.Item key={index} {...page}>
 								{page.value}
 							</Pagination.Item>

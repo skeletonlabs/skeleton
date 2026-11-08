@@ -1,10 +1,10 @@
-import { THEME_MAPPINGS } from '../utility/theme-mappings.js';
-import { parse } from 'node-html-parser';
+import { THEME_MAPPINGS } from "../utility/theme-mappings.js";
+import { parse } from "node-html-parser";
 
 function transformAppHtml(code: string) {
 	const parsed = parse(code);
-	const html = parsed.querySelector('html');
-	const body = parsed.querySelector('body');
+	const html = parsed.querySelector("html");
+	const body = parsed.querySelector("body");
 	if (!(html && body)) {
 		return {
 			code: code,
@@ -13,7 +13,7 @@ function transformAppHtml(code: string) {
 			},
 		};
 	}
-	const theme = body.getAttribute('data-theme');
+	const theme = body.getAttribute("data-theme");
 	if (!theme) {
 		return {
 			code: code,
@@ -22,14 +22,14 @@ function transformAppHtml(code: string) {
 			},
 		};
 	}
-	let type: 'preset' | 'custom';
-	body.removeAttribute('data-theme');
+	let type: "preset" | "custom";
+	body.removeAttribute("data-theme");
 	if (Object.hasOwn(THEME_MAPPINGS, theme)) {
-		html.setAttribute('data-theme', THEME_MAPPINGS[theme]!.value);
-		type = 'preset';
+		html.setAttribute("data-theme", THEME_MAPPINGS[theme]!.value);
+		type = "preset";
 	} else {
-		html.setAttribute('data-theme', theme);
-		type = 'custom';
+		html.setAttribute("data-theme", theme);
+		type = "custom";
 	}
 	return {
 		code: parsed.toString(),

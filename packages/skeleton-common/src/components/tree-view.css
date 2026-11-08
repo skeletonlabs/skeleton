@@ -1,5 +1,5 @@
-[data-scope='tree-view'] {
-	&[data-part='root'] {
+[data-scope="tree-view"] {
+	&[data-part="root"] {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -8,17 +8,17 @@
 		user-select: none;
 	}
 
-	&[data-part='tree'] {
+	&[data-part="tree"] {
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(1);
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 
-	&[data-part='item'] {
+	&[data-part="item"] {
 		display: flex;
 		align-items: center;
 		gap: --spacing(2);
@@ -36,13 +36,13 @@
 		}
 	}
 
-	&[data-part='branch'] {
+	&[data-part="branch"] {
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(1);
 	}
 
-	&[data-part='branch-control'] {
+	&[data-part="branch-control"] {
 		display: flex;
 		align-items: center;
 		gap: --spacing(2);
@@ -60,26 +60,26 @@
 		}
 	}
 
-	&[data-part='branch-indicator'] {
-		&[data-state='open'] {
+	&[data-part="branch-indicator"] {
+		&[data-state="open"] {
 			transform: rotate(90deg);
 		}
 	}
 
-	&[data-part='branch-text'] {
+	&[data-part="branch-text"] {
 		display: flex;
 		align-items: center;
 		gap: --spacing(2);
 	}
 
-	&[data-part='branch-content'] {
+	&[data-part="branch-content"] {
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(1);
 		position: relative;
 	}
 
-	&[data-part='branch-indent-guide'] {
+	&[data-part="branch-indent-guide"] {
 		position: absolute;
 		background: color-mix(in oklab, var(--color-surface-500) 50%, transparent);
 		width: --spacing(0.5);

@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Accordion } from '@skeletonlabs/skeleton-svelte';
+	import { Accordion } from "@skeletonlabs/skeleton-svelte";
 
-	let value = $state(['1']);
+	let value = $state(["1"]);
 </script>
 
 <Accordion {value} onValueChange={(details) => (value = details.value)}>
-	{#each ['1', '2', '3'] as item (item)}
+	{#each ["1", "2", "3"] as item (item)}
 		<Accordion.Item value={item}>
 			<h3>
 				<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>

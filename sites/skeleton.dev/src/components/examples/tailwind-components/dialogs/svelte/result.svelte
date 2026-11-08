@@ -1,23 +1,30 @@
 <script lang="ts">
 	let dialogRef: HTMLDialogElement;
-	let result = $state('—');
+	let result = $state("—");
 
 	function showModal() {
 		dialogRef?.showModal();
 	}
 
 	function onClose() {
-		result = dialogRef.returnValue || '(dismissed)';
+		result = dialogRef.returnValue || "(dismissed)";
 	}
 </script>
 
 <!-- Dialog -->
-<dialog bind:this={dialogRef} onclose={onClose} class="dialog preset-filled-surface-100-900 animate-dialog">
+<dialog
+	bind:this={dialogRef}
+	onclose={onClose}
+	class="dialog preset-filled-surface-100-900 animate-dialog"
+>
 	<header>
 		<h2 class="h3">Confirm action</h2>
 	</header>
 	<article>
-		<p>Submitting either button closes the dialog and exposes its value via the dialog's returnValue.</p>
+		<p>
+			Submitting either button closes the dialog and exposes its value via the dialog's
+			returnValue.
+		</p>
 	</article>
 	<footer class="flex justify-end gap-2">
 		<form method="dialog" class="flex gap-2">

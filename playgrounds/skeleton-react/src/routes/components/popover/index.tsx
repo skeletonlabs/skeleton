@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Popover, Portal } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Popover, Portal } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/popover/')({
+export const Route = createFileRoute("/components/popover/")({
 	component: Page,
 });
 
@@ -17,7 +17,7 @@ function Page() {
 						<Popover.Title>Title</Popover.Title>
 						<Popover.Description>Description</Popover.Description>
 						<Popover.CloseTrigger>Close</Popover.CloseTrigger>
-						<Popover.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
+						<Popover.Arrow className="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]">
 							<Popover.ArrowTip />
 						</Popover.Arrow>
 					</Popover.Content>

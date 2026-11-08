@@ -29,8 +29,8 @@ Use this when a component needs a hands-on demo page under `components/<slug>` i
 Recommend destination from component slug and target framework(s), explain why, then accept overrides.
 
 - Component slug `my-component`:
-  - React file: `playgrounds/skeleton-react/src/routes/components/my-component/index.tsx`
-  - Svelte file: `playgrounds/skeleton-svelte/src/routes/components/my-component/+page.svelte`
+    - React file: `playgrounds/skeleton-react/src/routes/components/my-component/index.tsx`
+    - Svelte file: `playgrounds/skeleton-svelte/src/routes/components/my-component/+page.svelte`
 - Usually create both files for framework components.
 - If the component exists in only one framework, create only that framework's playground page.
 
@@ -38,15 +38,15 @@ Recommend destination from component slug and target framework(s), explain why, 
 
 - Route folder is kebab-case and mirrors component slug.
 - React files:
-  - Include `'use client';`
-  - Import component(s) from `@skeletonlabs/skeleton-react`
-  - Export `Route` with `createFileRoute('/components/<slug>/')`
-  - Define `function Page()` and return demo JSX
+    - Include `'use client';`
+    - Import component(s) from `@skeletonlabs/skeleton-react`
+    - Export `Route` with `createFileRoute('/components/<slug>/')`
+    - Define `function Page()` and return demo JSX
 - Svelte files:
-  - Start with `<script lang="ts">`
-  - Import component(s) from `@skeletonlabs/skeleton-svelte`
-  - Exported route is filesystem-based (`+page.svelte`), no explicit route helper
-  - Use matching demo structure with idiomatic Svelte syntax
+    - Start with `<script lang="ts">`
+    - Import component(s) from `@skeletonlabs/skeleton-svelte`
+    - Exported route is filesystem-based (`+page.svelte`), no explicit route helper
+    - Use matching demo structure with idiomatic Svelte syntax
 - Demo scope should be aligned across frameworks for parity.
 
 Reference files:
@@ -69,10 +69,10 @@ Ask one at a time, confirm each answer, write nothing until all are answered and
 
 1. Ensure the route files compile in each target playground.
 2. Regenerate React route tree after new or renamed React route files:
-   - `pnpm --filter @skeletonlabs/playground-skeleton-react exec tsr generate`
+    - `pnpm --filter @skeletonlabs/playground-skeleton-react exec tsr generate`
 3. If requested, run checks:
-   - React: `pnpm --filter @skeletonlabs/playground-skeleton-react run check`
-   - Svelte: `pnpm --filter @skeletonlabs/playground-skeleton-svelte run check`
+    - React: `pnpm --filter @skeletonlabs/playground-skeleton-react run check`
+    - Svelte: `pnpm --filter @skeletonlabs/playground-skeleton-svelte run check`
 
 ## Final summary
 

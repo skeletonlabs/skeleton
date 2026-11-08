@@ -1,10 +1,10 @@
 <script lang="ts">
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 
 	let open = $state(false);
 	let size = $state({
@@ -28,7 +28,12 @@
 	</label>
 </div>
 
-<FloatingPanel {open} onOpenChange={(details) => (open = details.open)} {size} onSizeChange={(details) => (size = details.size)}>
+<FloatingPanel
+	{open}
+	onOpenChange={(details) => (open = details.open)}
+	{size}
+	onSizeChange={(details) => (size = details.size)}
+>
 	<Portal>
 		<FloatingPanel.Positioner class="z-50">
 			<FloatingPanel.Content>
@@ -56,7 +61,10 @@
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
 					<p>This panel's open state and size are controlled via the inputs above.</p>
-					<p>Try changing the values or resizing/closing the panel to see the inputs update.</p>
+					<p>
+						Try changing the values or resizing/closing the panel to see the inputs
+						update.
+					</p>
 				</FloatingPanel.Body>
 				<FloatingPanel.ResizeTrigger axis="se" />
 			</FloatingPanel.Content>

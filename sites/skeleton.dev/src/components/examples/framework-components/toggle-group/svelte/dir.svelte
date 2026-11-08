@@ -1,11 +1,11 @@
 <script lang="ts">
-	import BoldIcon from '@lucide/svelte/icons/bold';
-	import ItalicIcon from '@lucide/svelte/icons/italic';
-	import UnderlineIcon from '@lucide/svelte/icons/underline';
-	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import BoldIcon from "@lucide/svelte/icons/bold";
+	import ItalicIcon from "@lucide/svelte/icons/italic";
+	import UnderlineIcon from "@lucide/svelte/icons/underline";
+	import { ToggleGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<ToggleGroup defaultValue={['bold']} multiple dir="rtl">
+<ToggleGroup defaultValue={["bold"]} multiple dir="rtl">
 	<ToggleGroup.Item value="bold">
 		<BoldIcon class="size-4" />
 	</ToggleGroup.Item>

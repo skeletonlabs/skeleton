@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { useCollapsible } from '../modules/provider.svelte';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { useCollapsible } from "../modules/provider.svelte";
 
-	export interface CollapsibleRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface CollapsibleRootProviderProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {
 		value: ReturnType<typeof useCollapsible>;
 	}
 </script>
 
 <script lang="ts">
-	import { CollapsibleRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { CollapsibleRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: CollapsibleRootProviderProps = $props();
 

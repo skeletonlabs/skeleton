@@ -1,17 +1,21 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/menu';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/menu";
 
-	export interface MenuRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'aria-label'> {}
+	export interface MenuRootProps
+		extends
+			Omit<Props, "id">,
+			PropsWithElement<"div">,
+			HTMLAttributes<"div", "id" | "dir" | "aria-label"> {}
 </script>
 
 <script lang="ts">
-	import { useMenu } from '../modules/provider.svelte';
-	import { MenuRootContext } from '../modules/root-context.js';
-	import { MenuTriggerItemContext } from '../modules/trigger-item-context.js';
-	import { splitProps } from '@zag-js/menu';
-	import { untrack } from 'svelte';
+	import { useMenu } from "../modules/provider.svelte";
+	import { MenuRootContext } from "../modules/root-context.js";
+	import { MenuTriggerItemContext } from "../modules/trigger-item-context.js";
+	import { splitProps } from "@zag-js/menu";
+	import { untrack } from "svelte";
 
 	const props: MenuRootProps = $props();
 

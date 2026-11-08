@@ -1,14 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface TreeViewBranchIndentGuideProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface TreeViewBranchIndentGuideProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { TreeViewNodeContext } from '../modules/node-context.js';
-	import { TreeViewRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { TreeViewNodeContext } from "../modules/node-context.js";
+	import { TreeViewRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: TreeViewBranchIndentGuideProps = $props();
 
@@ -17,7 +18,9 @@
 
 	const { element, children, ...rest } = $derived(props);
 
-	const attributes = $derived(mergeProps(treeView().getBranchIndentGuideProps(nodeProps()), rest));
+	const attributes = $derived(
+		mergeProps(treeView().getBranchIndentGuideProps(nodeProps()), rest),
+	);
 </script>
 
 {#if element}

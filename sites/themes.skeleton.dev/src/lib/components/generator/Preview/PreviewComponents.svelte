@@ -1,31 +1,35 @@
 <script lang="ts">
-	import * as constants from '#lib/constants/generator.ts';
-	import { globals } from '#lib/state/generator.svelte.ts';
-	import ExampleChart from '../ExampleChart/ExampleChart.svelte';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import CalendarIcon from '@lucide/svelte/icons/calendar';
-	import CircleUserIcon from '@lucide/svelte/icons/circle-user';
-	import MenuIcon from '@lucide/svelte/icons/menu';
-	import SearchIcon from '@lucide/svelte/icons/search';
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import TextAlignCenter from '@lucide/svelte/icons/text-align-center';
-	import TextAlignEnd from '@lucide/svelte/icons/text-align-end';
-	import TextAlignJustify from '@lucide/svelte/icons/text-align-justify';
-	import TextAlignStart from '@lucide/svelte/icons/text-align-start';
-	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from '@skeletonlabs/skeleton-svelte';
+	import * as constants from "#lib/constants/generator.ts";
+	import { globals } from "#lib/state/generator.svelte.ts";
+	import ExampleChart from "../ExampleChart/ExampleChart.svelte";
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import CalendarIcon from "@lucide/svelte/icons/calendar";
+	import CircleUserIcon from "@lucide/svelte/icons/circle-user";
+	import MenuIcon from "@lucide/svelte/icons/menu";
+	import SearchIcon from "@lucide/svelte/icons/search";
+	import SkullIcon from "@lucide/svelte/icons/skull";
+	import TextAlignCenter from "@lucide/svelte/icons/text-align-center";
+	import TextAlignEnd from "@lucide/svelte/icons/text-align-end";
+	import TextAlignJustify from "@lucide/svelte/icons/text-align-justify";
+	import TextAlignStart from "@lucide/svelte/icons/text-align-start";
+	import { AppBar, Avatar, SegmentedControl, Switch, Tabs } from "@skeletonlabs/skeleton-svelte";
 
 	const currentPresets = $derived(constants.previewPresets[globals.activeColor]);
 </script>
 
 <div class="space-y-6">
 	<!-- Component Masonry -->
-	<header class="flex justify-between items-end">
+	<header class="flex items-end justify-between">
 		<h1 class="h1">Theme Generator</h1>
-		<a href="https://www.skeleton.dev/docs/svelte/design/themes" target="_blank" class="btn preset-tonal">View Docs</a>
+		<a
+			href="https://www.skeleton.dev/docs/svelte/design/themes"
+			target="_blank"
+			class="btn preset-tonal">View Docs</a
+		>
 	</header>
 
 	<!-- Swatches -->
-	<div class="h-3 grid grid-cols-7 gap-1">
+	<div class="grid h-3 grid-cols-7 gap-1">
 		<div class="bg-primary-500 h-full"></div>
 		<div class="bg-secondary-500 h-full"></div>
 		<div class="bg-tertiary-500 h-full"></div>
@@ -35,16 +39,22 @@
 		<div class="bg-surface-500 h-full"></div>
 	</div>
 
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
+	<div class="grid grid-cols-1 gap-6 2xl:grid-cols-3">
 		<!-- Column 1 -->
 		<div class="space-y-6">
 			<!-- Tabs -->
 			<Tabs defaultValue="planes">
 				<Tabs.List>
 					<Tabs.Indicator />
-					<Tabs.Trigger value="planes" class="flex-1 {currentPresets.hover}">Planes</Tabs.Trigger>
-					<Tabs.Trigger value="trains" class="flex-1 {currentPresets.hover}">Trains</Tabs.Trigger>
-					<Tabs.Trigger value="automobiles" class="flex-1 {currentPresets.hover}">Automobiles</Tabs.Trigger>
+					<Tabs.Trigger value="planes" class="flex-1 {currentPresets.hover}"
+						>Planes</Tabs.Trigger
+					>
+					<Tabs.Trigger value="trains" class="flex-1 {currentPresets.hover}"
+						>Trains</Tabs.Trigger
+					>
+					<Tabs.Trigger value="automobiles" class="flex-1 {currentPresets.hover}"
+						>Automobiles</Tabs.Trigger
+					>
 				</Tabs.List>
 			</Tabs>
 			<!-- Avatars -->
@@ -64,14 +74,16 @@
 						<SkullIcon />
 					</Avatar.Fallback>
 				</Avatar>
-				<Avatar class="bg-transparent preset-outlined-surface-200-800">
+				<Avatar class="preset-outlined-surface-200-800 bg-transparent">
 					<Avatar.Fallback>
 						<SkullIcon />
 					</Avatar.Fallback>
 				</Avatar>
 			</div>
 			<!-- Alert -->
-			<div class="card {currentPresets.tonal} grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto] corner-shape-container">
+			<div
+				class="card {currentPresets.tonal} corner-shape-container grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]"
+			>
 				<div>
 					<p class="font-bold">Success</p>
 					<p>Task has been completed.</p>
@@ -82,13 +94,16 @@
 			</div>
 			<!-- Blockquote -->
 			<blockquote class="blockquote">
-				First, have a definite, clear, practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends: wisdom,
-				money, materials, and methods. Third, adjust all your means to that end.
+				First, have a definite, clear, practical ideal; a goal, an objective. Second, have
+				the necessary means to achieve your ends: wisdom, money, materials, and methods.
+				Third, adjust all your means to that end.
 			</blockquote>
 		</div>
 		<div class="space-y-6">
 			<!-- Column 2 -->
-			<form class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-5">
+			<form
+				class="card bg-surface-100-900 border-surface-200-800 space-y-5 border p-5 shadow"
+			>
 				<fieldset class="space-y-2">
 					<h2 class="h2">Login</h2>
 					<p class="opacity-60">Select a login method below.</p>
@@ -96,19 +111,35 @@
 				<fieldset class="space-y-2">
 					<label class="label">
 						<span class="label-text">Email</span>
-						<input class="input {currentPresets.input}" type="text" placeholder="email@example.com" autocomplete="off" />
+						<input
+							class="input {currentPresets.input}"
+							type="text"
+							placeholder="email@example.com"
+							autocomplete="off"
+						/>
 					</label>
 					<label class="label">
 						<span class="label-text">Password</span>
-						<input class="input {currentPresets.input}" type="password" value="skeleton" autocomplete="off" />
+						<input
+							class="input {currentPresets.input}"
+							type="password"
+							value="skeleton"
+							autocomplete="off"
+						/>
 					</label>
 				</fieldset>
 				<fieldset>
-					<button type="button" class="btn {currentPresets.filled} w-full">Sign In Now</button>
+					<button type="button" class="btn {currentPresets.filled} w-full"
+						>Sign In Now</button
+					>
 				</fieldset>
 				<hr class="hr" />
 				<fieldset class="space-y-5">
-					<button type="button" class="btn preset-outlined-surface-300-700 hover:preset-tonal w-full">Continue with Github</button>
+					<button
+						type="button"
+						class="btn preset-outlined-surface-300-700 hover:preset-tonal w-full"
+						>Continue with Github</button
+					>
 				</fieldset>
 			</form>
 		</div>
@@ -121,7 +152,7 @@
 				<span class="badge {currentPresets.outlined}">Badge</span>
 			</div>
 			<!-- Switch -->
-			<div class="card border border-surface-200-800 p-2 flex justify-center">
+			<div class="card border-surface-200-800 flex justify-center border p-2">
 				<Switch name="example" defaultChecked={true}>
 					<Switch.Control class={currentPresets.filled}>
 						<Switch.Thumb />
@@ -167,17 +198,22 @@
 				</SegmentedControl.Control>
 			</SegmentedControl>
 			<!-- Cards -->
-			<div class="card shadow bg-surface-100-900 border border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 p-4">
+			<div
+				class="card bg-surface-100-900 border-surface-200-800 grid grid-cols-[auto_1fr] items-center gap-4 border p-4 shadow"
+			>
 				<Avatar class="size-14">
 					<Avatar.Image src="/images/female.png" class="grayscale" />
 				</Avatar>
 				<div>
 					<p class="font-bold">Georgia Smith</p>
-					<p class="opacity-60 text-xs">georgia.smith@example.com</p>
+					<p class="text-xs opacity-60">georgia.smith@example.com</p>
 				</div>
 			</div>
 			<!-- Outline -->
-			<button type="button" class="btn w-full preset-outlined-surface-200-800 outline {currentPresets.outline} outline-offset-3">
+			<button
+				type="button"
+				class="btn preset-outlined-surface-200-800 w-full outline {currentPresets.outline} outline-offset-3"
+			>
 				Outline (focused)
 			</button>
 		</div>
@@ -187,47 +223,63 @@
 	<AppBar>
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 			<AppBar.Lead>
-				<button type="button" class="btn-icon btn-icon-lg hover:preset-tonal"><MenuIcon /></button>
+				<button type="button" class="btn-icon btn-icon-lg hover:preset-tonal"
+					><MenuIcon /></button
+				>
 			</AppBar.Lead>
 			<AppBar.Headline>
 				<p class="text-2xl">Headline</p>
 			</AppBar.Headline>
 			<AppBar.Trail>
-				<button type="button" class="btn-icon hover:preset-tonal"><SearchIcon class="size-6" /></button>
-				<button type="button" class="btn-icon hover:preset-tonal"><CalendarIcon class="size-6" /></button>
-				<button type="button" class="btn-icon hover:preset-tonal"><CircleUserIcon class="size-6" /></button>
+				<button type="button" class="btn-icon hover:preset-tonal"
+					><SearchIcon class="size-6" /></button
+				>
+				<button type="button" class="btn-icon hover:preset-tonal"
+					><CalendarIcon class="size-6" /></button
+				>
+				<button type="button" class="btn-icon hover:preset-tonal"
+					><CircleUserIcon class="size-6" /></button
+				>
 			</AppBar.Trail>
 		</AppBar.Toolbar>
 	</AppBar>
 
 	<!-- Fancy Cards -->
-	<div class="grid grid-cols-1 2xl:grid-cols-3 gap-6">
+	<div class="grid grid-cols-1 gap-6 2xl:grid-cols-3">
 		<!-- Column 1: Image -->
 		<div
-			class="relative w-full shadow bg-surface-100-900 rounded-container overflow-hidden"
+			class="bg-surface-100-900 rounded-container relative w-full overflow-hidden shadow"
 			style="background: url(https://picsum.photos/640/640) center center; backround-size: cover;"
 		>
-			<div class="absolute bottom-4 left-4 z-2 flex justify-center items-center">
-				<p class="text-4xl text-balance max-w-62.5 font-bold inline-block {currentPresets.contrast}">Example text over a static image.</p>
+			<div class="absolute bottom-4 left-4 z-2 flex items-center justify-center">
+				<p
+					class="inline-block max-w-62.5 text-4xl font-bold text-balance {currentPresets.contrast}"
+				>
+					Example text over a static image.
+				</p>
 			</div>
-			<div class="absolute top-0 left-0 z-1 w-full h-full bg-linear-to-b from-transparent {currentPresets.gradient}"></div>
+			<div
+				class="absolute top-0 left-0 z-1 h-full w-full bg-linear-to-b from-transparent {currentPresets.gradient}"
+			></div>
 		</div>
 		<!-- Column 2: Chart -->
-		<div class="card shadow bg-surface-100-900 border border-surface-200-800 p-5 space-y-2">
-			<header class="flex justify-between items-start">
+		<div class="card bg-surface-100-900 border-surface-200-800 space-y-2 border p-5 shadow">
+			<header class="flex items-start justify-between">
 				<small class="text-base">Earnings</small>
 				<h2 class="h2 font-normal">$14,546</h2>
 			</header>
 			<ExampleChart preset={currentPresets.prop} />
 		</div>
 		<!-- Column 2: xxx -->
-		<div class="card {currentPresets.tonal} p-5 grid grid-rows-[auto_1fr]">
+		<div class="card {currentPresets.tonal} grid grid-rows-[auto_1fr] p-5">
 			<header>
 				<small class="text-base">Users</small>
 			</header>
-			<div class="spce-y-2 flex justify-center items-center scale-125">
+			<div class="spce-y-2 flex scale-125 items-center justify-center">
 				<div>
-					<h2 class="h2 font-normal">1,337 <sup><ArrowUpRightIcon size={30} class="inline-block" /></sup></h2>
+					<h2 class="h2 font-normal">
+						1,337 <sup><ArrowUpRightIcon size={30} class="inline-block" /></sup>
+					</h2>
 					<p>New users in 30 days.</p>
 				</div>
 			</div>

@@ -1,7 +1,8 @@
 {
 	"name": "skeleton",
-	"description": "The CLI for Skeleton related tooling.",
 	"version": "5.0.1",
+	"description": "The CLI for Skeleton related tooling.",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
@@ -11,6 +12,7 @@
 	"files": [
 		"dist"
 	],
+	"type": "module",
 	"sideEffects": false,
 	"scripts": {
 		"dev": "tsdown --watch",
@@ -18,16 +20,6 @@
 		"check": "tsc",
 		"prepack": "pnpm build && clean-package",
 		"postpack": "clean-package restore"
-	},
-	"devDependencies": {
-		"@types/estree": "catalog:",
-		"@types/node": "catalog:",
-		"@types/semver": "catalog:",
-		"clean-package": "catalog:",
-		"tsdown": "catalog:",
-		"type-fest": "catalog:",
-		"typescript": "catalog:",
-		"vite": "catalog:"
 	},
 	"dependencies": {
 		"@clack/prompts": "catalog:",
@@ -46,8 +38,16 @@
 		"ts-morph": "catalog:",
 		"zimmerframe": "catalog:"
 	},
-	"license": "MIT",
-	"type": "module",
+	"devDependencies": {
+		"@types/estree": "catalog:",
+		"@types/node": "catalog:",
+		"@types/semver": "catalog:",
+		"clean-package": "catalog:",
+		"tsdown": "catalog:",
+		"type-fest": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:"
+	},
 	"clean-package": {
 		"remove": [
 			"scripts",

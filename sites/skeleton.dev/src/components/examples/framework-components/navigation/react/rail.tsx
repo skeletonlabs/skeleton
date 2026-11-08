@@ -1,24 +1,28 @@
-import { Navigation } from '@skeletonlabs/skeleton-react';
-import { BookIcon } from 'lucide-react';
-import { HouseIcon } from 'lucide-react';
-import { PopcornIcon } from 'lucide-react';
-import { SkullIcon } from 'lucide-react';
-import { SettingsIcon } from 'lucide-react';
-import { TvIcon } from 'lucide-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
+import { BookIcon } from "lucide-react";
+import { HouseIcon } from "lucide-react";
+import { PopcornIcon } from "lucide-react";
+import { SkullIcon } from "lucide-react";
+import { SettingsIcon } from "lucide-react";
+import { TvIcon } from "lucide-react";
 
 export default function Default() {
 	const links = [
-		{ label: 'Home', href: '/#', icon: HouseIcon },
-		{ label: 'Books', href: '/#', icon: BookIcon },
-		{ label: 'Movies', href: '/#', icon: PopcornIcon },
-		{ label: 'Television', href: '/#', icon: TvIcon },
+		{ label: "Home", href: "/#", icon: HouseIcon },
+		{ label: "Books", href: "/#", icon: BookIcon },
+		{ label: "Movies", href: "/#", icon: PopcornIcon },
+		{ label: "Television", href: "/#", icon: TvIcon },
 	];
 
 	return (
-		<div className="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+		<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] border">
 			<Navigation layout="rail">
 				<Navigation.Header>
-					<Navigation.TriggerAnchor href="/" title="View Homepage" aria-label="View Homepage">
+					<Navigation.TriggerAnchor
+						href="/"
+						title="View Homepage"
+						aria-label="View Homepage"
+					>
 						<SkullIcon className="size-8" />
 					</Navigation.TriggerAnchor>
 				</Navigation.Header>
@@ -41,7 +45,7 @@ export default function Default() {
 					</Navigation.TriggerAnchor>
 				</Navigation.Footer>
 			</Navigation>
-			<div className="flex justify-center items-center">
+			<div className="flex items-center justify-center">
 				<p className="opacity-50">Contents</p>
 			</div>
 		</div>

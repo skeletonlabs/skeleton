@@ -1,5 +1,5 @@
-[data-scope='menu'] {
-	&[data-part='content'] {
+[data-scope="menu"] {
+	&[data-part="content"] {
 		padding: --spacing(2);
 		display: flex;
 		flex-direction: column;
@@ -12,19 +12,19 @@
 		@apply card shadow-lg;
 	}
 
-	&[data-part='arrow'] {
+	&[data-part="arrow"] {
 		--arrow-size: --spacing(2);
 		--arrow-background: var(--color-surface-50-950);
 	}
 
-	&[data-part='item-group-label'] {
+	&[data-part="item-group-label"] {
 		color: var(--color-surface-600-400);
 		font-size: var(--text-xs);
 		padding: --spacing(1) --spacing(2);
 	}
 
-	&[data-part='item'],
-	&[data-part='trigger-item'] {
+	&[data-part="item"],
+	&[data-part="trigger-item"] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -36,7 +36,7 @@
 		}
 	}
 
-	&[data-part='separator'] {
+	&[data-part="separator"] {
 		@apply hr;
 	}
 

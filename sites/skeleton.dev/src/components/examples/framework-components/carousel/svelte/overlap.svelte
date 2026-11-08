@@ -1,33 +1,40 @@
 <script lang="ts">
-	import { Carousel } from '@skeletonlabs/skeleton-svelte';
+	import { Carousel } from "@skeletonlabs/skeleton-svelte";
 
 	const slides = [
-		{ title: 'Slide 1' },
-		{ title: 'Slide 2' },
-		{ title: 'Slide 3' },
-		{ title: 'Slide 4' },
-		{ title: 'Slide 5' },
-		{ title: 'Slide 6' },
-		{ title: 'Slide 7' },
-		{ title: 'Slide 8' },
-		{ title: 'Slide 9' },
-		{ title: 'Slide 10' },
+		{ title: "Slide 1" },
+		{ title: "Slide 2" },
+		{ title: "Slide 3" },
+		{ title: "Slide 4" },
+		{ title: "Slide 5" },
+		{ title: "Slide 6" },
+		{ title: "Slide 7" },
+		{ title: "Slide 8" },
+		{ title: "Slide 9" },
+		{ title: "Slide 10" },
 	];
 </script>
 
 <Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" autoSize loop>
 	<div class="relative">
 		<Carousel.Control>
-			<Carousel.PrevTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
+			<Carousel.PrevTrigger
+				class="btn-icon preset-filled absolute top-[50%] left-0 translate-y-[-50%] rounded-full"
+			>
 				<span>&larr;</span>
 			</Carousel.PrevTrigger>
-			<Carousel.NextTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]">
+			<Carousel.NextTrigger
+				class="btn-icon preset-filled absolute top-[50%] right-0 translate-y-[-50%] rounded-full"
+			>
 				<span>&rarr;</span>
 			</Carousel.NextTrigger>
 		</Carousel.Control>
 		<Carousel.ItemGroup>
 			{#each slides as slide, i}
-				<Carousel.Item index={i} class="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center">
+				<Carousel.Item
+					index={i}
+					class="card bg-surface-100-900 flex aspect-square h-50 items-center justify-center p-4"
+				>
 					{slide.title}
 				</Carousel.Item>
 			{/each}

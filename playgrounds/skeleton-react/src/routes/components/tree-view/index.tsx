@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { TreeView, createTreeViewCollection } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
-import { FileIcon, FolderIcon } from 'lucide-react';
+import { TreeView, createTreeViewCollection } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { FileIcon, FolderIcon } from "lucide-react";
 
 interface Node {
 	id: string;
@@ -25,7 +25,11 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 					<TreeView.BranchContent>
 						<TreeView.BranchIndentGuide />
 						{props.node.children.map((childNode, childIndex) => (
-							<TreeNode key={childNode.id} node={childNode} indexPath={[...props.indexPath, childIndex]} />
+							<TreeNode
+								key={childNode.id}
+								node={childNode}
+								indexPath={[...props.indexPath, childIndex]}
+							/>
 						))}
 					</TreeView.BranchContent>
 				</TreeView.Branch>
@@ -39,7 +43,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 	);
 }
 
-export const Route = createFileRoute('/components/tree-view/')({
+export const Route = createFileRoute("/components/tree-view/")({
 	component: Page,
 });
 
@@ -48,28 +52,28 @@ function Page() {
 		nodeToValue: (node) => node.id,
 		nodeToString: (node) => node.name,
 		rootNode: {
-			id: 'root',
-			name: '',
+			id: "root",
+			name: "",
 			children: [
 				{
-					id: 'node_modules',
-					name: 'node_modules',
+					id: "node_modules",
+					name: "node_modules",
 					children: [
 						{
-							id: 'node_modules/@skeletonlabs',
-							name: '@skeletonlabs',
+							id: "node_modules/@skeletonlabs",
+							name: "@skeletonlabs",
 							children: [
 								{
-									id: 'node_modules/@skeletonlabs/skeleton',
-									name: 'skeleton',
+									id: "node_modules/@skeletonlabs/skeleton",
+									name: "skeleton",
 								},
 							],
 						},
 					],
 				},
 				{
-					id: 'package.json',
-					name: 'package.json',
+					id: "package.json",
+					name: "package.json",
 				},
 			],
 		},

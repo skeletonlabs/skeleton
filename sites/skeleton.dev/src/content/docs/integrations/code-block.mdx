@@ -4,18 +4,18 @@ description: Learn how to integrate Shiki, a beautiful yet powerful syntax highl
 summary: Shiki (式, a Japanese word for "Style") is a beautiful and powerful syntax highlighter based on TextMate grammar and themes, the same engine as VS Code's syntax highlighting. It provides accurate and fast syntax highlighting for almost any mainstream programming language.
 ---
 
-import Alert from '@/components/ui/alert.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Alert from "@/components/ui/alert.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import ReactCodeBlock from '@/components/examples/integrations/code-block/react/code-block.tsx';
-import ReactCodeBlockRaw from '@/components/examples/integrations/code-block/react/code-block.tsx?raw';
-import ReactPage from '@/components/examples/integrations/code-block/react/page.tsx';
-import ReactPageRaw from '@/components/examples/integrations/code-block/react/page.tsx?raw';
-import SvelteCodeBlock from '@/components/examples/integrations/code-block/svelte/code-block.svelte';
-import SvelteCodeBlockRaw from '@/components/examples/integrations/code-block/svelte/code-block.svelte?raw';
-import SveltePage from '@/components/examples/integrations/code-block/svelte/page.svelte';
-import SveltePageRaw from '@/components/examples/integrations/code-block/svelte/page.svelte?raw';
+import ReactCodeBlock from "@/components/examples/integrations/code-block/react/code-block.tsx";
+import ReactCodeBlockRaw from "@/components/examples/integrations/code-block/react/code-block.tsx?raw";
+import ReactPage from "@/components/examples/integrations/code-block/react/page.tsx";
+import ReactPageRaw from "@/components/examples/integrations/code-block/react/page.tsx?raw";
+import SvelteCodeBlock from "@/components/examples/integrations/code-block/svelte/code-block.svelte";
+import SvelteCodeBlockRaw from "@/components/examples/integrations/code-block/svelte/code-block.svelte?raw";
+import SveltePage from "@/components/examples/integrations/code-block/svelte/page.svelte";
+import SveltePageRaw from "@/components/examples/integrations/code-block/svelte/page.svelte?raw";
 
 <figure class="card-filled-enhanced flex justify-center gap-4 p-8">
 	<a href="https://shiki.style/" target="_blank" class="btn preset-filled">
@@ -58,13 +58,21 @@ A reusable component should suffice in most projects. Follow the steps below.
 </Framework>
 
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': SveltePageRaw, 'code-block.svelte': SvelteCodeBlockRaw }} client:visible>
+	<Preview
+		framework="svelte"
+		files={{ "app.svelte": SveltePageRaw, "code-block.svelte": SvelteCodeBlockRaw }}
+		client:visible
+	>
 		<SveltePage client:visible />
 	</Preview>
 </Framework>
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ReactPageRaw, 'code-block.tsx': ReactCodeBlockRaw }} client:visible>
+	<Preview
+		framework="react"
+		files={{ "app.tsx": ReactPageRaw, "code-block.tsx": ReactCodeBlockRaw }}
+		client:visible
+	>
 		<ReactPage client:visible />
 	</Preview>
 </Framework>
@@ -81,7 +89,10 @@ A few things of note about this component:
 ## Programmatic Usage
 
 <Alert type="warning">
-	<p>This use case falls outside the scope of Skeleton. The following is provided merely as guidance.</p>
+	<p>
+		This use case falls outside the scope of Skeleton. The following is provided merely as
+		guidance.
+	</p>
 </Alert>
 
 In some cases you may not have direct access to the source code, such as content from a blog posts or CMS pages. In fact the code may even come pre-baked with surrounding `<pre>` or `<code>` elements. For this, you'll need to follow the general steps below. Specific implementation may differ based on your app and framework.

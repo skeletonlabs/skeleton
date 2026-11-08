@@ -1,10 +1,10 @@
 <script lang="ts">
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <FloatingPanel dir="rtl">
@@ -36,7 +36,9 @@
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
 					<p>This is a floating panel with right-to-left (RTL) direction.</p>
-					<p>You can drag it from the header or resize it from the bottom-right corner.</p>
+					<p>
+						You can drag it from the header or resize it from the bottom-right corner.
+					</p>
 				</FloatingPanel.Body>
 				<FloatingPanel.ResizeTrigger axis="se" />
 			</FloatingPanel.Content>

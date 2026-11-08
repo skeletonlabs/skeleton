@@ -1,5 +1,5 @@
 ---
-import components from '@skeletonlabs/docs/components.json';
+import components from "@skeletonlabs/docs/components.json";
 
 interface Props {
 	id: `${string}/${string}`;
@@ -7,7 +7,7 @@ interface Props {
 
 const { id } = Astro.props;
 
-const [frameworkName, componentName] = id.split('/');
+const [frameworkName, componentName] = id.split("/");
 
 const framework = components.find((f) => f.framework === frameworkName);
 
@@ -23,9 +23,9 @@ if (!component) {
 
 function kebabToPascal(str: string) {
 	return str
-		.split('-')
+		.split("-")
 		.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-		.join('');
+		.join("");
 }
 ---
 
@@ -33,11 +33,11 @@ function kebabToPascal(str: string) {
 	<>
 		<h3 class="h3">
 			{type.name
-				.replace(kebabToPascal(id.split('/').at(-1) ?? ''), '')
-				.replace('Props', '')
-				.replace('Root', '') || 'Root'}
+				.replace(kebabToPascal(id.split("/").at(-1) ?? ""), "")
+				.replace("Props", "")
+				.replace("Root", "") || "Root"}
 		</h3>
-		<div class="table-wrap card border border-surface-200-800 rounded-container">
+		<div class="table-wrap card border-surface-200-800 rounded-container border">
 			<table class="table">
 				<thead class="bg-surface-100-900/50">
 					<tr>
@@ -53,14 +53,23 @@ function kebabToPascal(str: string) {
 								<code class="code">{property.name}</code>
 							</td>
 							<td>
-								{property.JSDoc && property.JSDoc.tags.some((tag) => tag.name === 'default') ? (
-									<span class="whitespace-nowrap">{property.JSDoc.tags.find((tag) => tag.name === 'default')?.value}</span>
+								{property.JSDoc &&
+								property.JSDoc.tags.some((tag) => tag.name === "default") ? (
+									<span class="whitespace-nowrap">
+										{
+											property.JSDoc.tags.find(
+												(tag) => tag.name === "default",
+											)?.value
+										}
+									</span>
 								) : (
 									<span class="opacity-50">&mdash;</span>
 								)}
 							</td>
 							<td class="flex flex-col items-start gap-2">
-								<span class="badge preset-tonal whitespace-pre-wrap">{property.type}</span>
+								<span class="badge preset-tonal whitespace-pre-wrap">
+									{property.type}
+								</span>
 								<p>{property.JSDoc.description}</p>
 							</td>
 						</tr>

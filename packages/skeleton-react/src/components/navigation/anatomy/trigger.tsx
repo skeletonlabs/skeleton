@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { NavigationRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { NavigationRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface NavigationTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+export interface NavigationTriggerProps
+	extends PropsWithElement<"button">, HTMLAttributes<"button"> {}
 
 export default function NavigationTrigger(props: NavigationTriggerProps) {
 	const { element, children, ...rest } = props;
@@ -13,10 +14,10 @@ export default function NavigationTrigger(props: NavigationTriggerProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'trigger',
-			'data-layout': navigation.layout,
-			type: 'button',
+			"data-scope": "navigation",
+			"data-part": "trigger",
+			"data-layout": navigation.layout,
+			type: "button",
 		},
 		rest,
 	);

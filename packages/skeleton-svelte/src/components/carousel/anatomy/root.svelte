@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/carousel';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/carousel";
 
-	export interface CarouselRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface CarouselRootProps
+		extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 </script>
 
 <script lang="ts">
-	import { useCarousel } from '../modules/provider.svelte';
-	import { CarouselRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/carousel';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useCarousel } from "../modules/provider.svelte";
+	import { CarouselRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/carousel";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: CarouselRootProps = $props();
 	const [carouselProps, componentProps] = $derived(splitProps(props));

@@ -1,9 +1,9 @@
 ---
-const baseClasses = 'card p-4 text-white text-center flex justify-start items-center';
+const baseClasses = "card p-4 text-white text-center flex justify-start items-center";
 ---
 
-<div class="w-full space-y-4 bg-[url(https://picsum.photos/id/249/1024/1024)] bg-center bg-no-repeat bg-cover rounded-container flex justify-center items-center p-4">
-	<div class="w-full grid grid-cols-1 gap-2">
+<div class="rounded-container flex w-full items-center justify-center space-y-4 bg-[url(https://picsum.photos/id/249/1024/1024)] bg-cover bg-center bg-no-repeat p-4">
+	<div class="grid w-full grid-cols-1 gap-2">
 		<div class:list={`${baseClasses} preset-glass-neutral`}>Neutral</div>
 		<div class:list={`${baseClasses} preset-glass-brand`}>Brand</div>
 		<hr class="hr" />
@@ -21,12 +21,23 @@ const baseClasses = 'card p-4 text-white text-center flex justify-start items-ce
 	/* Create a custom preset in your global stylesheet */
 	.preset-glass-neutral {
 		background: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
-		box-shadow: 0 0px 30px color-mix(in oklab, var(--color-surface-50-950) 30%, transparent) inset;
+		box-shadow: 0 0px 30px color-mix(in oklab, var(--color-surface-50-950) 30%, transparent)
+			inset;
 		backdrop-filter: blur(16px);
 	}
 	.preset-glass-brand {
-		background: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 30%, transparent);
-		box-shadow: 0 0px 30px color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 30%, transparent) inset;
+		background: color-mix(
+			in oklab,
+			light-dark(var(--color-brand-light), var(--color-brand-dark)) 30%,
+			transparent
+		);
+		box-shadow: 0 0px 30px
+			color-mix(
+				in oklab,
+				light-dark(var(--color-brand-light), var(--color-brand-dark)) 30%,
+				transparent
+			)
+			inset;
 		backdrop-filter: blur(16px);
 	}
 	.preset-glass-primary {
@@ -36,7 +47,8 @@ const baseClasses = 'card p-4 text-white text-center flex justify-start items-ce
 	}
 	.preset-glass-secondary {
 		background: color-mix(in oklab, var(--color-secondary-500) 40%, transparent);
-		box-shadow: 0 0px 30px color-mix(in oklab, var(--color-secondary-500) 50%, transparent) inset;
+		box-shadow: 0 0px 30px color-mix(in oklab, var(--color-secondary-500) 50%, transparent)
+			inset;
 		backdrop-filter: blur(16px);
 	}
 	.preset-glass-tertiary {

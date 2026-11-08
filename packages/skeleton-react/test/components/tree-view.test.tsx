@@ -1,69 +1,69 @@
-import TreeView from './tree-view.jsx';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { page } from 'vitest/browser';
+import TreeView from "./tree-view.jsx";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { page } from "vitest/browser";
 
-describe('TreeView', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("TreeView", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Tree', () => {
-		it('renders', async () => {
+	describe("Tree", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('tree')).toBeInTheDocument();
+			await expect.element(page.getByTestId("tree")).toBeInTheDocument();
 		});
 	});
 
-	describe('Branch', () => {
-		it('renders', async () => {
+	describe("Branch", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('branch')).toBeInTheDocument();
+			await expect.element(page.getByTestId("branch")).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchControl', () => {
-		it('renders', async () => {
+	describe("BranchControl", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('branch-control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("branch-control")).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchIndentGuide', () => {
-		it('renders', async () => {
+	describe("BranchIndentGuide", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('branch-indent-guide')).toBeInTheDocument();
+			await expect.element(page.getByTestId("branch-indent-guide")).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchIndicator', () => {
-		it('renders', async () => {
+	describe("BranchIndicator", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('branch-indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("branch-indicator")).toBeInTheDocument();
 		});
 	});
 
-	describe('BranchText', () => {
-		it('renders', async () => {
+	describe("BranchText", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('branch-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("branch-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('Item', () => {
-		it('renders', async () => {
+	describe("Item", () => {
+		it("renders", async () => {
 			await render(<TreeView />);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item")).toBeInTheDocument();
 		});
 	});
 });

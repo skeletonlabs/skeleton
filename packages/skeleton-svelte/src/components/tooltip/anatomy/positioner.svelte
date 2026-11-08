@@ -1,14 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface TooltipPositionerProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface TooltipPositionerProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { TooltipRootContext } from '../modules/root-context.js';
-	import { mergeProps, portal } from '@zag-js/svelte';
-	import { createAttachmentKey, fromAction } from 'svelte/attachments';
+	import { TooltipRootContext } from "../modules/root-context.js";
+	import { mergeProps, portal } from "@zag-js/svelte";
+	import { createAttachmentKey, fromAction } from "svelte/attachments";
 
 	const props: TooltipPositionerProps = $props();
 

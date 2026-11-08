@@ -262,7 +262,11 @@
 /* This enables the use of presets-* styling for standalone <code> */
 @layer base {
 	code {
-		background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%, transparent);
+		background-color: color-mix(
+			in oklab,
+			light-dark(var(--color-brand-light), var(--color-brand-dark)) 25%,
+			transparent
+		);
 		color: var(--color-surface-950-50);
 		border-radius: var(--radius-base);
 		font-family: var(--font-mono);
@@ -307,7 +311,7 @@
 		font-family: var(--font-mono);
 	}
 	&::before {
-		content: '+';
+		content: "+";
 	}
 }
 
@@ -327,7 +331,7 @@
 		font-family: var(--font-mono);
 	}
 	&::before {
-		content: '−';
+		content: "−";
 	}
 }
 

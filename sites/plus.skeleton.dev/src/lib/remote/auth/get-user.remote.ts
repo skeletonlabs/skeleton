@@ -1,4 +1,4 @@
-import { getRequestEvent, query } from '$app/server';
+import { getRequestEvent, query } from "$app/server";
 
 export const getUser = query(async () => {
 	const event = getRequestEvent();

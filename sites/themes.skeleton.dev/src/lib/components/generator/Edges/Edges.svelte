@@ -1,14 +1,14 @@
 <script lang="ts">
-	import Edge from '#lib/components/generator/Edges/EdgeOption.svelte';
+	import Edge from "#lib/components/generator/Edges/EdgeOption.svelte";
 
 	interface EdgesProps {
-		mode?: 'radius' | 'thickness' | 'corner';
+		mode?: "radius" | "thickness" | "corner";
 		name: string;
 		value: string;
 		items: string[];
 	}
 
-	let { mode = 'radius', name, value = $bindable(), items = [] }: EdgesProps = $props();
+	let { mode = "radius", name, value = $bindable(), items = [] }: EdgesProps = $props();
 
 	function setValue(v: string) {
 		value = v;

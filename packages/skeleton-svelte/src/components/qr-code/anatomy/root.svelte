@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { Props } from '@zag-js/qr-code';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { Props } from "@zag-js/qr-code";
 
-	export interface QrCodeRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {}
+	export interface QrCodeRootProps
+		extends Omit<Props, "id">, PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {}
 </script>
 
 <script lang="ts">
-	import { useQrCode } from '../modules/provider.svelte';
-	import { QrCodeRootContext } from '../modules/root-context.js';
-	import { splitProps } from '@zag-js/qr-code';
-	import { mergeProps } from '@zag-js/svelte';
+	import { useQrCode } from "../modules/provider.svelte";
+	import { QrCodeRootContext } from "../modules/root-context.js";
+	import { splitProps } from "@zag-js/qr-code";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: QrCodeRootProps = $props();
 

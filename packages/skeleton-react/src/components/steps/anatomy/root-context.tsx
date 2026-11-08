@@ -1,7 +1,7 @@
-import type { useSteps } from '../modules/provider.js';
-import { StepsRootContext as RootContext_ } from '../modules/root-context.js';
-import type { ReactNode } from 'react';
-import { use } from 'react';
+import type { useSteps } from "../modules/provider.js";
+import { StepsRootContext as RootContext_ } from "../modules/root-context.js";
+import type { ReactNode } from "react";
+import { use } from "react";
 
 export interface StepsRootContextProps {
 	children: (steps: ReturnType<typeof useSteps>) => ReactNode;

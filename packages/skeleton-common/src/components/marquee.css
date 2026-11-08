@@ -16,33 +16,33 @@
 	}
 }
 
-[data-scope='marquee'] {
-	&[data-part='root'] {
+[data-scope="marquee"] {
+	&[data-part="root"] {
 		position: relative;
 		overflow: hidden;
 
 		&[data-paused] {
-			& [data-part='content'] {
+			& [data-part="content"] {
 				animation-play-state: paused;
 			}
 		}
 	}
 
-	&[data-part='viewport'] {
+	&[data-part="viewport"] {
 		display: flex;
 		overflow: hidden;
 		gap: var(--marquee-spacing);
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			flex-direction: row;
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			flex-direction: column;
 		}
 	}
 
-	&[data-part='content'] {
+	&[data-part="content"] {
 		display: flex;
 		flex-shrink: 0;
 		gap: var(--marquee-spacing);
@@ -51,21 +51,21 @@
 		animation-delay: var(--marquee-delay);
 		animation-iteration-count: var(--marquee-loop-count);
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			flex-direction: row;
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			flex-direction: column;
 		}
 
-		&[data-side='start'],
-		&[data-side='end'] {
+		&[data-side="start"],
+		&[data-side="end"] {
 			animation-name: marqueeX;
 		}
 
-		&[data-side='top'],
-		&[data-side='bottom'] {
+		&[data-side="top"],
+		&[data-side="bottom"] {
 			animation-name: marqueeY;
 		}
 
@@ -78,14 +78,14 @@
 		}
 	}
 
-	&[data-part='edge'] {
+	&[data-part="edge"] {
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		z-index: 10;
 		pointer-events: none;
 
-		&[data-side='start'] {
+		&[data-side="start"] {
 			left: 0;
 			width: 20%;
 			background: linear-gradient(to right, var(--color-surface-50), transparent);
@@ -94,7 +94,7 @@
 			}
 		}
 
-		&[data-side='end'] {
+		&[data-side="end"] {
 			right: 0;
 			width: 20%;
 			background: linear-gradient(to left, var(--color-surface-50), transparent);
@@ -103,7 +103,7 @@
 			}
 		}
 
-		&[data-side='top'] {
+		&[data-side="top"] {
 			top: 0;
 			left: 0;
 			right: 0;
@@ -115,7 +115,7 @@
 			}
 		}
 
-		&[data-side='bottom'] {
+		&[data-side="bottom"] {
 			bottom: 0;
 			left: 0;
 			right: 0;

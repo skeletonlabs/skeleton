@@ -1,6 +1,6 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
-import { useState } from 'react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function Controlled() {
 	const [open, setOpen] = useState(false);
@@ -13,12 +13,22 @@ export default function Controlled() {
 		<>
 			<div className="flex flex-col gap-4">
 				<label className="label flex items-center gap-2">
-					<input type="checkbox" className="checkbox" checked={open} onChange={(e) => setOpen(e.currentTarget.checked)} />
+					<input
+						type="checkbox"
+						className="checkbox"
+						checked={open}
+						onChange={(e) => setOpen(e.currentTarget.checked)}
+					/>
 					<span className="label-text">Open Panel</span>
 				</label>
 				<label className="label">
 					<span className="label-text">Width:</span>
-					<input type="number" className="input" value={size.width} onChange={(e) => setSize({ ...size, width: Number(e.target.value) })} />
+					<input
+						type="number"
+						className="input"
+						value={size.width}
+						onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
+					/>
 				</label>
 				<label className="label">
 					<span className="label-text">Height:</span>
@@ -63,8 +73,14 @@ export default function Controlled() {
 								</FloatingPanel.Header>
 							</FloatingPanel.DragTrigger>
 							<FloatingPanel.Body>
-								<p>This panel's open state and size are controlled via the inputs above.</p>
-								<p>Try changing the values or resizing/closing the panel to see the inputs update.</p>
+								<p>
+									This panel's open state and size are controlled via the inputs
+									above.
+								</p>
+								<p>
+									Try changing the values or resizing/closing the panel to see the
+									inputs update.
+								</p>
 							</FloatingPanel.Body>
 							<FloatingPanel.ResizeTrigger axis="se" />
 						</FloatingPanel.Content>

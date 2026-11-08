@@ -1,34 +1,34 @@
-import Collapsible from './collapsible.svelte';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
-import { page } from 'vitest/browser';
+import Collapsible from "./collapsible.svelte";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-svelte";
+import { page } from "vitest/browser";
 
-describe('Collapsible', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Collapsible", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(Collapsible);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Trigger', () => {
-		it('renders', async () => {
+	describe("Trigger", () => {
+		it("renders", async () => {
 			await render(Collapsible);
-			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Indicator', () => {
-		it('renders', async () => {
+	describe("Indicator", () => {
+		it("renders", async () => {
 			await render(Collapsible);
-			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("indicator")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(Collapsible);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 });

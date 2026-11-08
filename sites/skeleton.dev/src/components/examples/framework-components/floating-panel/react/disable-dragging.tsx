@@ -1,5 +1,5 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from "lucide-react";
 
 export default function DisableDragging() {
 	return (

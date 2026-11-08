@@ -1,8 +1,8 @@
-import { form, getRequestEvent } from '$app/server';
-import { auth } from '#lib/server/auth/auth.ts';
-import { error, redirect } from '@sveltejs/kit';
-import { SignInSchema } from '#lib/schemas/auth/sign-in-schema.ts';
-import { ResultAsync } from 'neverthrow';
+import { form, getRequestEvent } from "$app/server";
+import { auth } from "#lib/server/auth/auth.ts";
+import { error, redirect } from "@sveltejs/kit";
+import { SignInSchema } from "#lib/schemas/auth/sign-in-schema.ts";
+import { ResultAsync } from "neverthrow";
 
 export const signIn = form(SignInSchema, async (data) => {
 	const event = getRequestEvent();
@@ -16,7 +16,7 @@ export const signIn = form(SignInSchema, async (data) => {
 			},
 		}),
 		(e) => {
-			return new Error('Failed to initiate social sign in', {
+			return new Error("Failed to initiate social sign in", {
 				cause: e,
 			});
 		},

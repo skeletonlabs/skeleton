@@ -1,5 +1,5 @@
-import { Menu, Portal } from '@skeletonlabs/skeleton-react';
-import { ChevronRightIcon } from 'lucide-react';
+import { Menu, Portal } from "@skeletonlabs/skeleton-react";
+import { ChevronRightIcon } from "lucide-react";
 
 export default function Nested() {
 	return (

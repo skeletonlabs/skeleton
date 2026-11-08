@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { SegmentedControl } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { SegmentedControl } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/segmented-control/')({
+export const Route = createFileRoute("/components/segmented-control/")({
 	component: Page,
 });
 

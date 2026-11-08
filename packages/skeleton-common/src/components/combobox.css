@@ -1,24 +1,24 @@
-[data-scope='combobox'] {
-	&[data-part='root'] {
+[data-scope="combobox"] {
+	&[data-part="root"] {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(2);
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 
-	&[data-part='control'] {
+	&[data-part="control"] {
 		position: relative;
 	}
 
-	&[data-part='input'] {
+	&[data-part="input"] {
 		@apply input;
 	}
 
-	&[data-part='trigger'] {
+	&[data-part="trigger"] {
 		position: absolute;
 		inset-inline-end: --spacing(1.5);
 		top: 50%;
@@ -27,7 +27,7 @@
 		@apply btn-icon btn-icon-xs preset-tonal;
 	}
 
-	&[data-part='clear-trigger'] {
+	&[data-part="clear-trigger"] {
 		width: fit-content;
 
 		@apply btn btn-sm preset-tonal;
@@ -37,7 +37,7 @@
 		}
 	}
 
-	&[data-part='content'] {
+	&[data-part="content"] {
 		padding: --spacing(2);
 		display: flex;
 		flex-direction: column;
@@ -48,20 +48,20 @@
 		@apply card;
 	}
 
-	&[data-part='item-group-label'] {
+	&[data-part="item-group-label"] {
 		color: var(--color-surface-600-400);
 		font-size: var(--text-xs);
 		padding: --spacing(1) --spacing(2);
 	}
 
-	&[data-part='item'] {
+	&[data-part="item"] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: --spacing(1) --spacing(2);
 		border-radius: var(--radius-base);
 
-		&[data-state='checked'] {
+		&[data-state="checked"] {
 			@apply preset-filled;
 		}
 

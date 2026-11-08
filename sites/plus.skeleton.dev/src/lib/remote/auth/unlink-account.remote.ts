@@ -1,9 +1,9 @@
-import { form, getRequestEvent } from '$app/server';
-import { error } from '@sveltejs/kit';
-import { auth } from '#lib/server/auth/auth.ts';
-import { UnlinkAccountSchema } from '#lib/schemas/auth/unlink-account-schema.ts';
-import { ResultAsync } from 'neverthrow';
-import { getAccounts } from './get-accounts.remote';
+import { form, getRequestEvent } from "$app/server";
+import { error } from "@sveltejs/kit";
+import { auth } from "#lib/server/auth/auth.ts";
+import { UnlinkAccountSchema } from "#lib/schemas/auth/unlink-account-schema.ts";
+import { ResultAsync } from "neverthrow";
+import { getAccounts } from "./get-accounts.remote";
 
 export const unlinkAccount = form(UnlinkAccountSchema, async (data) => {
 	const event = getRequestEvent();
@@ -23,7 +23,7 @@ export const unlinkAccount = form(UnlinkAccountSchema, async (data) => {
 				accountId: account?.id,
 			},
 		}),
-		(e) => new Error('Failed to unlink account', { cause: e }),
+		(e) => new Error("Failed to unlink account", { cause: e }),
 	);
 
 	if (unlinkAccountResult.isErr()) {

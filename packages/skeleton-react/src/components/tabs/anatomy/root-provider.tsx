@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import type { useTabs } from '../modules/provider.js';
-import { TabsRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import type { useTabs } from "../modules/provider.js";
+import { TabsRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface TabsRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
+export interface TabsRootProviderProps
+	extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {
 	value: ReturnType<typeof useTabs>;
 }
 

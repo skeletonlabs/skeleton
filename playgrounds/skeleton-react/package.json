@@ -2,6 +2,7 @@
 	"name": "@skeletonlabs/playground-skeleton-react",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"check": "tsc",
@@ -27,6 +28,5 @@
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module"
+	}
 }

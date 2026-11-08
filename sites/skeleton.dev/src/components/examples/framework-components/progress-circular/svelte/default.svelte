@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { Progress, Slider } from '@skeletonlabs/skeleton-svelte';
+	import { Progress, Slider } from "@skeletonlabs/skeleton-svelte";
 
 	let value = $state(50);
 </script>
 
-<div class="flex flex-col gap-8 items-center">
+<div class="flex flex-col items-center gap-8">
 	<!-- Progress -->
-	<Progress {value} class="items-center w-fit">
+	<Progress {value} class="w-fit items-center">
 		<Progress.Label>Progress</Progress.Label>
 		<Progress.Circle>
 			<Progress.CircleTrack />

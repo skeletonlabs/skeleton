@@ -1,9 +1,9 @@
-import { usePopover } from '../modules/provider.js';
-import { PopoverRootContext } from '../modules/root-context.js';
-import { type Props, splitProps } from '@zag-js/popover';
-import { type PropsWithChildren } from 'react';
+import { usePopover } from "../modules/provider.js";
+import { PopoverRootContext } from "../modules/root-context.js";
+import { type Props, splitProps } from "@zag-js/popover";
+import { type PropsWithChildren } from "react";
 
-export interface PopoverRootProps extends PropsWithChildren, Omit<Props, 'id'> {}
+export interface PopoverRootProps extends PropsWithChildren, Omit<Props, "id"> {}
 
 export default function Root(props: PopoverRootProps) {
 	const [popoverProps, componentProps] = splitProps(props);

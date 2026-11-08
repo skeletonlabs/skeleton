@@ -58,5 +58,7 @@
 
 @utility disclosure-content {
 	padding-block: calc((var(--disclosure-size, var(--text-base)) - --spacing(0.5)) / 2);
-	padding-inline: calc((var(--disclosure-size, var(--text-base)) - --spacing(0.5)) / 2 + var(--spacing));
+	padding-inline: calc(
+		(var(--disclosure-size, var(--text-base)) - --spacing(0.5)) / 2 + var(--spacing)
+	);
 }

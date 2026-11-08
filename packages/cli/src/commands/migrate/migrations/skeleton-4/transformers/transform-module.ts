@@ -1,7 +1,7 @@
-import { parseSourceFile } from '../../../../../utility/ts-morph/parse-source-file.js';
-import { IDENTIFIER_MAPPINGS } from '../utility/identifier-mappings.js';
-import { IMPORT_MAPPINGS } from '../utility/import-mappings.js';
-import { Node } from 'ts-morph';
+import { parseSourceFile } from "../../../../../utility/ts-morph/parse-source-file.js";
+import { IDENTIFIER_MAPPINGS } from "../utility/identifier-mappings.js";
+import { IMPORT_MAPPINGS } from "../utility/import-mappings.js";
+import { Node } from "ts-morph";
 
 function transformModule(code: string) {
 	const file = parseSourceFile(code);
@@ -10,7 +10,7 @@ function transformModule(code: string) {
 	file.forEachDescendant((node) => {
 		if (
 			Node.isImportSpecifier(node) &&
-			['@skeletonlabs/skeleton-svelte', '@skeletonlabs/skeleton-react'].includes(
+			["@skeletonlabs/skeleton-svelte", "@skeletonlabs/skeleton-react"].includes(
 				node.getImportDeclaration().getModuleSpecifier().getLiteralText(),
 			)
 		) {

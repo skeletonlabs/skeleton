@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { useMarquee } from '../modules/provider.svelte.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { useMarquee } from "../modules/provider.svelte.js";
 
-	export interface MarqueeRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+	export interface MarqueeRootProviderProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {
 		value: ReturnType<typeof useMarquee>;
 	}
 </script>
 
 <script lang="ts">
-	import { MarqueeRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { MarqueeRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: MarqueeRootProviderProps = $props();
 

@@ -1,11 +1,12 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { TagsInputItemContext } from '../modules/item-context.js';
-import { TagsInputRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { TagsInputItemContext } from "../modules/item-context.js";
+import { TagsInputRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface TagsInputItemDeleteTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+export interface TagsInputItemDeleteTriggerProps
+	extends PropsWithElement<"button">, HTMLAttributes<"button"> {}
 
 export default function ItemDeleteTrigger(props: TagsInputItemDeleteTriggerProps) {
 	const tagsInput = use(TagsInputRootContext);

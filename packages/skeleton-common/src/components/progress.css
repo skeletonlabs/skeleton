@@ -1,33 +1,33 @@
-[data-scope='progress'] {
-	&[data-part='root'] {
+[data-scope="progress"] {
+	&[data-part="root"] {
 		display: flex;
 		flex-direction: column;
 		gap: --spacing(2);
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			width: 100%;
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			align-items: center;
 		}
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		white-space: nowrap;
 	}
 
-	&[data-part='track'] {
+	&[data-part="track"] {
 		background: var(--color-surface-200-800);
 		border-radius: var(--radius-base);
 		overflow: hidden;
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			width: 100%;
 			height: --spacing(2);
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			width: --spacing(2);
 			height: --spacing(25);
 			display: flex;
@@ -35,42 +35,42 @@
 		}
 	}
 
-	&[data-part='range'] {
+	&[data-part="range"] {
 		height: 100%;
 		background: var(--color-surface-950-50);
 		border-radius: var(--radius-base);
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			transition: width 200ms;
 
-			&[data-state='indeterminate'] {
+			&[data-state="indeterminate"] {
 				animation: progress-linear-indeterminate-horizontal 1.5s infinite linear;
 			}
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			transition: height 200ms;
 
-			&[data-state='indeterminate'] {
+			&[data-state="indeterminate"] {
 				animation: progress-linear-indeterminate-vertical 1.5s infinite linear;
 			}
 		}
 	}
 
-	&[data-part='circle'] {
+	&[data-part="circle"] {
 		--size: --spacing(24);
 		--thickness: calc(var(--size) / 12);
 	}
 
-	&[data-part='circle-track'] {
+	&[data-part="circle-track"] {
 		stroke: var(--color-surface-200-800);
 	}
 
-	&[data-part='circle-range'] {
+	&[data-part="circle-range"] {
 		stroke: light-dark(var(--color-brand-light), var(--color-brand-dark));
 		transition: stroke-dashoffset 200ms ease-in-out;
 
-		&[data-state='indeterminate'] {
+		&[data-state="indeterminate"] {
 			animation: progress-circular-indeterminate 1.5s infinite linear;
 		}
 	}

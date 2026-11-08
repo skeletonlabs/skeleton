@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from './html-attributes.js';
-import type { JSX } from 'react';
+import type { HTMLAttributes } from "./html-attributes.js";
+import type { JSX } from "react";
 
 export interface PropsWithElement<T extends keyof JSX.IntrinsicElements> {
 	/**

@@ -1,4 +1,4 @@
-import { Avatar } from '@skeletonlabs/skeleton-react';
+import { Avatar } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	return (

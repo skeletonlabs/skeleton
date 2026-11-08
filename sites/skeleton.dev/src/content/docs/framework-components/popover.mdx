@@ -2,45 +2,45 @@
 title: Popover
 description: Small overlay panels positioned relative to a trigger.
 references:
-  styles: false
+    styles: false
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import AnchorReact from '@/components/examples/framework-components/popover/react/anchor';
-import AnchorReactRaw from '@/components/examples/framework-components/popover/react/anchor?raw';
-import ArrowReact from '@/components/examples/framework-components/popover/react/arrow';
-import ArrowReactRaw from '@/components/examples/framework-components/popover/react/arrow?raw';
-import DefaultReact from '@/components/examples/framework-components/popover/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/popover/react/default?raw';
-import DirReact from '@/components/examples/framework-components/popover/react/dir';
-import DirReactRaw from '@/components/examples/framework-components/popover/react/dir?raw';
-import ProviderPatternReact from '@/components/examples/framework-components/popover/react/provider-pattern';
-import ProviderPatternReactRaw from '@/components/examples/framework-components/popover/react/provider-pattern?raw';
-import ZIndexReact from '@/components/examples/framework-components/popover/react/z-index';
-import ZIndexReactRaw from '@/components/examples/framework-components/popover/react/z-index?raw';
-import AnchorSvelte from '@/components/examples/framework-components/popover/svelte/anchor.svelte';
-import AnchorSvelteRaw from '@/components/examples/framework-components/popover/svelte/anchor.svelte?raw';
-import ArrowSvelte from '@/components/examples/framework-components/popover/svelte/arrow.svelte';
-import ArrowSvelteRaw from '@/components/examples/framework-components/popover/svelte/arrow.svelte?raw';
-import DefaultSvelte from '@/components/examples/framework-components/popover/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/popover/svelte/default.svelte?raw';
-import DirSvelte from '@/components/examples/framework-components/popover/svelte/dir.svelte';
-import DirSvelteRaw from '@/components/examples/framework-components/popover/svelte/dir.svelte?raw';
-import ProviderPatternSvelte from '@/components/examples/framework-components/popover/svelte/provider-pattern.svelte';
-import ProviderPatternSvelteRaw from '@/components/examples/framework-components/popover/svelte/provider-pattern.svelte?raw';
-import ZIndexSvelte from '@/components/examples/framework-components/popover/svelte/z-index.svelte';
-import ZIndexSvelteRaw from '@/components/examples/framework-components/popover/svelte/z-index.svelte?raw';
+import AnchorReact from "@/components/examples/framework-components/popover/react/anchor";
+import AnchorReactRaw from "@/components/examples/framework-components/popover/react/anchor?raw";
+import ArrowReact from "@/components/examples/framework-components/popover/react/arrow";
+import ArrowReactRaw from "@/components/examples/framework-components/popover/react/arrow?raw";
+import DefaultReact from "@/components/examples/framework-components/popover/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/popover/react/default?raw";
+import DirReact from "@/components/examples/framework-components/popover/react/dir";
+import DirReactRaw from "@/components/examples/framework-components/popover/react/dir?raw";
+import ProviderPatternReact from "@/components/examples/framework-components/popover/react/provider-pattern";
+import ProviderPatternReactRaw from "@/components/examples/framework-components/popover/react/provider-pattern?raw";
+import ZIndexReact from "@/components/examples/framework-components/popover/react/z-index";
+import ZIndexReactRaw from "@/components/examples/framework-components/popover/react/z-index?raw";
+import AnchorSvelte from "@/components/examples/framework-components/popover/svelte/anchor.svelte";
+import AnchorSvelteRaw from "@/components/examples/framework-components/popover/svelte/anchor.svelte?raw";
+import ArrowSvelte from "@/components/examples/framework-components/popover/svelte/arrow.svelte";
+import ArrowSvelteRaw from "@/components/examples/framework-components/popover/svelte/arrow.svelte?raw";
+import DefaultSvelte from "@/components/examples/framework-components/popover/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/popover/svelte/default.svelte?raw";
+import DirSvelte from "@/components/examples/framework-components/popover/svelte/dir.svelte";
+import DirSvelteRaw from "@/components/examples/framework-components/popover/svelte/dir.svelte?raw";
+import ProviderPatternSvelte from "@/components/examples/framework-components/popover/svelte/provider-pattern.svelte";
+import ProviderPatternSvelteRaw from "@/components/examples/framework-components/popover/svelte/provider-pattern.svelte?raw";
+import ZIndexSvelte from "@/components/examples/framework-components/popover/svelte/z-index.svelte";
+import ZIndexSvelteRaw from "@/components/examples/framework-components/popover/svelte/z-index.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -52,12 +52,12 @@ Breaking convention in Skeleton, this component is provided "headless". Meaning 
 Use the `Anchor` component to position the popover contents relative to an element other than the trigger.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': AnchorReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": AnchorReactRaw }} client:visible>
 		<AnchorReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': AnchorSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": AnchorSvelteRaw }} client:visible>
 		<AnchorSvelte client:visible />
 	</Preview>
 </Framework>
@@ -67,12 +67,12 @@ Use the `Anchor` component to position the popover contents relative to an eleme
 Visually connects the popover content to the trigger element. Will automatically align based on the selected side.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ArrowReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ArrowReactRaw }} client:visible>
 		<ArrowReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ArrowSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ArrowSvelteRaw }} client:visible>
 		<ArrowSvelte client:visible />
 	</Preview>
 </Framework>
@@ -82,12 +82,12 @@ Visually connects the popover content to the trigger element. Will automatically
 By default Skeleton does not take an opinionated stance regarding z-index stacking. The result is the component can sometimes be occluded beneath other elements with a higher index. The Z-Index can controlled by applying a utility class to the `Positioner` component.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ZIndexReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ZIndexReactRaw }} client:visible>
 		<ZIndexReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ZIndexSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ZIndexSvelteRaw }} client:visible>
 		<ZIndexSvelte client:visible />
 	</Preview>
 </Framework>
@@ -97,12 +97,12 @@ By default Skeleton does not take an opinionated stance regarding z-index stacki
 Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-pattern) to gain access to the inner component APIs.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ProviderPatternReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ProviderPatternReactRaw }} client:visible>
 		<ProviderPatternReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ProviderPatternSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ProviderPatternSvelteRaw }} client:visible>
 		<ProviderPatternSvelte client:visible />
 	</Preview>
 </Framework>
@@ -112,12 +112,12 @@ Use the [Provider Pattern](/docs/[framework]/get-started/fundamentals#provider-p
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
@@ -129,7 +129,7 @@ Here's an overview of how the Popover component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Popover, Portal } from '@skeletonlabs/skeleton-react';
+import { Popover, Portal } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -158,7 +158,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Popover, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Popover>

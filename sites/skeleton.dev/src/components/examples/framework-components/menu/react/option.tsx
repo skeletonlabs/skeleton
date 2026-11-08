@@ -1,22 +1,22 @@
-import { Menu, Portal } from '@skeletonlabs/skeleton-react';
-import { CheckIcon } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, Portal } from "@skeletonlabs/skeleton-react";
+import { CheckIcon } from "lucide-react";
+import { useState } from "react";
 
 export default function Option() {
 	const sortOptions = [
-		{ value: 'newest', label: 'Newest' },
-		{ value: 'popular', label: 'Most Popular' },
-		{ value: 'rating', label: 'Highest Rated' },
+		{ value: "newest", label: "Newest" },
+		{ value: "popular", label: "Most Popular" },
+		{ value: "rating", label: "Highest Rated" },
 	];
 
 	const filterOptions = [
-		{ value: 'free-shipping', label: 'Free Shipping' },
-		{ value: 'in-stock', label: 'In Stock' },
-		{ value: 'on-sale', label: 'On Sale' },
+		{ value: "free-shipping", label: "Free Shipping" },
+		{ value: "in-stock", label: "In Stock" },
+		{ value: "on-sale", label: "On Sale" },
 	];
 
-	const [sort, setSort] = useState('newest');
-	const [filters, setFilters] = useState<string[]>(['free-shipping', 'in-stock']);
+	const [sort, setSort] = useState("newest");
+	const [filters, setFilters] = useState<string[]>(["free-shipping", "in-stock"]);
 
 	return (
 		<Menu closeOnSelect={false}>
@@ -29,7 +29,7 @@ export default function Option() {
 								key={item.value}
 								type="radio"
 								checked={sort === item.value}
-								onCheckedChange={(checked) => setSort(checked ? item.value : '')}
+								onCheckedChange={(checked) => setSort(checked ? item.value : "")}
 								value={item.value}
 							>
 								<Menu.ItemText>{item.label}</Menu.ItemText>
@@ -45,7 +45,11 @@ export default function Option() {
 								type="checkbox"
 								checked={filters.includes(item.value)}
 								onCheckedChange={(checked) =>
-									setFilters((prev) => (checked ? [...prev, item.value] : prev.filter((x) => x !== item.value)))
+									setFilters((prev) =>
+										checked
+											? [...prev, item.value]
+											: prev.filter((x) => x !== item.value),
+									)
 								}
 								value={item.value}
 							>

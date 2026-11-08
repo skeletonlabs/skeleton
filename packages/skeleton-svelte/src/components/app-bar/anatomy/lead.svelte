@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface AppBarLeadProps extends PropsWithElement<'nav'>, HTMLAttributes<'nav'> {}
+	export interface AppBarLeadProps extends PropsWithElement<"nav">, HTMLAttributes<"nav"> {}
 </script>
 
 <script lang="ts">
-	import { mergeProps } from '@zag-js/svelte';
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: AppBarLeadProps = $props();
 
@@ -15,8 +15,8 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'app-bar',
-				'data-part': 'lead',
+				"data-scope": "app-bar",
+				"data-part": "lead",
 			},
 			rest,
 		),

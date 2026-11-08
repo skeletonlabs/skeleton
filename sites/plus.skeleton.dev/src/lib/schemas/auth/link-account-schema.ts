@@ -1,7 +1,7 @@
-import * as v from 'valibot';
-import { supportedOAuthProviders } from '#lib/auth/supported-oauth-providers.ts';
+import * as v from "valibot";
+import { supportedOAuthProviders } from "#lib/auth/supported-oauth-providers.ts";
 
 export const LinkAccountSchema = v.object({
 	providerId: v.picklist(supportedOAuthProviders.map((provider) => provider.id)),
-	callbackURL: v.optional(v.string(), '/'),
+	callbackURL: v.optional(v.string(), "/"),
 });

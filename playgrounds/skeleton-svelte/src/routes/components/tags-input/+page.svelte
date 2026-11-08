@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+	import { TagsInput } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <TagsInput>

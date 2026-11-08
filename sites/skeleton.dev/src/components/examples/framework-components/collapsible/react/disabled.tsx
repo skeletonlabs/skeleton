@@ -1,4 +1,4 @@
-import { Collapsible } from '@skeletonlabs/skeleton-react';
+import { Collapsible } from "@skeletonlabs/skeleton-react";
 
 export default function Disabled() {
 	return (

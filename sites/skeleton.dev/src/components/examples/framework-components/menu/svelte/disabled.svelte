@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Menu>

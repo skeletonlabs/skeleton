@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Steps } from '@skeletonlabs/skeleton-svelte';
+	import { Steps } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Steps defaultStep={0} count={3} orientation="vertical" class="w-ful h-48">
@@ -23,12 +23,12 @@
 		</Steps.Item>
 	</Steps.List>
 
-	<div class="flex flex-col grow">
+	<div class="flex grow flex-col">
 		<Steps.Content class="grow" index={0}>First do this.</Steps.Content>
 		<Steps.Content class="grow" index={1}>Then do that.</Steps.Content>
 		<Steps.Content class="grow" index={2}>Almost there...</Steps.Content>
 		<Steps.Content class="grow" index={3}>All done!</Steps.Content>
-		<div class="flex justify-between items-center gap-2">
+		<div class="flex items-center justify-between gap-2">
 			<Steps.PrevTrigger class="btn preset-filled">Previous</Steps.PrevTrigger>
 			<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>
 		</div>

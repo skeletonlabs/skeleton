@@ -1,10 +1,10 @@
-import { Collapsible } from '@skeletonlabs/skeleton-react';
-import { ArrowUpDownIcon } from 'lucide-react';
+import { Collapsible } from "@skeletonlabs/skeleton-react";
+import { ArrowUpDownIcon } from "lucide-react";
 
 export default function Default() {
 	return (
-		<Collapsible className="items-start card preset-filled-surface-100-900 p-4 w-56 mx-auto">
-			<div className="w-full flex justify-between items-center">
+		<Collapsible className="card preset-filled-surface-100-900 mx-auto w-56 items-start p-4">
+			<div className="flex w-full items-center justify-between">
 				<p className="font-bold">Design System</p>
 				<Collapsible.Trigger className="btn-icon hover:preset-tonal">
 					<ArrowUpDownIcon className="size-4" />

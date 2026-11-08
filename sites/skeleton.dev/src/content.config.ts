@@ -1,13 +1,13 @@
-import { glob } from 'astro/loaders';
-import { defineCollection } from 'astro:content';
-import { Octokit } from 'octokit';
-import { z } from 'astro/zod';
+import { glob } from "astro/loaders";
+import { defineCollection } from "astro:content";
+import { Octokit } from "octokit";
+import { z } from "astro/zod";
 
 export const collections = {
 	frameworks: defineCollection({
 		loader: glob({
-			base: './src/content/frameworks',
-			pattern: '*.json',
+			base: "./src/content/frameworks",
+			pattern: "*.json",
 		}),
 		schema: z.object({
 			name: z.string().nonempty(),
@@ -17,15 +17,15 @@ export const collections = {
 	}),
 	docs: defineCollection({
 		loader: glob({
-			base: './src/content/docs',
-			pattern: '**/*.{md,mdx}',
+			base: "./src/content/docs",
+			pattern: "**/*.{md,mdx}",
 		}),
 		schema: z.object({
 			title: z.string().nonempty(),
 			description: z.string().nonempty(),
 			summary: z.string().optional(),
 			features: z.array(z.string()).optional(),
-			stability: z.enum(['alpha', 'beta', 'stable']).optional().default('stable'),
+			stability: z.enum(["alpha", "beta", "stable"]).optional().default("stable"),
 			order: z.number().nonnegative().optional().default(0),
 			tags: z.array(z.string()).optional().default([]),
 			references: z
@@ -41,7 +41,7 @@ export const collections = {
 	}),
 	contributors: defineCollection({
 		loader: async () => {
-			if (process.env.VERCEL_ENV !== 'production') {
+			if (process.env.VERCEL_ENV !== "production") {
 				return Array.from({ length: 100 }).map((_, index) => ({
 					id: String(index),
 					html_url: `https://github.com/user-${index}`,
@@ -51,8 +51,8 @@ export const collections = {
 			}
 			const octokit = new Octokit();
 			const response = await octokit.rest.repos.listContributors({
-				owner: 'skeletonlabs',
-				repo: 'skeleton',
+				owner: "skeletonlabs",
+				repo: "skeleton",
 				per_page: 100,
 			});
 			return response.data
@@ -68,10 +68,10 @@ export const collections = {
 			login: z.string(),
 		}),
 	}),
-	'showcase-projects': defineCollection({
+	"showcase-projects": defineCollection({
 		loader: glob({
-			base: './src/content/showcase-projects',
-			pattern: '*.json',
+			base: "./src/content/showcase-projects",
+			pattern: "*.json",
 		}),
 		schema: z.object({
 			name: z.string(),

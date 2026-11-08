@@ -1,14 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface ComboboxTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface ComboboxTriggerProps
+		extends PropsWithElement<"button">, HTMLAttributes<"button"> {}
 </script>
 
 <script lang="ts">
-	import ChevronDownIcon from '../../../internal/components/chevron-down.svelte';
-	import { ComboboxRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import ChevronDownIcon from "../../../internal/components/chevron-down.svelte";
+	import { ComboboxRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ComboboxTriggerProps = $props();
 

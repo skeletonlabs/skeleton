@@ -1,78 +1,85 @@
 ---
-import React from '@/assets/logos/react.svg';
-import Svelte from '@/assets/logos/svelte.svg';
-import Vue from '@/assets/logos/vue.svg';
-import Solid from '@/assets/logos/solid.svg';
-import Astro_ from '@/assets/logos/astro.svg'; // Astro is a reserved word
-import EllipsisIcon from '@lucide/astro/icons/ellipsis';
-import { resolvePath } from '@/modules/resolve-path';
+import React from "@/assets/logos/react.svg";
+import Svelte from "@/assets/logos/svelte.svg";
+import Vue from "@/assets/logos/vue.svg";
+import Solid from "@/assets/logos/solid.svg";
+import Astro_ from "@/assets/logos/astro.svg"; // Astro is a reserved word
+import EllipsisIcon from "@lucide/astro/icons/ellipsis";
+import { resolvePath } from "@/modules/resolve-path";
 
 const frameworks = [
 	{
-		name: 'React',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nextjs',
-		bgColor: '#00D8FF',
+		name: "React",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nextjs",
+		bgColor: "#00D8FF",
 		Icon: React,
 	},
 	{
-		name: 'Svelte',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/sveltekit',
-		bgColor: '#FF3E00',
+		name: "Svelte",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/sveltekit",
+		bgColor: "#FF3E00",
 		Icon: Svelte,
 	},
 	{
-		name: 'Vue',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nuxt',
-		bgColor: '#42B883',
+		name: "Vue",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/nuxt",
+		bgColor: "#42B883",
 		Icon: Vue,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'Solid',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/solidstart',
-		bgColor: '#57A0FF',
+		name: "Solid",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/solidstart",
+		bgColor: "#57A0FF",
 		Icon: Solid,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'Astro',
-		href: 'https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/astro',
-		bgColor: '#761CBA',
+		name: "Astro",
+		href: "https://stackblitz.com/github/skeletonlabs/demos/tree/main/demos/astro",
+		bgColor: "#761CBA",
 		Icon: Astro_,
-		note: '*',
+		note: "*",
 	},
 	{
-		name: 'More',
-		href: resolvePath(Astro.params, '/docs/[framework]/get-started/installation'),
-		bgColor: 'var(--skeleton-preset-tonal-bg)',
+		name: "More",
+		href: resolvePath(Astro.params, "/docs/[framework]/get-started/installation"),
+		bgColor: "var(--skeleton-preset-tonal-bg)",
 		Icon: EllipsisIcon,
 	},
 ];
 ---
 
-<div class="card bg-noise preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
-	<div class="self-center space-y-1">
+<div class="card bg-noise preset-filled-surface-100-900 grid grid-cols-1 gap-10 px-10 py-8 xl:grid-cols-[auto_2fr]">
+	<div class="space-y-1 self-center">
 		<h2 class="h2">Live Demos</h2>
-		<p class="xl:text-balance xl:max-w-96">Test drive Skeleton directly in your browser for supported frameworks.</p>
-		<p class="pt-4 text-xs text-surface-600-400">
+		<p class="xl:max-w-96 xl:text-balance">
+			Test drive Skeleton directly in your browser for supported frameworks.
+		</p>
+		<p class="text-surface-600-400 pt-4 text-xs">
 			* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.
 		</p>
 	</div>
-	<div class="self-center grid grid-cols-2 md:grid-cols-6 gap-4">
+	<div class="grid grid-cols-2 gap-4 self-center md:grid-cols-6">
 		{frameworks.map((framework) => (
 			<a
 				href={framework.href}
 				target="_blank"
-				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+				class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 			>
 				<div
-					class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center"
+					class="flex aspect-square w-16 items-center justify-center rounded-full xl:w-20"
 					style={`background-color: ${framework.bgColor}`}
 				>
 					<framework.Icon class="size-10 fill-white!" />
 				</div>
-				<p class="font-bold text-xs">
-					{framework.name} {framework.note ? <span class="text-surface-700-300">{framework.note}</span> : ''}
+				<p class="text-xs font-bold">
+					{framework.name}{" "}
+					{framework.note ? (
+						<span class="text-surface-700-300">{framework.note}</span>
+					) : (
+						""
+					)}
 				</p>
 			</a>
 		))}

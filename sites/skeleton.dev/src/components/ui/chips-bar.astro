@@ -1,24 +1,24 @@
 ---
-import CodeIcon from '@lucide/astro/icons/code';
-import BlocksIcon from '@lucide/astro/icons/blocks';
-import PersonStandingIcon from '@lucide/astro/icons/person-standing';
-import { getActiveFramework } from '@/modules/framework';
-import type { CollectionEntry } from 'astro:content';
-import { GIT_BRANCH } from 'astro:env/server';
-import { resolvePath } from '@/modules/resolve-path';
+import CodeIcon from "@lucide/astro/icons/code";
+import BlocksIcon from "@lucide/astro/icons/blocks";
+import PersonStandingIcon from "@lucide/astro/icons/person-standing";
+import { getActiveFramework } from "@/modules/framework";
+import type { CollectionEntry } from "astro:content";
+import { GIT_BRANCH } from "astro:env/server";
+import { resolvePath } from "@/modules/resolve-path";
 
 interface Props {
-	doc: CollectionEntry<'docs'>;
+	doc: CollectionEntry<"docs">;
 }
 
 const { doc } = Astro.props;
 
 const REPOSITORY_ROOT = new URL(`https://github.com/skeletonlabs/skeleton/tree/${GIT_BRANCH}/`);
-const ZAG_ROOT = new URL('https://zagjs.com/');
+const ZAG_ROOT = new URL("https://zagjs.com/");
 
-const path = doc.id.split('/');
-const section = path.at(0) ?? '';
-const feature = path.at(1) ?? '';
+const path = doc.id.split("/");
+const section = path.at(0) ?? "";
+const feature = path.at(1) ?? "";
 
 const activeFramework = getActiveFramework(Astro.params);
 
@@ -29,10 +29,13 @@ function getSourcePath() {
 	if (doc.data.references.source) {
 		return new URL(doc.data.references.source);
 	}
-	if (section === 'framework-components') {
-		return new URL(`packages/skeleton-${activeFramework.id}/src/components/${feature}`, REPOSITORY_ROOT);
+	if (section === "framework-components") {
+		return new URL(
+			`packages/skeleton-${activeFramework.id}/src/components/${feature}`,
+			REPOSITORY_ROOT,
+		);
 	}
-	if (section === 'tailwind-components') {
+	if (section === "tailwind-components") {
 		return new URL(`packages/skeleton/src/utilities/${feature}.css`, REPOSITORY_ROOT);
 	}
 }
@@ -44,7 +47,7 @@ function getStylesUrl() {
 	if (doc.data.references.styles) {
 		return new URL(doc.data.references.styles);
 	}
-	if (section === 'framework-components') {
+	if (section === "framework-components") {
 		return new URL(`packages/skeleton-common/src/components/${feature}.css`, REPOSITORY_ROOT);
 	}
 }
@@ -65,23 +68,30 @@ function getZagUrl() {
 	if (doc.data.references.zag) {
 		return new URL(doc.data.references.zag);
 	}
-	if (section === 'framework-components') {
+	if (section === "framework-components") {
 		return new URL(`components/${activeFramework.id}/${feature}`, ZAG_ROOT);
 	}
 }
 
 const references = [
-	{ label: 'Source', url: getSourcePath(), icon: CodeIcon },
-	{ label: 'Styles', url: getStylesUrl(), icon: CodeIcon },
-	{ label: 'A11y', url: getA11yUrl(), icon: PersonStandingIcon },
-	{ label: 'Zag', url: getZagUrl(), icon: BlocksIcon },
-].filter((reference): reference is { label: string; url: URL; icon: typeof CodeIcon } => Boolean(reference.url));
+	{ label: "Source", url: getSourcePath(), icon: CodeIcon },
+	{ label: "Styles", url: getStylesUrl(), icon: CodeIcon },
+	{ label: "A11y", url: getA11yUrl(), icon: PersonStandingIcon },
+	{ label: "Zag", url: getZagUrl(), icon: BlocksIcon },
+].filter((reference): reference is { label: string; url: URL; icon: typeof CodeIcon } =>
+	Boolean(reference.url),
+);
 ---
 
 {references.length > 0 && (
 	<nav class="flex flex-wrap gap-2 overflow-x-auto">
 		{references.map((reference) => (
-			<a class="chip preset-tonal" href={resolvePath(Astro.params, reference.url.toString())} target="_blank" rel="noopener noreferrer">
+			<a
+				class="chip preset-tonal"
+				href={resolvePath(Astro.params, reference.url.toString())}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<reference.icon class="size-4" />
 				<span>{reference.label}</span>
 			</a>

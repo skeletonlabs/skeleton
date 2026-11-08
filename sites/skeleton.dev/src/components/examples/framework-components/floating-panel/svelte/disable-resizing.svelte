@@ -1,10 +1,10 @@
 <script lang="ts">
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <FloatingPanel resizable={false}>

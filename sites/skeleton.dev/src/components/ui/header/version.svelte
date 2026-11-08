@@ -1,14 +1,14 @@
 <script lang="ts">
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
-	import packageJson from '@skeletonlabs/skeleton/package.json';
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
+	import packageJson from "@skeletonlabs/skeleton/package.json";
 
-	const versions = ['v4', 'v3', 'v2', 'v1'];
+	const versions = ["v4", "v3", "v2", "v1"];
 </script>
 
-<Menu class="hidden xl:block" positioning={{ placement: 'bottom-end' }}>
-	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2 hidden xl:flex">
+<Menu class="hidden xl:block" positioning={{ placement: "bottom-end" }}>
+	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal hidden px-2 xl:flex">
 		<span>v{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Menu.Trigger>
@@ -20,7 +20,12 @@
 					{#each versions as version (version)}
 						<Menu.Item value={version}>
 							{#snippet element(attributes: Record<string, unknown>)}
-								<a {...attributes} href={`https://${version}.skeleton.dev`} target="_blank" rel="noopener noreferrer">
+								<a
+									{...attributes}
+									href={`https://${version}.skeleton.dev`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<Menu.ItemText>{version} Docs</Menu.ItemText>
 									<ArrowUpRightIcon class="size-4 opacity-60" />
 								</a>

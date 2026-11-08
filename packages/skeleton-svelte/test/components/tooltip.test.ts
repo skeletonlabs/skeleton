@@ -1,41 +1,41 @@
-import Tooltip from './tooltip.svelte';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
-import { page } from 'vitest/browser';
+import Tooltip from "./tooltip.svelte";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-svelte";
+import { page } from "vitest/browser";
 
-describe('Tooltip', () => {
-	describe('Trigger', () => {
-		it('renders', async () => {
+describe("Tooltip", () => {
+	describe("Trigger", () => {
+		it("renders", async () => {
 			await render(Tooltip);
-			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Positioner', () => {
-		it('renders', async () => {
+	describe("Positioner", () => {
+		it("renders", async () => {
 			await render(Tooltip);
-			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
+			await expect.element(page.getByTestId("positioner")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(Tooltip);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 
-	describe('Arrow', () => {
-		it('renders', async () => {
+	describe("Arrow", () => {
+		it("renders", async () => {
 			await render(Tooltip);
-			await expect.element(page.getByTestId('arrow')).toBeInTheDocument();
+			await expect.element(page.getByTestId("arrow")).toBeInTheDocument();
 		});
 	});
 
-	describe('ArrowTip', () => {
-		it('renders', async () => {
+	describe("ArrowTip", () => {
+		it("renders", async () => {
 			await render(Tooltip);
-			await expect.element(page.getByTestId('arrow-tip')).toBeInTheDocument();
+			await expect.element(page.getByTestId("arrow-tip")).toBeInTheDocument();
 		});
 	});
 });

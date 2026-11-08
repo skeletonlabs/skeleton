@@ -1,7 +1,7 @@
-import { TreeViewNodeContext as NodeContext_ } from '../modules/node-context.js';
-import type { NodeProps } from '@zag-js/tree-view';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import { TreeViewNodeContext as NodeContext_ } from "../modules/node-context.js";
+import type { NodeProps } from "@zag-js/tree-view";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface TreeViewNodeContextProps {
 	children: (treeView: NodeProps) => ReactNode;

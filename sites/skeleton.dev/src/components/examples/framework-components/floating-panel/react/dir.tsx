@@ -1,5 +1,5 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from "lucide-react";
 
 export default function Dir() {
 	return (
@@ -32,7 +32,10 @@ export default function Dir() {
 						</FloatingPanel.DragTrigger>
 						<FloatingPanel.Body>
 							<p>This is a floating panel with right-to-left (RTL) direction.</p>
-							<p>You can drag it from the header or resize it from the bottom-right corner.</p>
+							<p>
+								You can drag it from the header or resize it from the bottom-right
+								corner.
+							</p>
 						</FloatingPanel.Body>
 						<FloatingPanel.ResizeTrigger axis="se" />
 					</FloatingPanel.Content>
