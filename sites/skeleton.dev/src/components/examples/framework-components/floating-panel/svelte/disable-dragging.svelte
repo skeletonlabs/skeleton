@@ -10,7 +10,7 @@
 <FloatingPanel draggable={false}>
 	<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 	<Portal>
-		<FloatingPanel.Positioner class="z-50">
+		<FloatingPanel.Positioner class="z-50!">
 			<FloatingPanel.Content>
 				<FloatingPanel.DragTrigger>
 					<FloatingPanel.Header>
