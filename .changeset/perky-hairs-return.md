@@ -2,5 +2,4 @@
 "@skeletonlabs/skeleton-common": patch
 ---
 
-Fix invalid navigation rail gap value by adding the rem unit.
-  
+bugfix: invalid navigation rail gap value by adding the rem unit.
