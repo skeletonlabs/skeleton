@@ -1,14 +1,14 @@
-import { THEME_VARIANT_STEP, type ManualStep } from '../utility/manual-steps.js';
-import { ADDED_TOKENS, REMOVED_TOKENS, TOKEN_MAPPINGS } from '../utility/token-mappings.js';
-import { transformClasses } from './transform-classes.js';
-import { log } from '@clack/prompts';
-import { parse } from 'postcss';
-import type { Rule } from 'postcss';
+import { THEME_VARIANT_STEP, type ManualStep } from "../utility/manual-steps.js";
+import { ADDED_TOKENS, REMOVED_TOKENS, TOKEN_MAPPINGS } from "../utility/token-mappings.js";
+import { transformClasses } from "./transform-classes.js";
+import { log } from "@clack/prompts";
+import { parse } from "postcss";
+import type { Rule } from "postcss";
 
 function renameTokens(content: string) {
 	return Object.entries(TOKEN_MAPPINGS).reduce((result, [from, to]) => {
 		// The `(?![-\w])` right-boundary prevents matching inside longer token names
-		return result.replace(new RegExp(`${from}(?![-\\w])`, 'g'), to);
+		return result.replace(new RegExp(`${from}(?![-\\w])`, "g"), to);
 	}, content);
 }
 
@@ -17,9 +17,9 @@ function addTokens(rule: Rule) {
 	const existing = new Set<string>();
 	let isThemeBlock = false;
 	rule.each((node) => {
-		if (node.type === 'decl') {
+		if (node.type === "decl") {
 			existing.add(node.prop);
-			if (node.prop.startsWith('--typo-')) {
+			if (node.prop.startsWith("--typo-")) {
 				isThemeBlock = true;
 			}
 		}
@@ -48,13 +48,13 @@ export function transformStylesheet(content: string, options: { addMissingTokens
 		if (addMissingTokens) {
 			ast.walkRules(addTokens);
 		}
-		ast.walkAtRules('apply', (atRule) => {
+		ast.walkAtRules("apply", (atRule) => {
 			const { code, meta } = transformClasses(atRule.params);
 			atRule.params = code;
 			manual.push(...meta.manual);
 		});
 		// `@variant theme-[name]` was removed in v5, flag it as a manual step
-		ast.walkAtRules('variant', (atRule) => {
+		ast.walkAtRules("variant", (atRule) => {
 			if (/^theme-[\w-]+/.test(atRule.params)) {
 				manual.push({ ...THEME_VARIANT_STEP, match: `@variant ${atRule.params}` });
 			}
@@ -64,7 +64,9 @@ export function transformStylesheet(content: string, options: { addMissingTokens
 			meta: { manual },
 		};
 	} catch (error) {
-		log.warn(`Failed to parse CSS, skipping removals: ${error instanceof Error ? error.message : 'Unknown error'}`);
+		log.warn(
+			`Failed to parse CSS, skipping removals: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
 		return {
 			code: renamed,
 			meta: { manual },

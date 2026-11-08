@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ExampleStepOne from './step-one.svelte';
+	import ExampleStepOne from "./step-one.svelte";
 
 	// Source Data
 	const steps = [
-		{ component: ExampleStepOne, props: { label: 'Step 1' } },
+		{ component: ExampleStepOne, props: { label: "Step 1" } },
 		// ...
 	];
 </script>

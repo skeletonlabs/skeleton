@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { useFileUpload } from '../modules/provider.svelte';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { useFileUpload } from "../modules/provider.svelte";
 
-	export interface FileUploadRootProviderProps extends PropsWithElement<'div'>, Omit<HTMLAttributes<'div'>, 'id' | 'dir'> {
+	export interface FileUploadRootProviderProps
+		extends PropsWithElement<"div">, Omit<HTMLAttributes<"div">, "id" | "dir"> {
 		value: ReturnType<typeof useFileUpload>;
 	}
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { FileUploadRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: FileUploadRootProviderProps = $props();
 

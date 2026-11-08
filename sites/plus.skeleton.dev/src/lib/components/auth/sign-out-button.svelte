@@ -1,11 +1,11 @@
 <script lang="ts" module>
-	import type { HTMLButtonAttributes } from 'svelte/elements';
+	import type { HTMLButtonAttributes } from "svelte/elements";
 
 	export interface Props extends HTMLButtonAttributes {}
 </script>
 
 <script lang="ts">
-	import { signOut } from '$lib/remote/auth/sign-out.remote';
+	import { signOut } from "#lib/remote/auth/sign-out.remote.ts";
 
 	const { children, ...attributes }: Props = $props();
 </script>

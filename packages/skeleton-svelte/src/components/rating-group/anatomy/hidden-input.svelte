@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface RatingGroupHiddenInputProps extends PropsWithElement<'input'>, HTMLAttributes<'input'> {}
+	export interface RatingGroupHiddenInputProps
+		extends PropsWithElement<"input">, HTMLAttributes<"input"> {}
 </script>
 
 <script lang="ts">
-	import { RatingGroupRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { RatingGroupRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: RatingGroupHiddenInputProps = $props();
 

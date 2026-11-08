@@ -1,8 +1,8 @@
-import { AppBar } from '@skeletonlabs/skeleton-react';
-import { CalendarIcon } from 'lucide-react';
-import { CircleUserIcon } from 'lucide-react';
-import { MenuIcon } from 'lucide-react';
-import { SearchIcon } from 'lucide-react';
+import { AppBar } from "@skeletonlabs/skeleton-react";
+import { CalendarIcon } from "lucide-react";
+import { CircleUserIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 
 export default function Default() {
 	return (

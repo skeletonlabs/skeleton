@@ -1,40 +1,40 @@
 ---
 title: Chat
 description: Create a custom chat feed or AI prompt interface.
-tags: ['blocks', 'machine learning']
+tags: ["blocks", "machine learning"]
 ---
 
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import BubblesReact from '@/components/examples/guides/cookbook/chat/react/bubbles';
-import BubblesReactRaw from '@/components/examples/guides/cookbook/chat/react/bubbles.tsx?raw';
-import ColumnsReact from '@/components/examples/guides/cookbook/chat/react/columns';
-import ColumnsReactRaw from '@/components/examples/guides/cookbook/chat/react/columns.tsx?raw';
-import DefaultReact from '@/components/examples/guides/cookbook/chat/react/default';
-import DefaultReactRaw from '@/components/examples/guides/cookbook/chat/react/default.tsx?raw';
-import FeedReact from '@/components/examples/guides/cookbook/chat/react/feed';
-import FeedReactRaw from '@/components/examples/guides/cookbook/chat/react/feed.tsx?raw';
-import RowsReact from '@/components/examples/guides/cookbook/chat/react/rows';
-import RowsReactRaw from '@/components/examples/guides/cookbook/chat/react/rows.tsx?raw';
-import BubblesSvelte from '@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte';
-import BubblesSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte?raw';
-import ColumnsSvelte from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte';
-import ColumnsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/columns.svelte?raw';
-import DefaultSvelte from '@/components/examples/guides/cookbook/chat/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/default.svelte?raw';
-import FeedSvelte from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte';
-import FeedSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/feed.svelte?raw';
-import RowsSvelte from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte';
-import RowsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/rows.svelte?raw';
+import BubblesReact from "@/components/examples/guides/cookbook/chat/react/bubbles";
+import BubblesReactRaw from "@/components/examples/guides/cookbook/chat/react/bubbles.tsx?raw";
+import ColumnsReact from "@/components/examples/guides/cookbook/chat/react/columns";
+import ColumnsReactRaw from "@/components/examples/guides/cookbook/chat/react/columns.tsx?raw";
+import DefaultReact from "@/components/examples/guides/cookbook/chat/react/default";
+import DefaultReactRaw from "@/components/examples/guides/cookbook/chat/react/default.tsx?raw";
+import FeedReact from "@/components/examples/guides/cookbook/chat/react/feed";
+import FeedReactRaw from "@/components/examples/guides/cookbook/chat/react/feed.tsx?raw";
+import RowsReact from "@/components/examples/guides/cookbook/chat/react/rows";
+import RowsReactRaw from "@/components/examples/guides/cookbook/chat/react/rows.tsx?raw";
+import BubblesSvelte from "@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte";
+import BubblesSvelteRaw from "@/components/examples/guides/cookbook/chat/svelte/bubbles.svelte?raw";
+import ColumnsSvelte from "@/components/examples/guides/cookbook/chat/svelte/columns.svelte";
+import ColumnsSvelteRaw from "@/components/examples/guides/cookbook/chat/svelte/columns.svelte?raw";
+import DefaultSvelte from "@/components/examples/guides/cookbook/chat/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/guides/cookbook/chat/svelte/default.svelte?raw";
+import FeedSvelte from "@/components/examples/guides/cookbook/chat/svelte/feed.svelte";
+import FeedSvelteRaw from "@/components/examples/guides/cookbook/chat/svelte/feed.svelte?raw";
+import RowsSvelte from "@/components/examples/guides/cookbook/chat/svelte/rows.svelte";
+import RowsSvelteRaw from "@/components/examples/guides/cookbook/chat/svelte/rows.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -44,12 +44,12 @@ import RowsSvelteRaw from '@/components/examples/guides/cookbook/chat/svelte/row
 Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns) utility classes to define horizontal columns for your layout.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ColumnsReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ColumnsReactRaw }} client:visible>
 		<ColumnsReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ColumnsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ColumnsSvelteRaw }} client:visible>
 		<ColumnsSvelte client:visible />
 	</Preview>
 </Framework>
@@ -59,12 +59,12 @@ Use Tailwind's [grid column](https://tailwindcss.com/docs/grid-template-columns)
 Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utility classes to define vertical layout rows for your layout.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': RowsReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": RowsReactRaw }} client:visible>
 		<RowsReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': RowsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": RowsSvelteRaw }} client:visible>
 		<RowsSvelte client:visible />
 	</Preview>
 </Framework>
@@ -74,12 +74,12 @@ Use Tailwind's [grid row](https://tailwindcss.com/docs/grid-template-rows) utili
 The feed simply loops through the available feed data. Each `<pre>` tag represents a single _bubble_ element.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': FeedReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": FeedReactRaw }} client:visible>
 		<FeedReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': FeedSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": FeedSvelteRaw }} client:visible>
 		<FeedSvelte client:visible />
 	</Preview>
 </Framework>
@@ -89,12 +89,12 @@ The feed simply loops through the available feed data. Each `<pre>` tag represen
 Provide styling to each bubble element.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': BubblesReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": BubblesReactRaw }} client:visible>
 		<BubblesReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': BubblesSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": BubblesSvelteRaw }} client:visible>
 		<BubblesSvelte client:visible />
 	</Preview>
 </Framework>
@@ -110,7 +110,7 @@ Use Skeleton's [input group](/docs/[framework]/tailwind-components/forms#groups)
 Bind your scrollable feed panel element reference ([Svelte](https://svelte.dev/docs/svelte/bind) | [React](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom)), then use [scrollTo](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo) to scroll the panel to the bottom on demand. Scroll behavior can be set via `behavior: 'smooth'`.
 
 ```ts
-function scrollChatBottom(behavior?: 'auto' | 'instant' | 'smooth' = 'smooth') {
+function scrollChatBottom(behavior?: "auto" | "instant" | "smooth" = "smooth") {
 	// `elemChat` represents our scrollable panel element
 	elemChat.scrollTo({ top: elemChat.scrollHeight, behavior });
 }
@@ -134,18 +134,18 @@ function addMessage(): void {
 		id: messageFeed.length,
 		host: true,
 		avatar: 48,
-		name: 'Jane',
+		name: "Jane",
 		timestamp: new date(),
 		message: elemPrompt.value,
-		color: 'preset-tonal-primary',
+		color: "preset-tonal-primary",
 	};
 	// Append the new message to the message feed
 	messageFeed = [...messageFeed, newMessage];
 	// Clear the textarea message
-	elemPrompt.value = '';
+	elemPrompt.value = "";
 	// Smoothly scroll to the bottom of the feed
 	setTimeout(() => {
-		scrollChatBottom('smooth');
+		scrollChatBottom("smooth");
 	}, 0);
 }
 ```

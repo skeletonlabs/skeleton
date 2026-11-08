@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { ContentProps } from '@zag-js/tabs';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { ContentProps } from "@zag-js/tabs";
 
-	export interface TabsContentProps extends ContentProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface TabsContentProps
+		extends ContentProps, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
-	import { splitContentProps } from '@zag-js/tabs';
+	import { TabsRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
+	import { splitContentProps } from "@zag-js/tabs";
 
 	const props: TabsContentProps = $props();
 

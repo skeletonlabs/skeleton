@@ -3,10 +3,10 @@
 </script>
 
 <script lang="ts">
-	import { users } from './data';
-	import ArrowLeftIcon from '@lucide/svelte/icons/arrow-left';
-	import ArrowRightIcon from '@lucide/svelte/icons/arrow-right';
-	import { Pagination } from '@skeletonlabs/skeleton-svelte';
+	import { users } from "./data";
+	import ArrowLeftIcon from "@lucide/svelte/icons/arrow-left";
+	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
+	import { Pagination } from "@skeletonlabs/skeleton-svelte";
 
 	let page = $state(1);
 
@@ -15,7 +15,7 @@
 	const paginatedUsers = $derived(users.slice(start, end));
 </script>
 
-<div class="grid gap-4 w-full place-items-center">
+<div class="grid w-full place-items-center gap-4">
 	<table class="table table-auto">
 		<thead>
 			<tr>
@@ -37,14 +37,20 @@
 		</tbody>
 	</table>
 
-	<Pagination count={users.length} pageSize={PAGE_SIZE} {page} onPageChange={(event) => (page = event.page)} dir="rtl">
+	<Pagination
+		count={users.length}
+		pageSize={PAGE_SIZE}
+		{page}
+		onPageChange={(event) => (page = event.page)}
+		dir="rtl"
+	>
 		<Pagination.PrevTrigger>
 			<ArrowRightIcon class="size-4" />
 		</Pagination.PrevTrigger>
 		<Pagination.Context>
 			{#snippet children(pagination)}
 				{#each pagination().pages as page, index (page)}
-					{#if page.type === 'page'}
+					{#if page.type === "page"}
 						<Pagination.Item {...page}>
 							{page.value}
 						</Pagination.Item>

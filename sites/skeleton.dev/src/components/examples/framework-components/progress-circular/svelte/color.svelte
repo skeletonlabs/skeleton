@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Progress } from '@skeletonlabs/skeleton-svelte';
+	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<div class="flex gap-4 justify-evenly items-center w-full">
+<div class="flex w-full items-center justify-evenly gap-4">
 	<Progress value={40} class="w-fit">
 		<Progress.Circle>
 			<Progress.CircleTrack class="stroke-primary-50-950" />

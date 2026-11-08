@@ -1,4 +1,4 @@
-import { Switch } from '@skeletonlabs/skeleton-react';
+import { Switch } from "@skeletonlabs/skeleton-react";
 
 export default function Dir() {
 	return (

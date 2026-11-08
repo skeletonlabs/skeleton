@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useDatePicker } from '../modules/provider.js';
-import { DatePickerRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useDatePicker } from "../modules/provider.js";
+import { DatePickerRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface DatePickerRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {
+export interface DatePickerRootProviderProps
+	extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {
 	value: ReturnType<typeof useDatePicker>;
 }
 

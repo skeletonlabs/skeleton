@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Get support on Discord
-    url: https://discord.com/channels/1003691521280856084/1151213014721241128
-    about: Get help from the maintainers on Discord.
-  - name: Ask a question, give feedback, share your project
-    url: https://github.com/skeletonlabs/skeleton/discussions
-    about: Connect with other community members with GitHub discussions.
+    - name: Get support on Discord
+      url: https://discord.com/channels/1003691521280856084/1151213014721241128
+      about: Get help from the maintainers on Discord.
+    - name: Ask a question, give feedback, share your project
+      url: https://github.com/skeletonlabs/skeleton/discussions
+      about: Connect with other community members with GitHub discussions.

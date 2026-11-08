@@ -1,23 +1,23 @@
 <script lang="ts">
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
 
 	const skeletonTools = [
 		{
-			href: 'https://themes.skeleton.dev/',
-			title: 'Theme Generator',
+			href: "https://themes.skeleton.dev/",
+			title: "Theme Generator",
 		},
 	] as const;
 
 	const communityTools = [
 		{
-			href: 'https://www.etesie.dev/figma',
-			title: 'Figma Kit',
+			href: "https://www.etesie.dev/figma",
+			title: "Figma Kit",
 		},
 		{
-			href: 'https://www.etesie.dev/guides/figma/01_basics',
-			title: 'Figma Kit Tutorials',
+			href: "https://www.etesie.dev/guides/figma/01_basics",
+			title: "Figma Kit Tutorials",
 		},
 	] as const;
 </script>
@@ -35,7 +35,7 @@
 	{/each}
 {/snippet}
 
-<Menu class="hidden xl:block" positioning={{ placement: 'bottom-start' }}>
+<Menu class="hidden xl:block" positioning={{ placement: "bottom-start" }}>
 	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal">
 		<span>More</span>
 		<ChevronDownIcon class="size-4 opacity-50" />

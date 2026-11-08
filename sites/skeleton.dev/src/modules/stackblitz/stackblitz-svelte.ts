@@ -1,4 +1,4 @@
-import sdk from '@stackblitz/sdk';
+import sdk from "@stackblitz/sdk";
 
 const appCss = `
 @import "tailwindcss";
@@ -35,24 +35,24 @@ const indexHtml = `
 
 const packageJson = JSON.stringify(
 	{
-		name: 'skeleton-svelte',
+		name: "skeleton-svelte",
 		scripts: {
-			dev: 'vite',
+			dev: "vite",
 		},
 		devDependencies: {
-			'@faker-js/faker': '^10',
-			'@skeletonlabs/skeleton': '^4',
-			'@skeletonlabs/skeleton-svelte': '^4',
-			'@sveltejs/vite-plugin-svelte': '^6',
-			'@tailwindcss/vite': '^4',
-			'@tsconfig/svelte': '^5',
-			'@lucide/svelte': '^0',
-			svelte: '^5',
-			tailwindcss: '^4',
-			typescript: '^5',
-			vite: '^7',
+			"@faker-js/faker": "^10",
+			"@skeletonlabs/skeleton": "^4",
+			"@skeletonlabs/skeleton-svelte": "^4",
+			"@sveltejs/vite-plugin-svelte": "^6",
+			"@tailwindcss/vite": "^4",
+			"@tsconfig/svelte": "^5",
+			"@lucide/svelte": "^0",
+			svelte: "^5",
+			tailwindcss: "^4",
+			typescript: "^5",
+			vite: "^7",
 		},
-		type: 'module',
+		type: "module",
 	},
 	null,
 	2,
@@ -69,18 +69,18 @@ export default {
 
 const tsconfigJson = JSON.stringify(
 	{
-		extends: '@tsconfig/svelte/tsconfig.json',
+		extends: "@tsconfig/svelte/tsconfig.json",
 		compilerOptions: {
-			target: 'ES2022',
+			target: "ES2022",
 			useDefineForClassFields: true,
-			module: 'ESNext',
-			types: ['svelte', 'vite/client'],
+			module: "ESNext",
+			types: ["svelte", "vite/client"],
 			noEmit: true,
 			allowJs: true,
 			checkJs: true,
-			moduleDetection: 'force',
+			moduleDetection: "force",
 		},
-		include: ['src'],
+		include: ["src"],
 	},
 	null,
 	2,
@@ -97,21 +97,23 @@ export default defineConfig({
 `.trim();
 
 export function openSvelteStackblitzProject(files: Record<string, string>) {
-	const srcFiles = Object.fromEntries(Object.entries(files).map(([key, value]) => [`src/${key}`, value]));
+	const srcFiles = Object.fromEntries(
+		Object.entries(files).map(([key, value]) => [`src/${key}`, value]),
+	);
 
 	sdk.openProject(
 		{
-			title: 'Skeleton Svelte',
-			template: 'node',
+			title: "Skeleton Svelte",
+			template: "node",
 			files: {
-				'src/app.css': appCss,
-				'src/main.ts': mainTs,
+				"src/app.css": appCss,
+				"src/main.ts": mainTs,
 				...srcFiles,
-				'index.html': indexHtml,
-				'package.json': packageJson,
-				'svelte.config.js': svelteConfigJs,
-				'tsconfig.json': tsconfigJson,
-				'vite.config.ts': viteConfigTs,
+				"index.html": indexHtml,
+				"package.json": packageJson,
+				"svelte.config.js": svelteConfigJs,
+				"tsconfig.json": tsconfigJson,
+				"vite.config.ts": viteConfigTs,
 			},
 		},
 		{

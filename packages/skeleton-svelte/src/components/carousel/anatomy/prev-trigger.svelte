@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface CarouselPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button'> {}
+	export interface CarouselPrevTriggerProps
+		extends PropsWithElement<"button">, HTMLAttributes<"button"> {}
 </script>
 
 <script lang="ts">
-	import { CarouselRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { CarouselRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: CarouselPrevTriggerProps = $props();
 

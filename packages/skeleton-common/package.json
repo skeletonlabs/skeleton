@@ -1,32 +1,32 @@
 {
 	"name": "@skeletonlabs/skeleton-common",
-	"version": "5.0.1",
+	"version": "5.0.2",
 	"description": "The common package for Skeleton.",
+	"license": "MIT",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/skeleton-common"
 	},
-	"scripts": {
-		"prepack": "clean-package",
-		"postpack": "clean-package restore"
-	},
+	"files": [
+		"src"
+	],
+	"type": "module",
+	"sideEffects": false,
 	"exports": {
 		".": {
 			"import": "./src/index.css",
 			"style": "./src/index.css"
 		}
 	},
-	"files": [
-		"src"
-	],
-	"sideEffects": false,
+	"scripts": {
+		"prepack": "clean-package",
+		"postpack": "clean-package restore"
+	},
 	"devDependencies": {
 		"clean-package": "catalog:"
 	},
-	"license": "MIT",
-	"type": "module",
 	"clean-package": {
 		"remove": [
 			"scripts",

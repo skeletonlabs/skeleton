@@ -1,10 +1,10 @@
-import { connect, machine } from '@zag-js/progress';
-import type { Api, Props } from '@zag-js/progress';
-import { normalizeProps, useMachine, type PropTypes } from '@zag-js/react';
-import { use, useId } from 'react';
-import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
+import { connect, machine } from "@zag-js/progress";
+import type { Api, Props } from "@zag-js/progress";
+import { normalizeProps, useMachine, type PropTypes } from "@zag-js/react";
+import { use, useId } from "react";
+import { LocaleProviderRootContext } from "../../locale-provider/modules/root-context.js";
 
-export function useProgress(props: Omit<Props, 'id'> = {}): Api<PropTypes> {
+export function useProgress(props: Omit<Props, "id"> = {}): Api<PropTypes> {
 	const locale = use(LocaleProviderRootContext);
 
 	const service = useMachine(machine, {

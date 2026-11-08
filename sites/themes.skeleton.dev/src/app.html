@@ -8,14 +8,19 @@
 		<!-- (app) and (generator) route groups) — a `const`/`let` re-declared in that case throws. -->
 		<script>
 			(function () {
-				var FALLBACK_THEME = 'cerberus';
-				var storedTheme = localStorage.getItem('theme');
-				document.documentElement.setAttribute('data-theme', storedTheme ?? FALLBACK_THEME);
+				var FALLBACK_THEME = "cerberus";
+				var storedTheme = localStorage.getItem("theme");
+				document.documentElement.setAttribute("data-theme", storedTheme ?? FALLBACK_THEME);
 
-				var FALLBACK_MODE = 'light';
-				var storedMode = localStorage.getItem('mode');
-				var preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-				document.documentElement.setAttribute('data-mode', storedMode ?? preferredMode ?? FALLBACK_MODE);
+				var FALLBACK_MODE = "light";
+				var storedMode = localStorage.getItem("mode");
+				var preferredMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+					? "dark"
+					: "light";
+				document.documentElement.setAttribute(
+					"data-mode",
+					storedMode ?? preferredMode ?? FALLBACK_MODE,
+				);
 			})();
 		</script>
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
@@ -23,7 +28,11 @@
 		%sveltekit.head%
 		<title>Themes - Skeleton</title>
 		<!-- Analytics -->
-		<script defer data-domain="themes.skeleton.dev" src="https://events.plygrnd.org/js/script.outbound-links.js"></script>
+		<script
+			defer
+			data-domain="themes.skeleton.dev"
+			src="https://events.plygrnd.org/js/script.outbound-links.js"
+		></script>
 		<script>
 			window.plausible =
 				window.plausible ||

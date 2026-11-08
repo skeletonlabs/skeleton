@@ -83,7 +83,11 @@ interface PagefindSearchAnchor {
 }
 
 export interface Pagefind {
-	debouncedSearch: (query: string, options?: PagefindSearchOptions, duration?: number) => Promise<PagefindSearchResults>;
+	debouncedSearch: (
+		query: string,
+		options?: PagefindSearchOptions,
+		duration?: number,
+	) => Promise<PagefindSearchResults>;
 	destroy: () => Promise<void>;
 	filters: () => Promise<PagefindFilterCounts>;
 	init: () => Promise<void>;

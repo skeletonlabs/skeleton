@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import type { Snippet } from 'svelte';
+	import type { Snippet } from "svelte";
 
 	export interface LocaleProviderRootContextProps {
 		children: Snippet<[ReturnType<typeof LocaleProviderRootContext.consume>]>;
@@ -7,7 +7,7 @@
 </script>
 
 <script lang="ts">
-	import { LocaleProviderRootContext } from '../modules/root-context.js';
+	import { LocaleProviderRootContext } from "../modules/root-context.js";
 
 	const props: LocaleProviderRootContextProps = $props();
 

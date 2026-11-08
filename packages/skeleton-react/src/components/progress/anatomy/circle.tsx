@@ -1,10 +1,10 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ProgressRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { ProgressRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface ProgressCircleProps extends PropsWithElement<'svg'>, HTMLAttributes<'svg'> {}
+export interface ProgressCircleProps extends PropsWithElement<"svg">, HTMLAttributes<"svg"> {}
 
 export default function Circle(props: ProgressCircleProps) {
 	const progress = use(ProgressRootContext);

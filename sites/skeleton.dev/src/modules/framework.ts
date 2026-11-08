@@ -1,12 +1,14 @@
-import { getCollection } from '@/modules/content';
-import type { Params } from 'astro';
+import { getCollection } from "@/modules/content";
+import type { Params } from "astro";
 
-const frameworks = await getCollection('frameworks');
+const frameworks = await getCollection("frameworks");
 
 function getDefaultFramework() {
 	const framework = frameworks.find((framework) => framework.data.default)!;
 	if (!framework) {
-		throw new Error('No default framework defined in content collection "frameworks". Please set one framework as default.');
+		throw new Error(
+			'No default framework defined in content collection "frameworks". Please set one framework as default.',
+		);
 	}
 	return framework;
 }

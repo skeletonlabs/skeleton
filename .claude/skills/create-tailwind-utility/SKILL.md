@@ -12,10 +12,10 @@ Scaffold a new CSS-only utility class in the Skeleton core package at [packages/
 - Utilities source: [packages/skeleton/src/utilities/](packages/skeleton/src/utilities/)
 - Import registry: [packages/skeleton/src/index.css](packages/skeleton/src/index.css) — every new file must be added here
 - Reference files to model after:
-  - Tailwind Utility: [masks.css](packages/skeleton/src/utilities/masks.css)
-  - Tailwind Component: [buttons.css](packages/skeleton/src/utilities/buttons.css), [badges.css](packages/skeleton/src/utilities/badges.css), [cards.css](packages/skeleton/src/utilities/cards.css), [chips.css](packages/skeleton/src/utilities/chips.css)
-  - Form-related: [form-inputs.css](packages/skeleton/src/utilities/form-inputs.css), [form-selects.css](packages/skeleton/src/utilities/form-selects.css), etc.
-  - Typography: [typography.css](packages/skeleton/src/utilities/typography.css)
+    - Tailwind Utility: [masks.css](packages/skeleton/src/utilities/masks.css)
+    - Tailwind Component: [buttons.css](packages/skeleton/src/utilities/buttons.css), [badges.css](packages/skeleton/src/utilities/badges.css), [cards.css](packages/skeleton/src/utilities/cards.css), [chips.css](packages/skeleton/src/utilities/chips.css)
+    - Form-related: [form-inputs.css](packages/skeleton/src/utilities/form-inputs.css), [form-selects.css](packages/skeleton/src/utilities/form-selects.css), etc.
+    - Typography: [typography.css](packages/skeleton/src/utilities/typography.css)
 
 ## File destination rules
 

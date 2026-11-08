@@ -2,22 +2,28 @@ export default function SkeletonOgImage(feature: string) {
 	return (
 		<div
 			style={{
-				height: '100%',
-				width: '100%',
-				backgroundColor: '#111111',
+				height: "100%",
+				width: "100%",
+				backgroundColor: "#111111",
 				backgroundImage:
-					'radial-gradient(at 0% 0%, hsla(166, 72%, 61%, 0.50) 0%, hsla(213, 94%, 48%, 0.40) 25%, hsla(326, 40%, 18%, 0.18) 50%, hsl(0, 0%, 7%) 80%);',
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'flex-start',
-				justifyContent: 'flex-start',
-				color: '#FFF',
+					"radial-gradient(at 0% 0%, hsla(166, 72%, 61%, 0.50) 0%, hsla(213, 94%, 48%, 0.40) 25%, hsla(326, 40%, 18%, 0.18) 50%, hsl(0, 0%, 7%) 80%);",
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "flex-start",
+				justifyContent: "flex-start",
+				color: "#FFF",
 				fontSize: 16,
 				fontWeight: 600,
 				padding: 56,
 			}}
 		>
-			<svg style={{ display: 'block' }} xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 512 512">
+			<svg
+				style={{ display: "block" }}
+				xmlns="http://www.w3.org/2000/svg"
+				width="128"
+				height="128"
+				viewBox="0 0 512 512"
+			>
 				<path
 					fill="#fff"
 					fill-rule="evenodd"
@@ -25,7 +31,9 @@ export default function SkeletonOgImage(feature: string) {
 				/>
 			</svg>
 			<div style={{ fontSize: 130, marginTop: 16 }}>Skeleton</div>
-			<div style={{ fontSize: 32, fontWeight: 300, marginTop: 0, opacity: 0.6 }}>The adaptive design system.</div>
+			<div style={{ fontSize: 32, fontWeight: 300, marginTop: 0, opacity: 0.6 }}>
+				The adaptive design system.
+			</div>
 			<div style={{ fontSize: 56, fontWeight: 600, marginTop: 90 }}>{feature}</div>
 		</div>
 	);

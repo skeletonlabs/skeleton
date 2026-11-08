@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Progress, Slider } from '@skeletonlabs/skeleton-svelte';
+	import { Progress, Slider } from "@skeletonlabs/skeleton-svelte";
 
 	let value = $state(75);
 </script>
@@ -14,7 +14,12 @@
 	</Progress>
 
 	<!-- Controls -->
-	<Slider class="w-32 mx-auto" value={[value]} onValueChange={(e) => (value = e.value[0])} step={10}>
+	<Slider
+		class="mx-auto w-32"
+		value={[value]}
+		onValueChange={(e) => (value = e.value[0])}
+		step={10}
+	>
 		<Slider.Control>
 			<Slider.Track>
 				<Slider.Range class="bg-transparent" />

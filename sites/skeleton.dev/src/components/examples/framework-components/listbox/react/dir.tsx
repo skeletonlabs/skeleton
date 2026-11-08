@@ -1,12 +1,12 @@
-import { Listbox, useListCollection } from '@skeletonlabs/skeleton-react';
+import { Listbox, useListCollection } from "@skeletonlabs/skeleton-react";
 
 const data = [
-	{ label: 'Apple', value: 'apple' },
-	{ label: 'Banana', value: 'banana' },
-	{ label: 'Orange', value: 'orange' },
-	{ label: 'Carrot', value: 'carrot' },
-	{ label: 'Broccoli', value: 'broccoli' },
-	{ label: 'Spinach', value: 'spinach' },
+	{ label: "Apple", value: "apple" },
+	{ label: "Banana", value: "banana" },
+	{ label: "Orange", value: "orange" },
+	{ label: "Carrot", value: "carrot" },
+	{ label: "Broccoli", value: "broccoli" },
+	{ label: "Spinach", value: "spinach" },
 ];
 
 export default function Dir() {

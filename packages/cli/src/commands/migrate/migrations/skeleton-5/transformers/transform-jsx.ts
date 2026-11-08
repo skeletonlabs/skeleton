@@ -1,8 +1,8 @@
-import type { ManualStep } from '../utility/manual-steps.js';
-import { transformClasses } from './transform-classes.js';
-import { log } from '@clack/prompts';
-import { nanoid } from 'nanoid';
-import { Node, Project } from 'ts-morph';
+import type { ManualStep } from "../utility/manual-steps.js";
+import { transformClasses } from "./transform-classes.js";
+import { log } from "@clack/prompts";
+import { nanoid } from "nanoid";
+import { Node, Project } from "ts-morph";
 
 // An in-memory `.tsx` project so JSX is parsed (plain `.ts` treats `<div>` as a type cast)
 const project = new Project({
@@ -30,7 +30,10 @@ function transformJsx(code: string) {
 		const file = project.createSourceFile(`${nanoid()}.tsx`, code);
 		file.forEachDescendant((node) => {
 			// Only transform `className`/`class` attributes, never arbitrary string literals
-			if (!Node.isJsxAttribute(node) || !['className', 'class'].includes(node.getNameNode().getText())) {
+			if (
+				!Node.isJsxAttribute(node) ||
+				!["className", "class"].includes(node.getNameNode().getText())
+			) {
 				return;
 			}
 			const initializer = node.getInitializer();
@@ -50,7 +53,9 @@ function transformJsx(code: string) {
 			meta: { manual },
 		};
 	} catch (error) {
-		log.warn(`Failed to parse JSX, skipping transformation: ${error instanceof Error ? error.message : 'Unknown error'}`);
+		log.warn(
+			`Failed to parse JSX, skipping transformation: ${error instanceof Error ? error.message : "Unknown error"}`,
+		);
 		return {
 			code: code,
 			meta: { manual },

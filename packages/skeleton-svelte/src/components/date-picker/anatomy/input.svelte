@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { InputProps } from '@zag-js/date-picker';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { InputProps } from "@zag-js/date-picker";
 
-	export interface DatePickerInputProps extends InputProps, PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
+	export interface DatePickerInputProps
+		extends InputProps, PropsWithElement<"input">, Omit<HTMLAttributes<"input">, "children"> {}
 </script>
 
 <script lang="ts">
-	import { DatePickerRootContext } from '../modules/root-context.js';
-	import { splitInputProps } from '@zag-js/date-picker';
-	import { mergeProps } from '@zag-js/svelte';
+	import { DatePickerRootContext } from "../modules/root-context.js";
+	import { splitInputProps } from "@zag-js/date-picker";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: DatePickerInputProps = $props();
 

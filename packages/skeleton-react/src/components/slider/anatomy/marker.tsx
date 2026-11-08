@@ -1,11 +1,12 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { SliderRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import type { MarkerProps } from '@zag-js/slider';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { SliderRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import type { MarkerProps } from "@zag-js/slider";
+import { use } from "react";
 
-export interface SliderMarkerProps extends MarkerProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface SliderMarkerProps
+	extends MarkerProps, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function Marker(props: SliderMarkerProps) {
 	const slider = use(SliderRootContext);

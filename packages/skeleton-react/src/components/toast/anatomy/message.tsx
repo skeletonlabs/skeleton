@@ -1,16 +1,16 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface ToastMessageProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface ToastMessageProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function Message(props: ToastMessageProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'toast',
-			'data-part': 'message',
+			"data-scope": "toast",
+			"data-part": "message",
 		},
 		rest,
 	);

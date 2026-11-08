@@ -1,18 +1,18 @@
 <!-- @component Code Block based on: https://shiki.style/ -->
 
 <script module>
-	import { createHighlighterCoreSync } from 'shiki/core';
-	import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
+	import { createHighlighterCoreSync } from "shiki/core";
+	import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
 	// Languages
 	// https://shiki.style/languages
-	import console from 'shiki/langs/console.mjs';
-	import css from 'shiki/langs/css.mjs';
-	import html from 'shiki/langs/html.mjs';
-	import js from 'shiki/langs/javascript.mjs';
-	import ts from 'shiki/langs/typescript.mjs';
+	import console from "shiki/langs/console.mjs";
+	import css from "shiki/langs/css.mjs";
+	import html from "shiki/langs/html.mjs";
+	import js from "shiki/langs/javascript.mjs";
+	import ts from "shiki/langs/typescript.mjs";
 	// Themes
 	// https://shiki.style/themes
-	import auroraX from 'shiki/themes/aurora-x.mjs';
+	import auroraX from "shiki/themes/aurora-x.mjs";
 
 	// https://shiki.style/guide/sync-usage
 	const shiki = createHighlighterCoreSync({
@@ -25,21 +25,21 @@
 </script>
 
 <script lang="ts">
-	import type { CodeBlockProps } from './types';
+	import type { CodeBlockProps } from "./types";
 
 	let {
-		code = '',
-		lang = 'console',
-		theme = 'aurora-x',
+		code = "",
+		lang = "console",
+		theme = "aurora-x",
 		// Base Style Props
-		base = ' overflow-hidden',
-		rounded = 'rounded-container',
-		shadow = '',
-		classes = '',
+		base = " overflow-hidden",
+		rounded = "rounded-container",
+		shadow = "",
+		classes = "",
 		// Pre Style Props
-		preBase = 'border border-surface-200-800 text-xs',
-		prePadding = '[&>pre]:p-4',
-		preClasses = '',
+		preBase = "border border-surface-200-800 text-xs",
+		prePadding = "[&>pre]:p-4",
+		preClasses = "",
 	}: CodeBlockProps = $props();
 
 	const generatedHtml = $derived(shiki.codeToHtml(code, { lang, theme }));

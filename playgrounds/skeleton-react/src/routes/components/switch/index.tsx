@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/switch/')({
+export const Route = createFileRoute("/components/switch/")({
 	component: Page,
 });
 

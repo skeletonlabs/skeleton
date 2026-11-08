@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useFloatingPanel } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useFloatingPanel } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface FloatingPanelRootContextProps {
 		children: Snippet<[ReturnType<typeof useFloatingPanel>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { FloatingPanelRootContext } from '../modules/root-context.js';
+	import { FloatingPanelRootContext } from "../modules/root-context.js";
 
 	const props: FloatingPanelRootContextProps = $props();
 

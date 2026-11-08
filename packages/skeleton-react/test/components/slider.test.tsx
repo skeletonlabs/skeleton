@@ -1,77 +1,77 @@
-import Slider from './slider.jsx';
-import { act } from 'react';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { page } from 'vitest/browser';
+import Slider from "./slider.jsx";
+import { act } from "react";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { page } from "vitest/browser";
 
-describe('Slider', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Slider", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('ValueText', () => {
-		it('renders', async () => {
+	describe("ValueText", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('value-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("value-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('Control', () => {
-		it('renders', async () => {
+	describe("Control", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("control")).toBeInTheDocument();
 		});
 	});
 
-	describe('Track', () => {
-		it('renders', async () => {
+	describe("Track", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('track')).toBeInTheDocument();
+			await expect.element(page.getByTestId("track")).toBeInTheDocument();
 		});
 	});
 
-	describe('Range', () => {
-		it('renders', async () => {
+	describe("Range", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('range')).toBeInTheDocument();
+			await expect.element(page.getByTestId("range")).toBeInTheDocument();
 		});
 	});
 
-	describe('Thumb', () => {
-		it('renders', async () => {
+	describe("Thumb", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('thumb')).toBeInTheDocument();
+			await expect.element(page.getByTestId("thumb")).toBeInTheDocument();
 		});
 	});
 
-	describe('HiddenInput', () => {
-		it('renders', async () => {
+	describe("HiddenInput", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('hidden-input')).toBeInTheDocument();
+			await expect.element(page.getByTestId("hidden-input")).toBeInTheDocument();
 		});
 	});
 
-	describe('MarkerGroup', () => {
-		it('renders', async () => {
+	describe("MarkerGroup", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('marker-group')).toBeInTheDocument();
+			await expect.element(page.getByTestId("marker-group")).toBeInTheDocument();
 		});
 	});
 
-	describe('Marker', () => {
-		it('renders', async () => {
+	describe("Marker", () => {
+		it("renders", async () => {
 			await act(() => render(<Slider />));
-			await expect.element(page.getByTestId('marker')).toBeInTheDocument();
+			await expect.element(page.getByTestId("marker")).toBeInTheDocument();
 		});
 	});
 });

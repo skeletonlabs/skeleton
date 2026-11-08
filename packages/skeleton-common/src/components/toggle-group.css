@@ -1,12 +1,12 @@
-[data-scope='toggle-group'] {
-	&[data-part='root'] {
+[data-scope="toggle-group"] {
+	&[data-part="root"] {
 		display: inline-flex;
 		overflow: hidden;
 		border-radius: var(--radius-base);
 
 		@apply preset-outlined-surface-200-800;
 
-		&[data-orientation='horizontal'] {
+		&[data-orientation="horizontal"] {
 			flex-direction: row;
 
 			& > *:not(:last-child) {
@@ -14,7 +14,7 @@
 			}
 		}
 
-		&[data-orientation='vertical'] {
+		&[data-orientation="vertical"] {
 			flex-direction: column;
 
 			& > *:not(:last-child) {
@@ -23,7 +23,7 @@
 		}
 	}
 
-	&[data-part='item'] {
+	&[data-part="item"] {
 		--tg-size: var(--text-base);
 
 		display: inline-flex;
@@ -44,7 +44,7 @@
 			@apply preset-tonal;
 		}
 
-		&[data-state='on'] {
+		&[data-state="on"] {
 			@apply preset-filled;
 		}
 

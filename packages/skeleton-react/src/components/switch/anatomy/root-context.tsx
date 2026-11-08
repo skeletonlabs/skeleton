@@ -1,7 +1,7 @@
-import type { useSwitch } from '../modules/provider.js';
-import { SwitchRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useSwitch } from "../modules/provider.js";
+import { SwitchRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface SwitchRootContextProps {
 	children: (switch_: ReturnType<typeof useSwitch>) => ReactNode;

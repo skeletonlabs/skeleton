@@ -1,6 +1,6 @@
 /* https://github.com/rose-pine/ */
 
-[data-theme='rosepine'] {
+[data-theme="rosepine"] {
 	--text-scaling: 1;
 	--typo-base--font-family: system-ui, sans-serif;
 	--typo-base--font-size: inherit;

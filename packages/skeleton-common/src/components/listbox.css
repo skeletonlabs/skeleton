@@ -1,20 +1,20 @@
-[data-scope='listbox'] {
-	&[data-part='root'] {
+[data-scope="listbox"] {
+	&[data-part="root"] {
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
 		gap: --spacing(2);
 	}
 
-	&[data-part='label'] {
+	&[data-part="label"] {
 		@apply label-text;
 	}
 
-	&[data-part='input'] {
+	&[data-part="input"] {
 		@apply input;
 	}
 
-	&[data-part='content'] {
+	&[data-part="content"] {
 		padding: --spacing(2);
 		display: flex;
 		flex-direction: column;
@@ -25,13 +25,13 @@
 		@apply card;
 	}
 
-	&[data-part='item-group-label'] {
+	&[data-part="item-group-label"] {
 		color: var(--color-surface-600-400);
 		font-size: var(--text-xs);
 		padding: --spacing(1) --spacing(2);
 	}
 
-	&[data-part='item'] {
+	&[data-part="item"] {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

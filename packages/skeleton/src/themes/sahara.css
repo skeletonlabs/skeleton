@@ -1,7 +1,8 @@
-[data-theme='sahara'] {
+[data-theme="sahara"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--typo-base--font-family:
+		Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: var(--color-surface-950);
 	--typo-base--color-dark: var(--color-surface-50);
@@ -15,7 +16,9 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
+	--typo-heading--font-family:
+		Superclarendon, "Bookman Old Style", "URW Bookman", "URW Bookman L", "Georgia Pro", Georgia,
+		serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: normal;

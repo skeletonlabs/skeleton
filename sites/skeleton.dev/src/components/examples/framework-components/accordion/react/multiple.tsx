@@ -1,11 +1,11 @@
-import { Accordion } from '@skeletonlabs/skeleton-react';
+import { Accordion } from "@skeletonlabs/skeleton-react";
 
 // [!code highlight]
 
 export default function Multiple() {
 	return (
 		<Accordion multiple>
-			{['1', '2', '3'].map((item) => (
+			{["1", "2", "3"].map((item) => (
 				<Accordion.Item key={item} value={item}>
 					<h3>
 						<Accordion.ItemTrigger>Item {item}</Accordion.ItemTrigger>

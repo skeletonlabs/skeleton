@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { Listbox, useListCollection } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Listbox, useListCollection } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/listbox/')({
+export const Route = createFileRoute("/components/listbox/")({
 	component: Page,
 });
 
 function Page() {
 	const collection = useListCollection({
 		items: [
-			{ value: 'apple', label: 'Apple', type: 'Fruits' },
-			{ value: 'banana', label: 'Banana', type: 'Fruits' },
-			{ value: 'orange', label: 'Orange', type: 'Fruits' },
-			{ value: 'carrot', label: 'Carrot', type: 'Vegetables' },
-			{ value: 'broccoli', label: 'Broccoli', type: 'Vegetables' },
-			{ value: 'spinach', label: 'Spinach', type: 'Vegetables' },
+			{ value: "apple", label: "Apple", type: "Fruits" },
+			{ value: "banana", label: "Banana", type: "Fruits" },
+			{ value: "orange", label: "Orange", type: "Fruits" },
+			{ value: "carrot", label: "Carrot", type: "Vegetables" },
+			{ value: "broccoli", label: "Broccoli", type: "Vegetables" },
+			{ value: "spinach", label: "Spinach", type: "Vegetables" },
 		],
 		groupBy: (item) => item.type,
 	});

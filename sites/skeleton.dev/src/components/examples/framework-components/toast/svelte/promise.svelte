@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Toast, createToaster } from '@skeletonlabs/skeleton-svelte';
+	import { Toast, createToaster } from "@skeletonlabs/skeleton-svelte";
 
 	const toaster = createToaster();
 
@@ -22,15 +22,15 @@
 	onclick={() =>
 		toaster.promise(generatePositiveNumber(), {
 			loading: {
-				title: 'Loading...',
-				description: 'Please wait while generating your number',
+				title: "Loading...",
+				description: "Please wait while generating your number",
 			},
 			success: (number) => ({
-				title: 'Success',
+				title: "Success",
 				description: `Your number is ${number}`,
 			}),
 			error: (number) => ({
-				title: 'Error',
+				title: "Error",
 				description: `Your number is ${number}`,
 			}),
 		})}

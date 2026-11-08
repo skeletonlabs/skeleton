@@ -1,13 +1,14 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface StepsPrevTriggerProps extends PropsWithElement<'button'>, HTMLAttributes<'button', 'value' | 'disabled'> {}
+	export interface StepsPrevTriggerProps
+		extends PropsWithElement<"button">, HTMLAttributes<"button", "value" | "disabled"> {}
 </script>
 
 <script lang="ts">
-	import { StepsRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { StepsRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: StepsPrevTriggerProps = $props();
 

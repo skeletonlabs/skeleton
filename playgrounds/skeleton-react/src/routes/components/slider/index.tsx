@@ -1,7 +1,7 @@
-import { Slider } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Slider } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/slider/')({
+export const Route = createFileRoute("/components/slider/")({
 	component: Page,
 });
 

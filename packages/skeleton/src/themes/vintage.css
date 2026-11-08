@@ -1,7 +1,7 @@
-[data-theme='vintage'] {
+[data-theme="vintage"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+	--typo-base--font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
 	--typo-base--font-size: inherit;
 	--typo-base--color-light: var(--color-surface-950);
 	--typo-base--color-dark: var(--color-surface-50);
@@ -15,7 +15,7 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+	--typo-heading--font-family: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
 	--typo-heading--color-light: var(--color-secondary-950);
 	--typo-heading--color-dark: oklch(1 0 0 / 1);
 	--typo-heading--font-weight: bold;

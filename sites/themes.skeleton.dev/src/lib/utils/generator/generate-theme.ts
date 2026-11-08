@@ -9,7 +9,7 @@ import {
 	settingsEdges,
 	settingsSpacing,
 	settingsTypography,
-} from '$lib/state/generator.svelte';
+} from "#lib/state/generator.svelte.ts";
 import {
 	formageEdges,
 	formatBackgrounds,
@@ -19,7 +19,7 @@ import {
 	formatCorners,
 	formatSpacing,
 	formatTypographyForTheme,
-} from '$lib/utils/generator/format-output';
+} from "#lib/utils/generator/format-output.ts";
 
 export function generateTheme() {
 	const _settingsCore = formatCore(settingsCore);

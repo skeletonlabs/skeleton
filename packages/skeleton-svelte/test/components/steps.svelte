@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Steps } from '../../src/index.js';
+	import { Steps } from "../../src/index.js";
 </script>
 
 <Steps data-testid="root">

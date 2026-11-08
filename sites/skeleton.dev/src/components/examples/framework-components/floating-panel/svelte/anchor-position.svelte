@@ -1,10 +1,10 @@
 <script lang="ts">
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="space-y-4">
@@ -19,7 +19,7 @@
 	>
 		<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 		<Portal>
-			<FloatingPanel.Positioner class="z-50">
+			<FloatingPanel.Positioner class="z-50!">
 				<FloatingPanel.Content>
 					<FloatingPanel.DragTrigger>
 						<FloatingPanel.Header>

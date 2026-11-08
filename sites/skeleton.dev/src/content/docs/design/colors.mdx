@@ -3,20 +3,20 @@ title: Colors
 description: The Skeleton color system.
 summary: Skeleton provides guardrails and utilities to help you craft your custom color system. This includes a number of colors, shades, and contrast values that work together seamlessly, providing a visually appealing and accessible palette for each theme.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/theme.css'
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/theme.css"
 order: 10
 ---
 
-import Preview from '@/components/ui/preview.svelte';
+import Preview from "@/components/ui/preview.svelte";
 
-import Brand from '@/components/examples/design/colors/brand.astro';
-import BrandRaw from '@/components/examples/design/colors/brand.astro?raw';
-import Contrast from '@/components/examples/design/colors/contrast.astro';
-import ContrastRaw from '@/components/examples/design/colors/contrast.astro?raw';
-import Default from '@/components/examples/design/colors/default.astro';
-import DefaultRaw from '@/components/examples/design/colors/default.astro?raw';
-import PairingsStack from '@/components/examples/design/colors/pairings-stack.astro';
-import Pairings from '@/components/examples/design/colors/pairings.astro';
+import Brand from "@/components/examples/design/colors/brand.astro";
+import BrandRaw from "@/components/examples/design/colors/brand.astro?raw";
+import Contrast from "@/components/examples/design/colors/contrast.astro";
+import ContrastRaw from "@/components/examples/design/colors/contrast.astro?raw";
+import Default from "@/components/examples/design/colors/default.astro";
+import DefaultRaw from "@/components/examples/design/colors/default.astro?raw";
+import PairingsStack from "@/components/examples/design/colors/pairings-stack.astro";
+import Pairings from "@/components/examples/design/colors/pairings.astro";
 
 ## Color Palette
 
@@ -46,7 +46,7 @@ Supports <u>all</u> Tailwind color utility classes using the following pattern.
 
 Test the following with different themes and dark mode combinations.
 
-<Preview files={{ 'app.astro': ContrastRaw }} client:visible>
+<Preview files={{ "app.astro": ContrastRaw }} client:visible>
 	<Contrast />
 </Preview>
 
@@ -117,7 +117,7 @@ A variable accent color for your design system. Use this as the default color va
 
 > TIP: The **Nouveau** theme makes use of variable brand color for light and dark modes.
 
-<Preview files={{ 'app.astro': BrandRaw }} client:visible>
+<Preview files={{ "app.astro": BrandRaw }} client:visible>
 	<Brand />
 </Preview>
 

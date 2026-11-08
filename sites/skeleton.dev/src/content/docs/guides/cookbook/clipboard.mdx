@@ -1,20 +1,20 @@
 ---
 title: Clipboard API
 description: Learn how to integrate the native browser clipboard API.
-tags: ['native', 'programmatic']
+tags: ["native", "programmatic"]
 ---
 
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/guides/cookbook/clipboard/react/default';
-import DefaultReactRaw from '@/components/examples/guides/cookbook/clipboard/react/default.tsx?raw';
-import InputReact from '@/components/examples/guides/cookbook/clipboard/react/input';
-import InputReactRaw from '@/components/examples/guides/cookbook/clipboard/react/input.tsx?raw';
-import DefaultSvelte from '@/components/examples/guides/cookbook/clipboard/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/guides/cookbook/clipboard/svelte/default.svelte?raw';
-import InputSvelte from '@/components/examples/guides/cookbook/clipboard/svelte/input.svelte';
-import InputSvelteRaw from '@/components/examples/guides/cookbook/clipboard/svelte/input.svelte?raw';
+import DefaultReact from "@/components/examples/guides/cookbook/clipboard/react/default";
+import DefaultReactRaw from "@/components/examples/guides/cookbook/clipboard/react/default.tsx?raw";
+import InputReact from "@/components/examples/guides/cookbook/clipboard/react/input";
+import InputReactRaw from "@/components/examples/guides/cookbook/clipboard/react/input.tsx?raw";
+import DefaultSvelte from "@/components/examples/guides/cookbook/clipboard/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/guides/cookbook/clipboard/svelte/default.svelte?raw";
+import InputSvelte from "@/components/examples/guides/cookbook/clipboard/svelte/input.svelte";
+import InputSvelteRaw from "@/components/examples/guides/cookbook/clipboard/svelte/input.svelte?raw";
 
 ## How It Works
 
@@ -23,12 +23,12 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 ## Programmatic
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -36,12 +36,12 @@ Refer to the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Cl
 ## Using Inputs
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': InputReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": InputReactRaw }} client:visible>
 		<InputReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': InputSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": InputSvelteRaw }} client:visible>
 		<InputSvelte client:visible />
 	</Preview>
 </Framework>

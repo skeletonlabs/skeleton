@@ -1,8 +1,8 @@
-import { TagsInput } from '@skeletonlabs/skeleton-react';
+import { TagsInput } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	return (
-		<TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']} dir="rtl">
+		<TagsInput defaultValue={["Vanilla", "Chocolate", "Strawberry"]} dir="rtl">
 			<TagsInput.Label>Label</TagsInput.Label>
 			<TagsInput.Control>
 				<TagsInput.Context>

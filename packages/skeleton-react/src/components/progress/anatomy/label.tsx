@@ -1,10 +1,10 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { ProgressRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { ProgressRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface ProgressLabelProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface ProgressLabelProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function Label(props: ProgressLabelProps) {
 	const progress = use(ProgressRootContext);

@@ -1,7 +1,8 @@
-[data-theme='reign'] {
+[data-theme="reign"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
-	--typo-base--font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--typo-base--font-family:
+		Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
 	--typo-base--font-size: 18px;
 	--typo-base--color-light: oklch(0 0 0 / 1);
 	--typo-base--color-dark: oklch(1 0 0 / 1);
@@ -15,7 +16,9 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	--typo-heading--font-family:
+		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono",
+		monospace;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: bold;

@@ -1,11 +1,11 @@
 <script lang="ts">
 	// Components (common)
-	import AppHeader from '$lib/components/common/AppHeader/AppHeader.svelte';
+	import AppHeader from "#lib/components/common/AppHeader/AppHeader.svelte";
 
 	let { children } = $props();
 </script>
 
-<main class="h-screen grid grid-rows-[auto_1fr_auto] overflow-hidden">
+<main class="grid h-screen grid-rows-[auto_1fr_auto] overflow-hidden">
 	<AppHeader />
 	{@render children?.()}
 </main>

@@ -1,24 +1,24 @@
 ---
-import { components } from '@/components/typography';
-import H1 from '@/components/typography/h1.astro';
-import Header from '@/components/ui/header/header.astro';
-import Footer from '@/components/ui/footer.astro';
-import Navigation from '@/components/ui/navigation.astro';
-import Alert from '@/components/ui/alert.astro';
-import TableOfContents from '@/components/ui/table-of-contents.svelte';
-import Advertisement from '@/components/ui/advertisement.astro';
-import Breadcrumbs from '@/components/ui/breadcrumbs.astro';
-import { render, type CollectionEntry } from 'astro:content';
-import ChipsBar from '../ui/chips-bar.astro';
-import SquarePenIcon from '@lucide/astro/icons/square-pen';
-import LlmMenu from '@/components/ui/large-language-models.svelte';
-import NavigationSteps from '@/components/ui/navigation-steps.astro';
-import { GIT_BRANCH } from 'astro:env/server';
+import { components } from "@/components/typography";
+import H1 from "@/components/typography/h1.astro";
+import Header from "@/components/ui/header/header.astro";
+import Footer from "@/components/ui/footer.astro";
+import Navigation from "@/components/ui/navigation.astro";
+import Alert from "@/components/ui/alert.astro";
+import TableOfContents from "@/components/ui/table-of-contents.svelte";
+import Advertisement from "@/components/ui/advertisement.astro";
+import Breadcrumbs from "@/components/ui/breadcrumbs.astro";
+import { render, type CollectionEntry } from "astro:content";
+import ChipsBar from "../ui/chips-bar.astro";
+import SquarePenIcon from "@lucide/astro/icons/square-pen";
+import LlmMenu from "@/components/ui/large-language-models.svelte";
+import NavigationSteps from "@/components/ui/navigation-steps.astro";
+import { GIT_BRANCH } from "astro:env/server";
 
 interface Props {
-	doc: CollectionEntry<'docs'>;
-	previousDoc?: CollectionEntry<'docs'>;
-	nextDoc?: CollectionEntry<'docs'>;
+	doc: CollectionEntry<"docs">;
+	previousDoc?: CollectionEntry<"docs">;
+	nextDoc?: CollectionEntry<"docs">;
 }
 
 const { doc, previousDoc, nextDoc } = Astro.props;
@@ -29,19 +29,19 @@ const { Content, headings } = await render(doc);
 <!-- Header -->
 <Header />
 <!-- Page -->
-<div class="container mx-auto grid grid-cols-1 xl:grid-cols-[240px_minmax(0px,1fr)_280px] px-4">
+<div class="container mx-auto grid grid-cols-1 px-4 xl:grid-cols-[240px_minmax(0px,1fr)_280px]">
 	<!-- Sidebar (Left) - Navigation -->
 	<aside
-		class="hidden xl:block self-start sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-r border-surface-200-800 py-4 xl:py-10 overflow-y-auto hide-scrollbar-track pr-10"
+		class="border-surface-200-800 hide-scrollbar-track sticky top-(--header-height) hidden h-[calc(100vh-var(--header-height))] self-start overflow-y-auto border-r py-4 pr-10 xl:block xl:py-10"
 		data-navigation
 	>
 		<Navigation />
 	</aside>
 	<!-- Main -->
-	<main class="px-4 xl:px-10 py-10 space-y-8">
+	<main class="space-y-8 px-4 py-10 xl:px-10">
 		<!-- header -->
 		<header class="space-y-4" data-pagefind-body>
-			<div class="flex justify-between items-start">
+			<div class="flex items-start justify-between">
 				<Breadcrumbs />
 				<LlmMenu url={Astro.url} client:visible />
 			</div>
@@ -49,14 +49,12 @@ const { Content, headings } = await render(doc);
 			<p class="text-lg opacity-60">{doc.data.description}</p>
 		</header>
 		<!-- Stability Warning -->
-		{
-			doc.data.stability !== 'stable' && (
-				<Alert type="warning">
-					This feature is currently marked as {doc.data.stability}. Take caution when using for production. It may receive breaking changes
-					before its stable release.
-				</Alert>
-			)
-		}
+		{doc.data.stability !== "stable" && (
+			<Alert type="warning">
+				This feature is currently marked as {doc.data.stability}. Take caution when using
+				for production. It may receive breaking changes before its stable release.
+			</Alert>
+		)}
 		<!-- Chips -->
 		<ChipsBar {doc} />
 		<!-- Content -->
@@ -64,18 +62,16 @@ const { Content, headings } = await render(doc);
 			<!-- Summary -->
 			<p class="text-lg">{doc.data.summary}</p>
 			<!-- Key Features -->
-			{
-				doc.data.features && (
-					<>
-						<p class="font-bold">Key Features</p>
-						<ul class="list-inside list-disc space-y-2">
-							{doc.data.features.map((listItem) => (
-								<li>{listItem}</li>
-							))}
-						</ul>
-					</>
-				)
-			}
+			{doc.data.features && (
+				<>
+					<p class="font-bold">Key Features</p>
+					<ul class="list-inside list-disc space-y-2">
+						{doc.data.features.map((listItem) => (
+							<li>{listItem}</li>
+						))}
+					</ul>
+				</>
+			)}
 			<!-- Content -->
 			<Content components={components} Astro={Astro} />
 			<!-- Inner Page Navigation -->
@@ -83,7 +79,7 @@ const { Content, headings } = await render(doc);
 		</article>
 		<!-- Suggest changes -->
 		<a
-			class="mt-24 flex justify-center items-center gap-2 opacity-60 hover:underline text-sm"
+			class="mt-24 flex items-center justify-center gap-2 text-sm opacity-60 hover:underline"
 			href={`https://github.com/skeletonlabs/skeleton/edit/${GIT_BRANCH}/sites/skeleton.dev/${doc.filePath}`}
 			target="_blank"
 			rel="noopener noreferrer"
@@ -95,9 +91,7 @@ const { Content, headings } = await render(doc);
 		<Footer class="p-4 xl:px-0" />
 	</main>
 	<!-- Sidebar (Right) - Table of Contents -->
-	<aside
-		class="hidden xl:block sticky top-(--header-height) h-[calc(100vh-var(--header-height))] border-l border-surface-200-800 space-y-8 py-4 pl-4 xl:py-10 overflow-y-auto hide-scrollbar-track"
-	>
+	<aside class="border-surface-200-800 hide-scrollbar-track sticky top-(--header-height) hidden h-[calc(100vh-var(--header-height))] space-y-8 overflow-y-auto border-l py-4 pl-4 xl:block xl:py-10">
 		<Advertisement />
 		<TableOfContents {headings} client:visible />
 	</aside>
@@ -105,12 +99,12 @@ const { Content, headings } = await render(doc);
 
 <script is:inline>
 	function restoreScrollPosition() {
-		const NAVIGATION_SCROLL_TOP_KEY = 'navigation-scroll-top';
-		const navigation = document.querySelector('[data-navigation]');
+		const NAVIGATION_SCROLL_TOP_KEY = "navigation-scroll-top";
+		const navigation = document.querySelector("[data-navigation]");
 		if (!navigation) {
 			return;
 		}
-		navigation.addEventListener('scroll', () => {
+		navigation.addEventListener("scroll", () => {
 			sessionStorage.setItem(NAVIGATION_SCROLL_TOP_KEY, navigation.scrollTop.toString());
 		});
 		const storedScrollTop = sessionStorage.getItem(NAVIGATION_SCROLL_TOP_KEY);
@@ -122,5 +116,5 @@ const { Content, headings } = await render(doc);
 
 	restoreScrollPosition();
 
-	document.addEventListener('astro:after-swap', restoreScrollPosition);
+	document.addEventListener("astro:after-swap", restoreScrollPosition);
 </script>

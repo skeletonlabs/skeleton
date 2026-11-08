@@ -1,13 +1,16 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useRatingGroup } from '../modules/provider.js';
-import { RatingGroupRootContext } from '../modules/root-context.js';
-import { splitProps } from '@zag-js/rating-group';
-import type { Props } from '@zag-js/rating-group';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useRatingGroup } from "../modules/provider.js";
+import { RatingGroupRootContext } from "../modules/root-context.js";
+import { splitProps } from "@zag-js/rating-group";
+import type { Props } from "@zag-js/rating-group";
+import { mergeProps } from "@zag-js/react";
 
 export interface RatingGroupRootProps
-	extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+	extends
+		Omit<Props, "id">,
+		PropsWithElement<"div">,
+		HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {}
 
 export default function Root(props: RatingGroupRootProps) {
 	const [ratingGroupProps, componentProps] = splitProps(props);

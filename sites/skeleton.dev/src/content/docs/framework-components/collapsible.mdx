@@ -3,42 +3,42 @@ title: Collapsible
 description: A container that can be expanded or collapsed to show or hide content.
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import AlignmentReact from '@/components/examples/framework-components/collapsible/react/alignment';
-import AlignmentReactRaw from '@/components/examples/framework-components/collapsible/react/alignment?raw';
-import ControlledReact from '@/components/examples/framework-components/collapsible/react/controlled';
-import ControlledReactRaw from '@/components/examples/framework-components/collapsible/react/controlled?raw';
-import DefaultReact from '@/components/examples/framework-components/collapsible/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/collapsible/react/default?raw';
-import DirReact from '@/components/examples/framework-components/collapsible/react/dir';
-import DirReactRaw from '@/components/examples/framework-components/collapsible/react/dir?raw';
-import DisabledReact from '@/components/examples/framework-components/collapsible/react/disabled';
-import DisabledReactRaw from '@/components/examples/framework-components/collapsible/react/disabled?raw';
-import IndicatorReact from '@/components/examples/framework-components/collapsible/react/indicator';
-import IndicatorReactRaw from '@/components/examples/framework-components/collapsible/react/indicator?raw';
-import AlignmentSvelte from '@/components/examples/framework-components/collapsible/svelte/alignment.svelte';
-import AlignmentSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/alignment.svelte?raw';
-import ControlledSvelte from '@/components/examples/framework-components/collapsible/svelte/controlled.svelte';
-import ControlledSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/controlled.svelte?raw';
-import DefaultSvelte from '@/components/examples/framework-components/collapsible/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/default.svelte?raw';
-import DirSvelte from '@/components/examples/framework-components/collapsible/svelte/dir.svelte';
-import DirSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/dir.svelte?raw';
-import DisabledSvelte from '@/components/examples/framework-components/collapsible/svelte/disabled.svelte';
-import DisabledSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/disabled.svelte?raw';
-import IndicatorSvelte from '@/components/examples/framework-components/collapsible/svelte/indicator.svelte';
-import IndicatorSvelteRaw from '@/components/examples/framework-components/collapsible/svelte/indicator.svelte?raw';
+import AlignmentReact from "@/components/examples/framework-components/collapsible/react/alignment";
+import AlignmentReactRaw from "@/components/examples/framework-components/collapsible/react/alignment?raw";
+import ControlledReact from "@/components/examples/framework-components/collapsible/react/controlled";
+import ControlledReactRaw from "@/components/examples/framework-components/collapsible/react/controlled?raw";
+import DefaultReact from "@/components/examples/framework-components/collapsible/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/collapsible/react/default?raw";
+import DirReact from "@/components/examples/framework-components/collapsible/react/dir";
+import DirReactRaw from "@/components/examples/framework-components/collapsible/react/dir?raw";
+import DisabledReact from "@/components/examples/framework-components/collapsible/react/disabled";
+import DisabledReactRaw from "@/components/examples/framework-components/collapsible/react/disabled?raw";
+import IndicatorReact from "@/components/examples/framework-components/collapsible/react/indicator";
+import IndicatorReactRaw from "@/components/examples/framework-components/collapsible/react/indicator?raw";
+import AlignmentSvelte from "@/components/examples/framework-components/collapsible/svelte/alignment.svelte";
+import AlignmentSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/alignment.svelte?raw";
+import ControlledSvelte from "@/components/examples/framework-components/collapsible/svelte/controlled.svelte";
+import ControlledSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/controlled.svelte?raw";
+import DefaultSvelte from "@/components/examples/framework-components/collapsible/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/default.svelte?raw";
+import DirSvelte from "@/components/examples/framework-components/collapsible/svelte/dir.svelte";
+import DirSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/dir.svelte?raw";
+import DisabledSvelte from "@/components/examples/framework-components/collapsible/svelte/disabled.svelte";
+import DisabledSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/disabled.svelte?raw";
+import IndicatorSvelte from "@/components/examples/framework-components/collapsible/svelte/indicator.svelte";
+import IndicatorSvelteRaw from "@/components/examples/framework-components/collapsible/svelte/indicator.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -48,12 +48,12 @@ import IndicatorSvelteRaw from '@/components/examples/framework-components/colla
 Control the active state of the component.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ControlledSvelteRaw }} client:visible>
 		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
@@ -63,12 +63,12 @@ Control the active state of the component.
 Add a visual indicator to the toggle button.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': IndicatorReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": IndicatorReactRaw }} client:visible>
 		<IndicatorReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': IndicatorSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": IndicatorSvelteRaw }} client:visible>
 		<IndicatorSvelte client:visible />
 	</Preview>
 </Framework>
@@ -78,12 +78,12 @@ Add a visual indicator to the toggle button.
 Set the disabled state for the component.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DisabledReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DisabledReactRaw }} client:visible>
 		<DisabledReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DisabledSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DisabledSvelteRaw }} client:visible>
 		<DisabledSvelte client:visible />
 	</Preview>
 </Framework>
@@ -93,12 +93,12 @@ Set the disabled state for the component.
 Control the position and alignment of the trigger and content using flexbox `items-*`.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': AlignmentReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": AlignmentReactRaw }} client:visible>
 		<AlignmentReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': AlignmentSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": AlignmentSvelteRaw }} client:visible>
 		<AlignmentSvelte client:visible />
 	</Preview>
 </Framework>
@@ -108,12 +108,12 @@ Control the position and alignment of the trigger and content using flexbox `ite
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
@@ -125,7 +125,7 @@ Here's an overview of how the Collapsible component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Collapsible } from '@skeletonlabs/skeleton-react';
+import { Collapsible } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -142,7 +142,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Collapsible } from '@skeletonlabs/skeleton-svelte';
+	import { Collapsible } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Collapsible>

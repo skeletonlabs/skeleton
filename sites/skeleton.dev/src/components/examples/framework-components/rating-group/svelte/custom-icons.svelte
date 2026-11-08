@@ -1,7 +1,7 @@
 <script lang="ts">
-	import BoneIcon from '@lucide/svelte/icons/bone';
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import { RatingGroup } from '@skeletonlabs/skeleton-svelte';
+	import BoneIcon from "@lucide/svelte/icons/bone";
+	import SkullIcon from "@lucide/svelte/icons/skull";
+	import { RatingGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <RatingGroup count={3}>

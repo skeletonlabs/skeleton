@@ -1,12 +1,13 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { TabsRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { splitTriggerProps } from '@zag-js/tabs';
-import type { TriggerProps } from '@zag-js/tabs';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { TabsRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { splitTriggerProps } from "@zag-js/tabs";
+import type { TriggerProps } from "@zag-js/tabs";
+import { use } from "react";
 
-export interface TabsTriggerProps extends TriggerProps, PropsWithElement<'button'>, HTMLAttributes<'button', 'value'> {}
+export interface TabsTriggerProps
+	extends TriggerProps, PropsWithElement<"button">, HTMLAttributes<"button", "value"> {}
 
 export default function Trigger(props: TabsTriggerProps) {
 	const tabs = use(TabsRootContext);

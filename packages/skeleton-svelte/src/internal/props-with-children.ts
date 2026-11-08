@@ -1,4 +1,4 @@
-import type { Snippet } from 'svelte';
+import type { Snippet } from "svelte";
 
 interface PropsWithChildren<T extends unknown[] = []> {
 	/**

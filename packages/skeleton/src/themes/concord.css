@@ -1,4 +1,4 @@
-[data-theme='concord'] {
+[data-theme="concord"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
 	--typo-base--font-family: system-ui, sans-serif;
@@ -15,7 +15,8 @@
 	--typo-base--word-spacing: inherit;
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
-	--typo-heading--font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+	--typo-heading--font-family:
+		Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: bold;

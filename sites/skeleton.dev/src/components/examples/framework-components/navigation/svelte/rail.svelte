@@ -1,21 +1,21 @@
 <script lang="ts">
-	import BikeIcon from '@lucide/svelte/icons/bike';
-	import BookIcon from '@lucide/svelte/icons/book';
-	import HouseIcon from '@lucide/svelte/icons/house';
-	import SettingsIcon from '@lucide/svelte/icons/settings';
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import TreePalmIcon from '@lucide/svelte/icons/tree-palm';
-	import { Navigation } from '@skeletonlabs/skeleton-svelte';
+	import BikeIcon from "@lucide/svelte/icons/bike";
+	import BookIcon from "@lucide/svelte/icons/book";
+	import HouseIcon from "@lucide/svelte/icons/house";
+	import SettingsIcon from "@lucide/svelte/icons/settings";
+	import SkullIcon from "@lucide/svelte/icons/skull";
+	import TreePalmIcon from "@lucide/svelte/icons/tree-palm";
+	import { Navigation } from "@skeletonlabs/skeleton-svelte";
 
 	const links = [
-		{ label: 'Home', href: '/#', icon: HouseIcon },
-		{ label: 'Entertainment', href: '/#', icon: BookIcon },
-		{ label: 'Recreation', href: '/#', icon: BikeIcon },
-		{ label: 'Relaxation', href: '/#', icon: TreePalmIcon },
+		{ label: "Home", href: "/#", icon: HouseIcon },
+		{ label: "Entertainment", href: "/#", icon: BookIcon },
+		{ label: "Recreation", href: "/#", icon: BikeIcon },
+		{ label: "Relaxation", href: "/#", icon: TreePalmIcon },
 	];
 </script>
 
-<div class="w-full h-[640px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+<div class="border-surface-200-800 grid h-[640px] w-full grid-cols-[auto_1fr] border">
 	<!-- --- -->
 	<Navigation layout="rail">
 		<Navigation.Header>
@@ -41,7 +41,7 @@
 		</Navigation.Footer>
 	</Navigation>
 	<!-- --- -->
-	<div class="flex justify-center items-center">
+	<div class="flex items-center justify-center">
 		<p class="opacity-50">Contents</p>
 	</div>
 </div>

@@ -1,75 +1,75 @@
 name: Code Quality
 
 on:
-  push:
-    branches:
-      - main
-      - v3
-  pull_request:
+    push:
+        branches:
+            - main
+            - v3
+    pull_request:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
-  cancel-in-progress: true
+    group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+    cancel-in-progress: true
 
 jobs:
-  format:
-    name: Format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          submodules: recursive
-          token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: pnpm
-      - run: pnpm install
-      - run: pnpm format:check
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          submodules: recursive
-          token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: pnpm
-      - run: pnpm install
-      - run: pnpm lint:check
-  check:
-    name: Check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          submodules: recursive
-          token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: pnpm
-      - run: pnpm install
-      - run: pnpm check
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          submodules: recursive
-          token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
-      - uses: pnpm/action-setup@v6
-      - uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: pnpm
-      - run: pnpm install
-      - run: pnpm exec playwright install chromium
-      - run: pnpm test
+    format:
+        name: Format
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  submodules: recursive
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+            - uses: pnpm/action-setup@v6
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 26
+                  cache: pnpm
+            - run: pnpm install
+            - run: pnpm format:check
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  submodules: recursive
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+            - uses: pnpm/action-setup@v6
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 26
+                  cache: pnpm
+            - run: pnpm install
+            - run: pnpm lint:check
+    check:
+        name: Check
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  submodules: recursive
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+            - uses: pnpm/action-setup@v6
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 26
+                  cache: pnpm
+            - run: pnpm install
+            - run: pnpm check
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+              with:
+                  submodules: recursive
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+            - uses: pnpm/action-setup@v6
+            - uses: actions/setup-node@v7
+              with:
+                  node-version: 26
+                  cache: pnpm
+            - run: pnpm install
+            - run: pnpm exec playwright install chromium
+            - run: pnpm test

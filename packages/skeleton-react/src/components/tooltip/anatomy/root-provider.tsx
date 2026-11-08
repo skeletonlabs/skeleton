@@ -1,6 +1,6 @@
-import type { useTooltip } from '../modules/provider.js';
-import { TooltipRootContext } from '../modules/root-context.js';
-import type { PropsWithChildren } from 'react';
+import type { useTooltip } from "../modules/provider.js";
+import { TooltipRootContext } from "../modules/root-context.js";
+import type { PropsWithChildren } from "react";
 
 export interface TooltipRootProviderProps extends PropsWithChildren {
 	value: ReturnType<typeof useTooltip>;

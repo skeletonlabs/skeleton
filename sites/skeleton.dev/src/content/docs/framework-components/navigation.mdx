@@ -2,39 +2,39 @@
 title: Navigation
 description: Navigation patterns for apps (bar, rail, sidebar, toggle).
 references:
-  zag: false
+    zag: false
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/framework-components/navigation/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/navigation/react/default.tsx?raw';
-import RailReact from '@/components/examples/framework-components/navigation/react/rail';
-import RailReactRaw from '@/components/examples/framework-components/navigation/react/rail.tsx?raw';
-import SidebarReact from '@/components/examples/framework-components/navigation/react/sidebar';
-import SidebarReactRaw from '@/components/examples/framework-components/navigation/react/sidebar.tsx?raw';
-import ToggleReact from '@/components/examples/framework-components/navigation/react/toggle';
-import ToggleReactRaw from '@/components/examples/framework-components/navigation/react/toggle.tsx?raw';
-import DefaultSvelte from '@/components/examples/framework-components/navigation/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/navigation/svelte/default.svelte?raw';
-import RailSvelte from '@/components/examples/framework-components/navigation/svelte/rail.svelte';
-import RailSvelteRaw from '@/components/examples/framework-components/navigation/svelte/rail.svelte?raw';
-import SidebarSvelte from '@/components/examples/framework-components/navigation/svelte/sidebar.svelte';
-import SidebarSvelteRaw from '@/components/examples/framework-components/navigation/svelte/sidebar.svelte?raw';
-import ToggleSvelte from '@/components/examples/framework-components/navigation/svelte/toggle.svelte';
-import ToggleSvelteRaw from '@/components/examples/framework-components/navigation/svelte/toggle.svelte?raw';
+import DefaultReact from "@/components/examples/framework-components/navigation/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/navigation/react/default.tsx?raw";
+import RailReact from "@/components/examples/framework-components/navigation/react/rail";
+import RailReactRaw from "@/components/examples/framework-components/navigation/react/rail.tsx?raw";
+import SidebarReact from "@/components/examples/framework-components/navigation/react/sidebar";
+import SidebarReactRaw from "@/components/examples/framework-components/navigation/react/sidebar.tsx?raw";
+import ToggleReact from "@/components/examples/framework-components/navigation/react/toggle";
+import ToggleReactRaw from "@/components/examples/framework-components/navigation/react/toggle.tsx?raw";
+import DefaultSvelte from "@/components/examples/framework-components/navigation/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/navigation/svelte/default.svelte?raw";
+import RailSvelte from "@/components/examples/framework-components/navigation/svelte/rail.svelte";
+import RailSvelteRaw from "@/components/examples/framework-components/navigation/svelte/rail.svelte?raw";
+import SidebarSvelte from "@/components/examples/framework-components/navigation/svelte/sidebar.svelte";
+import SidebarSvelteRaw from "@/components/examples/framework-components/navigation/svelte/sidebar.svelte?raw";
+import ToggleSvelte from "@/components/examples/framework-components/navigation/svelte/toggle.svelte";
+import ToggleSvelteRaw from "@/components/examples/framework-components/navigation/svelte/toggle.svelte?raw";
 
 ## Bar
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -48,12 +48,12 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 ## Rail
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': RailReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": RailReactRaw }} client:visible>
 		<RailReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': RailSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": RailSvelteRaw }} client:visible>
 		<RailSvelte client:visible />
 	</Preview>
 </Framework>
@@ -66,12 +66,12 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 ## Sidebar
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': SidebarReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": SidebarReactRaw }} client:visible>
 		<SidebarReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': SidebarSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": SidebarSvelteRaw }} client:visible>
 		<SidebarSvelte client:visible />
 	</Preview>
 </Framework>
@@ -88,12 +88,12 @@ import ToggleSvelteRaw from '@/components/examples/framework-components/navigati
 Using reactive state we can dynamically switch between multiple layouts. Tap the double arrow icon to toggle.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ToggleReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ToggleReactRaw }} client:visible>
 		<ToggleReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ToggleSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ToggleSvelteRaw }} client:visible>
 		<ToggleSvelte client:visible />
 	</Preview>
 </Framework>
@@ -105,7 +105,7 @@ Here's an overview of how the Navigation component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Navigation } from '@skeletonlabs/skeleton-react';
+import { Navigation } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -135,7 +135,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Navigation } from '@skeletonlabs/skeleton-svelte';
+	import { Navigation } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Navigation>

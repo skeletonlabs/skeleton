@@ -1,12 +1,12 @@
 <script lang="ts">
-	import SkullIcon from '@lucide/svelte/icons/skull';
-	import { Portal } from '@skeletonlabs/skeleton-svelte';
+	import SkullIcon from "@lucide/svelte/icons/skull";
+	import { Portal } from "@skeletonlabs/skeleton-svelte";
 
 	let disabled = $state(true);
 	let target: HTMLElement | undefined = $state();
 
-	const cardClasses = 'card preset-outlined-surface-300-700 size-24 grid place-items-center p-4';
-	const buttonClasses = 'col-span-2 btn preset-filled';
+	const cardClasses = "card preset-outlined-surface-300-700 size-24 grid place-items-center p-4";
+	const buttonClasses = "col-span-2 btn preset-filled";
 </script>
 
 <div class="grid grid-cols-2 gap-4">
@@ -24,6 +24,6 @@
 
 	<!-- Trigger -->
 	<button class={buttonClasses} onclick={() => (disabled = !disabled)}>
-		{disabled ? 'Enable' : 'Disable'}
+		{disabled ? "Enable" : "Disable"}
 	</button>
 </div>

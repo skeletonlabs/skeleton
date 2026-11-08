@@ -1,9 +1,9 @@
-import { type Api, connect, machine, type Props } from '@zag-js/listbox';
-import { normalizeProps, useMachine, type PropTypes } from '@zag-js/react';
-import { use, useId } from 'react';
-import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
+import { type Api, connect, machine, type Props } from "@zag-js/listbox";
+import { normalizeProps, useMachine, type PropTypes } from "@zag-js/react";
+import { use, useId } from "react";
+import { LocaleProviderRootContext } from "../../locale-provider/modules/root-context.js";
 
-export function useListbox(props: Omit<Props, 'id'>): Api<PropTypes> {
+export function useListbox(props: Omit<Props, "id">): Api<PropTypes> {
 	const locale = use(LocaleProviderRootContext);
 
 	const service = useMachine(machine, {
