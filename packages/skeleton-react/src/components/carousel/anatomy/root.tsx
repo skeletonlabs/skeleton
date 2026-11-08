@@ -12,7 +12,7 @@ export default function Root(props: CarouselRootProps) {
 	const [carouselProps, componentProps] = splitProps(props);
 	const { element, children, ...rest } = componentProps;
 
-	const carousel = useCarousel({ ...carouselProps, slideCount: props.slideCount });
+	const carousel = useCarousel({ ...carouselProps, count: props.count });
 
 	const attributes = mergeProps(carousel.getRootProps(), rest);
 

@@ -4,7 +4,7 @@ import { ListboxRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface ListboxContentProps extends PropsWithElement<'ul'>, HTMLAttributes<'ul'> {}
+export interface ListboxContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Content(props: ListboxContentProps) {
 	const listbox = use(ListboxRootContext);
@@ -12,6 +12,7 @@ export default function Content(props: ListboxContentProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(listbox.getContentProps(), rest);
+	const listAttributes = listbox.getListProps();
 
-	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
+	return <div {...attributes}>{element ? element(listAttributes) : <div {...listAttributes}>{children}</div>}</div>;
 }

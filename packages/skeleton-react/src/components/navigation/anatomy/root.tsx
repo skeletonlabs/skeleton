@@ -22,8 +22,7 @@ export default function NavigationRoot(props: NavigationRootProps) {
 	const attributes = mergeProps(
 		{
 			dir: locale.dir,
-			'data-scope': 'navigation',
-			'data-part': 'root',
+			'data-navigation-root': '',
 			'data-layout': layout,
 		},
 		rest,

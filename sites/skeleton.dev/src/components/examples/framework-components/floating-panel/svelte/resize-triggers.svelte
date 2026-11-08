@@ -40,14 +40,14 @@
 						the bottom-right corner.
 					</p>
 				</FloatingPanel.Body>
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="n" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="e" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="w" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="s" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="ne" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="se" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="sw" />
-				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" axis="nw" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="n" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="e" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="w" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="s" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="ne" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="se" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="sw" />
+				<FloatingPanel.ResizeTrigger class="bg-primary-500/50" placement="nw" />
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>

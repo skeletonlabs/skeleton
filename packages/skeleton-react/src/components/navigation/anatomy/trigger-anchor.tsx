@@ -13,8 +13,7 @@ export default function NavigationTriggerAnchor(props: NavigationTriggerAnchorPr
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'trigger-anchor',
+			'data-navigation-trigger-anchor': '',
 			'data-layout': navigation.layout,
 		},
 		rest,

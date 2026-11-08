@@ -15,8 +15,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'radio-group',
-				'data-part': 'control',
+				'data-radio-group-control': '',
 			},
 			rest,
 		),

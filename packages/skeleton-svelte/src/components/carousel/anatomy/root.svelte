@@ -19,7 +19,7 @@
 	const id = $props.id();
 	const carousel = useCarousel(() => ({
 		...carouselProps,
-		slideCount: props.slideCount,
+		count: props.count,
 		id: id,
 	}));
 

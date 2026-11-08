@@ -1,43 +1,41 @@
-[data-scope='accordion'] {
-	&[data-part='root'] {
-		width: 100%;
-		display: flex;
-		gap: --spacing(2);
+[data-accordion-root] {
+	width: 100%;
+	display: flex;
+	gap: --spacing(2);
 
-		&[data-orientation='vertical'] {
-			flex-direction: column;
-		}
-
-		&[data-orientation='horizontal'] {
-			flex-direction: row;
-		}
+	&[data-orientation='vertical'] {
+		flex-direction: column;
 	}
 
-	&[data-part='item'] {
-		display: flex;
-		gap: --spacing(2);
+	&[data-orientation='horizontal'] {
+		flex-direction: row;
+	}
+}
 
-		&[data-orientation='vertical'] {
-			flex-direction: column;
-		}
+[data-accordion-item] {
+	display: flex;
+	gap: --spacing(2);
 
-		&[data-orientation='horizontal'] {
-			flex-direction: row;
-		}
+	&[data-orientation='vertical'] {
+		flex-direction: column;
 	}
 
-	&[data-part='item-trigger'] {
-		padding: --spacing(2) --spacing(4);
-		border-radius: var(--radius-base);
-		width: 100%;
-		text-align: start;
-
-		@variant hover {
-			@apply preset-tonal-brand;
-		}
+	&[data-orientation='horizontal'] {
+		flex-direction: row;
 	}
+}
 
-	&[data-part='item-content'] {
-		padding: --spacing(2) --spacing(4);
+[data-accordion-item-trigger] {
+	padding: --spacing(2) --spacing(4);
+	border-radius: var(--radius-base);
+	width: 100%;
+	text-align: start;
+
+	@variant hover {
+		@apply preset-tonal-brand;
 	}
+}
+
+[data-accordion-item-content] {
+	padding: --spacing(2) --spacing(4);
 }

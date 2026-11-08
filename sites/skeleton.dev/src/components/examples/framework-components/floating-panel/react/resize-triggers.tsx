@@ -36,14 +36,14 @@ export default function Default() {
 								from the bottom-right corner.
 							</p>
 						</FloatingPanel.Body>
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="n" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="e" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="w" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="s" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="ne" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="se" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="sw" />
-						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" axis="nw" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="n" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="e" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="w" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="s" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="ne" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="se" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="sw" />
+						<FloatingPanel.ResizeTrigger className="bg-primary-500/50" placement="nw" />
 					</FloatingPanel.Content>
 				</FloatingPanel.Positioner>
 			</Portal>

@@ -4,7 +4,7 @@ import { ComboboxRootContext } from '../modules/root-context.js';
 import { mergeProps } from '@zag-js/react';
 import { use } from 'react';
 
-export interface ComboboxContentProps extends PropsWithElement<'ul'>, HTMLAttributes<'ul'> {}
+export interface ComboboxContentProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
 
 export default function Content(props: ComboboxContentProps) {
 	const combobox = use(ComboboxRootContext);
@@ -12,6 +12,7 @@ export default function Content(props: ComboboxContentProps) {
 	const { element, children, ...rest } = props;
 
 	const attributes = mergeProps(combobox.getContentProps(), rest);
+	const listAttributes = combobox.getListProps();
 
-	return element ? element(attributes) : <ul {...attributes}>{children}</ul>;
+	return <div {...attributes}>{element ? element(listAttributes) : <div {...listAttributes}>{children}</div>}</div>;
 }

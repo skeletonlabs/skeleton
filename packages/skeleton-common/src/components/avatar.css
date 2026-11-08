@@ -1,24 +1,22 @@
-[data-scope='avatar'] {
-	&[data-part='root'] {
-		isolation: isolate;
-		background: light-dark(var(--color-brand-light), var(--color-brand-dark));
-		color: light-dark(var(--color-brand-contrast-light), var(--color-brand-contrast-dark));
-		width: --spacing(16);
-		height: --spacing(16);
-		border-radius: calc(infinity * 1px);
-		overflow: hidden;
-	}
+[data-avatar-root] {
+	isolation: isolate;
+	background: light-dark(var(--color-brand-light), var(--color-brand-dark));
+	color: light-dark(var(--color-brand-contrast-light), var(--color-brand-contrast-dark));
+	width: --spacing(16);
+	height: --spacing(16);
+	border-radius: calc(infinity * 1px);
+	overflow: hidden;
+}
 
-	&[data-part='image'] {
-		width: 100%;
-		object-fit: cover;
-	}
+[data-avatar-image] {
+	width: 100%;
+	object-fit: cover;
+}
 
-	&[data-part='fallback'] {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+[data-avatar-fallback] {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

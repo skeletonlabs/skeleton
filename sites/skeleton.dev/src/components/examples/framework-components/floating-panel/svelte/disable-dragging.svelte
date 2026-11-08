@@ -38,7 +38,7 @@
 					<p>This panel cannot be dragged - the position is fixed.</p>
 					<p>However, it can still be resized from the bottom-right corner.</p>
 				</FloatingPanel.Body>
-				<FloatingPanel.ResizeTrigger axis="se" />
+				<FloatingPanel.ResizeTrigger placement="se" />
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>
 	</Portal>

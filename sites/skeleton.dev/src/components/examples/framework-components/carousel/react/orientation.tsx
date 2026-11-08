@@ -15,7 +15,7 @@ const slides = [
 
 export default function Orientation() {
 	return (
-		<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop orientation="vertical" autoSize>
+		<Carousel count={slides.length} slidesPerPage={3} spacing="16px" loop orientation="vertical" autoSize>
 			<Carousel.Control className="flex justify-between mb-4">
 				<Carousel.PrevTrigger className="btn preset-filled">
 					<span>&larr;</span>

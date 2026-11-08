@@ -4,15 +4,13 @@ import type { Api, Props } from '@zag-js/carousel';
 import { use, useId } from 'react';
 import { LocaleProviderRootContext } from '../../locale-provider/modules/root-context.js';
 
-export function useCarousel(props: Omit<Props, 'id'> & { slideCount?: number }): Api<PropTypes> {
-	const { slideCount, ...rest } = props;
+export function useCarousel(props: Omit<Props, 'id'>): Api<PropTypes> {
 	const locale = use(LocaleProviderRootContext);
 
 	const service = useMachine(machine, {
 		id: useId(),
 		dir: locale.dir,
-		slideCount: slideCount ?? 0,
-		...rest,
+		...props,
 	});
 	return connect(service, normalizeProps);
 }

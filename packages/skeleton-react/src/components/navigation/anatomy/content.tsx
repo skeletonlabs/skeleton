@@ -13,8 +13,7 @@ export default function NavigationContent(props: NavigationContentProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'content',
+			'data-navigation-content': '',
 			'data-layout': navigation.layout,
 		},
 		rest,

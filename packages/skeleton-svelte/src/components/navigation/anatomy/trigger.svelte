@@ -18,8 +18,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'navigation',
-				'data-part': 'trigger',
+				'data-navigation-trigger': '',
 				'data-layout': navigation().layout,
 				type: 'button',
 			},

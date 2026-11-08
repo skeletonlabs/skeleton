@@ -19,8 +19,7 @@
 		mergeProps(
 			{
 				dir: locale().dir,
-				'data-scope': 'app-bar',
-				'data-part': 'root',
+				'data-app-bar-root': '',
 			},
 			rest,
 		),

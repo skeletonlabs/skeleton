@@ -13,8 +13,7 @@ export default function NavigationTrigger(props: NavigationTriggerProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'trigger',
+			'data-navigation-trigger': '',
 			'data-layout': navigation.layout,
 			type: 'button',
 		},

@@ -1,77 +1,75 @@
-[data-scope='combobox'] {
-	&[data-part='root'] {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: --spacing(2);
+[data-combobox-root] {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
+}
+
+[data-combobox-label] {
+	@apply label-text;
+}
+
+[data-combobox-control] {
+	position: relative;
+}
+
+[data-combobox-input] {
+	@apply input;
+}
+
+[data-combobox-trigger] {
+	position: absolute;
+	inset-inline-end: --spacing(1.5);
+	top: 50%;
+	transform: translateY(-50%);
+
+	@apply btn-icon btn-icon-xs preset-tonal;
+}
+
+[data-combobox-clear-trigger] {
+	width: fit-content;
+
+	@apply btn btn-sm preset-tonal;
+
+	@variant hover {
+		@apply preset-filled-error-500;
+	}
+}
+
+[data-combobox-content] {
+	padding: --spacing(2);
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
+	background: var(--color-surface-50-950);
+	border: 1px solid var(--color-surface-200-800);
+
+	@apply card;
+}
+
+[data-combobox-item-group-label] {
+	color: var(--color-surface-600-400);
+	font-size: var(--text-xs);
+	padding: --spacing(1) --spacing(2);
+}
+
+[data-combobox-item] {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: --spacing(1) --spacing(2);
+	border-radius: var(--radius-base);
+
+	&[data-state='checked'] {
+		@apply preset-filled;
 	}
 
-	&[data-part='label'] {
-		@apply label-text;
+	&[data-highlighted] {
+		@apply preset-tonal;
 	}
 
-	&[data-part='control'] {
-		position: relative;
-	}
-
-	&[data-part='input'] {
-		@apply input;
-	}
-
-	&[data-part='trigger'] {
-		position: absolute;
-		inset-inline-end: --spacing(1.5);
-		top: 50%;
-		transform: translateY(-50%);
-
-		@apply btn-icon btn-icon-xs preset-tonal;
-	}
-
-	&[data-part='clear-trigger'] {
-		width: fit-content;
-
-		@apply btn btn-sm preset-tonal;
-
-		@variant hover {
-			@apply preset-filled-error-500;
-		}
-	}
-
-	&[data-part='content'] {
-		padding: --spacing(2);
-		display: flex;
-		flex-direction: column;
-		gap: --spacing(2);
-		background: var(--color-surface-50-950);
-		border: 1px solid var(--color-surface-200-800);
-
-		@apply card;
-	}
-
-	&[data-part='item-group-label'] {
-		color: var(--color-surface-600-400);
-		font-size: var(--text-xs);
-		padding: --spacing(1) --spacing(2);
-	}
-
-	&[data-part='item'] {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: --spacing(1) --spacing(2);
-		border-radius: var(--radius-base);
-
-		&[data-state='checked'] {
-			@apply preset-filled;
-		}
-
-		&[data-highlighted] {
-			@apply preset-tonal;
-		}
-
-		&[data-disabled] {
-			pointer-events: none;
-			opacity: 0.5;
-		}
+	&[data-disabled] {
+		pointer-events: none;
+		opacity: 0.5;
 	}
 }

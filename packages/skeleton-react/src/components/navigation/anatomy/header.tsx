@@ -13,8 +13,7 @@ export default function NavigationHeader(props: NavigationHeaderProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'header',
+			'data-navigation-header': '',
 			'data-layout': navigation.layout,
 		},
 		rest,

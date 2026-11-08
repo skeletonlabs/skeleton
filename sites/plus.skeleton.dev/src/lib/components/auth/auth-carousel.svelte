@@ -35,7 +35,7 @@
 	];
 </script>
 
-<Carousel slideCount={slides.length} slidesPerPage={1} loop autoplay>
+<Carousel count={slides.length} slidesPerPage={1} loop autoPlay>
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
 			<Carousel.Item index={i} class="space-y-4 p-4 flex flex-col items-start">

@@ -66,7 +66,7 @@ export default function Controlled() {
 								<p>This panel's open state and size are controlled via the inputs above.</p>
 								<p>Try changing the values or resizing/closing the panel to see the inputs update.</p>
 							</FloatingPanel.Body>
-							<FloatingPanel.ResizeTrigger axis="se" />
+							<FloatingPanel.ResizeTrigger placement="se" />
 						</FloatingPanel.Content>
 					</FloatingPanel.Positioner>
 				</Portal>

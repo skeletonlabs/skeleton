@@ -9,8 +9,7 @@ export default function AppBarLead(props: AppBarLeadProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'app-bar',
-			'data-part': 'lead',
+			'data-app-bar-lead': '',
 		},
 		rest,
 	);

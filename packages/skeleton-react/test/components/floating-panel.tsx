@@ -16,7 +16,7 @@ export default function Test() {
 						</FloatingPanel.Control>
 					</FloatingPanel.Header>
 					<FloatingPanel.Body data-testid="body" />
-					<FloatingPanel.ResizeTrigger data-testid="resize-trigger" axis="se" />
+					<FloatingPanel.ResizeTrigger data-testid="resize-trigger" placement="se" />
 				</FloatingPanel.Content>
 			</FloatingPanel.Positioner>
 		</FloatingPanel>

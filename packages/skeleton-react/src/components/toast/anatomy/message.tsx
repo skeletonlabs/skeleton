@@ -9,8 +9,7 @@ export default function Message(props: ToastMessageProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'toast',
-			'data-part': 'message',
+			'data-toast-content': '',
 		},
 		rest,
 	);

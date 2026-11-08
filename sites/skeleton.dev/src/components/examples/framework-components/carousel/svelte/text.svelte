@@ -15,7 +15,7 @@
 	];
 </script>
 
-<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
+<Carousel count={slides.length} slidesPerPage={3} spacing="16px" loop>
 	<Carousel.Control class="flex justify-between mb-4">
 		<Carousel.PrevTrigger class="btn preset-filled">
 			<span>&larr;</span>

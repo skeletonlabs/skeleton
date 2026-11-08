@@ -1,122 +1,120 @@
-[data-scope='navigation'] {
-	&[data-part='root'] {
-		background: var(--color-surface-100-900);
-		overflow-x: hidden;
-		transition: width 200ms;
+[data-navigation-root] {
+	background: var(--color-surface-100-900);
+	overflow-x: hidden;
+	transition: width 200ms;
 
-		&[data-layout='bar'] {
-			width: 100%;
-			padding: --spacing(2);
-		}
-
-		&[data-layout='rail'] {
-			width: --spacing(25);
-			height: 100%;
-			overflow-y: hidden;
-			padding: --spacing(2);
-			display: flex;
-			flex-direction: column;
-			gap: --spacing(4);
-		}
-
-		&[data-layout='sidebar'] {
-			width: --spacing(70);
-			height: 100%;
-			overflow-y: auto;
-			padding: --spacing(4);
-		}
+	&[data-layout='bar'] {
+		width: 100%;
+		padding: --spacing(2);
 	}
 
-	&[data-part='content'] {
-		&[data-layout='rail'] {
-			display: contents;
-		}
-
-		&[data-layout='sidebar'] {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			gap: --spacing(4);
-		}
-	}
-
-	&[data-part='group'] {
-		&[data-layout='rail'] {
-			display: contents;
-		}
-
-		&[data-layout='sidebar'] {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-			gap: --spacing(2);
-		}
-	}
-
-	&[data-part='label'] {
-		font-size: var(--text-xs);
-		color: var(--color-surface-700-300);
-	}
-
-	&[data-part='menu'] {
-		flex: 1;
+	&[data-layout='rail'] {
+		width: --spacing(25);
+		height: 100%;
+		overflow-y: hidden;
+		padding: --spacing(2);
 		display: flex;
+		flex-direction: column;
+		gap: --spacing(4);
+	}
+
+	&[data-layout='sidebar'] {
+		width: --spacing(70);
+		height: 100%;
+		overflow-y: auto;
+		padding: --spacing(4);
+	}
+}
+
+[data-navigation-content] {
+	&[data-layout='rail'] {
+		display: contents;
+	}
+
+	&[data-layout='sidebar'] {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: --spacing(4);
+	}
+}
+
+[data-navigation-group] {
+	&[data-layout='rail'] {
+		display: contents;
+	}
+
+	&[data-layout='sidebar'] {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
 		gap: --spacing(2);
+	}
+}
 
-		&[data-layout='bar'] {
-			align-items: stretch;
-		}
+[data-navigation-label] {
+	font-size: var(--text-xs);
+	color: var(--color-surface-700-300);
+}
 
-		&[data-layout='rail'] {
-			flex-direction: column;
-			justify-content: center;
-		}
+[data-navigation-menu] {
+	flex: 1;
+	display: flex;
+	gap: --spacing(2);
 
-		&[data-layout='sidebar'] {
-			flex-direction: column;
-			align-items: stretch;
-			width: 100%;
-		}
+	&[data-layout='bar'] {
+		align-items: stretch;
 	}
 
-	&[data-part='trigger'],
-	&[data-part='trigger-anchor'] {
-		@apply btn hover:preset-tonal;
-
-		&[data-layout='bar'] {
-			flex-direction: column;
-			align-items: center;
-			gap: --spacing(1);
-		}
-
-		&[data-layout='rail'] {
-			aspect-ratio: 1 / 1;
-			width: 100%;
-			max-width: 84px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 0.5;
-		}
-
-		&[data-layout='sidebar'] {
-			justify-content: start;
-			padding-inline: --spacing(2);
-			width: 100%;
-		}
+	&[data-layout='rail'] {
+		flex-direction: column;
+		justify-content: center;
 	}
 
-	&[data-part='trigger-text'] {
-		&[data-layout='bar'] {
-			font-size: --spacing(2.5);
-		}
+	&[data-layout='sidebar'] {
+		flex-direction: column;
+		align-items: stretch;
+		width: 100%;
+	}
+}
 
-		&[data-layout='rail'] {
-			font-size: --spacing(2.5);
-		}
+[data-navigation-trigger],
+&[data-navigation-trigger-anchor] {
+	@apply btn hover:preset-tonal;
 
-		&[data-layout='sidebar'] {
-			font-size: var(--text-base);
-		}
+	&[data-layout='bar'] {
+		flex-direction: column;
+		align-items: center;
+		gap: --spacing(1);
+	}
+
+	&[data-layout='rail'] {
+		aspect-ratio: 1 / 1;
+		width: 100%;
+		max-width: 84px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5;
+	}
+
+	&[data-layout='sidebar'] {
+		justify-content: start;
+		padding-inline: --spacing(2);
+		width: 100%;
+	}
+}
+
+[data-navigation-trigger-text] {
+	&[data-layout='bar'] {
+		font-size: --spacing(2.5);
+	}
+
+	&[data-layout='rail'] {
+		font-size: --spacing(2.5);
+	}
+
+	&[data-layout='sidebar'] {
+		font-size: var(--text-base);
 	}
 }

@@ -9,8 +9,7 @@ export default function AppBarTrail(props: AppBarTrailProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'app-bar',
-			'data-part': 'trail',
+			'data-app-bar-trail': '',
 		},
 		rest,
 	);

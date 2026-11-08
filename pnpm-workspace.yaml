@@ -50,36 +50,36 @@ catalog:
   '@types/semver': 7.8.0
   '@vitejs/plugin-react': 6.2.1
   '@vitest/browser-playwright': 5.1.0
-  '@zag-js/accordion': 1.47.0
-  '@zag-js/avatar': 1.47.0
-  '@zag-js/carousel': 1.47.0
-  '@zag-js/marquee': 1.47.0
-  '@zag-js/collapsible': 1.47.0
-  '@zag-js/collection': 1.47.0
-  '@zag-js/combobox': 1.47.0
-  '@zag-js/date-picker': 1.47.0
-  '@zag-js/dialog': 1.47.0
-  '@zag-js/file-upload': 1.47.0
-  '@zag-js/floating-panel': 1.47.0
-  '@zag-js/listbox': 1.47.0
-  '@zag-js/menu': 1.47.0
-  '@zag-js/pagination': 1.47.0
-  '@zag-js/popover': 1.47.0
-  '@zag-js/progress': 1.47.0
-  '@zag-js/qr-code': 1.47.0
-  '@zag-js/radio-group': 1.47.0
-  '@zag-js/rating-group': 1.47.0
-  '@zag-js/react': 1.47.0
-  '@zag-js/slider': 1.47.0
-  '@zag-js/steps': 1.47.0
-  '@zag-js/svelte': 1.47.0
-  '@zag-js/switch': 1.47.0
-  '@zag-js/tabs': 1.47.0
-  '@zag-js/tags-input': 1.47.0
-  '@zag-js/toast': 1.47.0
-  '@zag-js/toggle-group': 1.47.0
-  '@zag-js/tooltip': 1.47.0
-  '@zag-js/tree-view': 1.47.0
+  '@zag-js/accordion': 2.0.0-next.3
+  '@zag-js/avatar': 2.0.0-next.3
+  '@zag-js/carousel': 2.0.0-next.3
+  '@zag-js/marquee': 2.0.0-next.3
+  '@zag-js/collapsible': 2.0.0-next.3
+  '@zag-js/collection': 2.0.0-next.3
+  '@zag-js/combobox': 2.0.0-next.3
+  '@zag-js/date-picker': 2.0.0-next.3
+  '@zag-js/dialog': 2.0.0-next.3
+  '@zag-js/file-upload': 2.0.0-next.3
+  '@zag-js/floating-panel': 2.0.0-next.3
+  '@zag-js/listbox': 2.0.0-next.3
+  '@zag-js/menu': 2.0.0-next.3
+  '@zag-js/pagination': 2.0.0-next.3
+  '@zag-js/popover': 2.0.0-next.3
+  '@zag-js/progress': 2.0.0-next.3
+  '@zag-js/qr-code': 2.0.0-next.3
+  '@zag-js/radio-group': 2.0.0-next.3
+  '@zag-js/rating-group': 2.0.0-next.3
+  '@zag-js/react': 2.0.0-next.3
+  '@zag-js/slider': 2.0.0-next.3
+  '@zag-js/steps': 2.0.0-next.3
+  '@zag-js/svelte': 2.0.0-next.3
+  '@zag-js/switch': 2.0.0-next.3
+  '@zag-js/tabs': 2.0.0-next.3
+  '@zag-js/tags-input': 2.0.0-next.3
+  '@zag-js/toast': 2.0.0-next.3
+  '@zag-js/toggle-group': 2.0.0-next.3
+  '@zag-js/tooltip': 2.0.0-next.3
+  '@zag-js/tree-view': 2.0.0-next.3
   astro: 7.4.5
   astro-pagefind: 2.0.1
   astro-seo: 1.2.0
@@ -138,7 +138,7 @@ catalog:
   vitest-browser-svelte: 3.1.0
   zimmerframe: 1.1.5
   neverthrow: 8.2.0
-  '@zag-js/i18n-utils': 1.47.0
+  '@zag-js/i18n-utils': 2.0.0-next.3
 
 catalogMode: strict
 

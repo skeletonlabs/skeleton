@@ -1,79 +1,77 @@
-[data-scope='radio-group'] {
-	&[data-part='root'] {
-		display: flex;
+[data-radio-group-root] {
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
+}
+
+[data-radio-group-label] {
+	@apply label-text;
+}
+
+[data-radio-group-control] {
+	display: inline-flex;
+	padding: --spacing(2);
+	gap: --spacing(2);
+	border-radius: var(--radius-base);
+
+	@apply preset-outlined-surface-200-800;
+
+	:has(> [data-orientation='horizontal']) & {
+		flex-direction: row;
+	}
+
+	:has(> [data-orientation='vertical']) & {
 		flex-direction: column;
-		gap: --spacing(2);
+	}
+}
+
+[data-radio-group-indicator] {
+	top: var(--top);
+	left: var(--left);
+	width: var(--width);
+	height: var(--height);
+	border-radius: var(--radius-base);
+
+	@apply preset-filled;
+
+	&[data-disabled] {
+		opacity: 0.5;
+	}
+}
+
+[data-radio-group-item] {
+	z-index: 10;
+	flex: 1;
+
+	@apply btn;
+
+	&[data-focus-visible] {
+		outline: 2px solid var(--color-surface-950-50);
+		outline-offset: 1px;
 	}
 
-	&[data-part='label'] {
-		@apply label-text;
+	&[data-readonly] {
+		pointer-events: none;
 	}
 
-	&[data-part='control'] {
-		display: inline-flex;
-		padding: --spacing(2);
-		gap: --spacing(2);
-		border-radius: var(--radius-base);
+	&[data-disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
 
-		@apply preset-outlined-surface-200-800;
+[data-radio-group-item-text] {
+	transition: color 150ms;
 
-		:has(> [data-orientation='horizontal']) & {
-			flex-direction: row;
-		}
-
-		:has(> [data-orientation='vertical']) & {
-			flex-direction: column;
-		}
+	color: var(--color-surface-contrast-50);
+	&[data-state='checked'] {
+		color: var(--color-surface-contrast-950);
 	}
 
-	&[data-part='indicator'] {
-		top: var(--top);
-		left: var(--left);
-		width: var(--width);
-		height: var(--height);
-		border-radius: var(--radius-base);
-
-		@apply preset-filled;
-
-		&[data-disabled] {
-			opacity: 0.5;
-		}
-	}
-
-	&[data-part='item'] {
-		z-index: 10;
-		flex: 1;
-
-		@apply btn;
-
-		&[data-focus-visible] {
-			outline: 2px solid var(--color-surface-950-50);
-			outline-offset: 1px;
-		}
-
-		&[data-readonly] {
-			pointer-events: none;
-		}
-
-		&[data-disabled] {
-			pointer-events: none;
-			opacity: 0.5;
-		}
-	}
-
-	&[data-part='item-text'] {
-		transition: color 150ms;
-
-		color: var(--color-surface-contrast-50);
+	@variant dark {
+		color: var(--color-surface-contrast-950);
 		&[data-state='checked'] {
-			color: var(--color-surface-contrast-950);
-		}
-
-		@variant dark {
-			color: var(--color-surface-contrast-950);
-			&[data-state='checked'] {
-				color: var(--color-surface-contrast-50);
-			}
+			color: var(--color-surface-contrast-50);
 		}
 	}
 }

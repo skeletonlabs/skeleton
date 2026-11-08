@@ -15,7 +15,7 @@ const slides = [
 
 export default function Text() {
 	return (
-		<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
+		<Carousel count={slides.length} slidesPerPage={3} spacing="16px" loop>
 			<Carousel.Control className="flex justify-between mb-4">
 				<Carousel.PrevTrigger className="btn preset-filled">
 					<span>&larr;</span>

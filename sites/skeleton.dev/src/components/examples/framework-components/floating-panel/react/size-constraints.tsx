@@ -34,7 +34,7 @@ export default function SizeConstraints() {
 							<p>This panel has size constraints applied: minimum 300x200 pixels and maximum 900x600 pixels.</p>
 							<p>Try resizing from the bottom-right corner - the panel will respect these boundaries.</p>
 						</FloatingPanel.Body>
-						<FloatingPanel.ResizeTrigger axis="se" />
+						<FloatingPanel.ResizeTrigger placement="se" />
 					</FloatingPanel.Content>
 				</FloatingPanel.Positioner>
 			</Portal>

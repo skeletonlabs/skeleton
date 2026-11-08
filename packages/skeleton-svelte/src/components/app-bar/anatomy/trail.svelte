@@ -15,8 +15,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'app-bar',
-				'data-part': 'trail',
+				'data-app-bar-trail': '',
 			},
 			rest,
 		),

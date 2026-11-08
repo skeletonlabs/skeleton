@@ -2,7 +2,7 @@ import { Carousel } from '../../src/index.js';
 
 export default function Test() {
 	return (
-		<Carousel slideCount={3} data-testid="root">
+		<Carousel count={3} data-testid="root">
 			<Carousel.Control data-testid="control">
 				<Carousel.PrevTrigger data-testid="prev-trigger" />
 				<Carousel.NextTrigger data-testid="next-trigger" />

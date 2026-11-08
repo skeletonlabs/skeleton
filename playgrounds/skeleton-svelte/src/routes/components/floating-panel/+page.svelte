@@ -33,7 +33,7 @@
 				<FloatingPanel.Body>
 					<p>This is a floating panel that can be dragged, resized, minimized, and maximized.</p>
 					<p>Try dragging from the header or resizing from the bottom-right corner.</p>
-					<FloatingPanel.ResizeTrigger axis="se" />
+					<FloatingPanel.ResizeTrigger placement="se" />
 				</FloatingPanel.Body>
 			</FloatingPanel.Content>
 		</FloatingPanel.Positioner>

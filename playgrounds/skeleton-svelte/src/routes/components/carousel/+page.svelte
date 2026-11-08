@@ -22,7 +22,7 @@
 
 	<div class="space-y-4">
 		<h2 class="h2">Default</h2>
-		<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop>
+		<Carousel count={slides.length} slidesPerPage={3} spacing="16px" loop>
 			<Carousel.Control class="flex justify-between mb-4">
 				<Carousel.PrevTrigger class="btn preset-filled">
 					<span>&larr;</span>
@@ -55,7 +55,7 @@
 
 	<section class="space-y-4">
 		<h2 class="h2">Overlap</h2>
-		<Carousel slideCount={slides.length} slidesPerPage={4} spacing="16px" padding="48px" autoSize loop>
+		<Carousel count={slides.length} slidesPerPage={4} spacing="16px" itemSpacing="48px" autoSize loop>
 			<div class="relative">
 				<Carousel.Control>
 					<Carousel.PrevTrigger class="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
@@ -87,7 +87,7 @@
 
 	<section class="space-y-4">
 		<h2 class="h2">Orientation</h2>
-		<Carousel slideCount={slides.length} slidesPerPage={3} spacing="16px" loop orientation="vertical" autoSize>
+		<Carousel count={slides.length} slidesPerPage={3} spacing="16px" loop orientation="vertical" autoSize>
 			<Carousel.Control class="flex justify-between mb-4">
 				<Carousel.PrevTrigger class="btn preset-filled">
 					<span>&larr;</span>

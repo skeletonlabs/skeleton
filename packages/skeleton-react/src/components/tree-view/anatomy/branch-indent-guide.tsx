@@ -13,7 +13,7 @@ export default function BranchIndentGuide(props: TreeViewBranchIndentGuideProps)
 
 	const { element, children, ...rest } = props;
 
-	const attributes = mergeProps(treeView.getBranchIndentGuideProps(nodeProps), rest);
+	const attributes = mergeProps(treeView.getIndentGuideProps(nodeProps), rest);
 
 	return element ? element(attributes) : <div {...attributes}>{children}</div>;
 }

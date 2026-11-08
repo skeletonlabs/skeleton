@@ -9,8 +9,7 @@ export default function Control(props: SegmentedControlControlProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'radio-group',
-			'data-part': 'control',
+			'data-radio-group-control': '',
 		},
 		rest,
 	);

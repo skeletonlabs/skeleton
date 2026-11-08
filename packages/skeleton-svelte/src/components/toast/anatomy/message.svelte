@@ -15,8 +15,7 @@
 	const attributes = $derived(
 		mergeProps(
 			{
-				'data-scope': 'toast',
-				'data-part': 'message',
+				'data-toast-content': '',
 			},
 			rest,
 		),

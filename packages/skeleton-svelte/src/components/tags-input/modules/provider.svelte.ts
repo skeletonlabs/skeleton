@@ -4,10 +4,14 @@ import { type Api, connect, machine, type Props } from '@zag-js/tags-input';
 
 export function useTagsInput(props: Props | (() => Props)): () => Api<PropTypes> {
 	const locale = LocaleProviderRootContext.consume();
-	const service = useMachine(machine, () => ({
-		dir: locale().dir,
-		...(typeof props === 'function' ? props() : props),
-	}));
+	const service = useMachine(machine, () => {
+		const inputProps = typeof props === 'function' ? props() : props;
+		return {
+			dir: locale().dir,
+			...inputProps,
+			editable: inputProps.editable ?? true,
+		};
+	});
 	const tagsInput = $derived(connect(service, normalizeProps));
 	return () => tagsInput;
 }

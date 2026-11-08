@@ -43,7 +43,7 @@ export default function AnchorPosition() {
 								<p>This panel is centered in the viewport using getAnchorPosition.</p>
 								<p>The position is calculated based on the boundary rectangle.</p>
 							</FloatingPanel.Body>
-							<FloatingPanel.ResizeTrigger axis="se" />
+							<FloatingPanel.ResizeTrigger placement="se" />
 						</FloatingPanel.Content>
 					</FloatingPanel.Positioner>
 				</Portal>

@@ -10,6 +10,7 @@ export function useTagsInput(props: Omit<Props, 'id'> = {}): Api<PropTypes> {
 		id: useId(),
 		dir: locale.dir,
 		...props,
+		editable: props.editable ?? true,
 	});
 	return connect(service, normalizeProps);
 }

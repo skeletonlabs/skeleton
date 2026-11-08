@@ -9,8 +9,7 @@ export default function AppBarHeadline(props: AppBarHeadlineProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'app-bar',
-			'data-part': 'headline',
+			'data-app-bar-headline': '',
 		},
 		rest,
 	);

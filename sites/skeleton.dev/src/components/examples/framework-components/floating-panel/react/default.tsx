@@ -36,7 +36,7 @@ export default function Default() {
 								from the bottom-right corner.
 							</p>
 						</FloatingPanel.Body>
-						<FloatingPanel.ResizeTrigger axis="se" />
+						<FloatingPanel.ResizeTrigger placement="se" />
 					</FloatingPanel.Content>
 				</FloatingPanel.Positioner>
 			</Portal>

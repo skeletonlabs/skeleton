@@ -9,8 +9,7 @@ export default function AppBarToolbar(props: AppBarToolbarProps) {
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'app-bar',
-			'data-part': 'toolbar',
+			'data-app-bar-toolbar': '',
 		},
 		rest,
 	);

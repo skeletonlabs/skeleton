@@ -58,6 +58,11 @@ describe('Combobox', () => {
 			await render(<Combobox />);
 			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
+
+		it('renders the list part', async () => {
+			await render(<Combobox />);
+			expect(document.querySelector('[data-testid="content"] [data-combobox-list]')?.getAttribute('role')).toBe('listbox');
+		});
 	});
 
 	describe('ItemGroup', () => {

@@ -13,8 +13,7 @@ export default function NavigationTriggerText(props: NavigationTriggerTextProps)
 
 	const attributes = mergeProps(
 		{
-			'data-scope': 'navigation',
-			'data-part': 'trigger-text',
+			'data-navigation-trigger-text': '',
 			'data-layout': navigation.layout,
 		},
 		rest,

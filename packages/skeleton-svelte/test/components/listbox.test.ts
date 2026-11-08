@@ -30,6 +30,11 @@ describe('Listbox', () => {
 			await render(Listbox);
 			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
+
+		it('renders the list part', async () => {
+			await render(Listbox);
+			expect(document.querySelector('[data-testid="content"] [data-listbox-list]')?.getAttribute('role')).toBe('listbox');
+		});
 	});
 
 	describe('ItemGroup', () => {
