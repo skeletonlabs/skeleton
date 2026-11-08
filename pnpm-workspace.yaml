@@ -150,22 +150,6 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
   - '@zag-js/*'
-  # Renovate security update: satori@0.33.5
-  - satori@0.33.5
-  # Renovate security update: vite@8.2.4
-  - vite@8.2.4
-  # Renovate security update: astro@7.3.3
-  - astro@7.3.3
-  # Renovate security update: sharp@0.35.5
-  - sharp@0.35.5
-  # Renovate security update: vitest@4.1.11
-  - vitest@4.1.11
-  # Renovate security update: better-auth@1.7.7
-  - better-auth@1.7.7
-  # Renovate security update: @sveltejs/kit@3.0.0
-  - '@sveltejs/kit@3.0.0'
-  # Renovate security update: @tanstack/react-start@1.168.60
-  - '@tanstack/react-start@1.168.60'
 
 allowBuilds:
   '@parcel/watcher': true
