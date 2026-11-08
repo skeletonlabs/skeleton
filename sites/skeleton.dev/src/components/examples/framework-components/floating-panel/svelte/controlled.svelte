@@ -35,7 +35,7 @@
 	onSizeChange={(details) => (size = details.size)}
 >
 	<Portal>
-		<FloatingPanel.Positioner class="z-50">
+		<FloatingPanel.Positioner class="z-50!">
 			<FloatingPanel.Content>
 				<FloatingPanel.DragTrigger>
 					<FloatingPanel.Header>

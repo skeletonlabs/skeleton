@@ -48,7 +48,7 @@ export default function Controlled() {
 				onSizeChange={(details) => setSize(details.size)}
 			>
 				<Portal>
-					<FloatingPanel.Positioner className="z-50">
+					<FloatingPanel.Positioner className="z-50!">
 						<FloatingPanel.Content>
 							<FloatingPanel.DragTrigger>
 								<FloatingPanel.Header>

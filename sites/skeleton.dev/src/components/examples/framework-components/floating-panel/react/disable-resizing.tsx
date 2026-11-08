@@ -6,7 +6,7 @@ export default function DisableResizing() {
 		<FloatingPanel resizable={false}>
 			<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 			<Portal>
-				<FloatingPanel.Positioner className="z-50">
+				<FloatingPanel.Positioner className="z-50!">
 					<FloatingPanel.Content>
 						<FloatingPanel.DragTrigger>
 							<FloatingPanel.Header>
