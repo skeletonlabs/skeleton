@@ -17,9 +17,12 @@
 </script>
 
 <div class="space-y-4">
-	<!-- prettier-ignore -->
 	<p class="opacity-60">
-		Set the scale factor for <a href="https://tailwindcss.com/docs/customizing-spacing" target="_blank" class="text-inherit underline">Tailwind Spacing</a> utilities.
+		Set the scale factor for <a
+			href="https://tailwindcss.com/docs/customizing-spacing"
+			target="_blank"
+			class="text-inherit underline">Tailwind Spacing</a
+		> utilities.
 	</p>
 	<label class="label">
 		<span class="label-text">Scale Factor</span>

@@ -53,9 +53,13 @@
 					</div>
 				{/if}
 				<header class="flex items-center justify-between gap-4">
-					<!-- prettier-ignore -->
 					<p>
-						<span class="opacity-60">Copy the theme code and follow the</span> <a href="https://www.skeleton.dev/docs/svelte/design/themes#custom-themes" target="_blank" class="anchor">documentation instructions</a>.
+						<span class="opacity-60">Copy the theme code and follow the</span>
+						<a
+							href="https://www.skeleton.dev/docs/svelte/design/themes#custom-themes"
+							target="_blank"
+							class="anchor">documentation instructions</a
+						>.
 					</p>
 					<button type="button" class="btn preset-filled" onclick={copyToClipboard}>
 						<CopyIcon />
