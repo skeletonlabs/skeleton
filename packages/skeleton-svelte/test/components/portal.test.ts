@@ -6,20 +6,20 @@ import { page } from 'vitest/browser';
 describe('Portal', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(Portal);
+			await render(Portal);
 			await expect.element(page.getByTestId('child')).toBeInTheDocument();
 		});
 
 		it('renders in the target', async () => {
-			render(Portal, {
+			await render(Portal, {
 				target: document.body,
 			});
 			await expect.element(page.getByTestId('child')).toBeInTheDocument();
 			expect(page.getByTestId('child').element().parentElement).toBe(document.body);
 		});
 
-		it.skip('renders in the parent when disabled', () => {
-			render(Portal);
+		it.skip('renders in the parent when disabled', async () => {
+			await render(Portal);
 			expect(page.getByTestId('child').element().parentElement).toBe(document.body);
 		});
 	});
