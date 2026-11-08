@@ -47,6 +47,10 @@
 [data-tabs-indicator] {
 	background: var(--color-surface-950-50);
 
+	&:not([data-instant]) {
+		transition: all 150ms ease;
+	}
+
 	&[data-orientation='horizontal'] {
 		width: var(--width);
 		height: --spacing(0.5);

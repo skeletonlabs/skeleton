@@ -38,13 +38,16 @@
 
 [data-combobox-content] {
 	padding: --spacing(2);
-	display: flex;
-	flex-direction: column;
-	gap: --spacing(2);
 	background: var(--color-surface-50-950);
 	border: 1px solid var(--color-surface-200-800);
 
 	@apply card;
+}
+
+[data-combobox-list] {
+	display: flex;
+	flex-direction: column;
+	gap: --spacing(2);
 }
 
 [data-combobox-item-group-label] {

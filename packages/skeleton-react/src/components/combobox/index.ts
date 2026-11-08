@@ -8,6 +8,7 @@ export type { ComboboxItemGroupLabelProps } from './anatomy/item-group-label.jsx
 export type { ComboboxItemIndicatorProps } from './anatomy/item-indicator.jsx';
 export type { ComboboxItemTextProps } from './anatomy/item-text.jsx';
 export type { ComboboxLabelProps } from './anatomy/label.jsx';
+export type { ComboboxListProps } from './anatomy/list.jsx';
 export type { ComboboxPositionerProps } from './anatomy/positioner.jsx';
 export type { ComboboxRootProps } from './anatomy/root.jsx';
 export type { ComboboxRootContextProps } from './anatomy/root-context.jsx';

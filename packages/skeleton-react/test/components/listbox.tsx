@@ -10,13 +10,15 @@ export default function Test() {
 			<Listbox.Label data-testid="label" />
 			<Listbox.Input data-testid="input" />
 			<Listbox.Content data-testid="content">
-				<Listbox.ItemGroup data-testid="item-group">
-					<Listbox.ItemGroupLabel data-testid="item-group-label" />
-					<Listbox.Item item="item" data-testid="item">
-						<Listbox.ItemText data-testid="item-text" />
-						<Listbox.ItemIndicator data-testid="item-indicator" />
-					</Listbox.Item>
-				</Listbox.ItemGroup>
+				<Listbox.List data-testid="list">
+					<Listbox.ItemGroup data-testid="item-group">
+						<Listbox.ItemGroupLabel data-testid="item-group-label" />
+						<Listbox.Item item="item" data-testid="item">
+							<Listbox.ItemText data-testid="item-text" />
+							<Listbox.ItemIndicator data-testid="item-indicator" />
+						</Listbox.Item>
+					</Listbox.ItemGroup>
+				</Listbox.List>
 			</Listbox.Content>
 		</Listbox>
 	);

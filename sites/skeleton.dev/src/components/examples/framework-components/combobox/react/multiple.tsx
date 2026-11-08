@@ -55,12 +55,14 @@ export default function Default() {
 				<Portal>
 					<Combobox.Positioner>
 						<Combobox.Content>
-							{items.map((item) => (
-								<Combobox.Item key={item.value} item={item}>
-									<Combobox.ItemText>{item.label}</Combobox.ItemText>
-									<Combobox.ItemIndicator />
-								</Combobox.Item>
-							))}
+							<Combobox.List>
+								{items.map((item) => (
+									<Combobox.Item key={item.value} item={item}>
+										<Combobox.ItemText>{item.label}</Combobox.ItemText>
+										<Combobox.ItemIndicator />
+									</Combobox.Item>
+								))}
+							</Combobox.List>
 						</Combobox.Content>
 					</Combobox.Positioner>
 				</Portal>

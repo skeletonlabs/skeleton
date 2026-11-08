@@ -32,6 +32,10 @@
 	height: var(--height);
 	border-radius: var(--radius-base);
 
+	&:not([data-instant]) {
+		transition: all 150ms ease;
+	}
+
 	@apply preset-filled;
 
 	&[data-disabled] {

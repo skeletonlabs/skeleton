@@ -8,6 +8,7 @@ export type { ComboboxItemGroupLabelProps } from './anatomy/item-group-label.sve
 export type { ComboboxItemIndicatorProps } from './anatomy/item-indicator.svelte';
 export type { ComboboxItemTextProps } from './anatomy/item-text.svelte';
 export type { ComboboxLabelProps } from './anatomy/label.svelte';
+export type { ComboboxListProps } from './anatomy/list.svelte';
 export type { ComboboxPositionerProps } from './anatomy/positioner.svelte';
 export type { ComboboxRootProps } from './anatomy/root.svelte';
 export type { ComboboxRootContextProps } from './anatomy/root-context.svelte';

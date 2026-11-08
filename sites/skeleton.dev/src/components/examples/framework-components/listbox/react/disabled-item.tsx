@@ -20,12 +20,14 @@ export default function DisabledItem() {
 	return (
 		<Listbox className="w-full max-w-md" collection={collection}>
 			<Listbox.Content>
-				{collection.items.map((item) => (
-					<Listbox.Item key={item.value} item={item}>
-						<Listbox.ItemText>{item.label}</Listbox.ItemText>
-						<Listbox.ItemIndicator />
-					</Listbox.Item>
-				))}
+				<Listbox.List>
+					{collection.items.map((item) => (
+						<Listbox.Item key={item.value} item={item}>
+							<Listbox.ItemText>{item.label}</Listbox.ItemText>
+							<Listbox.ItemIndicator />
+						</Listbox.Item>
+					))}
+				</Listbox.List>
 			</Listbox.Content>
 		</Listbox>
 	);

@@ -33,7 +33,8 @@ describe('Listbox', () => {
 
 		it('renders the list part', async () => {
 			await render(<Listbox />);
-			expect(document.querySelector('[data-testid="content"] [data-listbox-list]')?.getAttribute('role')).toBe('listbox');
+			await expect.element(page.getByTestId('list')).toBeInTheDocument();
+			expect(page.getByTestId('list').element().getAttribute('role')).toBe('listbox');
 		});
 	});
 

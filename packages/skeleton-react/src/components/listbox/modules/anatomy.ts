@@ -1,5 +1,6 @@
 import Content from '../anatomy/content.jsx';
 import Input from '../anatomy/input.jsx';
+import List from '../anatomy/list.jsx';
 import ItemGroupLabel from '../anatomy/item-group-label.jsx';
 import ItemGroup from '../anatomy/item-group.jsx';
 import ItemIndicator from '../anatomy/item-indicator.jsx';
@@ -16,6 +17,7 @@ export const Listbox = Object.assign(Root, {
 	Label: Label,
 	Input: Input,
 	Content: Content,
+	List: List,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
 	Item: Item,

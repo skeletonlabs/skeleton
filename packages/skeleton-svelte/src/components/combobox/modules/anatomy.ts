@@ -2,6 +2,7 @@ import ClearTrigger from '../anatomy/clear-trigger.svelte';
 import Content from '../anatomy/content.svelte';
 import Control from '../anatomy/control.svelte';
 import Input from '../anatomy/input.svelte';
+import List from '../anatomy/list.svelte';
 import ItemGroupLabel from '../anatomy/item-group-label.svelte';
 import ItemGroup from '../anatomy/item-group.svelte';
 import ItemIndicator from '../anatomy/item-indicator.svelte';
@@ -24,6 +25,7 @@ export const Combobox = Object.assign(Root, {
 	ClearTrigger: ClearTrigger,
 	Positioner: Positioner,
 	Content: Content,
+	List: List,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
 	Item: Item,

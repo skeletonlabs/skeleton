@@ -20,16 +20,18 @@
 
 <Listbox class="w-full max-w-md" {collection}>
 	<Listbox.Content>
-		{#each collection.group() as [type, items] (type)}
-			<Listbox.ItemGroup>
-				<Listbox.ItemGroupLabel>{type}</Listbox.ItemGroupLabel>
-				{#each items as item (item.value)}
-					<Listbox.Item {item}>
-						<Listbox.ItemText>{item.label}</Listbox.ItemText>
-						<Listbox.ItemIndicator />
-					</Listbox.Item>
-				{/each}
-			</Listbox.ItemGroup>
-		{/each}
+		<Listbox.List>
+			{#each collection.group() as [type, items] (type)}
+				<Listbox.ItemGroup>
+					<Listbox.ItemGroupLabel>{type}</Listbox.ItemGroupLabel>
+					{#each items as item (item.value)}
+						<Listbox.Item {item}>
+							<Listbox.ItemText>{item.label}</Listbox.ItemText>
+							<Listbox.ItemIndicator />
+						</Listbox.Item>
+					{/each}
+				</Listbox.ItemGroup>
+			{/each}
+		</Listbox.List>
 	</Listbox.Content>
 </Listbox>

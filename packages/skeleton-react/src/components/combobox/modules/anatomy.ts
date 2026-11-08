@@ -2,6 +2,7 @@ import ClearTrigger from '../anatomy/clear-trigger.jsx';
 import Content from '../anatomy/content.jsx';
 import Control from '../anatomy/control.jsx';
 import Input from '../anatomy/input.jsx';
+import List from '../anatomy/list.jsx';
 import ItemGroupLabel from '../anatomy/item-group-label.jsx';
 import ItemGroup from '../anatomy/item-group.jsx';
 import ItemIndicator from '../anatomy/item-indicator.jsx';
@@ -24,6 +25,7 @@ export const Combobox = Object.assign(Root, {
 	ClearTrigger: ClearTrigger,
 	Positioner: Positioner,
 	Content: Content,
+	List: List,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
 	Item: Item,

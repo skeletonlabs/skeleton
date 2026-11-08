@@ -16,15 +16,12 @@
 	const { element, children, ...rest } = $derived(props);
 
 	const attributes = $derived(mergeProps(combobox().getContentProps(), rest));
-	const listAttributes = $derived(combobox().getListProps());
 </script>
 
-<div {...attributes}>
-	{#if element}
-		{@render element(listAttributes)}
-	{:else}
-		<div {...listAttributes}>
-			{@render children?.()}
-		</div>
-	{/if}
-</div>
+{#if element}
+	{@render element(attributes)}
+{:else}
+	<div {...attributes}>
+		{@render children?.()}
+	</div>
+{/if}

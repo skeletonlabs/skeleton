@@ -1,5 +1,6 @@
 import Content from '../anatomy/content.svelte';
 import Input from '../anatomy/input.svelte';
+import List from '../anatomy/list.svelte';
 import ItemGroupLabel from '../anatomy/item-group-label.svelte';
 import ItemGroup from '../anatomy/item-group.svelte';
 import ItemIndicator from '../anatomy/item-indicator.svelte';
@@ -16,6 +17,7 @@ export const Listbox = Object.assign(Root, {
 	Label: Label,
 	Input: Input,
 	Content: Content,
+	List: List,
 	ItemGroup: ItemGroup,
 	ItemGroupLabel: ItemGroupLabel,
 	Item: Item,

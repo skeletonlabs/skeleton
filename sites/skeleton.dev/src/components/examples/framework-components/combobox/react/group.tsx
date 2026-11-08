@@ -50,17 +50,19 @@ export default function Group() {
 			<Portal>
 				<Combobox.Positioner>
 					<Combobox.Content>
-						{collection.group().map(([type, items]) => (
-							<Combobox.ItemGroup key={type}>
-								<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
-								{items.map((item) => (
-									<Combobox.Item key={item.value} item={item}>
-										<Combobox.ItemText>{item.label}</Combobox.ItemText>
-										<Combobox.ItemIndicator />
-									</Combobox.Item>
-								))}
-							</Combobox.ItemGroup>
-						))}
+						<Combobox.List>
+							{collection.group().map(([type, items]) => (
+								<Combobox.ItemGroup key={type}>
+									<Combobox.ItemGroupLabel>{type}</Combobox.ItemGroupLabel>
+									{items.map((item) => (
+										<Combobox.Item key={item.value} item={item}>
+											<Combobox.ItemText>{item.label}</Combobox.ItemText>
+											<Combobox.ItemIndicator />
+										</Combobox.Item>
+									))}
+								</Combobox.ItemGroup>
+							))}
+						</Combobox.List>
 					</Combobox.Content>
 				</Combobox.Positioner>
 			</Portal>

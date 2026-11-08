@@ -24,17 +24,19 @@ function Page() {
 		<Listbox collection={collection}>
 			<Listbox.Label>Label</Listbox.Label>
 			<Listbox.Content>
-				{collection.group().map(([type, items]) => (
-					<Listbox.ItemGroup key={type}>
-						<Listbox.ItemGroupLabel>{type}</Listbox.ItemGroupLabel>
-						{items.map((item) => (
-							<Listbox.Item key={item.value} item={item}>
-								<Listbox.ItemText>{item.label}</Listbox.ItemText>
-								<Listbox.ItemIndicator />
-							</Listbox.Item>
-						))}
-					</Listbox.ItemGroup>
-				))}
+				<Listbox.List>
+					{collection.group().map(([type, items]) => (
+						<Listbox.ItemGroup key={type}>
+							<Listbox.ItemGroupLabel>{type}</Listbox.ItemGroupLabel>
+							{items.map((item) => (
+								<Listbox.Item key={item.value} item={item}>
+									<Listbox.ItemText>{item.label}</Listbox.ItemText>
+									<Listbox.ItemIndicator />
+								</Listbox.Item>
+							))}
+						</Listbox.ItemGroup>
+					))}
+				</Listbox.List>
 			</Listbox.Content>
 		</Listbox>
 	);

@@ -20,11 +20,13 @@
 
 <Listbox class="w-full max-w-md" {collection}>
 	<Listbox.Content>
-		{#each collection.items as item (item.value)}
-			<Listbox.Item {item}>
-				<Listbox.ItemText>{item.label}</Listbox.ItemText>
-				<Listbox.ItemIndicator />
-			</Listbox.Item>
-		{/each}
+		<Listbox.List>
+			{#each collection.items as item (item.value)}
+				<Listbox.Item {item}>
+					<Listbox.ItemText>{item.label}</Listbox.ItemText>
+					<Listbox.ItemIndicator />
+				</Listbox.Item>
+			{/each}
+		</Listbox.List>
 	</Listbox.Content>
 </Listbox>

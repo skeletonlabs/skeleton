@@ -25,11 +25,13 @@
 	<Listbox.Label>Search for Food</Listbox.Label>
 	<Listbox.Input placeholder="Type to search..." value={query} oninput={(e) => (query = e.currentTarget.value)} />
 	<Listbox.Content>
-		{#each collection.items as item (item.value)}
-			<Listbox.Item {item}>
-				<Listbox.ItemText>{item.label}</Listbox.ItemText>
-				<Listbox.ItemIndicator />
-			</Listbox.Item>
-		{/each}
+		<Listbox.List>
+			{#each collection.items as item (item.value)}
+				<Listbox.Item {item}>
+					<Listbox.ItemText>{item.label}</Listbox.ItemText>
+					<Listbox.ItemIndicator />
+				</Listbox.Item>
+			{/each}
+		</Listbox.List>
 	</Listbox.Content>
 </Listbox>

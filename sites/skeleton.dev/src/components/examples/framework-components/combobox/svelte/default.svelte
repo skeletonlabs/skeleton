@@ -44,12 +44,14 @@
 	<Portal>
 		<Combobox.Positioner>
 			<Combobox.Content>
-				{#each items as item (item.value)}
-					<Combobox.Item {item}>
-						<Combobox.ItemText>{item.label}</Combobox.ItemText>
-						<Combobox.ItemIndicator />
-					</Combobox.Item>
-				{/each}
+				<Combobox.List>
+					{#each items as item (item.value)}
+						<Combobox.Item {item}>
+							<Combobox.ItemText>{item.label}</Combobox.ItemText>
+							<Combobox.ItemIndicator />
+						</Combobox.Item>
+					{/each}
+				</Combobox.List>
 			</Combobox.Content>
 		</Combobox.Positioner>
 	</Portal>

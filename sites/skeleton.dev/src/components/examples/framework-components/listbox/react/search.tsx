@@ -24,12 +24,14 @@ export default function Search() {
 			<Listbox.Label>Search for Food</Listbox.Label>
 			<Listbox.Input placeholder="Type to search..." value={query} onInput={(e) => setQuery(e.currentTarget.value)} />
 			<Listbox.Content>
-				{collection.items.map((item) => (
-					<Listbox.Item key={item.value} item={item}>
-						<Listbox.ItemText>{item.label}</Listbox.ItemText>
-						<Listbox.ItemIndicator />
-					</Listbox.Item>
-				))}
+				<Listbox.List>
+					{collection.items.map((item) => (
+						<Listbox.Item key={item.value} item={item}>
+							<Listbox.ItemText>{item.label}</Listbox.ItemText>
+							<Listbox.ItemIndicator />
+						</Listbox.Item>
+					))}
+				</Listbox.List>
 			</Listbox.Content>
 		</Listbox>
 	);

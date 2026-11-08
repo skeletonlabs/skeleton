@@ -61,7 +61,8 @@ describe('Combobox', () => {
 
 		it('renders the list part', async () => {
 			await render(<Combobox />);
-			expect(document.querySelector('[data-testid="content"] [data-combobox-list]')?.getAttribute('role')).toBe('listbox');
+			await expect.element(page.getByTestId('list')).toBeInTheDocument();
+			expect(page.getByTestId('list').element().getAttribute('role')).toBe('listbox');
 		});
 	});
 

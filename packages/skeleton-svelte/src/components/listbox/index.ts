@@ -1,4 +1,5 @@
 export type { ListboxContentProps } from './anatomy/content.svelte';
+export type { ListboxListProps } from './anatomy/list.svelte';
 export type { ListboxInputProps } from './anatomy/input.svelte';
 export type { ListboxItemProps } from './anatomy/item.svelte';
 export type { ListboxItemGroupProps } from './anatomy/item-group.svelte';
