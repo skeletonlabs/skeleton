@@ -6,28 +6,28 @@ import { page } from 'vitest/browser';
 describe('Collapsible', () => {
 	describe('Root', () => {
 		it('renders', async () => {
-			render(Collapsible);
+			await render(Collapsible);
 			await expect.element(page.getByTestId('root')).toBeInTheDocument();
 		});
 	});
 
 	describe('Trigger', () => {
 		it('renders', async () => {
-			render(Collapsible);
+			await render(Collapsible);
 			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
 		});
 	});
 
 	describe('Indicator', () => {
 		it('renders', async () => {
-			render(Collapsible);
+			await render(Collapsible);
 			await expect.element(page.getByTestId('indicator')).toBeInTheDocument();
 		});
 	});
 
 	describe('Content', () => {
 		it('renders', async () => {
-			render(Collapsible);
+			await render(Collapsible);
 			await expect.element(page.getByTestId('content')).toBeInTheDocument();
 		});
 	});
