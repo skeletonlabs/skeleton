@@ -165,7 +165,7 @@ minimumReleaseAgeExclude:
   # Renovate security update: @sveltejs/kit@3.0.0
   - '@sveltejs/kit@3.0.0'
   # Renovate security update: @tanstack/react-start@1.168.60
-  - "@tanstack/react-start@1.168.60"
+  - '@tanstack/react-start@1.168.60'
 
 allowBuilds:
   '@parcel/watcher': true
