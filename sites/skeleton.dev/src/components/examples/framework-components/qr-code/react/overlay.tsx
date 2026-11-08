@@ -4,7 +4,7 @@ import favicon from "@/assets/favicon.png";
 export default function OverlayDemo() {
 	return (
 		<QrCode value="https://skeleton.dev">
-			<QrCode.Frame className="max-size-36 size-full">
+			<QrCode.Frame className="max-size-36">
 				<QrCode.Pattern />
 			</QrCode.Frame>
 			<QrCode.Overlay className="rounded-full bg-white p-1">

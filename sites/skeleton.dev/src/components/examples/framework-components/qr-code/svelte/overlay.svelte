@@ -4,7 +4,7 @@
 </script>
 
 <QrCode value="https://skeleton.dev">
-	<QrCode.Frame class="max-size-36 size-full">
+	<QrCode.Frame class="max-size-36">
 		<QrCode.Pattern />
 	</QrCode.Frame>
 	<QrCode.Overlay class="rounded-full bg-white p-1">
