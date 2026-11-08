@@ -34,7 +34,7 @@
 
 <div class="prose-pre shadow-lg">
 	{#if filename || language}
-		<header class="pb-2 flex justify-between items-center">
+		<header class="flex items-center justify-between pb-2">
 			<span class="text-xs opacity-50">{filename ?? language}</span>
 			<button
 				class="btn-icon btn-icon-sm preset-outlined-surface-200-800 hover:preset-tonal"

@@ -69,7 +69,7 @@
 
 	<div class="container-page space-y-4">
 		<!-- Settings -->
-		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+		<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 			<header class="space-y-2">
 				<h2 class="h3">Preferences</h2>
 				<p class="opacity-60">Choose which emails and in-app alerts you want to receive.</p>
@@ -99,7 +99,7 @@
 		</section>
 
 		<!-- Recent -->
-		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+		<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 			<header class="space-y-2">
 				<h2 class="h3">Recent</h2>
 				<p class="opacity-60">Shows a log of recent activity.</p>

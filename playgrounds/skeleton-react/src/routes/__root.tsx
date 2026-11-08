@@ -44,10 +44,10 @@ function RootLayout() {
 			</head>
 			<body>
 				<div className="grid h-screen grid-cols-[320px_minmax(0,1fr)]">
-					<div className="bg-surface-100-900 p-8 flex flex-col gap-8">
-						<header className="flex justify-between items-center">
+					<div className="bg-surface-100-900 flex flex-col gap-8 p-8">
+						<header className="flex items-center justify-between">
 							<a
-								className="inline-block text-sm bg-blue-500 p-2 font-mono font-bold text-white"
+								className="inline-block bg-blue-500 p-2 font-mono text-sm font-bold text-white"
 								href="/"
 							>
 								skeleton-react
@@ -57,7 +57,7 @@ function RootLayout() {
 						<hr className="hr" />
 						<div className="flex flex-col gap-4">
 							<div className="font-bold">Components</div>
-							<nav className="text-sm flex flex-col gap-1">
+							<nav className="flex flex-col gap-1 text-sm">
 								{components.map((component) => (
 									<a
 										key={component.href}

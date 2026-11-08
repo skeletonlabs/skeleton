@@ -82,10 +82,10 @@
 				<Accordion.Item value={chapter.value} disabled={tier === "premium"}>
 					<!-- Chapter Card -->
 					<Accordion.ItemTrigger
-						class="card bg-surface-50-950 border border-surface-200-800 p-4 grid grid-cols-[auto_1fr_auto] items-center gap-4"
+						class="card bg-surface-50-950 border-surface-200-800 grid grid-cols-[auto_1fr_auto] items-center gap-4 border p-4"
 					>
 						<figure
-							class="h-full max-h-8 aspect-square preset-filled-primary-500 flex justify-center items-center rounded-container"
+							class="preset-filled-primary-500 rounded-container flex aspect-square h-full max-h-8 items-center justify-center"
 						>
 							<BookOpenIcon class="size-[50%]" />
 						</figure>
@@ -108,7 +108,7 @@
 								{#if i > 0}<hr class="hr" />{/if}
 								<a
 									href={lesson.href}
-									class="flex justify-between items-center gap-4"
+									class="flex items-center justify-between gap-4"
 								>
 									<div>
 										<h4 class="h4">{lesson.title}</h4>

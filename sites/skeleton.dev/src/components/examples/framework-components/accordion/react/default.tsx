@@ -34,7 +34,7 @@ export default function Default() {
 					{i !== 0 && <hr className="hr" />}
 					<Accordion.Item value={item.id}>
 						<h3>
-							<Accordion.ItemTrigger className="font-bold flex items-center justify-between gap-2">
+							<Accordion.ItemTrigger className="flex items-center justify-between gap-2 font-bold">
 								{item.title}
 								<Accordion.ItemIndicator className="group">
 									<ChevronDownIcon className="h-5 w-5 transition group-data-[state=open]:rotate-180" />

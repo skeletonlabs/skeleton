@@ -58,9 +58,9 @@
 	<PageHeader title="API & CLI"></PageHeader>
 
 	<div class="container-page space-y-4">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 			<!-- REST API -->
-			<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+			<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 				<header class="space-y-2">
 					<h2 class="h3">REST API</h2>
 					<p class="opacity-60">
@@ -79,7 +79,7 @@
 			</section>
 
 			<!-- CLI -->
-			<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+			<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 				<header class="space-y-2">
 					<h2 class="h3">Skeleton CLI</h2>
 					<p class="opacity-60">
@@ -102,8 +102,8 @@
 		</div>
 
 		<!-- API Keys -->
-		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
-			<header class="flex justify-between items-center gap-4">
+		<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
+			<header class="flex items-center justify-between gap-4">
 				<div class="space-y-1">
 					<h2 class="h3">API Keys</h2>
 					<p class="opacity-60">
@@ -138,7 +138,7 @@
 								</td>
 								<td>{created}</td>
 								<td>{lastUsed}</td>
-								<td class="flex justify-end items-center gap-2">
+								<td class="flex items-center justify-end gap-2">
 									<button
 										type="button"
 										class="btn-icon hover:preset-tonal"

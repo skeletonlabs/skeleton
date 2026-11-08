@@ -14,7 +14,7 @@
 	const rows = [1, 2, 3, 4].map(() => shuffle(themes));
 </script>
 
-<div class="space-y-3 py-4 overflow-hidden">
+<div class="space-y-3 overflow-hidden py-4">
 	{#each rows as row, i}
 		<!-- autoFill must not be used here; avoids ResizeObserver recalculation -->
 		<Marquee reverse={i % 2 === 1}>
@@ -26,7 +26,7 @@
 							<Marquee.Content {index}>
 								{#each row as theme}
 									<div
-										class="card ring ring-inset ring-surface-950-50/10 flex items-center gap-2 px-4 py-2 whitespace-nowrap"
+										class="card ring-surface-950-50/10 flex items-center gap-2 px-4 py-2 whitespace-nowrap ring ring-inset"
 										style="background-color: light-dark({theme.surface50}, {theme.surface950});"
 									>
 										<span>{theme.emoji}</span>

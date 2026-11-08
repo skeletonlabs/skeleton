@@ -2,7 +2,7 @@
 	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<Progress class="items-center w-fit">
+<Progress class="w-fit items-center">
 	<Progress.Circle>
 		<Progress.CircleTrack />
 		<Progress.CircleRange />

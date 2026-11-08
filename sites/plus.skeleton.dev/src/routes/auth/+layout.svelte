@@ -44,7 +44,7 @@
 
 	<!-- Column 2 -->
 	<aside
-		class="preset-filled-surface-50-950 relative hidden flex-col justify-center items-center p-10 lg:flex"
+		class="preset-filled-surface-50-950 relative hidden flex-col items-center justify-center p-10 lg:flex"
 	>
 		<AuthCarousel />
 	</aside>

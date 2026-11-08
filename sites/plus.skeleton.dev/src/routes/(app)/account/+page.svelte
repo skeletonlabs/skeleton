@@ -16,7 +16,7 @@
 	</PageHeader>
 
 	<div class="container-page">
-		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+		<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 			<h2 class="h3">Connected Accounts</h2>
 			<p class="opacity-60">Connect your account to one or more oAuth providers.</p>
 			<div class="table-wrap">
@@ -30,7 +30,7 @@
 					<tbody>
 						{#each supportedOAuthProviders as provider}
 							<tr>
-								<td class="font-bold flex items-center gap-2">
+								<td class="flex items-center gap-2 font-bold">
 									<provider.Icon />
 									{provider.name}
 								</td>

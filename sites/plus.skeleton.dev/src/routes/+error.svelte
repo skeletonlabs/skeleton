@@ -7,12 +7,12 @@
 	import RefreshCwIcon from "@lucide/svelte/icons/refresh-cw";
 </script>
 
-<div class="min-h-dvh grid grid-rows-[auto_1fr_auto]">
+<div class="grid min-h-dvh grid-rows-[auto_1fr_auto]">
 	<Header />
 	<main
-		class="container container-page mx-auto flex w-full items-center justify-center border-x border-surface-200-800"
+		class="container-page border-surface-200-800 container mx-auto flex w-full items-center justify-center border-x"
 	>
-		<article class="w-full max-w-xl flex flex-col justify-center items-center gap-4">
+		<article class="flex w-full max-w-xl flex-col items-center justify-center gap-4">
 			<header>
 				<Skeleton class="size-elem-7xl" />
 				<h1 class="sr-only">Error</h1>

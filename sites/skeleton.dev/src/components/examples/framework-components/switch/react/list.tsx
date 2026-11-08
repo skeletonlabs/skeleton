@@ -2,7 +2,7 @@ import { Switch } from "@skeletonlabs/skeleton-react";
 
 export default function List() {
 	return (
-		<div className="grid gap-2 w-full">
+		<div className="grid w-full gap-2">
 			{["Option 1", "Option 2", "Option 3"].map((label, i) => (
 				<div key={label}>
 					<Switch className="flex justify-between p-2">

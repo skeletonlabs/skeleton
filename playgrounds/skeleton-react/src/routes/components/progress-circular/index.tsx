@@ -9,7 +9,7 @@ export const Route = createFileRoute("/components/progress-circular/")({
 
 function Page() {
 	return (
-		<Progress className="items-center w-fit">
+		<Progress className="w-fit items-center">
 			<Progress.Label>Label</Progress.Label>
 			<Progress.Circle>
 				<Progress.CircleTrack />

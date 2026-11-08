@@ -21,7 +21,7 @@ export default function Default() {
 				<Popover.Trigger className="btn preset-tonal">Anchor</Popover.Trigger>
 				<Portal>
 					<Popover.Positioner>
-						<Popover.Content className="card max-w-sm p-4 bg-surface-100-900 shadow-xl space-y-2">
+						<Popover.Content className="card bg-surface-100-900 max-w-sm space-y-2 p-4 shadow-xl">
 							<Popover.Description>
 								This popover will appear, stay open for three seconds, then close on
 								it's own.

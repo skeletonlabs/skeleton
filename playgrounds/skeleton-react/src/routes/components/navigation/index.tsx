@@ -53,8 +53,8 @@ function Page() {
 			</header>
 			<section className="space-y-4">
 				<h3 className="h3">Bar</h3>
-				<div className="w-[375px] h-[667px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-					<div className="flex justify-center items-center">
+				<div className="border-surface-200-800 grid h-[667px] w-[375px] grid-rows-[1fr_auto] border">
+					<div className="flex items-center justify-center">
 						<p>Contents</p>
 					</div>
 					<Navigation layout="bar">
@@ -77,7 +77,7 @@ function Page() {
 
 			<section className="space-y-4">
 				<h3 className="h3">Rail</h3>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] border">
 					<Navigation layout="rail">
 						<Navigation.Header>
 							<Navigation.TriggerAnchor
@@ -113,7 +113,7 @@ function Page() {
 							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>
@@ -121,7 +121,7 @@ function Page() {
 
 			<section className="space-y-4">
 				<h3 className="h3">Sidebar</h3>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
 					<Navigation layout="sidebar" className="grid grid-rows-[auto_1fr_auto] gap-4">
 						<Navigation.Header>
 							<a
@@ -142,7 +142,7 @@ function Page() {
 							</Navigation.Group>
 							{Object.entries(linksSidebar).map(([category, links]) => (
 								<Navigation.Group key={category}>
-									<Navigation.Label className="capitalize pl-2">
+									<Navigation.Label className="pl-2 capitalize">
 										{category}
 									</Navigation.Label>
 									<Navigation.Menu>
@@ -176,7 +176,7 @@ function Page() {
 							</Navigation.TriggerAnchor>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>
@@ -187,7 +187,7 @@ function Page() {
 				<pre className="pre">
 					Layout: {JSON.stringify(layoutRail ? "Rail" : "Sidebar", null, 2)}
 				</pre>
-				<div className="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
+				<div className="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
 					<Navigation
 						layout={layoutRail ? "rail" : "sidebar"}
 						className={layoutRail ? "" : "grid grid-rows-[1fr_auto] gap-4"}
@@ -214,7 +214,7 @@ function Page() {
 							</Navigation.Trigger>
 						</Navigation.Footer>
 					</Navigation>
-					<div className="flex justify-center items-center">
+					<div className="flex items-center justify-center">
 						<p className="opacity-50">Contents</p>
 					</div>
 				</div>

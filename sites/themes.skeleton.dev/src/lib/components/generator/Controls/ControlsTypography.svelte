@@ -199,7 +199,7 @@
 <div class="space-y-4">
 	<!-- Custom Fonts -->
 	<section class="space-y-4">
-		<header class="flex justify-between items-center gap-4">
+		<header class="flex items-center justify-between gap-4">
 			<div class="flex items-center gap-2">
 				<h3 class="h5">Custom Fonts</h3>
 				<span class="badge preset-filled-primary-500">Beta</span>
@@ -246,7 +246,7 @@
 	</section>
 	<!-- Scale -->
 	<section class="space-y-4">
-		<header class="flex justify-between items-center gap-4">
+		<header class="flex items-center justify-between gap-4">
 			<h3 class="h5">Typographic Scale</h3>
 			<a
 				class="btn btn-xs preset-tonal"
@@ -256,7 +256,7 @@
 		</header>
 		<!-- --text-scaling -->
 		<div
-			class="grid grid-cols-3 preset-outlined-surface-200-800 rounded-container overflow-hidden divide-x divide-y divide-surface-200-800"
+			class="preset-outlined-surface-200-800 rounded-container divide-surface-200-800 grid grid-cols-3 divide-x divide-y overflow-hidden"
 		>
 			{#each constants.typographicScales as typographicScale (typographicScale)}
 				<button
@@ -287,7 +287,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Light Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={`${settingsTypography["--typo-base--color-light"]}`}
 					></div>
 					<select class="select" bind:value={baseLightColorName}>
@@ -307,7 +307,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={`${settingsTypography["--typo-base--color-dark"]}`}
 					></div>
 					<select class="select" bind:value={baseDarkColorName}>
@@ -488,7 +488,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Light Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={settingsTypography["--typo-heading--color-light"] ===
 						"inherit"
 							? `${settingsTypography["--typo-base--color-light"]}`
@@ -512,7 +512,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={settingsTypography["--typo-heading--color-dark"] ===
 						"inherit"
 							? `${settingsTypography["--typo-base--color-dark"]}`
@@ -673,7 +673,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Light Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={settingsTypography["--typo-anchor--color-light"] ===
 						"inherit"
 							? `${settingsTypography["--typo-base--color-light"]}`
@@ -696,7 +696,7 @@
 				<label class="label space-y-2">
 					<span class="label-text">Dark Mode Font Color</span>
 					<div
-						class="w-full h-4 border border-surface-200-800 rounded-base"
+						class="border-surface-200-800 rounded-base h-4 w-full border"
 						style:background={settingsTypography["--typo-anchor--color-dark"] ===
 						"inherit"
 							? `${settingsTypography["--typo-base--color-dark"]}`

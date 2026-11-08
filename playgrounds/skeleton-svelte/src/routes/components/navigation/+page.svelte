@@ -53,8 +53,8 @@
 	<section class="space-y-4">
 		<h3 class="h3">Bar</h3>
 		<!-- Mobile Wrapper -->
-		<div class="w-[375px] h-[667px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-			<div class="flex justify-center items-center">
+		<div class="border-surface-200-800 grid h-[667px] w-[375px] grid-rows-[1fr_auto] border">
+			<div class="flex items-center justify-center">
 				<p>Contents</p>
 			</div>
 			<Navigation layout="bar">
@@ -74,7 +74,7 @@
 	<section class="space-y-4">
 		<h3 class="h3">Rail</h3>
 		<!-- Tablet Wrapper -->
-		<div class="w-full h-[728px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+		<div class="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] border">
 			<!-- --- -->
 			<Navigation layout="rail">
 				<Navigation.Header>
@@ -104,7 +104,7 @@
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
-			<div class="flex justify-center items-center">
+			<div class="flex items-center justify-center">
 				<p class="opacity-50">Contents</p>
 			</div>
 		</div>
@@ -113,7 +113,7 @@
 	<section class="space-y-4">
 		<h3 class="h3">Sidebar</h3>
 		<div
-			class="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800"
+			class="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border"
 		>
 			<!-- --- -->
 			<Navigation layout="sidebar" class="grid grid-rows-[auto_1fr_auto] gap-4">
@@ -136,7 +136,7 @@
 					</Navigation.Group>
 					{#each Object.entries(linksSidebar) as [category, links]}
 						<Navigation.Group>
-							<Navigation.Label class="capitalize pl-2">{category}</Navigation.Label>
+							<Navigation.Label class="pl-2 capitalize">{category}</Navigation.Label>
 							<Navigation.Menu>
 								{#each links as link (link)}
 									{@const Icon = link.icon}
@@ -162,7 +162,7 @@
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
-			<div class="flex justify-center items-center">
+			<div class="flex items-center justify-center">
 				<p class="opacity-50">Contents</p>
 			</div>
 		</div>
@@ -172,7 +172,7 @@
 		<h3 class="h3">Toggle Layout</h3>
 		<pre class="pre">Layout: {layoutRail ? "Rail" : "Sidebar"}</pre>
 		<div
-			class="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800"
+			class="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border"
 		>
 			<!-- --- -->
 			<Navigation
@@ -198,7 +198,7 @@
 				</Navigation.Footer>
 			</Navigation>
 			<!-- --- -->
-			<div class="flex justify-center items-center">
+			<div class="flex items-center justify-center">
 				<p class="opacity-50">Contents</p>
 			</div>
 		</div>

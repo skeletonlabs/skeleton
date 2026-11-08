@@ -41,7 +41,7 @@
 
 <DecorCorners corners={["bl", "br"]}>
 	<header
-		class="container-cell border-b border-surface-200-800 flex flex-col lg:flex-row lg:items-center gap-4 {classes}"
+		class="container-cell border-surface-200-800 flex flex-col gap-4 border-b lg:flex-row lg:items-center {classes}"
 	>
 		<!-- Lead -->
 		{#if lead}
@@ -56,7 +56,7 @@
 						{#each crumbs as crumb, i (crumb.href)}
 							{#if i > 0}
 								<li aria-hidden="true">
-									<ChevronRightIcon class="opacity-50 size-elem-sm" />
+									<ChevronRightIcon class="size-elem-sm opacity-50" />
 								</li>
 							{/if}
 							<li>
@@ -83,7 +83,7 @@
 		</div>
 		<!-- Trail -->
 		{#if trail}
-			<div class="lg:self-end flex items-center gap-2">{@render trail()}</div>
+			<div class="flex items-center gap-2 lg:self-end">{@render trail()}</div>
 		{/if}
 	</header>
 </DecorCorners>

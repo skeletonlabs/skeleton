@@ -77,7 +77,7 @@ export default function CollapseExpand() {
 	});
 
 	return (
-		<div className="w-full flex flex-col items-center gap-4">
+		<div className="flex w-full flex-col items-center gap-4">
 			<TreeView.Provider value={treeView}>
 				<TreeView.Label>File System</TreeView.Label>
 				<TreeView.Tree>

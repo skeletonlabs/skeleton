@@ -7,7 +7,7 @@
 
 <Menu positioning={{ placement: "bottom-end" }}>
 	<Menu.Trigger
-		class="hidden xl:flex btn p-2 hover:preset-tonal data-[state=open]:preset-tonal"
+		class="btn hover:preset-tonal data-[state=open]:preset-tonal hidden p-2 xl:flex"
 		title="Sponsor Us"
 		aria-label="Sponsor Us"
 	>

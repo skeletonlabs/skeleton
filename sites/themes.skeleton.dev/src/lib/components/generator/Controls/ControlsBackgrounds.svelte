@@ -61,7 +61,7 @@
 		<label class="label space-y-2">
 			<span class="label-text">Light Mode</span>
 			<div
-				class="w-full h-4 border border-surface-200-800 rounded-base"
+				class="border-surface-200-800 rounded-base h-4 w-full border"
 				style:background={settingsBackgrounds["--color-root-bg-light"]}
 			></div>
 			<select class="select" bind:value={lightColorName}>
@@ -81,7 +81,7 @@
 		<label class="label space-y-2">
 			<span class="label-text">Dark Mode</span>
 			<div
-				class="w-full h-4 border border-surface-200-800 rounded-base"
+				class="border-surface-200-800 rounded-base h-4 w-full border"
 				style:background={settingsBackgrounds["--color-root-bg-dark"]}
 			></div>
 			<select class="select" bind:value={darkColorName}>

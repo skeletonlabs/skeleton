@@ -56,7 +56,7 @@
 
 <div class="space-y-4">
 	<!-- Header -->
-	<header class="flex justify-between items-center gap-4">
+	<header class="flex items-center justify-between gap-4">
 		<!-- Title -->
 		<div class="flex items-center gap-2">
 			<h2 class="text-xl font-medium">{title}</h2>
@@ -140,7 +140,7 @@
 		<!-- Preview -->
 		<DecorStripes
 			class={[
-				"card border border-surface-200-800 preset-filled-surface-50-950 flex justify-center items-center p-4 md:p-8",
+				"card border-surface-200-800 preset-filled-surface-50-950 flex items-center justify-center border p-4 md:p-8",
 				{ "scheme-light": mode === "light", "scheme-dark": mode === "dark" },
 			]}
 		>

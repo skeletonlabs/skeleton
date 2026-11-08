@@ -38,32 +38,32 @@ const projects = (await getCollection("showcase-projects"))
 	description="Check out the showcase of amazing projects built by the Skeleton community."
 >
 	<Header />
-	<main class="container mx-auto space-y-10 xl:space-y-20 py-10 xl:py-20 px-4">
-		<section class="text-center space-y-2">
-			<h1 class="heading-font-family text-4xl md:text-5xl font-bold xl:text-balance">
+	<main class="container mx-auto space-y-10 px-4 py-10 xl:space-y-20 xl:py-20">
+		<section class="space-y-2 text-center">
+			<h1 class="heading-font-family text-4xl font-bold md:text-5xl xl:text-balance">
 				Build anything with Skeleton.
 			</h1>
 			<p class="xl:text-balance">
 				Check out the showcase of amazing projects built by the Skeleton community.
 			</p>
 		</section>
-		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		<section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 			{projects.map((project) => {
 				return (
 					<a
 						href={project.data.url}
 						target="_blank"
-						class="card hover:preset-tonal p-2 space-y-2 cursor-pointer"
+						class="card hover:preset-tonal cursor-pointer space-y-2 p-2"
 					>
 						<Image
 							src={project.images.light}
 							alt={`Thumbnail of ${project.data.name}`}
-							class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow block dark:hidden"
+							class="bg-surface-500 ring-surface-500/50 rounded-container block aspect-video w-full shadow ring-[1px] dark:hidden"
 						/>
 						<Image
 							src={project.images.dark}
 							alt={`Thumbnail of ${project.data.name}`}
-							class="bg-surface-500 ring-[1px] ring-surface-500/50 w-full aspect-video rounded-container shadow hidden dark:block"
+							class="bg-surface-500 ring-surface-500/50 rounded-container hidden aspect-video w-full shadow ring-[1px] dark:block"
 						/>
 						<strong>{project.data.name}</strong>
 						<p class="text-xs opacity-60">{project.data.description}</p>
@@ -71,7 +71,7 @@ const projects = (await getCollection("showcase-projects"))
 				);
 			})}
 		</section>
-		<section class="text-center space-y-4">
+		<section class="space-y-4 text-center">
 			<p>Have an interesting project you wish to share? Submit it here.</p>
 			<a
 				href="https://github.com/skeletonlabs/skeleton/discussions/3912"

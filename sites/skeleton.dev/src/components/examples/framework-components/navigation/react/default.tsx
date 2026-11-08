@@ -13,8 +13,8 @@ export default function Default() {
 	];
 
 	return (
-		<div className="w-[375px] h-[200px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-			<div className="flex justify-center items-center">
+		<div className="border-surface-200-800 grid h-[200px] w-[375px] grid-rows-[1fr_auto] border">
+			<div className="flex items-center justify-center">
 				<p className="opacity-60">...</p>
 			</div>
 			<Navigation layout="bar">

@@ -2,7 +2,7 @@
 	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<div class="flex gap-4 justify-evenly items-center w-full">
+<div class="flex w-full items-center justify-evenly gap-4">
 	<Progress value={75} class="w-fit">
 		<Progress.Circle class="[--size:--spacing(12)]">
 			<Progress.CircleTrack />

@@ -86,7 +86,7 @@
 			<TreeView.Branch>
 				<TreeView.BranchControl>
 					<TreeView.BranchIndicator class="data-loading:hidden" />
-					<TreeView.BranchIndicator class="hidden data-loading:inline animate-spin">
+					<TreeView.BranchIndicator class="hidden animate-spin data-loading:inline">
 						<LoaderIcon class="size-4" />
 					</TreeView.BranchIndicator>
 					<TreeView.BranchText>

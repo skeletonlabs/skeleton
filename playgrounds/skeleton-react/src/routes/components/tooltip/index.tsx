@@ -15,7 +15,7 @@ function Page() {
 				<Tooltip.Positioner>
 					<Tooltip.Content>
 						Content
-						<Tooltip.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
+						<Tooltip.Arrow className="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]">
 							<Tooltip.ArrowTip />
 						</Tooltip.Arrow>
 					</Tooltip.Content>

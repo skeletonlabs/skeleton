@@ -11,12 +11,12 @@ export default function Default() {
 		<Dialog>
 			<Dialog.Trigger className="btn preset-filled">Trigger</Dialog.Trigger>
 			<Portal>
-				<Dialog.Backdrop className="fixed inset-0 z-50 bg-surface-50-950/50" />
-				<Dialog.Positioner className="fixed inset-0 z-50 flex justify-center items-center p-4">
+				<Dialog.Backdrop className="bg-surface-50-950/50 fixed inset-0 z-50" />
+				<Dialog.Positioner className="fixed inset-0 z-50 flex items-center justify-center p-4">
 					<Dialog.Content
-						className={`card bg-surface-100-900 w-full max-w-xl p-4 space-y-4 shadow-xl ${animation}`}
+						className={`card bg-surface-100-900 w-full max-w-xl space-y-4 p-4 shadow-xl ${animation}`}
 					>
-						<header className="flex justify-between items-center">
+						<header className="flex items-center justify-between">
 							<Dialog.Title className="text-lg font-bold">
 								Hello Skeleton
 							</Dialog.Title>

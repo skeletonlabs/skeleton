@@ -11,7 +11,7 @@ export default function Filter() {
 				/>
 				<Avatar.Fallback>SK</Avatar.Fallback>
 			</Avatar>
-			<svg className="absolute -left-full w-0 h-0">
+			<svg className="absolute -left-full h-0 w-0">
 				<filter
 					id="apollo"
 					filterUnits="objectBoundingBox"

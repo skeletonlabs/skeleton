@@ -44,9 +44,9 @@
 	<PageHeader title="Billing" />
 
 	<div class="container-page space-y-4">
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+		<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
 			<!-- Current Plan -->
-			<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+			<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 				<p class="text-xs uppercase opacity-60">Current plan</p>
 				<div class="flex items-center gap-2 text-sm">
 					<h2 class="h3">{currentPlan.tier}</h2>
@@ -57,7 +57,7 @@
 			</section>
 
 			<!-- Payment Method -->
-			<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+			<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 				<h2 class="h3">Payment method</h2>
 				<div class="flex items-center justify-between gap-4">
 					<div class="flex items-center gap-3">
@@ -71,7 +71,7 @@
 					>
 				</div>
 				<hr class="hr" />
-				<div class="flex justify-between items-center gap-4">
+				<div class="flex items-center justify-between gap-4">
 					<div class="space-y-1">
 						<p class="text-xs font-bold">Tax / VAT</p>
 						<p class="opacity-60">No tax info on file</p>
@@ -85,7 +85,7 @@
 		</div>
 
 		<!-- Purchases -->
-		<section class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-4">
+		<section class="card bg-surface-50-950 border-surface-200-800 space-y-4 border p-4">
 			<div class="flex items-center justify-between gap-4">
 				<h2 class="h3">Purchases</h2>
 				<button type="button" class="btn preset-outlined-surface-200-800"

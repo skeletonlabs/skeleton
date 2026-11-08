@@ -2,7 +2,7 @@ import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function Default() {
 	return (
-		<Progress className="items-center w-fit" value={null}>
+		<Progress className="w-fit items-center" value={null}>
 			<Progress.Circle>
 				<Progress.CircleTrack />
 				<Progress.CircleRange />

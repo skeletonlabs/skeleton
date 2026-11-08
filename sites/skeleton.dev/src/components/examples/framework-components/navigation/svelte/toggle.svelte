@@ -24,7 +24,7 @@
 	}
 </script>
 
-<div class="w-full h-[728px] grid grid-cols-[auto_1fr] items-stretch border border-surface-200-800">
+<div class="border-surface-200-800 grid h-[728px] w-full grid-cols-[auto_1fr] items-stretch border">
 	<!-- --- -->
 	<Navigation
 		layout={layoutRail ? "rail" : "sidebar"}
@@ -49,7 +49,7 @@
 		</Navigation.Content>
 	</Navigation>
 	<!-- --- -->
-	<div class="flex justify-center items-center">
+	<div class="flex items-center justify-center">
 		<pre class="pre">Layout: {layoutRail ? "Rail" : "Sidebar"}</pre>
 	</div>
 </div>

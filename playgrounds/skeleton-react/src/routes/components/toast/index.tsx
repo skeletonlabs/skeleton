@@ -32,7 +32,7 @@ function Page() {
 
 			<label className="label">
 				<span className="label-text">Options</span>
-				<div className="rounded-container border border-surface-200-800 p-2 flex flex-col gap-2">
+				<div className="rounded-container border-surface-200-800 flex flex-col gap-2 border p-2">
 					<label className="flex items-center space-x-2">
 						<input
 							className="checkbox"

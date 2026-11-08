@@ -15,7 +15,7 @@
 	];
 </script>
 
-<div class="w-full h-[640px] grid grid-cols-[auto_1fr] border border-surface-200-800">
+<div class="border-surface-200-800 grid h-[640px] w-full grid-cols-[auto_1fr] border">
 	<!-- --- -->
 	<Navigation layout="rail">
 		<Navigation.Header>
@@ -41,7 +41,7 @@
 		</Navigation.Footer>
 	</Navigation>
 	<!-- --- -->
-	<div class="flex justify-center items-center">
+	<div class="flex items-center justify-center">
 		<p class="opacity-50">Contents</p>
 	</div>
 </div>

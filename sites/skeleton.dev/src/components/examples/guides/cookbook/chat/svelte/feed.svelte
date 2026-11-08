@@ -21,7 +21,7 @@
 	];
 </script>
 
-<section class="w-full max-h-[400px] overflow-y-auto space-y-4">
+<section class="max-h-[400px] w-full space-y-4 overflow-y-auto">
 	<!-- Loop through the messageFeed array -->
 	{#each messageFeed as bubble}
 		{@const role = bubble.host === true ? "host" : "guest"}

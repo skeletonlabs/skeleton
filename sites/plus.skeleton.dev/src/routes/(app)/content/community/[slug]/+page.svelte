@@ -38,12 +38,12 @@
 		<img
 			src={project.images.hero.src}
 			alt={project.images.hero.alt}
-			class="w-full aspect-video border-b border-surface-200-800"
+			class="border-surface-200-800 aspect-video w-full border-b"
 		/>
 
 		<div class="container-page space-y-8">
 			<!-- Content + Sidebar -->
-			<div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-8">
+			<div class="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_280px]">
 				<!-- Main -->
 				<div class="space-y-8">
 					<!-- About -->
@@ -61,7 +61,7 @@
 									<img
 										src={screenshot.src}
 										alt={screenshot.alt}
-										class="w-full aspect-video rounded-container border border-surface-200-800"
+										class="rounded-container border-surface-200-800 aspect-video w-full border"
 									/>
 								</a>
 							{/each}
@@ -73,7 +73,7 @@
 				<aside class="space-y-4">
 					<!-- Quick Info -->
 					<section
-						class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-3"
+						class="card bg-surface-50-950 border-surface-200-800 space-y-3 border p-4"
 					>
 						<dl class="space-y-4 text-sm">
 							<div class="space-y-1">
@@ -93,7 +93,7 @@
 
 					<!-- Links -->
 					<section
-						class="card bg-surface-50-950 border border-surface-200-800 p-4 space-y-3"
+						class="card bg-surface-50-950 border-surface-200-800 space-y-3 border p-4"
 					>
 						<p class="text-xs font-medium uppercase opacity-60">Links</p>
 						<ul class="space-y-2 text-sm">
@@ -104,7 +104,7 @@
 									rel="noopener noreferrer"
 									class="flex items-center gap-1.5 hover:underline"
 								>
-									<ArrowUpRightIcon class="size-elem-sm opacity-60 shrink-0" />
+									<ArrowUpRightIcon class="size-elem-sm shrink-0 opacity-60" />
 									<span>{new URL(project.link).hostname}</span>
 								</a>
 							</li>
@@ -117,7 +117,7 @@
 										class="flex items-center gap-1.5 hover:underline"
 									>
 										<ArrowUpRightIcon
-											class="size-elem-sm opacity-60 shrink-0"
+											class="size-elem-sm shrink-0 opacity-60"
 										/>
 										<span>{link.label}</span>
 									</a>

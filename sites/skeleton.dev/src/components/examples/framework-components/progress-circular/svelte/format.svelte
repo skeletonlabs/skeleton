@@ -2,22 +2,22 @@
 	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<div class="flex gap-4 justify-evenly items-center w-full">
-	<Progress class="items-center w-fit" formatOptions={{ style: "percent" }}>
+<div class="flex w-full items-center justify-evenly gap-4">
+	<Progress class="w-fit items-center" formatOptions={{ style: "percent" }}>
 		<Progress.Circle>
 			<Progress.CircleTrack />
 			<Progress.CircleRange />
 		</Progress.Circle>
 		<Progress.ValueText />
 	</Progress>
-	<Progress class="items-center w-fit" formatOptions={{ style: "decimal" }}>
+	<Progress class="w-fit items-center" formatOptions={{ style: "decimal" }}>
 		<Progress.Circle>
 			<Progress.CircleTrack />
 			<Progress.CircleRange />
 		</Progress.Circle>
 		<Progress.ValueText />
 	</Progress>
-	<Progress class="items-center w-fit" formatOptions={{ style: "currency", currency: "EUR" }}>
+	<Progress class="w-fit items-center" formatOptions={{ style: "currency", currency: "EUR" }}>
 		<Progress.Circle>
 			<Progress.CircleTrack />
 			<Progress.CircleRange />

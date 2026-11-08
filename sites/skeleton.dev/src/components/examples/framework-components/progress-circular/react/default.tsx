@@ -5,9 +5,9 @@ export default function Default() {
 	const [value, setValue] = useState(50);
 
 	return (
-		<div className="flex flex-col gap-8 items-center">
+		<div className="flex flex-col items-center gap-8">
 			{/* Progress */}
-			<Progress value={value} className="items-center w-fit">
+			<Progress value={value} className="w-fit items-center">
 				<Progress.Label>Progress</Progress.Label>
 				<Progress.Circle>
 					<Progress.CircleTrack />

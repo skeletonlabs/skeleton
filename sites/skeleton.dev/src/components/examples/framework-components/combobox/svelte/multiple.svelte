@@ -46,7 +46,7 @@
 	};
 </script>
 
-<div class="grid gap-2 w-full max-w-md">
+<div class="grid w-full max-w-md gap-2">
 	<Combobox
 		placeholder="Search..."
 		{collection}

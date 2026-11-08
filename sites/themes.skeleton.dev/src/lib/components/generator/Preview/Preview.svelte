@@ -32,7 +32,7 @@
 	<article class="container mx-auto">
 		{#if globals.panel === "preview"}
 			<!-- Components -->
-			<section class="p-8 space-y-10">
+			<section class="space-y-10 p-8">
 				<PreviewComponents />
 				<hr class="hr" />
 				<PreviewPalette />
@@ -41,7 +41,7 @@
 			</section>
 		{:else}
 			<!-- Theme Output -->
-			<section class="p-8 space-y-5">
+			<section class="space-y-5 p-8">
 				{#if settingsCustomFonts.font1 || settingsCustomFonts.font2}
 					<div class="space-y-5">
 						<p class="opacity-60">Install you custom fonts via Fontsource.</p>
@@ -52,7 +52,7 @@
 						<CodeBlock lang="css" code={generateFontImports()} />
 					</div>
 				{/if}
-				<header class="flex justify-between items-center gap-4">
+				<header class="flex items-center justify-between gap-4">
 					<!-- prettier-ignore -->
 					<p>
 						<span class="opacity-60">Copy the theme code and follow the</span> <a href="https://www.skeleton.dev/docs/svelte/design/themes#custom-themes" target="_blank" class="anchor">documentation instructions</a>.
@@ -68,7 +68,7 @@
 	</article>
 	<!-- Footer -->
 	<footer class="p-10 py-5">
-		<p class="text-xs text-center opacity-20">
+		<p class="text-center text-xs opacity-20">
 			Built by Skeleton Labs and the Skeleton community.
 		</p>
 	</footer>

@@ -45,7 +45,7 @@ export default function Default() {
 	};
 
 	return (
-		<div className="grid gap-2 w-full max-w-md">
+		<div className="grid w-full max-w-md gap-2">
 			<Combobox
 				placeholder="Search..."
 				collection={collection}

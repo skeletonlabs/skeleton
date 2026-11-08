@@ -121,22 +121,22 @@ export default function Default() {
 
 	return (
 		<section className="card bg-surface-100-900 rounded-container overflow-hidden">
-			<div className="chat w-full h-full grid grid-cols-1 lg:grid-cols-[30%_1fr]">
+			<div className="chat grid h-full w-full grid-cols-1 lg:grid-cols-[30%_1fr]">
 				{/* Navigation */}
-				<div className="hidden lg:grid grid-rows-[auto_1fr_auto] border-r-[1px] border-surface-200-800">
+				<div className="border-surface-200-800 hidden grid-rows-[auto_1fr_auto] border-r-[1px] lg:grid">
 					{/* Header */}
-					<header className="border-b-[1px] border-surface-200-800 p-4">
+					<header className="border-surface-200-800 border-b-[1px] p-4">
 						<input className="input" type="search" placeholder="Search..." />
 					</header>
 					{/* List */}
-					<div className="p-4 space-y-4 overflow-y-auto">
+					<div className="space-y-4 overflow-y-auto p-4">
 						<small className="opacity-50">Contacts</small>
 						<div className="flex flex-col space-y-1">
 							{people.map((person) => (
 								<button
 									key={person.id}
 									type="button"
-									className={`card p-2 w-full flex items-center space-x-4 ${person.id === currentPersonId ? "preset-filled-primary-500" : "bg-surface-hover-token"}`}
+									className={`card flex w-full items-center space-x-4 p-2 ${person.id === currentPersonId ? "preset-filled-primary-500" : "bg-surface-hover-token"}`}
 									onClick={() => setCurrentPersonId(person.id)}
 								>
 									{/* <Avatar src="https://i.pravatar.cc/?img={person.avatar}" name={person.name} size="size-8" /> */}
@@ -153,14 +153,14 @@ export default function Default() {
 					{/* Conversation */}
 					<section
 						ref={elemChatRef}
-						className="max-h-[500px] p-4 overflow-y-auto space-y-4"
+						className="max-h-[500px] space-y-4 overflow-y-auto p-4"
 					>
 						{messageFeed.map((bubble) =>
 							bubble.host === true ? (
 								<div key={bubble.id} className="grid grid-cols-[auto_1fr] gap-2">
 									{/* <Avatar src="https://i.pravatar.cc/?img={bubble.avatar}" name={bubble.name} size="size-12" /> */}
-									<div className="card p-4 preset-tonal rounded-tl-none space-y-2">
-										<header className="flex justify-between items-center">
+									<div className="card preset-tonal space-y-2 rounded-tl-none p-4">
+										<header className="flex items-center justify-between">
 											<p className="font-bold">{bubble.name}</p>
 											<small className="opacity-50">{bubble.timestamp}</small>
 										</header>
@@ -170,9 +170,9 @@ export default function Default() {
 							) : (
 								<div key={bubble.id} className="grid grid-cols-[1fr_auto] gap-2">
 									<div
-										className={`card p-4 rounded-tr-none space-y-2 ${bubble.color}`}
+										className={`card space-y-2 rounded-tr-none p-4 ${bubble.color}`}
 									>
-										<header className="flex justify-between items-center">
+										<header className="flex items-center justify-between">
 											<p className="font-bold">{bubble.name}</p>
 											<small className="opacity-50">{bubble.timestamp}</small>
 										</header>
@@ -184,13 +184,13 @@ export default function Default() {
 						)}
 					</section>
 					{/* Prompt */}
-					<section className="border-t-[1px] border-surface-200-800 p-4">
-						<div className="input-group grid-cols-[auto_1fr_auto] divide-x divide-surface-200-800 rounded-container-token">
+					<section className="border-surface-200-800 border-t-[1px] p-4">
+						<div className="input-group divide-surface-200-800 rounded-container-token grid-cols-[auto_1fr_auto] divide-x">
 							<button className="input-group-cell preset-tonal">+</button>
 							<textarea
 								value={currentMessage}
 								onInput={(e) => setCurrentMessage(e.currentTarget.value)}
-								className="bg-transparent border-0 ring-0"
+								className="border-0 bg-transparent ring-0"
 								name="prompt"
 								id="prompt"
 								placeholder="Write a message..."

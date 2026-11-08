@@ -22,7 +22,7 @@
 
 <section class="relative">
 	{#each corners as corner}
-		<PlusIcon class="absolute stroke-surface-600-400 size-elem-sm {cornerClasses[corner]}" />
+		<PlusIcon class="stroke-surface-600-400 size-elem-sm absolute {cornerClasses[corner]}" />
 	{/each}
 	<div class={classList}>{@render children?.()}</div>
 </section>

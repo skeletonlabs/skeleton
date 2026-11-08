@@ -57,7 +57,7 @@
 {#if headings.length > 0}
 	<nav class="flex flex-col gap-4">
 		<!-- Label -->
-		<span class="font-bold flex items-center gap-2">On This Page</span>
+		<span class="flex items-center gap-2 font-bold">On This Page</span>
 		<!-- Links -->
 		<SegmentedControl
 			value={scrollTop > 32 ? activeHeading()?.slug : undefined}
@@ -74,7 +74,7 @@
 						{#snippet element(attributes: Record<string, unknown>)}
 							<a {...attributes} href={`#${heading.slug}`}>
 								<SegmentedControl.ItemText
-									class="text-sm text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950 text-wrap"
+									class="text-surface-contrast-50-950/50 data-[state=checked]:text-surface-contrast-50-950 text-sm text-wrap"
 								>
 									{heading.text}
 								</SegmentedControl.ItemText>

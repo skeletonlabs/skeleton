@@ -12,7 +12,7 @@ export default function Default() {
 	const paginatedUsers = users.slice(start, end);
 
 	return (
-		<div className="grid gap-4 w-full place-items-center">
+		<div className="grid w-full place-items-center gap-4">
 			<table className="table table-auto">
 				<thead>
 					<tr>
@@ -33,7 +33,7 @@ export default function Default() {
 					))}
 				</tbody>
 			</table>
-			<div className="flex justify-between items-center gap-4 w-full">
+			<div className="flex w-full items-center justify-between gap-4">
 				<label className="label">
 					<span className="sr-only">Page Size</span>
 					<select

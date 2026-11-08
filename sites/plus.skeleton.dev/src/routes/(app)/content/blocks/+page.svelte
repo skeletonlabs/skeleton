@@ -35,7 +35,7 @@
 		<!-- <Dialog.Backdrop class={dialogDrawerRight.backdrop} /> -->
 		<Dialog.Positioner class={dialogDrawerRight.positioner}>
 			<Dialog.Content class={dialogDrawerRight.content}>
-				<header class="p-4 flex justify-between items-center">
+				<header class="flex items-center justify-between p-4">
 					<Dialog.Title class="font-semibold">Filters</Dialog.Title>
 					<Dialog.CloseTrigger class="btn-icon preset-tonal">
 						<XIcon />
@@ -63,8 +63,8 @@
 				</div>
 				<hr class="hr" />
 				<!-- Categories -->
-				<div class="p-4 space-y-2">
-					<p class="text-xs font-semibold uppercase tracking-widest opacity-60">
+				<div class="space-y-2 p-4">
+					<p class="text-xs font-semibold tracking-widest uppercase opacity-60">
 						Categories
 					</p>
 					<ul class="space-y-1">
@@ -72,7 +72,7 @@
 							<li>
 								<a
 									href="/content/blocks#{group.slug}"
-									class="w-full btn hover:preset-tonal justify-between"
+									class="btn hover:preset-tonal w-full justify-between"
 									onclick={() => (drawerOpen = false)}
 								>
 									<span>{group.label}</span>
@@ -124,21 +124,21 @@
 				<h2 class="h2">{group.label}</h2>
 			</header>
 			<!-- Blocks Grid -->
-			<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+			<div class="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
 				{#each group.blocks as item (item.slug)}
 					{@const Icon = iconMap[item.meta.iconName]}
 					<!-- Block -->
 					<a
 						href="/content/blocks/{group.slug}/{item.slug}"
-						class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden"
+						class="card bg-surface-50-950 border-surface-200-800 overflow-hidden border"
 					>
 						<header
-							class="aspect-video preset-tonal-primary flex justify-center items-center"
+							class="preset-tonal-primary flex aspect-video items-center justify-center"
 						>
 							<Icon class="size-elem-8xl stroke-[1px] opacity-60" />
 						</header>
-						<footer class="p-4 flex items-center justify-between">
-							<span class="text-sm font-medium truncate">{item.label}</span>
+						<footer class="flex items-center justify-between p-4">
+							<span class="truncate text-sm font-medium">{item.label}</span>
 							<span class="text-xs opacity-60">{item.svelte}</span>
 						</footer>
 					</a>

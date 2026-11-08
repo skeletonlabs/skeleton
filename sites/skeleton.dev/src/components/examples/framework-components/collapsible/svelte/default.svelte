@@ -3,8 +3,8 @@
 	import { Collapsible } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<Collapsible class="items-start card preset-filled-surface-100-900 p-4 w-56 mx-auto">
-	<div class="w-full flex justify-between items-center">
+<Collapsible class="card preset-filled-surface-100-900 mx-auto w-56 items-start p-4">
+	<div class="flex w-full items-center justify-between">
 		<p class="font-bold">Design System</p>
 		<Collapsible.Trigger class="btn-icon hover:preset-tonal">
 			<ArrowUpDownIcon class="size-4" />

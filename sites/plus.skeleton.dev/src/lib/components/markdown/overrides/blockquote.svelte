@@ -37,7 +37,7 @@
 
 {#if config}
 	<!-- Alert -->
-	<div class="border-l-4 py-3 px-4 space-y-1 {config.classes}" {...rest}>
+	<div class="space-y-1 border-l-4 px-4 py-3 {config.classes}" {...rest}>
 		<p class="font-bold uppercase">{config.title}</p>
 		<p class="text-sm">
 			{@render children?.()}

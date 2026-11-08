@@ -23,7 +23,7 @@ export default function Orientation() {
 			orientation="vertical"
 			autoSize
 		>
-			<Carousel.Control className="flex justify-between mb-4">
+			<Carousel.Control className="mb-4 flex justify-between">
 				<Carousel.PrevTrigger className="btn preset-filled">
 					<span>&larr;</span>
 					<span>Back</span>
@@ -41,7 +41,7 @@ export default function Orientation() {
 					<Carousel.Item
 						index={i}
 						key={i}
-						className="card bg-surface-100-900 h-32 p-4 flex justify-center items-center"
+						className="card bg-surface-100-900 flex h-32 items-center justify-center p-4"
 					>
 						{slide.title}
 					</Carousel.Item>

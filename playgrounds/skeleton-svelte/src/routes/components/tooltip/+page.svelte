@@ -9,7 +9,7 @@
 			<Tooltip.Content>
 				Content
 				<Tooltip.Arrow
-					class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]"
+					class="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]"
 				>
 					<Tooltip.ArrowTip />
 				</Tooltip.Arrow>

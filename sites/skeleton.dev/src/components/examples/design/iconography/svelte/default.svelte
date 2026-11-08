@@ -26,7 +26,7 @@
 	import ZapIcon from "@lucide/svelte/icons/zap";
 </script>
 
-<div class="grid grid-cols-5 gap-4 place-items-center">
+<div class="grid grid-cols-5 place-items-center gap-4">
 	<HeartIcon class="size-12" />
 	<UserRoundIcon class="size-12" />
 	<RocketIcon class="size-12" />

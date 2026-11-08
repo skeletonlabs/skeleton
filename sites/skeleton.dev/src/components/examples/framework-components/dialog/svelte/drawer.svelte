@@ -14,13 +14,13 @@
 	<Dialog.Trigger class="btn preset-filled">Trigger</Dialog.Trigger>
 	<Portal>
 		<Dialog.Backdrop
-			class="fixed inset-0 z-50 bg-surface-50-950/50 transition transition-discrete {animBackdrop}"
+			class="bg-surface-50-950/50 fixed inset-0 z-50 transition transition-discrete {animBackdrop}"
 		/>
 		<Dialog.Positioner class="fixed inset-0 z-50 flex justify-start">
 			<Dialog.Content
-				class="h-screen card bg-surface-100-900 w-sm p-4 space-y-4 shadow-xl {animModal}"
+				class="card bg-surface-100-900 h-screen w-sm space-y-4 p-4 shadow-xl {animModal}"
 			>
-				<header class="flex justify-between items-center">
+				<header class="flex items-center justify-between">
 					<Dialog.Title class="text-2xl font-bold">Drawer</Dialog.Title>
 					<Dialog.CloseTrigger class="btn-icon preset-tonal">
 						<XIcon />

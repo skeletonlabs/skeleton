@@ -78,7 +78,7 @@
 					<input type="password" class="input" placeholder="Enter your password..." />
 				</label>
 			</form>
-			<button class="w-full btn preset-filled-primary-500">Create Account</button>
+			<button class="btn preset-filled-primary-500 w-full">Create Account</button>
 		</div>
 		<div class={cardClasses}>
 			<header class="space-y-1">
@@ -92,7 +92,7 @@
 					{/if}
 
 					<Switch
-						class="flex justify-between items-center gap-4"
+						class="flex items-center justify-between gap-4"
 						name={key}
 						checked={key !== "doNotDisturb" && notifications.doNotDisturb
 							? false
@@ -128,7 +128,7 @@
 						{/if}
 						<button
 							type="button"
-							class="card w-full grid grid-cols-[auto_1fr] items-center gap-4 p-3"
+							class="card grid w-full grid-cols-[auto_1fr] items-center gap-4 p-3"
 						>
 							<Avatar>
 								<Avatar.Image
@@ -139,7 +139,7 @@
 							</Avatar>
 							<div class="text-left">
 								<p class="font-bold">{member.name}</p>
-								<p class="opacity-60 text-xs">{member.email}</p>
+								<p class="text-xs opacity-60">{member.email}</p>
 							</div>
 						</button>
 					{/each}
@@ -147,7 +147,7 @@
 			</div>
 		</div>
 		<div class="{cardClasses} row-span-2">
-			<header class="flex justify-between items-center">
+			<header class="flex items-center justify-between">
 				<h2 class="h4">Music</h2>
 				<p class="text-xs opacity-60">Harman Kardon Luna</p>
 			</header>
@@ -156,9 +156,9 @@
 				width={massiveAttackMezzanine.width}
 				height={massiveAttackMezzanine.height}
 				alt="Massive Attack"
-				class="rounded-container border-[1px] border-surface-500/50"
+				class="rounded-container border-surface-500/50 border-[1px]"
 			/>
-			<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+			<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 				<Play class="size-4 opacity-60" />
 				<Slider name="volume" defaultValue={[70]}>
 					<Slider.Control>
@@ -171,13 +171,13 @@
 					</Slider.Control>
 				</Slider>
 			</div>
-			<div class="grid grid-cols-4 gap-2 items-center">
+			<div class="grid grid-cols-4 items-center gap-2">
 				<button
 					type="button"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+					class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 				>
 					<div
-						class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500"
+						class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full"
 					>
 						<Music class="size-4" />
 					</div>
@@ -185,10 +185,10 @@
 				</button>
 				<button
 					type="button"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+					class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 				>
 					<div
-						class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500"
+						class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full"
 					>
 						<Sliders class="size-4" />
 					</div>
@@ -196,10 +196,10 @@
 				</button>
 				<button
 					type="button"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+					class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 				>
 					<div
-						class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500"
+						class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full"
 					>
 						<Headphones class="size-4" />
 					</div>
@@ -207,10 +207,10 @@
 				</button>
 				<button
 					type="button"
-					class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+					class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 				>
 					<div
-						class="w-8 aspect-square rounded-full flex justify-center items-center preset-filled-primary-500"
+						class="preset-filled-primary-500 flex aspect-square w-8 items-center justify-center rounded-full"
 					>
 						<ChartBar class="size-4" />
 					</div>
@@ -220,7 +220,7 @@
 		</div>
 
 		<div class={cardClasses}>
-			<div class="flex justify-between items-center gap-4">
+			<div class="flex items-center justify-between gap-4">
 				<div>
 					<h2 class="h4">Success</h2>
 					<p class="text-xs opacity-60">Task was completed.</p>
@@ -268,38 +268,38 @@
 
 		<div class="{cardClasses} row-span-2 row-start-3">
 			<h2 class="h4 text-center">Progression</h2>
-			<div class="grid grid-cols-[1fr_auto] grid-row-2 gap-5">
-				<Progress value={32} class="relative items-center w-fit row-span-2">
+			<div class="grid-row-2 grid grid-cols-[1fr_auto] gap-5">
+				<Progress value={32} class="relative row-span-2 w-fit items-center">
 					<Progress.Circle class="[--size:--spacing(48)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>
 					<Progress.ValueText
-						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-semibold"
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl font-semibold"
 					/>
 				</Progress>
-				<Progress value={66} class="relative items-center w-fit self-center">
+				<Progress value={66} class="relative w-fit items-center self-center">
 					<Progress.Circle class="[--size:--spacing(18)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>
 					<Progress.ValueText
-						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 					/>
 				</Progress>
-				<Progress value={35} class="relative items-center w-fit self-center">
+				<Progress value={35} class="relative w-fit items-center self-center">
 					<Progress.Circle class="[--size:--spacing(18)]">
 						<Progress.CircleTrack />
 						<Progress.CircleRange />
 					</Progress.Circle>
 					<Progress.ValueText
-						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 					/>
 				</Progress>
 			</div>
 		</div>
 
-		<div class="{cardClasses} col-span-2 row-span-2 col-start-3 row-start-3">
+		<div class="{cardClasses} col-span-2 col-start-3 row-span-2 row-start-3">
 			<header class="flex justify-between">
 				<div>
 					<h2 class="h3">Revenue</h2>
@@ -307,7 +307,7 @@
 				</div>
 				<button
 					type="button"
-					class="btn-icon rounded-full preset-tonal"
+					class="btn-icon preset-tonal rounded-full"
 					title="Expand revenue details"
 					aria-label="Expand revenue details"
 				>
@@ -318,21 +318,21 @@
 			<hr class="hr" />
 
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$3,900</span>
 					<span class="badge preset-tonal-success">+20%</span>
 				</div>
 				<progress class="progress" value="39" max="100"></progress>
 			</div>
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$6,400</span>
 					<span class="badge preset-tonal-error">-5%</span>
 				</div>
 				<progress class="progress" value="64" max="100"></progress>
 			</div>
 			<div class="space-y-1">
-				<div class="flex justify-between items-center">
+				<div class="flex items-center justify-between">
 					<span class="text-xl font-bold">$1,300</span>
 					<span class="badge preset-tonal-success">+8%</span>
 				</div>
@@ -340,7 +340,7 @@
 			</div>
 		</div>
 
-		<div class="{cardClasses} row-span-2 col-start-2 row-start-4">
+		<div class="{cardClasses} col-start-2 row-span-2 row-start-4">
 			<div class="space-y-2">
 				<p class="font-bold">Delivery</p>
 				<nav class="grid grid-cols-2 gap-2">
@@ -403,7 +403,7 @@
 
 		<div class="{cardClasses} row-span-2 row-start-5 text-center">
 			<div
-				class="w-16 aspect-square preset-tonal-success flex justify-center items-center mx-auto rounded-full"
+				class="preset-tonal-success mx-auto flex aspect-square w-16 items-center justify-center rounded-full"
 			>
 				<Check class="size-8" />
 			</div>
@@ -420,7 +420,7 @@
 			</nav>
 		</div>
 
-		<div class="{cardClasses} col-span-2 row-span-2 col-start-3 row-start-5">
+		<div class="{cardClasses} col-span-2 col-start-3 row-span-2 row-start-5">
 			<label>
 				<span class="label-text">Filter</span>
 				<input type="search" class="input" placeholder="Filter elements..." />
@@ -454,7 +454,7 @@
 			</div>
 		</div>
 
-		<div class="{cardClasses} row-span-2 col-start-2 row-start-6 row-end-9">
+		<div class="{cardClasses} col-start-2 row-span-2 row-start-6 row-end-9">
 			<h2 class="h4">Set Reminder</h2>
 			<SegmentedControl name="time" defaultValue="15">
 				<SegmentedControl.Label>Time</SegmentedControl.Label>
@@ -491,7 +491,7 @@
 
 		<div class="{cardClasses} row-span-2 row-start-7">
 			<div class="space-y-2">
-				<header class="flex justify-between items-center gap-4">
+				<header class="flex items-center justify-between gap-4">
 					<h2 class="h6">Contributions</h2>
 					<Users class="size-4 opacity-60" />
 				</header>
@@ -502,24 +502,24 @@
 			</div>
 		</div>
 
-		<div class="{cardClasses} col-span-2 row-span-2 col-start-3 row-start-7">
-			<div class="h-full grid grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
+		<div class="{cardClasses} col-span-2 col-start-3 row-span-2 row-start-7">
+			<div class="grid h-full grid-cols-[auto_2fr_0.5fr] items-center gap-2 px-5">
 				<button
 					type="button"
-					class="btn-icon btn-icon-lg rounded-full preset-filled-primary-500 scale-150"
+					class="btn-icon btn-icon-lg preset-filled-primary-500 scale-150 rounded-full"
 					title="Play music"
 					aria-label="Play music"
 				>
 					<Play class="size-6 fill-current stroke-none" />
 				</button>
-				<div class="grid grid-cols-[auto_1fr_auto] gap-5 items-center px-10">
+				<div class="grid grid-cols-[auto_1fr_auto] items-center gap-5 px-10">
 					<button type="button" class="btn hover:preset-tonal" aria-label="Rewind"
 						><Rewind class="size-4 opacity-60" /></button
 					>
 					<div class="space-y-1">
 						<p class="font-bold">Pink Floyd</p>
 						<progress class="progress" value="75" max="100"></progress>
-						<div class="flex justify-between items-end">
+						<div class="flex items-end justify-between">
 							<p class="text-xs opacity-60">Another Brick in the Wall</p>
 							<p class="text-xs opacity-60">3:16</p>
 						</div>
@@ -528,7 +528,7 @@
 						><FastForward class="size-4 opacity-60" /></button
 					>
 				</div>
-				<div class="grid grid-cols-[auto_1fr] gap-2 items-center">
+				<div class="grid grid-cols-[auto_1fr] items-center gap-2">
 					<Volume2 class="size-4 opacity-60" />
 					<Slider name="volume" defaultValue={[70]}>
 						<Slider.Control>

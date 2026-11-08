@@ -8,7 +8,7 @@
 	];
 </script>
 
-<Steps orientation="vertical" count={steps.length} class="w-full h-48">
+<Steps orientation="vertical" count={steps.length} class="h-48 w-full">
 	<Steps.List>
 		{#each steps as item, index}
 			<Steps.Item {index}>
@@ -22,21 +22,21 @@
 			</Steps.Item>
 		{/each}
 	</Steps.List>
-	<div class="flex flex-col grow gap-4">
+	<div class="flex grow flex-col gap-4">
 		{#each steps as item, index}
 			<Steps.Content
 				{index}
-				class="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+				class="card preset-filled-surface-100-900 flex grow items-center justify-center p-4"
 			>
 				{item.content}
 			</Steps.Content>
 		{/each}
 		<Steps.Content
 			index={steps.length}
-			class="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+			class="card preset-filled-surface-100-900 flex grow items-center justify-center p-4"
 			>All done!</Steps.Content
 		>
-		<div class="flex justify-between items-center gap-2">
+		<div class="flex items-center justify-between gap-2">
 			<Steps.PrevTrigger class="btn preset-filled">Back</Steps.PrevTrigger>
 			<Steps.NextTrigger class="btn preset-filled">Next</Steps.NextTrigger>
 		</div>

@@ -42,9 +42,9 @@
 	const fileEntries = $derived(Object.entries(files));
 </script>
 
-<div class="card border border-surface-200-800 max-w-full overflow-hidden">
+<div class="card border-surface-200-800 max-w-full overflow-hidden border">
 	<!-- Header -->
-	<header class="flex justify-between items-center gap-3 border-b border-surface-200-800 p-3">
+	<header class="border-surface-200-800 flex items-center justify-between gap-3 border-b p-3">
 		<!-- Actions Right -->
 		<div class="flex items-center gap-2">
 			<!-- Toggle Mode -->
@@ -148,7 +148,7 @@
 
 	<!-- Presets -->
 	<div
-		class="border-b border-surface-200-800 p-3 flex items-center gap-3 {viewMode ===
+		class="border-surface-200-800 flex items-center gap-3 border-b p-3 {viewMode ===
 			'preview' && customizeMode === 'customize'
 			? 'block'
 			: 'hidden'}"
@@ -156,7 +156,7 @@
 		{#each presets as preset, i (preset)}
 			<button
 				type="button"
-				class="flex-1 w-full aspect-square rounded-full hover:brightness-110 {preset}"
+				class="aspect-square w-full flex-1 rounded-full hover:brightness-110 {preset}"
 				class:border={[0, 1].includes(i)}
 				class:border-surface-200-800={[0, 1].includes(i)}
 				onclick={() => (activePreset = preset)}
@@ -169,7 +169,7 @@
 	<!-- Panel: Children -->
 	<div
 		dir={direction}
-		class="p-8 flex justify-center items-center {activePreset} {viewMode === 'preview' &&
+		class="flex items-center justify-center p-8 {activePreset} {viewMode === 'preview' &&
 		children
 			? 'block'
 			: 'hidden'}"

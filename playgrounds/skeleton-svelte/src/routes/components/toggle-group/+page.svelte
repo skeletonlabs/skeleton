@@ -49,7 +49,7 @@
 	</section>
 	<section class="space-y-4">
 		<h3 class="h3">Toolbar</h3>
-		<div class="inline-flex gap-2 preset-outlined-surface-200-800 p-2 rounded-base">
+		<div class="preset-outlined-surface-200-800 rounded-base inline-flex gap-2 p-2">
 			<ToggleGroup multiple>
 				<ToggleGroup.Item value="left">
 					<BoldIcon class="size-4" />

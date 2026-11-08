@@ -8,7 +8,7 @@ export default function Arrow() {
 				<Tooltip.Positioner>
 					<Tooltip.Content className="card bg-surface-100-900 p-2 shadow-xl">
 						<span>Hello Skeleton</span>
-						<Tooltip.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
+						<Tooltip.Arrow className="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]">
 							<Tooltip.ArrowTip />
 						</Tooltip.Arrow>
 					</Tooltip.Content>

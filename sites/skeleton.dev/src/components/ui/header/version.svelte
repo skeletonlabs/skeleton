@@ -8,7 +8,7 @@
 </script>
 
 <Menu class="hidden xl:block" positioning={{ placement: "bottom-end" }}>
-	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal px-2 hidden xl:flex">
+	<Menu.Trigger class="btn hover:preset-tonal data-[state=open]:preset-tonal hidden px-2 xl:flex">
 		<span>v{packageJson.version}</span>
 		<ChevronDownIcon class="size-4 opacity-50" />
 	</Menu.Trigger>

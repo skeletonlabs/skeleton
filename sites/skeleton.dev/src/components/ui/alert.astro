@@ -10,7 +10,7 @@ const { type } = Astro.props;
 ---
 
 {type === "info" && (
-	<div class={`card preset-outlined p-4 flex items-center gap-4`}>
+	<div class={`card preset-outlined flex items-center gap-4 p-4`}>
 		<InfoIcon />
 		<div>
 			<p class="font-bold">Info</p>
@@ -22,7 +22,7 @@ const { type } = Astro.props;
 )}
 
 {type === "warning" && (
-	<div class="card preset-outlined-warning-500 p-4 flex items-center gap-4">
+	<div class="card preset-outlined-warning-500 flex items-center gap-4 p-4">
 		<TriangleExclamationPointIcon />
 		<div>
 			<p class="font-bold">Warning</p>

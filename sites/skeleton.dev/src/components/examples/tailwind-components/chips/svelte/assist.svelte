@@ -4,7 +4,7 @@
 	import SunIcon from "@lucide/svelte/icons/sun";
 </script>
 
-<div class="card preset-filled-surface-100-900 p-4 space-y-4 w-full max-w-md overflow-hidden">
+<div class="card preset-filled-surface-100-900 w-full max-w-md space-y-4 overflow-hidden p-4">
 	<header>
 		<h2 class="h6">Home Automation</h2>
 	</header>
@@ -15,7 +15,7 @@
 		</p>
 	</article>
 	<hr class="hr" />
-	<footer class="flex items-center justify-start gap-2 overflow-x-auto [scrollbar-width:none]">
+	<footer class="flex [scrollbar-width:none] items-center justify-start gap-2 overflow-x-auto">
 		<button type="button" class="chip preset-outlined-surface-400-600">
 			<SunIcon size={14} />
 			<span>Turn on lights</span>

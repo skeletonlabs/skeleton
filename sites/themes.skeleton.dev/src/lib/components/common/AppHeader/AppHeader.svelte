@@ -5,7 +5,7 @@
 	import { AppBar } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<AppBar class="sticky top-0 z-10 border-b-[1px] border-surface-500/20 bg-surface-50-950">
+<AppBar class="border-surface-500/20 bg-surface-50-950 sticky top-0 z-10 border-b-[1px]">
 	<AppBar.Toolbar class="grid-cols-[auto_1fr_auto] justify-between">
 		<AppBar.Lead class="flex items-center gap-6">
 			<a

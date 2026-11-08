@@ -15,7 +15,7 @@
 	const paginatedUsers = $derived(users.slice(start, end));
 </script>
 
-<div class="grid gap-4 w-full place-items-center">
+<div class="grid w-full place-items-center gap-4">
 	<table class="table table-auto">
 		<thead>
 			<tr>

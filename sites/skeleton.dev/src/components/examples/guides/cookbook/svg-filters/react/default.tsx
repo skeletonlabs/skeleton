@@ -1,6 +1,6 @@
 export default function Default() {
 	return (
-		<div className="w-full grid grid-cols-3 gap-4">
+		<div className="grid w-full grid-cols-3 gap-4">
 			{/* Apollo */}
 			<div className="flex flex-col items-center space-y-2">
 				<img
@@ -11,7 +11,7 @@ export default function Default() {
 					style={{ filter: "url(#Apollo)" }}
 				/>
 				<span className="badge preset-tonal">#Apollo</span>
-				<svg id="svg-filter-apollo" className="absolute -left-full w-0 h-0">
+				<svg id="svg-filter-apollo" className="absolute -left-full h-0 w-0">
 					<filter
 						id="Apollo"
 						filterUnits="objectBoundingBox"
@@ -37,7 +37,7 @@ export default function Default() {
 					style={{ filter: "url(#BlueNight)" }}
 				/>
 				<span className="badge preset-tonal">#BlueNight</span>
-				<svg id="svg-filter-bluenight" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-bluenight" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="BlueNight"
 						filterUnits="objectBoundingBox"
@@ -65,7 +65,7 @@ export default function Default() {
 					style={{ filter: "url(#Emerald)" }}
 				/>
 				<span className="badge preset-tonal">#Emerald</span>
-				<svg id="svg-filter-emerald" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-emerald" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="Emerald"
 						filterUnits="objectBoundingBox"
@@ -104,7 +104,7 @@ export default function Default() {
 					style={{ filter: "url(#GreenFall)" }}
 				/>
 				<span className="badge preset-tonal">#GreenFall</span>
-				<svg id="svg-filter-greenfall" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-greenfall" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="GreenFall"
 						x="-20%"
@@ -139,7 +139,7 @@ export default function Default() {
 					style={{ filter: "url(#Noir)" }}
 				/>
 				<span className="badge preset-tonal">#Noir</span>
-				<svg id="svg-filter-noir" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-noir" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="Noir"
 						x="-20%"
@@ -194,7 +194,7 @@ export default function Default() {
 					style={{ filter: "url(#NoirLight)" }}
 				/>
 				<span className="badge preset-tonal">#NoirLight</span>
-				<svg id="svg-filter-noirlight" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-noirlight" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="NoirLight"
 						x="-20%"
@@ -268,7 +268,7 @@ export default function Default() {
 					style={{ filter: "url(#Rustic)" }}
 				/>
 				<span className="badge preset-tonal">#Rustic</span>
-				<svg id="svg-filter-rustic" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-rustic" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="Rustic"
 						filterUnits="objectBoundingBox"
@@ -298,7 +298,7 @@ export default function Default() {
 					style={{ filter: "url(#Summer84)" }}
 				/>
 				<span className="badge preset-tonal">#Summer84</span>
-				<svg id="svg-filter-summer84" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-summer84" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="Summer84"
 						filterUnits="objectBoundingBox"
@@ -326,7 +326,7 @@ export default function Default() {
 					style={{ filter: "url(#XPro)" }}
 				/>
 				<span className="badge preset-tonal">#XPro</span>
-				<svg id="svg-filter-xpro" className="filter absolute -left-full w-0 h-0">
+				<svg id="svg-filter-xpro" className="absolute -left-full h-0 w-0 filter">
 					<filter
 						id="XPro"
 						filterUnits="objectBoundingBox"

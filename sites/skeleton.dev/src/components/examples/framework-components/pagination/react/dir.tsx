@@ -13,7 +13,7 @@ export default function Dir() {
 	const paginatedUsers = users.slice(start, end);
 
 	return (
-		<div className="grid gap-4 w-full place-items-center">
+		<div className="grid w-full place-items-center gap-4">
 			<table className="table table-auto">
 				<thead>
 					<tr>

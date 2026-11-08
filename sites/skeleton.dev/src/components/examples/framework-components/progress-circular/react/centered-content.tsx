@@ -2,7 +2,7 @@ import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function CenteredContent() {
 	return (
-		<Progress className="w-fit relative">
+		<Progress className="relative w-fit">
 			<div className="absolute inset-0 flex items-center justify-center">
 				<Progress.ValueText />
 			</div>

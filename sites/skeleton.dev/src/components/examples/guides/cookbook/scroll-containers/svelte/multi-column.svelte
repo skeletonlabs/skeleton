@@ -89,7 +89,7 @@
 </script>
 
 <div class="w-full">
-	<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<div class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 		<!-- Button: Left -->
 		<button
 			type="button"
@@ -103,11 +103,11 @@
 		<!-- Carousel -->
 		<div
 			bind:this={elemMovies}
-			class="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto"
+			class="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-smooth pb-2"
 		>
 			<!-- Loop through our array of movies. -->
 			{#each movies as movie}
-				<a href={movie.url} target="_blank" class="shrink-0 w-[28%] snap-start">
+				<a href={movie.url} target="_blank" class="w-[28%] shrink-0 snap-start">
 					<img
 						class="rounded-container-token hover:brightness-125"
 						src={movie.imageUrl}

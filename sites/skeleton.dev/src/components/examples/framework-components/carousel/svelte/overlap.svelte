@@ -19,12 +19,12 @@
 	<div class="relative">
 		<Carousel.Control>
 			<Carousel.PrevTrigger
-				class="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]"
+				class="btn-icon preset-filled absolute top-[50%] left-0 translate-y-[-50%] rounded-full"
 			>
 				<span>&larr;</span>
 			</Carousel.PrevTrigger>
 			<Carousel.NextTrigger
-				class="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]"
+				class="btn-icon preset-filled absolute top-[50%] right-0 translate-y-[-50%] rounded-full"
 			>
 				<span>&rarr;</span>
 			</Carousel.NextTrigger>
@@ -33,7 +33,7 @@
 			{#each slides as slide, i}
 				<Carousel.Item
 					index={i}
-					class="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center"
+					class="card bg-surface-100-900 flex aspect-square h-50 items-center justify-center p-4"
 				>
 					{slide.title}
 				</Carousel.Item>

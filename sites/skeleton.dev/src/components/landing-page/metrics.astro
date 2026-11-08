@@ -6,18 +6,18 @@ const metrics = [
 ] as const;
 ---
 
-<div class="card preset-outlined-surface-200-800 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-10">
+<div class="card preset-outlined-surface-200-800 grid grid-cols-1 gap-10 px-10 py-8 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
 	{metrics.map((metric, i) => (
 		<>
 			<div class="flex md:justify-center">
 				<div>
-					<h2 class="heading-font-family text-6xl xl:text-8xl font-bold">
+					<h2 class="heading-font-family text-6xl font-bold xl:text-8xl">
 						{metric.value}
 					</h2>
 					<p class="text-sx opacity-60">{metric.label}</p>
 				</div>
 			</div>
-			{i !== metrics.length - 1 && <span class="hidden md:block vr" />}
+			{i !== metrics.length - 1 && <span class="vr hidden md:block" />}
 		</>
 	))}
 </div>

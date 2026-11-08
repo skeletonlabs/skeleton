@@ -15,7 +15,7 @@
 
 	<!-- Controls -->
 	<Slider
-		class="w-32 mx-auto"
+		class="mx-auto w-32"
 		value={[value]}
 		onValueChange={(e) => (value = e.value[0])}
 		step={10}

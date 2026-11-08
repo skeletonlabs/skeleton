@@ -23,9 +23,9 @@
 <LocaleProvider locale="ar-SA">
 	<div class="grid h-screen grid-cols-[320px_minmax(0,1fr)]">
 		<div class="bg-surface-100-900 space-y-8 overflow-y-auto p-8">
-			<header class="flex justify-between items-center">
+			<header class="flex items-center justify-between">
 				<a
-					class="inline-block text-sm bg-orange-500 p-2 font-mono font-bold text-white"
+					class="inline-block bg-orange-500 p-2 font-mono text-sm font-bold text-white"
 					href={resolve("/")}>skeleton-svelte</a
 				>
 				<LightSwitch />
@@ -33,7 +33,7 @@
 			<hr class="hr" />
 			<div class="flex flex-col gap-4">
 				<div class="font-bold">Components</div>
-				<nav class="text-sm flex flex-col gap-1">
+				<nav class="flex flex-col gap-1 text-sm">
 					{#each components as component (component.href)}
 						<a class="anchor" href={component.href}> {component.name} </a>
 					{/each}

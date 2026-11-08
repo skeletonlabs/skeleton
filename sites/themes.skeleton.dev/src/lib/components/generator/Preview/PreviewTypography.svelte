@@ -2,11 +2,11 @@
 	import { resolve } from "$app/paths";
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-[auto_1fr] gap-10">
+<div class="grid grid-cols-1 gap-10 xl:grid-cols-[auto_1fr]">
 	<!-- Column 1 -->
 	<div class="space-y-10">
 		<div
-			class="card preset-filled-primary-500 w-56 aspect-square p-4 flex justify-center items-center"
+			class="card preset-filled-primary-500 flex aspect-square w-56 items-center justify-center p-4"
 		>
 			<span class="h1 text-8xl text-current">Aa</span>
 		</div>
@@ -41,7 +41,7 @@
 	<div class="space-y-10">
 		<!-- Content -->
 		<div class="space-y-4">
-			<header class="flex justify-between items-center gap-4">
+			<header class="flex items-center justify-between gap-4">
 				<h1 class="h1">Lorem Ipsum</h1>
 				<a
 					href="https://skeleton.dev/docs/svelte/design/typography"

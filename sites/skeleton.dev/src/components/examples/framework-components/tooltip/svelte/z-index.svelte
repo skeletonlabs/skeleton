@@ -25,9 +25,9 @@
 		</Portal>
 	</Tooltip>
 
-	<div class="col-span-2 h-[100px] relative">
+	<div class="relative col-span-2 h-[100px]">
 		<div
-			class="rounded bg-primary-200-800/75 w-full h-full z-10 flex justify-center items-center absolute"
+			class="bg-primary-200-800/75 absolute z-10 flex h-full w-full items-center justify-center rounded"
 		>
 			Sibling (10)
 		</div>

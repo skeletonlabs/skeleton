@@ -3,7 +3,7 @@ import { XIcon } from "lucide-react";
 export default function Input() {
 	return (
 		<div className="card preset-filled-surface-100-900 w-full max-w-md p-4">
-			<div className="flex justify-center items-center gap-2">
+			<div className="flex items-center justify-center gap-2">
 				<span className="text-sm opacity-60">To</span>
 				{/* --- */}
 				<button className="chip preset-outlined-surface-400-600">

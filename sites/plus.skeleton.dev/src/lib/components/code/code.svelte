@@ -23,7 +23,7 @@
 </script>
 
 <div
-	class="card bg-neutral-50 dark:bg-neutral-950 p-4 shadow-lg text-xs *:first:bg-transparent! *first:whitespace-pre-wrap"
+	class="card *first:whitespace-pre-wrap bg-neutral-50 p-4 text-xs shadow-lg *:first:bg-transparent! dark:bg-neutral-950"
 >
 	{@html html}
 </div>

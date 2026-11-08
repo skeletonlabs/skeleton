@@ -12,8 +12,8 @@ export default function Default() {
 			<Collapsible.Trigger className="btn preset-filled">
 				<span>Toggle</span>
 				<Collapsible.Indicator className="group">
-					<MinusIcon className="size-4 group-data-[state=open]:block hidden" />
-					<PlusIcon className="size-4 group-data-[state=open]:hidden block" />
+					<MinusIcon className="hidden size-4 group-data-[state=open]:block" />
+					<PlusIcon className="block size-4 group-data-[state=open]:hidden" />
 				</Collapsible.Indicator>
 			</Collapsible.Trigger>
 		</Collapsible>

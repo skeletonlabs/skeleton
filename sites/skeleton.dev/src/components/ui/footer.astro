@@ -7,8 +7,8 @@ interface Props extends HTMLAttributes<"footer"> {}
 const { class: className = "p-4", ...rest } = Astro.props;
 ---
 
-<footer class={`border-t border-surface-500/20 ${className}`} {...rest}>
-	<div class="container mx-auto flex flex-col xl:flex-row justify-between items-center gap-4">
+<footer class={`border-surface-500/20 border-t ${className}`} {...rest}>
+	<div class="container mx-auto flex flex-col items-center justify-between gap-4 xl:flex-row">
 		<div class="flex items-center gap-4">
 			<p class="text-xs opacity-60">
 				Built by{" "}

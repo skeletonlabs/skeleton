@@ -49,12 +49,12 @@
 	}
 </script>
 
-<div class="relative ui-code" data-pagefind-ignore>
+<div class="ui-code relative" data-pagefind-ignore>
 	<header
-		class="absolute select-none top-0 left-0 w-full h-10 px-5 text-xs flex justify-between items-center"
+		class="absolute top-0 left-0 flex h-10 w-full items-center justify-between px-5 text-xs select-none"
 	>
-		<span class="opacity-50 font-mono">{lang}</span>
-		<button onclick={copyCode} class="flex items-center gap-2 h-full">
+		<span class="font-mono opacity-50">{lang}</span>
+		<button onclick={copyCode} class="flex h-full items-center gap-2">
 			{#if hasCopied}
 				<CheckIcon class="size-3" />
 				Copied

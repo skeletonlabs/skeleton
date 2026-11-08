@@ -123,7 +123,7 @@
 <div class="space-y-10">
 	<!-- Palette -->
 	<section class="space-y-4">
-		<header class="flex justify-between items-center gap-4">
+		<header class="flex items-center justify-between gap-4">
 			<h2 class="h2">Colors</h2>
 			<a
 				href="https://skeleton.dev/docs/svelte/design/colors"
@@ -141,7 +141,7 @@
 						{#each color.ramp as shade (shade)}
 							<div class={`${shade.base} `}>
 								<span
-									class="flex items-center justify-center py-2 font-bold text-xs {shade.contrast}"
+									class="flex items-center justify-center py-2 text-xs font-bold {shade.contrast}"
 									class:underline={shade.value === 500}
 								>
 									{shade.value}
@@ -155,7 +155,7 @@
 	</section>
 	<!-- Brand Color -->
 	<section class="space-y-4">
-		<header class="flex justify-between items-center gap-4">
+		<header class="flex items-center justify-between gap-4">
 			<h3 class="h3">Brand Color</h3>
 			<a
 				href="https://skeleton.dev/docs/svelte/design/colors#brand-color"
@@ -164,15 +164,15 @@
 			>
 		</header>
 		<div class="grid grid-cols-3 gap-4">
-			<div class="card p-4 preset-filled-brand flex justify-center items-center gap-2">
+			<div class="card preset-filled-brand flex items-center justify-center gap-2 p-4">
 				<SparklesIcons size={24} />
 				<span>Filled</span>
 			</div>
-			<div class="card p-4 preset-outlined-brand flex justify-center items-center gap-2">
+			<div class="card preset-outlined-brand flex items-center justify-center gap-2 p-4">
 				<SparklesIcons size={24} />
 				<span>Outlined</span>
 			</div>
-			<div class="card p-4 preset-tonal-brand flex justify-center items-center gap-2">
+			<div class="card preset-tonal-brand flex items-center justify-center gap-2 p-4">
 				<SparklesIcons size={24} />
 				<span>Tonal</span>
 			</div>
@@ -180,7 +180,7 @@
 	</section>
 	<!-- Presets -->
 	<section class="space-y-4">
-		<header class="flex justify-between items-center gap-4">
+		<header class="flex items-center justify-between gap-4">
 			<h3 class="h3">Presets</h3>
 			<a
 				href="https://skeleton.dev/docs/svelte/tailwind-utilities/presets"
@@ -191,59 +191,59 @@
 		<!-- Presets: Filled -->
 		<div class="space-y-2">
 			<h3 class="h5">Filled</h3>
-			<div class="w-full grid grid-cols-11 gap-4">
+			<div class="grid w-full grid-cols-11 gap-4">
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-950-50"
+					class="preset-filled-primary-950-50 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-900-100"
+					class="preset-filled-primary-900-100 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-800-200"
+					class="preset-filled-primary-800-200 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-700-300"
+					class="preset-filled-primary-700-300 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-600-400"
+					class="preset-filled-primary-600-400 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-500"
+					class="preset-filled-primary-500 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-400-600"
+					class="preset-filled-primary-400-600 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-300-700"
+					class="preset-filled-primary-300-700 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-200-800"
+					class="preset-filled-primary-200-800 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-100-900"
+					class="preset-filled-primary-100-900 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-filled-primary-50-950"
+					class="preset-filled-primary-50-950 flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
@@ -252,59 +252,59 @@
 		<!-- Presets: Outlined -->
 		<div class="space-y-2">
 			<h3 class="h5">Outlined</h3>
-			<div class="w-full grid grid-cols-11 gap-4">
+			<div class="grid w-full grid-cols-11 gap-4">
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-950-50"
+					class="preset-outlined-primary-950-50 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-900-100"
+					class="preset-outlined-primary-900-100 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-800-200"
+					class="preset-outlined-primary-800-200 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-700-300"
+					class="preset-outlined-primary-700-300 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-600-400"
+					class="preset-outlined-primary-600-400 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-500"
+					class="preset-outlined-primary-500 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-400-600"
+					class="preset-outlined-primary-400-600 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-300-700"
+					class="preset-outlined-primary-300-700 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-200-800"
+					class="preset-outlined-primary-200-800 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-100-900"
+					class="preset-outlined-primary-100-900 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center border! preset-outlined-primary-50-950"
+					class="preset-outlined-primary-50-950 flex aspect-square items-center justify-center rounded-full border!"
 				>
 					<SwatchBook size={24} />
 				</div>
@@ -313,39 +313,39 @@
 		<!-- Presets: Tonal -->
 		<div class="space-y-2">
 			<h3 class="h5">Tonal</h3>
-			<div class="w-full grid grid-cols-11 gap-4">
+			<div class="grid w-full grid-cols-11 gap-4">
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-primary"
+					class="preset-tonal-primary flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-secondary"
+					class="preset-tonal-secondary flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-tertiary"
+					class="preset-tonal-tertiary flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-success"
+					class="preset-tonal-success flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-warning"
+					class="preset-tonal-warning flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal-error"
+					class="preset-tonal-error flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>
 				<div
-					class="aspect-square rounded-full flex justify-center items-center preset-tonal"
+					class="preset-tonal flex aspect-square items-center justify-center rounded-full"
 				>
 					<SwatchBook size={24} />
 				</div>

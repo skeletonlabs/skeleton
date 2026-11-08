@@ -1,5 +1,5 @@
 <div
-	class="w-full card preset-outlined-surface-950-50 grid grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]"
+	class="card preset-outlined-surface-950-50 grid w-full grid-cols-1 items-center gap-4 p-4 lg:grid-cols-[1fr_auto]"
 >
 	<div>
 		<p class="font-bold">Hey, heads up!</p>

@@ -38,14 +38,14 @@
 	<Portal>
 		<Popover.Positioner>
 			<Popover.Content
-				class="card bg-surface-50-950 border border-surface-200-800 p-2 space-y-4 shadow-xl max-h-[75vh] lg:max-h-none overflow-y-auto z-50"
+				class="card bg-surface-50-950 border-surface-200-800 z-50 max-h-[75vh] space-y-4 overflow-y-auto border p-2 shadow-xl lg:max-h-none"
 			>
 				<!-- Mode Selection -->
 				<div>
 					<SegmentedControl
 						value={activeMode}
 						onValueChange={(details) => details.value && setActiveMode(details.value)}
-						class="bg-surface-50-950 w-full mb-2"
+						class="bg-surface-50-950 mb-2 w-full"
 					>
 						<SegmentedControl.Control>
 							<SegmentedControl.Indicator />
@@ -75,27 +75,27 @@
 				</div>
 				<!-- Theme Selection -->
 				<div class="space-y-4">
-					<div class="grid grid-cols-1 lg:grid-cols-3 gap-2">
+					<div class="grid grid-cols-1 gap-2 lg:grid-cols-3">
 						{#each themes as theme (theme)}
 							<button
 								data-theme={theme.name}
-								class="bg-surface-50-950 p-3 preset-outlined-surface-100-900 hover:preset-outlined-surface-950-50 rounded-md grid grid-cols-[auto_1fr_auto] items-center gap-4 {activeTheme ===
+								class="bg-surface-50-950 preset-outlined-surface-100-900 hover:preset-outlined-surface-950-50 grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-md p-3 {activeTheme ===
 								theme.name
 									? 'preset-outlined-surface-500'
 									: ''}"
 								onclick={() => setActiveTheme(theme.name)}
 							>
 								<span>{theme.emoji}</span>
-								<h3 class="text-sm capitalize font-bold text-left">{theme.name}</h3>
-								<div class="flex justify-center items-center -space-x-1.5">
+								<h3 class="text-left text-sm font-bold capitalize">{theme.name}</h3>
+								<div class="flex items-center justify-center -space-x-1.5">
 									<div
-										class="aspect-square w-4 bg-primary-500 border-[1px] border-black/10 rounded-full"
+										class="bg-primary-500 aspect-square w-4 rounded-full border-[1px] border-black/10"
 									></div>
 									<div
-										class="aspect-square w-4 bg-secondary-500 border-[1px] border-black/10 rounded-full"
+										class="bg-secondary-500 aspect-square w-4 rounded-full border-[1px] border-black/10"
 									></div>
 									<div
-										class="aspect-square w-4 bg-tertiary-500 border-[1px] border-black/10 rounded-full"
+										class="bg-tertiary-500 aspect-square w-4 rounded-full border-[1px] border-black/10"
 									></div>
 								</div>
 							</button>
@@ -103,7 +103,7 @@
 					</div>
 				</div>
 				<!-- Create a Theme -->
-				<div class="card bg-primary-500 flex justify-center items-center py-4 mx-auto">
+				<div class="card bg-primary-500 mx-auto flex items-center justify-center py-4">
 					<a
 						href="https://themes.skeleton.dev/"
 						target="_blank"

@@ -19,7 +19,7 @@ export default function NonModal() {
 			<dialog
 				ref={dialogRef}
 				closedby="any"
-				className="dialog preset-filled animate-dialog [--dialog-top:auto] [--dialog-left:50%] [--dialog-translate:-50%_0] bottom-full mb-2"
+				className="dialog preset-filled animate-dialog bottom-full mb-2 [--dialog-left:50%] [--dialog-top:auto] [--dialog-translate:-50%_0]"
 			>
 				<p>This acts as a tooltip.</p>
 			</dialog>

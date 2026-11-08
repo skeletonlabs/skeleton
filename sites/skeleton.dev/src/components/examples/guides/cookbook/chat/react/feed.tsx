@@ -21,7 +21,7 @@ export default function Feed() {
 	];
 
 	return (
-		<section className="w-full max-h-[400px] overflow-y-auto space-y-4">
+		<section className="max-h-[400px] w-full space-y-4 overflow-y-auto">
 			{/* Loop through the messageFeed array */}
 			{messageFeed.map((bubble) => {
 				// Determine if host/guest role

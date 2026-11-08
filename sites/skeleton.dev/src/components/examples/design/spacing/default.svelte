@@ -40,19 +40,19 @@
 
 <div class="w-full space-y-4">
 	<!-- Controls -->
-	<header class="flex flex-col items-center gap-4 max-h-96 mx-auto">
+	<header class="mx-auto flex max-h-96 flex-col items-center gap-4">
 		<div><code class="code">--spacing: {value}rem</code></div>
 		<input class="input" type="range" bind:value min={0.2} max={0.3} step="0.01" />
 	</header>
 	<!-- Display -->
-	<div class="w-full flex justify-between items-end">
+	<div class="flex w-full items-end justify-between">
 		{#each spacing as option (option)}
 			<div class="flex flex-col items-center gap-2">
-				<span class="hidden md:block font-bold text-[10px] -rotate-90 whitespace-nowrap"
+				<span class="hidden -rotate-90 text-[10px] font-bold whitespace-nowrap md:block"
 					>{option.height.replace("h-", "")}</span
 				>
 				<div
-					class="{option.height} w-[5px] bg-primary-500"
+					class="{option.height} bg-primary-500 w-[5px]"
 					style:--spacing={`${value}rem`}
 				></div>
 			</div>

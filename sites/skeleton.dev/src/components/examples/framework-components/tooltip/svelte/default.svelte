@@ -6,10 +6,10 @@
 	<Tooltip.Trigger>Hover</Tooltip.Trigger>
 	<Portal>
 		<Tooltip.Positioner>
-			<Tooltip.Content class="card p-2 preset-filled-surface-950-50">
+			<Tooltip.Content class="card preset-filled-surface-950-50 p-2">
 				<span>Hello Skeleton</span>
 				<Tooltip.Arrow
-					class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-950-50)]"
+					class="[--arrow-background:var(--color-surface-950-50)] [--arrow-size:--spacing(2)]"
 				>
 					<Tooltip.ArrowTip />
 				</Tooltip.Arrow>

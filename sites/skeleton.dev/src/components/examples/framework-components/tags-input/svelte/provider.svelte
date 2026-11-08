@@ -30,7 +30,7 @@
 	</TagsInput.Provider>
 
 	<!-- Programmatic Controls -->
-	<div class="card preset-outlined-surface-200-800 flex justify-center items-center py-4">
+	<div class="card preset-outlined-surface-200-800 flex items-center justify-center py-4">
 		<button class="btn preset-filled" onclick={() => tagsInput().clearValue()}
 			>Clear Tags</button
 		>

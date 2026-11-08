@@ -59,10 +59,10 @@
 </script>
 
 <section
-	class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto"
+	class="bg-surface-100-900 border-surface-300-700 relative h-screen overflow-y-auto border-l pb-96"
 >
 	<header
-		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
+		class="bg-surface-100/50 dark:bg-surface-900/50 sticky top-0 z-10 flex items-center justify-between gap-4 p-5 shadow-lg backdrop-blur-xl"
 	>
 		<SegmentedControl
 			name="display"
@@ -91,7 +91,7 @@
 				<Accordion.Item value={item.value} class="p-0">
 					<h4 class="h4">
 						<Accordion.ItemTrigger
-							class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none"
+							class="hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-3"
 						>
 							<span class="btn-icon preset-tonal">
 								<item.Icon class="size-5" />
@@ -119,7 +119,7 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = "code")}
+		<button class="btn btn-xl preset-filled w-full" onclick={() => (globals.panel = "code")}
 			>Export Theme</button
 		>
 	</footer>

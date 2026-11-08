@@ -3,7 +3,7 @@
 </script>
 
 <Menu>
-	<Menu.ContextTrigger class="card border border-dashed border-surface-200-800 p-8"
+	<Menu.ContextTrigger class="card border-surface-200-800 border border-dashed p-8"
 		>Right-click here</Menu.ContextTrigger
 	>
 	<Portal>

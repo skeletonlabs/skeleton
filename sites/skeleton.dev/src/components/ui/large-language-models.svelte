@@ -47,7 +47,7 @@
 
 <Menu positioning={{ placement: "bottom-end" }}>
 	<Menu.Trigger
-		class="hidden lg:flex btn btn-sm preset-outlined-surface-200-800 data-[state=open]:brightness-75"
+		class="btn btn-sm preset-outlined-surface-200-800 hidden data-[state=open]:brightness-75 lg:flex"
 	>
 		<FileTextIcon class="size-4" />
 		<span>LLM</span>

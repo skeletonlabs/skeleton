@@ -14,14 +14,14 @@
 	</PageHeader>
 
 	<div class="container-page">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8">
 			<!-- Loop Cards -->
 			{#each projects as project (project.slug)}
 				<a
 					href="/content/community/{project.slug}"
-					class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden"
+					class="card bg-surface-50-950 border-surface-200-800 overflow-hidden border"
 				>
-					<div class="p-4 space-y-4">
+					<div class="space-y-4 p-4">
 						<!-- Header -->
 						<header class="space-y-2">
 							<div class="flex items-center gap-2">
@@ -38,10 +38,10 @@
 						<img
 							src={project.images.card.src}
 							alt={project.images.card.alt}
-							class="w-full aspect-video border border-surface-200-800 rounded-container"
+							class="border-surface-200-800 rounded-container aspect-video w-full border"
 						/>
 						<!-- Footer -->
-						<footer class="flex justify-between items-center gap-4">
+						<footer class="flex items-center justify-between gap-4">
 							<!-- Categories -->
 							<div class="flex flex-wrap gap-1">
 								{#each project.categories as category (category)}

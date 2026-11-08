@@ -43,9 +43,9 @@
 <Carousel slideCount={slides.length} slidesPerPage={1} loop autoplay>
 	<Carousel.ItemGroup>
 		{#each slides as slide, i}
-			<Carousel.Item index={i} class="space-y-4 p-4 flex flex-col items-start">
+			<Carousel.Item index={i} class="flex flex-col items-start space-y-4 p-4">
 				<div
-					class="preset-filled-primary-500 inline-flex items-center justify-center p-3 rounded-lg"
+					class="preset-filled-primary-500 inline-flex items-center justify-center rounded-lg p-3"
 				>
 					<slide.Icon class="size-6" />
 				</div>

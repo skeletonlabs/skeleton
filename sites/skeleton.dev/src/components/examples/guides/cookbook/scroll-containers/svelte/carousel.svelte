@@ -33,7 +33,7 @@
 
 <div class="w-full">
 	<!-- Carousel -->
-	<div class="card p-4 grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+	<div class="card grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
 		<!-- Button: Left -->
 		<button
 			type="button"
@@ -47,12 +47,12 @@
 		<!-- Full Images -->
 		<div
 			bind:this={elemCarousel}
-			class="snap-x snap-mandatory scroll-smooth flex overflow-x-auto"
+			class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
 		>
 			<!-- Loop X many times. -->
 			{#each generatedArray as _, i}
 				<img
-					class="snap-center w-[1024px] rounded-container"
+					class="rounded-container w-[1024px] snap-center"
 					src={`https://picsum.photos/seed/${i + 1}/1024/768`}
 					alt={`full-${i}`}
 					loading="lazy"
@@ -71,7 +71,7 @@
 		</button>
 	</div>
 	<!-- Thumbnails -->
-	<div class="card p-4 grid grid-cols-6 gap-4">
+	<div class="card grid grid-cols-6 gap-4 p-4">
 		<!-- Loop X many times. -->
 		{#each generatedArray as _, i}
 			<button type="button" onclick={() => carouselThumbnail(i)}>

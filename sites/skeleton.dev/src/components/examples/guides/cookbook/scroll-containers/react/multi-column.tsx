@@ -91,7 +91,7 @@ export default function MultiColumn() {
 
 	return (
 		<div className="w-full">
-			<div className="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+			<div className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 				{/* Button: Left */}
 				<button
 					type="button"
@@ -105,7 +105,7 @@ export default function MultiColumn() {
 				{/* Carousel */}
 				<div
 					ref={elemMoviesRef}
-					className="snap-x snap-mandatory scroll-smooth flex gap-2 pb-2 overflow-x-auto"
+					className="flex snap-x snap-mandatory gap-2 overflow-x-auto scroll-smooth pb-2"
 				>
 					{/* Loop through our array of movies. */}
 					{movies.map((movie) => (
@@ -113,7 +113,7 @@ export default function MultiColumn() {
 							key={movie.name}
 							href={movie.url}
 							target="_blank"
-							className="shrink-0 w-[28%] snap-start"
+							className="w-[28%] shrink-0 snap-start"
 						>
 							<img
 								className="rounded-container-token hover:brightness-125"

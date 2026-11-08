@@ -6,7 +6,7 @@ export default function Dir() {
 			<Tooltip.Trigger>Hover</Tooltip.Trigger>
 			<Portal>
 				<Tooltip.Positioner>
-					<Tooltip.Content className="card bg-surface-100-900 p-2  shadow-xl">
+					<Tooltip.Content className="card bg-surface-100-900 p-2 shadow-xl">
 						Hello Skeleton
 					</Tooltip.Content>
 				</Tooltip.Positioner>

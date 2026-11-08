@@ -1,4 +1,4 @@
-<div class="w-full grid grid-rows-[auto_1fr_auto]">
+<div class="grid w-full grid-rows-[auto_1fr_auto]">
 	<!-- Header -->
 	<header class="preset-filled-primary-500 p-4">(header)</header>
 	<!-- Grid Columns -->
@@ -6,7 +6,7 @@
 		<!-- Left Sidebar. -->
 		<aside class="preset-filled-success-500 p-4">(sidebar)</aside>
 		<!-- Main Content -->
-		<main class="preset-filled-secondary-500 p-4 space-y-4">
+		<main class="preset-filled-secondary-500 space-y-4 p-4">
 			<p class="preset-filled-warning-500 p-4">Paragraph 1</p>
 			<p class="preset-filled-warning-500 p-4">Paragraph 2</p>
 			<p class="preset-filled-warning-500 p-4">Paragraph 3</p>

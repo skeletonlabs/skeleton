@@ -34,13 +34,13 @@
 	<button
 		aria-label="edge-option-{value}"
 		type="button"
-		class="border-1! {rxActive} aspect-4/3 w-full flex justify-end items-end rounded-sm overflow-hidden"
+		class="border-1! {rxActive} flex aspect-4/3 w-full items-end justify-end overflow-hidden rounded-sm"
 		onclick={handleOnClick}
 	>
 		<div
-			class="aspect-4/3 w-[70%] bg-primary-500/30 border-t-4 border-l-4 border-primary-500"
+			class="bg-primary-500/30 border-primary-500 aspect-4/3 w-[70%] border-t-4 border-l-4"
 			style={rxStyles}
 		></div>
 	</button>
-	<div class="text-[10px] text-center">{value.replace("0.", ".")}</div>
+	<div class="text-center text-[10px]">{value.replace("0.", ".")}</div>
 </div>

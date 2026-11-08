@@ -2,7 +2,7 @@
 	import { Progress } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<Progress class="w-fit relative">
+<Progress class="relative w-fit">
 	<div class="absolute inset-0 flex items-center justify-center">
 		<Progress.ValueText />
 	</div>

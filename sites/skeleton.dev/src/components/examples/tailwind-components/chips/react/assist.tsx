@@ -2,7 +2,7 @@ import { SunIcon, AlarmClockIcon, AppWindowIcon } from "lucide-react";
 
 export default function Assist() {
 	return (
-		<div className="card preset-filled-surface-100-900 p-4 space-y-4 w-full max-w-md overflow-hidden">
+		<div className="card preset-filled-surface-100-900 w-full max-w-md space-y-4 overflow-hidden p-4">
 			<header>
 				<h2 className="h6">Home Automation</h2>
 			</header>
@@ -13,7 +13,7 @@ export default function Assist() {
 				</p>
 			</article>
 			<hr className="hr" />
-			<footer className="flex items-center justify-start gap-2 overflow-x-auto [scrollbar-width:none]">
+			<footer className="flex [scrollbar-width:none] items-center justify-start gap-2 overflow-x-auto">
 				<button type="button" className="chip preset-outlined-surface-400-600">
 					<SunIcon size={14} />
 					<span>Turn on lights</span>

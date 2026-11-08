@@ -7,9 +7,9 @@
 	<Popover.Trigger class="btn preset-filled">Trigger</Popover.Trigger>
 	<Portal>
 		<Popover.Positioner>
-			<Popover.Content class="card w-96 p-4 bg-surface-100-900 shadow-xl">
+			<Popover.Content class="card bg-surface-100-900 w-96 p-4 shadow-xl">
 				<div class="space-y-4">
-					<header class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+					<header class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 						<Avatar>
 							<Avatar.Image
 								src="https://cdn.bsky.app/img/avatar/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreibgoxuqahwcpiah22yfovqszh33x2u4sysmqoyuk5j54aoakt7364@jpeg"
@@ -38,7 +38,7 @@
 					</div>
 				</div>
 				<Popover.Arrow
-					class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]"
+					class="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]"
 				>
 					<Popover.ArrowTip />
 				</Popover.Arrow>

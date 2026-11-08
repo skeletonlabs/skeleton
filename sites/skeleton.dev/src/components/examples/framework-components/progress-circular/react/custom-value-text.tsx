@@ -2,7 +2,7 @@ import { Progress } from "@skeletonlabs/skeleton-react";
 
 export default function CustomValueText() {
 	return (
-		<Progress className="items-center w-fit">
+		<Progress className="w-fit items-center">
 			<Progress.Circle>
 				<Progress.CircleTrack />
 				<Progress.CircleRange />

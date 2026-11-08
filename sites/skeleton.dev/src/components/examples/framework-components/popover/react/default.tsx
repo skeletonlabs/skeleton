@@ -7,9 +7,9 @@ export default function Default() {
 			<Popover.Trigger className="btn preset-filled">Trigger</Popover.Trigger>
 			<Portal>
 				<Popover.Positioner>
-					<Popover.Content className="card w-96 p-4 bg-surface-100-900 shadow-xl">
+					<Popover.Content className="card bg-surface-100-900 w-96 p-4 shadow-xl">
 						<div className="space-y-4">
-							<header className="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+							<header className="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 								<Avatar>
 									<Avatar.Image
 										src="https://cdn.bsky.app/img/avatar/plain/did:plc:whtgi5zx7ylmdw2i76vq7vq4/bafkreibgoxuqahwcpiah22yfovqszh33x2u4sysmqoyuk5j54aoakt7364@jpeg"
@@ -49,7 +49,7 @@ export default function Default() {
 								</p>
 							</div>
 						</div>
-						<Popover.Arrow className="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-100-900)]">
+						<Popover.Arrow className="[--arrow-background:var(--color-surface-100-900)] [--arrow-size:--spacing(2)]">
 							<Popover.ArrowTip />
 						</Popover.Arrow>
 					</Popover.Content>

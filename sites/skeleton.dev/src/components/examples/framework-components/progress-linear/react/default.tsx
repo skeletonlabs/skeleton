@@ -16,7 +16,7 @@ export default function Default() {
 
 			{/* Control */}
 			<Slider
-				className="w-32 mx-auto"
+				className="mx-auto w-32"
 				value={[value]}
 				onValueChange={(e) => setValue(e.value[0])}
 				step={10}

@@ -14,13 +14,13 @@ export default function Drawer() {
 			<Dialog.Trigger className="btn preset-filled">Trigger</Dialog.Trigger>
 			<Portal>
 				<Dialog.Backdrop
-					className={`fixed inset-0 z-50 bg-surface-50-950/50 ${animBackdrop}`}
+					className={`bg-surface-50-950/50 fixed inset-0 z-50 ${animBackdrop}`}
 				/>
 				<Dialog.Positioner className="fixed inset-0 z-50 flex justify-start">
 					<Dialog.Content
-						className={`h-screen card bg-surface-100-900 w-sm p-4 space-y-4 shadow-xl ${animModal}`}
+						className={`card bg-surface-100-900 h-screen w-sm space-y-4 p-4 shadow-xl ${animModal}`}
 					>
-						<header className="flex justify-between items-center">
+						<header className="flex items-center justify-between">
 							<Dialog.Title className="text-2xl font-bold">Drawer</Dialog.Title>
 							<Dialog.CloseTrigger className="btn-icon preset-tonal">
 								<XIcon />

@@ -3,13 +3,13 @@ import { resolvePath } from "@/modules/resolve-path";
 import ChevronRightIcon from "@lucide/astro/icons/chevron-right";
 ---
 
-<div class="card bg-noise preset-filled-primary-500 px-10 py-8 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 shadow-xl">
+<div class="card bg-noise preset-filled-primary-500 grid grid-cols-1 gap-10 px-10 py-8 shadow-xl md:grid-cols-[1fr_auto]">
 	<div class="max-w-[400px]">
 		<h2 class="h2 leading-snug text-current!">Start building with Skeleton today.</h2>
 	</div>
 	<a
 		href={resolvePath(Astro.params, "/docs/[framework]/get-started/installation")}
-		class="self-center btn preset-filled"
+		class="btn preset-filled self-center"
 	>
 		<span>Get Started</span>
 		<ChevronRightIcon class="size-4" />

@@ -2,7 +2,7 @@
 	import { Switch } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<div class="grid gap-2 w-full">
+<div class="grid w-full gap-2">
 	{#each ["Label 1", "Label 2", "Label 3"] as label, i (label)}
 		<Switch class="flex justify-between p-2">
 			<Switch.Label>{label}</Switch.Label>

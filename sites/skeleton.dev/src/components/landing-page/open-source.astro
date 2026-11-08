@@ -7,8 +7,8 @@ import { resolvePath } from "@/modules/resolve-path";
 const contributors = await getCollection("contributors");
 ---
 
-<div class="grid grid-cols-1 xl:grid-cols-[2.5fr_1fr] items-start gap-10">
-	<div class="grid grid-cols-10 xl:grid-cols-20 gap-3">
+<div class="grid grid-cols-1 items-start gap-10 xl:grid-cols-[2.5fr_1fr]">
+	<div class="grid grid-cols-10 gap-3 xl:grid-cols-20">
 		{contributors.map((contributor) => (
 			<a
 				class="hover:scale-125"

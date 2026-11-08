@@ -2,7 +2,7 @@
 	import { Slider } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<div class="space-y-8 w-full">
+<div class="w-full space-y-8">
 	<Slider defaultValue={[50]}>
 		<Slider.Control>
 			<Slider.Track class="bg-primary-50-950">

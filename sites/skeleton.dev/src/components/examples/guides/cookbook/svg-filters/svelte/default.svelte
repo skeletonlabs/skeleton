@@ -1,4 +1,4 @@
-<div class="w-full grid grid-cols-3 gap-4">
+<div class="grid w-full grid-cols-3 gap-4">
 	<!-- Apollo -->
 	<div class="flex flex-col items-center space-y-2">
 		<img
@@ -9,7 +9,7 @@
 			style="filter: url(#Apollo)"
 		/>
 		<span class="badge preset-tonal">#Apollo</span>
-		<svg id="svg-filter-apollo" class="absolute -left-full w-0 h-0">
+		<svg id="svg-filter-apollo" class="absolute -left-full h-0 w-0">
 			<filter
 				id="Apollo"
 				filterUnits="objectBoundingBox"
@@ -35,7 +35,7 @@
 			style="filter: url(#BlueNight)"
 		/>
 		<span class="badge preset-tonal">#BlueNight</span>
-		<svg id="svg-filter-bluenight" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-bluenight" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="BlueNight"
 				filterUnits="objectBoundingBox"
@@ -63,7 +63,7 @@
 			style="filter: url(#Emerald)"
 		/>
 		<span class="badge preset-tonal">#Emerald</span>
-		<svg id="svg-filter-emerald" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-emerald" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="Emerald"
 				filterUnits="objectBoundingBox"
@@ -98,7 +98,7 @@
 			style="filter: url(#GreenFall)"
 		/>
 		<span class="badge preset-tonal">#GreenFall</span>
-		<svg id="svg-filter-greenfall" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-greenfall" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="GreenFall"
 				x="-20%"
@@ -133,7 +133,7 @@
 			style="filter: url(#Noir)"
 		/>
 		<span class="badge preset-tonal">#Noir</span>
-		<svg id="svg-filter-noir" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-noir" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="Noir"
 				x="-20%"
@@ -188,7 +188,7 @@
 			style="filter: url(#NoirLight)"
 		/>
 		<span class="badge preset-tonal">#NoirLight</span>
-		<svg id="svg-filter-noirlight" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-noirlight" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="NoirLight"
 				x="-20%"
@@ -262,7 +262,7 @@
 			style="filter: url(#Rustic)"
 		/>
 		<span class="badge preset-tonal">#Rustic</span>
-		<svg id="svg-filter-rustic" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-rustic" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="Rustic"
 				filterUnits="objectBoundingBox"
@@ -292,7 +292,7 @@
 			style="filter: url(#Summer84)"
 		/>
 		<span class="badge preset-tonal">#Summer84</span>
-		<svg id="svg-filter-summer84" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-summer84" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="Summer84"
 				filterUnits="objectBoundingBox"
@@ -320,7 +320,7 @@
 			style="filter: url(#XPro)"
 		/>
 		<span class="badge preset-tonal">#XPro</span>
-		<svg id="svg-filter-xpro" class="filter absolute -left-full w-0 h-0">
+		<svg id="svg-filter-xpro" class="absolute -left-full h-0 w-0 filter">
 			<filter
 				id="XPro"
 				filterUnits="objectBoundingBox"

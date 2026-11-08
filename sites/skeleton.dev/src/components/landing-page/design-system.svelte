@@ -54,7 +54,7 @@
 	const btnInactive = "btn preset-outlined-surface-800-200 hover:preset-tonal";
 </script>
 
-<div class="grid grid-cols-1 xl:grid-cols-[0.75fr_2fr] gap-10">
+<div class="grid grid-cols-1 gap-10 xl:grid-cols-[0.75fr_2fr]">
 	<!-- Text -->
 	<div class="space-y-8">
 		<h2 class="h2">Design System</h2>
@@ -108,7 +108,7 @@
 	</div>
 
 	<div
-		class="card bg-noise preset-filled-primary-500 aspect-video flex justify-center items-center overflow-hidden shadow-xl"
+		class="card bg-noise preset-filled-primary-500 flex aspect-video items-center justify-center overflow-hidden shadow-xl"
 	>
 		{#if activeStep.label === "The Figma UI Kit"}
 			<img
@@ -116,14 +116,14 @@
 				width={SkeletonFigmaUIKit.width}
 				height={SkeletonFigmaUIKit.height}
 				alt="figma"
-				class="w-full h-auto"
+				class="h-auto w-full"
 			/>
 		{/if}
 
 		{#if activeStep.label === "Themes"}
 			<div class="w-full pt-10 pl-10">
 				<pre
-					class="pre box-border overflow-hidden w-full aspect-video mt-4 ml-4 xl:mt-10 xl:ml-10">
+					class="pre mt-4 ml-4 box-border aspect-video w-full overflow-hidden xl:mt-10 xl:ml-10">
 <code
 						>{`[data-theme='cerberus'] {
     --spacing: 0.25rem;
@@ -160,20 +160,20 @@
 		{#if activeStep.label === "Colors"}
 			<div class="grid grid-cols-3 gap-5 md:gap-10">
 				<div
-					class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-secondary-500"
+					class="bg-secondary-500 aspect-square w-10 rounded-full shadow-xl md:w-32"
 				></div>
 				<div
-					class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-tertiary-500"
+					class="bg-tertiary-500 aspect-square w-10 rounded-full shadow-xl md:w-32"
 				></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-success-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-error-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-warning-500"></div>
-				<div class="w-10 md:w-32 aspect-square rounded-full shadow-xl bg-surface-500"></div>
+				<div class="bg-success-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-error-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-warning-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
+				<div class="bg-surface-500 aspect-square w-10 rounded-full shadow-xl md:w-32"></div>
 			</div>
 		{/if}
 
 		{#if activeStep.label === "Presets"}
-			<div class="md:scale-125 xl:scale-150 grid grid-cols-3 gap-4 xl:gap-10">
+			<div class="grid grid-cols-3 gap-4 md:scale-125 xl:scale-150 xl:gap-10">
 				<div class="flex flex-col items-center">
 					<button type="button" class="btn preset-filled">Filled</button>
 				</div>
@@ -206,17 +206,17 @@
 		{/if}
 
 		{#if activeStep.label === "Typography"}
-			<div class="text-center space-y-4">
-				<h1 class="heading-font-family text-6xl md:text-9xl leading-none font-bold">Aa</h1>
+			<div class="space-y-4 text-center">
+				<h1 class="heading-font-family text-6xl leading-none font-bold md:text-9xl">Aa</h1>
 				<p class="text-xs md:text-lg">The quick brown fox jumped over the lazy dog.</p>
 			</div>
 		{/if}
 
 		{#if activeStep.label === "Spacing"}
-			<div class="scale-75 md:scale-150 flex flex-col items-start gap-1">
+			<div class="flex scale-75 flex-col items-start gap-1 md:scale-150">
 				{#each spacing as rowHeight}
 					<div class="grid grid-cols-[32px_1fr] items-center gap-2">
-						<span class="text-xs text-right">{rowHeight}</span>
+						<span class="text-right text-xs">{rowHeight}</span>
 						<div class={`bg-surface-50 h-2 ${rowHeight}`}></div>
 					</div>
 				{/each}

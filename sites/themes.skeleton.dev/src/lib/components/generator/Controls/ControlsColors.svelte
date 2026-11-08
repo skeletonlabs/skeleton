@@ -116,7 +116,7 @@
 			{#each colorSelection as color (color)}
 				<Tabs.Trigger
 					value={color.value}
-					class="aspect-square w-13 flex justify-center items-center {color.class}"
+					class="flex aspect-square w-13 items-center justify-center {color.class}"
 				>
 					<Tabs.Context>
 						{#snippet children(tabs)}

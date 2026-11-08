@@ -34,7 +34,7 @@
 			<Dialog.Backdrop class={dialogDrawerLeft.backdrop} />
 			<Dialog.Positioner class={dialogDrawerLeft.positioner}>
 				<Dialog.Content class={dialogDrawerLeft.content}>
-					<header class="flex justify-between items-center">
+					<header class="flex items-center justify-between">
 						<Dialog.Title aria-label="Skeleton Plus">
 							<Skeleton class="size-elem-3xl" />
 						</Dialog.Title>
@@ -49,7 +49,7 @@
 								{@const Icon = anchor.icon}
 								<a
 									href={anchor.href}
-									class="btn hover:preset-tonal justify-start w-full"
+									class="btn hover:preset-tonal w-full justify-start"
 								>
 									{#if Icon}
 										<Icon class="size-elem-base opacity-60" />
@@ -64,7 +64,7 @@
 								{@const Icon = anchor.icon}
 								<a
 									href={anchor.href}
-									class="btn hover:preset-tonal justify-start w-full"
+									class="btn hover:preset-tonal w-full justify-start"
 								>
 									{#if Icon}
 										<Icon class="size-elem-base opacity-60" />
@@ -81,7 +81,7 @@
 {/snippet}
 
 {#snippet navigationDesktop()}
-	<div class="hidden lg:flex items-center justify-start">
+	<div class="hidden items-center justify-start lg:flex">
 		<!-- Menu: Design -->
 		<Menu>
 			<Menu.Trigger class="btn btn-sm hover:preset-tonal">
@@ -97,7 +97,7 @@
 								<Menu.Item value={anchor.label} class="p-0">
 									<a
 										href={anchor.href}
-										class="flex items-center gap-3 w-full px-2 py-1"
+										class="flex w-full items-center gap-3 px-2 py-1"
 									>
 										{#if Icon}
 											<Icon class="size-elem-base opacity-60" />
@@ -121,7 +121,7 @@
 {/snippet}
 
 <div
-	class="sticky top-0 z-30 bg-surface-50-950/75 backdrop-blur-lg border-b border-surface-200-800"
+	class="bg-surface-50-950/75 border-surface-200-800 sticky top-0 z-30 border-b backdrop-blur-lg"
 >
 	<AppBar class="container mx-auto bg-transparent">
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
@@ -164,8 +164,8 @@
 											>
 										</Avatar>
 										<div class="space-y-0.5">
-											<p class="font-bold truncate">{user.name}</p>
-											<p class="text-xs opacity-60 truncate">{user.email}</p>
+											<p class="truncate font-bold">{user.name}</p>
+											<p class="truncate text-xs opacity-60">{user.email}</p>
 										</div>
 									</header>
 									<Menu.Separator class="hr" />
@@ -176,7 +176,7 @@
 											<Menu.Item value={anchor.label} class="p-0">
 												<a
 													href={anchor.href}
-													class="flex items-center gap-3 w-full px-4 py-2"
+													class="flex w-full items-center gap-3 px-4 py-2"
 												>
 													{#if Icon}
 														<Icon class="size-elem-base opacity-60" />
@@ -194,7 +194,7 @@
 										<a
 											href="https://github.com/skeletonlabs/skeleton/discussions"
 											target="_blank"
-											class="flex items-center gap-3 w-full px-4 py-2"
+											class="flex w-full items-center gap-3 px-4 py-2"
 										>
 											<LifeBuoyIcon class="size-elem-base opacity-60" />
 											<Menu.ItemText class="flex-1">Support</Menu.ItemText>
@@ -204,7 +204,7 @@
 									<!-- Sign Out -->
 									<Menu.Item value="sign-out" class="p-0">
 										<SignOutButton
-											class="flex items-center gap-3 w-full px-4 py-2 text-left"
+											class="flex w-full items-center gap-3 px-4 py-2 text-left"
 										>
 											<LogOutIcon class="size-elem-base opacity-60" />
 											<span>Sign Out</span>

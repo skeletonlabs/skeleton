@@ -13,8 +13,8 @@
 	];
 </script>
 
-<div class="w-[375px] h-[200px] grid grid-rows-[1fr_auto] border border-surface-200-800">
-	<div class="flex justify-center items-center">
+<div class="border-surface-200-800 grid h-[200px] w-[375px] grid-rows-[1fr_auto] border">
+	<div class="flex items-center justify-center">
 		<p class="opacity-60">...</p>
 	</div>
 	<!-- --- -->

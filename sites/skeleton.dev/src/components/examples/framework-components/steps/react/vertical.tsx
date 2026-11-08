@@ -8,7 +8,7 @@ const steps = [
 
 export default function Default() {
 	return (
-		<Steps orientation="vertical" count={steps.length} className="w-full h-48">
+		<Steps orientation="vertical" count={steps.length} className="h-48 w-full">
 			<Steps.List>
 				{steps.map((item, index) => (
 					<Steps.Item key={index} index={index}>
@@ -19,23 +19,23 @@ export default function Default() {
 					</Steps.Item>
 				))}
 			</Steps.List>
-			<div className="flex flex-col grow gap-4">
+			<div className="flex grow flex-col gap-4">
 				{steps.map((item, index) => (
 					<Steps.Content
 						key={index}
 						index={index}
-						className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+						className="card preset-filled-surface-100-900 flex grow items-center justify-center p-4"
 					>
 						{item.content}
 					</Steps.Content>
 				))}
 				<Steps.Content
 					index={steps.length}
-					className="card preset-filled-surface-100-900 p-4 flex justify-center items-center grow"
+					className="card preset-filled-surface-100-900 flex grow items-center justify-center p-4"
 				>
 					All done!
 				</Steps.Content>
-				<div className="flex justify-between items-center gap-2">
+				<div className="flex items-center justify-between gap-2">
 					<Steps.PrevTrigger className="btn preset-filled">Back</Steps.PrevTrigger>
 					<Steps.NextTrigger className="btn preset-filled">Next</Steps.NextTrigger>
 				</div>

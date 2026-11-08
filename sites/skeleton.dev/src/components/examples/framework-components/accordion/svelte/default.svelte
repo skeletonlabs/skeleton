@@ -36,7 +36,7 @@
 		{/if}
 		<Accordion.Item value={item.id}>
 			<h3>
-				<Accordion.ItemTrigger class="font-bold flex items-center justify-between gap-2">
+				<Accordion.ItemTrigger class="flex items-center justify-between gap-2 font-bold">
 					{item.title}
 					<Accordion.ItemIndicator class="group">
 						<ChevronDownIcon

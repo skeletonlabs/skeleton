@@ -50,30 +50,30 @@ const frameworks = [
 ];
 ---
 
-<div class="card bg-noise preset-filled-surface-100-900 px-10 py-8 grid grid-cols-1 xl:grid-cols-[auto_2fr] gap-10">
-	<div class="self-center space-y-1">
+<div class="card bg-noise preset-filled-surface-100-900 grid grid-cols-1 gap-10 px-10 py-8 xl:grid-cols-[auto_2fr]">
+	<div class="space-y-1 self-center">
 		<h2 class="h2">Live Demos</h2>
-		<p class="xl:text-balance xl:max-w-96">
+		<p class="xl:max-w-96 xl:text-balance">
 			Test drive Skeleton directly in your browser for supported frameworks.
 		</p>
-		<p class="pt-4 text-xs text-surface-600-400">
+		<p class="text-surface-600-400 pt-4 text-xs">
 			* Functional components limited to <strong>React</strong> and <strong>Svelte</strong>.
 		</p>
 	</div>
-	<div class="self-center grid grid-cols-2 md:grid-cols-6 gap-4">
+	<div class="grid grid-cols-2 gap-4 self-center md:grid-cols-6">
 		{frameworks.map((framework) => (
 			<a
 				href={framework.href}
 				target="_blank"
-				class="aspect-square flex flex-col justify-center items-center gap-2 rounded-container hover:preset-tonal"
+				class="rounded-container hover:preset-tonal flex aspect-square flex-col items-center justify-center gap-2"
 			>
 				<div
-					class="w-16 xl:w-20 aspect-square rounded-full flex justify-center items-center"
+					class="flex aspect-square w-16 items-center justify-center rounded-full xl:w-20"
 					style={`background-color: ${framework.bgColor}`}
 				>
 					<framework.Icon class="size-10 fill-white!" />
 				</div>
-				<p class="font-bold text-xs">
+				<p class="text-xs font-bold">
 					{framework.name}{" "}
 					{framework.note ? (
 						<span class="text-surface-700-300">{framework.note}</span>

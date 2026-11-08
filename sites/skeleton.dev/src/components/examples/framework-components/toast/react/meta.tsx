@@ -25,7 +25,7 @@ export default function Meta() {
 					<Toast toast={toast} key={toast.id}>
 						{toast.meta!.icon}
 						<Toast.Message>
-							<Toast.Title className="flex gap-2 items-center">
+							<Toast.Title className="flex items-center gap-2">
 								{toast.title}
 							</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>

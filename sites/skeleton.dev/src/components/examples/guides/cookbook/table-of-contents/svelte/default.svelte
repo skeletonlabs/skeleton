@@ -36,7 +36,7 @@
 
 <nav class="card bg-surface-100-900 p-4">
 	<!-- Table of Contents -->
-	<div class="text-sm space-y-2">
+	<div class="space-y-2 text-sm">
 		<!-- Label -->
 		<div class="font-bold">On This Page</div>
 		<!-- Links -->

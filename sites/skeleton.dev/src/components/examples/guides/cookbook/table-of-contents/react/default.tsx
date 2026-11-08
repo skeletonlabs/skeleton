@@ -36,7 +36,7 @@ export default function Default() {
 	return (
 		<nav className="card bg-surface-100-900 p-4">
 			{/* Table of Contents */}
-			<div className="text-sm space-y-2">
+			<div className="space-y-2 text-sm">
 				{/* Label */}
 				<div className="font-bold">On This Page</div>
 				{/* Links */}

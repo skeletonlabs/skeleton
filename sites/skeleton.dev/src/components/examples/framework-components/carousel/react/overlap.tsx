@@ -25,10 +25,10 @@ export default function Overlap() {
 		>
 			<div className="relative">
 				<Carousel.Control>
-					<Carousel.PrevTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] left-0 translate-y-[-50%]">
+					<Carousel.PrevTrigger className="btn-icon preset-filled absolute top-[50%] left-0 translate-y-[-50%] rounded-full">
 						<span>&larr;</span>
 					</Carousel.PrevTrigger>
-					<Carousel.NextTrigger className="btn-icon preset-filled rounded-full absolute top-[50%] right-0 translate-y-[-50%]">
+					<Carousel.NextTrigger className="btn-icon preset-filled absolute top-[50%] right-0 translate-y-[-50%] rounded-full">
 						<span>&rarr;</span>
 					</Carousel.NextTrigger>
 				</Carousel.Control>
@@ -37,7 +37,7 @@ export default function Overlap() {
 						<Carousel.Item
 							index={i}
 							key={i}
-							className="card bg-surface-100-900 h-50 aspect-square p-4 flex justify-center items-center"
+							className="card bg-surface-100-900 flex aspect-square h-50 items-center justify-center p-4"
 						>
 							{slide.title}
 						</Carousel.Item>

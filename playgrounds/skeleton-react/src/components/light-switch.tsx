@@ -43,9 +43,9 @@ export default function LightSwitch() {
 						<Switch.Context>
 							{(switch_) =>
 								switch_.checked ? (
-									<SunIcon className="size-4 stroke-surface-50-950" />
+									<SunIcon className="stroke-surface-50-950 size-4" />
 								) : (
-									<MoonIcon className="size-4 stroke-surface-950-50" />
+									<MoonIcon className="stroke-surface-950-50 size-4" />
 								)
 							}
 						</Switch.Context>

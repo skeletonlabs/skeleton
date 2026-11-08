@@ -4,7 +4,7 @@ export default function ClickableDownload() {
 	return (
 		<QrCode value="https://skeleton.dev">
 			<QrCode.DownloadTrigger fileName="skeleton-dev" mimeType="image/png">
-				<QrCode.Frame className="size-full max-size-36">
+				<QrCode.Frame className="max-size-36 size-full">
 					<QrCode.Pattern />
 				</QrCode.Frame>
 			</QrCode.DownloadTrigger>

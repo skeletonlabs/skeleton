@@ -50,8 +50,8 @@ const socialLinks = [
 ];
 ---
 
-<header class="z-50 sticky top-0 border-b border-surface-200-800 bg-surface-50-950/75 backdrop-blur-lg h-(--header-height) flex items-center">
-	<div class="container mx-auto px-4 flex items-center justify-between gap-2">
+<header class="border-surface-200-800 bg-surface-50-950/75 sticky top-0 z-50 flex h-(--header-height) items-center border-b backdrop-blur-lg">
+	<div class="container mx-auto flex items-center justify-between gap-2 px-4">
 		<!-- Drawer -->
 		<div class="xl:hidden">
 			<DrawerTrigger client:visible>
@@ -59,11 +59,11 @@ const socialLinks = [
 			</DrawerTrigger>
 		</div>
 		<!-- Logo -->
-		<a class="hidden xl:flex mr-2" href="/" title="Skeleton" aria-label="Skeleton">
-			<Skeleton class="size-8 fill-current hover:rotate-[-10deg] transition-transform duration-200" />
+		<a class="mr-2 hidden xl:flex" href="/" title="Skeleton" aria-label="Skeleton">
+			<Skeleton class="size-8 fill-current transition-transform duration-200 hover:rotate-[-10deg]" />
 		</a>
 		<!-- Navigation -->
-		<nav class="hidden xl:flex items-center gap-1">
+		<nav class="hidden items-center gap-1 xl:flex">
 			{links.map((link) => (
 				<a class="btn hover:preset-tonal" href={link.href}>
 					{link.title}
@@ -78,28 +78,28 @@ const socialLinks = [
 			</nav>
 		)}
 		<!-- Pickers -->
-		<nav class="flex justify-center items-center ml-auto gap-1">
+		<nav class="ml-auto flex items-center justify-center gap-1">
 			{Astro.params.framework && (
 				<FrameworkPicker url={Astro.url} {frameworks} {activeFramework} client:visible />
 			)}
 			<ThemePicker client:visible />
 			<VersionPicker client:visible />
 		</nav>
-		<span class="vr h-5 hidden xl:inline"></span>
+		<span class="vr hidden h-5 xl:inline"></span>
 		<!-- Sponsor -->
-		<nav class="flex justify-center items-center">
+		<nav class="flex items-center justify-center">
 			<SponsorPicker client:visible />
 		</nav>
-		<span class="vr h-5 hidden xl:inline"></span>
+		<span class="vr hidden h-5 xl:inline"></span>
 		<!-- Social -->
-		<nav class="hidden xl:flex justify-center items-center">
+		<nav class="hidden items-center justify-center xl:flex">
 			{socialLinks.map((link) => {
 				const BrandIcon = link.icon;
 				return (
 					<a
 						href={link.href}
 						target="_blank"
-						class="btn py-2 hover:preset-tonal"
+						class="btn hover:preset-tonal py-2"
 						title={link.title}
 						aria-label={link.title}
 					>

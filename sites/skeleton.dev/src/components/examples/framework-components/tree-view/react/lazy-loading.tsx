@@ -44,7 +44,7 @@ function TreeNode(props: { node: Node; indexPath: number[] }) {
 				<TreeView.Branch>
 					<TreeView.BranchControl>
 						<TreeView.BranchIndicator className="data-loading:hidden" />
-						<TreeView.BranchIndicator className="hidden data-loading:inline animate-spin">
+						<TreeView.BranchIndicator className="hidden animate-spin data-loading:inline">
 							<LoaderIcon className="size-4" />
 						</TreeView.BranchIndicator>
 						<TreeView.BranchText>

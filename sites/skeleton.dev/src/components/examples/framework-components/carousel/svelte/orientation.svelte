@@ -23,7 +23,7 @@
 	orientation="vertical"
 	autoSize
 >
-	<Carousel.Control class="flex justify-between mb-4">
+	<Carousel.Control class="mb-4 flex justify-between">
 		<Carousel.PrevTrigger class="btn preset-filled">
 			<span>&larr;</span>
 			<span>Back</span>
@@ -39,7 +39,7 @@
 		{#each slides as slide, i}
 			<Carousel.Item
 				index={i}
-				class="card bg-surface-100-900/90 h-32 p-4 flex justify-center items-center"
+				class="card bg-surface-100-900/90 flex h-32 items-center justify-center p-4"
 			>
 				{slide.title}
 			</Carousel.Item>

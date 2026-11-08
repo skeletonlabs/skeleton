@@ -78,7 +78,7 @@
 	<img
 		src={template.images.hero.src}
 		alt={template.images.hero.alt}
-		class="w-full aspect-video border-b border-surface-200-800"
+		class="border-surface-200-800 aspect-video w-full border-b"
 	/>
 
 	<!-- Decor: Stripes -->
@@ -87,16 +87,16 @@
 	<!-- Screenshot Grid -->
 	{#if template.images.screenshots.length > 0}
 		<div
-			class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-surface-200-800 divide-x divide-y lg:divide-y-0 divide-surface-200-800"
+			class="border-surface-200-800 divide-surface-200-800 grid grid-cols-2 divide-x divide-y border-t border-b md:grid-cols-2 lg:grid-cols-4 lg:divide-y-0"
 		>
 			{#each template.images.screenshots as screenshot, i (i)}
-				<img src={screenshot.src} alt={screenshot.alt} class="w-full aspect-video" />
+				<img src={screenshot.src} alt={screenshot.alt} class="aspect-video w-full" />
 			{/each}
 		</div>
 	{/if}
 
 	<div
-		class="grid grid-cols-1 lg:grid-cols-[75%_25%] divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800"
+		class="divide-surface-200-800 grid grid-cols-1 divide-y lg:grid-cols-[75%_25%] lg:divide-x lg:divide-y-0"
 	>
 		<!-- About -->
 		<section class="container-cell space-y-2">

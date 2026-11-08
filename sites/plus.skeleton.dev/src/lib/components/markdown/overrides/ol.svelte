@@ -8,6 +8,6 @@
 	const { children, ...rest }: Props = $props();
 </script>
 
-<ol class="list-decimal list-outside pl-4 space-y-1" {...rest}>
+<ol class="list-outside list-decimal space-y-1 pl-4" {...rest}>
 	{@render children?.()}
 </ol>

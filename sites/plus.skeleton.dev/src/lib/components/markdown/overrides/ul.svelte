@@ -9,6 +9,6 @@
 	const isTaskList = $derived(rest.class?.includes("contains-task-list"));
 </script>
 
-<ul class="{isTaskList ? '' : 'list-disc list-outside pl-4'} space-y-1">
+<ul class="{isTaskList ? '' : 'list-outside list-disc pl-4'} space-y-1">
 	{@render children?.()}
 </ul>

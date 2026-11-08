@@ -11,12 +11,12 @@
 <Dialog>
 	<Dialog.Trigger class="btn preset-filled">Trigger</Dialog.Trigger>
 	<Portal>
-		<Dialog.Backdrop class="fixed inset-0 z-50 bg-surface-50-950/50" />
-		<Dialog.Positioner class="fixed inset-0 z-50 flex justify-center items-center p-4">
+		<Dialog.Backdrop class="bg-surface-50-950/50 fixed inset-0 z-50" />
+		<Dialog.Positioner class="fixed inset-0 z-50 flex items-center justify-center p-4">
 			<Dialog.Content
-				class="card bg-surface-100-900 w-full max-w-xl p-4 space-y-4 shadow-xl {animation}"
+				class="card bg-surface-100-900 w-full max-w-xl space-y-4 p-4 shadow-xl {animation}"
 			>
-				<header class="flex justify-between items-center">
+				<header class="flex items-center justify-between">
 					<Dialog.Title class="text-lg font-bold">Hello Skeleton</Dialog.Title>
 					<Dialog.CloseTrigger class="btn-icon hover:preset-tonal">
 						<XIcon class="size-4" />
