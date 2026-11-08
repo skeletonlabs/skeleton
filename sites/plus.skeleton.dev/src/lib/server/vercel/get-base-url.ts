@@ -1,4 +1,4 @@
-import { VERCEL_ENV, VERCEL_URL, VERCEL_PROJECT_PRODUCTION_URL } from "$app/env/private";
+import { VERCEL_ENV, VERCEL_URL } from "$app/env/private";
 
 export function getBaseUrl() {
 	if (import.meta.env.DEV) {
@@ -7,5 +7,5 @@ export function getBaseUrl() {
 	if (VERCEL_ENV === "preview") {
 		return `https://${VERCEL_URL}`;
 	}
-	return VERCEL_PROJECT_PRODUCTION_URL;
+	return "https://plus.skeleton.dev/";
 }
