@@ -4,6 +4,8 @@
 		gap: --spacing(2);
 	}
 	&[data-part="frame"] {
+		width: 100%;
+		aspect-ratio: 1;
 		background-color: var(--color-surface-50);
 	}
 	&[data-part="pattern"] {
@@ -14,6 +16,6 @@
 		color: var(--color-surface-100-900);
 	}
 	&[data-part="download-trigger"] {
-		@apply btn preset-filled;
+		display: contents;
 	}
 }
