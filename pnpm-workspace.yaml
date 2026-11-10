@@ -78,7 +78,7 @@ catalog:
     "@zag-js/toggle-group": 1.47.0
     "@zag-js/tooltip": 1.47.0
     "@zag-js/tree-view": 1.47.0
-    astro: 7.4.7
+    astro: 7.4.8
     astro-pagefind: 2.0.1
     astro-seo: 1.2.0
     better-auth: 1.7.18
@@ -146,6 +146,8 @@ minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
     - "@zag-js/*"
+    - astro@7.4.8
+    - "@astrojs/*"
 
 allowBuilds:
     "@parcel/watcher": true
@@ -164,3 +166,9 @@ permissions:
         skills: true
     drizzle-kit:
         skills: true
+    tsdown:
+        skills: true
+
+skills:
+    dirs:
+        - .claude/skills
