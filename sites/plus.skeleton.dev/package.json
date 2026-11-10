@@ -23,7 +23,7 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
-		"@comark/svelte": "^0.8.0",
+		"@comark/svelte": "^0.9.0",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
@@ -43,7 +43,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"better-auth": "catalog:",
-		"comark": "^0.8.0",
+		"comark": "^0.9.0",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"lightningcss": "catalog:",
