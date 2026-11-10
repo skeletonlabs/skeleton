@@ -1,10 +1,10 @@
 {
 	"recommendations": [
+		"oxc.oxc-vscode",
+		"antfu.pnpm-catalog-lens",
 		"astro-build.astro-vscode",
-		"unifiedjs.vscode-mdx",
 		"bradlc.vscode-tailwindcss",
 		"svelte.svelte-vscode",
-		"oxc.oxc-vscode",
-		"antfu.pnpm-catalog-lens"
+		"unifiedjs.vscode-mdx"
 	]
 }
