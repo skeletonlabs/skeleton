@@ -4,7 +4,6 @@ on:
     push:
         branches:
             - main
-            - v3
     pull_request:
 
 concurrency:
@@ -18,8 +17,9 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: recursive
-                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
+                  persist-credentials: false
             - uses: pnpm/action-setup@v6
             - uses: actions/setup-node@v7
               with:
@@ -27,14 +27,16 @@ jobs:
                   cache: pnpm
             - run: pnpm install
             - run: pnpm format:check
+
     lint:
         name: Lint
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: recursive
-                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
+                  persist-credentials: false
             - uses: pnpm/action-setup@v6
             - uses: actions/setup-node@v7
               with:
@@ -42,14 +44,16 @@ jobs:
                   cache: pnpm
             - run: pnpm install
             - run: pnpm lint:check
+
     check:
         name: Check
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: recursive
-                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
+                  persist-credentials: false
             - uses: pnpm/action-setup@v6
             - uses: actions/setup-node@v7
               with:
@@ -57,14 +61,16 @@ jobs:
                   cache: pnpm
             - run: pnpm install
             - run: pnpm check
+
     test:
         name: Test
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: recursive
-                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT }}
+                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
+                  persist-credentials: false
             - uses: pnpm/action-setup@v6
             - uses: actions/setup-node@v7
               with:
