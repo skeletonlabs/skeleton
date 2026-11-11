@@ -1,8 +1,8 @@
-import { SegmentedControl } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { SegmentedControl } from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 export default function Default() {
-	const [value, setValue] = useState<string | null>('music');
+	const [value, setValue] = useState<string | null>("music");
 
 	return (
 		<div className="flex flex-col items-center gap-4">
@@ -27,7 +27,8 @@ export default function Default() {
 
 			{/* Message */}
 			<p>
-				<span className="opacity-60">You selected</span> <code className="code">{value}</code>
+				<span className="opacity-60">You selected</span>{" "}
+				<code className="code">{value}</code>
 			</p>
 		</div>
 	);

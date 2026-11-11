@@ -1,14 +1,16 @@
 <script lang="ts">
-	import { Portal, Tooltip } from '@skeletonlabs/skeleton-svelte';
+	import { Portal, Tooltip } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<Tooltip positioning={{ placement: 'top' }}>
+<Tooltip positioning={{ placement: "top" }}>
 	<Tooltip.Trigger>Hover</Tooltip.Trigger>
 	<Portal>
 		<Tooltip.Positioner>
-			<Tooltip.Content class="card p-2 preset-filled-surface-950-50">
+			<Tooltip.Content class="card preset-filled-surface-950-50 p-2">
 				<span>Hello Skeleton</span>
-				<Tooltip.Arrow class="[--arrow-size:--spacing(2)] [--arrow-background:var(--color-surface-950-50)]">
+				<Tooltip.Arrow
+					class="[--arrow-background:var(--color-surface-950-50)] [--arrow-size:--spacing(2)]"
+				>
 					<Tooltip.ArrowTip />
 				</Tooltip.Arrow>
 			</Tooltip.Content>

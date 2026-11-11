@@ -2,26 +2,25 @@
 title: Corner Shapes
 description: Specifies the shape of a box's corners, within the area specified by its border-radius.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/corner-shapes.css'
-stability: beta
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/utilities/corner-shapes.css"
 ---
 
-import Preview from '@/components/ui/preview.svelte';
+import Preview from "@/components/ui/preview.svelte";
 
-import Corners from '@/components/examples/tailwind-utilities/corner-shapes/corners.astro';
-import CornersRaw from '@/components/examples/tailwind-utilities/corner-shapes/corners.astro?raw';
-import Default from '@/components/examples/tailwind-utilities/corner-shapes/default.astro';
-import DefaultRaw from '@/components/examples/tailwind-utilities/corner-shapes/default.astro?raw';
-import Logical from '@/components/examples/tailwind-utilities/corner-shapes/logical.astro';
-import LogicalRaw from '@/components/examples/tailwind-utilities/corner-shapes/logical.astro?raw';
-import Sides from '@/components/examples/tailwind-utilities/corner-shapes/sides.astro';
-import SidesRaw from '@/components/examples/tailwind-utilities/corner-shapes/sides.astro?raw';
-import Theme from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro';
-import ThemeRaw from '@/components/examples/tailwind-utilities/corner-shapes/theme.astro?raw';
+import Corners from "@/components/examples/tailwind-utilities/corner-shapes/corners.astro";
+import CornersRaw from "@/components/examples/tailwind-utilities/corner-shapes/corners.astro?raw";
+import Default from "@/components/examples/tailwind-utilities/corner-shapes/default.astro";
+import DefaultRaw from "@/components/examples/tailwind-utilities/corner-shapes/default.astro?raw";
+import Logical from "@/components/examples/tailwind-utilities/corner-shapes/logical.astro";
+import LogicalRaw from "@/components/examples/tailwind-utilities/corner-shapes/logical.astro?raw";
+import Sides from "@/components/examples/tailwind-utilities/corner-shapes/sides.astro";
+import SidesRaw from "@/components/examples/tailwind-utilities/corner-shapes/sides.astro?raw";
+import Theme from "@/components/examples/tailwind-utilities/corner-shapes/theme.astro";
+import ThemeRaw from "@/components/examples/tailwind-utilities/corner-shapes/theme.astro?raw";
 
 Based on the [corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/corner-shape) CSS property. Pair `corner-shape-*` with a `rounded-*` utility on the same element.
 
-<Preview files={{ 'app.astro': DefaultRaw }} client:visible>
+<Preview files={{ "app.astro": DefaultRaw }} client:visible>
 	<Default />
 </Preview>
 
@@ -52,7 +51,7 @@ Currently available in a limited set of browsers. Follow progressive enhancement
 
 Target each side and the adjacent corners, including: top, left, bottom, right.
 
-<Preview files={{ 'app.astro': SidesRaw }} client:visible>
+<Preview files={{ "app.astro": SidesRaw }} client:visible>
 	<Sides />
 </Preview>
 
@@ -67,7 +66,7 @@ Target each side and the adjacent corners, including: top, left, bottom, right.
 
 Target a particular corner of an element.
 
-<Preview files={{ 'app.astro': CornersRaw }} client:visible>
+<Preview files={{ "app.astro": CornersRaw }} client:visible>
 	<Corners />
 </Preview>
 
@@ -82,7 +81,7 @@ Target a particular corner of an element.
 
 Target sides and corners that flow with the document's writing direction. Sets automatically basedon LTR/RTL mode.
 
-<Preview files={{ 'app.astro': LogicalRaw }} client:visible>
+<Preview files={{ "app.astro": LogicalRaw }} client:visible>
 	<Logical />
 </Preview>
 
@@ -99,7 +98,7 @@ Target sides and corners that flow with the document's writing direction. Sets a
 
 Canned variable default values defined via theme properties.
 
-<Preview files={{ 'app.astro': ThemeRaw }} client:visible>
+<Preview files={{ "app.astro": ThemeRaw }} client:visible>
 	<Theme />
 </Preview>
 

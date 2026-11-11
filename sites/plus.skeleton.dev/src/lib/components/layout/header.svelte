@@ -1,24 +1,28 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
-	import { resolve } from '$app/paths';
-	import SignOutButton from '$lib/components/auth/sign-out-button.svelte';
-	import Skeleton from '$lib/components/branding/skeleton.svelte';
-	import { dialogDrawerLeft } from '$lib/components/modal-styles';
-	import { routes } from '$lib/navigation/routes';
-	import { getUser } from '$lib/remote/auth/get-user.remote';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import LifeBuoyIcon from '@lucide/svelte/icons/life-buoy';
-	import LogOutIcon from '@lucide/svelte/icons/log-out';
-	import MenuIcon from '@lucide/svelte/icons/menu';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { AppBar, Avatar, Dialog, Menu, Portal, useDialog } from '@skeletonlabs/skeleton-svelte';
+	import SignOutButton from "#lib/components/auth/sign-out-button.svelte";
+	import Skeleton from "#lib/components/branding/skeleton.svelte";
+	import { dialogDrawerLeft } from "#lib/components/modal-styles.ts";
+	import { routes } from "#lib/navigation/routes.ts";
+	import { getUser } from "#lib/remote/auth/get-user.remote.ts";
+	import { onNavigate } from "$app/navigation";
+	import { resolve } from "$app/paths";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import LifeBuoyIcon from "@lucide/svelte/icons/life-buoy";
+	import LogOutIcon from "@lucide/svelte/icons/log-out";
+	import MenuIcon from "@lucide/svelte/icons/menu";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { AppBar, Avatar, Dialog, Menu, Portal, useDialog } from "@skeletonlabs/skeleton-svelte";
 
 	const user = $derived(await getUser());
 
 	const id = $props.id();
 	const drawer = useDialog({ id });
 
-	onNavigate(() => drawer().setOpen(false));
+	onNavigate(({ shallow, type }) => {
+		if (shallow && type === "goto") return;
+
+		return drawer().setOpen(false);
+	});
 </script>
 
 {#snippet navigationMobile()}
@@ -30,7 +34,7 @@
 			<Dialog.Backdrop class={dialogDrawerLeft.backdrop} />
 			<Dialog.Positioner class={dialogDrawerLeft.positioner}>
 				<Dialog.Content class={dialogDrawerLeft.content}>
-					<header class="flex justify-between items-center">
+					<header class="flex items-center justify-between">
 						<Dialog.Title aria-label="Skeleton Plus">
 							<Skeleton class="size-elem-3xl" />
 						</Dialog.Title>
@@ -43,7 +47,10 @@
 						{#each routes.design as anchor}
 							{#if anchor.enabled}
 								{@const Icon = anchor.icon}
-								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+								<a
+									href={anchor.href}
+									class="btn hover:preset-tonal w-full justify-start"
+								>
 									{#if Icon}
 										<Icon class="size-elem-base opacity-60" />
 									{/if}
@@ -55,7 +62,10 @@
 						{#each routes.content as anchor}
 							{#if anchor.enabled}
 								{@const Icon = anchor.icon}
-								<a href={anchor.href} class="btn hover:preset-tonal justify-start w-full">
+								<a
+									href={anchor.href}
+									class="btn hover:preset-tonal w-full justify-start"
+								>
 									{#if Icon}
 										<Icon class="size-elem-base opacity-60" />
 									{/if}
@@ -71,7 +81,7 @@
 {/snippet}
 
 {#snippet navigationDesktop()}
-	<div class="hidden lg:flex items-center justify-start">
+	<div class="hidden items-center justify-start lg:flex">
 		<!-- Menu: Design -->
 		<Menu>
 			<Menu.Trigger class="btn btn-sm hover:preset-tonal">
@@ -85,7 +95,10 @@
 							{#if anchor.enabled}
 								{@const Icon = anchor.icon}
 								<Menu.Item value={anchor.label} class="p-0">
-									<a href={anchor.href} class="flex items-center gap-3 w-full px-2 py-1">
+									<a
+										href={anchor.href}
+										class="flex w-full items-center gap-3 px-2 py-1"
+									>
 										{#if Icon}
 											<Icon class="size-elem-base opacity-60" />
 										{/if}
@@ -107,11 +120,18 @@
 	</div>
 {/snippet}
 
-<div class="sticky top-0 z-30 bg-surface-50-950/75 backdrop-blur-lg border-b border-surface-200-800">
+<div
+	class="bg-surface-50-950/75 border-surface-200-800 sticky top-0 z-30 border-b backdrop-blur-lg"
+>
 	<AppBar class="container mx-auto bg-transparent">
 		<AppBar.Toolbar class="grid-cols-[auto_1fr_auto]">
 			<AppBar.Lead>
-				<a href={resolve('/')} class="flex items-center gap-4 self-start" aria-label="Homepage" title="Homepage">
+				<a
+					href={resolve("/(app)")}
+					class="flex items-center gap-4 self-start"
+					aria-label="Homepage"
+					title="Homepage"
+				>
 					<Skeleton class="size-elem-3xl" />
 				</a>
 			</AppBar.Lead>
@@ -125,7 +145,9 @@
 						<Menu.Trigger>
 							<Avatar class="size-10">
 								<Avatar.Image src={user.image} alt="Avatar" />
-								<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
+								<Avatar.Fallback
+									>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback
+								>
 							</Avatar>
 						</Menu.Trigger>
 						<Portal>
@@ -135,11 +157,15 @@
 									<header class="flex items-center gap-2 px-4 py-2">
 										<Avatar class="size-10">
 											<Avatar.Image src={user.image} alt="Avatar" />
-											<Avatar.Fallback>{user.name.slice(0, 2).toUpperCase()}</Avatar.Fallback>
+											<Avatar.Fallback
+												>{user.name
+													.slice(0, 2)
+													.toUpperCase()}</Avatar.Fallback
+											>
 										</Avatar>
 										<div class="space-y-0.5">
-											<p class="font-bold truncate">{user.name}</p>
-											<p class="text-xs opacity-60 truncate">{user.email}</p>
+											<p class="truncate font-bold">{user.name}</p>
+											<p class="truncate text-xs opacity-60">{user.email}</p>
 										</div>
 									</header>
 									<Menu.Separator class="hr" />
@@ -148,11 +174,16 @@
 										{#if anchor.enabled}
 											{@const Icon = anchor.icon}
 											<Menu.Item value={anchor.label} class="p-0">
-												<a href={anchor.href} class="flex items-center gap-3 w-full px-4 py-2">
+												<a
+													href={anchor.href}
+													class="flex w-full items-center gap-3 px-4 py-2"
+												>
 													{#if Icon}
 														<Icon class="size-elem-base opacity-60" />
 													{/if}
-													<Menu.ItemText class="flex-1">{anchor.label}</Menu.ItemText>
+													<Menu.ItemText class="flex-1"
+														>{anchor.label}</Menu.ItemText
+													>
 												</a>
 											</Menu.Item>
 										{/if}
@@ -163,7 +194,7 @@
 										<a
 											href="https://github.com/skeletonlabs/skeleton/discussions"
 											target="_blank"
-											class="flex items-center gap-3 w-full px-4 py-2"
+											class="flex w-full items-center gap-3 px-4 py-2"
 										>
 											<LifeBuoyIcon class="size-elem-base opacity-60" />
 											<Menu.ItemText class="flex-1">Support</Menu.ItemText>
@@ -172,7 +203,9 @@
 									<Menu.Separator class="hr" />
 									<!-- Sign Out -->
 									<Menu.Item value="sign-out" class="p-0">
-										<SignOutButton class="flex items-center gap-3 w-full px-4 py-2 text-left">
+										<SignOutButton
+											class="flex w-full items-center gap-3 px-4 py-2 text-left"
+										>
 											<LogOutIcon class="size-elem-base opacity-60" />
 											<span>Sign Out</span>
 										</SignOutButton>
@@ -182,8 +215,11 @@
 						</Portal>
 					</Menu>
 				{:else}
-					<a href={resolve('/auth/sign-in')} class="btn hover:preset-tonal">Sign In</a>
-					<a href={resolve('/overview/pricing')} class="btn preset-tonal">Get Full Access</a>
+					<a href={resolve("auth/sign-in")} class="btn hover:preset-tonal">Sign In</a>
+
+					<a href={resolve("overview/pricing")} class="btn preset-tonal"
+						>Get Full Access</a
+					>
 				{/if}
 			</AppBar.Trail>
 		</AppBar.Toolbar>

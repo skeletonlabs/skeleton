@@ -1,31 +1,31 @@
 /* The order of imports matters, do not change unless prompted to. */
 
-@import './base/globals.css';
-@import './base/theme.css';
+@import "./base/globals.css";
+@import "./base/theme.css";
 
-@import './utilities/badges.css';
-@import './utilities/buttons.css';
-@import './utilities/cards.css';
-@import './utilities/chips.css';
-@import './utilities/corner-shapes.css';
-@import './utilities/dialogs.css';
-@import './utilities/disclosures.css';
-@import './utilities/dividers.css';
-@import './utilities/masks.css';
-@import './utilities/placeholders.css';
-@import './utilities/presets.css';
-@import './utilities/tables.css';
-@import './utilities/typography.css';
-@import './utilities/form-core.css';
-@import './utilities/form-groups.css';
-@import './utilities/form-inputs.css';
-@import './utilities/form-meter.css';
-@import './utilities/form-progress.css';
-@import './utilities/form-radios-checks.css';
-@import './utilities/form-selects.css';
-@import './utilities/form-textareas.css';
+@import "./utilities/badges.css";
+@import "./utilities/buttons.css";
+@import "./utilities/cards.css";
+@import "./utilities/chips.css";
+@import "./utilities/corner-shapes.css";
+@import "./utilities/dialogs.css";
+@import "./utilities/disclosures.css";
+@import "./utilities/dividers.css";
+@import "./utilities/masks.css";
+@import "./utilities/placeholders.css";
+@import "./utilities/presets.css";
+@import "./utilities/tables.css";
+@import "./utilities/typography.css";
+@import "./utilities/form-core.css";
+@import "./utilities/form-groups.css";
+@import "./utilities/form-inputs.css";
+@import "./utilities/form-meter.css";
+@import "./utilities/form-progress.css";
+@import "./utilities/form-radios-checks.css";
+@import "./utilities/form-selects.css";
+@import "./utilities/form-textareas.css";
 
-@import './variants/index.css';
+@import "./variants/index.css";
 
-@import './keyframes/progress-circular.css';
-@import './keyframes/progress-linear.css';
+@import "./keyframes/progress-circular.css";
+@import "./keyframes/progress-linear.css";

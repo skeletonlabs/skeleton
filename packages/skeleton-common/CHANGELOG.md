@@ -1,5 +1,21 @@
 # @skeletonlabs/skeleton-common
 
+## 5.0.4
+
+### Patch Changes
+
+- bugfix: QrCode not displaying correctly on Firefox ([#4595](https://github.com/skeletonlabs/skeleton/pull/4595))
+
+## 5.0.3
+
+### Patch Changes
+
+- bugfix: invalid navigation rail gap value by adding the rem unit. ([#4576](https://github.com/skeletonlabs/skeleton/pull/4576))
+
+## 5.0.2
+
+No changes in this release.
+
 ## 5.0.1
 
 ## 5.0.0

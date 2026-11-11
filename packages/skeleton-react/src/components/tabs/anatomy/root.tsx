@@ -1,12 +1,16 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { useTabs } from '../modules/provider.js';
-import { TabsRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { splitProps } from '@zag-js/tabs';
-import type { Props } from '@zag-js/tabs';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { useTabs } from "../modules/provider.js";
+import { TabsRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { splitProps } from "@zag-js/tabs";
+import type { Props } from "@zag-js/tabs";
 
-export interface TabsRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+export interface TabsRootProps
+	extends
+		Omit<Props, "id">,
+		PropsWithElement<"div">,
+		HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {}
 
 export default function Root(props: TabsRootProps) {
 	const [tabsProps, componentProps] = splitProps(props);

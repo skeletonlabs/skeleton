@@ -1,8 +1,8 @@
-import { Listbox, useListCollection } from '../../src/index.js';
+import { Listbox, useListCollection } from "../../src/index.js";
 
 export default function Test() {
 	const collection = useListCollection({
-		items: [{ value: 'item', label: 'Item' }],
+		items: [{ value: "item", label: "Item" }],
 	});
 
 	return (

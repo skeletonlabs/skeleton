@@ -1,22 +1,23 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { ToastOptions } from './root.svelte';
-	import type { Props, Store } from '@zag-js/toast';
-	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { ToastOptions } from "./root.svelte";
+	import type { Props, Store } from "@zag-js/toast";
+	import type { Snippet } from "svelte";
 
 	export type ToastProps<T = any> = Props<T> & ToastOptions<T>;
 
-	export interface ToastGroupProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'children'> {
+	export interface ToastGroupProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir" | "children"> {
 		toaster: Store;
 		children?: Snippet<[ToastProps]>;
 	}
 </script>
 
 <script lang="ts">
-	import { ToastGroupContext } from '../modules/group-context.js';
-	import { mergeProps, normalizeProps, useMachine } from '@zag-js/svelte';
-	import { group } from '@zag-js/toast';
+	import { ToastGroupContext } from "../modules/group-context.js";
+	import { mergeProps, normalizeProps, useMachine } from "@zag-js/svelte";
+	import { group } from "@zag-js/toast";
 
 	const props: ToastGroupProps = $props();
 

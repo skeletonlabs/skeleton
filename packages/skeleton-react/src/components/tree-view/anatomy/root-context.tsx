@@ -1,7 +1,7 @@
-import type { useTreeView } from '../modules/provider.js';
-import { TreeViewRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useTreeView } from "../modules/provider.js";
+import { TreeViewRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface TreeViewRootContextProps {
 	children: (treeView: ReturnType<typeof useTreeView>) => ReactNode;

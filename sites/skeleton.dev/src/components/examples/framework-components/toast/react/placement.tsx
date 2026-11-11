@@ -1,8 +1,8 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from "@skeletonlabs/skeleton-react";
 
 export default function Placement() {
 	const toaster = createToaster({
-		placement: 'bottom-end',
+		placement: "bottom-end",
 	});
 
 	return (
@@ -11,8 +11,8 @@ export default function Placement() {
 				className="btn preset-filled"
 				onClick={() =>
 					toaster.info({
-						title: 'Title',
-						description: 'This is a description.',
+						title: "Title",
+						description: "This is a description.",
 					})
 				}
 			>

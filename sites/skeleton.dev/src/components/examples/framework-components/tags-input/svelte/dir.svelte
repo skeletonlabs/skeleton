@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { TagsInput } from '@skeletonlabs/skeleton-svelte';
+	import { TagsInput } from "@skeletonlabs/skeleton-svelte";
 </script>
 
-<TagsInput defaultValue={['Vanilla', 'Chocolate', 'Strawberry']} dir="rtl">
+<TagsInput defaultValue={["Vanilla", "Chocolate", "Strawberry"]} dir="rtl">
 	<TagsInput.Label>Label</TagsInput.Label>
 	<TagsInput.Control>
 		<TagsInput.Context>

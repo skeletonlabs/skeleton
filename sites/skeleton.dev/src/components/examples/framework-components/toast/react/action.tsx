@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from "@skeletonlabs/skeleton-react";
 
 export default function Action() {
 	const toaster = createToaster();
@@ -9,15 +9,15 @@ export default function Action() {
 				className="btn preset-filled"
 				onClick={() =>
 					toaster.info({
-						title: 'Toast',
-						description: 'This is a toast message.',
+						title: "Toast",
+						description: "This is a toast message.",
 						duration: Infinity,
 						action: {
-							label: 'Undo',
+							label: "Undo",
 							onClick: () => {
 								toaster.success({
-									title: 'Task undone',
-									description: 'The task has been undone.',
+									title: "Task undone",
+									description: "The task has been undone.",
 								});
 							},
 						},
@@ -34,7 +34,9 @@ export default function Action() {
 							<Toast.Title>{toast.title}</Toast.Title>
 							<Toast.Description>{toast.description}</Toast.Description>
 						</Toast.Message>
-						{toast.action && <Toast.ActionTrigger>{toast.action.label}</Toast.ActionTrigger>}
+						{toast.action && (
+							<Toast.ActionTrigger>{toast.action.label}</Toast.ActionTrigger>
+						)}
 						<Toast.CloseTrigger />
 					</Toast>
 				)}

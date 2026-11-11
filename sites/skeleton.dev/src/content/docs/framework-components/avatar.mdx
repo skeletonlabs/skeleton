@@ -3,30 +3,30 @@ title: Avatar
 description: An image with a fallback for representing the user.
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import DefaultReact from '@/components/examples/framework-components/avatar/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/avatar/react/default?raw';
-import FallbackReact from '@/components/examples/framework-components/avatar/react/fallback';
-import FallbackReactRaw from '@/components/examples/framework-components/avatar/react/fallback?raw';
-import FilterReact from '@/components/examples/framework-components/avatar/react/filter';
-import FilterReactRaw from '@/components/examples/framework-components/avatar/react/filter?raw';
-import DefaultSvelte from '@/components/examples/framework-components/avatar/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/avatar/svelte/default.svelte?raw';
-import FallbackSvelte from '@/components/examples/framework-components/avatar/svelte/fallback.svelte';
-import FallbackSvelteRaw from '@/components/examples/framework-components/avatar/svelte/fallback.svelte?raw';
-import FilterSvelte from '@/components/examples/framework-components/avatar/svelte/filter.svelte';
-import FilterSvelteRaw from '@/components/examples/framework-components/avatar/svelte/filter.svelte?raw';
+import DefaultReact from "@/components/examples/framework-components/avatar/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/avatar/react/default?raw";
+import FallbackReact from "@/components/examples/framework-components/avatar/react/fallback";
+import FallbackReactRaw from "@/components/examples/framework-components/avatar/react/fallback?raw";
+import FilterReact from "@/components/examples/framework-components/avatar/react/filter";
+import FilterReactRaw from "@/components/examples/framework-components/avatar/react/filter?raw";
+import DefaultSvelte from "@/components/examples/framework-components/avatar/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/avatar/svelte/default.svelte?raw";
+import FallbackSvelte from "@/components/examples/framework-components/avatar/svelte/fallback.svelte";
+import FallbackSvelteRaw from "@/components/examples/framework-components/avatar/svelte/fallback.svelte?raw";
+import FilterSvelte from "@/components/examples/framework-components/avatar/svelte/filter.svelte";
+import FilterSvelteRaw from "@/components/examples/framework-components/avatar/svelte/filter.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -36,12 +36,12 @@ import FilterSvelteRaw from '@/components/examples/framework-components/avatar/s
 Use a fallback when an image fails to load or is unavailable.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': FallbackReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": FallbackReactRaw }} client:visible>
 		<FallbackReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': FallbackSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": FallbackSvelteRaw }} client:visible>
 		<FallbackSvelte client:visible />
 	</Preview>
 </Framework>
@@ -51,12 +51,12 @@ Use a fallback when an image fails to load or is unavailable.
 Apply [SVG Filters](/docs/[framework]/guides/cookbook/svg-filters) to avatar images.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': FilterReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": FilterReactRaw }} client:visible>
 		<FilterReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': FilterSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": FilterSvelteRaw }} client:visible>
 		<FilterSvelte client:visible />
 	</Preview>
 </Framework>
@@ -68,7 +68,7 @@ Here's an overview of how the Avatar component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { Avatar } from '@skeletonlabs/skeleton-react';
+import { Avatar } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -85,7 +85,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Avatar>

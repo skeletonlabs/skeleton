@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Collapsible } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Collapsible } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/collapsible/')({
+export const Route = createFileRoute("/components/collapsible/")({
 	component: Page,
 });
 

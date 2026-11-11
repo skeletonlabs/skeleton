@@ -5,12 +5,12 @@ summary: Melt UI empowers developers to create accessible UIs that embody their 
 order: 998
 ---
 
-import accordion from '@/assets/headless/melt-ui/accordion.gif';
-import banner from '@/assets/headless/melt-ui/banner.png';
-import ProcessStep from '@/components/ui/process-step.astro';
-import Process from '@/components/ui/process.astro';
-import { resolvePath } from '@/modules/resolve-path';
-import { Image } from 'astro:assets';
+import accordion from "@/assets/headless/melt-ui/accordion.gif";
+import banner from "@/assets/headless/melt-ui/banner.png";
+import ProcessStep from "@/components/ui/process-step.astro";
+import Process from "@/components/ui/process.astro";
+import { resolvePath } from "@/modules/resolve-path";
+import { Image } from "astro:assets";
 
 <Image src={banner} alt="Melt UI Banner" class="rounded-container shadow-xl" />
 
@@ -41,7 +41,11 @@ In this guide we'll implement the following Melt UI `<Accordion>` component. Thi
 <Image src={accordion} alt="Melt UI Accordion Component" class="rounded-container shadow-xl" />
 
 <figure class="linker bg-noise bg-[#d59f6a]!">
-	<a class="btn preset-filled" href="https://next.melt-ui.com/components/accordion/" target="_blank">
+	<a
+		class="btn preset-filled"
+		href="https://next.melt-ui.com/components/accordion/"
+		target="_blank"
+	>
 		Accordion Documentation
 	</a>
 </figure>
@@ -133,7 +137,10 @@ Styling the root element.
 Styling the trigger button element.
 
 ```svelte
-<button {...item.trigger} class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left">
+<button
+	{...item.trigger}
+	class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left"
+>
 	<!-- ... -->
 </button>
 ```
@@ -161,8 +168,8 @@ Below is a complete example showing the entire component with styles, transition
 
 ```svelte
 <script lang="ts">
-	import { Accordion, type AccordionItem } from 'melt/builders';
-	import { slide } from 'svelte/transition';
+	import { Accordion, type AccordionItem } from "melt/builders";
+	import { slide } from "svelte/transition";
 
 	type Item = AccordionItem<{
 		title: string;
@@ -171,19 +178,22 @@ Below is a complete example showing the entire component with styles, transition
 
 	const items: Item[] = [
 		{
-			id: 'item-1',
-			title: 'Bulbasaur',
-			description: 'For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.',
+			id: "item-1",
+			title: "Bulbasaur",
+			description:
+				"For some time after its birth, it uses the nutrients that are packed into the seed on its back in order to grow.",
 		},
 		{
-			id: 'item-2',
-			title: 'Charmander',
-			description: 'The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.',
+			id: "item-2",
+			title: "Charmander",
+			description:
+				"The flame on its tail shows the strength of its life-force. If Charmander is weak, the flame also burns weakly.",
 		},
 		{
-			id: 'item-3',
-			title: 'Squirtle',
-			description: 'After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.',
+			id: "item-3",
+			title: "Squirtle",
+			description:
+				"After birth, its back swells and hardens into a shell. It sprays a potent foam from its mouth.",
 		},
 	];
 
@@ -194,12 +204,19 @@ Below is a complete example showing the entire component with styles, transition
 	{#each items as i, index}
 		{@const item = accordion.getItem(i)}
 		<h2 {...item.heading}>
-			<button {...item.trigger} class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left">
+			<button
+				{...item.trigger}
+				class="preset-filled-surface-200-800 hover:preset-filled-primary-500 w-full cursor-pointer p-4 text-left"
+			>
 				{item.item.title}
 			</button>
 		</h2>
 		{#if item.isExpanded}
-			<div {...item.content} class="preset-filled-surface-100-900 cursor-pointer p-4" transition:slide={{ duration: 100 }}>
+			<div
+				{...item.content}
+				class="preset-filled-surface-100-900 cursor-pointer p-4"
+				transition:slide={{ duration: 100 }}
+			>
 				{item.item.description}
 			</div>
 		{/if}

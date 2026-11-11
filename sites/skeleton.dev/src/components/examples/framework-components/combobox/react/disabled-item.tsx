@@ -1,13 +1,18 @@
-import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import {
+	Combobox,
+	Portal,
+	type ComboboxRootProps,
+	useListCollection,
+} from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 const data = [
-	{ label: 'Apple', value: 'apple' },
-	{ label: 'Banana', value: 'banana' },
-	{ label: 'Orange', value: 'orange' },
-	{ label: 'Carrot', value: 'carrot' },
-	{ label: 'Broccoli', value: 'broccoli' },
-	{ label: 'Spinach', value: 'spinach' },
+	{ label: "Apple", value: "apple" },
+	{ label: "Banana", value: "banana" },
+	{ label: "Orange", value: "orange" },
+	{ label: "Carrot", value: "carrot" },
+	{ label: "Broccoli", value: "broccoli" },
+	{ label: "Spinach", value: "spinach" },
 ];
 
 export default function Default() {
@@ -17,15 +22,17 @@ export default function Default() {
 		items: items,
 		itemToString: (item) => item.label,
 		itemToValue: (item) => item.value,
-		isItemDisabled: (item) => item.value === 'banana',
+		isItemDisabled: (item) => item.value === "banana",
 	});
 
 	const onOpenChange = () => {
 		setItems(data);
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
+	const onInputValueChange: ComboboxRootProps["onInputValueChange"] = (event) => {
+		const filtered = data.filter((item) =>
+			item.value.toLowerCase().includes(event.inputValue.toLowerCase()),
+		);
 		if (filtered.length > 0) {
 			setItems(filtered);
 		} else {

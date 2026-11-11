@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Switch } from '@skeletonlabs/skeleton-svelte';
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Switch>

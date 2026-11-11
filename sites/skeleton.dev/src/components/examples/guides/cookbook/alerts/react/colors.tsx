@@ -1,4 +1,4 @@
-import { TriangleAlertIcon } from 'lucide-react';
+import { TriangleAlertIcon } from "lucide-react";
 
 export default function Colors() {
 	return (

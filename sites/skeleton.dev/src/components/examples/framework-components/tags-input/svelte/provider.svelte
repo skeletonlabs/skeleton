@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { TagsInput, useTagsInput } from '@skeletonlabs/skeleton-svelte';
+	import { TagsInput, useTagsInput } from "@skeletonlabs/skeleton-svelte";
 
 	const id = $props.id();
 	const tagsInput = useTagsInput({
 		id,
-		defaultValue: ['Vanilla', 'Chocolate', 'Strawberry'],
+		defaultValue: ["Vanilla", "Chocolate", "Strawberry"],
 	});
 </script>
 
@@ -30,7 +30,9 @@
 	</TagsInput.Provider>
 
 	<!-- Programmatic Controls -->
-	<div class="card preset-outlined-surface-200-800 flex justify-center items-center py-4">
-		<button class="btn preset-filled" onclick={() => tagsInput().clearValue()}>Clear Tags</button>
+	<div class="card preset-outlined-surface-200-800 flex items-center justify-center py-4">
+		<button class="btn preset-filled" onclick={() => tagsInput().clearValue()}
+			>Clear Tags</button
+		>
 	</div>
 </div>

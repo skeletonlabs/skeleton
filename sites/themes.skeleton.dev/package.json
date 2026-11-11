@@ -2,6 +2,11 @@
 	"name": "@skeletonlabs/themes.skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -13,8 +18,8 @@
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-vercel": "catalog:",
-		"@sveltejs/kit": "catalog:",
+		"@sveltejs/adapter-vercel": "^7.0.0",
+		"@sveltejs/kit": "^3.0.0",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
@@ -27,6 +32,5 @@
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module"
+	}
 }

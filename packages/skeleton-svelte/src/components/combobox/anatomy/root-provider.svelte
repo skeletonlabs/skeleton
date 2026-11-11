@@ -1,16 +1,17 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { useCombobox } from '../modules/provider.svelte';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { useCombobox } from "../modules/provider.svelte";
 
-	export interface ComboboxRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'placeholder'> {
+	export interface ComboboxRootProviderProps
+		extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir" | "placeholder"> {
 		value: ReturnType<typeof useCombobox>;
 	}
 </script>
 
 <script lang="ts">
-	import { ComboboxRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { ComboboxRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ComboboxRootProviderProps = $props();
 

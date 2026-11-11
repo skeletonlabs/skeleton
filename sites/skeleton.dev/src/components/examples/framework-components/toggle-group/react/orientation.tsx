@@ -1,11 +1,11 @@
-import { ToggleGroup } from '@skeletonlabs/skeleton-react';
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react';
+import { ToggleGroup } from "@skeletonlabs/skeleton-react";
+import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
 
 export default function Orientation() {
 	return (
 		<div className="flex flex-col items-center gap-4">
 			<p>Horizontal</p>
-			<ToggleGroup defaultValue={['bold']} multiple orientation="horizontal">
+			<ToggleGroup defaultValue={["bold"]} multiple orientation="horizontal">
 				<ToggleGroup.Item value="bold">
 					<BoldIcon className="size-4" />
 				</ToggleGroup.Item>
@@ -18,7 +18,12 @@ export default function Orientation() {
 			</ToggleGroup>
 
 			<p>Vertical</p>
-			<ToggleGroup defaultValue={['bold']} multiple orientation="vertical" className="flex-col">
+			<ToggleGroup
+				defaultValue={["bold"]}
+				multiple
+				orientation="vertical"
+				className="flex-col"
+			>
 				<ToggleGroup.Item value="bold">
 					<BoldIcon className="size-4" />
 				</ToggleGroup.Item>

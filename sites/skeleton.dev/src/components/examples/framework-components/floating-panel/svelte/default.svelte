@@ -1,16 +1,16 @@
 <script>
-	import GripVerticalIcon from '@lucide/svelte/icons/grip-vertical';
-	import MaximizeIcon from '@lucide/svelte/icons/maximize';
-	import MinimizeIcon from '@lucide/svelte/icons/minimize';
-	import MinusIcon from '@lucide/svelte/icons/minus';
-	import XIcon from '@lucide/svelte/icons/x';
-	import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-svelte';
+	import GripVerticalIcon from "@lucide/svelte/icons/grip-vertical";
+	import MaximizeIcon from "@lucide/svelte/icons/maximize";
+	import MinimizeIcon from "@lucide/svelte/icons/minimize";
+	import MinusIcon from "@lucide/svelte/icons/minus";
+	import XIcon from "@lucide/svelte/icons/x";
+	import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <FloatingPanel>
 	<FloatingPanel.Trigger class="btn preset-filled">Open Panel</FloatingPanel.Trigger>
 	<Portal>
-		<FloatingPanel.Positioner class="z-50">
+		<FloatingPanel.Positioner class="z-50!">
 			<FloatingPanel.Content>
 				<FloatingPanel.DragTrigger>
 					<FloatingPanel.Header>
@@ -36,8 +36,9 @@
 				</FloatingPanel.DragTrigger>
 				<FloatingPanel.Body>
 					<p>
-						This is a floating panel that can be dragged, resized, minimized, and maximized. Try dragging from the header or resizing from
-						the bottom-right corner.
+						This is a floating panel that can be dragged, resized, minimized, and
+						maximized. Try dragging from the header or resizing from the bottom-right
+						corner.
 					</p>
 				</FloatingPanel.Body>
 				<FloatingPanel.ResizeTrigger axis="se" />

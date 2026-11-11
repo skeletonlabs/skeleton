@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ChevronRightIcon from '@lucide/svelte/icons/chevron-right';
-	import CogIcon from '@lucide/svelte/icons/cog';
-	import HouseIcon from '@lucide/svelte/icons/house';
+	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
+	import CogIcon from "@lucide/svelte/icons/cog";
+	import HouseIcon from "@lucide/svelte/icons/house";
 </script>
 
 <ol class="flex items-center gap-4">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { SegmentedControl } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <SegmentedControl defaultValue="item-1">

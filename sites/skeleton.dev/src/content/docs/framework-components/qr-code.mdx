@@ -1,37 +1,36 @@
 ---
 title: QR Code
 description: Render scannable QR codes with a frame, overlay, pattern, and download trigger.
-stability: beta
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import ClickableReact from '@/components/examples/framework-components/qr-code/react/clickable-download';
-import ClickableReactRaw from '@/components/examples/framework-components/qr-code/react/clickable-download?raw';
-import DefaultReact from '@/components/examples/framework-components/qr-code/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/qr-code/react/default?raw';
-import FrameColorsReact from '@/components/examples/framework-components/qr-code/react/frame-colors';
-import FrameColorsReactRaw from '@/components/examples/framework-components/qr-code/react/frame-colors?raw';
-import OverlayReact from '@/components/examples/framework-components/qr-code/react/overlay';
-import OverlayReactRaw from '@/components/examples/framework-components/qr-code/react/overlay?raw';
-import ClickableSvelte from '@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte';
-import ClickableSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte?raw';
-import DefaultSvelte from '@/components/examples/framework-components/qr-code/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/default.svelte?raw';
-import FrameColorsSvelte from '@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte';
-import FrameColorsSvelteRaw from '@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte?raw';
-import OverlaySvelte from '@/components/examples/framework-components/qr-code/svelte/overlay.svelte';
-import OverlaySvelteRaw from '@/components/examples/framework-components/qr-code/svelte/overlay.svelte?raw';
+import ClickableReact from "@/components/examples/framework-components/qr-code/react/clickable-download";
+import ClickableReactRaw from "@/components/examples/framework-components/qr-code/react/clickable-download?raw";
+import DefaultReact from "@/components/examples/framework-components/qr-code/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/qr-code/react/default?raw";
+import FrameColorsReact from "@/components/examples/framework-components/qr-code/react/frame-colors";
+import FrameColorsReactRaw from "@/components/examples/framework-components/qr-code/react/frame-colors?raw";
+import OverlayReact from "@/components/examples/framework-components/qr-code/react/overlay";
+import OverlayReactRaw from "@/components/examples/framework-components/qr-code/react/overlay?raw";
+import ClickableSvelte from "@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte";
+import ClickableSvelteRaw from "@/components/examples/framework-components/qr-code/svelte/clickable-download.svelte?raw";
+import DefaultSvelte from "@/components/examples/framework-components/qr-code/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/qr-code/svelte/default.svelte?raw";
+import FrameColorsSvelte from "@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte";
+import FrameColorsSvelteRaw from "@/components/examples/framework-components/qr-code/svelte/frame-colors.svelte?raw";
+import OverlaySvelte from "@/components/examples/framework-components/qr-code/svelte/overlay.svelte";
+import OverlaySvelteRaw from "@/components/examples/framework-components/qr-code/svelte/overlay.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -41,12 +40,12 @@ import OverlaySvelteRaw from '@/components/examples/framework-components/qr-code
 Use brand color for the frame and a contrasting fill for the QR pattern.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': FrameColorsReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": FrameColorsReactRaw }} client:visible>
 		<FrameColorsReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': FrameColorsSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": FrameColorsSvelteRaw }} client:visible>
 		<FrameColorsSvelte client:visible />
 	</Preview>
 </Framework>
@@ -56,12 +55,12 @@ Use brand color for the frame and a contrasting fill for the QR pattern.
 Demonstrates an overlay with an icon and a contrasting square background to separate it visually from the pattern.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': OverlayReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": OverlayReactRaw }} client:visible>
 		<OverlayReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': OverlaySvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": OverlaySvelteRaw }} client:visible>
 		<OverlaySvelte client:visible />
 	</Preview>
 </Framework>
@@ -71,12 +70,12 @@ Demonstrates an overlay with an icon and a contrasting square background to sepa
 Wrap the visual frame/pattern in the download trigger so clicking the code initiates a download.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ClickableReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ClickableReactRaw }} client:visible>
 		<ClickableReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ClickableSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ClickableSvelteRaw }} client:visible>
 		<ClickableSvelte client:visible />
 	</Preview>
 </Framework>
@@ -88,7 +87,7 @@ Here's an overview of how the QrCode component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { QrCode } from '@skeletonlabs/skeleton-react';
+import { QrCode } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -108,7 +107,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { QrCode } from '@skeletonlabs/skeleton-svelte';
+	import { QrCode } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <QrCode value="https://skeleton.dev">

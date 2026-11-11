@@ -1,10 +1,10 @@
-import { FloatingPanelRootContext } from '../modules/root-context.js';
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import { FloatingPanelRootContext } from "../modules/root-context.js";
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface FloatingPanelHeaderProps extends PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+export interface FloatingPanelHeaderProps extends PropsWithElement<"div">, HTMLAttributes<"div"> {}
 
 export default function Header(props: FloatingPanelHeaderProps) {
 	const floatingPanel = use(FloatingPanelRootContext);

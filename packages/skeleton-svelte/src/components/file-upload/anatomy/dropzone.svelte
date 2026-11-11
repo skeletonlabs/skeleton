@@ -1,14 +1,15 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
-	import type { DropzoneProps } from '@zag-js/file-upload';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
+	import type { DropzoneProps } from "@zag-js/file-upload";
 
-	export interface FileUploadDropzoneProps extends DropzoneProps, PropsWithElement<'div'>, HTMLAttributes<'div'> {}
+	export interface FileUploadDropzoneProps
+		extends DropzoneProps, PropsWithElement<"div">, HTMLAttributes<"div"> {}
 </script>
 
 <script lang="ts">
-	import { FileUploadRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import { FileUploadRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: FileUploadDropzoneProps = $props();
 

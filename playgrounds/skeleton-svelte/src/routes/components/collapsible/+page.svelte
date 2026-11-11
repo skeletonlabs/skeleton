@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Collapsible } from '@skeletonlabs/skeleton-svelte';
+	import { Collapsible } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <Collapsible>

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export default function AlertDialog() {
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -27,7 +27,9 @@ export default function AlertDialog() {
 					</h2>
 				</header>
 				<article>
-					<p id="alertdialog-description">You have unsaved changes that will be lost. This action cannot be undone.</p>
+					<p id="alertdialog-description">
+						You have unsaved changes that will be lost. This action cannot be undone.
+					</p>
 				</article>
 				<footer className="flex justify-end gap-2">
 					<button type="button" className="btn preset-tonal" onClick={closeModal}>

@@ -1,5 +1,5 @@
-import { FloatingPanel, Portal } from '@skeletonlabs/skeleton-react';
-import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from 'lucide-react';
+import { FloatingPanel, Portal } from "@skeletonlabs/skeleton-react";
+import { GripVerticalIcon, XIcon, MinusIcon, MaximizeIcon, MinimizeIcon } from "lucide-react";
 
 export default function AnchorPosition() {
 	return (
@@ -13,9 +13,11 @@ export default function AnchorPosition() {
 					};
 				}}
 			>
-				<FloatingPanel.Trigger className="btn preset-filled">Open Panel</FloatingPanel.Trigger>
+				<FloatingPanel.Trigger className="btn preset-filled">
+					Open Panel
+				</FloatingPanel.Trigger>
 				<Portal>
-					<FloatingPanel.Positioner className="z-50">
+					<FloatingPanel.Positioner className="z-50!">
 						<FloatingPanel.Content>
 							<FloatingPanel.DragTrigger>
 								<FloatingPanel.Header>
@@ -40,7 +42,9 @@ export default function AnchorPosition() {
 								</FloatingPanel.Header>
 							</FloatingPanel.DragTrigger>
 							<FloatingPanel.Body>
-								<p>This panel is centered in the viewport using getAnchorPosition.</p>
+								<p>
+									This panel is centered in the viewport using getAnchorPosition.
+								</p>
 								<p>The position is calculated based on the boundary rectangle.</p>
 							</FloatingPanel.Body>
 							<FloatingPanel.ResizeTrigger axis="se" />

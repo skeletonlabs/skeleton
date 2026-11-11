@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { FileUploadRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { FileUploadRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface FileUploadHiddenInputProps extends PropsWithElement<'input'>, Omit<HTMLAttributes<'input'>, 'children'> {}
+export interface FileUploadHiddenInputProps
+	extends PropsWithElement<"input">, Omit<HTMLAttributes<"input">, "children"> {}
 
 export default function HiddenInput(props: FileUploadHiddenInputProps) {
 	const fileUpload = use(FileUploadRootContext);

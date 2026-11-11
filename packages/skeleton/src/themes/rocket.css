@@ -1,4 +1,4 @@
-[data-theme='rocket'] {
+[data-theme="rocket"] {
 	--spacing: 0.25rem;
 	--text-scaling: 1.067;
 	--typo-base--font-family: system-ui, sans-serif;
@@ -16,7 +16,8 @@
 	--typo-base--hyphens: inherit;
 	--typo-base--text-transform: inherit;
 	--typo-heading--font-family:
-		Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
+		Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow",
+		sans-serif-condensed, sans-serif;
 	--typo-heading--color-light: inherit;
 	--typo-heading--color-dark: inherit;
 	--typo-heading--font-weight: lighter;

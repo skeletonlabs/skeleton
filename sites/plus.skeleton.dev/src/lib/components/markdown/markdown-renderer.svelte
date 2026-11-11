@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	import { createMarkdownParser } from '@comark/svelte/parse';
+	import { createMarkdownParser } from "@comark/svelte/parse";
 
 	export interface Props {
 		content: string;
@@ -20,14 +20,14 @@
 </script>
 
 <script lang="ts">
-	import * as components from './overrides/index';
-	import { MarkdownDocument } from '@comark/svelte';
-	import githubDark from '@shikijs/themes/github-dark';
-	import githubLight from '@shikijs/themes/github-light';
-	import alert from 'comark/plugins/alert';
-	import emoji from 'comark/plugins/emoji';
-	import highlight from 'comark/plugins/highlight';
-	import taskList from 'comark/plugins/task-list';
+	import * as components from "./overrides/index";
+	import { MarkdownDocument } from "@comark/svelte";
+	import githubDark from "@shikijs/themes/github-dark";
+	import githubLight from "@shikijs/themes/github-light";
+	import alert from "comark/plugins/alert";
+	import emoji from "comark/plugins/emoji";
+	import highlight from "comark/plugins/highlight";
+	import taskList from "comark/plugins/task-list";
 
 	const { content }: Props = $props();
 

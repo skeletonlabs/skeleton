@@ -1,8 +1,8 @@
 ---
 const tableData = [
-	{ first: 'Liam', last: 'Steele', email: 'liam@email.com' },
-	{ first: 'Athena', last: 'Marks', email: 'athena@email.com' },
-	{ first: 'Angela', last: 'Rivers', email: 'angela@email.com' },
+	{ first: "Liam", last: "Steele", email: "liam@email.com" },
+	{ first: "Athena", last: "Marks", email: "athena@email.com" },
+	{ first: "Angela", last: "Rivers", email: "angela@email.com" },
 ];
 ---
 
@@ -17,20 +17,18 @@ const tableData = [
 					<th>&nbsp;</th>
 				</tr>
 			</thead>
-			{
-				tableData.map((row) => (
-					<tr>
-						<td>{row.first}</td>
-						<td>{row.last}</td>
-						<td>{row.email}</td>
-						<td class="text-right">
-							<a class="btn btn-xs preset-tonal" href="#">
-								View &rarr;
-							</a>
-						</td>
-					</tr>
-				))
-			}
+			{tableData.map((row) => (
+				<tr>
+					<td>{row.first}</td>
+					<td>{row.last}</td>
+					<td>{row.email}</td>
+					<td class="text-right">
+						<a class="btn btn-xs preset-tonal" href="#">
+							View &rarr;
+						</a>
+					</td>
+				</tr>
+			))}
 		</tbody>
 	</table>
 </div>

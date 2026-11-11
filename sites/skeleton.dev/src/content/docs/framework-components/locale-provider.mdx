@@ -1,16 +1,15 @@
 ---
 title: Locale Provider
 description: Provides locale context to components for controlling reading direction.
-stability: beta
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
 
 <Framework id="react">
 
 ```tsx
-import { LocaleProvider } from '@skeletonlabs/skeleton-react';
+import { LocaleProvider } from "@skeletonlabs/skeleton-react";
 
 export default function App() {
 	return <LocaleProvider locale="en-US">{/* your app */}</LocaleProvider>;
@@ -22,7 +21,7 @@ export default function App() {
 
 ```svelte
 <script lang="ts">
-	import { LocaleProvider } from '@skeletonlabs/skeleton-svelte';
+	import { LocaleProvider } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <LocaleProvider locale="en-US">
@@ -39,7 +38,7 @@ Here's an overview of how the LocaleProvider component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { LocaleProvider } from '@skeletonlabs/skeleton-react';
+import { LocaleProvider } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return <LocaleProvider></LocaleProvider>;
@@ -51,7 +50,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { LocaleProvider } from '@skeletonlabs/skeleton-svelte';
+	import { LocaleProvider } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <LocaleProvider></LocaleProvider>

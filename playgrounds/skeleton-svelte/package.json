@@ -2,6 +2,11 @@
 	"name": "@skeletonlabs/playground-skeleton-svelte",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -11,8 +16,8 @@
 		"@lucide/svelte": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-auto": "catalog:",
-		"@sveltejs/kit": "catalog:",
+		"@sveltejs/adapter-auto": "^8.0.0",
+		"@sveltejs/kit": "^3.0.0",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
@@ -22,6 +27,5 @@
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module"
+	}
 }

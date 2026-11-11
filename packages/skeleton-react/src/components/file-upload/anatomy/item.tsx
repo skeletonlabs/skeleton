@@ -1,13 +1,14 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { FileUploadItemContext } from '../modules/item-context.js';
-import { FileUploadRootContext } from '../modules/root-context.js';
-import { splitItemProps } from '@zag-js/file-upload';
-import type { ItemProps } from '@zag-js/file-upload';
-import { mergeProps } from '@zag-js/react';
-import { use } from 'react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { FileUploadItemContext } from "../modules/item-context.js";
+import { FileUploadRootContext } from "../modules/root-context.js";
+import { splitItemProps } from "@zag-js/file-upload";
+import type { ItemProps } from "@zag-js/file-upload";
+import { mergeProps } from "@zag-js/react";
+import { use } from "react";
 
-export interface FileUploadItemProps extends ItemProps, PropsWithElement<'li'>, HTMLAttributes<'li'> {}
+export interface FileUploadItemProps
+	extends ItemProps, PropsWithElement<"li">, HTMLAttributes<"li"> {}
 
 export default function Item(props: FileUploadItemProps) {
 	const fileUpload = use(FileUploadRootContext);

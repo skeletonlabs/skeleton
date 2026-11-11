@@ -22,10 +22,10 @@ This repository contains implementations for multiple frameworks. Unless otherwi
 Use existing components as implementation references:
 
 - Static / non-machine component:
-  - `packages/<framework>/src/components/app-bar/index.ts`
+    - `packages/<framework>/src/components/app-bar/index.ts`
 
 - Machine-backed component:
-  - `packages/<framework>/src/components/accordion/index.ts`
+    - `packages/<framework>/src/components/accordion/index.ts`
 
 ### Framework Packages
 
@@ -82,9 +82,9 @@ Based on the existing `app-bar`, `accordion`, and `dialog` implementations.
 ### Naming
 
 - Folder names use kebab-case:
-  - `app-bar`
+    - `app-bar`
 - Exported namespaces use PascalCase:
-  - `AppBar`
+    - `AppBar`
 
 ### File organization
 
@@ -198,9 +198,9 @@ Add tests for every framework package.
 #### Test files
 
 - Fixture:
-  - `packages/<framework>/test/components/<component>.<ext>`
+    - `packages/<framework>/test/components/<component>.<ext>`
 - Suite:
-  - `packages/<framework>/test/components/<component>.test.<ext>`
+    - `packages/<framework>/test/components/<component>.test.<ext>`
 
 ### Test coverage requirements
 

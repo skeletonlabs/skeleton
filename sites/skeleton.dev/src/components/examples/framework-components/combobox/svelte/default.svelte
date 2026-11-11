@@ -1,13 +1,18 @@
 <script lang="ts">
-	import { Combobox, Portal, type ComboboxRootProps, useListCollection } from '@skeletonlabs/skeleton-svelte';
+	import {
+		Combobox,
+		Portal,
+		type ComboboxRootProps,
+		useListCollection,
+	} from "@skeletonlabs/skeleton-svelte";
 
 	const data = [
-		{ label: 'Apple', value: 'apple' },
-		{ label: 'Banana', value: 'banana' },
-		{ label: 'Orange', value: 'orange' },
-		{ label: 'Carrot', value: 'carrot' },
-		{ label: 'Broccoli', value: 'broccoli' },
-		{ label: 'Spinach', value: 'spinach' },
+		{ label: "Apple", value: "apple" },
+		{ label: "Banana", value: "banana" },
+		{ label: "Orange", value: "orange" },
+		{ label: "Carrot", value: "carrot" },
+		{ label: "Broccoli", value: "broccoli" },
+		{ label: "Spinach", value: "spinach" },
 	];
 
 	let items = $state(data);
@@ -24,8 +29,10 @@
 		items = data;
 	};
 
-	const onInputValueChange: ComboboxRootProps['onInputValueChange'] = (event) => {
-		const filtered = data.filter((item) => item.value.toLowerCase().includes(event.inputValue.toLowerCase()));
+	const onInputValueChange: ComboboxRootProps["onInputValueChange"] = (event) => {
+		const filtered = data.filter((item) =>
+			item.value.toLowerCase().includes(event.inputValue.toLowerCase()),
+		);
 		if (filtered.length > 0) {
 			items = filtered;
 		} else {

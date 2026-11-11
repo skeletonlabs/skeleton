@@ -2,6 +2,11 @@
 	"name": "@skeletonlabs/plus.skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -18,8 +23,7 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
-		"@comark/svelte": "^0.6.0",
-		"comark": "^0.6.0",
+		"@comark/svelte": "^0.9.0",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
@@ -30,8 +34,8 @@
 		"@shikijs/types": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-vercel": "catalog:",
-		"@sveltejs/kit": "catalog:",
+		"@sveltejs/adapter-vercel": "^7.0.0",
+		"@sveltejs/kit": "^3.0.0",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
@@ -39,9 +43,11 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"better-auth": "catalog:",
+		"comark": "^0.9.0",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"lightningcss": "catalog:",
+		"lucide-react": "catalog:",
 		"neverthrow": "catalog:",
 		"playwright": "catalog:",
 		"postgres": "catalog:",
@@ -53,6 +59,5 @@
 		"unplugin-icons": "catalog:",
 		"valibot": "catalog:",
 		"vite": "catalog:"
-	},
-	"type": "module"
+	}
 }

@@ -1,4 +1,4 @@
-import { Toast, createToaster } from '@skeletonlabs/skeleton-react';
+import { Toast, createToaster } from "@skeletonlabs/skeleton-react";
 
 export default function Type() {
 	const toaster = createToaster();
@@ -10,8 +10,8 @@ export default function Type() {
 					className="btn preset-filled"
 					onClick={() =>
 						toaster.info({
-							title: 'Info',
-							description: 'This is an info toast.',
+							title: "Info",
+							description: "This is an info toast.",
 						})
 					}
 				>
@@ -21,8 +21,8 @@ export default function Type() {
 					className="btn preset-filled-success-500"
 					onClick={() =>
 						toaster.success({
-							title: 'Success',
-							description: 'This is a success toast.',
+							title: "Success",
+							description: "This is a success toast.",
 						})
 					}
 				>
@@ -32,8 +32,8 @@ export default function Type() {
 					className="btn preset-filled-warning-500"
 					onClick={() =>
 						toaster.warning({
-							title: 'Warning',
-							description: 'This is a warning toast.',
+							title: "Warning",
+							description: "This is a warning toast.",
 						})
 					}
 				>
@@ -43,8 +43,8 @@ export default function Type() {
 					className="btn preset-filled-error-500"
 					onClick={() =>
 						toaster.error({
-							title: 'Error',
-							description: 'This is an error toast.',
+							title: "Error",
+							description: "This is an error toast.",
 						})
 					}
 				>

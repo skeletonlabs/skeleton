@@ -1,5 +1,5 @@
-import { Switch } from '@skeletonlabs/skeleton-react';
-import { useState } from 'react';
+import { Switch } from "@skeletonlabs/skeleton-react";
+import { useState } from "react";
 
 export default function Default() {
 	const [checked, setChecked] = useState(false);

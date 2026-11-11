@@ -1,10 +1,10 @@
 <script lang="ts">
-	import BoldIcon from '@lucide/svelte/icons/bold';
-	import ItalicIcon from '@lucide/svelte/icons/italic';
-	import UnderlineIcon from '@lucide/svelte/icons/underline';
-	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import BoldIcon from "@lucide/svelte/icons/bold";
+	import ItalicIcon from "@lucide/svelte/icons/italic";
+	import UnderlineIcon from "@lucide/svelte/icons/underline";
+	import { ToggleGroup } from "@skeletonlabs/skeleton-svelte";
 
-	let value = $state(['bold']);
+	let value = $state(["bold"]);
 </script>
 
 <div class="flex flex-col items-center gap-4">
@@ -21,5 +21,8 @@
 	</ToggleGroup>
 
 	<!-- Message -->
-	<p><span class="opacity-60">You selected</span> <code class="code">{value.length > 0 ? value.join(', ') : 'none'}</code></p>
+	<p>
+		<span class="opacity-60">You selected</span>
+		<code class="code">{value.length > 0 ? value.join(", ") : "none"}</code>
+	</p>
 </div>

@@ -1,5 +1,5 @@
-import type { Session, User } from 'better-auth';
-import 'unplugin-icons/types/svelte';
+import type { Session, User } from "better-auth";
+import "unplugin-icons/types/svelte";
 
 declare global {
 	namespace App {

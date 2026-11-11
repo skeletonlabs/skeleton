@@ -1,7 +1,7 @@
-import type { useProgress } from '../modules/provider.js';
-import { ProgressRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { useProgress } from "../modules/provider.js";
+import { ProgressRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface ProgressRootContextProps {
 	children: (progress: ReturnType<typeof useProgress>) => ReactNode;

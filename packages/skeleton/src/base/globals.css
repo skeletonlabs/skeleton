@@ -24,7 +24,11 @@
 		/* Mobile Tap Highlight Color (WebKit only) --- */
 		/* IMPORTANT: this is useful for mobile accessibility. */
 		/* https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color */
-		-webkit-tap-highlight-color: color-mix(in oklab, var(--color-surface-50-950) 30%, transparent);
+		-webkit-tap-highlight-color: color-mix(
+			in oklab,
+			var(--color-surface-50-950) 30%,
+			transparent
+		);
 	}
 
 	html {
@@ -52,7 +56,11 @@
 	/* Selection --- */
 	/* https://developer.mozilla.org/en-US/docs/Web/CSS/::selection */
 	::selection {
-		background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%, transparent);
+		background-color: color-mix(
+			in oklab,
+			light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%,
+			transparent
+		);
 	}
 
 	/* Disabled State --- */

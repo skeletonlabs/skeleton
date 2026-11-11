@@ -1,11 +1,11 @@
 // Import v3 Theme File
 // Read a legacy v3-format theme file (stable naming across Skeleton v3/v4), migrates its
 // property names to v5, then updates local generator state.
-import * as constants from '$lib/constants/generator';
-import { settingsCore } from '$lib/state/generator.svelte';
-import { genColorRamp } from '$lib/utils/generator/colors';
-import { applyThemeProperties, parseThemeProperties } from '$lib/utils/importer/import-theme-v5';
-import { migrateLegacyThemeKeys } from '$lib/utils/importer/migrate-legacy-keys';
+import * as constants from "#lib/constants/generator.ts";
+import { settingsCore } from "#lib/state/generator.svelte.ts";
+import { genColorRamp } from "#lib/utils/generator/colors.ts";
+import { applyThemeProperties, parseThemeProperties } from "#lib/utils/importer/import-theme-v5.ts";
+import { migrateLegacyThemeKeys } from "#lib/utils/importer/migrate-legacy-keys.ts";
 
 export async function importThemeV3(fileText: string, fileName: string) {
 	const properties = parseThemeProperties(fileText);
@@ -13,7 +13,7 @@ export async function importThemeV3(fileText: string, fileName: string) {
 
 	// Set Generator State ---
 	if (fileName) {
-		settingsCore.name = fileName.split('.')[0];
+		settingsCore.name = fileName.split(".")[0];
 	} // before .css
 	applyThemeProperties(migratedProperties);
 

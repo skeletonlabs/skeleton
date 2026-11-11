@@ -1,97 +1,97 @@
-import Combobox from './combobox.jsx';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { page } from 'vitest/browser';
+import Combobox from "./combobox.jsx";
+import { describe, expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { page } from "vitest/browser";
 
-describe('Combobox', () => {
-	describe('Root', () => {
-		it('renders', async () => {
+describe("Combobox", () => {
+	describe("Root", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('root')).toBeInTheDocument();
+			await expect.element(page.getByTestId("root")).toBeInTheDocument();
 		});
 	});
 
-	describe('Label', () => {
-		it('renders', async () => {
+	describe("Label", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Control', () => {
-		it('renders', async () => {
+	describe("Control", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('control')).toBeInTheDocument();
+			await expect.element(page.getByTestId("control")).toBeInTheDocument();
 		});
 	});
 
-	describe('Input', () => {
-		it('renders', async () => {
+	describe("Input", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('input')).toBeInTheDocument();
+			await expect.element(page.getByTestId("input")).toBeInTheDocument();
 		});
 	});
 
-	describe('Trigger', () => {
-		it('renders', async () => {
+	describe("Trigger", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('ClearTrigger', () => {
-		it('renders', async () => {
+	describe("ClearTrigger", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('clear-trigger')).toBeInTheDocument();
+			await expect.element(page.getByTestId("clear-trigger")).toBeInTheDocument();
 		});
 	});
 
-	describe('Positioner', () => {
-		it('renders', async () => {
+	describe("Positioner", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('positioner')).toBeInTheDocument();
+			await expect.element(page.getByTestId("positioner")).toBeInTheDocument();
 		});
 	});
 
-	describe('Content', () => {
-		it('renders', async () => {
+	describe("Content", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('content')).toBeInTheDocument();
+			await expect.element(page.getByTestId("content")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemGroup', () => {
-		it('renders', async () => {
+	describe("ItemGroup", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('item-group')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-group")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemGroupLabel', () => {
-		it('renders', async () => {
+	describe("ItemGroupLabel", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('item-group-label')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-group-label")).toBeInTheDocument();
 		});
 	});
 
-	describe('Item', () => {
-		it('renders', async () => {
+	describe("Item", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('item')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemText', () => {
-		it('renders', async () => {
+	describe("ItemText", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('item-text')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-text")).toBeInTheDocument();
 		});
 	});
 
-	describe('ItemIndicator', () => {
-		it('renders', async () => {
+	describe("ItemIndicator", () => {
+		it("renders", async () => {
 			await render(<Combobox />);
-			await expect.element(page.getByTestId('item-indicator')).toBeInTheDocument();
+			await expect.element(page.getByTestId("item-indicator")).toBeInTheDocument();
 		});
 	});
 });

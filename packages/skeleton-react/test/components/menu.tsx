@@ -1,4 +1,4 @@
-import { Menu } from '../../src/index.js';
+import { Menu } from "../../src/index.js";
 
 export default function Test() {
 	return (
@@ -17,7 +17,12 @@ export default function Test() {
 							<Menu.ItemText data-testid="item-text" />
 							<Menu.ItemIndicator data-testid="item-indicator" />
 						</Menu.Item>
-						<Menu.OptionItem value="option-item" data-testid="option-item" type="checkbox" checked={false}>
+						<Menu.OptionItem
+							value="option-item"
+							data-testid="option-item"
+							type="checkbox"
+							checked={false}
+						>
 							<Menu.ItemText data-testid="item-text" />
 							<Menu.ItemIndicator data-testid="item-indicator" />
 						</Menu.OptionItem>

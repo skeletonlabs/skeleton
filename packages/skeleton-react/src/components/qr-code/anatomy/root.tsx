@@ -1,11 +1,15 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import { splitProps, type Props } from '@zag-js/qr-code';
-import { mergeProps } from '@zag-js/react';
-import { useQrCode } from '../modules/provider.js';
-import { QrCodeRootContext } from '../modules/root-context.js';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import { splitProps, type Props } from "@zag-js/qr-code";
+import { mergeProps } from "@zag-js/react";
+import { useQrCode } from "../modules/provider.js";
+import { QrCodeRootContext } from "../modules/root-context.js";
 
-export interface QrCodeRootProps extends Omit<Props, 'id'>, PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir' | 'defaultValue'> {}
+export interface QrCodeRootProps
+	extends
+		Omit<Props, "id">,
+		PropsWithElement<"div">,
+		HTMLAttributes<"div", "id" | "dir" | "defaultValue"> {}
 
 export default function Root(props: QrCodeRootProps) {
 	const [qrCodeProps, componentProps] = splitProps(props);

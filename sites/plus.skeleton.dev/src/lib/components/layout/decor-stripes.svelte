@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
-	import type { ClassValue } from 'svelte/elements';
+	import type { Snippet } from "svelte";
+	import type { ClassValue } from "svelte/elements";
 
 	interface Props {
 		class?: ClassValue;
@@ -10,7 +10,7 @@
 	let { class: classList, children }: Props = $props();
 </script>
 
-<section class={['stripes', classList]}>
+<section class={["stripes", classList]}>
 	{@render children?.()}
 </section>
 
@@ -20,7 +20,7 @@
 		isolation: isolate;
 	}
 	.stripes::before {
-		content: '';
+		content: "";
 		position: absolute;
 		inset: 0;
 		z-index: -1;

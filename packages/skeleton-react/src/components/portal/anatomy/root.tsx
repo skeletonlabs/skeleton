@@ -1,5 +1,5 @@
-import { Children, type PropsWithChildren } from 'react';
-import { createPortal } from 'react-dom';
+import { Children, type PropsWithChildren } from "react";
+import { createPortal } from "react-dom";
 
 export interface PortalRootProps extends Required<PropsWithChildren> {
 	/**
@@ -17,7 +17,11 @@ export interface PortalRootProps extends Required<PropsWithChildren> {
 }
 
 export default function Root(props: PortalRootProps) {
-	const { children, disabled = false, target = typeof window === 'undefined' ? undefined : document.body } = props;
+	const {
+		children,
+		disabled = false,
+		target = typeof window === "undefined" ? undefined : document.body,
+	} = props;
 	if (disabled || !target) {
 		return <>{children}</>;
 	}

@@ -1,5 +1,5 @@
-import { query } from '$app/server';
-import * as v from 'valibot';
+import { query } from "$app/server";
+import * as v from "valibot";
 
 // Types ---
 
@@ -36,30 +36,44 @@ export interface Block {
 // Data ---
 
 const frameworkList: Framework[] = [
-	{ key: 'react', label: 'React' },
-	{ key: 'svelte', label: 'Svelte' },
+	{ key: "react", label: "React" },
+	{ key: "svelte", label: "Svelte" },
 ];
 
-const freeMetaModules = import.meta.glob('../../content/free/blocks/**/meta.json', { eager: true });
-const premiumMetaModules = import.meta.glob('../../content/premium/blocks/**/meta.json', { eager: true });
+const freeMetaModules = import.meta.glob("../../content/free/blocks/**/meta.json", { eager: true });
+const premiumMetaModules = import.meta.glob("../../content/premium/blocks/**/meta.json", {
+	eager: true,
+});
 
-const freeReactSources = import.meta.glob('../../content/free/blocks/**/react/*.tsx', { query: '?raw', import: 'default' });
-const freeSvelteSources = import.meta.glob('../../content/free/blocks/**/svelte/*.svelte', { query: '?raw', import: 'default' });
-const premiumReactSources = import.meta.glob('../../content/premium/blocks/**/react/*.tsx', { query: '?raw', import: 'default' });
-const premiumSvelteSources = import.meta.glob('../../content/premium/blocks/**/svelte/*.svelte', { query: '?raw', import: 'default' });
+const freeReactSources = import.meta.glob("../../content/free/blocks/**/react/*.tsx", {
+	query: "?raw",
+	import: "default",
+});
+const freeSvelteSources = import.meta.glob("../../content/free/blocks/**/svelte/*.svelte", {
+	query: "?raw",
+	import: "default",
+});
+const premiumReactSources = import.meta.glob("../../content/premium/blocks/**/react/*.tsx", {
+	query: "?raw",
+	import: "default",
+});
+const premiumSvelteSources = import.meta.glob("../../content/premium/blocks/**/svelte/*.svelte", {
+	query: "?raw",
+	import: "default",
+});
 
 // Helpers ---
 
 /** Converts a kebab-case slug to a title case display label. */
 function slugToLabel(slug: string): string {
-	return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+	return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /** Extracts the category and block name from a glob path of the form, ex: `.../blocks/{category}/{name}/...`. */
 function parseCategoryAndName(path: string): { category: string; name: string } | null {
-	const afterBlocks = path.split('/blocks/')[1];
+	const afterBlocks = path.split("/blocks/")[1];
 	if (!afterBlocks) return null;
-	const parts = afterBlocks.split('/');
+	const parts = afterBlocks.split("/");
 	if (parts.length < 2) return null;
 	return { category: parts[0], name: parts[1] };
 }
@@ -83,14 +97,20 @@ function buildBlockCategories(
 		const { category, name } = parsed;
 		result[category] ??= new Map();
 		const meta = (mod as { default: { description: string; iconName: string } }).default;
-		result[category].set(name, { slug: name, label: slugToLabel(name), meta, react: 0, svelte: 0 });
+		result[category].set(name, {
+			slug: name,
+			label: slugToLabel(name),
+			meta,
+			react: 0,
+			svelte: 0,
+		});
 	}
 
 	// Pass 2: increment framework counters by scanning source file paths.
 	// Falls back to a blank entry if a source file has no corresponding meta.json.
 	for (const [files, field] of [
-		[reactModules, 'react'],
-		[svelteModules, 'svelte'],
+		[reactModules, "react"],
+		[svelteModules, "svelte"],
 	] as const) {
 		for (const path of Object.keys(files)) {
 			const parsed = parseCategoryAndName(path);
@@ -100,7 +120,7 @@ function buildBlockCategories(
 			const entry = result[category].get(name) ?? {
 				slug: name,
 				label: slugToLabel(name),
-				meta: { description: '', iconName: '' },
+				meta: { description: "", iconName: "" },
 				react: 0,
 				svelte: 0,
 			};
@@ -110,7 +130,9 @@ function buildBlockCategories(
 	}
 
 	// Flatten each Map to a plain array.
-	return Object.fromEntries(Object.entries(result).map(([cat, map]) => [cat, Array.from(map.values())]));
+	return Object.fromEntries(
+		Object.entries(result).map(([cat, map]) => [cat, Array.from(map.values())]),
+	);
 }
 
 /**
@@ -132,9 +154,9 @@ async function buildBlockExamples(
 	return Promise.all(
 		paths.map(async (path) => {
 			const code = (await sources[path]()) as string;
-			const filename = path.split('/').pop()!;
+			const filename = path.split("/").pop()!;
 			// Strip numeric ordering prefix (e.g. "001-") and file extension to get a slug.
-			const slug = filename.replace(/\.\w+$/, '').replace(/^\d+-/, '');
+			const slug = filename.replace(/\.\w+$/, "").replace(/^\d+-/, "");
 			const title = slugToLabel(slug);
 			return { title, code, lang, isPremium, path };
 		}),
@@ -150,11 +172,22 @@ export const getFrameworks = query(async (): Promise<Framework[]> => {
 
 /** Get all block groups, merging free and premium content into a unified category list. */
 export const getBlocks = query(async (): Promise<BlockGroup[]> => {
-	const blockCategoriesFree = buildBlockCategories(freeMetaModules, freeReactSources, freeSvelteSources);
-	const blockCategoriesPremium = buildBlockCategories(premiumMetaModules, premiumReactSources, premiumSvelteSources);
+	const blockCategoriesFree = buildBlockCategories(
+		freeMetaModules,
+		freeReactSources,
+		freeSvelteSources,
+	);
+	const blockCategoriesPremium = buildBlockCategories(
+		premiumMetaModules,
+		premiumReactSources,
+		premiumSvelteSources,
+	);
 
 	// Union of all category slugs across both tiers.
-	const allKeys = new Set([...Object.keys(blockCategoriesFree), ...Object.keys(blockCategoriesPremium)]);
+	const allKeys = new Set([
+		...Object.keys(blockCategoriesFree),
+		...Object.keys(blockCategoriesPremium),
+	]);
 	const groups: BlockGroup[] = [];
 
 	for (const key of allKeys) {
@@ -181,30 +214,39 @@ export const getBlocks = query(async (): Promise<BlockGroup[]> => {
 });
 
 /** Get the full details and all code examples for a single block. */
-export const getBlock = query(v.object({ category: v.string(), block: v.string() }), async ({ category, block }) => {
-	// Prefer free meta; fall back to premium for premium-only blocks.
-	const metaPath =
-		Object.keys(freeMetaModules).find((p) => p.includes(`/blocks/${category}/${block}/`)) ??
-		Object.keys(premiumMetaModules).find((p) => p.includes(`/blocks/${category}/${block}/`));
-	const meta = metaPath
-		? ((freeMetaModules[metaPath] ?? premiumMetaModules[metaPath]) as { default: { description: string; iconName: string } }).default
-		: { description: '', iconName: '' };
+export const getBlock = query(
+	v.object({ category: v.string(), block: v.string() }),
+	async ({ category, block }) => {
+		// Prefer free meta; fall back to premium for premium-only blocks.
+		const metaPath =
+			Object.keys(freeMetaModules).find((p) => p.includes(`/blocks/${category}/${block}/`)) ??
+			Object.keys(premiumMetaModules).find((p) =>
+				p.includes(`/blocks/${category}/${block}/`),
+			);
+		const meta = metaPath
+			? (
+					(freeMetaModules[metaPath] ?? premiumMetaModules[metaPath]) as {
+						default: { description: string; iconName: string };
+					}
+				).default
+			: { description: "", iconName: "" };
 
-	// Fetch all four source sets in parallel, then merge by framework.
-	const [freeReact, freeSvelte, premiumReact, premiumSvelte] = await Promise.all([
-		buildBlockExamples(category, block, freeReactSources, 'tsx', false),
-		buildBlockExamples(category, block, freeSvelteSources, 'svelte', false),
-		buildBlockExamples(category, block, premiumReactSources, 'tsx', true),
-		buildBlockExamples(category, block, premiumSvelteSources, 'svelte', true),
-	]);
+		// Fetch all four source sets in parallel, then merge by framework.
+		const [freeReact, freeSvelte, premiumReact, premiumSvelte] = await Promise.all([
+			buildBlockExamples(category, block, freeReactSources, "tsx", false),
+			buildBlockExamples(category, block, freeSvelteSources, "svelte", false),
+			buildBlockExamples(category, block, premiumReactSources, "tsx", true),
+			buildBlockExamples(category, block, premiumSvelteSources, "svelte", true),
+		]);
 
-	return {
-		slug: block,
-		label: slugToLabel(block),
-		meta,
-		examples: {
-			react: [...freeReact, ...premiumReact],
-			svelte: [...freeSvelte, ...premiumSvelte],
-		} as Record<string, Block[]>,
-	};
-});
+		return {
+			slug: block,
+			label: slugToLabel(block),
+			meta,
+			examples: {
+				react: [...freeReact, ...premiumReact],
+				svelte: [...freeSvelte, ...premiumSvelte],
+			} as Record<string, Block[]>,
+		};
+	},
+);

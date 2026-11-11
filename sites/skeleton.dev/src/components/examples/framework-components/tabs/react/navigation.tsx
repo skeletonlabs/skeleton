@@ -6,11 +6,11 @@
  * - Replace `onValueChange={(details) => setUrl(details.value)}` with `navigate((details) => navigate(details.value))` using your framework's navigation method.
  */
 
-import { Tabs } from '@skeletonlabs/skeleton-react';
-import { useState, type ComponentProps } from 'react';
+import { Tabs } from "@skeletonlabs/skeleton-react";
+import { useState, type ComponentProps } from "react";
 
 export default function Navigation() {
-	const [url, setUrl] = useState('#overview');
+	const [url, setUrl] = useState("#overview");
 
 	return (
 		<Tabs value={url} onValueChange={(details) => setUrl(details.value)}>
@@ -18,7 +18,7 @@ export default function Navigation() {
 				<Tabs.Trigger
 					value="#overview"
 					element={(attributes) => (
-						<a {...(attributes as ComponentProps<'a'>)} href="#overview">
+						<a {...(attributes as ComponentProps<"a">)} href="#overview">
 							Overview
 						</a>
 					)}
@@ -26,7 +26,7 @@ export default function Navigation() {
 				<Tabs.Trigger
 					value="#key-features"
 					element={(attributes) => (
-						<a {...(attributes as ComponentProps<'a'>)} href="#key-features">
+						<a {...(attributes as ComponentProps<"a">)} href="#key-features">
 							Key Features
 						</a>
 					)}
@@ -34,7 +34,7 @@ export default function Navigation() {
 				<Tabs.Trigger
 					value="#activity"
 					element={(attributes) => (
-						<a {...(attributes as ComponentProps<'a'>)} href="#activity">
+						<a {...(attributes as ComponentProps<"a">)} href="#activity">
 							Activity
 						</a>
 					)}
@@ -42,16 +42,16 @@ export default function Navigation() {
 				<Tabs.Indicator />
 			</Tabs.List>
 			<Tabs.Content value="#overview">
-				A concise overview of the project: usage, goals, and recent highlights. Use this area to orient readers with key metrics and links
-				to deeper docs.
+				A concise overview of the project: usage, goals, and recent highlights. Use this
+				area to orient readers with key metrics and links to deeper docs.
 			</Tabs.Content>
 			<Tabs.Content value="#key-features">
-				List the most important features here with short, pragmatic descriptions so readers can scan for what matters (accessibility,
-				theming, integrations).
+				List the most important features here with short, pragmatic descriptions so readers
+				can scan for what matters (accessibility, theming, integrations).
 			</Tabs.Content>
 			<Tabs.Content value="#activity">
-				Show recent activity or sample data: new releases, PRs merged, or notable user events. This helps examples feel realistic and
-				actionable.
+				Show recent activity or sample data: new releases, PRs merged, or notable user
+				events. This helps examples feel realistic and actionable.
 			</Tabs.Content>
 		</Tabs>
 	);

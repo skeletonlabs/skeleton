@@ -1,7 +1,7 @@
-import type { usePagination } from '../modules/provider.js';
-import { PaginationRootContext as RootContext_ } from '../modules/root-context.js';
-import { use } from 'react';
-import type { ReactNode } from 'react';
+import type { usePagination } from "../modules/provider.js";
+import { PaginationRootContext as RootContext_ } from "../modules/root-context.js";
+import { use } from "react";
+import type { ReactNode } from "react";
 
 export interface PaginationRootContextProps {
 	children: (pagination: ReturnType<typeof usePagination>) => ReactNode;

@@ -1,7 +1,7 @@
 // Color Utilities
-import * as constants from '$lib/constants/generator';
-import { settingsColors } from '$lib/state/generator.svelte';
-import chroma from 'chroma-js';
+import * as constants from "#lib/constants/generator.ts";
+import { settingsColors } from "#lib/state/generator.svelte.ts";
+import chroma from "chroma-js";
 
 // Common ---
 
@@ -9,9 +9,9 @@ import chroma from 'chroma-js';
 function genColorScale(colorHigh: string, colorMed: string, colorLow: string) {
 	return chroma
 		.scale([
-			chroma.valid(colorHigh) ? chroma(colorHigh) : '#FFFFFF',
-			chroma.valid(colorMed) ? chroma(colorMed) : '#CCCCCC',
-			chroma.valid(colorLow) ? chroma(colorLow) : '#000000',
+			chroma.valid(colorHigh) ? chroma(colorHigh) : "#FFFFFF",
+			chroma.valid(colorMed) ? chroma(colorMed) : "#CCCCCC",
+			chroma.valid(colorLow) ? chroma(colorLow) : "#000000",
 		])
 		.colors(11);
 }
@@ -22,31 +22,31 @@ export function getColorKey(var1: string, var2: string): keyof typeof settingsCo
 
 function genColorContrast(colorName: string, shade: string, targetShade: string) {
 	const paletteShade = settingsColors[targetShade as keyof typeof settingsColors];
-	let contrastLight = settingsColors[getColorKey(colorName, 'contrast-light')];
-	let contrastDark = settingsColors[getColorKey(colorName, 'contrast-dark')];
+	let contrastLight = settingsColors[getColorKey(colorName, "contrast-light")];
+	let contrastDark = settingsColors[getColorKey(colorName, "contrast-dark")];
 
 	// Strip wrapping `var()`
-	if (contrastLight.includes('var')) {
-		contrastLight = contrastLight.replace('var(', '').replace(')', '');
+	if (contrastLight.includes("var")) {
+		contrastLight = contrastLight.replace("var(", "").replace(")", "");
 	}
-	if (contrastDark.includes('var')) {
-		contrastDark = contrastDark.replace('var(', '').replace(')', '');
+	if (contrastDark.includes("var")) {
+		contrastDark = contrastDark.replace("var(", "").replace(")", "");
 	}
 
 	// Get Raw Hex
-	if (!contrastLight.includes('inherit')) {
+	if (!contrastLight.includes("inherit")) {
 		// If CSS Custom Property
-		if (contrastLight.includes('255 255 255')) {
-			contrastLight = '#FFFFFF';
+		if (contrastLight.includes("255 255 255")) {
+			contrastLight = "#FFFFFF";
 		}
-		if (contrastDark.includes('0 0 0')) {
-			contrastDark = '#000000';
+		if (contrastDark.includes("0 0 0")) {
+			contrastDark = "#000000";
 		}
 		// If White or Black
-		if (contrastLight.includes('--')) {
+		if (contrastLight.includes("--")) {
 			contrastLight = settingsColors[contrastLight as keyof typeof settingsColors];
 		}
-		if (contrastDark.includes('--')) {
+		if (contrastDark.includes("--")) {
 			contrastDark = settingsColors[contrastDark as keyof typeof settingsColors];
 		}
 	}
@@ -57,9 +57,11 @@ function genColorContrast(colorName: string, shade: string, targetShade: string)
 
 	// Set State
 	if (contrastRatioLight > contrastRatioDark) {
-		settingsColors[getColorKey(colorName, `contrast-${shade}`)] = `var(--color-${colorName}-contrast-light)`;
+		settingsColors[getColorKey(colorName, `contrast-${shade}`)] =
+			`var(--color-${colorName}-contrast-light)`;
 	} else {
-		settingsColors[getColorKey(colorName, `contrast-${shade}`)] = `var(--color-${colorName}-contrast-dark)`;
+		settingsColors[getColorKey(colorName, `contrast-${shade}`)] =
+			`var(--color-${colorName}-contrast-dark)`;
 	}
 }
 
@@ -81,9 +83,9 @@ export function genColorRamp(disabled: boolean, colorName: string) {
 	if (disabled) {
 		return;
 	}
-	const shade50 = settingsColors[getColorKey(colorName, '50')];
-	const shade500 = settingsColors[getColorKey(colorName, '500')];
-	const shade950 = settingsColors[getColorKey(colorName, '950')];
+	const shade50 = settingsColors[getColorKey(colorName, "50")];
+	const shade500 = settingsColors[getColorKey(colorName, "500")];
+	const shade950 = settingsColors[getColorKey(colorName, "950")];
 	// Generate Color Scale
 	const colorScale = genColorScale(shade50, shade500, shade950);
 	// Update Color State
@@ -93,7 +95,7 @@ export function genColorRamp(disabled: boolean, colorName: string) {
 /** Provide a seed color, generates a full palette ramp */
 export function seedColor(colorName: string, seedColor: string) {
 	if (!chroma.valid(seedColor)) {
-		alert('Invalid color value provided.');
+		alert("Invalid color value provided.");
 		return;
 	}
 	// Generate high/med/low colors
@@ -110,6 +112,6 @@ export function seedColor(colorName: string, seedColor: string) {
 
 export function genRandomSeed(colorName: string) {
 	const lightness = Math.random() * 0.6 + 0.2; // Random between 0.2 to 0.8
-	const chromaColor = chroma.random().set('hsl.l', lightness);
+	const chromaColor = chroma.random().set("hsl.l", lightness);
 	seedColor(colorName, chromaColor.hex());
 }

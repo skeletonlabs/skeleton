@@ -2,11 +2,11 @@
 	"name": "@skeletonlabs/skeleton.dev",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro build",
 		"check": "astro check",
-		"sync-mdx-imports": "node ./scripts/sync-mdx-imports.ts",
 		"generate-showcase-project-thumbnails": "playwright install chromium && node ./scripts/generate-showcase-project-thumbnails.ts",
 		"postinstall": "astro sync"
 	},
@@ -66,6 +66,5 @@
 		"ts-morph": "catalog:",
 		"typescript": "catalog:",
 		"unist-util-visit": "catalog:"
-	},
-	"type": "module"
+	}
 }

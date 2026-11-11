@@ -3,34 +3,34 @@ title: Toggle Group
 description: Grouped buttons for toggling option states.
 ---
 
-import ApiReference from '@/components/ui/api-reference.astro';
-import Framework from '@/components/ui/framework.astro';
-import Preview from '@/components/ui/preview.svelte';
+import ApiReference from "@/components/ui/api-reference.astro";
+import Framework from "@/components/ui/framework.astro";
+import Preview from "@/components/ui/preview.svelte";
 
-import ControlledReact from '@/components/examples/framework-components/toggle-group/react/controlled';
-import ControlledReactRaw from '@/components/examples/framework-components/toggle-group/react/controlled?raw';
-import DefaultReact from '@/components/examples/framework-components/toggle-group/react/default';
-import DefaultReactRaw from '@/components/examples/framework-components/toggle-group/react/default?raw';
-import DirReact from '@/components/examples/framework-components/toggle-group/react/dir';
-import DirReactRaw from '@/components/examples/framework-components/toggle-group/react/dir?raw';
-import OrientationReact from '@/components/examples/framework-components/toggle-group/react/orientation';
-import OrientationReactRaw from '@/components/examples/framework-components/toggle-group/react/orientation?raw';
-import ControlledSvelte from '@/components/examples/framework-components/toggle-group/svelte/controlled.svelte';
-import ControlledSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/controlled.svelte?raw';
-import DefaultSvelte from '@/components/examples/framework-components/toggle-group/svelte/default.svelte';
-import DefaultSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/default.svelte?raw';
-import DirSvelte from '@/components/examples/framework-components/toggle-group/svelte/dir.svelte';
-import DirSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/dir.svelte?raw';
-import OrientationSvelte from '@/components/examples/framework-components/toggle-group/svelte/orientation.svelte';
-import OrientationSvelteRaw from '@/components/examples/framework-components/toggle-group/svelte/orientation.svelte?raw';
+import ControlledReact from "@/components/examples/framework-components/toggle-group/react/controlled";
+import ControlledReactRaw from "@/components/examples/framework-components/toggle-group/react/controlled?raw";
+import DefaultReact from "@/components/examples/framework-components/toggle-group/react/default";
+import DefaultReactRaw from "@/components/examples/framework-components/toggle-group/react/default?raw";
+import DirReact from "@/components/examples/framework-components/toggle-group/react/dir";
+import DirReactRaw from "@/components/examples/framework-components/toggle-group/react/dir?raw";
+import OrientationReact from "@/components/examples/framework-components/toggle-group/react/orientation";
+import OrientationReactRaw from "@/components/examples/framework-components/toggle-group/react/orientation?raw";
+import ControlledSvelte from "@/components/examples/framework-components/toggle-group/svelte/controlled.svelte";
+import ControlledSvelteRaw from "@/components/examples/framework-components/toggle-group/svelte/controlled.svelte?raw";
+import DefaultSvelte from "@/components/examples/framework-components/toggle-group/svelte/default.svelte";
+import DefaultSvelteRaw from "@/components/examples/framework-components/toggle-group/svelte/default.svelte?raw";
+import DirSvelte from "@/components/examples/framework-components/toggle-group/svelte/dir.svelte";
+import DirSvelteRaw from "@/components/examples/framework-components/toggle-group/svelte/dir.svelte?raw";
+import OrientationSvelte from "@/components/examples/framework-components/toggle-group/svelte/orientation.svelte";
+import OrientationSvelteRaw from "@/components/examples/framework-components/toggle-group/svelte/orientation.svelte?raw";
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DefaultReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DefaultReactRaw }} client:visible>
 		<DefaultReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DefaultSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DefaultSvelteRaw }} client:visible>
 		<DefaultSvelte client:visible />
 	</Preview>
 </Framework>
@@ -40,12 +40,12 @@ import OrientationSvelteRaw from '@/components/examples/framework-components/tog
 Use the `value` and `onValueChange` props to control state programmatically.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': ControlledReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": ControlledReactRaw }} client:visible>
 		<ControlledReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': ControlledSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": ControlledSvelteRaw }} client:visible>
 		<ControlledSvelte client:visible />
 	</Preview>
 </Framework>
@@ -55,12 +55,12 @@ Use the `value` and `onValueChange` props to control state programmatically.
 Using the `orientation` prop to control the layout.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': OrientationReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": OrientationReactRaw }} client:visible>
 		<OrientationReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': OrientationSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": OrientationSvelteRaw }} client:visible>
 		<OrientationSvelte client:visible />
 	</Preview>
 </Framework>
@@ -70,12 +70,12 @@ Using the `orientation` prop to control the layout.
 Set the text direction (`ltr` or `rtl`) using the `dir` prop.
 
 <Framework id="react">
-	<Preview framework="react" files={{ 'app.tsx': DirReactRaw }} client:visible>
+	<Preview framework="react" files={{ "app.tsx": DirReactRaw }} client:visible>
 		<DirReact client:visible />
 	</Preview>
 </Framework>
 <Framework id="svelte">
-	<Preview framework="svelte" files={{ 'app.svelte': DirSvelteRaw }} client:visible>
+	<Preview framework="svelte" files={{ "app.svelte": DirSvelteRaw }} client:visible>
 		<DirSvelte client:visible />
 	</Preview>
 </Framework>
@@ -87,7 +87,7 @@ Here's an overview of how the ToggleGroup component is structured in code:
 <Framework id="react">
 
 ```tsx
-import { ToggleGroup } from '@skeletonlabs/skeleton-react';
+import { ToggleGroup } from "@skeletonlabs/skeleton-react";
 
 export default function Anatomy() {
 	return (
@@ -103,7 +103,7 @@ export default function Anatomy() {
 
 ```svelte
 <script lang="ts">
-	import { ToggleGroup } from '@skeletonlabs/skeleton-svelte';
+	import { ToggleGroup } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <ToggleGroup>

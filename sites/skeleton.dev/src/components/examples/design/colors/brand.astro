@@ -1,15 +1,15 @@
 ---
-import { SwatchBookIcon } from 'lucide-react';
+import { SwatchBookIcon } from "lucide-react";
 ---
 
-<div class="w-full grid grid-cols-[1fr_auto_auto_auto] items-stretch gap-4">
-	<div class="card p-4 text-center bg-brand-light dark:bg-brand-dark text-brand-contrast-light dark:text-brand-contrast-dark">
-		<div class="flex justify-center items-center gap-2">
+<div class="grid w-full grid-cols-[1fr_auto_auto_auto] items-stretch gap-4">
+	<div class="card bg-brand-light dark:bg-brand-dark text-brand-contrast-light dark:text-brand-contrast-dark p-4 text-center">
+		<div class="flex items-center justify-center gap-2">
 			<SwatchBookIcon className="size-4" />
 			<span>Brand Color</span>
 		</div>
 	</div>
 	<span class="vr"></span>
-	<div class="card p-4 text-center bg-brand-light text-brand-contrast-light">Light</div>
-	<div class="card p-4 text-center bg-brand-dark text-brand-contrast-dark">Dark</div>
+	<div class="card bg-brand-light text-brand-contrast-light p-4 text-center">Light</div>
+	<div class="card bg-brand-dark text-brand-contrast-dark p-4 text-center">Dark</div>
 </div>

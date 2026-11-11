@@ -3,7 +3,7 @@ title: Globals
 description: Skeleton's global default styles.
 summary: The following represent all global defaults applied via the Skeleton stylesheet.
 references:
-  source: 'https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/globals.css'
+    source: "https://github.com/skeletonlabs/skeleton/blob/main/packages/skeleton/src/base/globals.css"
 order: 0
 ---
 
@@ -103,7 +103,11 @@ Implements themed styles for [selection](https://developer.mozilla.org/en-US/doc
 
 ```css
 ::selection {
-	background-color: color-mix(in oklab, light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%, transparent);
+	background-color: color-mix(
+		in oklab,
+		light-dark(var(--color-brand-light), var(--color-brand-dark)) 50%,
+		transparent
+	);
 }
 ```
 

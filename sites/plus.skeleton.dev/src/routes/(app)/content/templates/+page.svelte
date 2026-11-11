@@ -1,10 +1,10 @@
 <script lang="ts">
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTemplates } from '$lib/remote/templates/get-templates.remote';
-	import { plusState } from '$lib/state/plus.svelte';
-	import ArrowRight from '@lucide/svelte/icons/arrow-right';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import LockIcon from '@lucide/svelte/icons/lock';
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { getTemplates } from "#lib/remote/templates/get-templates.remote.ts";
+	import { plusState } from "#lib/state/plus.svelte.ts";
+	import ArrowRight from "@lucide/svelte/icons/arrow-right";
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import LockIcon from "@lucide/svelte/icons/lock";
 
 	const templates = $derived(await getTemplates());
 </script>
@@ -23,20 +23,22 @@
 </PageHeader>
 
 <div class="container-page">
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8">
 		{#each templates as template (template.slug)}
 			{@const locked = template.isPremium && !plusState.unlocked}
-			<article class="card bg-surface-50-950 border border-surface-200-800 overflow-hidden">
+			<article class="card bg-surface-50-950 border-surface-200-800 overflow-hidden border">
 				<!-- Image -->
 				<a href="/content/templates/{template.slug}" class="block p-4 pb-0">
 					<img
 						src={template.images.card.src}
 						alt={template.images.card.alt}
-						class="w-full aspect-video rounded-container border border-surface-200-800"
+						class="rounded-container border-surface-200-800 aspect-video w-full border"
 					/>
 				</a>
 				<!-- Footer -->
-				<footer class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+				<footer
+					class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between"
+				>
 					<!-- Title + Category -->
 					<a href="/content/templates/{template.slug}" class="space-y-0.5">
 						<div class="flex items-center gap-2">
@@ -60,12 +62,20 @@
 							<ArrowUpRightIcon />
 						</a>
 						{#if locked}
-							<a href="/overview/pricing" class="btn preset-filled" aria-label="Unlock {template.name} with Plus">
+							<a
+								href="/overview/pricing"
+								class="btn preset-filled"
+								aria-label="Unlock {template.name} with Plus"
+							>
 								<LockIcon />
 								<span>Unlock with Plus</span>
 							</a>
 						{:else}
-							<a href="/content/templates/{template.slug}" class="btn preset-filled" aria-label="Download {template.name}">
+							<a
+								href="/content/templates/{template.slug}"
+								class="btn preset-filled"
+								aria-label="Download {template.name}"
+							>
 								<span>View</span>
 								<ArrowRight />
 							</a>

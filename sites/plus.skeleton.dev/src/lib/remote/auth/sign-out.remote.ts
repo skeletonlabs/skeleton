@@ -1,16 +1,16 @@
-import { form, getRequestEvent } from '$app/server';
-import { error } from '@sveltejs/kit';
-import { auth } from '$lib/server/auth/auth';
-import { ResultAsync } from 'neverthrow';
+import { form, getRequestEvent } from "$app/server";
+import { error } from "@sveltejs/kit";
+import { auth } from "#lib/server/auth/auth.ts";
+import { ResultAsync } from "neverthrow";
 
-export const signOut = form('unchecked', async () => {
+export const signOut = form("unchecked", async () => {
 	const event = getRequestEvent();
 
 	const signOutResult = await ResultAsync.fromPromise(
 		auth.api.signOut({
 			headers: event.request.headers,
 		}),
-		(e) => new Error('Failed to sign out', { cause: e }),
+		(e) => new Error("Failed to sign out", { cause: e }),
 	);
 
 	if (signOutResult.isErr()) {
@@ -18,6 +18,6 @@ export const signOut = form('unchecked', async () => {
 	}
 
 	if (!signOutResult.value.success) {
-		error(500, 'Failed to sign out');
+		error(500, "Failed to sign out");
 	}
 });

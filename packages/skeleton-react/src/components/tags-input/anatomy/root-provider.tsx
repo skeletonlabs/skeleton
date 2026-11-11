@@ -1,10 +1,11 @@
-import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-import type { PropsWithElement } from '../../../internal/props-with-element.js';
-import type { useTagsInput } from '../modules/provider.js';
-import { TagsInputRootContext } from '../modules/root-context.js';
-import { mergeProps } from '@zag-js/react';
+import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+import type { PropsWithElement } from "../../../internal/props-with-element.js";
+import type { useTagsInput } from "../modules/provider.js";
+import { TagsInputRootContext } from "../modules/root-context.js";
+import { mergeProps } from "@zag-js/react";
 
-export interface TagsInputRootProviderProps extends PropsWithElement<'div'>, HTMLAttributes<'div', 'id' | 'dir'> {
+export interface TagsInputRootProviderProps
+	extends PropsWithElement<"div">, HTMLAttributes<"div", "id" | "dir"> {
 	value: ReturnType<typeof useTagsInput>;
 }
 

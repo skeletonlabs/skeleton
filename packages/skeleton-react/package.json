@@ -1,19 +1,19 @@
 {
 	"name": "@skeletonlabs/skeleton-react",
-	"version": "5.0.1",
+	"version": "5.0.4",
 	"description": "The React package for Skeleton.",
+	"license": "MIT",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/skeletonlabs/skeleton.git",
 		"directory": "packages/skeleton-react"
 	},
-	"scripts": {
-		"build": "tsdown",
-		"check": "tsc",
-		"prepack": "pnpm build && clean-package",
-		"postpack": "clean-package restore"
-	},
+	"files": [
+		"dist"
+	],
+	"type": "module",
+	"sideEffects": false,
 	"exports": {
 		".": {
 			"types": "./src/index.ts",
@@ -21,18 +21,18 @@
 			"style": "./src/index.css"
 		}
 	},
-	"files": [
-		"dist"
-	],
-	"sideEffects": false,
+	"scripts": {
+		"build": "tsdown",
+		"check": "tsc",
+		"prepack": "pnpm build && clean-package",
+		"postpack": "clean-package restore"
+	},
 	"dependencies": {
 		"@internationalized/date": "catalog:",
-		"@zag-js/i18n-utils": "catalog:",
 		"@skeletonlabs/skeleton-common": "workspace:*",
 		"@zag-js/accordion": "catalog:",
 		"@zag-js/avatar": "catalog:",
 		"@zag-js/carousel": "catalog:",
-		"@zag-js/marquee": "catalog:",
 		"@zag-js/collapsible": "catalog:",
 		"@zag-js/collection": "catalog:",
 		"@zag-js/combobox": "catalog:",
@@ -40,7 +40,9 @@
 		"@zag-js/dialog": "catalog:",
 		"@zag-js/file-upload": "catalog:",
 		"@zag-js/floating-panel": "catalog:",
+		"@zag-js/i18n-utils": "catalog:",
 		"@zag-js/listbox": "catalog:",
+		"@zag-js/marquee": "catalog:",
 		"@zag-js/menu": "catalog:",
 		"@zag-js/pagination": "catalog:",
 		"@zag-js/popover": "catalog:",
@@ -59,10 +61,6 @@
 		"@zag-js/tooltip": "catalog:",
 		"@zag-js/tree-view": "catalog:"
 	},
-	"peerDependencies": {
-		"react": "^18.0.0 || ^19.0.0",
-		"react-dom": "^18.0.0 || ^19.0.0"
-	},
 	"devDependencies": {
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
@@ -76,8 +74,10 @@
 		"vite": "catalog:",
 		"vitest-browser-react": "catalog:"
 	},
-	"license": "MIT",
-	"type": "module",
+	"peerDependencies": {
+		"react": "^18.0.0 || ^19.0.0",
+		"react-dom": "^18.0.0 || ^19.0.0"
+	},
 	"clean-package": {
 		"remove": [
 			"scripts",

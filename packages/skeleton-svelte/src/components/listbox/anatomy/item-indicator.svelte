@@ -1,15 +1,16 @@
 <script lang="ts" module>
-	import type { HTMLAttributes } from '../../../internal/html-attributes.js';
-	import type { PropsWithElement } from '../../../internal/props-with-element.js';
+	import type { HTMLAttributes } from "../../../internal/html-attributes.js";
+	import type { PropsWithElement } from "../../../internal/props-with-element.js";
 
-	export interface ListboxItemIndicatorProps extends PropsWithElement<'span'>, HTMLAttributes<'span'> {}
+	export interface ListboxItemIndicatorProps
+		extends PropsWithElement<"span">, HTMLAttributes<"span"> {}
 </script>
 
 <script lang="ts">
-	import Check from '../../../internal/components/check.svelte';
-	import { ListboxItemContext } from '../modules/item-context.js';
-	import { ListboxRootContext } from '../modules/root-context.js';
-	import { mergeProps } from '@zag-js/svelte';
+	import Check from "../../../internal/components/check.svelte";
+	import { ListboxItemContext } from "../modules/item-context.js";
+	import { ListboxRootContext } from "../modules/root-context.js";
+	import { mergeProps } from "@zag-js/svelte";
 
 	const props: ListboxItemIndicatorProps = $props();
 

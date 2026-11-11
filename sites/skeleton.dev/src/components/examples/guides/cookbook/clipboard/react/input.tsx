@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Input() {
-	const [value, setValue] = useState('Hello Skeleton');
+	const [value, setValue] = useState("Hello Skeleton");
 
 	async function handleCopy() {
 		await navigator.clipboard.writeText(value);
@@ -10,7 +10,12 @@ export default function Input() {
 
 	return (
 		<div className="flex items-center gap-4">
-			<input type="text" className="input" value={value} onChange={(e) => setValue(e.target.value)} />
+			<input
+				type="text"
+				className="input"
+				value={value}
+				onChange={(e) => setValue(e.target.value)}
+			/>
 			<button className="btn preset-filled" onClick={handleCopy}>
 				Copy
 			</button>

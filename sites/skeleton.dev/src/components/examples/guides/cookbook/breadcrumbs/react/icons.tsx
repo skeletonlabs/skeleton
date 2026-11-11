@@ -1,4 +1,4 @@
-import { ChevronRightIcon, CogIcon, HouseIcon } from 'lucide-react';
+import { ChevronRightIcon, CogIcon, HouseIcon } from "lucide-react";
 
 export default function Icons() {
 	return (

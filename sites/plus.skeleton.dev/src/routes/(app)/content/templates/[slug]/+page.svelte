@@ -1,14 +1,14 @@
 <script lang="ts">
-	import DecorStripes from '$lib/components/layout/decor-stripes.svelte';
-	import PageHeader from '$lib/components/layout/page-header.svelte';
-	import { getTemplate } from '$lib/remote/templates/get-templates.remote';
-	import { frameworkIconMap } from '$lib/remote/templates/template-icons';
-	import { plusState } from '$lib/state/plus.svelte';
-	import ArrowUpRightIcon from '@lucide/svelte/icons/arrow-up-right';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import DownloadIcon from '@lucide/svelte/icons/download';
-	import LockIcon from '@lucide/svelte/icons/lock';
-	import { Menu, Portal } from '@skeletonlabs/skeleton-svelte';
+	import DecorStripes from "#lib/components/layout/decor-stripes.svelte";
+	import PageHeader from "#lib/components/layout/page-header.svelte";
+	import { getTemplate } from "#lib/remote/templates/get-templates.remote.ts";
+	import { frameworkIconMap } from "#lib/remote/templates/template-icons.ts";
+	import { plusState } from "#lib/state/plus.svelte.ts";
+	import ArrowUpRightIcon from "@lucide/svelte/icons/arrow-up-right";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import DownloadIcon from "@lucide/svelte/icons/download";
+	import LockIcon from "@lucide/svelte/icons/lock";
+	import { Menu, Portal } from "@skeletonlabs/skeleton-svelte";
 
 	const template = $derived(await getTemplate());
 	const locked = $derived(!!template?.isPremium && !plusState.unlocked);
@@ -20,7 +20,12 @@
 			<p class="opacity-60">{template.tagline}</p>
 		{/snippet}
 		{#snippet trail()}
-			<a href={template.previewUrl} target="_blank" rel="noopener noreferrer" class="btn preset-outlined">
+			<a
+				href={template.previewUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="btn preset-outlined"
+			>
 				<ArrowUpRightIcon />
 				<span>Preview</span>
 			</a>
@@ -30,7 +35,7 @@
 					<span>Unlock with Plus</span>
 				</a>
 			{:else}
-				<Menu positioning={{ placement: 'bottom-end' }}>
+				<Menu positioning={{ placement: "bottom-end" }}>
 					<Menu.Trigger class="btn preset-filled">
 						<DownloadIcon />
 						<span>Download</span>
@@ -45,7 +50,13 @@
 										{@const FrameworkIcon = frameworkIconMap[fw.key]}
 										<Menu.Item value={fw.key}>
 											{#snippet element(attributes: Record<string, unknown>)}
-												<a {...attributes} href={fw.href} target="_blank" download class="justify-start gap-2">
+												<a
+													{...attributes}
+													href={fw.href}
+													target="_blank"
+													download
+													class="justify-start gap-2"
+												>
 													{#if FrameworkIcon}
 														<FrameworkIcon />
 													{/if}
@@ -64,7 +75,11 @@
 	</PageHeader>
 
 	<!-- Hero Screenshot -->
-	<img src={template.images.hero.src} alt={template.images.hero.alt} class="w-full aspect-video border-b border-surface-200-800" />
+	<img
+		src={template.images.hero.src}
+		alt={template.images.hero.alt}
+		class="border-surface-200-800 aspect-video w-full border-b"
+	/>
 
 	<!-- Decor: Stripes -->
 	<DecorStripes class="h-6" />
@@ -72,15 +87,17 @@
 	<!-- Screenshot Grid -->
 	{#if template.images.screenshots.length > 0}
 		<div
-			class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-surface-200-800 divide-x divide-y lg:divide-y-0 divide-surface-200-800"
+			class="border-surface-200-800 divide-surface-200-800 grid grid-cols-2 divide-x divide-y border-t border-b md:grid-cols-2 lg:grid-cols-4 lg:divide-y-0"
 		>
 			{#each template.images.screenshots as screenshot, i (i)}
-				<img src={screenshot.src} alt={screenshot.alt} class="w-full aspect-video" />
+				<img src={screenshot.src} alt={screenshot.alt} class="aspect-video w-full" />
 			{/each}
 		</div>
 	{/if}
 
-	<div class="grid grid-cols-1 lg:grid-cols-[75%_25%] divide-y lg:divide-y-0 lg:divide-x divide-surface-200-800">
+	<div
+		class="divide-surface-200-800 grid grid-cols-1 divide-y lg:grid-cols-[75%_25%] lg:divide-x lg:divide-y-0"
+	>
 		<!-- About -->
 		<section class="container-cell space-y-2">
 			<h2 class="h2">About</h2>

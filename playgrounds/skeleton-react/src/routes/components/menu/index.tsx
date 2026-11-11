@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Menu, Portal } from '@skeletonlabs/skeleton-react';
-import { createFileRoute } from '@tanstack/react-router';
+import { Menu, Portal } from "@skeletonlabs/skeleton-react";
+import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/components/menu/')({
+export const Route = createFileRoute("/components/menu/")({
 	component: Page,
 });
 

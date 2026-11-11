@@ -1,6 +1,6 @@
 <script lang="ts" module>
-	import type { useTabs } from '../modules/provider.svelte';
-	import type { Snippet } from 'svelte';
+	import type { useTabs } from "../modules/provider.svelte";
+	import type { Snippet } from "svelte";
 
 	export interface TabsRootContextProps {
 		children: Snippet<[ReturnType<typeof useTabs>]>;
@@ -8,7 +8,7 @@
 </script>
 
 <script lang="ts">
-	import { TabsRootContext } from '../modules/root-context.js';
+	import { TabsRootContext } from "../modules/root-context.js";
 
 	const props: TabsRootContextProps = $props();
 

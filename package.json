@@ -10,8 +10,8 @@
 		"react": "pnpm --filter @skeletonlabs/playground-skeleton-react",
 		"test": "vitest run",
 		"check": "pnpm --recursive --aggregate-output --reporter=append-only --parallel check",
-		"format": "prettier . --cache --write --ignore-unknown --experimental-cli",
-		"format:check": "prettier . --cache --check --ignore-unknown --experimental-cli",
+		"format": "oxfmt",
+		"format:check": "oxfmt --check",
 		"lint": "oxlint --type-aware --fix",
 		"lint:check": "oxlint --type-aware",
 		"changeset:publish": "changeset publish",
@@ -20,20 +20,16 @@
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
 		"@playwright/test": "catalog:",
-		"@prettier/plugin-oxc": "catalog:",
 		"@svitejs/changesets-changelog-github-compact": "catalog:",
-		"@trivago/prettier-plugin-sort-imports": "catalog:",
+		"oxfmt": "catalog:",
 		"oxlint": "catalog:",
 		"oxlint-tsgolint": "catalog:",
-		"prettier": "catalog:",
-		"prettier-plugin-astro": "catalog:",
-		"prettier-plugin-svelte": "catalog:",
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
 	"engines": {
-		"node": "24.x",
-		"pnpm": "11.x"
+		"node": "26.x",
+		"pnpm": "12.x"
 	},
-	"packageManager": "pnpm@11.21.0"
+	"packageManager": "pnpm@12.18.0"
 }

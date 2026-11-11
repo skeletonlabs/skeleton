@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar } from '@skeletonlabs/skeleton-svelte';
+	import { Avatar } from "@skeletonlabs/skeleton-svelte";
 </script>
 
 <div class="flex items-center gap-8">

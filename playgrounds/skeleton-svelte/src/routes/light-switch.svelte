@@ -1,27 +1,27 @@
 <script lang="ts">
-	import MoonIcon from '@lucide/svelte/icons/moon';
-	import SunIcon from '@lucide/svelte/icons/sun';
-	import { Switch } from '@skeletonlabs/skeleton-svelte';
+	import MoonIcon from "@lucide/svelte/icons/moon";
+	import SunIcon from "@lucide/svelte/icons/sun";
+	import { Switch } from "@skeletonlabs/skeleton-svelte";
 
 	let checked = $state(false);
 
 	$effect(() => {
-		const mode = localStorage.getItem('mode') || 'light';
-		checked = mode === 'dark';
+		const mode = localStorage.getItem("mode") || "light";
+		checked = mode === "dark";
 	});
 
 	const onCheckedChange = (event: { checked: boolean }) => {
-		const mode = event.checked ? 'dark' : 'light';
-		document.documentElement.setAttribute('data-mode', mode);
-		localStorage.setItem('mode', mode);
+		const mode = event.checked ? "dark" : "light";
+		document.documentElement.setAttribute("data-mode", mode);
+		localStorage.setItem("mode", mode);
 		checked = event.checked;
 	};
 </script>
 
 <svelte:head>
 	<script>
-		const mode = localStorage.getItem('mode') || 'light';
-		document.documentElement.setAttribute('data-mode', mode);
+		const mode = localStorage.getItem("mode") || "light";
+		document.documentElement.setAttribute("data-mode", mode);
 	</script>
 </svelte:head>
 
@@ -31,9 +31,9 @@
 			<Switch.Context>
 				{#snippet children(switch_)}
 					{#if switch_().checked}
-						<SunIcon class="size-4 stroke-surface-50-950" />
+						<SunIcon class="stroke-surface-50-950 size-4" />
 					{:else}
-						<MoonIcon class="size-4 stroke-surface-950-50" />
+						<MoonIcon class="stroke-surface-950-50 size-4" />
 					{/if}
 				{/snippet}
 			</Switch.Context>

@@ -1,68 +1,75 @@
 <script lang="ts">
-	import { globals } from '$lib/state/generator.svelte';
-	import ControlsBackgrounds from './ControlsBackgrounds.svelte';
-	import ControlsBrand from './ControlsBrand.svelte';
-	import ControlsColors from './ControlsColors.svelte';
-	import ControlsCore from './ControlsCore.svelte';
-	import ControlsEdges from './ControlsEdges.svelte';
-	import ControlsSpacing from './ControlsSpacing.svelte';
-	import ControlsTypography from './ControlsTypography.svelte';
-	import ALargeSmallIcon from '@lucide/svelte/icons/a-large-small';
-	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
-	import ChevronUpIcon from '@lucide/svelte/icons/chevron-up';
-	import LayersIcon from '@lucide/svelte/icons/layers';
-	import PaletteIcon from '@lucide/svelte/icons/palette';
-	import ScalingIcon from '@lucide/svelte/icons/scaling';
-	import SparklesIcon from '@lucide/svelte/icons/sparkles';
-	import SquareDashedIcon from '@lucide/svelte/icons/square-dashed';
-	import { Accordion, SegmentedControl } from '@skeletonlabs/skeleton-svelte';
+	import { globals } from "#lib/state/generator.svelte.ts";
+	import ControlsBackgrounds from "./ControlsBackgrounds.svelte";
+	import ControlsBrand from "./ControlsBrand.svelte";
+	import ControlsColors from "./ControlsColors.svelte";
+	import ControlsCore from "./ControlsCore.svelte";
+	import ControlsEdges from "./ControlsEdges.svelte";
+	import ControlsSpacing from "./ControlsSpacing.svelte";
+	import ControlsTypography from "./ControlsTypography.svelte";
+	import ALargeSmallIcon from "@lucide/svelte/icons/a-large-small";
+	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import ChevronUpIcon from "@lucide/svelte/icons/chevron-up";
+	import LayersIcon from "@lucide/svelte/icons/layers";
+	import PaletteIcon from "@lucide/svelte/icons/palette";
+	import ScalingIcon from "@lucide/svelte/icons/scaling";
+	import SparklesIcon from "@lucide/svelte/icons/sparkles";
+	import SquareDashedIcon from "@lucide/svelte/icons/square-dashed";
+	import { Accordion, SegmentedControl } from "@skeletonlabs/skeleton-svelte";
 
 	let view = $derived(globals.panel);
 	const items = [
 		{
-			value: 'colors',
-			icon: PaletteIcon,
-			label: 'Color Palette',
-			component: ControlsColors,
+			value: "colors",
+			Icon: PaletteIcon,
+			label: "Color Palette",
+			Component: ControlsColors,
 		},
 		{
-			value: 'brand',
-			icon: SparklesIcon,
-			label: 'Brand',
-			component: ControlsBrand,
+			value: "brand",
+			Icon: SparklesIcon,
+			label: "Brand",
+			Component: ControlsBrand,
 		},
 		{
-			value: 'backgrounds',
-			icon: LayersIcon,
-			label: 'Backgrounds',
-			component: ControlsBackgrounds,
+			value: "backgrounds",
+			Icon: LayersIcon,
+			label: "Backgrounds",
+			Component: ControlsBackgrounds,
 		},
 		{
-			value: 'spacing',
-			icon: ScalingIcon,
-			label: 'Spacing',
-			component: ControlsSpacing,
+			value: "spacing",
+			Icon: ScalingIcon,
+			label: "Spacing",
+			Component: ControlsSpacing,
 		},
 		{
-			value: 'edges',
-			icon: SquareDashedIcon,
-			label: 'Edges',
-			component: ControlsEdges,
+			value: "edges",
+			Icon: SquareDashedIcon,
+			label: "Edges",
+			Component: ControlsEdges,
 		},
 		{
-			value: 'typography',
-			icon: ALargeSmallIcon,
-			label: 'Typography',
-			component: ControlsTypography,
+			value: "typography",
+			Icon: ALargeSmallIcon,
+			label: "Typography",
+			Component: ControlsTypography,
 		},
 	];
 </script>
 
-<section class="relative h-screen bg-surface-100-900 border-l border-surface-300-700 pb-96 overflow-y-auto">
+<section
+	class="bg-surface-100-900 border-surface-300-700 relative h-screen overflow-y-auto border-l pb-96"
+>
 	<header
-		class="sticky top-0 z-10 bg-surface-100/50 dark:bg-surface-900/50 backdrop-blur-xl p-5 flex justify-between items-center gap-4 shadow-lg"
+		class="bg-surface-100/50 dark:bg-surface-900/50 sticky top-0 z-10 flex items-center justify-between gap-4 p-5 shadow-lg backdrop-blur-xl"
 	>
-		<SegmentedControl name="display" value={view} onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)} class="w-full">
+		<SegmentedControl
+			name="display"
+			value={view}
+			onValueChange={(e) => (globals.panel = e.value as typeof globals.panel)}
+			class="w-full"
+		>
 			<SegmentedControl.Control>
 				<SegmentedControl.Indicator />
 				<SegmentedControl.Item value="preview" class="w-full">
@@ -83,9 +90,11 @@
 				<hr class="hr" />
 				<Accordion.Item value={item.value} class="p-0">
 					<h4 class="h4">
-						<Accordion.ItemTrigger class="grid grid-cols-[auto_1fr_auto] gap-4 items-center hover:preset-tonal px-5 py-3 rounded-none">
+						<Accordion.ItemTrigger
+							class="hover:preset-tonal grid grid-cols-[auto_1fr_auto] items-center gap-4 rounded-none px-5 py-3"
+						>
 							<span class="btn-icon preset-tonal">
-								<svelte:component this={item.icon} class="size-5" />
+								<item.Icon class="size-5" />
 							</span>
 							{item.label}
 							<Accordion.ItemIndicator>
@@ -102,7 +111,7 @@
 						</Accordion.ItemTrigger>
 					</h4>
 					<Accordion.ItemContent class="p-5">
-						<svelte:component this={item.component} />
+						<item.Component />
 					</Accordion.ItemContent>
 				</Accordion.Item>
 			{/each}
@@ -110,6 +119,8 @@
 		</Accordion>
 	</div>
 	<footer class="p-5">
-		<button class="btn btn-xl w-full preset-filled" onclick={() => (globals.panel = 'code')}>Export Theme</button>
+		<button class="btn btn-xl preset-filled w-full" onclick={() => (globals.panel = "code")}
+			>Export Theme</button
+		>
 	</footer>
 </section>
