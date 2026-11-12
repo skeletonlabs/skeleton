@@ -18,9 +18,10 @@
 		"changeset:version": "changeset version && pnpm format"
 	},
 	"devDependencies": {
+		"@changesets/changelog-github": "catalog:",
 		"@changesets/cli": "catalog:",
+		"@changesets/config": "catalog:",
 		"@playwright/test": "catalog:",
-		"@svitejs/changesets-changelog-github-compact": "catalog:",
 		"oxfmt": "catalog:",
 		"oxlint": "catalog:",
 		"oxlint-tsgolint": "catalog:",
