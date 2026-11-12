@@ -33,7 +33,5 @@ jobs:
               uses: changesets/action@v2.1.2
               with:
                   pr-title: "task: release"
-                  version-script: pnpm changeset:version
-                  publish-script: pnpm changeset:publish
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
