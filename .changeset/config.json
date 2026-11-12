@@ -1,16 +1,8 @@
 {
-	"$schema": "https://unpkg.com/@changesets/config@3.1.0/schema.json",
-	"changelog": [
-		"@svitejs/changesets-changelog-github-compact",
-		{ "repo": "skeletonlabs/skeleton" }
-	],
-	"commit": false,
+	"$schema": "../node_modules/@changesets/config/schema.json",
+	"changelog": ["@changesets/changelog-github", { "repo": "skeletonlabs/skeleton" }],
 	"fixed": [["**"]],
-	"format": false,
-	"linked": [],
 	"access": "public",
-	"baseBranch": "main",
-	"updateInternalDependencies": "patch",
 	"privatePackages": {
 		"tag": false,
 		"version": false

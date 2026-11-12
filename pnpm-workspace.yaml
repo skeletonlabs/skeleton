@@ -32,7 +32,6 @@ catalog:
     "@sveltejs/kit": 3.1.1
     "@sveltejs/package": 3.0.2
     "@sveltejs/vite-plugin-svelte": 7.3.1
-    "@svitejs/changesets-changelog-github-compact": 1.2.0
     "@tailwindcss/forms": 0.5.11
     "@tailwindcss/vite": 4.3.5
     "@tanstack/react-router": 1.170.46
@@ -135,6 +134,8 @@ catalog:
     neverthrow: 8.2.0
     "@zag-js/i18n-utils": 1.47.0
     oxfmt: 0.77.0
+    "@changesets/changelog-github": 1.0.1
+    "@changesets/config": 4.0.1
 
 catalogMode: strict
 
