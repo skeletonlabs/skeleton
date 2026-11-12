@@ -13,9 +13,7 @@
 		"format": "oxfmt",
 		"format:check": "oxfmt --check",
 		"lint": "oxlint --type-aware --fix",
-		"lint:check": "oxlint --type-aware",
-		"changeset:publish": "changeset publish",
-		"changeset:version": "changeset version && pnpm format"
+		"lint:check": "oxlint --type-aware"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "catalog:",
