@@ -134,8 +134,8 @@ catalog:
     neverthrow: 8.2.0
     "@zag-js/i18n-utils": 1.47.0
     oxfmt: 0.77.0
-    '@changesets/changelog-github': 1.0.1
-    '@changesets/config': 4.0.1
+    "@changesets/changelog-github": 1.0.1
+    "@changesets/config": 4.0.1
 
 catalogMode: strict
 
