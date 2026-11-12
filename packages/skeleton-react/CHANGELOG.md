@@ -1,5 +1,12 @@
 # @skeletonlabs/skeleton-react
 
+## 5.1.0
+
+### Patch Changes
+
+- Updated dependencies []:
+    - @skeletonlabs/skeleton-common@5.1.0
+
 ## 5.0.4
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/skeleton-svelte",
-	"version": "5.0.4",
+	"version": "5.1.0",
 	"description": "The Svelte package for Skeleton.",
 	"license": "MIT",
 	"author": "endigo9740 <chris@skeletonlabs.dev>",

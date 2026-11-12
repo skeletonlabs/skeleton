@@ -1,5 +1,11 @@
 # skeleton
 
+## 5.1.0
+
+### Minor Changes
+
+- [#4604](https://github.com/skeletonlabs/skeleton/pull/4604) [`879045e`](https://github.com/skeletonlabs/skeleton/commit/879045ed9328c741e882a640656454990c7a78ff) Thanks [@Hugos68](https://github.com/Hugos68)! - task: testing the release process
+
 ## 5.0.4
 
 No changes in this release.

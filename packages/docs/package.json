@@ -1,6 +1,6 @@
 {
 	"name": "@skeletonlabs/docs",
-	"version": "5.0.4",
+	"version": "5.1.0",
 	"description": "Documentation generator for various Skeleton packages",
 	"license": "MIT",
 	"repository": {
