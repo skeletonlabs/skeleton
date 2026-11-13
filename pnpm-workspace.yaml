@@ -5,8 +5,11 @@ packages:
 
 versioning:
     ignore:
-        - "./playgrounds/*"
-        - "./sites/*"
+        - "./sites/skeleton.dev"
+        - "./sites/plus.skeleton.dev"
+        - "./sites/themes.skeleton.dev"
+        - "./playgrounds/skeleton-react"
+        - "./playgrounds/skeleton-svelte"
     fixed:
         - [
               "@skeletonlabs/docs",
