@@ -1,0 +1,12 @@
+"@skeletonlabs/docs@6.0.0":
+  dir: packages/docs
+  intents:
+    - wise-taxis-doubt
+"@skeletonlabs/skeleton-react@6.0.0":
+  dir: packages/skeleton-react
+  intents:
+    - kind-elephants-wave
+"@skeletonlabs/skeleton-svelte@6.0.0":
+  dir: packages/skeleton-svelte
+  intents:
+    - kind-elephants-wave

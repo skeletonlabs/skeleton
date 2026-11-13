@@ -1,5 +1,11 @@
 # @skeletonlabs/docs
 
+## 6.0.0
+
+### Major Changes
+
+- a major test
+
 ## 5.0.4
 
 No changes in this release.
