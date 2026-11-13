@@ -17,8 +17,8 @@ Please read our [contribution requirements](https://skeleton.dev/docs/svelte/res
 
 ## Changesets
 
-[View our documentation](https://skeleton.dev/docs/svelte/resources/contribute/get-started#changesets) to learn more about [changesets](https://github.com/changesets/changesets). To create a changeset:
+[View our documentation](https://skeleton.dev/docs/svelte/resources/contribute/get-started#changesets) to learn more about [changesets](https://pnpm.io/versioning). To create a changeset:
 
 1. Navigate to the root of the monorepo in your terminal
-2. Run `pnpm changeset` and follow the prompts
+2. Run `pnpm change` and follow the prompts
 3. Commit and push the changeset before flagging your PR ready for review.

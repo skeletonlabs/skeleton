@@ -90,7 +90,7 @@ bugfix/accordion-render-issue
 
 ## Changesets
 
-[Changesets](https://github.com/changesets/changesets) are used to automatically generate the changelog for each release.
+[pnpm's native versioning](https://pnpm.io/versioning) (changesets-format change intents) is used to automatically generate the changelog for each release.
 
 - Any contributions made within `/packages` _must_ contain a Changeset
 - Any contributions made within `/sites` should **not** include a Changeset.
@@ -98,7 +98,7 @@ bugfix/accordion-render-issue
 Follow these instructions to generate a changeset:
 
 1. Navigate to the root of the Skeleton monorepo.
-2. Run `pnpm changeset` to trigger the Changeset CLI.
+2. Run `pnpm change` to record a change intent.
 3. Select the packages that are affected by your changes.
 4. Select the type of version bump required (major, minor, patch).
 5. Provide a short description of the changes made.

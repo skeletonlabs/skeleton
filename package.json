@@ -16,9 +16,6 @@
 		"lint:check": "oxlint --type-aware"
 	},
 	"devDependencies": {
-		"@changesets/changelog-github": "catalog:",
-		"@changesets/cli": "catalog:",
-		"@changesets/config": "catalog:",
 		"@playwright/test": "catalog:",
 		"oxfmt": "catalog:",
 		"oxlint": "catalog:",
