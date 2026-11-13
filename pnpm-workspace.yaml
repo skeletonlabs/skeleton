@@ -4,6 +4,9 @@ packages:
     - sites/*
 
 versioning:
+    ignore:
+        - "./playgrounds/*"
+        - "./sites/*"
     fixed:
         - [
               "@skeletonlabs/docs",
