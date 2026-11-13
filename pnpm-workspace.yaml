@@ -3,6 +3,25 @@ packages:
     - playgrounds/*
     - sites/*
 
+versioning:
+    ignore:
+        - "./sites/skeleton.dev"
+        - "./sites/plus.skeleton.dev"
+        - "./sites/themes.skeleton.dev"
+        - "./playgrounds/skeleton-react"
+        - "./playgrounds/skeleton-svelte"
+    fixed:
+        - [
+              "@skeletonlabs/docs",
+              "@skeletonlabs/skeleton",
+              "@skeletonlabs/skeleton-common",
+              "@skeletonlabs/skeleton-react",
+              "@skeletonlabs/skeleton-svelte",
+              "skeleton",
+          ]
+    changelog:
+        storage: repository
+
 catalog:
     "@astrojs/check": 0.9.12
     "@astrojs/mdx": 8.1.3
@@ -11,7 +30,6 @@ catalog:
     "@astrojs/sitemap": 3.7.4
     "@astrojs/svelte": 9.1.2
     "@astrojs/vercel": 11.0.20
-    "@changesets/cli": 3.0.3
     "@clack/prompts": 1.8.1
     "@faker-js/faker": 10.6.0
     "@floating-ui/dom": 1.8.0
@@ -32,7 +50,6 @@ catalog:
     "@sveltejs/kit": 3.1.1
     "@sveltejs/package": 3.0.2
     "@sveltejs/vite-plugin-svelte": 7.3.1
-    "@svitejs/changesets-changelog-github-compact": 1.2.0
     "@tailwindcss/forms": 0.5.11
     "@tailwindcss/vite": 4.3.5
     "@tanstack/react-router": 1.170.46

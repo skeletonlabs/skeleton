@@ -28,12 +28,9 @@ jobs:
             - run: npm install -g npm@latest
             - name: Install dependencies
               run: pnpm install
-            - name: Create Release Pull Request or Publish
-              id: changesets
-              uses: changesets/action@v2.1.2
-              with:
-                  pr-title: "task: release"
-                  version-script: pnpm changeset:version
-                  publish-script: pnpm changeset:publish
+            - name: Publish unpublished packages
+              run: pnpm publish -r --access public --no-git-checks
+            - name: Create Release Pull Request
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: bash .github/scripts/release-pr.sh

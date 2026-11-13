@@ -17,7 +17,8 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  # Only check out private submodules for PRs originating from the same repository, not forks.
+                  submodules: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
                   token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
                   persist-credentials: false
             - uses: pnpm/action-setup@v6
@@ -34,7 +35,8 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  # Only check out private submodules for PRs originating from the same repository, not forks.
+                  submodules: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
                   token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
                   persist-credentials: false
             - uses: pnpm/action-setup@v6
@@ -51,7 +53,8 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  # Only check out private submodules for PRs originating from the same repository, not forks.
+                  submodules: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
                   token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
                   persist-credentials: false
             - uses: pnpm/action-setup@v6
@@ -68,7 +71,8 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  submodules: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
+                  # Only check out private submodules for PRs originating from the same repository, not forks.
+                  submodules: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
                   token: ${{ secrets.SKELETONLABS_PLUS_REPOSITORIES_PAT || github.token }}
                   persist-credentials: false
             - uses: pnpm/action-setup@v6
