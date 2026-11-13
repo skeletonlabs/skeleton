@@ -1,0 +1,4 @@
+"@skeletonlabs/docs@5.0.5":
+  dir: packages/docs
+  intents:
+    - little-donkeys-remain

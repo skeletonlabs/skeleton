@@ -1,5 +1,7 @@
 # skeleton
 
+## 5.0.5
+
 ## 5.0.4
 
 No changes in this release.
