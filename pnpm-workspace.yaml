@@ -3,6 +3,19 @@ packages:
     - playgrounds/*
     - sites/*
 
+versioning:
+    fixed:
+        - [
+              "@skeletonlabs/docs",
+              "@skeletonlabs/skeleton",
+              "@skeletonlabs/skeleton-common",
+              "@skeletonlabs/skeleton-react",
+              "@skeletonlabs/skeleton-svelte",
+              "skeleton",
+          ]
+    changelog:
+        storage: repository
+
 catalog:
     "@astrojs/check": 0.9.12
     "@astrojs/mdx": 8.1.3
@@ -11,7 +24,6 @@ catalog:
     "@astrojs/sitemap": 3.7.4
     "@astrojs/svelte": 9.1.2
     "@astrojs/vercel": 11.0.20
-    "@changesets/cli": 3.0.3
     "@clack/prompts": 1.8.1
     "@faker-js/faker": 10.6.0
     "@floating-ui/dom": 1.8.0
@@ -134,8 +146,6 @@ catalog:
     neverthrow: 8.2.0
     "@zag-js/i18n-utils": 1.47.0
     oxfmt: 0.77.0
-    "@changesets/changelog-github": 1.0.1
-    "@changesets/config": 4.0.1
 
 catalogMode: strict
 

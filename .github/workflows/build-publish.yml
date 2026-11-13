@@ -28,10 +28,23 @@ jobs:
             - run: npm install -g npm@latest
             - name: Install dependencies
               run: pnpm install
-            - name: Create Release Pull Request or Publish
-              id: changesets
-              uses: changesets/action@v2.1.2
-              with:
-                  pr-title: "task: release"
+            - name: Publish unpublished packages
+              run: pnpm publish -r --access public --no-git-checks
+            - name: Create Release Pull Request
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  if ! ls .changeset/*.md >/dev/null 2>&1; then
+                    echo "No pending change intents."
+                    exit 0
+                  fi
+                  pnpm version -r
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git checkout -B changeset-release/main
+                  git add -A
+                  git commit -m "task: release"
+                  git push --force origin changeset-release/main
+                  if [ -z "$(gh pr list --head changeset-release/main --json number --jq '.[0].number')" ]; then
+                    gh pr create --base main --head changeset-release/main --title "task: release" --body "Versions packages and updates changelogs."
+                  fi
