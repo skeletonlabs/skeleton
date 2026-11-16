@@ -1,0 +1,16 @@
+# pnpm
+/drizzle
+/drizzle-generate
+/drizzle-hints
+/drizzle-migrations
+/drizzle-output-modes
+/drizzle-pull
+/drizzle-push
+/drizzle-responses-and-errors
+/migrate-from-nextjs
+/migrate-from-react-router
+/react-router
+/react-start
+/router-query
+/tsdown
+# pnpm end
