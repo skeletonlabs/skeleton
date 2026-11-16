@@ -23,7 +23,7 @@
 		"postinstall": "svelte-kit sync"
 	},
 	"devDependencies": {
-		"@comark/svelte": "^0.9.0",
+		"@comark/svelte": "catalog:",
 		"@iconify-json/simple-icons": "catalog:",
 		"@lucide/svelte": "catalog:",
 		"@neondatabase/serverless": "catalog:",
@@ -34,8 +34,8 @@
 		"@shikijs/types": "catalog:",
 		"@skeletonlabs/skeleton": "workspace:*",
 		"@skeletonlabs/skeleton-svelte": "workspace:*",
-		"@sveltejs/adapter-vercel": "^7.0.0",
-		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/adapter-vercel": "catalog:",
+		"@sveltejs/kit": "catalog:",
 		"@sveltejs/vite-plugin-svelte": "catalog:",
 		"@tailwindcss/forms": "catalog:",
 		"@tailwindcss/vite": "catalog:",
@@ -43,7 +43,7 @@
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"better-auth": "catalog:",
-		"comark": "^0.9.0",
+		"comark": "catalog:",
 		"drizzle-kit": "catalog:",
 		"drizzle-orm": "catalog:",
 		"lightningcss": "catalog:",
