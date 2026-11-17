@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-react
 
+## 5.0.5
+
+### Patch Changes
+
+- deps: bump `@zagjs/*` to `1.48.0`
+
+- Updated dependencies:
+    - @skeletonlabs/skeleton-common@5.0.5
+
 ## 5.0.4
 
 ### Patch Changes

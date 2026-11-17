@@ -1,6 +1,6 @@
 {
 	"name": "skeleton",
-	"version": "5.0.4",
+	"version": "5.0.5",
 	"description": "The CLI for Skeleton related tooling.",
 	"license": "MIT",
 	"repository": {
