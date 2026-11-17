@@ -7,7 +7,7 @@
 - deps: bump `@zagjs/*` to `1.48.0`
 
 - Updated dependencies:
-  - @skeletonlabs/skeleton-common@5.0.5
+    - @skeletonlabs/skeleton-common@5.0.5
 
 ## 5.0.4
 

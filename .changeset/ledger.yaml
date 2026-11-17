@@ -1,8 +1,8 @@
 "@skeletonlabs/skeleton-react@5.0.5":
-  dir: packages/skeleton-react
-  intents:
-    - quick-rivers-share
+    dir: packages/skeleton-react
+    intents:
+        - quick-rivers-share
 "@skeletonlabs/skeleton-svelte@5.0.5":
-  dir: packages/skeleton-svelte
-  intents:
-    - quick-rivers-share
+    dir: packages/skeleton-svelte
+    intents:
+        - quick-rivers-share
