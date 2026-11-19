@@ -1,8 +1,32 @@
+"@skeletonlabs/docs@5.0.6":
+    dir: packages/docs
+    intents:
+        - kind-eggs-yawn
+"@skeletonlabs/skeleton-common@5.0.6":
+    dir: packages/skeleton-common
+    intents:
+        - kind-eggs-yawn
 "@skeletonlabs/skeleton-react@5.0.5":
     dir: packages/skeleton-react
     intents:
         - quick-rivers-share
+"@skeletonlabs/skeleton-react@5.0.6":
+    dir: packages/skeleton-react
+    intents:
+        - kind-eggs-yawn
 "@skeletonlabs/skeleton-svelte@5.0.5":
     dir: packages/skeleton-svelte
     intents:
         - quick-rivers-share
+"@skeletonlabs/skeleton-svelte@5.0.6":
+    dir: packages/skeleton-svelte
+    intents:
+        - kind-eggs-yawn
+"@skeletonlabs/skeleton@5.0.6":
+    dir: packages/skeleton
+    intents:
+        - kind-eggs-yawn
+skeleton@5.0.6:
+    dir: packages/cli
+    intents:
+        - kind-eggs-yawn

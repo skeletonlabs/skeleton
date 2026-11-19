@@ -1,5 +1,11 @@
 # @skeletonlabs/docs
 
+## 5.0.6
+
+### Patch Changes
+
+- This is a test release, identical to the previous version
+
 ## 5.0.5
 
 ## 5.0.4

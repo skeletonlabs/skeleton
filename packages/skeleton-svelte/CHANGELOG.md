@@ -1,5 +1,14 @@
 # @skeletonlabs/skeleton-svelte
 
+## 5.0.6
+
+### Patch Changes
+
+- This is a test release, identical to the previous version
+
+- Updated dependencies:
+    - @skeletonlabs/skeleton-common@5.0.6
+
 ## 5.0.5
 
 ### Patch Changes
