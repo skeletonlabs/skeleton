@@ -72,7 +72,7 @@ catalog:
     "@shikijs/transformers": 4.6.0
     "@shikijs/types": 4.6.0
     "@stackblitz/sdk": 1.11.1
-    "@sveltejs/adapter-auto": ^8.0.1
+    "@sveltejs/adapter-auto": ^9.0.0
     "@sveltejs/adapter-vercel": ^7.0.3
     "@sveltejs/kit": ^3.2.0
     "@sveltejs/package": 3.0.3
