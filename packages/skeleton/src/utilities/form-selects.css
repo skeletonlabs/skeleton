@@ -11,7 +11,7 @@
 
 	/* Size */
 	font-size: var(--field-size);
-	line-height: var(--field-size);
+	line-height: normal;
 	padding-block: calc((var(--field-size) - --spacing(0.5)) / 2);
 
 	/*
